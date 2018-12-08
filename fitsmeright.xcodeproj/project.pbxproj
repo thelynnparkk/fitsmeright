@@ -99,6 +99,9 @@
 		5E74D9FB21BBACA900A97A89 /* fitsmeright */ = {
 			isa = PBXGroup;
 			children = (
+				5E74DA3521BBCDA400A97A89 /* Classes */,
+				5E74DA3421BBCD9C00A97A89 /* Domain */,
+				5E74DA3321BBCD9400A97A89 /* Data */,
 				5E74DA2F21BBCCA400A97A89 /* Resources */,
 				5E74DA2E21BBCBB800A97A89 /* Main */,
 				5E74DA2A21BBCB7200A97A89 /* Scences */,
@@ -127,6 +130,8 @@
 		5E74DA2A21BBCB7200A97A89 /* Scences */ = {
 			isa = PBXGroup;
 			children = (
+				5E74DA3B21BBCE1A00A97A89 /* Main */,
+				5E74DA3A21BBCE1100A97A89 /* Auth */,
 				5E74DA2B21BBCB7F00A97A89 /* SplashVC */,
 			);
 			path = Scences;
@@ -182,6 +187,129 @@
 			children = (
 			);
 			path = Layouts;
+			sourceTree = "<group>";
+		};
+		5E74DA3321BBCD9400A97A89 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5E74DA3821BBCDCE00A97A89 /* Locals */,
+				5E74DA3721BBCDC900A97A89 /* Remotes */,
+				5E74DA3621BBCDBF00A97A89 /* Memorys */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		5E74DA3421BBCD9C00A97A89 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				5E74DA3921BBCDDC00A97A89 /* Entries */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		5E74DA3521BBCDA400A97A89 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5E74DA3D21BBCE4000A97A89 /* Constraints */,
+				5E74DA4321BBCEB400A97A89 /* Extensions */,
+				5E74DA4021BBCE7600A97A89 /* Helpers */,
+				5E74DA3F21BBCE6B00A97A89 /* Managers */,
+				5E74DA3C21BBCE2B00A97A89 /* NeedRemoves */,
+				5E74DA4121BBCE7D00A97A89 /* Protocols */,
+				5E74DA4221BBCE9700A97A89 /* Utilities */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		5E74DA3621BBCDBF00A97A89 /* Memorys */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Memorys;
+			sourceTree = "<group>";
+		};
+		5E74DA3721BBCDC900A97A89 /* Remotes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Remotes;
+			sourceTree = "<group>";
+		};
+		5E74DA3821BBCDCE00A97A89 /* Locals */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Locals;
+			sourceTree = "<group>";
+		};
+		5E74DA3921BBCDDC00A97A89 /* Entries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entries;
+			sourceTree = "<group>";
+		};
+		5E74DA3A21BBCE1100A97A89 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		5E74DA3B21BBCE1A00A97A89 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		5E74DA3C21BBCE2B00A97A89 /* NeedRemoves */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NeedRemoves;
+			sourceTree = "<group>";
+		};
+		5E74DA3D21BBCE4000A97A89 /* Constraints */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constraints;
+			sourceTree = "<group>";
+		};
+		5E74DA3F21BBCE6B00A97A89 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		5E74DA4021BBCE7600A97A89 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5E74DA4121BBCE7D00A97A89 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		5E74DA4221BBCE9700A97A89 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		5E74DA4321BBCEB400A97A89 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
