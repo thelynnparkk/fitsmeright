@@ -1,5 +1,5 @@
 //
-//  SplashVC.swift
+//  TemplateVC.swift
 //  fitsmeright
 //
 //  Created by Lynn Park on 8/12/2561 BE.
@@ -12,19 +12,18 @@ import UIKit
 
 
 
-extension SplashVC:
-  AGVCInstantiatable
+extension TemplateVC
 {
   
 }
 
 
 
-class SplashVC: UIViewController {
+class TemplateVC: UIViewController {
   
-  //MARK: - AGVCInstantiatable
-  static var sb_name: String = "SplashVC"
-  static var vc_name: String = "SplashVC"
+  //MARK: - AGInstantiatable
+  static var sb_name: String = "TemplateTVC"
+  static var vc_name: String = "TemplateTVC"
   
   
   
@@ -57,7 +56,6 @@ class SplashVC: UIViewController {
   
   
   //MARK: - Storage
-  var nonStatic: String?
   
   
   
@@ -159,3 +157,4 @@ class SplashVC: UIViewController {
   
   
 }
+
