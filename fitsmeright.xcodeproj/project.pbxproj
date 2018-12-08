@@ -32,6 +32,14 @@
 		5E74DA6421BBD7AB00A97A89 /* AGVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA6321BBD7AB00A97A89 /* AGVC.swift */; };
 		5E74DA6621BBD90800A97A89 /* AGObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA6521BBD90800A97A89 /* AGObject.swift */; };
 		5E74DA6821BBD9C000A97A89 /* Typealias+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA6721BBD9C000A97A89 /* Typealias+AG.swift */; };
+		5E74DA6E21BBDAAC00A97A89 /* MainTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA6D21BBDAAC00A97A89 /* MainTBC.swift */; };
+		5E74DA7021BBDAB300A97A89 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA6F21BBDAB300A97A89 /* FeedVC.swift */; };
+		5E74DA7321BBDABF00A97A89 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA7221BBDABF00A97A89 /* ProfileVC.swift */; };
+		5E74DA7621BBDACC00A97A89 /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA7521BBDACC00A97A89 /* CreatePostVC.swift */; };
+		5E74DA7821BBDADF00A97A89 /* MainTBC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA7721BBDADF00A97A89 /* MainTBC.storyboard */; };
+		5E74DA7A21BBDB5200A97A89 /* FeedVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA7921BBDB5200A97A89 /* FeedVC.storyboard */; };
+		5E74DA7C21BBDB5E00A97A89 /* ProfileVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA7B21BBDB5E00A97A89 /* ProfileVC.storyboard */; };
+		5E74DA7E21BBDB6800A97A89 /* CreatePostVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA7D21BBDB6800A97A89 /* CreatePostVC.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +91,14 @@
 		5E74DA6321BBD7AB00A97A89 /* AGVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGVC.swift; sourceTree = "<group>"; };
 		5E74DA6521BBD90800A97A89 /* AGObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGObject.swift; sourceTree = "<group>"; };
 		5E74DA6721BBD9C000A97A89 /* Typealias+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Typealias+AG.swift"; sourceTree = "<group>"; };
+		5E74DA6D21BBDAAC00A97A89 /* MainTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTBC.swift; sourceTree = "<group>"; };
+		5E74DA6F21BBDAB300A97A89 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		5E74DA7221BBDABF00A97A89 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		5E74DA7521BBDACC00A97A89 /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
+		5E74DA7721BBDADF00A97A89 /* MainTBC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTBC.storyboard; sourceTree = "<group>"; };
+		5E74DA7921BBDB5200A97A89 /* FeedVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeedVC.storyboard; sourceTree = "<group>"; };
+		5E74DA7B21BBDB5E00A97A89 /* ProfileVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileVC.storyboard; sourceTree = "<group>"; };
+		5E74DA7D21BBDB6800A97A89 /* CreatePostVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePostVC.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +312,10 @@
 		5E74DA3B21BBCE1A00A97A89 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				5E74DA6C21BBDA2000A97A89 /* CreatePostVC */,
+				5E74DA6B21BBDA1300A97A89 /* ProfileVC */,
+				5E74DA6A21BBDA0100A97A89 /* FeedVC */,
+				5E74DA6921BBD9F500A97A89 /* MainTBC */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -385,6 +405,42 @@
 				5E74DA5221BBD0B100A97A89 /* TemplateAFRM.swift */,
 			);
 			path = TemplatesAlamofire;
+			sourceTree = "<group>";
+		};
+		5E74DA6921BBD9F500A97A89 /* MainTBC */ = {
+			isa = PBXGroup;
+			children = (
+				5E74DA6D21BBDAAC00A97A89 /* MainTBC.swift */,
+				5E74DA7721BBDADF00A97A89 /* MainTBC.storyboard */,
+			);
+			path = MainTBC;
+			sourceTree = "<group>";
+		};
+		5E74DA6A21BBDA0100A97A89 /* FeedVC */ = {
+			isa = PBXGroup;
+			children = (
+				5E74DA6F21BBDAB300A97A89 /* FeedVC.swift */,
+				5E74DA7921BBDB5200A97A89 /* FeedVC.storyboard */,
+			);
+			path = FeedVC;
+			sourceTree = "<group>";
+		};
+		5E74DA6B21BBDA1300A97A89 /* ProfileVC */ = {
+			isa = PBXGroup;
+			children = (
+				5E74DA7221BBDABF00A97A89 /* ProfileVC.swift */,
+				5E74DA7B21BBDB5E00A97A89 /* ProfileVC.storyboard */,
+			);
+			path = ProfileVC;
+			sourceTree = "<group>";
+		};
+		5E74DA6C21BBDA2000A97A89 /* CreatePostVC */ = {
+			isa = PBXGroup;
+			children = (
+				5E74DA7521BBDACC00A97A89 /* CreatePostVC.swift */,
+				5E74DA7D21BBDB6800A97A89 /* CreatePostVC.storyboard */,
+			);
+			path = CreatePostVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -492,7 +548,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E74DA0721BBACAA00A97A89 /* LaunchScreen.storyboard in Resources */,
+				5E74DA7E21BBDB6800A97A89 /* CreatePostVC.storyboard in Resources */,
+				5E74DA7C21BBDB5E00A97A89 /* ProfileVC.storyboard in Resources */,
+				5E74DA7821BBDADF00A97A89 /* MainTBC.storyboard in Resources */,
 				5E74DA0421BBACAA00A97A89 /* Assets.xcassets in Resources */,
+				5E74DA7A21BBDB5200A97A89 /* FeedVC.storyboard in Resources */,
 				5E74DA4521BBD04300A97A89 /* SplashVC.storyboard in Resources */,
 				5E74DA0221BBACA900A97A89 /* Main.storyboard in Resources */,
 			);
@@ -529,14 +589,18 @@
 				5E74D9FF21BBACA900A97A89 /* ViewController.swift in Sources */,
 				5E74D9FD21BBACA900A97A89 /* AppDelegate.swift in Sources */,
 				5E74DA6021BBD67600A97A89 /* UIWindow+AG.swift in Sources */,
+				5E74DA6E21BBDAAC00A97A89 /* MainTBC.swift in Sources */,
 				5E74DA5821BBD0B100A97A89 /* TemplateVIP.swift in Sources */,
 				5E74DA5921BBD0B100A97A89 /* TemplateProtocol.swift in Sources */,
 				5E74DA5E21BBD1F100A97A89 /* AGVCInstantiatable.swift in Sources */,
 				5E74DA2D21BBCB9E00A97A89 /* SplashVC.swift in Sources */,
+				5E74DA7021BBDAB300A97A89 /* FeedVC.swift in Sources */,
 				5E74DA5A21BBD0B100A97A89 /* TemplateAFR.swift in Sources */,
+				5E74DA7621BBDACC00A97A89 /* CreatePostVC.swift in Sources */,
 				5E74DA5621BBD0B100A97A89 /* TemplateCC.swift in Sources */,
 				5E74DA5421BBD0B100A97A89 /* TemplateM.swift in Sources */,
 				5E74DA5521BBD0B100A97A89 /* TemplateCCA.swift in Sources */,
+				5E74DA7321BBDABF00A97A89 /* ProfileVC.swift in Sources */,
 				5E74DA5B21BBD0B100A97A89 /* TemplateAFApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
