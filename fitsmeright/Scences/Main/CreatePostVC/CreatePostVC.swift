@@ -13,7 +13,9 @@ import UIKit
 
 
 extension CreatePostVC:
-  AGVCInstantiatable
+  AGVCInstantiatable,
+  UIImagePickerControllerDelegate,
+  UINavigationControllerDelegate
 {
   
 }
@@ -37,6 +39,10 @@ class CreatePostVC: AGVC {
   
   
   //MARK: - UI
+  @IBOutlet weak var txt_name: UITextField!
+  @IBOutlet weak var btn_addCloth: UIButton!
+  
+  @IBOutlet weak var imgv_top: UIImageView!
   
   
   
@@ -57,7 +63,6 @@ class CreatePostVC: AGVC {
   
   
   //MARK: - Storage
-  var nonStatic: String?
   
   
   
@@ -114,7 +119,9 @@ class CreatePostVC: AGVC {
   }
   
   func setupUI() {
-    
+    navigationItem.title = CreatePostVC.sb_name
+//    lb_title.text = CreatePostVC.sb_name
+    btn_addCloth.addTarget(self, action: #selector(addClothButtonPressed), for: .touchUpInside)
   }
   
   func setupSnp() {
@@ -131,6 +138,12 @@ class CreatePostVC: AGVC {
   
   
   //MARK: - Event
+  @objc
+  func addClothButtonPressed(_ sender: UIButton) {
+    //Open cam
+    let vc = UIImagePickerController()
+    vc.displayImagePicker(on: self)
+  }
   
   
   
@@ -146,7 +159,16 @@ class CreatePostVC: AGVC {
   
   
   
-  //MARK: - Core - Protocol
+  //MARK: - Core - UIImagePickerControllerDelegate
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    picker.dismiss(animated: true, completion: nil)
+    guard let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+    imgv_top.image = img
+  }
+  
+  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    picker.dismiss(animated: true, completion: nil)
+  }
   
   
   

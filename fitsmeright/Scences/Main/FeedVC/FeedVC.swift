@@ -37,6 +37,7 @@ class FeedVC: AGVC {
   
   
   //MARK: - UI
+  @IBOutlet weak var lb_title: UILabel!
   
   
   
@@ -57,7 +58,6 @@ class FeedVC: AGVC {
   
   
   //MARK: - Storage
-  var nonStatic: String?
   
   
   
@@ -114,7 +114,8 @@ class FeedVC: AGVC {
   }
   
   func setupUI() {
-    
+    navigationItem.title = FeedVC.sb_name
+    lb_title.text = FeedVC.sb_name
   }
   
   func setupSnp() {

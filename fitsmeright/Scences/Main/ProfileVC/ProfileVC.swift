@@ -37,6 +37,7 @@ class ProfileVC: AGVC {
   
   
   //MARK: - UI
+  @IBOutlet weak var lb_title: UILabel!
   
   
   
@@ -57,7 +58,6 @@ class ProfileVC: AGVC {
   
   
   //MARK: - Storage
-  var nonStatic: String?
   
   
   
@@ -114,7 +114,8 @@ class ProfileVC: AGVC {
   }
   
   func setupUI() {
-    
+    navigationItem.title = ProfileVC.sb_name
+    lb_title.text = ProfileVC.sb_name
   }
   
   func setupSnp() {

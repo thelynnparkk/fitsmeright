@@ -57,7 +57,6 @@ class SplashVC: AGVC {
   
   
   //MARK: - Storage
-  var nonStatic: String?
   
   
   
@@ -125,7 +124,11 @@ class SplashVC: AGVC {
   
   //MARK: - Setup Data
   func setupDataOnViewDidLoad() {
-    
+    fetchLoginData()
+  }
+  
+  func fetchLoginData() {
+    routeToMainTBC()
   }
   
   
@@ -143,6 +146,10 @@ class SplashVC: AGVC {
   
   
   //MARK: - VIP - UseCase
+  func routeToMainTBC() {
+    let vc = MainTBC.vc
+    window?.set(with: vc, transition: CATransition(transition: .fade))
+  }
   
   
   

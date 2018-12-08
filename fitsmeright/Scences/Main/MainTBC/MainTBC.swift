@@ -9,10 +9,12 @@
 
 
 import UIKit
+import RAMAnimatedTabBarController
 
 
 
 extension MainTBC:
+  UIBarPositioningDelegate,
   AGVCInstantiatable
 {
   
@@ -20,7 +22,7 @@ extension MainTBC:
 
 
 
-class MainTBC: AGVC {
+class MainTBC: RAMAnimatedTabBarController {
   
   //MARK: - AGVCInstantiatable
   static var sb_name: String = "MainTBC"
@@ -37,6 +39,9 @@ class MainTBC: AGVC {
   
   
   //MARK: - UI
+  var vc_01: FeedVC!
+  var vc_02: CreatePostVC!
+  var vc_03: ProfileVC!
   
   
   
@@ -57,7 +62,6 @@ class MainTBC: AGVC {
   
   
   //MARK: - Storage
-  var nonStatic: String?
   
   
   
@@ -114,7 +118,27 @@ class MainTBC: AGVC {
   }
   
   func setupUI() {
+    vc_01 = FeedVC.vc
+    vc_02 = CreatePostVC.vc
+    vc_03 = ProfileVC.vc
     
+    let nvc_01 = UINavigationController(rootViewController: vc_01)
+    let nvc_02 = UINavigationController(rootViewController: vc_02)
+    let nvc_03 = UINavigationController(rootViewController: vc_03)
+    
+    let tbi_01 = RAMAnimatedTabBarItem(title: FeedVC.vc_name, image: nil, selectedImage: nil)
+    let tbi_02 = RAMAnimatedTabBarItem(title: CreatePostVC.vc_name, image: nil, selectedImage: nil)
+    let tbi_03 = RAMAnimatedTabBarItem(title: ProfileVC.vc_name, image: nil, selectedImage: nil)
+    
+    setupRAMAnimatedTabBarItem(for: tbi_01)
+    setupRAMAnimatedTabBarItem(for: tbi_02)
+    setupRAMAnimatedTabBarItem(for: tbi_03)
+    
+    nvc_01.tabBarItem = tbi_01
+    nvc_02.tabBarItem = tbi_02
+    nvc_03.tabBarItem = tbi_03
+    
+    viewControllers = [nvc_01, nvc_02, nvc_03]
   }
   
   func setupSnp() {
@@ -139,6 +163,15 @@ class MainTBC: AGVC {
   
   
   //MARK: - Private
+  private func setupRAMAnimatedTabBarItem(for item: RAMAnimatedTabBarItem) {
+    item.textColor = .black
+    item.iconColor = .black
+    let animation = RAMBounceAnimation()
+    animation.iconSelectedColor = .black
+    animation.textSelectedColor = .black
+    animation.duration = 0.8
+    item.animation = animation
+  }
   
   
   

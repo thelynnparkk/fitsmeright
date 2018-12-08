@@ -8,7 +8,7 @@
 
 
 
-import Foundation
+import UIKit
 
 
 
@@ -21,6 +21,10 @@ public protocol AGObject {
 
 
 public extension AGObject {
+  
+  var window: UIWindow? {
+    return (UIApplication.shared.delegate as? AppDelegate)?.window
+  }
   
   public func mockBackgroundWaiting(_ time: UInt32 = 3, onComplete: @escaping CBVoid) {
     let qualityOfServiceClass = DispatchQoS.QoSClass.background

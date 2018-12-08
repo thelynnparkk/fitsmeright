@@ -17,9 +17,24 @@
                     <view key="view" contentMode="scaleToFill" id="9jJ-2u-gTN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRa-XL-vLf">
+                                <rect key="frame" x="166" y="333" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zRa-XL-vLf" firstAttribute="centerX" secondItem="897-iu-dkr" secondAttribute="centerX" id="4h5-H2-5Yh"/>
+                            <constraint firstItem="zRa-XL-vLf" firstAttribute="centerY" secondItem="897-iu-dkr" secondAttribute="centerY" id="uv3-KH-YTZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="897-iu-dkr"/>
                     </view>
+                    <connections>
+                        <outlet property="lb_title" destination="zRa-XL-vLf" id="WGd-8k-BWW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZC-Ai-7aT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,6 +9,7 @@
 
 
 import UIKit
+import IQKeyboardManagerSwift
 
 
 
@@ -22,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     
-    
+    setupOnDidFinishLaunchingWithOptions()
     window?.makeKeyAndVisible()
     let vc = SplashVC.vc
     window?.set(with: vc, transition: CATransition(transition: .fade))
@@ -52,6 +53,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationWillTerminate(_ application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     
+  }
+  
+  func setupOnDidFinishLaunchingWithOptions() {
+    let iqkbm = IQKeyboardManager.shared
+    iqkbm.enable = true
   }
   
   

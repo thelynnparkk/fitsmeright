@@ -13,13 +13,28 @@
         <!--FeedVC-->
         <scene sceneID="lz4-6o-Isp">
             <objects>
-                <viewController id="dqc-h7-Syg" customClass="FeedVC" customModule="fitsmeright" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedVC" id="dqc-h7-Syg" customClass="FeedVC" customModule="fitsmeright" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7kc-vp-asO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7x-4U-1gW">
+                                <rect key="frame" x="166.5" y="333" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="m7x-4U-1gW" firstAttribute="centerY" secondItem="aHg-fq-htJ" secondAttribute="centerY" id="3UY-OH-oDT"/>
+                            <constraint firstItem="m7x-4U-1gW" firstAttribute="centerX" secondItem="aHg-fq-htJ" secondAttribute="centerX" id="C6S-Kb-cTl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="aHg-fq-htJ"/>
                     </view>
+                    <connections>
+                        <outlet property="lb_title" destination="m7x-4U-1gW" id="gmI-cY-tlE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xB0-bN-WMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
