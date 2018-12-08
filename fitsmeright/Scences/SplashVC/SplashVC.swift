@@ -20,7 +20,7 @@ extension SplashVC:
 
 
 
-class SplashVC: UIViewController {
+class SplashVC: AGVC {
   
   //MARK: - AGVCInstantiatable
   static var sb_name: String = "SplashVC"

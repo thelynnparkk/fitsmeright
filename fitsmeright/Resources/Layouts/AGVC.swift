@@ -22,12 +22,6 @@ extension AGVC:
 
 open class AGVC: UIViewController {
 
-  //MARK: - AGInstantiatable
-  static var sb_name: String = "TemplateTVC"
-  static var vc_name: String = "TemplateTVC"
-  
-  
-  
   //MARK: - Action
   
   
@@ -129,7 +123,7 @@ open class AGVC: UIViewController {
     
   }
   
-  func onInit() {
+  fileprivate func onInit() {
     
   }
   
