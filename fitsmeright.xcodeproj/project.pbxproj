@@ -14,6 +14,7 @@
 		5E74DA0721BBACAA00A97A89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA0521BBACAA00A97A89 /* LaunchScreen.storyboard */; };
 		5E74DA1221BBACAA00A97A89 /* fitsmerightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA1121BBACAA00A97A89 /* fitsmerightTests.swift */; };
 		5E74DA1D21BBACAA00A97A89 /* fitsmerightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA1C21BBACAA00A97A89 /* fitsmerightUITests.swift */; };
+		5E74DA2D21BBCB9E00A97A89 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA2C21BBCB9E00A97A89 /* SplashVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		5E74DA1821BBACAA00A97A89 /* fitsmerightUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fitsmerightUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E74DA1C21BBACAA00A97A89 /* fitsmerightUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fitsmerightUITests.swift; sourceTree = "<group>"; };
 		5E74DA1E21BBACAA00A97A89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E74DA2C21BBCB9E00A97A89 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +99,8 @@
 		5E74D9FB21BBACA900A97A89 /* fitsmeright */ = {
 			isa = PBXGroup;
 			children = (
-				5E74D9FC21BBACA900A97A89 /* AppDelegate.swift */,
+				5E74DA2E21BBCBB800A97A89 /* Main */,
+				5E74DA2A21BBCB7200A97A89 /* Scences */,
 				5E74D9FE21BBACA900A97A89 /* ViewController.swift */,
 				5E74DA0021BBACA900A97A89 /* Main.storyboard */,
 				5E74DA0321BBACAA00A97A89 /* Assets.xcassets */,
@@ -123,6 +126,30 @@
 				5E74DA1E21BBACAA00A97A89 /* Info.plist */,
 			);
 			path = fitsmerightUITests;
+			sourceTree = "<group>";
+		};
+		5E74DA2A21BBCB7200A97A89 /* Scences */ = {
+			isa = PBXGroup;
+			children = (
+				5E74DA2B21BBCB7F00A97A89 /* SplashVC */,
+			);
+			path = Scences;
+			sourceTree = "<group>";
+		};
+		5E74DA2B21BBCB7F00A97A89 /* SplashVC */ = {
+			isa = PBXGroup;
+			children = (
+				5E74DA2C21BBCB9E00A97A89 /* SplashVC.swift */,
+			);
+			path = SplashVC;
+			sourceTree = "<group>";
+		};
+		5E74DA2E21BBCBB800A97A89 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				5E74D9FC21BBACA900A97A89 /* AppDelegate.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +285,7 @@
 			files = (
 				5E74D9FF21BBACA900A97A89 /* ViewController.swift in Sources */,
 				5E74D9FD21BBACA900A97A89 /* AppDelegate.swift in Sources */,
+				5E74DA2D21BBCB9E00A97A89 /* SplashVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
