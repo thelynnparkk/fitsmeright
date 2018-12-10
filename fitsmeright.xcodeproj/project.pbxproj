@@ -46,6 +46,7 @@
 		5E74DA8421BBF94B00A97A89 /* UINavigationController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA8321BBF94B00A97A89 /* UINavigationController+AG.swift */; };
 		5E74DA8621BBFC6700A97A89 /* AGVCImagePickerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA8521BBFC6700A97A89 /* AGVCImagePickerable.swift */; };
 		6B93C7E7F1C1881D5030DBE8 /* Pods_fitsmerightTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B34B9F8A3E854F921D23C20 /* Pods_fitsmerightTests.framework */; };
+		A42F7C4E21BE321300085DB5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A42F7C4D21BE321300085DB5 /* README.md */; };
 		DF2C096536742865E4346DE8 /* Pods_fitsmerightUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41EC81EF460A825BE1F780A3 /* Pods_fitsmerightUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,7 @@
 		5E74DA8521BBFC6700A97A89 /* AGVCImagePickerable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGVCImagePickerable.swift; sourceTree = "<group>"; };
 		72AF5AC3A3815243CAE96B6A /* Pods-fitsmerightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmerightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmerightTests/Pods-fitsmerightTests.release.xcconfig"; sourceTree = "<group>"; };
 		9F8B67DFD7CF11E3D630A0C0 /* Pods-fitsmeright.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmeright.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmeright/Pods-fitsmeright.debug.xcconfig"; sourceTree = "<group>"; };
+		A42F7C4D21BE321300085DB5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B4DF961751964A701D834B17 /* Pods-fitsmerightUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmerightUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmerightUITests/Pods-fitsmerightUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C9E7AEF286ED84FFE2C27408 /* Pods-fitsmerightUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmerightUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmerightUITests/Pods-fitsmerightUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D0D96E61070E66C43686F795 /* Pods-fitsmerightTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmerightTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmerightTests/Pods-fitsmerightTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		5E74D9F021BBACA900A97A89 = {
 			isa = PBXGroup;
 			children = (
+				A42F7C4D21BE321300085DB5 /* README.md */,
 				5E74DA4621BBD0B100A97A89 /* Templates */,
 				5E74D9FB21BBACA900A97A89 /* fitsmeright */,
 				5E74DA1021BBACAA00A97A89 /* fitsmerightTests */,
@@ -610,6 +613,7 @@
 				5E74DA7821BBDADF00A97A89 /* MainTBC.storyboard in Resources */,
 				5E74DA0421BBACAA00A97A89 /* Assets.xcassets in Resources */,
 				5E74DA7A21BBDB5200A97A89 /* FeedVC.storyboard in Resources */,
+				A42F7C4E21BE321300085DB5 /* README.md in Resources */,
 				5E74DA4521BBD04300A97A89 /* SplashVC.storyboard in Resources */,
 				5E74DA0221BBACA900A97A89 /* Main.storyboard in Resources */,
 			);
