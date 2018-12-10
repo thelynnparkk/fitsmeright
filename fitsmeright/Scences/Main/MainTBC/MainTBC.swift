@@ -90,7 +90,9 @@ class MainTBC: RAMAnimatedTabBarController {
   
   
   //MARK: - Apperance
-  
+  override open var preferredStatusBarStyle: UIStatusBarStyle {
+    return .default
+  }
   
   
   //MARK: - Life cycle

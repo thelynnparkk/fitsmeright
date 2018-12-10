@@ -86,7 +86,7 @@ open class AGVC: UIViewController {
   }
   
   override open var preferredStatusBarStyle: UIStatusBarStyle {
-    return .lightContent
+    return .default
   }
   
   

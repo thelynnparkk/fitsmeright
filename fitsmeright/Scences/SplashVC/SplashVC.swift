@@ -57,6 +57,7 @@ class SplashVC: AGVC {
   
   
   //MARK: - Storage
+  var launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   
   
   
@@ -128,7 +129,11 @@ class SplashVC: AGVC {
   }
   
   func fetchLoginData() {
-    routeToMainTBC()
+    if let loggedIn = FMUserDefaults.LoggedIn.get(), loggedIn {
+      routeToMain()
+    } else {
+      routeToLogin()
+    }
   }
   
   
@@ -146,7 +151,12 @@ class SplashVC: AGVC {
   
   
   //MARK: - VIP - UseCase
-  func routeToMainTBC() {
+  func routeToMain() {
+    let vc = MainTBC.vc
+    window?.set(with: vc, transition: CATransition(transition: .fade))
+  }
+  
+  func routeToLogin() {
     let vc = MainTBC.vc
     window?.set(with: vc, transition: CATransition(transition: .fade))
   }

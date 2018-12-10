@@ -9,25 +9,68 @@
 
 
 import UIKit
-import IQKeyboardManagerSwift
+
+
+
+extension AppDelegate:
+  UIApplicationDelegate,
+  AGApplicationSetup,
+  AGApplicationRoutable
+{ }
 
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder {
   
-  
+  //MARK: - UI
   var window: UIWindow?
   
   
+  
+  //MARK: - NSLayout
+  
+  
+  
+  //MARK: - Constraint
+  
+  
+  
+  //MARK: - Instance
+  
+  
+  
+  //MARK: - Flag
+  
+  
+  
+  //MARK: - Storage
+  static var app_delegate: UIApplicationDelegate? {
+    return UIApplication.shared.delegate
+  }
+  
+  static var window: UIWindow? {
+    return app_delegate?.window ?? nil
+  }
+  
+  override init() {
+    window = UIWindow(frame: UIScreen.main.bounds)
+    super.init()
+    setupOnInit()
+  }
+  
+  deinit {
+    setupOnDeinit()
+  }
+  
+  
+  
+  //MARK: - Core - UIApplicationDelegate
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     
-    setupOnDidFinishLaunchingWithOptions()
-    window?.makeKeyAndVisible()
-    let vc = SplashVC.vc
-    window?.set(with: vc, transition: CATransition(transition: .fade))
-    
+    setupOnDidFinishLaunching(with: application, options: launchOptions)
+    start(with: launchOptions, condition: FMUserDefaults.LoggedIn.get() ?? false)
     
     return true
   }
@@ -54,12 +97,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     
   }
-  
-  func setupOnDidFinishLaunchingWithOptions() {
-    let iqkbm = IQKeyboardManager.shared
-    iqkbm.enable = true
-  }
-  
   
 }
 

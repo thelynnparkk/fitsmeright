@@ -47,6 +47,13 @@
 		5E74DA8621BBFC6700A97A89 /* AGVCImagePickerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA8521BBFC6700A97A89 /* AGVCImagePickerable.swift */; };
 		6B93C7E7F1C1881D5030DBE8 /* Pods_fitsmerightTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B34B9F8A3E854F921D23C20 /* Pods_fitsmerightTests.framework */; };
 		A42F7C4E21BE321300085DB5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A42F7C4D21BE321300085DB5 /* README.md */; };
+		A42F7C5421BE563A00085DB5 /* FMUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C5321BE563A00085DB5 /* FMUserDefaults.swift */; };
+		A42F7C5621BE567D00085DB5 /* AGDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C5521BE567D00085DB5 /* AGDefaults.swift */; };
+		A42F7C5821BE56AC00085DB5 /* AGDefaultsFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C5721BE56AC00085DB5 /* AGDefaultsFoundation.swift */; };
+		A42F7C5A21BE56D800085DB5 /* AGDefaultsCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C5921BE56D800085DB5 /* AGDefaultsCodable.swift */; };
+		A42F7C5C21BE597100085DB5 /* AGApplicationSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C5B21BE597100085DB5 /* AGApplicationSetup.swift */; };
+		A42F7C5E21BE5B4B00085DB5 /* AGApplicationRoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C5D21BE5B4B00085DB5 /* AGApplicationRoutable.swift */; };
+		A42F7C6221BE5BD100085DB5 /* AGApplicationWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C6121BE5BD100085DB5 /* AGApplicationWindow.swift */; };
 		DF2C096536742865E4346DE8 /* Pods_fitsmerightUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41EC81EF460A825BE1F780A3 /* Pods_fitsmerightUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +124,13 @@
 		72AF5AC3A3815243CAE96B6A /* Pods-fitsmerightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmerightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmerightTests/Pods-fitsmerightTests.release.xcconfig"; sourceTree = "<group>"; };
 		9F8B67DFD7CF11E3D630A0C0 /* Pods-fitsmeright.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmeright.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmeright/Pods-fitsmeright.debug.xcconfig"; sourceTree = "<group>"; };
 		A42F7C4D21BE321300085DB5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A42F7C5321BE563A00085DB5 /* FMUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FMUserDefaults.swift; path = ../../../../../../OTV/gitlab/OMoblie/knockknock/knockknock/Domain/Entries/FMUserDefaults.swift; sourceTree = "<group>"; };
+		A42F7C5521BE567D00085DB5 /* AGDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGDefaults.swift; sourceTree = "<group>"; };
+		A42F7C5721BE56AC00085DB5 /* AGDefaultsFoundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGDefaultsFoundation.swift; sourceTree = "<group>"; };
+		A42F7C5921BE56D800085DB5 /* AGDefaultsCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGDefaultsCodable.swift; sourceTree = "<group>"; };
+		A42F7C5B21BE597100085DB5 /* AGApplicationSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGApplicationSetup.swift; sourceTree = "<group>"; };
+		A42F7C5D21BE5B4B00085DB5 /* AGApplicationRoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGApplicationRoutable.swift; sourceTree = "<group>"; };
+		A42F7C6121BE5BD100085DB5 /* AGApplicationWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGApplicationWindow.swift; sourceTree = "<group>"; };
 		B4DF961751964A701D834B17 /* Pods-fitsmerightUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmerightUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmerightUITests/Pods-fitsmerightUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C9E7AEF286ED84FFE2C27408 /* Pods-fitsmerightUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmerightUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmerightUITests/Pods-fitsmerightUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D0D96E61070E66C43686F795 /* Pods-fitsmerightTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmerightTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmerightTests/Pods-fitsmerightTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -178,9 +192,9 @@
 		5E74D9FB21BBACA900A97A89 /* fitsmeright */ = {
 			isa = PBXGroup;
 			children = (
+				A42F7C5121BE561500085DB5 /* Data */,
 				5E74DA3521BBCDA400A97A89 /* Classes */,
 				5E74DA3421BBCD9C00A97A89 /* Domain */,
-				5E74DA3321BBCD9400A97A89 /* Data */,
 				5E74DA2F21BBCCA400A97A89 /* Resources */,
 				5E74DA2E21BBCBB800A97A89 /* Main */,
 				5E74DA2A21BBCB7200A97A89 /* Scences */,
@@ -272,16 +286,6 @@
 			path = Layouts;
 			sourceTree = "<group>";
 		};
-		5E74DA3321BBCD9400A97A89 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				5E74DA3821BBCDCE00A97A89 /* Locals */,
-				5E74DA3721BBCDC900A97A89 /* Remotes */,
-				5E74DA3621BBCDBF00A97A89 /* Memorys */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
 		5E74DA3421BBCD9C00A97A89 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,13 +320,6 @@
 			children = (
 			);
 			path = Remotes;
-			sourceTree = "<group>";
-		};
-		5E74DA3821BBCDCE00A97A89 /* Locals */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Locals;
 			sourceTree = "<group>";
 		};
 		5E74DA3921BBCDDC00A97A89 /* Entries */ = {
@@ -385,6 +382,8 @@
 				5E74DA5D21BBD1F100A97A89 /* AGVCInstantiatable.swift */,
 				5E74DA6521BBD90800A97A89 /* AGObject.swift */,
 				5E74DA8521BBFC6700A97A89 /* AGVCImagePickerable.swift */,
+				A42F7C6021BE5BB600085DB5 /* UserDefaults */,
+				A42F7C5F21BE5BA400085DB5 /* Application */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -473,6 +472,44 @@
 				5E74DA7D21BBDB6800A97A89 /* CreatePostVC.storyboard */,
 			);
 			path = CreatePostVC;
+			sourceTree = "<group>";
+		};
+		A42F7C5121BE561500085DB5 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5E74DA3721BBCDC900A97A89 /* Remotes */,
+				5E74DA3621BBCDBF00A97A89 /* Memorys */,
+				A42F7C5221BE561D00085DB5 /* Locals */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		A42F7C5221BE561D00085DB5 /* Locals */ = {
+			isa = PBXGroup;
+			children = (
+				A42F7C5321BE563A00085DB5 /* FMUserDefaults.swift */,
+			);
+			path = Locals;
+			sourceTree = "<group>";
+		};
+		A42F7C5F21BE5BA400085DB5 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				A42F7C5D21BE5B4B00085DB5 /* AGApplicationRoutable.swift */,
+				A42F7C5B21BE597100085DB5 /* AGApplicationSetup.swift */,
+				A42F7C6121BE5BD100085DB5 /* AGApplicationWindow.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		A42F7C6021BE5BB600085DB5 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				A42F7C5521BE567D00085DB5 /* AGDefaults.swift */,
+				A42F7C5721BE56AC00085DB5 /* AGDefaultsFoundation.swift */,
+				A42F7C5921BE56D800085DB5 /* AGDefaultsCodable.swift */,
+			);
+			path = UserDefaults;
 			sourceTree = "<group>";
 		};
 		BFEBE934894A69D85645C256 /* Pods */ = {
@@ -787,30 +824,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A42F7C5C21BE597100085DB5 /* AGApplicationSetup.swift in Sources */,
 				5E74DA6421BBD7AB00A97A89 /* AGVC.swift in Sources */,
 				5E74DA5C21BBD0B100A97A89 /* TemplateAFRM.swift in Sources */,
+				A42F7C5821BE56AC00085DB5 /* AGDefaultsFoundation.swift in Sources */,
 				5E74DA6821BBD9C000A97A89 /* Typealias+AG.swift in Sources */,
 				5E74DA8421BBF94B00A97A89 /* UINavigationController+AG.swift in Sources */,
 				5E74DA8621BBFC6700A97A89 /* AGVCImagePickerable.swift in Sources */,
 				5E74DA5721BBD0B100A97A89 /* TemplateVC.swift in Sources */,
 				5E74DA6221BBD6AC00A97A89 /* CATransition+AG.swift in Sources */,
 				5E74DA6621BBD90800A97A89 /* AGObject.swift in Sources */,
+				A42F7C6221BE5BD100085DB5 /* AGApplicationWindow.swift in Sources */,
+				A42F7C5E21BE5B4B00085DB5 /* AGApplicationRoutable.swift in Sources */,
 				5E74DA5321BBD0B100A97A89 /* TemplateV.swift in Sources */,
 				5E74D9FF21BBACA900A97A89 /* ViewController.swift in Sources */,
 				5E74D9FD21BBACA900A97A89 /* AppDelegate.swift in Sources */,
 				5E74DA6021BBD67600A97A89 /* UIWindow+AG.swift in Sources */,
+				A42F7C5421BE563A00085DB5 /* FMUserDefaults.swift in Sources */,
 				5E74DA6E21BBDAAC00A97A89 /* MainTBC.swift in Sources */,
 				5E74DA5821BBD0B100A97A89 /* TemplateVIP.swift in Sources */,
 				5E74DA8021BBF7D700A97A89 /* R.swift in Sources */,
 				5E74DA5921BBD0B100A97A89 /* TemplateProtocol.swift in Sources */,
 				5E74DA5E21BBD1F100A97A89 /* AGVCInstantiatable.swift in Sources */,
 				5E74DA2D21BBCB9E00A97A89 /* SplashVC.swift in Sources */,
+				A42F7C5A21BE56D800085DB5 /* AGDefaultsCodable.swift in Sources */,
 				5E74DA7021BBDAB300A97A89 /* FeedVC.swift in Sources */,
 				5E74DA5A21BBD0B100A97A89 /* TemplateAFR.swift in Sources */,
 				5E74DA7621BBDACC00A97A89 /* CreatePostVC.swift in Sources */,
 				5E74DA5621BBD0B100A97A89 /* TemplateCC.swift in Sources */,
 				5E74DA5421BBD0B100A97A89 /* TemplateM.swift in Sources */,
 				5E74DA8221BBF84C00A97A89 /* RValueColor.swift in Sources */,
+				A42F7C5621BE567D00085DB5 /* AGDefaults.swift in Sources */,
 				5E74DA5521BBD0B100A97A89 /* TemplateCCA.swift in Sources */,
 				5E74DA7321BBDABF00A97A89 /* ProfileVC.swift in Sources */,
 				5E74DA5B21BBD0B100A97A89 /* TemplateAFApi.swift in Sources */,
@@ -990,8 +1034,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K7HW86J5X8;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 64JR72N2P6;
 				INFOPLIST_FILE = fitsmeright/Main/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -999,7 +1043,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fitsmeright.silpakorn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Development XC Wildcard";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1010,9 +1054,9 @@
 			baseConfigurationReference = F463E3587240B38E43DD39AC /* Pods-fitsmeright.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K7HW86J5X8;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 64JR72N2P6;
 				INFOPLIST_FILE = fitsmeright/Main/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1020,7 +1064,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fitsmeright.silpakorn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "AdHoc XC Wildcard";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
