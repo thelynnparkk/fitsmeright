@@ -14,8 +14,7 @@ import UIKit
 
 extension CreatePostVC:
   AGVCInstantiatable,
-  UIImagePickerControllerDelegate,
-  UINavigationControllerDelegate
+  AGImagePCDelegate
 {
   
 }
@@ -108,7 +107,6 @@ class CreatePostVC: AGVC {
     super.viewDidLoad()
     setupViewOnViewDidLoad()
     setupDataOnViewDidLoad()
-    
   }
   
   func onInit() {
@@ -163,9 +161,7 @@ class CreatePostVC: AGVC {
   
   @objc
   func addClothButtonPressed(_ sender: UIButton) {
-    //Open cam
-    let vc = UIImagePickerController()
-    vc.displayImagePicker(on: self)
+    AGImagePC.displaySourcePopup(on: self) 
   }
   
   
@@ -182,20 +178,22 @@ class CreatePostVC: AGVC {
   
   
   
-  //MARK: - Core - UIImagePickerControllerDelegate
-  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-    picker.dismiss(animated: true, completion: nil)
-    guard let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
-    imgv_top.image = img
-  }
+  //MARK: - Core - Protocol
   
-  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+  
+  
+  //MARK: - Custom - AGImagePickerDelegate
+  func didFinishPickingMedia(_ picker: UIImagePickerController, with image: UIImage){
     picker.dismiss(animated: true, completion: nil)
   }
   
+  func didFinishPickingMediaError(_ picker: UIImagePickerController) {
+    picker.dismiss(animated: true, completion: nil)
+  }
   
-  
-  //MARK: - Custom - Protocol
+  func didCancelPickingMedia(_ picker: UIImagePickerController) {
+    picker.dismiss(animated: true, completion: nil)
+  }
   
   
   

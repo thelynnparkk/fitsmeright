@@ -19,7 +19,7 @@ extension UIImagePickerController {
     return .lightContent
   }
   
-  func setupUI() {
+  func setup() {
     let nb = navigationBar
     nb.barStyle = .black
     nb.barTintColor = UIColor.black
@@ -28,7 +28,7 @@ extension UIImagePickerController {
   
   func displayImagePicker(on vc: (UIViewController & UIImagePickerControllerDelegate & UINavigationControllerDelegate)) {
     delegate = vc
-    setupUI()
+    setup()
     if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
       let alert = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
       
