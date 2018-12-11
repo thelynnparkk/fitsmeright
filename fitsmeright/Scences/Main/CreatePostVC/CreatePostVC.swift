@@ -39,6 +39,8 @@ class CreatePostVC: AGVC {
   
   
   //MARK: - UI
+  var bbi_cancel: UIBarButtonItem!
+  var bbi_next: UIBarButtonItem!
   @IBOutlet weak var txt_name: UITextField!
   @IBOutlet weak var btn_addCloth: UIButton!
   
@@ -91,6 +93,13 @@ class CreatePostVC: AGVC {
   
   
   //MARK: - Apperance
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
+  }
+  
+  override var prefersStatusBarHidden: Bool {
+    return true
+  }
   
   
   
@@ -119,8 +128,16 @@ class CreatePostVC: AGVC {
   }
   
   func setupUI() {
-    navigationItem.title = CreatePostVC.sb_name
-//    lb_title.text = CreatePostVC.sb_name
+    let nb = navigationController?.navigationBar
+    nb?.setupWith(content: .white, bg: .orange, isTranslucent: false)
+    let ni = navigationItem
+    ni.title = CreatePostVC.sb_name
+    
+    bbi_cancel = UIBarButtonItem(title: "cancel", style: .plain, target: self, action: #selector(dismissButtonPressed))
+    ni.leftBarButtonItems = [bbi_cancel]
+    bbi_next = UIBarButtonItem(title: "next", style: .plain, target: self, action: #selector(nextBarButtonPressed))
+    ni.rightBarButtonItems = [bbi_next]
+    
     btn_addCloth.addTarget(self, action: #selector(addClothButtonPressed), for: .touchUpInside)
   }
   
@@ -138,6 +155,12 @@ class CreatePostVC: AGVC {
   
   
   //MARK: - Event
+  @objc
+  func nextBarButtonPressed(_ sender: UIBarButtonItem) {
+    let vc = BlankTVC.vc
+    navigationController?.pushViewController(vc, animated: true)
+  }
+  
   @objc
   func addClothButtonPressed(_ sender: UIButton) {
     //Open cam

@@ -84,6 +84,13 @@ class TemplateVC: UIViewController {
   
   
   //MARK: - Apperance
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
+  }
+  
+  override var prefersStatusBarHidden: Bool {
+    return false
+  }
   
   
   

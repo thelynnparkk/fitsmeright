@@ -1,8 +1,8 @@
 //
-//  FeedVC.swift
+//  BlankTVC.swift
 //  fitsmeright
 //
-//  Created by Lynn Park on 8/12/2561 BE.
+//  Created by Sasawat Sankosik on 10/12/2561 BE.
 //  Copyright © 2561 silpakorn. All rights reserved.
 //
 
@@ -12,19 +12,22 @@ import UIKit
 
 
 
-extension FeedVC:
-  AGVCInstantiatable
+extension BlankTVC:
+  AGVCInstantiatable,
+  UITableViewDataSource,
+  UITableViewDelegate
 {
+  
   
 }
 
 
 
-class FeedVC: AGVC {
+class BlankTVC: AGVC {
   
   //MARK: - AGVCInstantiatable
-  static var sb_name: String = "FeedVC"
-  static var vc_name: String = "FeedVC"
+  static var sb_name: String = "BlankTVC"
+  static var vc_name: String = "BlankTVC"
   
   
   
@@ -37,7 +40,9 @@ class FeedVC: AGVC {
   
   
   //MARK: - UI
-  @IBOutlet weak var lb_title: UILabel!
+  var bbi_cancel: UIBarButtonItem!
+  var bbi_next: UIBarButtonItem!
+  @IBOutlet weak var table_main: UITableView!
   
   
   
@@ -121,8 +126,16 @@ class FeedVC: AGVC {
   }
   
   func setupUI() {
-    title = FeedVC.sb_name
-    lb_title.text = FeedVC.sb_name
+    let nb = navigationController?.navigationBar
+    nb?.setupLargeTitlesWith(content: .white, bg: .orange)
+    let ni = navigationItem
+    ni.title = BlankTVC.sb_name
+//    bbi_cancel = UIBarButtonItem(title: "cancel", style: .plain, target: self, action: #selector(dismissButtonPressed))
+//    ni.leftBarButtonItems = [bbi_cancel]
+    bbi_next = UIBarButtonItem(title: "next", style: .plain, target: self, action: #selector(nextButtonPressed))
+    ni.rightBarButtonItems = [bbi_next]
+    table_main.dataSource = self
+    table_main.delegate = self
   }
   
   func setupSnp() {
@@ -139,7 +152,11 @@ class FeedVC: AGVC {
   
   
   //MARK: - Event
-  
+  @objc
+  func nextButtonPressed(_ sender: UIButton) {
+    let vc = BlankVC.vc
+    navigationController?.pushViewController(vc, animated: true)
+  }
   
   
   //MARK: - Public
@@ -154,7 +171,17 @@ class FeedVC: AGVC {
   
   
   
-  //MARK: - Core - Protocol
+  //MARK: - Core - UITableViewDataSource
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 0
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    return UITableViewCell()
+  }
+  
+  
+  //MARK: - Core - UITableViewDelegate
   
   
   

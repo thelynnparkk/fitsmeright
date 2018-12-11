@@ -182,22 +182,27 @@ open class AGVC: UIViewController {
   
   @objc
   public func popButtonPressed(_ sender: Any) {
-    self.navigationController?.popViewController(animated: true)
+    navigationController?.popViewController(animated: true)
   }
   
   @objc
   public func dismissButtonPressed(_ sender: Any) {
-    var dissmiss = false
+    dismiss(animated: true)
+  }
+  
+  @objc
+  public func backButtonPressed(_ sender: Any) {
+    var isDismiss = false
     if let nav = navigationController {
       if nav.viewControllers.count > 1 {
         nav.popViewController(animated: true)
       } else {
-        dissmiss = true
+        isDismiss = true
       }
     } else {
-      dissmiss = true
+      isDismiss = true
     }
-    if dissmiss {
+    if isDismiss {
       dismiss(animated: true)
     }
   }

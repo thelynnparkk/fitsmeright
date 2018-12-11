@@ -153,12 +153,14 @@ class SplashVC: AGVC {
   //MARK: - VIP - UseCase
   func routeToMain() {
     let vc = MainTBC.vc
-    window?.set(with: vc, transition: CATransition(transition: .fade))
+    let nvc = UINavigationController(rootViewController: vc)
+    window?.set(with: nvc, transition: CATransition(transition: .fade))
   }
   
   func routeToLogin() {
     let vc = MainTBC.vc
-    window?.set(with: vc, transition: CATransition(transition: .fade))
+    let nvc = UINavigationController(rootViewController: vc)
+    window?.set(with: nvc, transition: CATransition(transition: .fade))
   }
   
   

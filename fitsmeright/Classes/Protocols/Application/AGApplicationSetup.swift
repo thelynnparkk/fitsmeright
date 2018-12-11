@@ -58,7 +58,16 @@ extension AGApplicationSetup {
   }
   
   private func setupAppearances() {
+    let nb = UINavigationBar.appearance()
+    nb.setupWith(content: .white, bg: .orange, isTranslucent: false)
     
+    //MARK: - UIBarButtonItem
+    let bbi = UIBarButtonItem.appearance()
+    bbi.setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -300, vertical: 0.0), for: .default)
+    
+    //MARK: - UITabBar
+    let tb = UITabBar.appearance()
+    tb.setupWith(content: .white, bg: .orange, isTranslucent: false)
   }
   
   private func setupUserDefaults() {

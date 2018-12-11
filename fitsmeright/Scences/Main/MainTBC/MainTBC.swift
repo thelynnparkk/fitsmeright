@@ -15,6 +15,7 @@ import RAMAnimatedTabBarController
 
 extension MainTBC:
   UIBarPositioningDelegate,
+  UITabBarControllerDelegate,
   AGVCInstantiatable
 {
   
@@ -40,7 +41,7 @@ class MainTBC: RAMAnimatedTabBarController {
   
   //MARK: - UI
   var vc_01: FeedVC!
-  var vc_02: CreatePostVC!
+  var vc_02: BlankVC!
   var vc_03: ProfileVC!
   
   
@@ -91,7 +92,7 @@ class MainTBC: RAMAnimatedTabBarController {
   
   //MARK: - Apperance
   override open var preferredStatusBarStyle: UIStatusBarStyle {
-    return .default
+    return .lightContent
   }
   
   
@@ -120,27 +121,44 @@ class MainTBC: RAMAnimatedTabBarController {
   }
   
   func setupUI() {
+    delegate = self
+    
     vc_01 = FeedVC.vc
-    vc_02 = CreatePostVC.vc
+    vc_02 = BlankVC.vc
     vc_03 = ProfileVC.vc
     
-    let nvc_01 = UINavigationController(rootViewController: vc_01)
-    let nvc_02 = UINavigationController(rootViewController: vc_02)
-    let nvc_03 = UINavigationController(rootViewController: vc_03)
+//    let nvc_01 = UINavigationController(rootViewController: vc_01)
+//    let nvc_02 = UINavigationController(rootViewController: vc_02)
+//    let nvc_03 = UINavigationController(rootViewController: vc_03)
     
-    let tbi_01 = RAMAnimatedTabBarItem(title: FeedVC.vc_name, image: nil, selectedImage: nil)
-    let tbi_02 = RAMAnimatedTabBarItem(title: CreatePostVC.vc_name, image: nil, selectedImage: nil)
-    let tbi_03 = RAMAnimatedTabBarItem(title: ProfileVC.vc_name, image: nil, selectedImage: nil)
+    let tbi_01 = RAMAnimatedTabBarItem(title: FeedVC.vc_name, image: #imageLiteral(resourceName: "ic_control"), selectedImage: nil)
+    let tbi_02 = RAMAnimatedTabBarItem(title: BlankVC.vc_name, image: #imageLiteral(resourceName: "ic_control"), selectedImage: nil)
+    let tbi_03 = RAMAnimatedTabBarItem(title: ProfileVC.vc_name, image: #imageLiteral(resourceName: "ic_control"), selectedImage: nil)
     
-    setupRAMAnimatedTabBarItem(for: tbi_01)
-    setupRAMAnimatedTabBarItem(for: tbi_02)
-    setupRAMAnimatedTabBarItem(for: tbi_03)
+    let animation = RAMBounceAnimation()
+    animation.duration = 0.6
+    tbi_01.setupWith(color: .gray, selectedColor: .white, itemAnimation: animation)
+    tbi_02.setupWith(color: .gray, selectedColor: .white, itemAnimation: animation)
+    tbi_03.setupWith(color: .gray, selectedColor: .white, itemAnimation: animation)
     
-    nvc_01.tabBarItem = tbi_01
-    nvc_02.tabBarItem = tbi_02
-    nvc_03.tabBarItem = tbi_03
+    vc_01.tabBarItem = tbi_01
+    vc_02.tabBarItem = tbi_02
+    vc_03.tabBarItem = tbi_03
     
-    viewControllers = [nvc_01, nvc_02, nvc_03]
+    viewControllers = [vc_01, vc_02, vc_03]
+    
+//    nvc_01.tabBarItem = tbi_01
+//    nvc_02.tabBarItem = tbi_02
+//    nvc_03.tabBarItem = tbi_03
+//
+//    viewControllers = [nvc_01, nvc_02, nvc_03]
+    
+    let nb = navigationController?.navigationBar
+    nb?.setupWith(content: .white, bg: .orange, isTranslucent: false)
+    
+    let tb = tabBar
+    tb.setupWith(content: .white, bg: .orange, isTranslucent: false)
+    
   }
   
   func setupSnp() {
@@ -165,15 +183,6 @@ class MainTBC: RAMAnimatedTabBarController {
   
   
   //MARK: - Private
-  private func setupRAMAnimatedTabBarItem(for item: RAMAnimatedTabBarItem) {
-    item.textColor = .black
-    item.iconColor = .black
-    let animation = RAMBounceAnimation()
-    animation.iconSelectedColor = .black
-    animation.textSelectedColor = .black
-    animation.duration = 0.8
-    item.animation = animation
-  }
   
   
   
@@ -181,8 +190,21 @@ class MainTBC: RAMAnimatedTabBarController {
   
   
   
-  //MARK: - Core - Protocol
-  
+  //MARK: - Core - UITabBarControllerDelegate
+  func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+//    return true
+    var shouldSelect: Bool = true
+    switch viewController {
+    case let vc where vc is BlankVC:
+      let vc = CreatePostVC.vc
+      let nvc = UINavigationController(rootViewController: vc)
+      present(nvc, animated: true, completion: nil)
+      shouldSelect = false
+    default:
+      break
+    }
+    return shouldSelect
+  }
   
   
   //MARK: - Custom - Protocol
