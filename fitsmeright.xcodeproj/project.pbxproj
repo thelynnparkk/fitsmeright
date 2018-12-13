@@ -48,7 +48,6 @@
 		6B93C7E7F1C1881D5030DBE8 /* Pods_fitsmerightTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B34B9F8A3E854F921D23C20 /* Pods_fitsmerightTests.framework */; };
 		A408A4D121BEB4970030F2F5 /* UIBarButtonItem +AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */; };
 		A42F7C4E21BE321300085DB5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A42F7C4D21BE321300085DB5 /* README.md */; };
-		A42F7C5421BE563A00085DB5 /* FMUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C5321BE563A00085DB5 /* FMUserDefaults.swift */; };
 		A42F7C5621BE567D00085DB5 /* AGDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C5521BE567D00085DB5 /* AGDefaults.swift */; };
 		A42F7C5821BE56AC00085DB5 /* AGDefaultsFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C5721BE56AC00085DB5 /* AGDefaultsFoundation.swift */; };
 		A42F7C5A21BE56D800085DB5 /* AGDefaultsCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C5921BE56D800085DB5 /* AGDefaultsCodable.swift */; };
@@ -67,6 +66,8 @@
 		A4D6585021BF6D9D007B8558 /* RAMAnimatedTabBarItem+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6584F21BF6D9D007B8558 /* RAMAnimatedTabBarItem+AG.swift */; };
 		A4D6585521BF7460007B8558 /* AGImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6585421BF7460007B8558 /* AGImagePickerController.swift */; };
 		A4D6585921BF7DF2007B8558 /* AttachmentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6585821BF7DF2007B8558 /* AttachmentHandler.swift */; };
+		A4E31D8321C28B83004D1707 /* AGUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E31D8221C28B83004D1707 /* AGUserDefaults.swift */; };
+		A4E31D8721C28BA9004D1707 /* FMUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E31D8621C28BA9004D1707 /* FMUserDefaults.swift */; };
 		DF2C096536742865E4346DE8 /* Pods_fitsmerightUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41EC81EF460A825BE1F780A3 /* Pods_fitsmerightUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -138,7 +139,6 @@
 		9F8B67DFD7CF11E3D630A0C0 /* Pods-fitsmeright.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmeright.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmeright/Pods-fitsmeright.debug.xcconfig"; sourceTree = "<group>"; };
 		A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem +AG.swift"; sourceTree = "<group>"; };
 		A42F7C4D21BE321300085DB5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		A42F7C5321BE563A00085DB5 /* FMUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FMUserDefaults.swift; path = ../../../../../../OTV/gitlab/OMoblie/knockknock/knockknock/Domain/Entries/FMUserDefaults.swift; sourceTree = "<group>"; };
 		A42F7C5521BE567D00085DB5 /* AGDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGDefaults.swift; sourceTree = "<group>"; };
 		A42F7C5721BE56AC00085DB5 /* AGDefaultsFoundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGDefaultsFoundation.swift; sourceTree = "<group>"; };
 		A42F7C5921BE56D800085DB5 /* AGDefaultsCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGDefaultsCodable.swift; sourceTree = "<group>"; };
@@ -157,6 +157,8 @@
 		A4D6584F21BF6D9D007B8558 /* RAMAnimatedTabBarItem+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RAMAnimatedTabBarItem+AG.swift"; sourceTree = "<group>"; };
 		A4D6585421BF7460007B8558 /* AGImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGImagePickerController.swift; sourceTree = "<group>"; };
 		A4D6585821BF7DF2007B8558 /* AttachmentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentHandler.swift; sourceTree = "<group>"; };
+		A4E31D8221C28B83004D1707 /* AGUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGUserDefaults.swift; sourceTree = "<group>"; };
+		A4E31D8621C28BA9004D1707 /* FMUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMUserDefaults.swift; sourceTree = "<group>"; };
 		B4DF961751964A701D834B17 /* Pods-fitsmerightUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmerightUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmerightUITests/Pods-fitsmerightUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C9E7AEF286ED84FFE2C27408 /* Pods-fitsmerightUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmerightUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmerightUITests/Pods-fitsmerightUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D0D96E61070E66C43686F795 /* Pods-fitsmerightTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmerightTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmerightTests/Pods-fitsmerightTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -218,7 +220,7 @@
 		5E74D9FB21BBACA900A97A89 /* fitsmeright */ = {
 			isa = PBXGroup;
 			children = (
-				A42F7C5121BE561500085DB5 /* Data */,
+				A4E31D8421C28B96004D1707 /* Data */,
 				5E74DA3521BBCDA400A97A89 /* Classes */,
 				5E74DA3421BBCD9C00A97A89 /* Domain */,
 				5E74DA2F21BBCCA400A97A89 /* Resources */,
@@ -325,9 +327,11 @@
 		5E74DA3521BBCDA400A97A89 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				5E74DA3D21BBCE4000A97A89 /* Constraints */,
+				5E74DA3D21BBCE4000A97A89 /* Constraint */,
 				A4D6585A21BFA3CD007B8558 /* NeedRemoves */,
-				5E74DA4321BBCEB400A97A89 /* Extensions */,
+				A4D6E29A21C0F81E0085FB67 /* Extension */,
+				A4D6E29621C0F7BF0085FB67 /* UIKit */,
+				A4D6E29521C0F7B30085FB67 /* Foundation */,
 				5E74DA4021BBCE7600A97A89 /* Helpers */,
 				5E74DA3F21BBCE6B00A97A89 /* Managers */,
 				5E74DA4121BBCE7D00A97A89 /* Protocols */,
@@ -375,12 +379,12 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		5E74DA3D21BBCE4000A97A89 /* Constraints */ = {
+		5E74DA3D21BBCE4000A97A89 /* Constraint */ = {
 			isa = PBXGroup;
 			children = (
 				5E74DA6721BBD9C000A97A89 /* Typealias+AG.swift */,
 			);
-			path = Constraints;
+			path = Constraint;
 			sourceTree = "<group>";
 		};
 		5E74DA3F21BBCE6B00A97A89 /* Managers */ = {
@@ -400,6 +404,7 @@
 		5E74DA4121BBCE7D00A97A89 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				A4E31D8221C28B83004D1707 /* AGUserDefaults.swift */,
 				5E74DA5D21BBD1F100A97A89 /* AGVCInstantiatable.swift */,
 				5E74DA6521BBD90800A97A89 /* AGObject.swift */,
 				A42F7C6021BE5BB600085DB5 /* UserDefaults */,
@@ -413,15 +418,6 @@
 			children = (
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		5E74DA4321BBCEB400A97A89 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				A4D6585221BF6DB5007B8558 /* Pods */,
-				A4D6585121BF6DA5007B8558 /* Cores */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		5E74DA4621BBD0B100A97A89 /* Templates */ = {
@@ -493,24 +489,6 @@
 			path = CreatePostVC;
 			sourceTree = "<group>";
 		};
-		A42F7C5121BE561500085DB5 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				5E74DA3721BBCDC900A97A89 /* Remotes */,
-				5E74DA3621BBCDBF00A97A89 /* Memorys */,
-				A42F7C5221BE561D00085DB5 /* Locals */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		A42F7C5221BE561D00085DB5 /* Locals */ = {
-			isa = PBXGroup;
-			children = (
-				A42F7C5321BE563A00085DB5 /* FMUserDefaults.swift */,
-			);
-			path = Locals;
-			sourceTree = "<group>";
-		};
 		A42F7C5F21BE5BA400085DB5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -574,7 +552,31 @@
 			path = NVC;
 			sourceTree = "<group>";
 		};
-		A4D6585121BF6DA5007B8558 /* Cores */ = {
+		A4D6585A21BFA3CD007B8558 /* NeedRemoves */ = {
+			isa = PBXGroup;
+			children = (
+				A4D6585821BF7DF2007B8558 /* AttachmentHandler.swift */,
+			);
+			path = NeedRemoves;
+			sourceTree = "<group>";
+		};
+		A4D6E29521C0F7B30085FB67 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				A4D6E29921C0F7FC0085FB67 /* Extension */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		A4D6E29621C0F7BF0085FB67 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				A4D6E29821C0F7EF0085FB67 /* Extension */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		A4D6E29821C0F7EF0085FB67 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				5E74DA5F21BBD67600A97A89 /* UIWindow+AG.swift */,
@@ -588,23 +590,41 @@
 				A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */,
 				5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */,
 			);
-			path = Cores;
+			path = Extension;
 			sourceTree = "<group>";
 		};
-		A4D6585221BF6DB5007B8558 /* Pods */ = {
+		A4D6E29921C0F7FC0085FB67 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		A4D6E29A21C0F81E0085FB67 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				A4D6584F21BF6D9D007B8558 /* RAMAnimatedTabBarItem+AG.swift */,
 			);
-			path = Pods;
+			name = Extension;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
-		A4D6585A21BFA3CD007B8558 /* NeedRemoves */ = {
+		A4E31D8421C28B96004D1707 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				A4D6585821BF7DF2007B8558 /* AttachmentHandler.swift */,
+				5E74DA3721BBCDC900A97A89 /* Remotes */,
+				5E74DA3621BBCDBF00A97A89 /* Memorys */,
+				A4E31D8521C28B9B004D1707 /* Locals */,
 			);
-			path = NeedRemoves;
+			path = Data;
+			sourceTree = "<group>";
+		};
+		A4E31D8521C28B9B004D1707 /* Locals */ = {
+			isa = PBXGroup;
+			children = (
+				A4E31D8621C28BA9004D1707 /* FMUserDefaults.swift */,
+			);
+			path = Locals;
 			sourceTree = "<group>";
 		};
 		BFEBE934894A69D85645C256 /* Pods */ = {
@@ -934,15 +954,16 @@
 				5E74DA6221BBD6AC00A97A89 /* CATransition+AG.swift in Sources */,
 				A42F7C6921BE71FB00085DB5 /* UINavigationBar+AG.swift in Sources */,
 				A4D6584E21BF651F007B8558 /* UITabBar+AG.swift in Sources */,
+				A4E31D8721C28BA9004D1707 /* FMUserDefaults.swift in Sources */,
 				5E74DA6621BBD90800A97A89 /* AGObject.swift in Sources */,
 				A42F7C6221BE5BD100085DB5 /* AGApplicationWindow.swift in Sources */,
 				A42F7C5E21BE5B4B00085DB5 /* AGApplicationRoutable.swift in Sources */,
 				5E74DA5321BBD0B100A97A89 /* TemplateV.swift in Sources */,
 				5E74D9FF21BBACA900A97A89 /* ViewController.swift in Sources */,
+				A4E31D8321C28B83004D1707 /* AGUserDefaults.swift in Sources */,
 				5E74D9FD21BBACA900A97A89 /* AppDelegate.swift in Sources */,
 				5E74DA6021BBD67600A97A89 /* UIWindow+AG.swift in Sources */,
 				A42F7C7121BE7B7300085DB5 /* UIImage+AG.swift in Sources */,
-				A42F7C5421BE563A00085DB5 /* FMUserDefaults.swift in Sources */,
 				5E74DA6E21BBDAAC00A97A89 /* MainTBC.swift in Sources */,
 				A408A4D121BEB4970030F2F5 /* UIBarButtonItem +AG.swift in Sources */,
 				5E74DA5821BBD0B100A97A89 /* TemplateVIP.swift in Sources */,

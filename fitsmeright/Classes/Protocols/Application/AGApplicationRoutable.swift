@@ -22,9 +22,9 @@ protocol AGApplicationRoutable: AGApplicationWindow {
 
 
 
-//MARK: - Implements
 extension AGApplicationRoutable {
-  
+
+  //MARK: - Implements
   func start(with launchOptions: [UIApplication.LaunchOptionsKey: Any]?, condition isLoggedIn: Bool) {
     window?.makeKeyAndVisible()
     let vc = SplashVC.vc
@@ -61,19 +61,15 @@ extension AGApplicationRoutable {
     
   }
   
-}
 
-
-
-//MARK: - Commons
-extension AGApplicationRoutable {
   
-}
+  //MARK: - Commons
+  
+  
+  
+  //MARK: - Scences
 
-
-
-//MARK: - Scences
-extension AGApplicationRoutable {
+  
   
 }
 
