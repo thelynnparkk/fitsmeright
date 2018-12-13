@@ -1,8 +1,8 @@
 //
-//  CreatePostVC.swift
+//  CreatePostEditVC.swift
 //  fitsmeright
 //
-//  Created by Lynn Park on 8/12/2561 BE.
+//  Created by Lynn Park on 13/12/2561 BE.
 //  Copyright © 2561 silpakorn. All rights reserved.
 //
 
@@ -12,7 +12,7 @@ import UIKit
 
 
 
-extension CreatePostVC:
+extension CreatePostDesignVC:
   AGVCInstantiatable,
   AGImagePCDelegate
 {
@@ -21,11 +21,11 @@ extension CreatePostVC:
 
 
 
-class CreatePostVC: AGVC {
+class CreatePostDesignVC: AGVC {
   
   //MARK: - AGVCInstantiatable
-  static var sb_name: String = "CreatePostVC"
-  static var vc_name: String = "CreatePostVC"
+  static var sb_name: String = "CreatePostDesignVC"
+  static var vc_name: String = "CreatePostDesignVC"
   
   
   
@@ -40,10 +40,14 @@ class CreatePostVC: AGVC {
   //MARK: - UI
   var bbi_cancel: UIBarButtonItem!
   var bbi_next: UIBarButtonItem!
-  @IBOutlet weak var txt_name: UITextField!
-  @IBOutlet weak var btn_addCloth: UIButton!
-  
-  @IBOutlet weak var imgv_top: UIImageView!
+  @IBOutlet weak var imgv_01: UIImageView!
+  @IBOutlet weak var imgv_02: UIImageView!
+  @IBOutlet weak var imgv_03: UIImageView!
+  @IBOutlet weak var imgv_04: UIImageView!
+  @IBOutlet weak var imgv_background: UIImageView!
+  @IBOutlet weak var btn_addText: UIButton!
+  @IBOutlet weak var btn_brush: UIButton!
+  @IBOutlet weak var btn_addBackground: UIButton!
   
   
   
@@ -64,6 +68,8 @@ class CreatePostVC: AGVC {
   
   
   //MARK: - Storage
+  var img_clothSelected: [UIImage] = []
+  var img_backgroundSelected: UIImage?
   
   
   
@@ -130,14 +136,20 @@ class CreatePostVC: AGVC {
     let c = R.Value.Color.self
     nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     let ni = navigationItem
-    ni.title = CreatePostVC.sb_name
+    ni.title = CreatePostDesignVC.sb_name
     
     bbi_cancel = UIBarButtonItem(title: "cancel", style: .plain, target: self, action: #selector(dismissButtonPressed))
     ni.leftBarButtonItems = [bbi_cancel]
     bbi_next = UIBarButtonItem(title: "next", style: .plain, target: self, action: #selector(nextBarButtonPressed))
     ni.rightBarButtonItems = [bbi_next]
     
-    btn_addCloth.addTarget(self, action: #selector(addClothButtonPressed), for: .touchUpInside)
+    imgv_01.contentMode = .scaleAspectFit
+    imgv_02.contentMode = .scaleAspectFit
+    imgv_03.contentMode = .scaleAspectFit
+    imgv_04.contentMode = .scaleAspectFit
+    imgv_background.contentMode = .scaleAspectFit
+    
+    btn_addBackground.addTarget(self, action: #selector(changeBackgroundButtonPressed), for: .touchUpInside)
   }
   
   func setupSnp() {
@@ -148,7 +160,14 @@ class CreatePostVC: AGVC {
   
   //MARK: - Setup Data
   func setupDataOnViewDidLoad() {
-    
+    setupSelectImageData()
+  }
+  
+  func setupSelectImageData() {
+    imgv_01.image = img_clothSelected[0]
+    imgv_02.image = img_clothSelected[1]
+    imgv_03.image = img_clothSelected[2]
+    imgv_04.image = img_clothSelected[3]
   }
   
   
@@ -161,8 +180,8 @@ class CreatePostVC: AGVC {
   }
   
   @objc
-  func addClothButtonPressed(_ sender: UIButton) {
-    AGImagePC.displaySourcePopup(on: self) 
+  func changeBackgroundButtonPressed(_ sender: UIButton) {
+    AGImagePC.displaySourcePopup(on: self)
   }
   
   
@@ -184,8 +203,10 @@ class CreatePostVC: AGVC {
   
   
   //MARK: - Custom - AGImagePickerDelegate
-  func didFinishPickingMedia(_ picker: UIImagePickerController, with image: UIImage){
+  func didFinishPickingMedia(_ picker: UIImagePickerController, with image: UIImage) {
     picker.dismiss(animated: true, completion: nil)
+    imgv_background.image = image
+    img_backgroundSelected = image
   }
   
   func didFinishPickingMediaError(_ picker: UIImagePickerController) {
