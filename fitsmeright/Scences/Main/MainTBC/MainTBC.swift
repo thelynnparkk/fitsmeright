@@ -128,9 +128,9 @@ class MainTBC: RAMAnimatedTabBarController {
     vc_02 = BlankVC.vc
     vc_03 = ProfileVC.vc
     
-//    let nvc_01 = UINavigationController(rootViewController: vc_01)
-//    let nvc_02 = UINavigationController(rootViewController: vc_02)
-//    let nvc_03 = UINavigationController(rootViewController: vc_03)
+    let nvc_01 = UINavigationController(rootViewController: vc_01)
+    let nvc_02 = UINavigationController(rootViewController: vc_02)
+    let nvc_03 = UINavigationController(rootViewController: vc_03)
     
     let tbi_01 = RAMAnimatedTabBarItem(title: nil, image: #imageLiteral(resourceName: "ic_home"), selectedImage: nil)
     let tbi_02 = RAMAnimatedTabBarItem(title: nil, image: #imageLiteral(resourceName: "ic_closet"), selectedImage: nil)
@@ -146,16 +146,20 @@ class MainTBC: RAMAnimatedTabBarController {
     vc_02.tabBarItem = tbi_02
     vc_03.tabBarItem = tbi_03
     
-    viewControllers = [vc_01, vc_02, vc_03]
+//    viewControllers = [vc_01, vc_02, vc_03]
     
-//    nvc_01.tabBarItem = tbi_01
-//    nvc_02.tabBarItem = tbi_02
-//    nvc_03.tabBarItem = tbi_03
-//    viewControllers = [nvc_01, nvc_02, nvc_03]
+    nvc_01.tabBarItem = tbi_01
+    nvc_02.tabBarItem = tbi_02
+    nvc_03.tabBarItem = tbi_03
+    viewControllers = [nvc_01, nvc_02, nvc_03]
     
-    let nb = navigationController?.navigationBar
     let c = R.Value.Color.self
-    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
+    
+    let nc = navigationController
+    nc?.isNavigationBarHidden = true
+    
+//    let nb = navigationController?.navigationBar
+//    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     
     let tb = tabBar
     tb.setupWith(content: .white, bg: c.peach, isTranslucent: false)

@@ -37,6 +37,7 @@ class FeedVC: AGVC {
   
   
   //MARK: - UI
+  @IBOutlet weak var btn_createPost: UIButton!
   @IBOutlet weak var lb_title: UILabel!
   
   
@@ -123,6 +124,7 @@ class FeedVC: AGVC {
   func setupUI() {
     navigationItem.title = FeedVC.sb_name
     lb_title.text = FeedVC.sb_name
+    btn_createPost.addTarget(self, action: #selector(createPostButtonPressed), for: .touchUpInside)
   }
   
   func setupSnp() {
@@ -139,6 +141,12 @@ class FeedVC: AGVC {
   
   
   //MARK: - Event
+  @objc
+  func createPostButtonPressed(_ sender: UIButton) {
+    let vc = CreatePostVC.vc
+    let nvc = UINavigationController(rootViewController: vc)
+    present(nvc, animated: true, completion: nil)
+  }
   
   
   
