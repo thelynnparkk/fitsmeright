@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0DFE4632E6408B3440B1DCCA /* Pods_fitsmeright.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B60CBC6408CBD54FA78D747 /* Pods_fitsmeright.framework */; };
+		5E0900B421C2970A0099F81E /* RAMNonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0900B321C2970A0099F81E /* RAMNonAnimation.swift */; };
 		5E74D9FD21BBACA900A97A89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74D9FC21BBACA900A97A89 /* AppDelegate.swift */; };
 		5E74D9FF21BBACA900A97A89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74D9FE21BBACA900A97A89 /* ViewController.swift */; };
 		5E74DA0221BBACA900A97A89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA0021BBACA900A97A89 /* Main.storyboard */; };
@@ -92,6 +93,7 @@
 		0B60CBC6408CBD54FA78D747 /* Pods_fitsmeright.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitsmeright.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41EC81EF460A825BE1F780A3 /* Pods_fitsmerightUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitsmerightUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B34B9F8A3E854F921D23C20 /* Pods_fitsmerightTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitsmerightTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E0900B321C2970A0099F81E /* RAMNonAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAMNonAnimation.swift; sourceTree = "<group>"; };
 		5E74D9F921BBACA900A97A89 /* fitsmeright.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fitsmeright.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E74D9FC21BBACA900A97A89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E74D9FE21BBACA900A97A89 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +195,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E0900B221C296F10099F81E /* TabBatItem */ = {
+			isa = PBXGroup;
+			children = (
+				5E0900B321C2970A0099F81E /* RAMNonAnimation.swift */,
+			);
+			path = TabBatItem;
+			sourceTree = "<group>";
+		};
 		5E74D9F021BBACA900A97A89 = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +320,7 @@
 		5E74DA3221BBCCC400A97A89 /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
+				5E0900B221C296F10099F81E /* TabBatItem */,
 				A42F7C7521BE837C00085DB5 /* NVC */,
 				A42F7C7421BE837300085DB5 /* VC */,
 			);
@@ -947,6 +958,7 @@
 				5E74DA5C21BBD0B100A97A89 /* TemplateAFRM.swift in Sources */,
 				A42F7C5821BE56AC00085DB5 /* AGDefaultsFoundation.swift in Sources */,
 				5E74DA6821BBD9C000A97A89 /* Typealias+AG.swift in Sources */,
+				5E0900B421C2970A0099F81E /* RAMNonAnimation.swift in Sources */,
 				5E74DA8421BBF94B00A97A89 /* UINavigationController+AG.swift in Sources */,
 				A4D6585921BF7DF2007B8558 /* AttachmentHandler.swift in Sources */,
 				5E74DA8621BBFC6700A97A89 /* UIImagePickerController+AG.swift in Sources */,
@@ -1184,7 +1196,7 @@
 			baseConfigurationReference = F463E3587240B38E43DD39AC /* Pods-fitsmeright.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 64JR72N2P6;
 				INFOPLIST_FILE = fitsmeright/Main/Info.plist;
@@ -1195,7 +1207,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fitsmeright.silpakorn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "AdHoc XC Wildcard";
+				PROVISIONING_PROFILE_SPECIFIER = "Development XC Wildcard";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

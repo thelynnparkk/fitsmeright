@@ -127,7 +127,8 @@ class CreatePostVC: AGVC {
   
   func setupUI() {
     let nb = navigationController?.navigationBar
-    nb?.setupWith(content: .white, bg: .orange, isTranslucent: false)
+    let c = R.Value.Color.self
+    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     let ni = navigationItem
     ni.title = CreatePostVC.sb_name
     
