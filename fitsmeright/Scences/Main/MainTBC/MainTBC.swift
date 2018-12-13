@@ -132,12 +132,12 @@ class MainTBC: RAMAnimatedTabBarController {
 //    let nvc_02 = UINavigationController(rootViewController: vc_02)
 //    let nvc_03 = UINavigationController(rootViewController: vc_03)
     
-    let tbi_01 = RAMAnimatedTabBarItem(title: FeedVC.vc_name, image: #imageLiteral(resourceName: "ic_control"), selectedImage: nil)
-    let tbi_02 = RAMAnimatedTabBarItem(title: BlankVC.vc_name, image: #imageLiteral(resourceName: "ic_control"), selectedImage: nil)
-    let tbi_03 = RAMAnimatedTabBarItem(title: ProfileVC.vc_name, image: #imageLiteral(resourceName: "ic_control"), selectedImage: nil)
+    let tbi_01 = RAMAnimatedTabBarItem(title: nil, image: #imageLiteral(resourceName: "ic_home"), selectedImage: nil)
+    let tbi_02 = RAMAnimatedTabBarItem(title: nil, image: #imageLiteral(resourceName: "ic_closet"), selectedImage: nil)
+    let tbi_03 = RAMAnimatedTabBarItem(title: nil, image: #imageLiteral(resourceName: "ic_profile"), selectedImage: nil)
     
-    let animation = RAMBounceAnimation()
-    animation.duration = 0.6
+    let animation = RAMNonAnimation()
+//    animation.duration = 0.0
     tbi_01.setupWith(color: .gray, selectedColor: .white, itemAnimation: animation)
     tbi_02.setupWith(color: .gray, selectedColor: .white, itemAnimation: animation)
     tbi_03.setupWith(color: .gray, selectedColor: .white, itemAnimation: animation)
@@ -193,18 +193,18 @@ class MainTBC: RAMAnimatedTabBarController {
   
   //MARK: - Core - UITabBarControllerDelegate
   func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-//    return true
-    var shouldSelect: Bool = true
-    switch viewController {
-    case let vc where vc is BlankVC:
-      let vc = CreatePostVC.vc
-      let nvc = UINavigationController(rootViewController: vc)
-      present(nvc, animated: true, completion: nil)
-      shouldSelect = false
-    default:
-      break
-    }
-    return shouldSelect
+    return true
+//    var shouldSelect: Bool = true
+//    switch viewController {
+//    case let vc where vc is BlankVC:
+//      let vc = CreatePostVC.vc
+//      let nvc = UINavigationController(rootViewController: vc)
+//      present(nvc, animated: true, completion: nil)
+//      shouldSelect = false
+//    default:
+//      break
+//    }
+//    return shouldSelect
   }
   
   

@@ -121,7 +121,7 @@ class FeedVC: AGVC {
   }
   
   func setupUI() {
-    title = FeedVC.sb_name
+    navigationItem.title = FeedVC.sb_name
     lb_title.text = FeedVC.sb_name
   }
   
