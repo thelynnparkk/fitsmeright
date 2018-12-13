@@ -11,7 +11,7 @@
 import UIKit
 
 
-
+//ไว้สร้าง ViewController จาก Storyboard
 public protocol AGVCInstantiatable {
   static var sb_name: String { get }
   static var vc_name: String { get }
