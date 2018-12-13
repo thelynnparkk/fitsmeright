@@ -138,9 +138,9 @@ class MainTBC: RAMAnimatedTabBarController {
     
     let animation = RAMNonAnimation()
 //    animation.duration = 0.0
-    tbi_01.setupWith(color: .gray, selectedColor: .white, itemAnimation: animation)
-    tbi_02.setupWith(color: .gray, selectedColor: .white, itemAnimation: animation)
-    tbi_03.setupWith(color: .gray, selectedColor: .white, itemAnimation: animation)
+    tbi_01.setupWith(color: .lightGray, selectedColor: .white, itemAnimation: animation)
+    tbi_02.setupWith(color: .lightGray, selectedColor: .white, itemAnimation: animation)
+    tbi_03.setupWith(color: .lightGray, selectedColor: .white, itemAnimation: animation)
     
     vc_01.tabBarItem = tbi_01
     vc_02.tabBarItem = tbi_02
@@ -151,14 +151,14 @@ class MainTBC: RAMAnimatedTabBarController {
 //    nvc_01.tabBarItem = tbi_01
 //    nvc_02.tabBarItem = tbi_02
 //    nvc_03.tabBarItem = tbi_03
-//
 //    viewControllers = [nvc_01, nvc_02, nvc_03]
     
     let nb = navigationController?.navigationBar
-    nb?.setupWith(content: .white, bg: .orange, isTranslucent: false)
+    let c = R.Value.Color.self
+    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     
     let tb = tabBar
-    tb.setupWith(content: .white, bg: .orange, isTranslucent: false)
+    tb.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     
   }
   

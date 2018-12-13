@@ -58,8 +58,10 @@ extension AGApplicationSetup {
   }
   
   private func setupAppearances() {
+    let c = R.Value.Color.self
+    
     let nb = UINavigationBar.appearance()
-    nb.setupWith(content: .white, bg: .orange, isTranslucent: false)
+    nb.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     
     //MARK: - UIBarButtonItem
     let bbi = UIBarButtonItem.appearance()
@@ -67,7 +69,7 @@ extension AGApplicationSetup {
     
     //MARK: - UITabBar
     let tb = UITabBar.appearance()
-    tb.setupWith(content: .white, bg: .orange, isTranslucent: false)
+    tb.setupWith(content: .white, bg: c.peach, isTranslucent: false)
   }
   
   private func setupUserDefaults() {

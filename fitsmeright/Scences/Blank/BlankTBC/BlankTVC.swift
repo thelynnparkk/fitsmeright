@@ -127,7 +127,8 @@ class BlankTVC: AGVC {
   
   func setupUI() {
     let nb = navigationController?.navigationBar
-    nb?.setupLargeTitlesWith(content: .white, bg: .orange)
+    let c = R.Value.Color.self
+    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     let ni = navigationItem
     ni.title = BlankTVC.sb_name
 //    bbi_cancel = UIBarButtonItem(title: "cancel", style: .plain, target: self, action: #selector(dismissButtonPressed))
