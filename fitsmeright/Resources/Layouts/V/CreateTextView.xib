@@ -26,7 +26,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TsB-6u-Ohx">
-                    <rect key="frame" x="40" y="175" width="320" height="50"/>
+                    <rect key="frame" x="20" y="175" width="360" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="Ylk-6m-By0"/>
                     </constraints>
@@ -37,7 +37,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="TsB-6u-Ohx" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.8" id="5Fv-D4-4GJ"/>
+                <constraint firstItem="TsB-6u-Ohx" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.9" id="5Fv-D4-4GJ"/>
                 <constraint firstItem="KSn-RY-Lag" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="5vI-Os-8e0"/>
                 <constraint firstItem="TsB-6u-Ohx" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="ETT-QJ-1nN"/>
                 <constraint firstItem="KSn-RY-Lag" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="eLh-Hf-SJq"/>

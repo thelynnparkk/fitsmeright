@@ -85,7 +85,6 @@ class CreateTextView: UIView {
   
   func setupUI() {
     //MARK: Core
-    isHidden = true
     backgroundColor = .clear
     
     
@@ -95,8 +94,10 @@ class CreateTextView: UIView {
     v_overlay.backgroundColor = UIColor.black.withAlphaComponent(0.6)
     txt_main.text = ""
     txt_main.placeholder = "text"
+    txt_main.textAlignment = .center
     
-    
+    v_overlay.isHidden = true
+    txt_main.isHidden = true
     
     //MARK: Misc
     
@@ -129,20 +130,22 @@ class CreateTextView: UIView {
   
   
   func displayStartEdit(onComplete: @escaping CBVoid) {
-    isHidden = false
-    v_container.alpha = 0
+    v_overlay.isHidden = false
+    txt_main.isHidden = false
+    v_overlay.alpha = 0
     UIView.animate(withDuration: 0.3, animations: {
-      self.v_container.alpha = 1
+      self.v_overlay.alpha = 1
     }) { _ in
       onComplete()
     }
   }
   
   func displayStopEdit(onComplete: @escaping CBVoid) {
-    isHidden = true
-    v_container.alpha = 1
+    v_overlay.isHidden = true
+    txt_main.isHidden = (txt_main.text ?? "").isEmpty
+    v_overlay.alpha = 1
     UIView.animate(withDuration: 0.3, animations: {
-      self.v_container.alpha = 0
+      self.v_overlay.alpha = 0
     }) { _ in
       onComplete()
     }
