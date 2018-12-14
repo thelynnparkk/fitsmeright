@@ -12,14 +12,12 @@ import UIKit
 
 
 
-//MARK: TemplateProtocol
 public protocol TemplateProtocol {
   
 }
 
 
 
-//MARK: - Extensions
 public extension TemplateProtocol {
   
   //MARK: - Implements

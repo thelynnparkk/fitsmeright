@@ -24,4 +24,9 @@ class FMUserDefaults: AGUserDefaults {
     static let key = "LoggedIn"
   }
   
+  enum Post: AGUserDefaultsCodable {
+    typealias T = MockPost
+    static let key = "MockPost"
+  }
+  
 }

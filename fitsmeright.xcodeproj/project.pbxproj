@@ -58,6 +58,9 @@
 		5EE8924821C3EB69008A65ED /* UIView+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924721C3EB69008A65ED /* UIView+AG.swift */; };
 		5EE8924B21C3F26F008A65ED /* CreateTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924A21C3F26F008A65ED /* CreateTextView.swift */; };
 		5EE8924D21C3F276008A65ED /* CreateTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8924C21C3F276008A65ED /* CreateTextView.xib */; };
+		5EE8925321C408B8008A65ED /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8925221C408B8008A65ED /* Post.swift */; };
+		5EE8925621C408CF008A65ED /* MockPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8925521C408CF008A65ED /* MockPost.swift */; };
+		5EE8925821C40958008A65ED /* AGEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8925721C40958008A65ED /* AGEntity.swift */; };
 		6B93C7E7F1C1881D5030DBE8 /* Pods_fitsmerightTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B34B9F8A3E854F921D23C20 /* Pods_fitsmerightTests.framework */; };
 		A408A4D121BEB4970030F2F5 /* UIBarButtonItem +AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */; };
 		A42F7C4E21BE321300085DB5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A42F7C4D21BE321300085DB5 /* README.md */; };
@@ -161,6 +164,9 @@
 		5EE8924721C3EB69008A65ED /* UIView+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AG.swift"; sourceTree = "<group>"; };
 		5EE8924A21C3F26F008A65ED /* CreateTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTextView.swift; sourceTree = "<group>"; };
 		5EE8924C21C3F276008A65ED /* CreateTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateTextView.xib; sourceTree = "<group>"; };
+		5EE8925221C408B8008A65ED /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Post.swift; path = fitsmeright/Resources/Layouts/V/Post.swift; sourceTree = SOURCE_ROOT; };
+		5EE8925521C408CF008A65ED /* MockPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPost.swift; sourceTree = "<group>"; };
+		5EE8925721C40958008A65ED /* AGEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGEntity.swift; sourceTree = "<group>"; };
 		72AF5AC3A3815243CAE96B6A /* Pods-fitsmerightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmerightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmerightTests/Pods-fitsmerightTests.release.xcconfig"; sourceTree = "<group>"; };
 		9F8B67DFD7CF11E3D630A0C0 /* Pods-fitsmeright.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmeright.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmeright/Pods-fitsmeright.debug.xcconfig"; sourceTree = "<group>"; };
 		A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem +AG.swift"; sourceTree = "<group>"; };
@@ -282,6 +288,7 @@
 		5E74D9FB21BBACA900A97A89 /* fitsmeright */ = {
 			isa = PBXGroup;
 			children = (
+				5EE8924F21C4089D008A65ED /* Domain */,
 				A4E31D8421C28B96004D1707 /* Data */,
 				5E74DA3521BBCDA400A97A89 /* Classes */,
 				5E74DA3421BBCD9C00A97A89 /* Domain */,
@@ -395,10 +402,9 @@
 				A4D6585A21BFA3CD007B8558 /* NeedRemoves */,
 				A4D6E29A21C0F81E0085FB67 /* Extension */,
 				A4D6E29621C0F7BF0085FB67 /* UIKit */,
-				A4D6E29521C0F7B30085FB67 /* Foundation */,
 				5E74DA4021BBCE7600A97A89 /* Helpers */,
 				5E74DA3F21BBCE6B00A97A89 /* Managers */,
-				5E74DA4121BBCE7D00A97A89 /* Protocols */,
+				5E74DA4121BBCE7D00A97A89 /* Misc */,
 				5E74DA4221BBCE9700A97A89 /* Utilities */,
 			);
 			path = Classes;
@@ -465,7 +471,7 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		5E74DA4121BBCE7D00A97A89 /* Protocols */ = {
+		5E74DA4121BBCE7D00A97A89 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
 				A4E31D8221C28B83004D1707 /* AGUserDefaults.swift */,
@@ -473,8 +479,9 @@
 				5E74DA6521BBD90800A97A89 /* AGObject.swift */,
 				A42F7C6021BE5BB600085DB5 /* UserDefaults */,
 				A42F7C5F21BE5BA400085DB5 /* Application */,
+				5EE8925721C40958008A65ED /* AGEntity.swift */,
 			);
-			path = Protocols;
+			path = Misc;
 			sourceTree = "<group>";
 		};
 		5E74DA4221BBCE9700A97A89 /* Utilities */ = {
@@ -600,6 +607,23 @@
 			path = V;
 			sourceTree = "<group>";
 		};
+		5EE8924F21C4089D008A65ED /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				5EE8925121C408A6008A65ED /* Entries */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		5EE8925121C408A6008A65ED /* Entries */ = {
+			isa = PBXGroup;
+			children = (
+				5EE8925221C408B8008A65ED /* Post.swift */,
+				5EE8925521C408CF008A65ED /* MockPost.swift */,
+			);
+			path = Entries;
+			sourceTree = "<group>";
+		};
 		A42F7C5F21BE5BA400085DB5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -671,14 +695,6 @@
 			path = NeedRemoves;
 			sourceTree = "<group>";
 		};
-		A4D6E29521C0F7B30085FB67 /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-				A4D6E29921C0F7FC0085FB67 /* Extension */,
-			);
-			path = Foundation;
-			sourceTree = "<group>";
-		};
 		A4D6E29621C0F7BF0085FB67 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -700,13 +716,6 @@
 				A4D6584B21BF63B9007B8558 /* UITabbarController+AG.swift */,
 				A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */,
 				5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		A4D6E29921C0F7FC0085FB67 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1067,6 +1076,7 @@
 				5E0900BF21C2B8C50099F81E /* CreatePostInfoVC.swift in Sources */,
 				5E0900B421C2970A0099F81E /* RAMNonAnimation.swift in Sources */,
 				5E74DA8421BBF94B00A97A89 /* UINavigationController+AG.swift in Sources */,
+				5EE8925621C408CF008A65ED /* MockPost.swift in Sources */,
 				A4D6585921BF7DF2007B8558 /* AttachmentHandler.swift in Sources */,
 				5E74DA8621BBFC6700A97A89 /* UIImagePickerController+AG.swift in Sources */,
 				5EE8924B21C3F26F008A65ED /* CreateTextView.swift in Sources */,
@@ -1081,6 +1091,7 @@
 				A42F7C5E21BE5B4B00085DB5 /* AGApplicationRoutable.swift in Sources */,
 				5E74DA5321BBD0B100A97A89 /* TemplateV.swift in Sources */,
 				5E74D9FF21BBACA900A97A89 /* ViewController.swift in Sources */,
+				5EE8925821C40958008A65ED /* AGEntity.swift in Sources */,
 				A4E31D8321C28B83004D1707 /* AGUserDefaults.swift in Sources */,
 				5E74D9FD21BBACA900A97A89 /* AppDelegate.swift in Sources */,
 				5E74DA6021BBD67600A97A89 /* UIWindow+AG.swift in Sources */,
@@ -1092,6 +1103,7 @@
 				5E0900B821C2B88B0099F81E /* CreatePostDesignVC.swift in Sources */,
 				5E74DA5821BBD0B100A97A89 /* TemplateVIP.swift in Sources */,
 				5E74DA8021BBF7D700A97A89 /* R.swift in Sources */,
+				5EE8925321C408B8008A65ED /* Post.swift in Sources */,
 				5E74DA5921BBD0B100A97A89 /* TemplateProtocol.swift in Sources */,
 				5EE8924821C3EB69008A65ED /* UIView+AG.swift in Sources */,
 				A4D6585021BF6D9D007B8558 /* RAMAnimatedTabBarItem+AG.swift in Sources */,

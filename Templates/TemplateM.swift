@@ -8,52 +8,43 @@
 
 
 
-//import Foundation
-//
-//
-//
-////MARK: - TemplateD
-//public class TemplateD: AGModelHelper {
-//
-//  //MARK: - Storage
-//  public var _id : Int?
-//
-//
-//
-//  //MARK: - Initial
-//  public init?(json: JSON?) {
-//    guard let json = json else { return }
-//    self._id = json[Key.id].int
-//  }
-//
-//
-//
-//  //MARK: - Getter
-//  public var id: Int {
-//    return _id ?? 0
-//  }
-//
-//  public var toJson: JSON {
-//    let json: JSON = [
-//      Key.id : id
-//    ]
-//    return json
-//  }
-//
-//
-//
-//  //MARK: - Key
-//  public enum Key {
-//    static var id = "id"
-//  }
-//
-//  
-//
-//  //MARK: - Helper
-//
-//
-//
-//}
+import Foundation
+
+
+
+public class TemplateD: AGEntity {
+
+  //MARK: - Key
+  public enum Key {
+    static var id = "id"
+  }
+  
+  
+  
+  //MARK: - Storage
+  public var id : Int?
+
+
+
+  //MARK: - Initial
+  public init() {
+    
+  }
+
+
+
+  //MARK: - Public
+  public var _id: Int {
+    return id ?? 0
+  }
+
+
+
+  //MARK: - Private
+  
+
+  
+}
 
 
 

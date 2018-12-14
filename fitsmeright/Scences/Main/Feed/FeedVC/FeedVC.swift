@@ -59,6 +59,7 @@ class FeedVC: AGVC {
   
   
   //MARK: - Storage
+  var post: MockPost?
   
   
   
@@ -150,6 +151,15 @@ class FeedVC: AGVC {
     
   }
   
+  func fetchPostData() {
+    if let post = FMUserDefaults.Post.get() {
+      self.post = post
+      displayFetchPostData()
+    } else {
+      displayFetchPostDataError()
+    }
+  }
+  
   
   
   //MARK: - Event
@@ -171,6 +181,13 @@ class FeedVC: AGVC {
   
   
   //MARK: - VIP - UseCase
+  func displayFetchPostData() {
+    
+  }
+  
+  func displayFetchPostDataError() {
+    
+  }
   
   
   

@@ -184,6 +184,12 @@ class CreatePostInfoVC: AGVC {
   //MARK: - Event
   @objc
   func postButtonPresed(_ sender: UIButton) {
+    let post = MockPost()
+    post.img_clothSelected = img_clothSelected
+    post.img_backgroundSelected = img_backgroundSelected
+    post.string_textSelected = string_textSelected
+    post.string_captionSelected = txt_caption.text ?? ""
+    FMUserDefaults.Post.set(data: post)
     dismiss(animated: true)
   }
   
