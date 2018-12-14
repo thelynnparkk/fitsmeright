@@ -100,7 +100,10 @@ class PostView: UIView {
     
     
     //MARK: UI
-//    btn_option.addTarget(self, action: #selector(optionButtonPressed), for: .touchUpInside)
+    v_createPost.isUserInteractionEnabled = false
+    v_createText.isUserInteractionEnabled = false
+    
+    btn_option.addTarget(self, action: #selector(optionButtonPressed), for: .touchUpInside)
     btn_like.addTarget(self, action: #selector(likeButtonPressed), for: .touchUpInside)
     btn_message.addTarget(self, action: #selector(messageButtonPressed), for: .touchUpInside)
     btn_share.addTarget(self, action: #selector(shareButtonPressed), for: .touchUpInside)
