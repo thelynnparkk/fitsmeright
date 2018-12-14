@@ -137,6 +137,7 @@ class CreatePostVC: AGVC {
     bbi_cancel = UIBarButtonItem(title: "cancel", style: .plain, target: self, action: #selector(dismissButtonPressed))
     ni.leftBarButtonItems = [bbi_cancel]
     bbi_next = UIBarButtonItem(title: "next", style: .plain, target: self, action: #selector(nextBarButtonPressed))
+    bbi_next.isEnabled = false
     ni.rightBarButtonItems = [bbi_next]
     
     imgv_01.contentMode = .scaleAspectFit
@@ -205,6 +206,7 @@ class CreatePostVC: AGVC {
     case 3:
       imgv_04.image = image
       btn_addCloth.isHidden = true
+      bbi_next.isEnabled = true
     default:
       return
     }

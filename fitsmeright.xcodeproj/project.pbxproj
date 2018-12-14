@@ -50,6 +50,9 @@
 		5E74DA8221BBF84C00A97A89 /* RValueColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA8121BBF84C00A97A89 /* RValueColor.swift */; };
 		5E74DA8421BBF94B00A97A89 /* UINavigationController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA8321BBF94B00A97A89 /* UINavigationController+AG.swift */; };
 		5E74DA8621BBFC6700A97A89 /* UIImagePickerController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */; };
+		5EE8923B21C3E566008A65ED /* ClosetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8923A21C3E566008A65ED /* ClosetVC.swift */; };
+		5EE8923D21C3E572008A65ED /* ClosetVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8923C21C3E572008A65ED /* ClosetVC.storyboard */; };
+		5EE8924121C3E615008A65ED /* ClosetDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924021C3E615008A65ED /* ClosetDetailVC.swift */; };
 		6B93C7E7F1C1881D5030DBE8 /* Pods_fitsmerightTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B34B9F8A3E854F921D23C20 /* Pods_fitsmerightTests.framework */; };
 		A408A4D121BEB4970030F2F5 /* UIBarButtonItem +AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */; };
 		A42F7C4E21BE321300085DB5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A42F7C4D21BE321300085DB5 /* README.md */; };
@@ -145,6 +148,9 @@
 		5E74DA8121BBF84C00A97A89 /* RValueColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RValueColor.swift; sourceTree = "<group>"; };
 		5E74DA8321BBF94B00A97A89 /* UINavigationController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+AG.swift"; sourceTree = "<group>"; };
 		5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+AG.swift"; sourceTree = "<group>"; };
+		5EE8923A21C3E566008A65ED /* ClosetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetVC.swift; sourceTree = "<group>"; };
+		5EE8923C21C3E572008A65ED /* ClosetVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClosetVC.storyboard; sourceTree = "<group>"; };
+		5EE8924021C3E615008A65ED /* ClosetDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetDetailVC.swift; sourceTree = "<group>"; };
 		72AF5AC3A3815243CAE96B6A /* Pods-fitsmerightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmerightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmerightTests/Pods-fitsmerightTests.release.xcconfig"; sourceTree = "<group>"; };
 		9F8B67DFD7CF11E3D630A0C0 /* Pods-fitsmeright.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmeright.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmeright/Pods-fitsmeright.debug.xcconfig"; sourceTree = "<group>"; };
 		A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem +AG.swift"; sourceTree = "<group>"; };
@@ -418,9 +424,9 @@
 		5E74DA3B21BBCE1A00A97A89 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				5E0900B521C2B7AF0099F81E /* CreatePost */,
+				5EE8923E21C3E5F5008A65ED /* Closet */,
+				5EE8923921C3E46F008A65ED /* Feed */,
 				5E74DA6B21BBDA1300A97A89 /* ProfileVC */,
-				5E74DA6A21BBDA0100A97A89 /* FeedVC */,
 				5E74DA6921BBD9F500A97A89 /* MainTBC */,
 			);
 			path = Main;
@@ -534,6 +540,41 @@
 				5E74DA7D21BBDB6800A97A89 /* CreatePostVC.storyboard */,
 			);
 			path = CreatePostVC;
+			sourceTree = "<group>";
+		};
+		5EE8923821C3E45E008A65ED /* ClosetVC */ = {
+			isa = PBXGroup;
+			children = (
+				5EE8923A21C3E566008A65ED /* ClosetVC.swift */,
+				5EE8923C21C3E572008A65ED /* ClosetVC.storyboard */,
+			);
+			path = ClosetVC;
+			sourceTree = "<group>";
+		};
+		5EE8923921C3E46F008A65ED /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				5E74DA6A21BBDA0100A97A89 /* FeedVC */,
+				5E0900B521C2B7AF0099F81E /* CreatePost */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		5EE8923E21C3E5F5008A65ED /* Closet */ = {
+			isa = PBXGroup;
+			children = (
+				5EE8923821C3E45E008A65ED /* ClosetVC */,
+				5EE8923F21C3E602008A65ED /* ClosetDetailVC */,
+			);
+			path = Closet;
+			sourceTree = "<group>";
+		};
+		5EE8923F21C3E602008A65ED /* ClosetDetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				5EE8924021C3E615008A65ED /* ClosetDetailVC.swift */,
+			);
+			path = ClosetDetailVC;
 			sourceTree = "<group>";
 		};
 		A42F7C5F21BE5BA400085DB5 /* Application */ = {
@@ -809,6 +850,7 @@
 				5E74DA0721BBACAA00A97A89 /* LaunchScreen.storyboard in Resources */,
 				5E0900BD21C2B8B90099F81E /* CreatePostInfoVC.storyboard in Resources */,
 				5E74DA7E21BBDB6800A97A89 /* CreatePostVC.storyboard in Resources */,
+				5EE8923D21C3E572008A65ED /* ClosetVC.storyboard in Resources */,
 				5E74DA7C21BBDB5E00A97A89 /* ProfileVC.storyboard in Resources */,
 				5E74DA7821BBDADF00A97A89 /* MainTBC.storyboard in Resources */,
 				A42F7C6721BE621C00085DB5 /* BlankVC.storyboard in Resources */,
@@ -1008,6 +1050,7 @@
 				A4E31D8721C28BA9004D1707 /* FMUserDefaults.swift in Sources */,
 				5E74DA6621BBD90800A97A89 /* AGObject.swift in Sources */,
 				A42F7C6221BE5BD100085DB5 /* AGApplicationWindow.swift in Sources */,
+				5EE8924121C3E615008A65ED /* ClosetDetailVC.swift in Sources */,
 				A42F7C5E21BE5B4B00085DB5 /* AGApplicationRoutable.swift in Sources */,
 				5E74DA5321BBD0B100A97A89 /* TemplateV.swift in Sources */,
 				5E74D9FF21BBACA900A97A89 /* ViewController.swift in Sources */,
@@ -1015,6 +1058,7 @@
 				5E74D9FD21BBACA900A97A89 /* AppDelegate.swift in Sources */,
 				5E74DA6021BBD67600A97A89 /* UIWindow+AG.swift in Sources */,
 				A42F7C7121BE7B7300085DB5 /* UIImage+AG.swift in Sources */,
+				5EE8923B21C3E566008A65ED /* ClosetVC.swift in Sources */,
 				5E74DA6E21BBDAAC00A97A89 /* MainTBC.swift in Sources */,
 				A408A4D121BEB4970030F2F5 /* UIBarButtonItem +AG.swift in Sources */,
 				5E0900B821C2B88B0099F81E /* CreatePostDesignVC.swift in Sources */,
