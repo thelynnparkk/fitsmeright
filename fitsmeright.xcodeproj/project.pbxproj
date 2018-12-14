@@ -61,6 +61,8 @@
 		5EE8925321C408B8008A65ED /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8925221C408B8008A65ED /* Post.swift */; };
 		5EE8925621C408CF008A65ED /* MockPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8925521C408CF008A65ED /* MockPost.swift */; };
 		5EE8925821C40958008A65ED /* AGEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8925721C40958008A65ED /* AGEntity.swift */; };
+		5EE8925A21C411DC008A65ED /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8925921C411DC008A65ED /* PostView.swift */; };
+		5EE8925C21C411E3008A65ED /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8925B21C411E3008A65ED /* PostView.xib */; };
 		6B93C7E7F1C1881D5030DBE8 /* Pods_fitsmerightTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B34B9F8A3E854F921D23C20 /* Pods_fitsmerightTests.framework */; };
 		A408A4D121BEB4970030F2F5 /* UIBarButtonItem +AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */; };
 		A42F7C4E21BE321300085DB5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A42F7C4D21BE321300085DB5 /* README.md */; };
@@ -167,6 +169,8 @@
 		5EE8925221C408B8008A65ED /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Post.swift; path = fitsmeright/Resources/Layouts/V/Post.swift; sourceTree = SOURCE_ROOT; };
 		5EE8925521C408CF008A65ED /* MockPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPost.swift; sourceTree = "<group>"; };
 		5EE8925721C40958008A65ED /* AGEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGEntity.swift; sourceTree = "<group>"; };
+		5EE8925921C411DC008A65ED /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		5EE8925B21C411E3008A65ED /* PostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
 		72AF5AC3A3815243CAE96B6A /* Pods-fitsmerightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmerightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmerightTests/Pods-fitsmerightTests.release.xcconfig"; sourceTree = "<group>"; };
 		9F8B67DFD7CF11E3D630A0C0 /* Pods-fitsmeright.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmeright.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmeright/Pods-fitsmeright.debug.xcconfig"; sourceTree = "<group>"; };
 		A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem +AG.swift"; sourceTree = "<group>"; };
@@ -602,6 +606,8 @@
 				5EE8924521C3E714008A65ED /* CreatePostView.xib */,
 				5EE8924A21C3F26F008A65ED /* CreateTextView.swift */,
 				5EE8924C21C3F276008A65ED /* CreateTextView.xib */,
+				5EE8925921C411DC008A65ED /* PostView.swift */,
+				5EE8925B21C411E3008A65ED /* PostView.xib */,
 			);
 			name = View;
 			path = V;
@@ -881,6 +887,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E74DA0721BBACAA00A97A89 /* LaunchScreen.storyboard in Resources */,
+				5EE8925C21C411E3008A65ED /* PostView.xib in Resources */,
 				5E0900BD21C2B8B90099F81E /* CreatePostInfoVC.storyboard in Resources */,
 				5E74DA7E21BBDB6800A97A89 /* CreatePostVC.storyboard in Resources */,
 				5EE8923D21C3E572008A65ED /* ClosetVC.storyboard in Resources */,
@@ -1085,6 +1092,7 @@
 				A42F7C6921BE71FB00085DB5 /* UINavigationBar+AG.swift in Sources */,
 				A4D6584E21BF651F007B8558 /* UITabBar+AG.swift in Sources */,
 				A4E31D8721C28BA9004D1707 /* FMUserDefaults.swift in Sources */,
+				5EE8925A21C411DC008A65ED /* PostView.swift in Sources */,
 				5E74DA6621BBD90800A97A89 /* AGObject.swift in Sources */,
 				A42F7C6221BE5BD100085DB5 /* AGApplicationWindow.swift in Sources */,
 				5EE8924121C3E615008A65ED /* ClosetDetailVC.swift in Sources */,

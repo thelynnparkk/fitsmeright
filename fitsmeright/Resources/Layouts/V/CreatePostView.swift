@@ -88,15 +88,16 @@ class CreatePostView: UIView {
   
   func setupUI() {
     //MARK: Core
+    
+    
+    
+    //MARK: UI
+    v_container.backgroundColor = .lightGray
     imgv_01.contentMode = .scaleAspectFit
     imgv_02.contentMode = .scaleAspectFit
     imgv_03.contentMode = .scaleAspectFit
     imgv_04.contentMode = .scaleAspectFit
     imgv_background.contentMode = .scaleAspectFit
-    
-    
-    
-    //MARK: UI
     
     
     

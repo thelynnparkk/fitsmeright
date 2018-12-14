@@ -38,7 +38,7 @@ class FeedVC: AGVC {
   
   //MARK: - UI
   @IBOutlet weak var btn_createPost: UIButton!
-  @IBOutlet weak var lb_title: UILabel!
+  @IBOutlet weak var v_post: PostView!
   
   
   
@@ -106,6 +106,11 @@ class FeedVC: AGVC {
     
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    fetchPostData()
+  }
+  
   func onInit() {
     
   }
@@ -125,13 +130,12 @@ class FeedVC: AGVC {
   func setupUI() {
     //MARK: Core
     navigationItem.title = FeedVC.sb_name
-    lb_title.text = FeedVC.sb_name
-    btn_createPost.addTarget(self, action: #selector(createPostButtonPressed), for: .touchUpInside)
     
     
     
     //MARK: UI
-    
+    btn_createPost.addTarget(self, action: #selector(createPostButtonPressed), for: .touchUpInside)
+    v_post.isHidden = true
     
     
     //MARK: Misc
@@ -182,11 +186,14 @@ class FeedVC: AGVC {
   
   //MARK: - VIP - UseCase
   func displayFetchPostData() {
-    
+    if let post = post {
+      v_post.isHidden = false
+      v_post.setupPostData(post: post)
+    }
   }
   
   func displayFetchPostDataError() {
-    
+    v_post.isHidden = true
   }
   
   

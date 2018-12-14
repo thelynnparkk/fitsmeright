@@ -9,6 +9,7 @@
 
 
 import UIKit
+import SwiftDate
 
 
 
@@ -189,6 +190,7 @@ class CreatePostInfoVC: AGVC {
     post.img_backgroundSelected = img_backgroundSelected
     post.string_textSelected = string_textSelected
     post.string_captionSelected = txt_caption.text ?? ""
+    post.string_createdAt = Date().toString()
     FMUserDefaults.Post.set(data: post)
     dismiss(animated: true)
   }
