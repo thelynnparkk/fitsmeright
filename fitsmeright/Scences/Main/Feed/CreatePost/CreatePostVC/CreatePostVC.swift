@@ -141,11 +141,6 @@ class CreatePostVC: AGVC {
     bbi_next.isEnabled = false
     ni.rightBarButtonItems = [bbi_next]
     
-    v_createPost.imgv_01.contentMode = .scaleAspectFit
-    v_createPost.imgv_02.contentMode = .scaleAspectFit
-    v_createPost.imgv_03.contentMode = .scaleAspectFit
-    v_createPost.imgv_04.contentMode = .scaleAspectFit
-    
     btn_addCloth.addTarget(self, action: #selector(addClothButtonPressed), for: .touchUpInside)
     
     

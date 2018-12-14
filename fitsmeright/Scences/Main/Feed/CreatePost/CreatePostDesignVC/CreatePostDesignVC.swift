@@ -146,12 +146,6 @@ class CreatePostDesignVC: AGVC {
     
     v_createText.txt_main.delegate = self
     
-    v_createPost.imgv_01.contentMode = .scaleAspectFit
-    v_createPost.imgv_02.contentMode = .scaleAspectFit
-    v_createPost.imgv_03.contentMode = .scaleAspectFit
-    v_createPost.imgv_04.contentMode = .scaleAspectFit
-    v_createPost.imgv_background.contentMode = .scaleAspectFit
-    
     btn_editText.addTarget(self, action: #selector(editTextButtonPressed), for: .touchUpInside)
     btn_editBrush.addTarget(self, action: #selector(editBrushButtonPressed), for: .touchUpInside)
     btn_editBackground.addTarget(self, action: #selector(editBackgroundButtonPressed), for: .touchUpInside)
@@ -172,14 +166,11 @@ class CreatePostDesignVC: AGVC {
   
   //MARK: - Setup Data
   func setupDataOnViewDidLoad() {
-    setupSelectImageData()
+    setupPostData()
   }
   
-  func setupSelectImageData() {
-    v_createPost.imgv_01.image = img_clothSelected[0]
-    v_createPost.imgv_02.image = img_clothSelected[1]
-    v_createPost.imgv_03.image = img_clothSelected[2]
-    v_createPost.imgv_04.image = img_clothSelected[3]
+  func setupPostData() {
+    v_createPost.setupClothData(images: img_clothSelected)
   }
   
   
@@ -187,7 +178,10 @@ class CreatePostDesignVC: AGVC {
   //MARK: - Event
   @objc
   func nextBarButtonPressed(_ sender: UIBarButtonItem) {
-    let vc = BlankTVC.vc
+    let vc = CreatePostInfoVC.vc
+    vc.img_clothSelected = img_clothSelected
+    vc.img_backgroundSelected = img_backgroundSelected
+    vc.string_textSelected = v_createText.txt_main.text
     navigationController?.pushViewController(vc, animated: true)
   }
   

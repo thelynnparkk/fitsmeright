@@ -112,6 +112,10 @@ class CreateTextView: UIView {
   
   
   //MARK: - Setup Data
+  func setupTextData(text: String) {
+    txt_main.text = text
+    txt_main.isHidden = false
+  }
   
   
   
@@ -141,12 +145,12 @@ class CreateTextView: UIView {
   }
   
   func displayStopEdit(onComplete: @escaping CBVoid) {
-    v_overlay.isHidden = true
-    txt_main.isHidden = (txt_main.text ?? "").isEmpty
     v_overlay.alpha = 1
     UIView.animate(withDuration: 0.3, animations: {
       self.v_overlay.alpha = 0
     }) { _ in
+      self.v_overlay.isHidden = true
+      self.txt_main.isHidden = (self.txt_main.text ?? "").isEmpty
       onComplete()
     }
   }

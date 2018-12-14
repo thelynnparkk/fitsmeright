@@ -113,6 +113,16 @@ class CreatePostView: UIView {
   
   
   //MARK: - Setup Data
+  func setupClothData(images: [UIImage]) {
+    imgv_01.image = images[0]
+    imgv_02.image = images[1]
+    imgv_03.image = images[2]
+    imgv_04.image = images[3]
+  }
+  
+  func setupBackgroundData(image: UIImage) {
+    imgv_background.image = image
+  }
   
   
   
