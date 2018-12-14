@@ -13,6 +13,7 @@ import UIKit
 
 
 extension CreatePostDesignVC:
+  UITextFieldDelegate,
   AGVCInstantiatable,
   AGImagePCDelegate
 {
@@ -40,10 +41,11 @@ class CreatePostDesignVC: AGVC {
   //MARK: - UI
   var bbi_cancel: UIBarButtonItem!
   var bbi_next: UIBarButtonItem!
+  @IBOutlet weak var v_createText: CreateTextView!
   @IBOutlet weak var v_createPost: CreatePostView!
-  @IBOutlet weak var btn_addText: UIButton!
-  @IBOutlet weak var btn_brush: UIButton!
-  @IBOutlet weak var btn_addBackground: UIButton!
+  @IBOutlet weak var btn_editText: UIButton!
+  @IBOutlet weak var btn_editBrush: UIButton!
+  @IBOutlet weak var btn_editBackground: UIButton!
   
   
   
@@ -139,13 +141,19 @@ class CreatePostDesignVC: AGVC {
     bbi_next = UIBarButtonItem(title: "next", style: .plain, target: self, action: #selector(nextBarButtonPressed))
     ni.rightBarButtonItems = [bbi_next]
     
+    v_createText.txt_main.delegate = self
+    
     v_createPost.imgv_01.contentMode = .scaleAspectFit
     v_createPost.imgv_02.contentMode = .scaleAspectFit
     v_createPost.imgv_03.contentMode = .scaleAspectFit
     v_createPost.imgv_04.contentMode = .scaleAspectFit
     v_createPost.imgv_background.contentMode = .scaleAspectFit
     
-    btn_addBackground.addTarget(self, action: #selector(changeBackgroundButtonPressed), for: .touchUpInside)
+    btn_editText.addTarget(self, action: #selector(editTextButtonPressed), for: .touchUpInside)
+    btn_editBrush.addTarget(self, action: #selector(editBrushButtonPressed), for: .touchUpInside)
+    btn_editBackground.addTarget(self, action: #selector(editBackgroundButtonPressed), for: .touchUpInside)
+    
+    btn_editBrush.isEnabled = false
   }
   
   func setupSnp() {
@@ -176,7 +184,17 @@ class CreatePostDesignVC: AGVC {
   }
   
   @objc
-  func changeBackgroundButtonPressed(_ sender: UIButton) {
+  func editTextButtonPressed(_ sender: UIButton) {
+    v_createText.startEdit()
+  }
+  
+  @objc
+  func editBrushButtonPressed(_ sender: UIButton) {
+    
+  }
+  
+  @objc
+  func editBackgroundButtonPressed(_ sender: UIButton) {
     AGImagePC.displaySourcePopup(on: self)
   }
   
@@ -194,7 +212,28 @@ class CreatePostDesignVC: AGVC {
   
   
   
-  //MARK: - Core - Protocol
+  //MARK: - Core - UITextFieldDelegate
+  func textFieldDidBeginEditing(_ textField: UITextField) {
+    switch textField {
+    case v_createText.txt_main:
+      v_createText.displayStartEdit(onComplete: {
+        
+      })
+    default:
+      break
+    }
+  }
+  
+  func textFieldDidEndEditing(_ textField: UITextField) {
+    switch textField {
+    case v_createText.txt_main:
+      v_createText.displayStopEdit(onComplete: {
+        
+      })
+    default:
+      break
+    }
+  }
   
   
   

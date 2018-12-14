@@ -56,6 +56,8 @@
 		5EE8924421C3E6DD008A65ED /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924321C3E6DD008A65ED /* CreatePostView.swift */; };
 		5EE8924621C3E714008A65ED /* CreatePostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8924521C3E714008A65ED /* CreatePostView.xib */; };
 		5EE8924821C3EB69008A65ED /* UIView+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924721C3EB69008A65ED /* UIView+AG.swift */; };
+		5EE8924B21C3F26F008A65ED /* CreateTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924A21C3F26F008A65ED /* CreateTextView.swift */; };
+		5EE8924D21C3F276008A65ED /* CreateTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8924C21C3F276008A65ED /* CreateTextView.xib */; };
 		6B93C7E7F1C1881D5030DBE8 /* Pods_fitsmerightTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B34B9F8A3E854F921D23C20 /* Pods_fitsmerightTests.framework */; };
 		A408A4D121BEB4970030F2F5 /* UIBarButtonItem +AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */; };
 		A42F7C4E21BE321300085DB5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A42F7C4D21BE321300085DB5 /* README.md */; };
@@ -157,6 +159,8 @@
 		5EE8924321C3E6DD008A65ED /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
 		5EE8924521C3E714008A65ED /* CreatePostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreatePostView.xib; sourceTree = "<group>"; };
 		5EE8924721C3EB69008A65ED /* UIView+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AG.swift"; sourceTree = "<group>"; };
+		5EE8924A21C3F26F008A65ED /* CreateTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTextView.swift; sourceTree = "<group>"; };
+		5EE8924C21C3F276008A65ED /* CreateTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateTextView.xib; sourceTree = "<group>"; };
 		72AF5AC3A3815243CAE96B6A /* Pods-fitsmerightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmerightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmerightTests/Pods-fitsmerightTests.release.xcconfig"; sourceTree = "<group>"; };
 		9F8B67DFD7CF11E3D630A0C0 /* Pods-fitsmeright.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmeright.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmeright/Pods-fitsmeright.debug.xcconfig"; sourceTree = "<group>"; };
 		A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem +AG.swift"; sourceTree = "<group>"; };
@@ -589,6 +593,8 @@
 			children = (
 				5EE8924321C3E6DD008A65ED /* CreatePostView.swift */,
 				5EE8924521C3E714008A65ED /* CreatePostView.xib */,
+				5EE8924A21C3F26F008A65ED /* CreateTextView.swift */,
+				5EE8924C21C3F276008A65ED /* CreateTextView.xib */,
 			);
 			name = View;
 			path = V;
@@ -872,6 +878,7 @@
 				5E74DA7C21BBDB5E00A97A89 /* ProfileVC.storyboard in Resources */,
 				5E74DA7821BBDADF00A97A89 /* MainTBC.storyboard in Resources */,
 				5EE8924621C3E714008A65ED /* CreatePostView.xib in Resources */,
+				5EE8924D21C3F276008A65ED /* CreateTextView.xib in Resources */,
 				A42F7C6721BE621C00085DB5 /* BlankVC.storyboard in Resources */,
 				5E74DA0421BBACAA00A97A89 /* Assets.xcassets in Resources */,
 				5E74DA7A21BBDB5200A97A89 /* FeedVC.storyboard in Resources */,
@@ -1062,6 +1069,7 @@
 				5E74DA8421BBF94B00A97A89 /* UINavigationController+AG.swift in Sources */,
 				A4D6585921BF7DF2007B8558 /* AttachmentHandler.swift in Sources */,
 				5E74DA8621BBFC6700A97A89 /* UIImagePickerController+AG.swift in Sources */,
+				5EE8924B21C3F26F008A65ED /* CreateTextView.swift in Sources */,
 				5E74DA5721BBD0B100A97A89 /* TemplateVC.swift in Sources */,
 				5E74DA6221BBD6AC00A97A89 /* CATransition+AG.swift in Sources */,
 				A42F7C6921BE71FB00085DB5 /* UINavigationBar+AG.swift in Sources */,

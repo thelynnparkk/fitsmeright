@@ -125,12 +125,16 @@ class CreatePostVC: AGVC {
   }
   
   func setupUI() {
+    //MARK: Core
     let nb = navigationController?.navigationBar
     let c = R.Value.Color.self
     nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     let ni = navigationItem
     ni.title = CreatePostVC.sb_name
     
+    
+    
+    //MARK: UI
     bbi_cancel = UIBarButtonItem(title: "cancel", style: .plain, target: self, action: #selector(dismissButtonPressed))
     ni.leftBarButtonItems = [bbi_cancel]
     bbi_next = UIBarButtonItem(title: "next", style: .plain, target: self, action: #selector(nextBarButtonPressed))
@@ -143,6 +147,13 @@ class CreatePostVC: AGVC {
     v_createPost.imgv_04.contentMode = .scaleAspectFit
     
     btn_addCloth.addTarget(self, action: #selector(addClothButtonPressed), for: .touchUpInside)
+    
+    
+    
+    //MARK: Misc
+    
+    
+    
   }
   
   func setupSnp() {
