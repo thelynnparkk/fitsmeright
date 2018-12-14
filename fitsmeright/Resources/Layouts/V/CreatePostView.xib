@@ -11,10 +11,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="W2t-Ab-vpi">
+        <view contentMode="scaleToFill" id="W2t-Ab-vpi" customClass="CreatePostView" customModule="fitsmeright" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JPA-3b-GWn">
+                    <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+                </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jyv-o7-vne">
                     <rect key="frame" x="40" y="40" width="320" height="320"/>
                     <subviews>
@@ -52,12 +55,23 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="JPA-3b-GWn" firstAttribute="leading" secondItem="1yc-Ip-aaY" secondAttribute="leading" id="8Ul-JX-Fup"/>
+                <constraint firstItem="1yc-Ip-aaY" firstAttribute="trailing" secondItem="JPA-3b-GWn" secondAttribute="trailing" id="IbQ-MK-EVE"/>
                 <constraint firstItem="jyv-o7-vne" firstAttribute="centerX" secondItem="W2t-Ab-vpi" secondAttribute="centerX" id="NE3-vC-Ms4"/>
                 <constraint firstItem="jyv-o7-vne" firstAttribute="height" secondItem="W2t-Ab-vpi" secondAttribute="height" multiplier="0.8" id="POD-d5-YK4"/>
+                <constraint firstItem="1yc-Ip-aaY" firstAttribute="bottom" secondItem="JPA-3b-GWn" secondAttribute="bottom" id="XxP-zn-wd3"/>
+                <constraint firstItem="JPA-3b-GWn" firstAttribute="top" secondItem="1yc-Ip-aaY" secondAttribute="top" id="bx6-Wz-a0h"/>
                 <constraint firstItem="jyv-o7-vne" firstAttribute="centerY" secondItem="W2t-Ab-vpi" secondAttribute="centerY" id="obU-t4-TRv"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="1yc-Ip-aaY"/>
+            <connections>
+                <outlet property="imgv_01" destination="Yw5-dD-CBc" id="NMG-FS-eKp"/>
+                <outlet property="imgv_02" destination="F0K-ux-Le8" id="X0r-u9-biZ"/>
+                <outlet property="imgv_03" destination="Le3-Ou-0qu" id="GFW-CL-Dcj"/>
+                <outlet property="imgv_04" destination="j5r-Hw-ln2" id="pbp-RY-phY"/>
+                <outlet property="imgv_background" destination="JPA-3b-GWn" id="g7I-tx-iKo"/>
+            </connections>
         </view>
     </objects>
 </document>
