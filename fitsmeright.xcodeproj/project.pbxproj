@@ -53,6 +53,8 @@
 		5EE8923B21C3E566008A65ED /* ClosetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8923A21C3E566008A65ED /* ClosetVC.swift */; };
 		5EE8923D21C3E572008A65ED /* ClosetVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8923C21C3E572008A65ED /* ClosetVC.storyboard */; };
 		5EE8924121C3E615008A65ED /* ClosetDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924021C3E615008A65ED /* ClosetDetailVC.swift */; };
+		5EE8924421C3E6DD008A65ED /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924321C3E6DD008A65ED /* CreatePostView.swift */; };
+		5EE8924621C3E714008A65ED /* CreatePostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8924521C3E714008A65ED /* CreatePostView.xib */; };
 		6B93C7E7F1C1881D5030DBE8 /* Pods_fitsmerightTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B34B9F8A3E854F921D23C20 /* Pods_fitsmerightTests.framework */; };
 		A408A4D121BEB4970030F2F5 /* UIBarButtonItem +AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */; };
 		A42F7C4E21BE321300085DB5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A42F7C4D21BE321300085DB5 /* README.md */; };
@@ -151,6 +153,8 @@
 		5EE8923A21C3E566008A65ED /* ClosetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetVC.swift; sourceTree = "<group>"; };
 		5EE8923C21C3E572008A65ED /* ClosetVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClosetVC.storyboard; sourceTree = "<group>"; };
 		5EE8924021C3E615008A65ED /* ClosetDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetDetailVC.swift; sourceTree = "<group>"; };
+		5EE8924321C3E6DD008A65ED /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
+		5EE8924521C3E714008A65ED /* CreatePostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreatePostView.xib; sourceTree = "<group>"; };
 		72AF5AC3A3815243CAE96B6A /* Pods-fitsmerightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmerightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmerightTests/Pods-fitsmerightTests.release.xcconfig"; sourceTree = "<group>"; };
 		9F8B67DFD7CF11E3D630A0C0 /* Pods-fitsmeright.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmeright.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmeright/Pods-fitsmeright.debug.xcconfig"; sourceTree = "<group>"; };
 		A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem +AG.swift"; sourceTree = "<group>"; };
@@ -362,6 +366,7 @@
 		5E74DA3221BBCCC400A97A89 /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
+				5EE8924221C3E696008A65ED /* View */,
 				5E0900B221C296F10099F81E /* TabBatItem */,
 				A42F7C7521BE837C00085DB5 /* NVC */,
 				A42F7C7421BE837300085DB5 /* VC */,
@@ -575,6 +580,16 @@
 				5EE8924021C3E615008A65ED /* ClosetDetailVC.swift */,
 			);
 			path = ClosetDetailVC;
+			sourceTree = "<group>";
+		};
+		5EE8924221C3E696008A65ED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5EE8924321C3E6DD008A65ED /* CreatePostView.swift */,
+				5EE8924521C3E714008A65ED /* CreatePostView.xib */,
+			);
+			name = View;
+			path = V;
 			sourceTree = "<group>";
 		};
 		A42F7C5F21BE5BA400085DB5 /* Application */ = {
@@ -853,6 +868,7 @@
 				5EE8923D21C3E572008A65ED /* ClosetVC.storyboard in Resources */,
 				5E74DA7C21BBDB5E00A97A89 /* ProfileVC.storyboard in Resources */,
 				5E74DA7821BBDADF00A97A89 /* MainTBC.storyboard in Resources */,
+				5EE8924621C3E714008A65ED /* CreatePostView.xib in Resources */,
 				A42F7C6721BE621C00085DB5 /* BlankVC.storyboard in Resources */,
 				5E74DA0421BBACAA00A97A89 /* Assets.xcassets in Resources */,
 				5E74DA7A21BBDB5200A97A89 /* FeedVC.storyboard in Resources */,
@@ -1060,6 +1076,7 @@
 				A42F7C7121BE7B7300085DB5 /* UIImage+AG.swift in Sources */,
 				5EE8923B21C3E566008A65ED /* ClosetVC.swift in Sources */,
 				5E74DA6E21BBDAAC00A97A89 /* MainTBC.swift in Sources */,
+				5EE8924421C3E6DD008A65ED /* CreatePostView.swift in Sources */,
 				A408A4D121BEB4970030F2F5 /* UIBarButtonItem +AG.swift in Sources */,
 				5E0900B821C2B88B0099F81E /* CreatePostDesignVC.swift in Sources */,
 				5E74DA5821BBD0B100A97A89 /* TemplateVIP.swift in Sources */,
