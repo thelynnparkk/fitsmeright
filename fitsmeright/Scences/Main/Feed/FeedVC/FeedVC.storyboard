@@ -32,14 +32,14 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HQH-NO-zpU">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HQH-NO-zpU">
                                 <rect key="frame" x="0.0" y="110" width="375" height="557"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pPa-UO-Kgm" customClass="PostView" customModule="fitsmeright" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="639"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="649"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="639" id="nWZ-r5-AlB"/>
+                                            <constraint firstAttribute="height" constant="649" id="nWZ-r5-AlB"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -59,7 +59,7 @@
                             <constraint firstItem="aHg-fq-htJ" firstAttribute="top" secondItem="Zhc-nx-grX" secondAttribute="bottom" id="AYJ-Qc-EcY"/>
                             <constraint firstItem="Zhc-nx-grX" firstAttribute="top" secondItem="7kc-vp-asO" secondAttribute="top" id="Hpk-EZ-6Sp"/>
                             <constraint firstAttribute="trailing" secondItem="LNf-X8-SFf" secondAttribute="trailing" constant="20" id="Ipa-BA-bBE"/>
-                            <constraint firstAttribute="bottom" secondItem="HQH-NO-zpU" secondAttribute="bottom" id="Klu-xD-duX"/>
+                            <constraint firstItem="aHg-fq-htJ" firstAttribute="bottom" secondItem="HQH-NO-zpU" secondAttribute="bottom" id="Klu-xD-duX"/>
                             <constraint firstItem="HQH-NO-zpU" firstAttribute="leading" secondItem="aHg-fq-htJ" secondAttribute="leading" id="RtT-fe-nF1"/>
                             <constraint firstAttribute="trailing" secondItem="Zhc-nx-grX" secondAttribute="trailing" id="f1e-R2-Ab9"/>
                             <constraint firstItem="Zhc-nx-grX" firstAttribute="leading" secondItem="aHg-fq-htJ" secondAttribute="leading" id="nVk-bV-1mh"/>

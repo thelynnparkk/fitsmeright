@@ -92,7 +92,7 @@ class CreatePostView: UIView {
     
     
     //MARK: UI
-    v_container.backgroundColor = .lightGray
+    v_container.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
     imgv_01.contentMode = .scaleAspectFit
     imgv_02.contentMode = .scaleAspectFit
     imgv_03.contentMode = .scaleAspectFit

@@ -124,7 +124,7 @@ class PostView: UIView {
     let bkk = Region(calendar: Calendars.buddhist, zone: Zones.asiaBangkok, locale: Locales.thai)
     let date = post._string_createdAt.toDate("yyyy-MM-dd HH:mm", region: bkk)
     lb_username.text = "lin-ping"
-    lb_createdAt.text = date?.toString() ?? "-"
+    lb_createdAt.text = date?.toString() ?? ""
     lb_caption.text = post.string_captionSelected
     v_createPost.setupClothData(images: post.img_clothSelected)
     v_createPost.setupBackgroundData(image: post._img_backgroundSelected)
