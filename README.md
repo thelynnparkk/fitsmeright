@@ -25,6 +25,13 @@ Xcode 10.0+
 ```
 
 
+**Shortcuts**
+```
+Edit all in files: ctrl + cmd + e
+```
+
+
+
 **Prefix-Commit**
 ```
 [save]: Bad habbit but useful

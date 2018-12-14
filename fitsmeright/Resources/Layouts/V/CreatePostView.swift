@@ -19,6 +19,10 @@ extension CreatePostView
 
 
 
+/*
+ Note: Creating a Custom View with xib.
+ Source: https://medium.com/@umairhassanbaig/ios-swift-creating-a-custom-view-with-xib-ace878cd41c5
+ */
 class CreatePostView: UIView {
   
   //MARK: - UI

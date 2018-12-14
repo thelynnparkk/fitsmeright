@@ -40,11 +40,7 @@ class CreatePostDesignVC: AGVC {
   //MARK: - UI
   var bbi_cancel: UIBarButtonItem!
   var bbi_next: UIBarButtonItem!
-  @IBOutlet weak var imgv_01: UIImageView!
-  @IBOutlet weak var imgv_02: UIImageView!
-  @IBOutlet weak var imgv_03: UIImageView!
-  @IBOutlet weak var imgv_04: UIImageView!
-  @IBOutlet weak var imgv_background: UIImageView!
+  @IBOutlet weak var v_createPost: CreatePostView!
   @IBOutlet weak var btn_addText: UIButton!
   @IBOutlet weak var btn_brush: UIButton!
   @IBOutlet weak var btn_addBackground: UIButton!
@@ -143,11 +139,11 @@ class CreatePostDesignVC: AGVC {
     bbi_next = UIBarButtonItem(title: "next", style: .plain, target: self, action: #selector(nextBarButtonPressed))
     ni.rightBarButtonItems = [bbi_next]
     
-    imgv_01.contentMode = .scaleAspectFit
-    imgv_02.contentMode = .scaleAspectFit
-    imgv_03.contentMode = .scaleAspectFit
-    imgv_04.contentMode = .scaleAspectFit
-    imgv_background.contentMode = .scaleAspectFit
+    v_createPost.imgv_01.contentMode = .scaleAspectFit
+    v_createPost.imgv_02.contentMode = .scaleAspectFit
+    v_createPost.imgv_03.contentMode = .scaleAspectFit
+    v_createPost.imgv_04.contentMode = .scaleAspectFit
+    v_createPost.imgv_background.contentMode = .scaleAspectFit
     
     btn_addBackground.addTarget(self, action: #selector(changeBackgroundButtonPressed), for: .touchUpInside)
   }
@@ -164,10 +160,10 @@ class CreatePostDesignVC: AGVC {
   }
   
   func setupSelectImageData() {
-    imgv_01.image = img_clothSelected[0]
-    imgv_02.image = img_clothSelected[1]
-    imgv_03.image = img_clothSelected[2]
-    imgv_04.image = img_clothSelected[3]
+    v_createPost.imgv_01.image = img_clothSelected[0]
+    v_createPost.imgv_02.image = img_clothSelected[1]
+    v_createPost.imgv_03.image = img_clothSelected[2]
+    v_createPost.imgv_04.image = img_clothSelected[3]
   }
   
   
@@ -205,7 +201,7 @@ class CreatePostDesignVC: AGVC {
   //MARK: - Custom - AGImagePickerDelegate
   func didFinishPickingMedia(_ picker: UIImagePickerController, with image: UIImage) {
     picker.dismiss(animated: true, completion: nil)
-    imgv_background.image = image
+    v_createPost.imgv_background.image = image
     img_backgroundSelected = image
   }
   
