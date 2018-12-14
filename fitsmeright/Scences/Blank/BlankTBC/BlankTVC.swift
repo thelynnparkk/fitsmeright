@@ -126,17 +126,30 @@ class BlankTVC: AGVC {
   }
   
   func setupUI() {
+    //MARK: Core
     let nb = navigationController?.navigationBar
     let c = R.Value.Color.self
     nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
-    let ni = navigationItem
-    ni.title = BlankTVC.sb_name
-//    bbi_cancel = UIBarButtonItem(title: "cancel", style: .plain, target: self, action: #selector(dismissButtonPressed))
-//    ni.leftBarButtonItems = [bbi_cancel]
-    bbi_next = UIBarButtonItem(title: "next", style: .plain, target: self, action: #selector(nextButtonPressed))
-    ni.rightBarButtonItems = [bbi_next]
+    
     table_main.dataSource = self
     table_main.delegate = self
+    
+    
+    
+    //MARK: UI
+    let ni = navigationItem
+    ni.title = BlankTVC.sb_name
+    //    bbi_cancel = UIBarButtonItem(title: "cancel", style: .plain, target: self, action: #selector(dismissButtonPressed))
+    //    ni.leftBarButtonItems = [bbi_cancel]
+    bbi_next = UIBarButtonItem(title: "next", style: .plain, target: self, action: #selector(nextButtonPressed))
+    ni.rightBarButtonItems = [bbi_next]
+    
+    
+    
+    //MARK: Misc
+    
+    
+    
   }
   
   func setupSnp() {

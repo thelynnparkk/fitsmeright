@@ -114,6 +114,17 @@ class SplashVC: AGVC {
   }
   
   func setupUI() {
+    //MARK: Core
+    
+    
+    
+    //MARK: UI
+    
+    
+    
+    //MARK: Misc
+    
+    
     
   }
   

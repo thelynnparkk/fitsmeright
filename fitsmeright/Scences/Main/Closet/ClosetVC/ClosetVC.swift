@@ -121,8 +121,19 @@ class ClosetVC: AGVC {
   }
   
   func setupUI() {
+    //MARK: Core
     navigationItem.title = ClosetVC.sb_name
     lb_title.text = ClosetVC.sb_name
+    
+    
+    //MARK: UI
+    
+    
+    
+    //MARK: Misc
+    
+    
+    
   }
   
   func setupSnp() {

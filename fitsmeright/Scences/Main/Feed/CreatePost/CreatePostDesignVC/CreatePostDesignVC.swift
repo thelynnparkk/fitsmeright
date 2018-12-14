@@ -130,12 +130,15 @@ class CreatePostDesignVC: AGVC {
   }
   
   func setupUI() {
+    //MARK: Core
     let nb = navigationController?.navigationBar
     let c = R.Value.Color.self
     nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     let ni = navigationItem
     ni.title = CreatePostDesignVC.sb_name
     
+    
+    //MARK: UI
     bbi_cancel = UIBarButtonItem(title: "cancel", style: .plain, target: self, action: #selector(dismissButtonPressed))
     ni.leftBarButtonItems = [bbi_cancel]
     bbi_next = UIBarButtonItem(title: "next", style: .plain, target: self, action: #selector(nextBarButtonPressed))
@@ -153,7 +156,12 @@ class CreatePostDesignVC: AGVC {
     btn_editBrush.addTarget(self, action: #selector(editBrushButtonPressed), for: .touchUpInside)
     btn_editBackground.addTarget(self, action: #selector(editBackgroundButtonPressed), for: .touchUpInside)
     
+    
+    
+    //MARK: Misc
     btn_editBrush.isEnabled = false
+    
+    
   }
   
   func setupSnp() {

@@ -121,8 +121,20 @@ class ProfileVC: AGVC {
   }
   
   func setupUI() {
+    //MARK: Core
     navigationItem.title = ProfileVC.sb_name
+    
+    
+    
+    //MARK: UI
     lb_title.text = ProfileVC.sb_name
+    
+    
+    
+    //MARK: Misc
+    
+    
+    
   }
   
   func setupSnp() {

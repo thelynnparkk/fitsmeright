@@ -124,14 +124,18 @@ class BlankVC: AGVC {
   }
   
   func setupUI() {
+    //MARK: Core
     let nb = navigationController?.navigationBar
     let c = R.Value.Color.self
     nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     let ni = navigationItem
     ni.title = BlankVC.sb_name
-//    bbi_cancel = UIBarButtonItem(title: "cancel", style: .plain, target: self, action: #selector(dismissButtonPressed))
-//    ni.leftBarButtonItems = [bbi_cancel]
+    //    bbi_cancel = UIBarButtonItem(title: "cancel", style: .plain, target: self, action: #selector(dismissButtonPressed))
+    //    ni.leftBarButtonItems = [bbi_cancel]
     
+    
+    
+    //MARK: UI
     let img_cancel = #imageLiteral(resourceName: "ic_control")
     let size = CGSize(width: 22, height: 44)
     let btn_cancel_1 = UIButton(type: .custom)
@@ -154,6 +158,13 @@ class BlankVC: AGVC {
     ni.rightBarButtonItems = [bbi_next]
     lb_title.text = BlankVC.sb_name
     btn_push.addTarget(self, action: #selector(pushButtonPressed), for: .touchUpInside)
+    
+    
+    
+    //MARK: Misc
+    
+    
+    
   }
   
   func setupSnp() {

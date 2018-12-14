@@ -116,9 +116,21 @@ class AGImagePC: UIImagePickerController {
   }
   
   func setupUI() {
+    //MARK: Core
     delegate = self
     let nb = navigationController?.navigationBar
     nb?.setupWith(content: .white, bg: .black, isTranslucent: false)
+    
+    
+    
+    //MARK: UI
+    
+    
+    
+    //MARK: Misc
+    
+    
+    
   }
   
   func setupSnp() {

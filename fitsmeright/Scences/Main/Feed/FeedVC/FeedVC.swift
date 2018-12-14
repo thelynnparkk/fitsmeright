@@ -122,9 +122,21 @@ class FeedVC: AGVC {
   }
   
   func setupUI() {
+    //MARK: Core
     navigationItem.title = FeedVC.sb_name
     lb_title.text = FeedVC.sb_name
     btn_createPost.addTarget(self, action: #selector(createPostButtonPressed), for: .touchUpInside)
+    
+    
+    
+    //MARK: UI
+    
+    
+    
+    //MARK: Misc
+    
+    
+    
   }
   
   func setupSnp() {

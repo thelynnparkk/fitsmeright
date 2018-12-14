@@ -122,8 +122,22 @@ class MainTBC: RAMAnimatedTabBarController {
   }
   
   func setupUI() {
+    //MARK: Core
     delegate = self
+    let c = R.Value.Color.self
     
+    let nc = navigationController
+    nc?.isNavigationBarHidden = true
+    
+    //    let nb = navigationController?.navigationBar
+    //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
+    
+    let tb = tabBar
+    tb.setupWith(content: .white, bg: c.peach, isTranslucent: false)
+    
+    
+    
+    //MARK: UI
     vc_01 = FeedVC.vc
     vc_02 = ClosetVC.vc
     vc_03 = ProfileVC.vc
@@ -137,7 +151,7 @@ class MainTBC: RAMAnimatedTabBarController {
     let tbi_03 = RAMAnimatedTabBarItem(title: nil, image: #imageLiteral(resourceName: "ic_profile"), selectedImage: nil)
     
     let animation = RAMNonAnimation()
-//    animation.duration = 0.0
+    //    animation.duration = 0.0
     tbi_01.setupWith(color: .lightGray, selectedColor: .white, itemAnimation: animation)
     tbi_02.setupWith(color: .lightGray, selectedColor: .white, itemAnimation: animation)
     tbi_03.setupWith(color: .lightGray, selectedColor: .white, itemAnimation: animation)
@@ -146,23 +160,19 @@ class MainTBC: RAMAnimatedTabBarController {
     vc_02.tabBarItem = tbi_02
     vc_03.tabBarItem = tbi_03
     
-//    viewControllers = [vc_01, vc_02, vc_03]
+    //    viewControllers = [vc_01, vc_02, vc_03]
     
     nvc_01.tabBarItem = tbi_01
     nvc_02.tabBarItem = tbi_02
     nvc_03.tabBarItem = tbi_03
     viewControllers = [nvc_01, nvc_02, nvc_03]
     
-    let c = R.Value.Color.self
     
-    let nc = navigationController
-    nc?.isNavigationBarHidden = true
     
-//    let nb = navigationController?.navigationBar
-//    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
+    //MARK: Misc
     
-    let tb = tabBar
-    tb.setupWith(content: .white, bg: c.peach, isTranslucent: false)
+    
+    
   }
   
   func setupSnp() {
