@@ -22,6 +22,7 @@ extension CreatePostView
 class CreatePostView: UIView {
   
   //MARK: - UI
+  @IBOutlet weak var v_container: UIView!
   @IBOutlet weak var imgv_01: UIImageView!
   @IBOutlet weak var imgv_02: UIImageView!
   @IBOutlet weak var imgv_03: UIImageView!
@@ -51,19 +52,32 @@ class CreatePostView: UIView {
   
   
   //MARK: - Initial
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    onInit()
+  }
   
-  
-  
-  //MARK: - Life cycle
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    setupViewOnAwakeFromNib()
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    onInit()
   }
   
   
   
+  //MARK: - Life cycle
+  func onInit() {
+    Bundle.main.loadNibNamed("CreatePostView", owner: self, options: nil)
+    v_container.match(in: self)
+    setupViewOnInit()
+  }
+  
+  func onDeinit() {
+    
+  }
+  
+  
   //MARK: - Setup View
-  func setupViewOnAwakeFromNib() {
+  func setupViewOnInit() {
     setupUI()
     setupSnp()
   }

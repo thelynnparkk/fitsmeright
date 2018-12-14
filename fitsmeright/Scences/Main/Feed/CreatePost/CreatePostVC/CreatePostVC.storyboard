@@ -21,50 +21,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
                                 <color key="backgroundColor" red="0.98039215690000003" green="0.44705882349999998" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="497-Dh-VCl">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="497-Dh-VCl" customClass="CreatePostView" customModule="fitsmeright" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="375"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UbY-tD-qiB">
-                                        <rect key="frame" x="37.5" y="37.5" width="300" height="300"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="oEj-lp-2vu">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="140"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GLr-xj-aSg">
-                                                        <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
-                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zly-ae-ztt">
-                                                        <rect key="frame" x="160" y="0.0" width="140" height="140"/>
-                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </imageView>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="VMO-d7-ckR">
-                                                <rect key="frame" x="0.0" y="160" width="300" height="140"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u5I-es-5Eh">
-                                                        <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
-                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vFJ-zH-DNh">
-                                                        <rect key="frame" x="160" y="0.0" width="140" height="140"/>
-                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </imageView>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="UbY-tD-qiB" secondAttribute="height" multiplier="1:1" id="At5-LH-grh"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="UbY-tD-qiB" firstAttribute="centerX" secondItem="497-Dh-VCl" secondAttribute="centerX" id="OMO-VD-hN9"/>
-                                    <constraint firstItem="UbY-tD-qiB" firstAttribute="centerY" secondItem="497-Dh-VCl" secondAttribute="centerY" id="P4s-h8-3xm"/>
                                     <constraint firstAttribute="width" secondItem="497-Dh-VCl" secondAttribute="height" multiplier="1:1" id="ScD-qf-DEn"/>
-                                    <constraint firstItem="UbY-tD-qiB" firstAttribute="height" secondItem="497-Dh-VCl" secondAttribute="height" multiplier="0.8" id="TN2-Ka-0tx"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ms-hj-nJI">
@@ -94,10 +55,7 @@
                     </view>
                     <connections>
                         <outlet property="btn_addCloth" destination="8Ms-hj-nJI" id="rcb-BV-qFq"/>
-                        <outlet property="imgv_01" destination="GLr-xj-aSg" id="tOT-j2-aQo"/>
-                        <outlet property="imgv_02" destination="zly-ae-ztt" id="4jl-Ch-tNL"/>
-                        <outlet property="imgv_03" destination="u5I-es-5Eh" id="VRw-tn-6Yh"/>
-                        <outlet property="imgv_04" destination="vFJ-zH-DNh" id="Yh8-RG-xSU"/>
+                        <outlet property="v_createPost" destination="497-Dh-VCl" id="14G-Ys-5fo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2MF-PJ-TLA" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -40,10 +40,7 @@ class CreatePostVC: AGVC {
   //MARK: - UI
   var bbi_cancel: UIBarButtonItem!
   var bbi_next: UIBarButtonItem!
-  @IBOutlet weak var imgv_01: UIImageView!
-  @IBOutlet weak var imgv_02: UIImageView!
-  @IBOutlet weak var imgv_03: UIImageView!
-  @IBOutlet weak var imgv_04: UIImageView!
+  @IBOutlet weak var v_createPost: CreatePostView!
   @IBOutlet weak var btn_addCloth: UIButton!
   
   
@@ -140,10 +137,10 @@ class CreatePostVC: AGVC {
     bbi_next.isEnabled = false
     ni.rightBarButtonItems = [bbi_next]
     
-    imgv_01.contentMode = .scaleAspectFit
-    imgv_02.contentMode = .scaleAspectFit
-    imgv_03.contentMode = .scaleAspectFit
-    imgv_04.contentMode = .scaleAspectFit
+    v_createPost.imgv_01.contentMode = .scaleAspectFit
+    v_createPost.imgv_02.contentMode = .scaleAspectFit
+    v_createPost.imgv_03.contentMode = .scaleAspectFit
+    v_createPost.imgv_04.contentMode = .scaleAspectFit
     
     btn_addCloth.addTarget(self, action: #selector(addClothButtonPressed), for: .touchUpInside)
   }
@@ -198,13 +195,13 @@ class CreatePostVC: AGVC {
     guard img_clothSelected.count < 4 else { return }
     switch img_clothSelected.count {
     case 0:
-      imgv_01.image = image
+      v_createPost.imgv_01.image = image
     case 1:
-      imgv_02.image = image
+      v_createPost.imgv_02.image = image
     case 2:
-      imgv_03.image = image
+      v_createPost.imgv_03.image = image
     case 3:
-      imgv_04.image = image
+      v_createPost.imgv_04.image = image
       btn_addCloth.isHidden = true
       bbi_next.isEnabled = true
     default:

@@ -55,6 +55,7 @@
 		5EE8924121C3E615008A65ED /* ClosetDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924021C3E615008A65ED /* ClosetDetailVC.swift */; };
 		5EE8924421C3E6DD008A65ED /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924321C3E6DD008A65ED /* CreatePostView.swift */; };
 		5EE8924621C3E714008A65ED /* CreatePostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8924521C3E714008A65ED /* CreatePostView.xib */; };
+		5EE8924821C3EB69008A65ED /* UIView+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924721C3EB69008A65ED /* UIView+AG.swift */; };
 		6B93C7E7F1C1881D5030DBE8 /* Pods_fitsmerightTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B34B9F8A3E854F921D23C20 /* Pods_fitsmerightTests.framework */; };
 		A408A4D121BEB4970030F2F5 /* UIBarButtonItem +AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */; };
 		A42F7C4E21BE321300085DB5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A42F7C4D21BE321300085DB5 /* README.md */; };
@@ -155,6 +156,7 @@
 		5EE8924021C3E615008A65ED /* ClosetDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetDetailVC.swift; sourceTree = "<group>"; };
 		5EE8924321C3E6DD008A65ED /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
 		5EE8924521C3E714008A65ED /* CreatePostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreatePostView.xib; sourceTree = "<group>"; };
+		5EE8924721C3EB69008A65ED /* UIView+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AG.swift"; sourceTree = "<group>"; };
 		72AF5AC3A3815243CAE96B6A /* Pods-fitsmerightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmerightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmerightTests/Pods-fitsmerightTests.release.xcconfig"; sourceTree = "<group>"; };
 		9F8B67DFD7CF11E3D630A0C0 /* Pods-fitsmeright.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmeright.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmeright/Pods-fitsmeright.debug.xcconfig"; sourceTree = "<group>"; };
 		A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem +AG.swift"; sourceTree = "<group>"; };
@@ -707,6 +709,7 @@
 			isa = PBXGroup;
 			children = (
 				A4D6584F21BF6D9D007B8558 /* RAMAnimatedTabBarItem+AG.swift */,
+				5EE8924721C3EB69008A65ED /* UIView+AG.swift */,
 			);
 			name = Extension;
 			path = Extensions;
@@ -1082,6 +1085,7 @@
 				5E74DA5821BBD0B100A97A89 /* TemplateVIP.swift in Sources */,
 				5E74DA8021BBF7D700A97A89 /* R.swift in Sources */,
 				5E74DA5921BBD0B100A97A89 /* TemplateProtocol.swift in Sources */,
+				5EE8924821C3EB69008A65ED /* UIView+AG.swift in Sources */,
 				A4D6585021BF6D9D007B8558 /* RAMAnimatedTabBarItem+AG.swift in Sources */,
 				A4D6584C21BF63B9007B8558 /* UITabbarController+AG.swift in Sources */,
 				A42F7C6521BE621300085DB5 /* BlankVC.swift in Sources */,
