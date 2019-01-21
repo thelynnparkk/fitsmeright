@@ -9,6 +9,7 @@
 
 
 import UIKit
+import SwifterSwift
 
 
 
@@ -25,7 +26,8 @@ extension UINavigationBar {
       setBackgroundImage(UIImage(), for: .default)
     } else {
       //Set color
-      setBackgroundImage(UIImage.withColor(colorBG), for: .default)
+      
+      setBackgroundImage(UIImage(color: .gray, size: .less), for: .default)
     }
     let nb_titleTextAttributes: [NSAttributedString.Key: Any] = [
       .font: UIFont.systemFont(ofSize: 18),

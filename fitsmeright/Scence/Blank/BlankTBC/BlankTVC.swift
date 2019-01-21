@@ -128,7 +128,7 @@ class BlankTVC: AGVC {
   func setupUI() {
     //MARK: Core
     let nb = navigationController?.navigationBar
-    let c = R.Value.Color.self
+    let c = UIColor.Custom.self
     nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     
     table_main.dataSource = self

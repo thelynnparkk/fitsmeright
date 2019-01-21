@@ -124,7 +124,7 @@ class MainTBC: RAMAnimatedTabBarController {
   func setupUI() {
     //MARK: Core
     delegate = self
-    let c = R.Value.Color.self
+    let c = UIColor.Custom.self
     
     let nc = navigationController
     nc?.isNavigationBarHidden = true

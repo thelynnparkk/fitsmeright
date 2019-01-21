@@ -58,7 +58,7 @@ extension AGApplicationSetup {
   }
   
   private func setupAppearances() {
-    let c = R.Value.Color.self
+    let c = UIColor.Custom.self
     
     let nb = UINavigationBar.appearance()
     nb.setupWith(content: .white, bg: c.peach, isTranslucent: false)

@@ -6,4 +6,20 @@
 //  Copyright © 2562 silpakorn. All rights reserved.
 //
 
-import Foundation
+
+
+import UIKit
+
+
+
+extension CGSize {
+  
+  var max: CGPoint {
+    return CGPoint(x: width, y: height)
+  }
+  
+  public static var less: CGSize {
+    return CGSize(width: 1, height: 1)
+  }
+  
+}
