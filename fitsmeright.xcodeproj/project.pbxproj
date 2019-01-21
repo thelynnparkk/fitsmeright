@@ -405,7 +405,7 @@
 				5E74DA3D21BBCE4000A97A89 /* Constraint */,
 				A4D6585A21BFA3CD007B8558 /* NeedRemoves */,
 				A4D6E29A21C0F81E0085FB67 /* Extension */,
-				A4D6E29621C0F7BF0085FB67 /* UIKit */,
+				A4D6E29821C0F7EF0085FB67 /* Extension */,
 				5E74DA4021BBCE7600A97A89 /* Helpers */,
 				5E74DA3F21BBCE6B00A97A89 /* Managers */,
 				5E74DA4121BBCE7D00A97A89 /* Misc */,
@@ -704,14 +704,6 @@
 		A4D6E29621C0F7BF0085FB67 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				A4D6E29821C0F7EF0085FB67 /* Extension */,
-			);
-			path = UIKit;
-			sourceTree = "<group>";
-		};
-		A4D6E29821C0F7EF0085FB67 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
 				5E74DA5F21BBD67600A97A89 /* UIWindow+AG.swift */,
 				5E74DA6121BBD6AC00A97A89 /* CATransition+AG.swift */,
 				A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */,
@@ -722,6 +714,14 @@
 				A4D6584B21BF63B9007B8558 /* UITabbarController+AG.swift */,
 				A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */,
 				5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		A4D6E29821C0F7EF0085FB67 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A4D6E29621C0F7BF0085FB67 /* UIKit */,
 			);
 			path = Extension;
 			sourceTree = "<group>";

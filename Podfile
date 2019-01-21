@@ -33,13 +33,8 @@ end
 
 
 
-def db_pods
 
-end
-
-
-
-def networking_pods
+def other_pods
 # note
 pod 'CodableFirebase', '~> 0.2.1'
 # note
@@ -48,6 +43,12 @@ pod 'SwiftDate', '~> 5.0.13'
 pod 'Firebase/Core'
 # note
 pod 'Firebase/Firestore'
+# note
+pod 'Firebase/Storage'
+# note
+pod 'CodableFirebase', '~> 0.2.1'
+# note
+pod 'SwiftDate', '~> 5.0.13'
 end
 
 
@@ -57,8 +58,7 @@ def fitsmeright_pods
 use_frameworks!
 # Pods for fitsmeright
 ui_pods
-db_pods
-networking_pods
+other_pods
 end
 
 

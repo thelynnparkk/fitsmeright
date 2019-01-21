@@ -13,7 +13,6 @@ import UIKit
 
 
 public protocol AGObject {
-  
   func mockBackgroundWaiting(_ time: UInt32, onComplete: @escaping CBVoid)
   func mockMainWaiting(_ time: Double, onComplete: @escaping CBVoid)
 }
