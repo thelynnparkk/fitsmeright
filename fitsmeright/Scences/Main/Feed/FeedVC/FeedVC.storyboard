@@ -70,6 +70,7 @@
                     </view>
                     <connections>
                         <outlet property="btn_createPost" destination="LNf-X8-SFf" id="neU-MB-HGg"/>
+                        <outlet property="sv_main" destination="HQH-NO-zpU" id="OVv-cR-bqY"/>
                         <outlet property="v_post" destination="pPa-UO-Kgm" id="wpp-OD-8kF"/>
                     </connections>
                 </viewController>

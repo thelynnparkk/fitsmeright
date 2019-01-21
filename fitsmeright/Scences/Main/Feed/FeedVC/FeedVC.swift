@@ -37,6 +37,8 @@ class FeedVC: AGVC {
   
   
   //MARK: - UI
+  
+  @IBOutlet weak var sv_main: UIScrollView!
   @IBOutlet weak var btn_createPost: UIButton!
   @IBOutlet weak var v_post: PostView!
   
@@ -134,11 +136,13 @@ class FeedVC: AGVC {
     
     
     //MARK: UI
+    sv_main.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
     btn_createPost.addTarget(self, action: #selector(createPostButtonPressed), for: .touchUpInside)
     v_post.isHidden = true
     
     
     //MARK: Misc
+
     
     
     
