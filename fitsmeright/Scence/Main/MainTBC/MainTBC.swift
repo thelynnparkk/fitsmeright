@@ -129,8 +129,8 @@ class MainTBC: RAMAnimatedTabBarController {
     let nc = navigationController
     nc?.isNavigationBarHidden = true
     
-    //    let nb = navigationController?.navigationBar
-    //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
+//    let nb = navigationController?.navigationBar
+//    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     
     let tb = tabBar
     tb.setupWith(content: .white, bg: c.peach, isTranslucent: false)

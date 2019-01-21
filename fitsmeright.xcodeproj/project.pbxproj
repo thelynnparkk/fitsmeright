@@ -47,9 +47,11 @@
 		5E74DA7C21BBDB5E00A97A89 /* ProfileVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA7B21BBDB5E00A97A89 /* ProfileVC.storyboard */; };
 		5E74DA7E21BBDB6800A97A89 /* CreatePostVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA7D21BBDB6800A97A89 /* CreatePostVC.storyboard */; };
 		5E74DA8021BBF7D700A97A89 /* R.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA7F21BBF7D700A97A89 /* R.swift */; };
-		5E74DA8221BBF84C00A97A89 /* RValueColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA8121BBF84C00A97A89 /* RValueColor.swift */; };
 		5E74DA8421BBF94B00A97A89 /* UINavigationController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA8321BBF94B00A97A89 /* UINavigationController+AG.swift */; };
 		5E74DA8621BBFC6700A97A89 /* UIImagePickerController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */; };
+		5EC21D5521F60B1D0013157F /* ClosetMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC21D5421F60B1D0013157F /* ClosetMenuView.swift */; };
+		5EC21D5721F60B290013157F /* ClosetMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EC21D5621F60B290013157F /* ClosetMenuView.xib */; };
+		5EC21D5B21F61A1C0013157F /* ClosetDetailVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EC21D5A21F61A1C0013157F /* ClosetDetailVC.storyboard */; };
 		5EE8923B21C3E566008A65ED /* ClosetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8923A21C3E566008A65ED /* ClosetVC.swift */; };
 		5EE8923D21C3E572008A65ED /* ClosetVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8923C21C3E572008A65ED /* ClosetVC.storyboard */; };
 		5EE8924121C3E615008A65ED /* ClosetDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924021C3E615008A65ED /* ClosetDetailVC.swift */; };
@@ -156,15 +158,17 @@
 		5E74DA7B21BBDB5E00A97A89 /* ProfileVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileVC.storyboard; sourceTree = "<group>"; };
 		5E74DA7D21BBDB6800A97A89 /* CreatePostVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePostVC.storyboard; sourceTree = "<group>"; };
 		5E74DA7F21BBF7D700A97A89 /* R.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R.swift; sourceTree = "<group>"; };
-		5E74DA8121BBF84C00A97A89 /* RValueColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RValueColor.swift; sourceTree = "<group>"; };
 		5E74DA8321BBF94B00A97A89 /* UINavigationController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+AG.swift"; sourceTree = "<group>"; };
 		5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+AG.swift"; sourceTree = "<group>"; };
+		5EC21D5421F60B1D0013157F /* ClosetMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetMenuView.swift; sourceTree = "<group>"; };
+		5EC21D5621F60B290013157F /* ClosetMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClosetMenuView.xib; sourceTree = "<group>"; };
+		5EC21D5A21F61A1C0013157F /* ClosetDetailVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClosetDetailVC.storyboard; sourceTree = "<group>"; };
 		5EE8923A21C3E566008A65ED /* ClosetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetVC.swift; sourceTree = "<group>"; };
 		5EE8923C21C3E572008A65ED /* ClosetVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClosetVC.storyboard; sourceTree = "<group>"; };
 		5EE8924021C3E615008A65ED /* ClosetDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetDetailVC.swift; sourceTree = "<group>"; };
 		5EE8924321C3E6DD008A65ED /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
 		5EE8924521C3E714008A65ED /* CreatePostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreatePostView.xib; sourceTree = "<group>"; };
-		5EE8924721C3EB69008A65ED /* UIView+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AG.swift"; sourceTree = "<group>"; };
+		5EE8924721C3EB69008A65ED /* UIView+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+AG.swift"; path = "../Extensions/UIView+AG.swift"; sourceTree = "<group>"; };
 		5EE8924A21C3F26F008A65ED /* CreateTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTextView.swift; sourceTree = "<group>"; };
 		5EE8924C21C3F276008A65ED /* CreateTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateTextView.xib; sourceTree = "<group>"; };
 		5EE8925221C408B8008A65ED /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Post.swift; path = fitsmeright/Resources/Layouts/V/Post.swift; sourceTree = SOURCE_ROOT; };
@@ -379,7 +383,6 @@
 		5E74DA3121BBCCBB00A97A89 /* Value */ = {
 			isa = PBXGroup;
 			children = (
-				5E74DA8121BBF84C00A97A89 /* RValueColor.swift */,
 			);
 			path = Value;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 			isa = PBXGroup;
 			children = (
 				5EE8924021C3E615008A65ED /* ClosetDetailVC.swift */,
+				5EC21D5A21F61A1C0013157F /* ClosetDetailVC.storyboard */,
 			);
 			path = ClosetDetailVC;
 			sourceTree = "<group>";
@@ -613,6 +617,8 @@
 				5EE8924C21C3F276008A65ED /* CreateTextView.xib */,
 				5EE8925921C411DC008A65ED /* PostView.swift */,
 				5EE8925B21C411E3008A65ED /* PostView.xib */,
+				5EC21D5421F60B1D0013157F /* ClosetMenuView.swift */,
+				5EC21D5621F60B290013157F /* ClosetMenuView.xib */,
 			);
 			name = View;
 			path = V;
@@ -728,6 +734,7 @@
 				5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */,
 				A4796C9421F5DC0100B83F85 /* UIColor+AG.swift */,
 				A4796C9C21F5DD7000B83F85 /* CGSize+AG.swift */,
+				5EE8924721C3EB69008A65ED /* UIView+AG.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -745,7 +752,6 @@
 			isa = PBXGroup;
 			children = (
 				A4D6584F21BF6D9D007B8558 /* RAMAnimatedTabBarItem+AG.swift */,
-				5EE8924721C3EB69008A65ED /* UIView+AG.swift */,
 			);
 			name = Pod;
 			path = Extensions;
@@ -912,8 +918,10 @@
 				A42F7C6721BE621C00085DB5 /* BlankVC.storyboard in Resources */,
 				A4796C9921F5DD1D00B83F85 /* CreatePostView.xib in Resources */,
 				5E74DA0421BBACAA00A97A89 /* Assets.xcassets in Resources */,
+				5EC21D5B21F61A1C0013157F /* ClosetDetailVC.storyboard in Resources */,
 				5E74DA7A21BBDB5200A97A89 /* FeedVC.storyboard in Resources */,
 				A42F7C4E21BE321300085DB5 /* README.md in Resources */,
+				5EC21D5721F60B290013157F /* ClosetMenuView.xib in Resources */,
 				5E74DA4521BBD04300A97A89 /* SplashVC.storyboard in Resources */,
 				5E0900BA21C2B89B0099F81E /* CreatePostDesignVC.storyboard in Resources */,
 				5E74DA0221BBACA900A97A89 /* Main.storyboard in Resources */,
@@ -1130,6 +1138,7 @@
 				5E74DA5821BBD0B100A97A89 /* TemplateVIP.swift in Sources */,
 				5E74DA8021BBF7D700A97A89 /* R.swift in Sources */,
 				5E74DA5921BBD0B100A97A89 /* TemplateProtocol.swift in Sources */,
+				5EC21D5521F60B1D0013157F /* ClosetMenuView.swift in Sources */,
 				5EE8924821C3EB69008A65ED /* UIView+AG.swift in Sources */,
 				A4D6585021BF6D9D007B8558 /* RAMAnimatedTabBarItem+AG.swift in Sources */,
 				A4D6584C21BF63B9007B8558 /* UITabbarController+AG.swift in Sources */,
@@ -1145,7 +1154,6 @@
 				A4796C9721F5DCEC00B83F85 /* MockPost.swift in Sources */,
 				5E74DA5421BBD0B100A97A89 /* TemplateM.swift in Sources */,
 				A4D6585521BF7460007B8558 /* AGImagePickerController.swift in Sources */,
-				5E74DA8221BBF84C00A97A89 /* RValueColor.swift in Sources */,
 				A42F7C5621BE567D00085DB5 /* AGDefaults.swift in Sources */,
 				A42F7C6D21BE768A00085DB5 /* BlankTVC.swift in Sources */,
 				A4796C9821F5DD1D00B83F85 /* CreatePostView.swift in Sources */,

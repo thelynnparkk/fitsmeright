@@ -27,25 +27,167 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_closet" translatesAutoresizingMaskIntoConstraints="NO" id="4Ii-di-xRJ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UNo-Cq-du2" userLabel="Closet View">
+                                <rect key="frame" x="0.0" y="80.5" width="375" height="526"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RaG-YM-SGg" userLabel="Left Closet View">
+                                        <rect key="frame" x="0.0" y="0.0" width="114" height="526"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HGc-tj-0JF" userLabel="Dress View" customClass="ClosetMenuView" customModule="fitsmeright" customModuleProvider="target">
+                                                <rect key="frame" x="12" y="86.5" width="90" height="90"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="HGc-tj-0JF" secondAttribute="height" multiplier="1:1" id="M7z-I2-3ml"/>
+                                                    <constraint firstAttribute="width" constant="90" id="jcZ-O3-oqR"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lmc-nm-wK6" userLabel="Jacket View" customClass="ClosetMenuView" customModule="fitsmeright" customModuleProvider="target">
+                                                <rect key="frame" x="12" y="304.5" width="90" height="90"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="HGc-tj-0JF" firstAttribute="centerY" secondItem="RaG-YM-SGg" secondAttribute="centerY" multiplier="0.5" id="H8Q-j5-crn"/>
+                                            <constraint firstItem="lmc-nm-wK6" firstAttribute="bottom" secondItem="RaG-YM-SGg" secondAttribute="centerY" multiplier="1.5" id="Pav-ks-mih"/>
+                                            <constraint firstItem="lmc-nm-wK6" firstAttribute="centerX" secondItem="RaG-YM-SGg" secondAttribute="centerX" id="Pw9-mZ-R58"/>
+                                            <constraint firstItem="HGc-tj-0JF" firstAttribute="centerX" secondItem="RaG-YM-SGg" secondAttribute="centerX" id="Rvz-hD-fFA"/>
+                                            <constraint firstItem="lmc-nm-wK6" firstAttribute="height" secondItem="HGc-tj-0JF" secondAttribute="height" id="e8i-LR-lI4"/>
+                                            <constraint firstItem="lmc-nm-wK6" firstAttribute="width" secondItem="HGc-tj-0JF" secondAttribute="width" id="i54-OQ-oTl"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F5P-S4-ycP" userLabel="Center Closet View">
+                                        <rect key="frame" x="114" y="0.0" width="147" height="526"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mZ1-nV-BiC" userLabel="Hat View" customClass="ClosetMenuView" customModule="fitsmeright" customModuleProvider="target">
+                                                <rect key="frame" x="28.5" y="34" width="90" height="90"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJB-JG-BMw" userLabel="Accessories View" customClass="ClosetMenuView" customModule="fitsmeright" customModuleProvider="target">
+                                                <rect key="frame" x="28.5" y="139" width="90" height="90"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3F-TM-trq" userLabel="Bag View" customClass="ClosetMenuView" customModule="fitsmeright" customModuleProvider="target">
+                                                <rect key="frame" x="28.5" y="297" width="90" height="90"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XkU-PU-4N8" userLabel="Shoe View" customClass="ClosetMenuView" customModule="fitsmeright" customModuleProvider="target">
+                                                <rect key="frame" x="28.5" y="428" width="90" height="90"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="eJB-JG-BMw" firstAttribute="centerX" secondItem="F5P-S4-ycP" secondAttribute="centerX" id="0gp-qA-s62"/>
+                                            <constraint firstItem="XkU-PU-4N8" firstAttribute="centerX" secondItem="F5P-S4-ycP" secondAttribute="centerX" id="Aoa-qv-PjP"/>
+                                            <constraint firstItem="mZ1-nV-BiC" firstAttribute="centerY" secondItem="F5P-S4-ycP" secondAttribute="centerY" multiplier="0.3" id="EKV-We-2RJ"/>
+                                            <constraint firstItem="B3F-TM-trq" firstAttribute="centerX" secondItem="F5P-S4-ycP" secondAttribute="centerX" id="MZI-0h-3bm"/>
+                                            <constraint firstAttribute="width" secondItem="F5P-S4-ycP" secondAttribute="height" multiplier="147:527" id="Olh-wP-0Hx"/>
+                                            <constraint firstItem="eJB-JG-BMw" firstAttribute="centerY" secondItem="F5P-S4-ycP" secondAttribute="centerY" multiplier="0.7" id="PrN-F8-PZi"/>
+                                            <constraint firstItem="XkU-PU-4N8" firstAttribute="centerY" secondItem="F5P-S4-ycP" secondAttribute="centerY" multiplier="1.8" id="efL-gA-yzG"/>
+                                            <constraint firstItem="B3F-TM-trq" firstAttribute="centerY" secondItem="F5P-S4-ycP" secondAttribute="centerY" multiplier="1.3" id="i74-Ov-KHc"/>
+                                            <constraint firstItem="mZ1-nV-BiC" firstAttribute="centerX" secondItem="F5P-S4-ycP" secondAttribute="centerX" id="jFJ-1X-puy"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ocE-yr-98M" userLabel="RIght Closet View">
+                                        <rect key="frame" x="261" y="0.0" width="114" height="526"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLV-XQ-L0i" userLabel="Top View" customClass="ClosetMenuView" customModule="fitsmeright" customModuleProvider="target">
+                                                <rect key="frame" x="12" y="60.5" width="90" height="90"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dxA-GR-Pgv" userLabel="Bottom View" customClass="ClosetMenuView" customModule="fitsmeright" customModuleProvider="target">
+                                                <rect key="frame" x="12" y="283.5" width="90" height="90"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mp9-88-Rf2" userLabel="Sock View" customClass="ClosetMenuView" customModule="fitsmeright" customModuleProvider="target">
+                                                <rect key="frame" x="12" y="402" width="90" height="90"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="mp9-88-Rf2" firstAttribute="centerY" secondItem="ocE-yr-98M" secondAttribute="centerY" multiplier="1.7" id="50m-da-wGS"/>
+                                            <constraint firstItem="dxA-GR-Pgv" firstAttribute="centerX" secondItem="ocE-yr-98M" secondAttribute="centerX" id="CJs-XE-HXW"/>
+                                            <constraint firstItem="mp9-88-Rf2" firstAttribute="centerX" secondItem="ocE-yr-98M" secondAttribute="centerX" id="SGM-15-vZ0"/>
+                                            <constraint firstItem="XLV-XQ-L0i" firstAttribute="centerY" secondItem="ocE-yr-98M" secondAttribute="centerY" multiplier="0.4" id="YBP-eE-YLu"/>
+                                            <constraint firstItem="XLV-XQ-L0i" firstAttribute="centerX" secondItem="ocE-yr-98M" secondAttribute="centerX" id="gES-2p-4Mx"/>
+                                            <constraint firstItem="dxA-GR-Pgv" firstAttribute="centerY" secondItem="ocE-yr-98M" secondAttribute="centerY" multiplier="1.25" id="tCH-2P-7CK"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ocE-yr-98M" secondAttribute="trailing" id="1Mx-X6-C1d"/>
+                                    <constraint firstItem="ocE-yr-98M" firstAttribute="leading" secondItem="F5P-S4-ycP" secondAttribute="trailing" id="1lJ-Qb-hZn"/>
+                                    <constraint firstItem="dxA-GR-Pgv" firstAttribute="width" secondItem="HGc-tj-0JF" secondAttribute="width" id="3sj-jE-Nzo"/>
+                                    <constraint firstItem="B3F-TM-trq" firstAttribute="width" secondItem="HGc-tj-0JF" secondAttribute="width" id="53n-lv-rSc"/>
+                                    <constraint firstAttribute="bottom" secondItem="RaG-YM-SGg" secondAttribute="bottom" id="7Nl-Ui-FjN"/>
+                                    <constraint firstItem="mp9-88-Rf2" firstAttribute="width" secondItem="HGc-tj-0JF" secondAttribute="width" id="8lg-dG-vHP"/>
+                                    <constraint firstItem="XkU-PU-4N8" firstAttribute="height" secondItem="HGc-tj-0JF" secondAttribute="height" id="8oK-kO-fGb"/>
+                                    <constraint firstItem="eJB-JG-BMw" firstAttribute="height" secondItem="HGc-tj-0JF" secondAttribute="height" id="Ebg-pD-JNq"/>
+                                    <constraint firstItem="B3F-TM-trq" firstAttribute="height" secondItem="HGc-tj-0JF" secondAttribute="height" id="QvY-yU-Ofi"/>
+                                    <constraint firstAttribute="bottom" secondItem="F5P-S4-ycP" secondAttribute="bottom" id="Qzw-Ye-DU7"/>
+                                    <constraint firstItem="F5P-S4-ycP" firstAttribute="leading" secondItem="RaG-YM-SGg" secondAttribute="trailing" id="UNX-3E-tf9"/>
+                                    <constraint firstItem="F5P-S4-ycP" firstAttribute="top" secondItem="UNo-Cq-du2" secondAttribute="top" id="VAj-S8-vkI"/>
+                                    <constraint firstItem="XLV-XQ-L0i" firstAttribute="width" secondItem="HGc-tj-0JF" secondAttribute="width" id="YXf-V3-Dkg"/>
+                                    <constraint firstItem="RaG-YM-SGg" firstAttribute="leading" secondItem="UNo-Cq-du2" secondAttribute="leading" id="Z3a-Vn-oDR"/>
+                                    <constraint firstAttribute="bottom" secondItem="ocE-yr-98M" secondAttribute="bottom" id="cTJ-nl-dn9"/>
+                                    <constraint firstItem="mZ1-nV-BiC" firstAttribute="height" secondItem="HGc-tj-0JF" secondAttribute="height" id="dY1-1u-Lqv"/>
+                                    <constraint firstItem="ocE-yr-98M" firstAttribute="top" secondItem="UNo-Cq-du2" secondAttribute="top" id="fR8-Ed-faN"/>
+                                    <constraint firstAttribute="width" secondItem="UNo-Cq-du2" secondAttribute="height" multiplier="376:527" id="hgN-ge-2Pb"/>
+                                    <constraint firstItem="F5P-S4-ycP" firstAttribute="centerX" secondItem="UNo-Cq-du2" secondAttribute="centerX" id="i5L-zQ-vbz"/>
+                                    <constraint firstItem="mZ1-nV-BiC" firstAttribute="width" secondItem="HGc-tj-0JF" secondAttribute="width" id="iJU-ft-sZQ"/>
+                                    <constraint firstItem="XLV-XQ-L0i" firstAttribute="height" secondItem="HGc-tj-0JF" secondAttribute="height" id="qCq-ej-XIQ"/>
+                                    <constraint firstItem="RaG-YM-SGg" firstAttribute="top" secondItem="UNo-Cq-du2" secondAttribute="top" id="qfG-wS-oxE"/>
+                                    <constraint firstItem="eJB-JG-BMw" firstAttribute="width" secondItem="HGc-tj-0JF" secondAttribute="width" id="rB2-Sv-hCl"/>
+                                    <constraint firstItem="XkU-PU-4N8" firstAttribute="width" secondItem="HGc-tj-0JF" secondAttribute="width" id="s1R-5q-Xry"/>
+                                    <constraint firstItem="dxA-GR-Pgv" firstAttribute="height" secondItem="HGc-tj-0JF" secondAttribute="height" id="w50-vG-79D"/>
+                                    <constraint firstItem="mp9-88-Rf2" firstAttribute="height" secondItem="HGc-tj-0JF" secondAttribute="height" id="yh1-kF-Z5C"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="U2T-J3-MZ9" secondAttribute="trailing" id="4Iz-qv-7FR"/>
                             <constraint firstItem="ifG-Y4-MNf" firstAttribute="centerY" secondItem="uVb-Pr-N7A" secondAttribute="centerY" id="7tG-DG-bdO"/>
+                            <constraint firstItem="4Ii-di-xRJ" firstAttribute="leading" secondItem="uVb-Pr-N7A" secondAttribute="leading" id="9Mg-1S-jzd"/>
+                            <constraint firstItem="4Ii-di-xRJ" firstAttribute="top" secondItem="U2T-J3-MZ9" secondAttribute="bottom" id="L0r-US-UjE"/>
                             <constraint firstItem="U2T-J3-MZ9" firstAttribute="leading" secondItem="uVb-Pr-N7A" secondAttribute="leading" id="Y44-cX-GSW"/>
                             <constraint firstItem="ifG-Y4-MNf" firstAttribute="centerX" secondItem="uVb-Pr-N7A" secondAttribute="centerX" id="ce1-bq-ZsS"/>
+                            <constraint firstItem="UNo-Cq-du2" firstAttribute="centerY" secondItem="4Ii-di-xRJ" secondAttribute="centerY" id="db3-so-tWb"/>
+                            <constraint firstItem="UNo-Cq-du2" firstAttribute="width" secondItem="Foo-Dp-4bx" secondAttribute="width" id="fsg-EI-UlX"/>
+                            <constraint firstItem="uVb-Pr-N7A" firstAttribute="bottom" secondItem="4Ii-di-xRJ" secondAttribute="bottom" id="hTL-Uw-Lxe"/>
+                            <constraint firstItem="UNo-Cq-du2" firstAttribute="centerX" secondItem="4Ii-di-xRJ" secondAttribute="centerX" id="udn-iA-shx"/>
                             <constraint firstItem="uVb-Pr-N7A" firstAttribute="top" secondItem="U2T-J3-MZ9" secondAttribute="bottom" id="wIU-LF-1jA"/>
                             <constraint firstItem="U2T-J3-MZ9" firstAttribute="top" secondItem="Foo-Dp-4bx" secondAttribute="top" id="web-wa-lHq"/>
+                            <constraint firstItem="uVb-Pr-N7A" firstAttribute="trailing" secondItem="4Ii-di-xRJ" secondAttribute="trailing" id="xkW-C7-yIr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uVb-Pr-N7A"/>
                     </view>
                     <connections>
+                        <outlet property="imgv_background" destination="4Ii-di-xRJ" id="gac-Ws-2TG"/>
                         <outlet property="lb_title" destination="ifG-Y4-MNf" id="jBw-tK-mL7"/>
+                        <outlet property="v_accessories" destination="eJB-JG-BMw" id="8gC-Md-H3a"/>
+                        <outlet property="v_bag" destination="B3F-TM-trq" id="xId-sn-gGJ"/>
+                        <outlet property="v_bottom" destination="dxA-GR-Pgv" id="qW8-mi-hab"/>
+                        <outlet property="v_dress" destination="HGc-tj-0JF" id="9Mi-mz-mBD"/>
+                        <outlet property="v_hat" destination="mZ1-nV-BiC" id="wR4-jO-GJb"/>
+                        <outlet property="v_jacket" destination="lmc-nm-wK6" id="Fvf-yL-cJ9"/>
+                        <outlet property="v_shoe" destination="XkU-PU-4N8" id="eaU-Bc-Sae"/>
+                        <outlet property="v_sock" destination="mp9-88-Rf2" id="081-Bg-gJx"/>
+                        <outlet property="v_top" destination="XLV-XQ-L0i" id="5uO-0U-4f8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oYe-mi-FLm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="47" y="66"/>
+            <point key="canvasLocation" x="45.600000000000001" y="65.217391304347828"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="img_closet" width="750" height="1334"/>
+    </resources>
 </document>

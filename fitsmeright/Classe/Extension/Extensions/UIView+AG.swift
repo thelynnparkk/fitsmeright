@@ -13,6 +13,13 @@ import UIKit
 
 
 extension UIView {
+  
+  func setupViewFrame() {
+    setNeedsLayout()
+    layoutIfNeeded()
+  }
+  
+  
   func match(in parent: UIView!) -> Void{
     self.translatesAutoresizingMaskIntoConstraints = false;
     self.frame = parent.frame;
@@ -22,4 +29,5 @@ extension UIView {
     NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: parent, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
     NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: parent, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
   }
+  
 }

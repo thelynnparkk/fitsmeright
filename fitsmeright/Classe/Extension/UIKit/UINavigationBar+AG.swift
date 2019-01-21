@@ -27,7 +27,7 @@ extension UINavigationBar {
     } else {
       //Set color
       
-      setBackgroundImage(UIImage(color: .gray, size: .less), for: .default)
+      setBackgroundImage(UIImage(color: colorBG, size: .less), for: .default)
     }
     let nb_titleTextAttributes: [NSAttributedString.Key: Any] = [
       .font: UIFont.systemFont(ofSize: 18),

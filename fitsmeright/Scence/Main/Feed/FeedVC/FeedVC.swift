@@ -131,6 +131,10 @@ class FeedVC: AGVC {
   
   func setupUI() {
     //MARK: Core
+//    let c = UIColor.Custom.self
+//    let nb = navigationController?.navigationBar
+//    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
+
     navigationItem.title = FeedVC.sb_name
     
     
