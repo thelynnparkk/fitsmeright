@@ -17,18 +17,17 @@ extension UIBarButtonItem {
   
   private class WrapperView: UIView {
     var height_landScape: CGFloat = 32
-    var size = CGSize(width: 44.0, height: 44.0)
     let v_underlying: UIView
     var alignmentRectInsetsOverride: UIEdgeInsets?
     override var alignmentRectInsets: UIEdgeInsets {
       return alignmentRectInsetsOverride ?? super.alignmentRectInsets
     }
-    init(view: UIView, size: CGSize?) {
+    init(view: UIView, size: CGSize? = CGSize(width: 44.0, height: 44.0)) {
+      v_underlying = view
+      super.init(frame: view.bounds)
       if let s = size {
         self.size = s
       }
-      v_underlying = view
-      super.init(frame: view.bounds)
       addSubview(v_underlying)
       v_underlying.snp.makeConstraints {
         $0.top.right.bottom.left.equalToSuperview()
