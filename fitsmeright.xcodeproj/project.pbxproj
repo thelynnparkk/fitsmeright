@@ -53,16 +53,10 @@
 		5EE8923B21C3E566008A65ED /* ClosetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8923A21C3E566008A65ED /* ClosetVC.swift */; };
 		5EE8923D21C3E572008A65ED /* ClosetVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8923C21C3E572008A65ED /* ClosetVC.storyboard */; };
 		5EE8924121C3E615008A65ED /* ClosetDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924021C3E615008A65ED /* ClosetDetailVC.swift */; };
-		5EE8924421C3E6DD008A65ED /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924321C3E6DD008A65ED /* CreatePostView.swift */; };
-		5EE8924621C3E714008A65ED /* CreatePostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8924521C3E714008A65ED /* CreatePostView.xib */; };
 		5EE8924821C3EB69008A65ED /* UIView+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924721C3EB69008A65ED /* UIView+AG.swift */; };
 		5EE8924B21C3F26F008A65ED /* CreateTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924A21C3F26F008A65ED /* CreateTextView.swift */; };
 		5EE8924D21C3F276008A65ED /* CreateTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8924C21C3F276008A65ED /* CreateTextView.xib */; };
-		5EE8925321C408B8008A65ED /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8925221C408B8008A65ED /* Post.swift */; };
-		5EE8925621C408CF008A65ED /* MockPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8925521C408CF008A65ED /* MockPost.swift */; };
 		5EE8925821C40958008A65ED /* AGEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8925721C40958008A65ED /* AGEntity.swift */; };
-		5EE8925A21C411DC008A65ED /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8925921C411DC008A65ED /* PostView.swift */; };
-		5EE8925C21C411E3008A65ED /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8925B21C411E3008A65ED /* PostView.xib */; };
 		6B93C7E7F1C1881D5030DBE8 /* Pods_fitsmerightTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B34B9F8A3E854F921D23C20 /* Pods_fitsmerightTests.framework */; };
 		A408A4D121BEB4970030F2F5 /* UIBarButtonItem +AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */; };
 		A42F7C4E21BE321300085DB5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A42F7C4D21BE321300085DB5 /* README.md */; };
@@ -79,6 +73,13 @@
 		A42F7C6F21BE76A200085DB5 /* BlankTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A42F7C6E21BE76A200085DB5 /* BlankTVC.storyboard */; };
 		A42F7C7121BE7B7300085DB5 /* UIImage+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C7021BE7B7300085DB5 /* UIImage+AG.swift */; };
 		A42F7C7321BE815500085DB5 /* UIApplication+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C7221BE815500085DB5 /* UIApplication+AG.swift */; };
+		A4796C9521F5DC0100B83F85 /* UIColor+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4796C9421F5DC0100B83F85 /* UIColor+AG.swift */; };
+		A4796C9721F5DCEC00B83F85 /* MockPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4796C9621F5DCEB00B83F85 /* MockPost.swift */; };
+		A4796C9821F5DD1D00B83F85 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924321C3E6DD008A65ED /* CreatePostView.swift */; };
+		A4796C9921F5DD1D00B83F85 /* CreatePostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8924521C3E714008A65ED /* CreatePostView.xib */; };
+		A4796C9A21F5DD1D00B83F85 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8925921C411DC008A65ED /* PostView.swift */; };
+		A4796C9B21F5DD1D00B83F85 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8925B21C411E3008A65ED /* PostView.xib */; };
+		A4796C9D21F5DD7000B83F85 /* CGSize+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4796C9C21F5DD7000B83F85 /* CGSize+AG.swift */; };
 		A4D6584C21BF63B9007B8558 /* UITabbarController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6584B21BF63B9007B8558 /* UITabbarController+AG.swift */; };
 		A4D6584E21BF651F007B8558 /* UITabBar+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */; };
 		A4D6585021BF6D9D007B8558 /* RAMAnimatedTabBarItem+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6584F21BF6D9D007B8558 /* RAMAnimatedTabBarItem+AG.swift */; };
@@ -188,6 +189,9 @@
 		A42F7C6E21BE76A200085DB5 /* BlankTVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BlankTVC.storyboard; sourceTree = "<group>"; };
 		A42F7C7021BE7B7300085DB5 /* UIImage+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+AG.swift"; sourceTree = "<group>"; };
 		A42F7C7221BE815500085DB5 /* UIApplication+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+AG.swift"; sourceTree = "<group>"; };
+		A4796C9421F5DC0100B83F85 /* UIColor+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AG.swift"; sourceTree = "<group>"; };
+		A4796C9621F5DCEB00B83F85 /* MockPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPost.swift; sourceTree = "<group>"; };
+		A4796C9C21F5DD7000B83F85 /* CGSize+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+AG.swift"; sourceTree = "<group>"; };
 		A4D6584B21BF63B9007B8558 /* UITabbarController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabbarController+AG.swift"; sourceTree = "<group>"; };
 		A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+AG.swift"; sourceTree = "<group>"; };
 		A4D6584F21BF6D9D007B8558 /* RAMAnimatedTabBarItem+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RAMAnimatedTabBarItem+AG.swift"; sourceTree = "<group>"; };
@@ -269,7 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				A42F7C4D21BE321300085DB5 /* README.md */,
-				5E74DA4621BBD0B100A97A89 /* Templates */,
+				5E74DA4621BBD0B100A97A89 /* Template */,
 				5E74D9FB21BBACA900A97A89 /* fitsmeright */,
 				5E74DA1021BBACAA00A97A89 /* fitsmerightTests */,
 				5E74DA1B21BBACAA00A97A89 /* fitsmerightUITests */,
@@ -294,11 +298,11 @@
 			children = (
 				5EE8924F21C4089D008A65ED /* Domain */,
 				A4E31D8421C28B96004D1707 /* Data */,
-				5E74DA3521BBCDA400A97A89 /* Classes */,
+				5E74DA3521BBCDA400A97A89 /* Classe */,
 				5E74DA3421BBCD9C00A97A89 /* Domain */,
-				5E74DA2F21BBCCA400A97A89 /* Resources */,
+				5E74DA2F21BBCCA400A97A89 /* Resource */,
 				5E74DA2E21BBCBB800A97A89 /* Main */,
-				5E74DA2A21BBCB7200A97A89 /* Scences */,
+				5E74DA2A21BBCB7200A97A89 /* Scence */,
 			);
 			path = fitsmeright;
 			sourceTree = "<group>";
@@ -321,7 +325,7 @@
 			path = fitsmerightUITests;
 			sourceTree = "<group>";
 		};
-		5E74DA2A21BBCB7200A97A89 /* Scences */ = {
+		5E74DA2A21BBCB7200A97A89 /* Scence */ = {
 			isa = PBXGroup;
 			children = (
 				A42F7C6A21BE766800085DB5 /* Blank */,
@@ -329,7 +333,7 @@
 				5E74DA3B21BBCE1A00A97A89 /* Main */,
 				5E74DA3A21BBCE1100A97A89 /* Auth */,
 			);
-			path = Scences;
+			path = Scence;
 			sourceTree = "<group>";
 		};
 		5E74DA2B21BBCB7F00A97A89 /* SplashVC */ = {
@@ -354,33 +358,33 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		5E74DA2F21BBCCA400A97A89 /* Resources */ = {
+		5E74DA2F21BBCCA400A97A89 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				5E74DA3221BBCCC400A97A89 /* Layouts */,
-				5E74DA3121BBCCBB00A97A89 /* Values */,
-				5E74DA3021BBCCB400A97A89 /* Assets */,
+				5E74DA3221BBCCC400A97A89 /* Layout */,
+				5E74DA3121BBCCBB00A97A89 /* Value */,
+				5E74DA3021BBCCB400A97A89 /* Asset */,
 			);
-			path = Resources;
+			path = Resource;
 			sourceTree = "<group>";
 		};
-		5E74DA3021BBCCB400A97A89 /* Assets */ = {
+		5E74DA3021BBCCB400A97A89 /* Asset */ = {
 			isa = PBXGroup;
 			children = (
 				5E74DA0321BBACAA00A97A89 /* Assets.xcassets */,
 			);
-			path = Assets;
+			path = Asset;
 			sourceTree = "<group>";
 		};
-		5E74DA3121BBCCBB00A97A89 /* Values */ = {
+		5E74DA3121BBCCBB00A97A89 /* Value */ = {
 			isa = PBXGroup;
 			children = (
 				5E74DA8121BBF84C00A97A89 /* RValueColor.swift */,
 			);
-			path = Values;
+			path = Value;
 			sourceTree = "<group>";
 		};
-		5E74DA3221BBCCC400A97A89 /* Layouts */ = {
+		5E74DA3221BBCCC400A97A89 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
 				5EE8924221C3E696008A65ED /* View */,
@@ -388,30 +392,30 @@
 				A42F7C7521BE837C00085DB5 /* NVC */,
 				A42F7C7421BE837300085DB5 /* VC */,
 			);
-			path = Layouts;
+			path = Layout;
 			sourceTree = "<group>";
 		};
 		5E74DA3421BBCD9C00A97A89 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				5E74DA3921BBCDDC00A97A89 /* Entries */,
+				A4796C9321F5DBAC00B83F85 /* Enum */,
+				5E74DA3921BBCDDC00A97A89 /* Entity */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
 		};
-		5E74DA3521BBCDA400A97A89 /* Classes */ = {
+		5E74DA3521BBCDA400A97A89 /* Classe */ = {
 			isa = PBXGroup;
 			children = (
 				5E74DA3D21BBCE4000A97A89 /* Constraint */,
-				A4D6585A21BFA3CD007B8558 /* NeedRemoves */,
-				A4D6E29A21C0F81E0085FB67 /* Extension */,
+				A4D6585A21BFA3CD007B8558 /* NeedRemove */,
 				A4D6E29821C0F7EF0085FB67 /* Extension */,
-				5E74DA4021BBCE7600A97A89 /* Helpers */,
-				5E74DA3F21BBCE6B00A97A89 /* Managers */,
+				5E74DA4021BBCE7600A97A89 /* Helper */,
+				5E74DA3F21BBCE6B00A97A89 /* Singleton */,
 				5E74DA4121BBCE7D00A97A89 /* Misc */,
-				5E74DA4221BBCE9700A97A89 /* Utilities */,
+				5E74DA4221BBCE9700A97A89 /* Utility */,
 			);
-			path = Classes;
+			path = Classe;
 			sourceTree = "<group>";
 		};
 		5E74DA3621BBCDBF00A97A89 /* Memorys */ = {
@@ -428,11 +432,12 @@
 			path = Remotes;
 			sourceTree = "<group>";
 		};
-		5E74DA3921BBCDDC00A97A89 /* Entries */ = {
+		5E74DA3921BBCDDC00A97A89 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				A4796C9621F5DCEB00B83F85 /* MockPost.swift */,
 			);
-			path = Entries;
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		5E74DA3A21BBCE1100A97A89 /* Auth */ = {
@@ -461,18 +466,18 @@
 			path = Constraint;
 			sourceTree = "<group>";
 		};
-		5E74DA3F21BBCE6B00A97A89 /* Managers */ = {
+		5E74DA3F21BBCE6B00A97A89 /* Singleton */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Managers;
+			path = Singleton;
 			sourceTree = "<group>";
 		};
-		5E74DA4021BBCE7600A97A89 /* Helpers */ = {
+		5E74DA4021BBCE7600A97A89 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Helpers;
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		5E74DA4121BBCE7D00A97A89 /* Misc */ = {
@@ -488,14 +493,14 @@
 			path = Misc;
 			sourceTree = "<group>";
 		};
-		5E74DA4221BBCE9700A97A89 /* Utilities */ = {
+		5E74DA4221BBCE9700A97A89 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Utilities;
+			path = Utility;
 			sourceTree = "<group>";
 		};
-		5E74DA4621BBD0B100A97A89 /* Templates */ = {
+		5E74DA4621BBD0B100A97A89 /* Template */ = {
 			isa = PBXGroup;
 			children = (
 				5E74DA4721BBD0B100A97A89 /* TemplateV.swift */,
@@ -506,7 +511,7 @@
 				5E74DA4E21BBD0B100A97A89 /* TemplateProtocol.swift */,
 				5E74DA4F21BBD0B100A97A89 /* TemplatesAlamofire */,
 			);
-			path = Templates;
+			path = Template;
 			sourceTree = "<group>";
 		};
 		5E74DA4921BBD0B100A97A89 /* TemplateListView */ = {
@@ -693,12 +698,19 @@
 			path = NVC;
 			sourceTree = "<group>";
 		};
-		A4D6585A21BFA3CD007B8558 /* NeedRemoves */ = {
+		A4796C9321F5DBAC00B83F85 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		A4D6585A21BFA3CD007B8558 /* NeedRemove */ = {
 			isa = PBXGroup;
 			children = (
 				A4D6585821BF7DF2007B8558 /* AttachmentHandler.swift */,
 			);
-			path = NeedRemoves;
+			path = NeedRemove;
 			sourceTree = "<group>";
 		};
 		A4D6E29621C0F7BF0085FB67 /* UIKit */ = {
@@ -714,6 +726,8 @@
 				A4D6584B21BF63B9007B8558 /* UITabbarController+AG.swift */,
 				A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */,
 				5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */,
+				A4796C9421F5DC0100B83F85 /* UIColor+AG.swift */,
+				A4796C9C21F5DD7000B83F85 /* CGSize+AG.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -721,18 +735,19 @@
 		A4D6E29821C0F7EF0085FB67 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				A4D6E29A21C0F81E0085FB67 /* Pod */,
 				A4D6E29621C0F7BF0085FB67 /* UIKit */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		A4D6E29A21C0F81E0085FB67 /* Extension */ = {
+		A4D6E29A21C0F81E0085FB67 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
 				A4D6584F21BF6D9D007B8558 /* RAMAnimatedTabBarItem+AG.swift */,
 				5EE8924721C3EB69008A65ED /* UIView+AG.swift */,
 			);
-			name = Extension;
+			name = Pod;
 			path = Extensions;
 			sourceTree = "<group>";
 		};
@@ -887,15 +902,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E74DA0721BBACAA00A97A89 /* LaunchScreen.storyboard in Resources */,
-				5EE8925C21C411E3008A65ED /* PostView.xib in Resources */,
+				A4796C9B21F5DD1D00B83F85 /* PostView.xib in Resources */,
 				5E0900BD21C2B8B90099F81E /* CreatePostInfoVC.storyboard in Resources */,
 				5E74DA7E21BBDB6800A97A89 /* CreatePostVC.storyboard in Resources */,
 				5EE8923D21C3E572008A65ED /* ClosetVC.storyboard in Resources */,
 				5E74DA7C21BBDB5E00A97A89 /* ProfileVC.storyboard in Resources */,
 				5E74DA7821BBDADF00A97A89 /* MainTBC.storyboard in Resources */,
-				5EE8924621C3E714008A65ED /* CreatePostView.xib in Resources */,
 				5EE8924D21C3F276008A65ED /* CreateTextView.xib in Resources */,
 				A42F7C6721BE621C00085DB5 /* BlankVC.storyboard in Resources */,
+				A4796C9921F5DD1D00B83F85 /* CreatePostView.xib in Resources */,
 				5E74DA0421BBACAA00A97A89 /* Assets.xcassets in Resources */,
 				5E74DA7A21BBDB5200A97A89 /* FeedVC.storyboard in Resources */,
 				A42F7C4E21BE321300085DB5 /* README.md in Resources */,
@@ -931,10 +946,11 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-fitsmeright/Pods-fitsmeright-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-fitsmeright/Pods-fitsmeright-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
 				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
@@ -946,6 +962,7 @@
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
+				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -958,6 +975,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
@@ -969,6 +987,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -976,7 +995,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-fitsmeright/Pods-fitsmeright-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fitsmeright/Pods-fitsmeright-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		61F9025D3452EDD03E671996 /* [CP] Copy Pods Resources */ = {
@@ -987,7 +1006,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-fitsmeright/Pods-fitsmeright-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-fitsmeright/Pods-fitsmeright-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -998,7 +1017,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-fitsmeright/Pods-fitsmeright-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fitsmeright/Pods-fitsmeright-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		68F0CE1E2CCF136E2D4D84DC /* [CP] Check Pods Manifest.lock */ = {
@@ -1078,12 +1097,12 @@
 				A42F7C7321BE815500085DB5 /* UIApplication+AG.swift in Sources */,
 				5E74DA6421BBD7AB00A97A89 /* AGVC.swift in Sources */,
 				5E74DA5C21BBD0B100A97A89 /* TemplateAFRM.swift in Sources */,
+				A4796C9D21F5DD7000B83F85 /* CGSize+AG.swift in Sources */,
 				A42F7C5821BE56AC00085DB5 /* AGDefaultsFoundation.swift in Sources */,
 				5E74DA6821BBD9C000A97A89 /* Typealias+AG.swift in Sources */,
 				5E0900BF21C2B8C50099F81E /* CreatePostInfoVC.swift in Sources */,
 				5E0900B421C2970A0099F81E /* RAMNonAnimation.swift in Sources */,
 				5E74DA8421BBF94B00A97A89 /* UINavigationController+AG.swift in Sources */,
-				5EE8925621C408CF008A65ED /* MockPost.swift in Sources */,
 				A4D6585921BF7DF2007B8558 /* AttachmentHandler.swift in Sources */,
 				5E74DA8621BBFC6700A97A89 /* UIImagePickerController+AG.swift in Sources */,
 				5EE8924B21C3F26F008A65ED /* CreateTextView.swift in Sources */,
@@ -1092,8 +1111,8 @@
 				A42F7C6921BE71FB00085DB5 /* UINavigationBar+AG.swift in Sources */,
 				A4D6584E21BF651F007B8558 /* UITabBar+AG.swift in Sources */,
 				A4E31D8721C28BA9004D1707 /* FMUserDefaults.swift in Sources */,
-				5EE8925A21C411DC008A65ED /* PostView.swift in Sources */,
 				5E74DA6621BBD90800A97A89 /* AGObject.swift in Sources */,
+				A4796C9A21F5DD1D00B83F85 /* PostView.swift in Sources */,
 				A42F7C6221BE5BD100085DB5 /* AGApplicationWindow.swift in Sources */,
 				5EE8924121C3E615008A65ED /* ClosetDetailVC.swift in Sources */,
 				A42F7C5E21BE5B4B00085DB5 /* AGApplicationRoutable.swift in Sources */,
@@ -1106,12 +1125,10 @@
 				A42F7C7121BE7B7300085DB5 /* UIImage+AG.swift in Sources */,
 				5EE8923B21C3E566008A65ED /* ClosetVC.swift in Sources */,
 				5E74DA6E21BBDAAC00A97A89 /* MainTBC.swift in Sources */,
-				5EE8924421C3E6DD008A65ED /* CreatePostView.swift in Sources */,
 				A408A4D121BEB4970030F2F5 /* UIBarButtonItem +AG.swift in Sources */,
 				5E0900B821C2B88B0099F81E /* CreatePostDesignVC.swift in Sources */,
 				5E74DA5821BBD0B100A97A89 /* TemplateVIP.swift in Sources */,
 				5E74DA8021BBF7D700A97A89 /* R.swift in Sources */,
-				5EE8925321C408B8008A65ED /* Post.swift in Sources */,
 				5E74DA5921BBD0B100A97A89 /* TemplateProtocol.swift in Sources */,
 				5EE8924821C3EB69008A65ED /* UIView+AG.swift in Sources */,
 				A4D6585021BF6D9D007B8558 /* RAMAnimatedTabBarItem+AG.swift in Sources */,
@@ -1122,13 +1139,16 @@
 				A42F7C5A21BE56D800085DB5 /* AGDefaultsCodable.swift in Sources */,
 				5E74DA7021BBDAB300A97A89 /* FeedVC.swift in Sources */,
 				5E74DA5A21BBD0B100A97A89 /* TemplateAFR.swift in Sources */,
+				A4796C9521F5DC0100B83F85 /* UIColor+AG.swift in Sources */,
 				5E74DA7621BBDACC00A97A89 /* CreatePostVC.swift in Sources */,
 				5E74DA5621BBD0B100A97A89 /* TemplateCC.swift in Sources */,
+				A4796C9721F5DCEC00B83F85 /* MockPost.swift in Sources */,
 				5E74DA5421BBD0B100A97A89 /* TemplateM.swift in Sources */,
 				A4D6585521BF7460007B8558 /* AGImagePickerController.swift in Sources */,
 				5E74DA8221BBF84C00A97A89 /* RValueColor.swift in Sources */,
 				A42F7C5621BE567D00085DB5 /* AGDefaults.swift in Sources */,
 				A42F7C6D21BE768A00085DB5 /* BlankTVC.swift in Sources */,
+				A4796C9821F5DD1D00B83F85 /* CreatePostView.swift in Sources */,
 				5E74DA5521BBD0B100A97A89 /* TemplateCCA.swift in Sources */,
 				5E74DA7321BBDABF00A97A89 /* ProfileVC.swift in Sources */,
 				5E74DA5B21BBD0B100A97A89 /* TemplateAFApi.swift in Sources */,

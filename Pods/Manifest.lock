@@ -15,6 +15,9 @@ PODS:
   - Firebase/Firestore (5.14.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (= 0.16.0)
+  - Firebase/Storage (5.14.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (= 3.0.3)
   - FirebaseAnalytics (5.4.0):
     - FirebaseCore (~> 5.1)
     - FirebaseInstanceID (~> 3.3)
@@ -46,6 +49,10 @@ PODS:
     - FirebaseCore (~> 5.1)
     - GoogleUtilities/Environment (~> 5.3)
     - GoogleUtilities/UserDefaults (~> 5.3)
+  - FirebaseStorage (3.0.3):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 5.1)
+    - GTMSessionFetcher/Core (~> 1.1)
   - GoogleAppMeasurement (5.4.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
@@ -86,6 +93,7 @@ PODS:
     - gRPC-Core/Interface (= 1.14.0)
     - nanopb (~> 0.3)
   - gRPC-Core/Interface (1.14.0)
+  - GTMSessionFetcher/Core (1.2.1)
   - IQKeyboardManagerSwift (6.2.0)
   - leveldb-library (1.20)
   - nanopb (0.3.901):
@@ -105,11 +113,29 @@ PODS:
   - SkyFloatingLabelTextField (3.6.0)
   - SnapKit (4.2.0)
   - SwiftDate (5.0.13)
+  - SwifterSwift (4.6.0):
+    - SwifterSwift/AppKit (= 4.6.0)
+    - SwifterSwift/CoreGraphics (= 4.6.0)
+    - SwifterSwift/CoreLocation (= 4.6.0)
+    - SwifterSwift/Foundation (= 4.6.0)
+    - SwifterSwift/MapKit (= 4.6.0)
+    - SwifterSwift/SpriteKit (= 4.6.0)
+    - SwifterSwift/SwiftStdlib (= 4.6.0)
+    - SwifterSwift/UIKit (= 4.6.0)
+  - SwifterSwift/AppKit (4.6.0)
+  - SwifterSwift/CoreGraphics (4.6.0)
+  - SwifterSwift/CoreLocation (4.6.0)
+  - SwifterSwift/Foundation (4.6.0)
+  - SwifterSwift/MapKit (4.6.0)
+  - SwifterSwift/SpriteKit (4.6.0)
+  - SwifterSwift/SwiftStdlib (4.6.0)
+  - SwifterSwift/UIKit (4.6.0)
 
 DEPENDENCIES:
   - CodableFirebase (~> 0.2.1)
   - Firebase/Core
   - Firebase/Firestore
+  - Firebase/Storage
   - IQKeyboardManagerSwift (~> 6.0)
   - NVActivityIndicatorView (~> 4.4.0)
   - PopupDialog (~> 0.9)
@@ -119,6 +145,7 @@ DEPENDENCIES:
   - SkyFloatingLabelTextField (~> 3.6.0)
   - SnapKit (~> 4.2.0)
   - SwiftDate (~> 5.0.13)
+  - SwifterSwift (~> 4.6.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -131,10 +158,12 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseFirestore
     - FirebaseInstanceID
+    - FirebaseStorage
     - GoogleAppMeasurement
     - GoogleUtilities
     - "gRPC-C++"
     - gRPC-Core
+    - GTMSessionFetcher
     - IQKeyboardManagerSwift
     - leveldb-library
     - nanopb
@@ -147,6 +176,7 @@ SPEC REPOS:
     - SkyFloatingLabelTextField
     - SnapKit
     - SwiftDate
+    - SwifterSwift
 
 SPEC CHECKSUMS:
   BoringSSL: e10f92a27043805c01071fe815a5cd98ae8212e7
@@ -158,10 +188,12 @@ SPEC CHECKSUMS:
   FirebaseCore: 8f49b70f57ab5cbb032ef41d64992ded21606459
   FirebaseFirestore: 0b2495ff27e5749fa0984c405ea58db3d070e075
   FirebaseInstanceID: e2fa4cb35ef5558c200f7f0ad8a53e212215f93e
+  FirebaseStorage: 3d22c041370593e639fba013d1eb698a8dae2881
   GoogleAppMeasurement: 98b71f5e04142793729a5ef23e5b96651ff4b70f
   GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
   "gRPC-C++": 19eec1ffd34de29453f5fab5b4697ad0f240ad51
   gRPC-Core: f4836515817c0eb479aeeb9cc27c91c4ba62a9f6
+  GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
@@ -174,7 +206,8 @@ SPEC CHECKSUMS:
   SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftDate: f4aea5fa9dee812485f34041121a4cbde01b0dee
+  SwifterSwift: 812ffec6f301922f5430e75be3f2939ea3a80024
 
-PODFILE CHECKSUM: 58f350cb6e5a2099e8a43464671e5f21f400cac1
+PODFILE CHECKSUM: 7278ae9903856b5859e8a74900cc581b0daadf5f
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0.beta.2
