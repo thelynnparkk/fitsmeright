@@ -10,6 +10,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import Firebase
 
 
 
@@ -53,38 +54,34 @@ extension AGApplicationSetup {
   
   //MARK: - Core Setups
   private func setupCores(with app: UIApplication, options: [UIApplication.LaunchOptionsKey: Any]?) {
-    setupAppearances()
-    setupUserDefaults()
-  }
-  
-  private func setupAppearances() {
     let c = UIColor.Custom.self
     
+    //MARK: UIBarButtonItem
     let nb = UINavigationBar.appearance()
     nb.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     
-    //MARK: - UIBarButtonItem
+    //MARK: UIBarButtonItem
     let bbi = UIBarButtonItem.appearance()
     bbi.setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -300, vertical: 0.0), for: .default)
     
-    //MARK: - UITabBar
+    //MARK: UITabBar
     let tb = UITabBar.appearance()
     tb.setupWith(content: .white, bg: c.peach, isTranslucent: false)
-  }
-  
-  private func setupUserDefaults() {
     
   }
   
   //MARK: - Pod Setups
   private func setupPods(with app: UIApplication, options: [UIApplication.LaunchOptionsKey: Any]?) {
-    setupIQKeyboardManagerSwift()
-  }
-  
-  private func setupIQKeyboardManagerSwift() {
+    //MARK: Firebase
+    FirebaseApp.configure()
+    
+    
+    
+    //MARK: IQKeyboardManagerSwift
     let iqkbm = IQKeyboardManager.shared
     iqkbm.enable = true
     iqkbm.placeholderFont = UIFont.preferredFont(forTextStyle: .body)
+    
   }
   
 }

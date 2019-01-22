@@ -58,6 +58,8 @@ class ClosetDetailVC: AGVC {
   
   
   //MARK: - Storage
+  var fsClosets: [FSCloset] = []
+  var closetCategory: ClosetCategory?
   
   
   
@@ -166,6 +168,7 @@ class ClosetDetailVC: AGVC {
   
   
   //MARK: - VIP - UseCase
+//  func fetchCloset
   
   
   

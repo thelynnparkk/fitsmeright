@@ -42,7 +42,7 @@ class MainTBC: RAMAnimatedTabBarController {
   
   //MARK: - UI
   var vc_01: FeedVC!
-  var vc_02: ClosetVC!
+  var vc_02: ClosetCategoryVC!
   var vc_03: ProfileVC!
   
   
@@ -139,7 +139,7 @@ class MainTBC: RAMAnimatedTabBarController {
     
     //MARK: UI
     vc_01 = FeedVC.vc
-    vc_02 = ClosetVC.vc
+    vc_02 = ClosetCategoryVC.vc
     vc_03 = ProfileVC.vc
     
     let nvc_01 = UINavigationController(rootViewController: vc_01)
