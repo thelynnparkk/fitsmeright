@@ -1,9 +1,9 @@
 //
-//  ClosetVC.swift
+//  AddClosetVC.swift
 //  fitsmeright
 //
-//  Created by Lynn Park on 14/12/2561 BE.
-//  Copyright © 2561 silpakorn. All rights reserved.
+//  Created by Lynn Park on 22/1/2562 BE.
+//  Copyright © 2562 silpakorn. All rights reserved.
 //
 
 
@@ -12,20 +12,19 @@ import UIKit
 
 
 
-extension ClosetVC:
-  AGVCInstantiatable,
-  FloatingViewDelegate
+extension AddClosetVC:
+  AGVCInstantiatable
 {
   
 }
 
 
 
-class ClosetVC: AGVC {
+class AddClosetVC: AGVC {
   
   //MARK: - AGVCInstantiatable
-  static var sb_name: String = "ClosetVC"
-  static var vc_name: String = "ClosetVC"
+  static var sb_name: String = "AddClosetVC"
+  static var vc_name: String = "AddClosetVC"
   
   
   
@@ -39,8 +38,7 @@ class ClosetVC: AGVC {
   
   //MARK: - UI
   @IBOutlet weak var lb_title: UILabel!
-  
-  @IBOutlet weak var v_addClosetFloating: FloatingView!
+  @IBOutlet weak var btn_addCloset: UIButton!
   
   
   
@@ -130,14 +128,12 @@ class ClosetVC: AGVC {
     //    let c = UIColor.Custom.self
     //    let nb = navigationController?.navigationBar
     //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
-    navigationItem.title = ClosetVC.sb_name
+    navigationItem.title = AddClosetVC.sb_name
     
     
     
     //MARK: UI
-    lb_title.text = ClosetVC.sb_name
-    v_addClosetFloating.delegate = self
-    v_addClosetFloating.setup(image: #imageLiteral(resourceName: "ic_more").filled(withColor: .white))
+    lb_title.text = AddClosetVC.sb_name
     
     
     
@@ -155,12 +151,15 @@ class ClosetVC: AGVC {
   
   //MARK: - Setup Data
   func setupDataOnViewDidLoad() {
-    fetchCloset()
+    
   }
   
   
   
   //MARK: - Event
+  @IBAction func addClosetPressed(_ sender: Any) {
+    
+  }
   
   
   
@@ -173,23 +172,6 @@ class ClosetVC: AGVC {
   
   
   //MARK: - VIP - UseCase
-  func fetchCloset() {
-    
-    func fetch() {
-      if let _ = closetCategory {
-        present()
-      } else {
-        navigationController?.popViewController()
-      }
-    }
-    
-    func present() {
-      lb_title.text = "\(fsClosets.count) \(closetCategory!.plural)"
-    }
-    
-    fetch()
-    
-  }
   
   
   
@@ -197,11 +179,7 @@ class ClosetVC: AGVC {
   
   
   
-  //MARK: - Custom - FloatingViewDelegate
-  func floatingViewPressed(_ view: UIView) {
-    let vc = AddClosetVC.vc
-    navigationController?.pushViewController(vc)
-  }
+  //MARK: - Custom - Protocol
   
   
   

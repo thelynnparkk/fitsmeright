@@ -27,20 +27,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LWa-dp-aqj" customClass="FloatingView" customModule="fitsmeright" customModuleProvider="target">
+                                <rect key="frame" x="305" y="597" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4vL-HL-BoL"/>
+                                    <constraint firstAttribute="width" constant="50" id="uBx-HG-KQe"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="RqQ-YR-0ds" firstAttribute="top" secondItem="8ZH-r3-RvC" secondAttribute="bottom" id="ANK-hD-Bzb"/>
                             <constraint firstItem="8ZH-r3-RvC" firstAttribute="leading" secondItem="RqQ-YR-0ds" secondAttribute="leading" id="C6E-jb-vop"/>
                             <constraint firstItem="Xge-d3-UgR" firstAttribute="centerY" secondItem="RqQ-YR-0ds" secondAttribute="centerY" id="DV2-hG-4JL"/>
+                            <constraint firstAttribute="trailing" secondItem="LWa-dp-aqj" secondAttribute="trailing" constant="20" id="Dao-OR-tu2"/>
                             <constraint firstItem="8ZH-r3-RvC" firstAttribute="top" secondItem="Wbp-6x-EXJ" secondAttribute="top" id="JzH-qk-WH0"/>
                             <constraint firstItem="Xge-d3-UgR" firstAttribute="centerX" secondItem="RqQ-YR-0ds" secondAttribute="centerX" id="O6F-iw-6Xz"/>
                             <constraint firstAttribute="trailing" secondItem="8ZH-r3-RvC" secondAttribute="trailing" id="ZNB-DS-Yk3"/>
+                            <constraint firstItem="RqQ-YR-0ds" firstAttribute="bottom" secondItem="LWa-dp-aqj" secondAttribute="bottom" constant="20" id="ahl-Xp-ZOE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RqQ-YR-0ds"/>
                     </view>
                     <connections>
                         <outlet property="lb_title" destination="Xge-d3-UgR" id="ASr-DX-Djd"/>
+                        <outlet property="v_addClosetFloating" destination="LWa-dp-aqj" id="weY-e1-AOT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Crr-bL-AEd" userLabel="First Responder" sceneMemberID="firstResponder"/>

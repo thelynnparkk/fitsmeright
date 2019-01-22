@@ -168,7 +168,6 @@ class ClosetDetailVC: AGVC {
   
   
   //MARK: - VIP - UseCase
-//  func fetchCloset
   
   
   

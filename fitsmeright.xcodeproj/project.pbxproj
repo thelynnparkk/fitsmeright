@@ -65,6 +65,10 @@
 		5ECE8E8221F76015000AF65E /* QueryDocumentSnapshot+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8E8121F76015000AF65E /* QueryDocumentSnapshot+AG.swift */; };
 		5ECE8E8521F769F0000AF65E /* ClosetCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8E8421F769F0000AF65E /* ClosetCategoryVC.swift */; };
 		5ECE8E8721F769F7000AF65E /* ClosetCategoryVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ECE8E8621F769F7000AF65E /* ClosetCategoryVC.storyboard */; };
+		5ECE8E8B21F76DDB000AF65E /* FloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8E8A21F76DDB000AF65E /* FloatingView.swift */; };
+		5ECE8E8D21F76DED000AF65E /* FloatingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ECE8E8C21F76DED000AF65E /* FloatingView.xib */; };
+		5ECE8E9021F770FE000AF65E /* AddClosetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8E8F21F770FE000AF65E /* AddClosetVC.swift */; };
+		5ECE8E9221F77105000AF65E /* AddClosetVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ECE8E9121F77105000AF65E /* AddClosetVC.storyboard */; };
 		5EE8923B21C3E566008A65ED /* ClosetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8923A21C3E566008A65ED /* ClosetVC.swift */; };
 		5EE8923D21C3E572008A65ED /* ClosetVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8923C21C3E572008A65ED /* ClosetVC.storyboard */; };
 		5EE8924121C3E615008A65ED /* ClosetDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924021C3E615008A65ED /* ClosetDetailVC.swift */; };
@@ -186,6 +190,10 @@
 		5ECE8E8121F76015000AF65E /* QueryDocumentSnapshot+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueryDocumentSnapshot+AG.swift"; sourceTree = "<group>"; };
 		5ECE8E8421F769F0000AF65E /* ClosetCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClosetCategoryVC.swift; path = fitsmeright/Classe/Extension/Pod/Firestore/ClosetCategoryVC.swift; sourceTree = SOURCE_ROOT; };
 		5ECE8E8621F769F7000AF65E /* ClosetCategoryVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClosetCategoryVC.storyboard; sourceTree = "<group>"; };
+		5ECE8E8A21F76DDB000AF65E /* FloatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingView.swift; sourceTree = "<group>"; };
+		5ECE8E8C21F76DED000AF65E /* FloatingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloatingView.xib; sourceTree = "<group>"; };
+		5ECE8E8F21F770FE000AF65E /* AddClosetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClosetVC.swift; sourceTree = "<group>"; };
+		5ECE8E9121F77105000AF65E /* AddClosetVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddClosetVC.storyboard; sourceTree = "<group>"; };
 		5EE8923A21C3E566008A65ED /* ClosetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetVC.swift; sourceTree = "<group>"; };
 		5EE8923C21C3E572008A65ED /* ClosetVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClosetVC.storyboard; sourceTree = "<group>"; };
 		5EE8924021C3E615008A65ED /* ClosetDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetDetailVC.swift; sourceTree = "<group>"; };
@@ -645,6 +653,15 @@
 			path = ClosetCategoryVC;
 			sourceTree = "<group>";
 		};
+		5ECE8E8E21F76F8A000AF65E /* AddClosetVC */ = {
+			isa = PBXGroup;
+			children = (
+				5ECE8E8F21F770FE000AF65E /* AddClosetVC.swift */,
+				5ECE8E9121F77105000AF65E /* AddClosetVC.storyboard */,
+			);
+			path = AddClosetVC;
+			sourceTree = "<group>";
+		};
 		5EE8923821C3E45E008A65ED /* ClosetVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -666,6 +683,7 @@
 		5EE8923E21C3E5F5008A65ED /* Closet */ = {
 			isa = PBXGroup;
 			children = (
+				5ECE8E8E21F76F8A000AF65E /* AddClosetVC */,
 				5ECE8E8321F76993000AF65E /* ClosetCategoryVC */,
 				5EE8923821C3E45E008A65ED /* ClosetVC */,
 				5EE8923F21C3E602008A65ED /* ClosetDetailVC */,
@@ -693,6 +711,8 @@
 				5EE8925B21C411E3008A65ED /* PostView.xib */,
 				5EC21D5421F60B1D0013157F /* ClosetMenuView.swift */,
 				5EC21D5621F60B290013157F /* ClosetMenuView.xib */,
+				5ECE8E8A21F76DDB000AF65E /* FloatingView.swift */,
+				5ECE8E8C21F76DED000AF65E /* FloatingView.xib */,
 			);
 			name = View;
 			path = V;
@@ -958,9 +978,11 @@
 				5EE8924D21C3F276008A65ED /* CreateTextView.xib in Resources */,
 				A42F7C6721BE621C00085DB5 /* BlankVC.storyboard in Resources */,
 				A4796C9921F5DD1D00B83F85 /* CreatePostView.xib in Resources */,
+				5ECE8E8D21F76DED000AF65E /* FloatingView.xib in Resources */,
 				5E74DA0421BBACAA00A97A89 /* Assets.xcassets in Resources */,
 				5EC21D5B21F61A1C0013157F /* ClosetDetailVC.storyboard in Resources */,
 				5E74DA7A21BBDB5200A97A89 /* FeedVC.storyboard in Resources */,
+				5ECE8E9221F77105000AF65E /* AddClosetVC.storyboard in Resources */,
 				A42F7C4E21BE321300085DB5 /* README.md in Resources */,
 				5EC21D5721F60B290013157F /* ClosetMenuView.xib in Resources */,
 				5E74DA4521BBD04300A97A89 /* SplashVC.storyboard in Resources */,
@@ -1159,6 +1181,7 @@
 				5ECE8E7121F74B84000AF65E /* ClosetCategory.swift in Sources */,
 				5E74DA8621BBFC6700A97A89 /* UIImagePickerController+AG.swift in Sources */,
 				5EE8924B21C3F26F008A65ED /* CreateTextView.swift in Sources */,
+				5ECE8E8B21F76DDB000AF65E /* FloatingView.swift in Sources */,
 				5E74DA5721BBD0B100A97A89 /* TemplateVC.swift in Sources */,
 				5E74DA6221BBD6AC00A97A89 /* CATransition+AG.swift in Sources */,
 				A42F7C6921BE71FB00085DB5 /* UINavigationBar+AG.swift in Sources */,
@@ -1210,6 +1233,7 @@
 				A4796C9821F5DD1D00B83F85 /* CreatePostView.swift in Sources */,
 				5E74DA5521BBD0B100A97A89 /* TemplateCCA.swift in Sources */,
 				5E74DA7321BBDABF00A97A89 /* ProfileVC.swift in Sources */,
+				5ECE8E9021F770FE000AF65E /* AddClosetVC.swift in Sources */,
 				5E74DA5B21BBD0B100A97A89 /* TemplateAFApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
