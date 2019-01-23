@@ -21,16 +21,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5x2-r8-CfL">
-                    <rect key="frame" x="10" y="10" width="355" height="647"/>
+                    <rect key="frame" x="15" y="15" width="345" height="637"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="5x2-r8-CfL" firstAttribute="leading" secondItem="bEf-PV-GUt" secondAttribute="leading" constant="10" id="jpN-4F-RqJ"/>
-                <constraint firstItem="5x2-r8-CfL" firstAttribute="top" secondItem="bEf-PV-GUt" secondAttribute="top" constant="10" id="jw3-gc-CPW"/>
-                <constraint firstAttribute="trailing" secondItem="5x2-r8-CfL" secondAttribute="trailing" constant="10" id="lWR-7e-uIZ"/>
-                <constraint firstAttribute="bottom" secondItem="5x2-r8-CfL" secondAttribute="bottom" constant="10" id="sEZ-EM-jye"/>
+                <constraint firstItem="5x2-r8-CfL" firstAttribute="leading" secondItem="bEf-PV-GUt" secondAttribute="leading" constant="15" id="jpN-4F-RqJ"/>
+                <constraint firstItem="5x2-r8-CfL" firstAttribute="top" secondItem="bEf-PV-GUt" secondAttribute="top" constant="15" id="jw3-gc-CPW"/>
+                <constraint firstAttribute="trailing" secondItem="5x2-r8-CfL" secondAttribute="trailing" constant="15" id="lWR-7e-uIZ"/>
+                <constraint firstAttribute="bottom" secondItem="5x2-r8-CfL" secondAttribute="bottom" constant="15" id="sEZ-EM-jye"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="MW0-Zh-pv2"/>
             <point key="canvasLocation" x="137.59999999999999" y="148.42578710644679"/>
