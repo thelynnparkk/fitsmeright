@@ -22,10 +22,7 @@ extension ClosetVC:
 
 
 class ClosetVC: AGVC {
-  
   //MARK: - AGVCInstantiatable
-  static var sb_name: String = "ClosetVC"
-  static var vc_name: String = "ClosetVC"
   
   
   
@@ -160,7 +157,7 @@ class ClosetVC: AGVC {
   //MARK: - VIP - UseCase
   func fetchCloset() {
     
-    func fetch() {
+    func interactor() {
       if let _ = closetCategory {
         present()
       } else {
@@ -172,7 +169,7 @@ class ClosetVC: AGVC {
       lb_title.text = "\(fsClosets.count) \(closetCategory!.plural)"
     }
     
-    fetch()
+    interactor()
     
   }
   

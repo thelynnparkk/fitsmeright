@@ -1,9 +1,9 @@
 //
-//  ClosetDetailVC.swift
+//  AGStateView.swift
 //  fitsmeright
 //
-//  Created by Lynn Park on 14/12/2561 BE.
-//  Copyright © 2561 silpakorn. All rights reserved.
+//  Created by Sasawat Sankosik on 23/1/2562 BE.
+//  Copyright © 2562 silpakorn. All rights reserved.
 //
 
 
@@ -12,29 +12,16 @@ import UIKit
 
 
 
-extension ClosetDetailVC:
-  AGVCInstantiatable
+extension AGStateView
 {
   
 }
 
 
 
-class ClosetDetailVC: AGVC {
-  //MARK: - AGVCInstantiatable
-  
-  
-  
-  //MARK: - Action
-  
-  
-  
-  //MARK: - VIP
-  
-  
+class AGStateView: AGView {
   
   //MARK: - UI
-  @IBOutlet weak var lb_title: UILabel!
   
   
   
@@ -55,8 +42,6 @@ class ClosetDetailVC: AGVC {
   
   
   //MARK: - Storage
-  var fsClosets: [FSCloset] = []
-  var closetCategory: ClosetCategory?
   
   
   
@@ -65,13 +50,10 @@ class ClosetDetailVC: AGVC {
   
   
   //MARK: - Apperance
-  override var preferredStatusBarStyle: UIStatusBarStyle {
-    return .lightContent
-  }
   
-  override var prefersStatusBarHidden: Bool {
-    return false
-  }
+  
+  
+  //MARK: - Apperance
   
   
   
@@ -91,22 +73,15 @@ class ClosetDetailVC: AGVC {
     
   }
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-  }
-  
   
   
   //MARK: - Setup View
-  override func setupViewOnViewDidLoad() {
+  override func setupViewOnInit() {
     //MARK: Core
-    //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     
     
     
     //MARK: Component
-    lb_title.text = ClosetDetailVC.sb_name
     
     
     
@@ -127,7 +102,7 @@ class ClosetDetailVC: AGVC {
   
   
   //MARK: - Setup Data
-  override func setupDataOnViewDidLoad() {
+  override func setupDataOnInit() {
     
   }
   
@@ -139,16 +114,12 @@ class ClosetDetailVC: AGVC {
   
   //MARK: - Public
   override func setupLocalize() {
-    ni.title = ClosetDetailVC.sb_name
+    
   }
   
   
   
   //MARK: - Private
-  
-  
-  
-  //MARK: - VIP - UseCase
   
   
   
@@ -160,8 +131,9 @@ class ClosetDetailVC: AGVC {
   
   
   
-  //MARK: - Pods - Protocol
-  
+  //MARK: - Pod - Protocol
   
   
 }
+
+

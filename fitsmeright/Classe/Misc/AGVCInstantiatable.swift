@@ -21,31 +21,30 @@ public protocol AGVCInstantiatable {
 
 
 
-public extension AGVCInstantiatable {
+public extension AGVCInstantiatable where Self: UIViewController {
   
+  
+  //MARK: - Implement
   public static var sb_name: String {
-    return ""
+    return String(describing: Self.self)
   }
   
   public static var vc_name: String {
-    return ""
+    return String(describing: Self.self)
   }
   
   public static var sb: UIStoryboard {
     return UIStoryboard(name: sb_name, bundle: nil)
   }
   
-}
-
-
-
-public extension AGVCInstantiatable where Self: UIViewController {
-  
   public static func create() -> Self {
     let vc = sb.instantiateViewController(withIdentifier: vc_name)
     return vc as! Self
   }
   
+  
+  
+  //MARK: - Public
   public static var vc: Self {
     let vc = create()
     return vc
@@ -56,6 +55,13 @@ public extension AGVCInstantiatable where Self: UIViewController {
     let nvc = UINavigationController(rootViewController: vc)
     return nvc
   }
+  
+  
+  
+  //MARK: - Private
+  
+  
+  
   
 }
 

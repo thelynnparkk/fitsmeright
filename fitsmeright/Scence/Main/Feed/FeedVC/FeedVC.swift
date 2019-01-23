@@ -21,10 +21,7 @@ extension FeedVC:
 
 
 class FeedVC: AGVC {
-  
   //MARK: - AGVCInstantiatable
-  static var sb_name: String = "FeedVC"
-  static var vc_name: String = "FeedVC"
   
   
   

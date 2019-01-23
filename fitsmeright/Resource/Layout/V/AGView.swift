@@ -13,7 +13,9 @@ import UIKit
 
 
 
-extension AGView
+extension AGView:
+  LifeCyclable,
+  Colorable
 {
   
 }
@@ -47,6 +49,10 @@ class AGView: UIView {
   
   
   //MARK: - Initial
+  convenience init() {
+    self.init(frame: .zero)
+  }
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     onInit()
@@ -54,7 +60,7 @@ class AGView: UIView {
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
-    onInit()
+    
   }
   
   deinit {
@@ -79,6 +85,17 @@ class AGView: UIView {
   
   func onDeinit() {
     
+  }
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    setupViewOnAwakeFromNib()
+    setupDataOnAwakeFromNib()
+  }
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    setupViewOnLayoutSubviews()
   }
   
   
@@ -107,10 +124,41 @@ class AGView: UIView {
     
   }
   
+  func setupViewOnAwakeFromNib() {
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+  }
+  
+  func setupViewOnLayoutSubviews() {
+    
+  }
+  
   
   
   //MARK: - Setup Data
   func setupDataOnInit() {
+    
+  }
+  
+  func setupDataOnAwakeFromNib() {
     
   }
   

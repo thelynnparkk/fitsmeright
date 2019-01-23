@@ -22,10 +22,7 @@ extension ClosetCategoryVC:
 
 
 class ClosetCategoryVC: AGVC {
-  
   //MARK: - AGVCInstantiatable
-  static var sb_name: String = "ClosetCategoryVC"
-  static var vc_name: String = "ClosetCategoryVC"
   
   
   
@@ -50,7 +47,7 @@ class ClosetCategoryVC: AGVC {
   @IBOutlet weak var v_top: ClosetMenuView!
   @IBOutlet weak var v_bottom: ClosetMenuView!
   @IBOutlet weak var v_sock: ClosetMenuView!
-  
+  var v_floating: FloatingView!
   
   
   
@@ -135,10 +132,19 @@ class ClosetCategoryVC: AGVC {
     
     
     //MARK: Other
+    v_floating = FloatingView()
+    v_floating.setup(image: #imageLiteral(resourceName: "ic_more").filled(withColor: .white))
+    view.addSubview(v_floating)
     
     
     
     //MARK: Snp
+    v_floating.snp.makeConstraints {
+      $0.right.equalToSuperview().offset(-20)
+      $0.bottom.equalToSuperview().offset(-20)
+      $0.width.equalTo(50)
+      $0.height.equalTo(50)
+    }
     
     
     
@@ -177,7 +183,7 @@ class ClosetCategoryVC: AGVC {
   //MARK: - VIP - FetchClosetMenus
   func fetchClosetMenus() {
     
-    func fetch() {
+    func interactor() {
       v_closet.alpha = 0
       FSClosetWorker.fetch { [weak self] in
         guard let _s = self else { return }
@@ -235,7 +241,7 @@ class ClosetCategoryVC: AGVC {
       v_closet.fadeIn(duration: 0.3, completion: nil)
     }
     
-    fetch()
+    interactor()
     
   }
   

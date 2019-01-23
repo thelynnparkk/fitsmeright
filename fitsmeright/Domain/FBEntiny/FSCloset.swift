@@ -14,7 +14,15 @@ import CodableFirebase
 
 
 
-class FSCloset: Codable, AGEntity {
+extension FSCloset:
+  Entitible
+{
+  
+}
+
+
+
+class FSCloset: Codable {
   
   //MARK: - Key
   static let collection = "closets"

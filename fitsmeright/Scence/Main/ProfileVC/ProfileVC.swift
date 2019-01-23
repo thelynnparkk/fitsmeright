@@ -21,10 +21,7 @@ extension ProfileVC:
 
 
 class ProfileVC: AGVC {
-  
   //MARK: - AGVCInstantiatable
-  static var sb_name: String = "ProfileVC"
-  static var vc_name: String = "ProfileVC"
   
   
   

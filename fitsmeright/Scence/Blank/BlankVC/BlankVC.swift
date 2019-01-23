@@ -21,10 +21,7 @@ extension BlankVC:
 
 
 class BlankVC: AGVC {
-  
   //MARK: - AGVCInstantiatable
-  static var sb_name: String = "BlankVC"
-  static var vc_name: String = "BlankVC"
   
   
   

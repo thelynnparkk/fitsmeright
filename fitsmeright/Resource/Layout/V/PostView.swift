@@ -13,7 +13,8 @@ import SwiftDate
 
 
 
-extension PostView
+extension PostView:
+  AGViewInstantiatable
 {
   
 }
@@ -25,6 +26,9 @@ extension PostView
  Source: https://medium.com/@umairhassanbaig/ios-swift-creating-a-custom-view-with-xib-ace878cd41c5
  */
 class PostView: AGView {
+  //MARK: - AGViewInstantiatable
+  
+  
   
   //MARK: - UI
   @IBOutlet weak var v_container: UIView!
@@ -67,15 +71,29 @@ class PostView: AGView {
   
   
   
+  //MARK: - Apperance
+  
+  
+  
   //MARK: - Life cycle
   override func onInit() {
-    Bundle.main.loadNibNamed("PostView", owner: self, options: nil)
-    v_container.match(in: self)
+    loadContainerIntoNib()
     super.onInit()
+  }
+  
+  override func prepareToDeinit() {
+    super.prepareToDeinit()
+    
   }
   
   override func onDeinit() {
     super.onDeinit()
+    
+  }
+  
+  override func awakeFromNib() {
+    loadContainerIntoNib()
+    super.awakeFromNib()
     
   }
   
@@ -106,8 +124,17 @@ class PostView: AGView {
     
     
     //MARK: Localize
+    setupLocalize()
     
     
+    
+  }
+  
+  override func setupViewOnAwakeFromNib() {
+    setupViewOnInit()
+  }
+  
+  override func setupViewOnLayoutSubviews() {
     
   }
   

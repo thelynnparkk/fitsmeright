@@ -17,14 +17,15 @@ import Foundation
 
 
 
-extension TemplateEntity
+extension TemplateEntity:
+  Entitible
 {
   
 }
 
 
 
-class TemplateEntity: AGEntity {
+class TemplateEntity {
   
   //MARK: - Key
   

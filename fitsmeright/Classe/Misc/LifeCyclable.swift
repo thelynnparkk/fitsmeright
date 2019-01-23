@@ -1,5 +1,5 @@
 //
-//  Objectable.swift
+//  LifeCyclable.swift
 //  fitsmeright
 //
 //  Created by Sasawat Sankosik on 23/1/2562 BE.
@@ -12,7 +12,7 @@ import Foundation
 
 
 
-protocol Objectable {
+protocol LifeCyclable {
   func onInit()
   func prepareToDeinit()
   func onDeinit()
@@ -20,7 +20,7 @@ protocol Objectable {
 
 
 
-extension Objectable
+extension LifeCyclable
 {
   
   //MARK: - Implement

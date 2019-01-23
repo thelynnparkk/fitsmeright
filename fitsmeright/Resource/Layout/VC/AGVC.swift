@@ -14,6 +14,8 @@ import UIKit
 
 
 extension AGVC:
+  LifeCyclable,
+  DispatchQueueable,
   Colorable
 {
   

@@ -21,10 +21,7 @@ extension AddClosetVC:
 
 
 class AddClosetVC: AGVC {
-  
   //MARK: - AGVCInstantiatable
-  static var sb_name: String = "AddClosetVC"
-  static var vc_name: String = "AddClosetVC"
   
   
   

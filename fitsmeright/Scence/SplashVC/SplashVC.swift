@@ -21,10 +21,7 @@ extension SplashVC:
 
 
 class SplashVC: AGVC {
-  
   //MARK: - AGVCInstantiatable
-  static var sb_name: String = "SplashVC"
-  static var vc_name: String = "SplashVC"
   
   
   

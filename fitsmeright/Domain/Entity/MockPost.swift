@@ -13,7 +13,7 @@ import UIKit
 
 
 extension MockPost:
-  AGEntity
+  Entitible
 {
   
 }

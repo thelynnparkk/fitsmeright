@@ -21,7 +21,6 @@ extension TemplateVC
 
 
 class TemplateVC: AGVC {
-  
   //MARK: - AGVCInstantiatable
   
   

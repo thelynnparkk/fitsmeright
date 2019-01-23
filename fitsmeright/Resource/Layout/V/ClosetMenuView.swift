@@ -18,7 +18,8 @@ protocol ClosetMenuViewDelegate: class {
 
 
 
-extension ClosetMenuView
+extension ClosetMenuView:
+  AGViewInstantiatable
 {
   
 }
@@ -30,6 +31,9 @@ extension ClosetMenuView
  Source: https://medium.com/@umairhassanbaig/ios-swift-creating-a-custom-view-with-xib-ace878cd41c5
  */
 class ClosetMenuView: AGView {
+  //MARK: - AGViewInstantiatable
+  
+  
   
   //MARK: - UI
   @IBOutlet weak var v_container: UIView!
@@ -64,15 +68,29 @@ class ClosetMenuView: AGView {
   
   
   
+  //MARK: - Apperance
+  
+  
+  
   //MARK: - Life cycle
   override func onInit() {
-    Bundle.main.loadNibNamed("ClosetMenuView", owner: self, options: nil)
-    v_container.match(in: self)
+    loadContainerIntoNib()
     super.onInit()
+  }
+  
+  override func prepareToDeinit() {
+    super.prepareToDeinit()
+    
   }
   
   override func onDeinit() {
     super.onDeinit()
+    
+  }
+  
+  override func awakeFromNib() {
+    loadContainerIntoNib()
+    super.awakeFromNib()
     
   }
   
@@ -108,9 +126,19 @@ class ClosetMenuView: AGView {
     
     
     //MARK: Localize
+    setupLocalize()
     
     
 
+  }
+  
+  override func setupViewOnAwakeFromNib() {
+    setupViewOnInit()
+  }
+  
+  override func setupViewOnLayoutSubviews() {
+    addShadow(ofColor: .black, radius: 8, offset: .less, opacity: 0.1)
+    v_container.layer.cornerRadius = 8
   }
   
   

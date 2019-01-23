@@ -1,5 +1,5 @@
 //
-//  AGObject.swift
+//  DispatchQueueable.swift
 //  fitsmeright
 //
 //  Created by Lynn Park on 8/12/2561 BE.
@@ -12,19 +12,16 @@ import UIKit
 
 
 
-public protocol AGObject {
+public protocol DispatchQueueable {
   func mockBackgroundWaiting(_ time: UInt32, onComplete: @escaping CBVoid)
   func mockMainWaiting(_ time: Double, onComplete: @escaping CBVoid)
 }
 
 
 
-public extension AGObject {
-  
-  var window: UIWindow? {
-    return (UIApplication.shared.delegate as? AppDelegate)?.window
-  }
-  
+public extension DispatchQueueable {
+
+  //MARK: - Implement
   public func mockBackgroundWaiting(_ time: UInt32 = 3, onComplete: @escaping CBVoid) {
     let qualityOfServiceClass = DispatchQoS.QoSClass.background
     let backgroundQueue = DispatchQueue.global(qos: qualityOfServiceClass)
@@ -42,5 +39,15 @@ public extension AGObject {
     }
   }
   
+  
+  
+  //MARK: - Public
+  
+  
+  
+  //MARK: - Private
+  
+  
+
 }
 

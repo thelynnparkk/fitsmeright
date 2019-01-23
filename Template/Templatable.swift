@@ -12,7 +12,7 @@ import Foundation
 
 
 
-protocol Templatable: Objectable {
+protocol Templatable: LifeCyclable {
   
 }
 

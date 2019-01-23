@@ -1,5 +1,5 @@
 //
-//  AGEntity.swift
+//  Entitible.swift
 //  fitsmeright
 //
 //  Created by Lynn Park on 14/12/2561 BE.
@@ -12,16 +12,16 @@ import Foundation
 
 
 
-public protocol AGEntity {
-  var description: String { get }
+public protocol Entitible {
+  func log() -> String
 }
 
 
 
-public extension AGEntity {
+public extension Entitible {
   
   //MARK: - Implements
-  public var description: String {
+  public func log() -> String {
     var description = ""
     let mirror = Mirror(reflecting: self)
     for m in mirror.children {

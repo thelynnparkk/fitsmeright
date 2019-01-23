@@ -23,10 +23,7 @@ extension CreatePostDesignVC:
 
 
 class CreatePostDesignVC: AGVC {
-  
   //MARK: - AGVCInstantiatable
-  static var sb_name: String = "CreatePostDesignVC"
-  static var vc_name: String = "CreatePostDesignVC"
   
   
   
