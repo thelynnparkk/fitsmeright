@@ -124,6 +124,11 @@ class AGVC: UIViewController {
     setupDataOnDidDisappear()
   }
   
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    setupViewOnDidLayoutSubviews()
+  }
+  
   
   
   //MARK: - Setup View
@@ -228,6 +233,10 @@ class AGVC: UIViewController {
     //MARK: Localize
   }
   
+  func setupViewOnDidLayoutSubviews() {
+    
+  }
+  
   
   
   //MARK: - Setup Data
@@ -285,23 +294,3 @@ class AGVC: UIViewController {
   
   
 }
-//MARK: Core
-
-
-
-//MARK: Component
-
-
-
-//MARK: Other
-
-
-
-//MARK: Snp
-
-
-
-//MARK: Localize
-
-
-

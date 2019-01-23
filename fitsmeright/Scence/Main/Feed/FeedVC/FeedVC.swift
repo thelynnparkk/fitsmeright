@@ -97,6 +97,10 @@ class FeedVC: AGVC {
     
   }
   
+  override func setupViewOnDidLayoutSubviews() {
+    
+  }
+  
   
   
   //MARK: - Setup View

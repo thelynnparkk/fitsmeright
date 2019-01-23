@@ -105,6 +105,10 @@ class TemplateVC: AGVC {
     
   }
   
+  override func setupViewOnDidLayoutSubviews() {
+    
+  }
+  
   
   
   //MARK: - Setup Data

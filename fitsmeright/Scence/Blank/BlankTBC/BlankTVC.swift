@@ -132,6 +132,10 @@ class BlankTVC: AGVC {
     
   }
   
+  override func setupViewOnDidLayoutSubviews() {
+    
+  }
+  
   
   
   //MARK: - Setup Data

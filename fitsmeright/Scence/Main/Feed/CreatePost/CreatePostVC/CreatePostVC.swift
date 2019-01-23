@@ -133,6 +133,10 @@ class CreatePostVC: AGVC {
     
     
   }
+  
+  override func setupViewOnDidLayoutSubviews() {
+    
+  }
 
   
   

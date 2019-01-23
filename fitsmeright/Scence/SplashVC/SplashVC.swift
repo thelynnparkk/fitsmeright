@@ -113,7 +113,10 @@ class SplashVC: AGVC {
     
   }
   
- 
+  override func setupViewOnDidLayoutSubviews() {
+    
+  }
+  
   
   
   //MARK: - Setup Data

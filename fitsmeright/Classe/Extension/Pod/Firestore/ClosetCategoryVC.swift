@@ -155,6 +155,10 @@ class ClosetCategoryVC: AGVC {
     
   }
   
+  override func setupViewOnDidLayoutSubviews() {
+    
+  }
+  
   
   
   //MARK: - Setup Data

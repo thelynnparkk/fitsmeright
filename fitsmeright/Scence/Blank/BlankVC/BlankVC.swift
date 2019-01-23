@@ -148,6 +148,9 @@ class BlankVC: AGVC {
     setupLocalize()
     
     
+  }
+  
+  override func setupViewOnDidLayoutSubviews() {
     
   }
   

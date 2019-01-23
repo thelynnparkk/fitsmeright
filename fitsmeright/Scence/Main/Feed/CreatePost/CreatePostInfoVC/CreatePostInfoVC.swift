@@ -141,6 +141,10 @@ class CreatePostInfoVC: AGVC {
     
   }
   
+  override func setupViewOnDidLayoutSubviews() {
+    
+  }
+  
   
   
   //MARK: - Setup Data
