@@ -107,10 +107,7 @@ class ClosetVC: AGVC {
   //MARK: - Setup View
   override func setupViewOnViewDidLoad() {
     //MARK: Core
-    //    let c = UIColor.Custom.self
-    //    let nb = navigationController?.navigationBar
     //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
-    navigationItem.title = ClosetVC.sb_name
     
     
     
@@ -130,6 +127,8 @@ class ClosetVC: AGVC {
     
     
     //MARK: Localize
+    setupLocalize()
+    
     
     
   }
@@ -149,7 +148,7 @@ class ClosetVC: AGVC {
   
   //MARK: - Public
   override func setupLocalize() {
-    
+    ni.title = ClosetVC.sb_name
   }
   
   

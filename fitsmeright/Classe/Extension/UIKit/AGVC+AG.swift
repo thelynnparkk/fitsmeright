@@ -21,7 +21,6 @@ extension AGVC
 
 
 extension AGVC {
-  
   //MARK: - UI
   
   
@@ -48,6 +47,12 @@ extension AGVC {
   }
   var window: UIWindow? {
     return app_delegate?.window ?? nil
+  }
+  var ni: UINavigationItem {
+    return navigationItem
+  }
+  var nb: UINavigationBar? {
+    return navigationController?.navigationBar
   }
   
   

@@ -111,6 +111,7 @@ class SplashVC: AGVC {
     
     
     //MARK: Localize
+    setupLocalize()
     
     
   }

@@ -103,6 +103,7 @@
 		A4C4B6EC21F820C00036B0F7 /* AGVC+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6EB21F820C00036B0F7 /* AGVC+AG.swift */; };
 		A4C4B6EE21F821740036B0F7 /* AGIPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6ED21F821740036B0F7 /* AGIPC.swift */; };
 		A4C4B6F021F826D90036B0F7 /* AGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6EF21F826D90036B0F7 /* AGView.swift */; };
+		A4C4B6F221F84E240036B0F7 /* Colorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6F121F84E240036B0F7 /* Colorable.swift */; };
 		A4D6584C21BF63B9007B8558 /* UITabbarController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6584B21BF63B9007B8558 /* UITabbarController+AG.swift */; };
 		A4D6584E21BF651F007B8558 /* UITabBar+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */; };
 		A4D6585521BF7460007B8558 /* AGImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6585421BF7460007B8558 /* AGImagePickerController.swift */; };
@@ -235,6 +236,7 @@
 		A4C4B6EB21F820C00036B0F7 /* AGVC+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGVC+AG.swift"; sourceTree = "<group>"; };
 		A4C4B6ED21F821740036B0F7 /* AGIPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGIPC.swift; sourceTree = "<group>"; };
 		A4C4B6EF21F826D90036B0F7 /* AGView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGView.swift; sourceTree = "<group>"; };
+		A4C4B6F121F84E240036B0F7 /* Colorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colorable.swift; sourceTree = "<group>"; };
 		A4D6584B21BF63B9007B8558 /* UITabbarController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabbarController+AG.swift"; sourceTree = "<group>"; };
 		A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+AG.swift"; sourceTree = "<group>"; };
 		A4D6585421BF7460007B8558 /* AGImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGImagePickerController.swift; sourceTree = "<group>"; };
@@ -508,6 +510,7 @@
 				A42F7C5F21BE5BA400085DB5 /* Application */,
 				5EE8925721C40958008A65ED /* AGEntity.swift */,
 				A4C4B6E521F81EA10036B0F7 /* Objectable.swift */,
+				A4C4B6F121F84E240036B0F7 /* Colorable.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -1249,6 +1252,7 @@
 				5E74DA7621BBDACC00A97A89 /* CreatePostVC.swift in Sources */,
 				5E74DA5621BBD0B100A97A89 /* TemplateCC.swift in Sources */,
 				5ECE8E6C21F7459B000AF65E /* MockPost.swift in Sources */,
+				A4C4B6F221F84E240036B0F7 /* Colorable.swift in Sources */,
 				5E74DA5421BBD0B100A97A89 /* TemplateEntity.swift in Sources */,
 				A4D6585521BF7460007B8558 /* AGImagePickerController.swift in Sources */,
 				A4C4B6E621F81EA10036B0F7 /* Objectable.swift in Sources */,

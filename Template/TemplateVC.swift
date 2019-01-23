@@ -100,6 +100,8 @@ class TemplateVC: AGVC {
     
     
     //MARK: Localize
+    setupLocalize()
+    
     
     
   }

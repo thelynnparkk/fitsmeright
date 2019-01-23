@@ -111,11 +111,7 @@ class CreatePostInfoVC: AGVC {
   //MARK: - Setup View
   override func setupViewOnViewDidLoad() {
     //MARK: Core
-    let nb = navigationController?.navigationBar
-    let c = UIColor.Custom.self
-    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
-    let ni = navigationItem
-    ni.title = CreatePostInfoVC.sb_name
+    nb?.setupWith(content: .white, bg: c_custom.peach, isTranslucent: false)
     
     
     
@@ -143,6 +139,7 @@ class CreatePostInfoVC: AGVC {
     
     
     //MARK: Localize
+    setupLocalize()
     
     
   }
@@ -183,7 +180,7 @@ class CreatePostInfoVC: AGVC {
   
   //MARK: - Public
   override func setupLocalize() {
-    
+    ni.title = CreatePostInfoVC.sb_name
   }
   
   

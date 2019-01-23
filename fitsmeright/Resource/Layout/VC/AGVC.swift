@@ -13,7 +13,8 @@ import UIKit
 
 
 
-extension AGVC
+extension AGVC:
+  Colorable
 {
   
 }

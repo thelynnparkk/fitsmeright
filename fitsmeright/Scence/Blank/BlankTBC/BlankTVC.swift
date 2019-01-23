@@ -107,18 +107,13 @@ class BlankTVC: AGVC {
   //MARK: - Setup View
   override func setupViewOnViewDidLoad() {
     //MARK: Core
-    let nb = navigationController?.navigationBar
-    let c = UIColor.Custom.self
-    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
-    
-    table_main.dataSource = self
-    table_main.delegate = self
+    nb?.setupWith(content: .white, bg: c_custom.peach, isTranslucent: false)
     
     
     
     //MARK: Component
-    let ni = navigationItem
-    ni.title = BlankTVC.sb_name
+    table_main.dataSource = self
+    table_main.delegate = self
     //    bbi_cancel = UIBarButtonItem(title: "cancel", style: .plain, target: self, action: #selector(dismissButtonPressed))
     //    ni.leftBarButtonItems = [bbi_cancel]
     bbi_next = UIBarButtonItem(title: "next", style: .plain, target: self, action: #selector(nextButtonPressed))
@@ -135,7 +130,7 @@ class BlankTVC: AGVC {
     
     
     //MARK: Localize
-    
+    setupLocalize()
     
     
   }
@@ -159,7 +154,7 @@ class BlankTVC: AGVC {
   
   //MARK: - Public
   override func setupLocalize() {
-    
+    ni.title = BlankTVC.sb_name
   }
   
   
