@@ -194,19 +194,23 @@ class ClosetCategoryVC: AGVC {
     
     func interactor() {
       v_state.setState(with: .loading, isAnimation: false)
+      worker()
+    }
+    
+    func worker() {
       FSClosetWorker.fetch { [weak self] in
         guard let _s = self else { return }
         switch $0.error {
         case .none:
           _s.fsClosets = $0.data
-          presentSuccess()
+          presentSuccess($0.data)
         case let .some(e):
-          presentError(with: e)
+          presentError(e)
         }
       }
     }
     
-    func presentSuccess() {
+    func presentSuccess(_ response: [FSCloset]) {
       v_state.setState(with: .hidden)
       var closet_dress: [FSCloset] = []
       var closet_jacket: [FSCloset] = []
@@ -217,7 +221,7 @@ class ClosetCategoryVC: AGVC {
       var closet_top: [FSCloset] = []
       var closet_bottom: [FSCloset] = []
       var closet_sock: [FSCloset] = []
-      for i in fsClosets {
+      for i in response {
         switch i.closetCategory {
         case .dress:
           closet_dress.append(i)
@@ -251,8 +255,8 @@ class ClosetCategoryVC: AGVC {
       v_closet.fadeIn(duration: 0.3, completion: nil)
     }
     
-    func presentError(with error: Error) {
-      v_state.setState(with: .error)
+    func presentError(_ error: Error) {
+      v_state.setState(with: .error, isAnimation: false)
       print(error.localizedDescription)
     }
     
