@@ -32,11 +32,7 @@ class MainTBC: RAMAnimatedTabBarController {
   
   
   
-  //MARK: - Action
-  
-  
-  
-  //MARK: - VIP
+  //MARK: - Enum
   
   
   

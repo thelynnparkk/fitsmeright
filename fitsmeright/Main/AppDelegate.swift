@@ -23,6 +23,10 @@ extension AppDelegate:
 @UIApplicationMain
 class AppDelegate: UIResponder {
   
+  //MARK: - Enum
+  
+  
+  
   //MARK: - UI
   var window: UIWindow?
   

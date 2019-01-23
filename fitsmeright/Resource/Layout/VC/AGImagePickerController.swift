@@ -35,11 +35,7 @@ extension AGImagePC:
 
 class AGImagePC: UIImagePickerController {
   
-  //MARK: - Action
-  
-  
-  
-  //MARK: - VIP
+  //MARK: - Enum
   
   
   

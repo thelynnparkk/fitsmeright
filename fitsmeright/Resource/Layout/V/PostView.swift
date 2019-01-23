@@ -30,6 +30,10 @@ class PostView: AGView {
   
   
   
+  //MARK: - Enum
+  
+  
+  
   //MARK: - UI
   @IBOutlet weak var v_container: UIView!
   @IBOutlet weak var imgv_user: UIImageView!
@@ -79,6 +83,11 @@ class PostView: AGView {
   override func onInit() {
     loadContainerIntoNib()
     super.onInit()
+  }
+  
+  override func prepare() {
+    super.prepare()
+    
   }
   
   override func prepareToDeinit() {

@@ -19,6 +19,10 @@ extension TemplateView
 
 class TemplateView: AGView {
 
+  //MARK: - Enum
+  
+  
+  
   //MARK: - UI
   
   
@@ -54,6 +58,11 @@ class TemplateView: AGView {
   //MARK: - Life cycle
   override func onInit() {
     super.onInit()
+    
+  }
+  
+  override func prepare() {
+    super.prepare()
     
   }
   

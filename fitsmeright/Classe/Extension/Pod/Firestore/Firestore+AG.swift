@@ -16,7 +16,7 @@ import CodableFirebase
 
 extension Firestore {
   
-  static func `default`() -> Firestore {
+  static var `default`: Firestore {
     let db = Firestore.firestore()
     let st = db.settings
     st.areTimestampsInSnapshotsEnabled = true

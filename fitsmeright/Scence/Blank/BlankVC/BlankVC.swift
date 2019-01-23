@@ -25,11 +25,7 @@ class BlankVC: AGVC {
   
   
   
-  //MARK: - Action
-  
-  
-  
-  //MARK: - VIP
+  //MARK: - Enum
   
   
   
@@ -79,6 +75,11 @@ class BlankVC: AGVC {
   //MARK: - Life cycle
   override func onInit() {
     super.onInit()
+    
+  }
+  
+  override func prepare() {
+    super.prepare()
     
   }
   

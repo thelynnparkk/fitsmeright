@@ -26,11 +26,7 @@ class CreatePostVC: AGVC {
   
   
   
-  //MARK: - Action
-  
-  
-  
-  //MARK: - VIP
+  //MARK: - Enum
   
   
   
@@ -81,6 +77,11 @@ class CreatePostVC: AGVC {
   //MARK: - Life cycle
   override func onInit() {
     super.onInit()
+    
+  }
+  
+  override func prepare() {
+    super.prepare()
     
   }
   

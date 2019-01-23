@@ -29,6 +29,10 @@ class ClosetMenuView: AGView {
   
   
   
+  //MARK: - Enum
+  
+  
+  
   //MARK: - UI
   @IBOutlet weak var v_container: UIView!
   @IBOutlet weak var lb_title: UILabel!
@@ -69,6 +73,11 @@ class ClosetMenuView: AGView {
   override func onInit() {
     loadContainerIntoNib()
     super.onInit()
+  }
+  
+  override func prepare() {
+    super.prepare()
+    
   }
   
   override func prepareToDeinit() {

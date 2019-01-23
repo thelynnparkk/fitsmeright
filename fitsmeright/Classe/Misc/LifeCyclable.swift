@@ -14,6 +14,7 @@ import Foundation
 
 protocol LifeCyclable {
   func onInit()
+  func prepare()
   func prepareToDeinit()
   func onDeinit()
 }

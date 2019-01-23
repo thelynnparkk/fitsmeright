@@ -18,7 +18,7 @@ class FSClosetWorker {
   
   typealias FetchResponse = (data: [FSCloset], error: Error?)
   static func fetch(onComplete: @escaping ((FetchResponse) -> ())) {
-    let db = Firestore.default()
+    let db = Firestore.default
     let collection_closets = db.collection(FSCloset.collection)
     collection_closets.getDocuments { (snapshot, error) in
       var response: FetchResponse = ([], nil)

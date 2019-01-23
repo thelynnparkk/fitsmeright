@@ -25,11 +25,7 @@ class SplashVC: AGVC {
   
   
   
-  //MARK: - Action
-  
-  
-  
-  //MARK: - VIP
+  //MARK: - Enum
   
   
   
@@ -69,6 +65,11 @@ class SplashVC: AGVC {
   //MARK: - Life cycle
   override func onInit() {
     super.onInit()
+    
+  }
+  
+  override func prepare() {
+    super.prepare()
     
   }
   

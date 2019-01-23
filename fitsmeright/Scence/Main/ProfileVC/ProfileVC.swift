@@ -25,11 +25,7 @@ class ProfileVC: AGVC {
   
   
   
-  //MARK: - Action
-  
-  
-  
-  //MARK: - VIP
+  //MARK: - Enum
   
   
   
@@ -76,6 +72,11 @@ class ProfileVC: AGVC {
   //MARK: - Life cycle
   override func onInit() {
     super.onInit()
+    
+  }
+  
+  override func prepare() {
+    super.prepare()
     
   }
   

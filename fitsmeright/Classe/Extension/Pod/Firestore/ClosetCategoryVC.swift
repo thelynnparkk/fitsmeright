@@ -14,7 +14,8 @@ import UIKit
 
 extension ClosetCategoryVC:
   AGVCInstantiatable,
-  AGViewDelegate
+  AGViewDelegate,
+  StateViewDelegate
 {
   
 }
@@ -26,11 +27,7 @@ class ClosetCategoryVC: AGVC {
   
   
   
-  //MARK: - Action
-  
-  
-  
-  //MARK: - VIP
+  //MARK: - Enum
   
   
   
@@ -47,7 +44,7 @@ class ClosetCategoryVC: AGVC {
   @IBOutlet weak var v_top: ClosetMenuView!
   @IBOutlet weak var v_bottom: ClosetMenuView!
   @IBOutlet weak var v_sock: ClosetMenuView!
-  var v_floating: FloatingView!
+  var v_state: StateView!
   
   
   
@@ -94,6 +91,11 @@ class ClosetCategoryVC: AGVC {
     
   }
   
+  override func prepare() {
+    super.prepare()
+    v_closet.alpha = 0
+  }
+  
   override func prepareToDeinit() {
     super.prepareToDeinit()
     
@@ -129,21 +131,24 @@ class ClosetCategoryVC: AGVC {
     v_bottom.delegate = self
     v_sock.delegate = self
     
+    v_state = StateView(viewModel: StateView.light, axis: .vertical)
+    v_state.delegate = self
+    view.addSubview(v_state)
+    
+    prepare()
+    
     
     
     //MARK: Other
-    v_floating = FloatingView()
-    v_floating.setup(image: #imageLiteral(resourceName: "ic_more").filled(withColor: .white))
-    view.addSubview(v_floating)
     
     
     
     //MARK: Snp
-    v_floating.snp.makeConstraints {
-      $0.right.equalToSuperview().offset(-20)
-      $0.bottom.equalToSuperview().offset(-20)
-      $0.width.equalTo(50)
-      $0.height.equalTo(50)
+    v_state.snp.makeConstraints {
+      $0.top.equalToSuperview()
+      $0.right.equalToSuperview()
+      $0.bottom.equalToSuperview()
+      $0.left.equalToSuperview()
     }
     
     
@@ -188,20 +193,21 @@ class ClosetCategoryVC: AGVC {
   func fetchClosetMenus() {
     
     func interactor() {
-      v_closet.alpha = 0
+      v_state.setState(with: .loading, isAnimation: false)
       FSClosetWorker.fetch { [weak self] in
         guard let _s = self else { return }
         switch $0.error {
         case .none:
           _s.fsClosets = $0.data
-          present()
+          presentSuccess()
         case let .some(e):
-          print(e.localizedDescription)
+          presentError(with: e)
         }
       }
     }
     
-    func present() {
+    func presentSuccess() {
+      v_state.setState(with: .hidden)
       var closet_dress: [FSCloset] = []
       var closet_jacket: [FSCloset] = []
       var closet_hat: [FSCloset] = []
@@ -245,6 +251,11 @@ class ClosetCategoryVC: AGVC {
       v_closet.fadeIn(duration: 0.3, completion: nil)
     }
     
+    func presentError(with error: Error) {
+      v_state.setState(with: .error)
+      print(error.localizedDescription)
+    }
+    
     interactor()
     
   }
@@ -284,6 +295,24 @@ class ClosetCategoryVC: AGVC {
     vc.fsClosets = fsClosets.filter({ $0.closetCategory == category })
     vc.closetCategory = category
     navigationController?.pushViewController(vc)
+  }
+  
+  
+  
+  //MARK: - Custom - StateViewDelegate
+  func stateViewPressed(with stateView: StateView , state: StateView.State) {
+    switch state {
+    case .hidden:
+      break
+    case .loading:
+      break
+    case .noResults:
+      break
+    case .noConnection:
+      break
+    case .error:
+      break
+    }
   }
   
   

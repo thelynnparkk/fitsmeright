@@ -29,6 +29,10 @@ class CreateTextView: AGView {
   
   
   
+  //MARK: - Enum
+  
+  
+  
   //MARK: - UI
   @IBOutlet weak var v_container: UIView!
   @IBOutlet weak var v_overlay: UIView!
@@ -68,6 +72,11 @@ class CreateTextView: AGView {
   override func onInit() {
     loadContainerIntoNib()
     super.onInit()
+  }
+  
+  override func prepare() {
+    super.prepare()
+    
   }
   
   override func prepareToDeinit() {

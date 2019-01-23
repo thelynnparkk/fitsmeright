@@ -33,6 +33,12 @@ extension Colorable
   
   
   //MARK: - Public
+  static var c: UIColor.Type {
+    return UIColor.self
+  }
+  static var c_custom: UIColor.Custom.Type {
+    return c.Custom.self
+  }
   
   
   

@@ -21,6 +21,10 @@ extension AGVC
 
 
 extension AGVC {
+  //MARK: - Enum
+  
+  
+  
   //MARK: - UI
   
   

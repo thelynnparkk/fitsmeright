@@ -86,6 +86,10 @@ class AGVC: UIViewController {
     
   }
   
+  func prepare() {
+    
+  }
+  
   func prepareToDeinit() {
     
   }

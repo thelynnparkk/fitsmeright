@@ -29,6 +29,10 @@ extension AGView:
 
 class AGView: UIView {
   
+  //MARK: - Enum
+  
+  
+  
   //MARK: - UI
   
   
@@ -83,6 +87,10 @@ class AGView: UIView {
   func onInit() {
     setupViewOnInit()
     setupDataOnInit()
+  }
+  
+  func prepare() {
+    
   }
   
   func prepareToDeinit() {

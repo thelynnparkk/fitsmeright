@@ -25,6 +25,10 @@ class TemplateVC: AGVC {
   
   
   
+  //MARK: - Enum
+  
+  
+  
   //MARK: - UI
   
   
@@ -65,6 +69,11 @@ class TemplateVC: AGVC {
   
   override func prepareToDeinit() {
     super.prepareToDeinit()
+    
+  }
+  
+  override func prepare() {
+    super.prepare()
     
   }
   
