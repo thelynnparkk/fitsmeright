@@ -118,7 +118,7 @@ class ClosetVC: AGVC {
     adapter_image.delegate = self
     view.addSubview(collection_main)
     v_addClosetFloating.delegate = self
-    v_addClosetFloating.setup(image: #imageLiteral(resourceName: "ic_more").filled(withColor: .white))
+    v_addClosetFloating.setup(image: #imageLiteral(resourceName: "plus").filled(withColor: .white))
     
     
     
@@ -151,7 +151,7 @@ class ClosetVC: AGVC {
   
   //MARK: - Setup Data
   override func setupDataOnViewDidLoad() {
-    fetchCloset()
+    fetchClosets()
   }
   
   
@@ -172,8 +172,8 @@ class ClosetVC: AGVC {
   
   
   
-  //MARK: - VIP - UseCase
-  func fetchCloset() {
+  //MARK: - VIP - FetchClosets
+  func fetchClosets() {
     
     func interactor() {
       if let _ = closetCategory {
@@ -184,9 +184,7 @@ class ClosetVC: AGVC {
     }
     
     func worker() {
-//      mockMainWaiting(1) {
-        present()
-//      }
+      present()
     }
     
     func present() {
@@ -220,7 +218,10 @@ class ClosetVC: AGVC {
   
   //MARK: - Custom - AGCADelegate
   func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
-    print("indexPath: \(indexPath)")
+    let vc = ClosetDetailVC.vc
+    vc.fsCloset = fsClosets[indexPath.row]
+    vc.closetCategory = closetCategory
+    navigationController?.pushViewController(vc)
   }
   
   

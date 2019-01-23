@@ -30,7 +30,13 @@ class ClosetDetailVC: AGVC {
   
   
   //MARK: - UI
-  @IBOutlet weak var lb_title: UILabel!
+  @IBOutlet weak var sv_container: UIScrollView!
+  @IBOutlet weak var imgv_closet: UIImageView!
+  @IBOutlet weak var v_seperator: UIView!
+  @IBOutlet weak var v_brand: ClosetFormView!
+  @IBOutlet weak var v_price: ClosetFormView!
+  @IBOutlet weak var v_size: ClosetFormView!
+  @IBOutlet weak var v_place: ClosetFormView!
   
   
   
@@ -51,7 +57,7 @@ class ClosetDetailVC: AGVC {
   
   
   //MARK: - Storage
-  var fsClosets: [FSCloset] = []
+  var fsCloset: FSCloset?
   var closetCategory: ClosetCategory?
   
   
@@ -107,6 +113,8 @@ class ClosetDetailVC: AGVC {
     
     
     //MARK: Component
+    sv_container.setupScrollVertical()
+    v_seperator.backgroundColor = c_material.grey300
     
     
     
@@ -132,7 +140,7 @@ class ClosetDetailVC: AGVC {
   
   //MARK: - Setup Data
   override func setupDataOnViewDidLoad() {
-    
+    fetchCloset()
   }
   
   
@@ -144,7 +152,6 @@ class ClosetDetailVC: AGVC {
   //MARK: - Public
   override func setupLocalize() {
     ni.title = ClosetDetailVC.sb_name
-    lb_title.text = ClosetDetailVC.sb_name
   }
   
   
@@ -153,7 +160,37 @@ class ClosetDetailVC: AGVC {
   
   
   
-  //MARK: - VIP - UseCase
+  //MARK: - VIP - FetchCloset
+  func fetchCloset() {
+    
+    func interactor() {
+      if let _ = closetCategory, let _ = fsCloset {
+        worker()
+      } else {
+        navigationController?.popViewController()
+      }
+    }
+    
+    func worker() {
+      present()
+    }
+    
+    func present() {
+      ni.title = closetCategory!.name.uppercased()
+      if let imageURL = fsCloset!.imageURL {
+        imgv_closet.download(from: imageURL, contentMode: .scaleAspectFit, placeholder: nil)
+      } else {
+        imgv_closet.image = nil
+      }
+      v_brand.setup(key: "Brand", value: fsCloset!._brand)
+      v_price.setup(key: "Price", value: "\(fsCloset!._price)")
+      v_size.setup(key: "Size", value: fsCloset!._size)
+      v_place.setup(key: "Place", value: fsCloset!._place)
+    }
+    
+    interactor()
+    
+  }
   
   
   

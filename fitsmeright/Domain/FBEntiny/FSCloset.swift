@@ -32,7 +32,6 @@ class FSCloset: Codable {
     case category
     case image
     case price
-    case usedTimes
     case brand
     case place
     case size
@@ -59,7 +58,6 @@ class FSCloset: Codable {
   var category: Int?
   var image: String?
   var price: Int?
-  var usedTimes: Int?
   var brand: String?
   var place: String?
   var size: String?
@@ -85,9 +83,6 @@ class FSCloset: Codable {
   }
   var _price: Int {
     return price ?? 0
-  }
-  var _usedTimes: Int {
-    return usedTimes ?? 0
   }
   var _brand: String {
     return brand ?? ""

@@ -75,6 +75,8 @@
 		5EE8924B21C3F26F008A65ED /* CreateTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924A21C3F26F008A65ED /* CreateTextView.swift */; };
 		5EE8924D21C3F276008A65ED /* CreateTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8924C21C3F276008A65ED /* CreateTextView.xib */; };
 		5EE8925821C40958008A65ED /* Entitible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8925721C40958008A65ED /* Entitible.swift */; };
+		5EEB782521F8C43700C4AAA6 /* ClosetFormView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EEB782421F8C43700C4AAA6 /* ClosetFormView.xib */; };
+		5EEB782721F8C44400C4AAA6 /* ClosetFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEB782621F8C44400C4AAA6 /* ClosetFormView.swift */; };
 		6B93C7E7F1C1881D5030DBE8 /* Pods_fitsmerightTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B34B9F8A3E854F921D23C20 /* Pods_fitsmerightTests.framework */; };
 		A408A4D121BEB4970030F2F5 /* UIBarButtonItem +AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */; };
 		A42F7C4E21BE321300085DB5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A42F7C4D21BE321300085DB5 /* README.md */; };
@@ -222,6 +224,8 @@
 		5EE8925721C40958008A65ED /* Entitible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitible.swift; sourceTree = "<group>"; };
 		5EE8925921C411DC008A65ED /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		5EE8925B21C411E3008A65ED /* PostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
+		5EEB782421F8C43700C4AAA6 /* ClosetFormView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClosetFormView.xib; sourceTree = "<group>"; };
+		5EEB782621F8C44400C4AAA6 /* ClosetFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetFormView.swift; sourceTree = "<group>"; };
 		72AF5AC3A3815243CAE96B6A /* Pods-fitsmerightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmerightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmerightTests/Pods-fitsmerightTests.release.xcconfig"; sourceTree = "<group>"; };
 		9F8B67DFD7CF11E3D630A0C0 /* Pods-fitsmeright.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmeright.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmeright/Pods-fitsmeright.debug.xcconfig"; sourceTree = "<group>"; };
 		A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem +AG.swift"; sourceTree = "<group>"; };
@@ -757,6 +761,8 @@
 				5ECE8E8C21F76DED000AF65E /* FloatingView.xib */,
 				A4C4B6EF21F826D90036B0F7 /* AGView.swift */,
 				A4C4B6F321F851840036B0F7 /* StateView.swift */,
+				5EEB782421F8C43700C4AAA6 /* ClosetFormView.xib */,
+				5EEB782621F8C44400C4AAA6 /* ClosetFormView.swift */,
 			);
 			name = View;
 			path = V;
@@ -1079,6 +1085,7 @@
 				5E74DA0221BBACA900A97A89 /* Main.storyboard in Resources */,
 				5ECE8E8721F769F7000AF65E /* ClosetCategoryVC.storyboard in Resources */,
 				A42F7C6F21BE76A200085DB5 /* BlankTVC.storyboard in Resources */,
+				5EEB782521F8C43700C4AAA6 /* ClosetFormView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1255,6 +1262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A42F7C5C21BE597100085DB5 /* AGApplicationSetup.swift in Sources */,
+				5EEB782721F8C44400C4AAA6 /* ClosetFormView.swift in Sources */,
 				A42F7C7321BE815500085DB5 /* UIApplication+AG.swift in Sources */,
 				5E74DA6421BBD7AB00A97A89 /* AGVC.swift in Sources */,
 				5E74DA5C21BBD0B100A97A89 /* TemplateAFRM.swift in Sources */,

@@ -193,7 +193,7 @@ class ClosetCategoryVC: AGVC {
   func fetchClosetMenus() {
     
     func interactor() {
-      v_state.setState(with: .loading, isAnimation: false)
+//      v_state.setState(with: .loading, isAnimation: false)
       worker()
     }
     
@@ -211,7 +211,7 @@ class ClosetCategoryVC: AGVC {
     }
     
     func present(_ response: [FSCloset]) {
-      v_state.setState(with: .hidden)
+//      v_state.setState(with: .hidden)
       var closet_dress: [FSCloset] = []
       var closet_jacket: [FSCloset] = []
       var closet_hat: [FSCloset] = []
@@ -256,7 +256,7 @@ class ClosetCategoryVC: AGVC {
     }
     
     func presentError(_ error: Error) {
-      v_state.setState(with: .error, isAnimation: false)
+//      v_state.setState(with: .error, isAnimation: false)
       print(error.localizedDescription)
     }
     
