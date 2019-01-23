@@ -107,7 +107,6 @@ class AddClosetVC: AGVC {
     
     
     //MARK: Component
-    lb_title.text = AddClosetVC.sb_name
     
     
     
@@ -148,6 +147,7 @@ class AddClosetVC: AGVC {
   //MARK: - Public
   override func setupLocalize() {
     ni.title = AddClosetVC.sb_name
+    lb_title.text = AddClosetVC.sb_name
   }
   
   

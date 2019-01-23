@@ -104,7 +104,6 @@ class ProfileVC: AGVC {
     
     
     //MARK: Component
-    lb_title.text = ProfileVC.sb_name
     
     
     
@@ -143,6 +142,7 @@ class ProfileVC: AGVC {
   //MARK: - Public
   override func setupLocalize() {
     ni.title = ProfileVC.sb_name
+    lb_title.text = ProfileVC.sb_name
   }
   
   

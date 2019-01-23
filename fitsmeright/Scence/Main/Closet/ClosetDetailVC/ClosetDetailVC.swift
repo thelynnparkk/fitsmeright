@@ -106,7 +106,6 @@ class ClosetDetailVC: AGVC {
     
     
     //MARK: Component
-    lb_title.text = ClosetDetailVC.sb_name
     
     
     
@@ -144,6 +143,7 @@ class ClosetDetailVC: AGVC {
   //MARK: - Public
   override func setupLocalize() {
     ni.title = ClosetDetailVC.sb_name
+    lb_title.text = ClosetDetailVC.sb_name
   }
   
   

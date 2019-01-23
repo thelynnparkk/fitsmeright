@@ -109,7 +109,6 @@ class ClosetVC: AGVC {
     
     
     //MARK: Component
-    lb_title.text = ClosetVC.sb_name
     v_addClosetFloating.delegate = self
     v_addClosetFloating.setup(image: #imageLiteral(resourceName: "ic_more").filled(withColor: .white))
     
@@ -150,6 +149,7 @@ class ClosetVC: AGVC {
   //MARK: - Public
   override func setupLocalize() {
     ni.title = ClosetVC.sb_name
+    lb_title.text = ClosetVC.sb_name
   }
   
   
