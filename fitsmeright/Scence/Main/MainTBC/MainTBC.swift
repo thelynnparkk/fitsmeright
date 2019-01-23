@@ -16,7 +16,8 @@ import RAMAnimatedTabBarController
 extension MainTBC:
   UIBarPositioningDelegate,
   UITabBarControllerDelegate,
-  AGVCInstantiatable
+  AGVCInstantiatable,
+  Colorable
 {
   
 }
@@ -120,16 +121,12 @@ class MainTBC: RAMAnimatedTabBarController {
   func setupUI() {
     //MARK: Core
     delegate = self
-    let c = UIColor.Custom.self
-    
-    let nc = navigationController
     nc?.isNavigationBarHidden = true
     
-//    let nb = navigationController?.navigationBar
 //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     
     let tb = tabBar
-    tb.setupWith(content: .white, bg: c.peach, isTranslucent: false)
+    tb.setupWith(content: .white, bg: .white, isTranslucent: false)
     
     
     
@@ -142,15 +139,15 @@ class MainTBC: RAMAnimatedTabBarController {
     let nvc_02 = UINavigationController(rootViewController: vc_02)
     let nvc_03 = UINavigationController(rootViewController: vc_03)
     
-    let tbi_01 = RAMAnimatedTabBarItem(title: nil, image: #imageLiteral(resourceName: "ic_home"), selectedImage: nil)
-    let tbi_02 = RAMAnimatedTabBarItem(title: nil, image: #imageLiteral(resourceName: "ic_closet"), selectedImage: nil)
-    let tbi_03 = RAMAnimatedTabBarItem(title: nil, image: #imageLiteral(resourceName: "ic_profile"), selectedImage: nil)
+    let tbi_01 = RAMAnimatedTabBarItem(title: nil, image: #imageLiteral(resourceName: "ic_tabbar_home"), selectedImage: nil)
+    let tbi_02 = RAMAnimatedTabBarItem(title: nil, image: #imageLiteral(resourceName: "ic_tabbar_closet"), selectedImage: nil)
+    let tbi_03 = RAMAnimatedTabBarItem(title: nil, image: #imageLiteral(resourceName: "ic_tabbar_profile"), selectedImage: nil)
     
     let animation = RAMNonAnimation()
     //    animation.duration = 0.0
-    tbi_01.setupWith(color: .lightGray, selectedColor: .white, itemAnimation: animation)
-    tbi_02.setupWith(color: .lightGray, selectedColor: .white, itemAnimation: animation)
-    tbi_03.setupWith(color: .lightGray, selectedColor: .white, itemAnimation: animation)
+    tbi_01.setupWith(color: c_material.grey300, selectedColor: c_custom.peach, itemAnimation: animation)
+    tbi_02.setupWith(color: c_material.grey300, selectedColor: c_custom.peach, itemAnimation: animation)
+    tbi_03.setupWith(color: c_material.grey300, selectedColor: c_custom.peach, itemAnimation: animation)
     
     vc_01.tabBarItem = tbi_01
     vc_02.tabBarItem = tbi_02

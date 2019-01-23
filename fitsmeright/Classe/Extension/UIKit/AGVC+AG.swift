@@ -46,18 +46,6 @@ extension AGVC {
   
   
   //MARK: - Storage
-  private var app_delegate: UIApplicationDelegate? {
-    return UIApplication.shared.delegate
-  }
-  var window: UIWindow? {
-    return app_delegate?.window ?? nil
-  }
-  var ni: UINavigationItem {
-    return navigationItem
-  }
-  var nb: UINavigationBar? {
-    return navigationController?.navigationBar
-  }
   
   
   
@@ -82,29 +70,6 @@ extension AGVC {
   
   
   //MARK: - Event
-  @objc func popButtonPressed(_ sender: Any) {
-    navigationController?.popViewController(animated: true)
-  }
-  
-  @objc func dismissButtonPressed(_ sender: Any) {
-    dismiss(animated: true)
-  }
-  
-  @objc func backButtonPressed(_ sender: Any) {
-    var isDismiss = false
-    if let nav = navigationController {
-      if nav.viewControllers.count > 1 {
-        nav.popViewController(animated: true)
-      } else {
-        isDismiss = true
-      }
-    } else {
-      isDismiss = true
-    }
-    if isDismiss {
-      dismiss(animated: true)
-    }
-  }
   
   
   

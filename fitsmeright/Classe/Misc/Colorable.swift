@@ -15,6 +15,7 @@ import UIKit
 protocol Colorable {
   var c: UIColor.Type { get }
   var c_custom: UIColor.Custom.Type { get }
+  var c_material: UIColor.Material.Type { get }
 }
 
 
@@ -29,6 +30,9 @@ extension Colorable
   var c_custom: UIColor.Custom.Type {
     return c.Custom.self
   }
+  var c_material: UIColor.Material.Type {
+    return c.Material.self
+  }
   
   
   
@@ -38,6 +42,9 @@ extension Colorable
   }
   static var c_custom: UIColor.Custom.Type {
     return c.Custom.self
+  }
+  static var c_material: UIColor.Material.Type {
+    return c.Material.self
   }
   
   

@@ -244,14 +244,14 @@ class ClosetCategoryVC: AGVC {
         }
       }
       v_dress.setup(title: "\(closet_dress.count) \(ClosetCategory.dress.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_dress").filled(withColor: UIColor.Custom.peach))
-      v_jacket.setup(title: "\(closet_jacket.count) \(ClosetCategory.jacket.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_dress").filled(withColor: UIColor.Custom.peach))
-      v_hat.setup(title: "\(closet_hat.count) \(ClosetCategory.hat.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_dress").filled(withColor: UIColor.Custom.peach))
-      v_accessory.setup(title: "\(closet_accessory.count) \(ClosetCategory.accessory.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_dress").filled(withColor: UIColor.Custom.peach))
-      v_bag.setup(title: "\(closet_bag.count) \(ClosetCategory.bag.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_dress").filled(withColor: UIColor.Custom.peach))
-      v_shoe.setup(title: "\(closet_shoe.count) \(ClosetCategory.shoe.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_dress").filled(withColor: UIColor.Custom.peach))
-      v_top.setup(title: "\(closet_top.count) \(ClosetCategory.top.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_dress").filled(withColor: UIColor.Custom.peach))
-      v_bottom.setup(title: "\(closet_bottom.count) \(ClosetCategory.bottom.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_dress").filled(withColor: UIColor.Custom.peach))
-      v_sock.setup(title: "\(closet_sock.count) \(ClosetCategory.sock.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_dress").filled(withColor: UIColor.Custom.peach))
+      v_jacket.setup(title: "\(closet_jacket.count) \(ClosetCategory.jacket.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_jacket").filled(withColor: UIColor.Custom.peach))
+      v_hat.setup(title: "\(closet_hat.count) \(ClosetCategory.hat.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_hat").filled(withColor: UIColor.Custom.peach))
+      v_accessory.setup(title: "\(closet_accessory.count) \(ClosetCategory.accessory.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_accessory").filled(withColor: UIColor.Custom.peach))
+      v_bag.setup(title: "\(closet_bag.count) \(ClosetCategory.bag.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_bag").filled(withColor: UIColor.Custom.peach))
+      v_shoe.setup(title: "\(closet_shoe.count) \(ClosetCategory.shoe.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_shoe").filled(withColor: UIColor.Custom.peach))
+      v_top.setup(title: "\(closet_top.count) \(ClosetCategory.top.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_top").filled(withColor: UIColor.Custom.peach))
+      v_bottom.setup(title: "\(closet_bottom.count) \(ClosetCategory.bottom.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_bottom").filled(withColor: UIColor.Custom.peach))
+      v_sock.setup(title: "\(closet_sock.count) \(ClosetCategory.sock.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_sock").filled(withColor: UIColor.Custom.peach))
       v_closet.fadeIn(duration: 0.3, completion: nil)
     }
     
