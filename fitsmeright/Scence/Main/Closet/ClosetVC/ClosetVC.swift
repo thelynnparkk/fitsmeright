@@ -14,7 +14,8 @@ import UIKit
 
 extension ClosetVC:
   AGVCInstantiatable,
-  AGViewDelegate
+  AGViewDelegate,
+  AGCADelegate
 {
   
 }
@@ -32,8 +33,9 @@ class ClosetVC: AGVC {
   
   //MARK: - UI
   @IBOutlet weak var lb_title: UILabel!
-  
   @IBOutlet weak var v_addClosetFloating: FloatingView!
+  var collection_main: UICollectionView!
+  var adapter_image: ImageCA!
   
   
   
@@ -110,6 +112,11 @@ class ClosetVC: AGVC {
     
     
     //MARK: Component
+    view.setupViewFrame()
+    collection_main = ControlContainableCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    adapter_image = ImageCA(collection: collection_main)
+    adapter_image.delegate = self
+    view.addSubview(collection_main)
     v_addClosetFloating.delegate = self
     v_addClosetFloating.setup(image: #imageLiteral(resourceName: "ic_more").filled(withColor: .white))
     
@@ -120,6 +127,12 @@ class ClosetVC: AGVC {
     
     
     //MARK: Snp
+    collection_main.snp.makeConstraints {
+      $0.top.equalTo(view.snp.topMargin)
+      $0.right.equalToSuperview()
+      $0.bottom.equalTo(view.snp.bottomMargin)
+      $0.left.equalToSuperview()
+    }
     
     
     
@@ -164,14 +177,27 @@ class ClosetVC: AGVC {
     
     func interactor() {
       if let _ = closetCategory {
-        present()
+        worker()
       } else {
         navigationController?.popViewController()
       }
     }
     
+    func worker() {
+      mockMainWaiting(1) {
+        present()
+      }
+    }
+    
     func present() {
       lb_title.text = "\(fsClosets.count) \(closetCategory!.plural)"
+      let model = AGCAModel()
+      model.displayedRows = fsClosets.compactMap({
+        let model = ImageCCModel()
+        model.imageUrl = $0.imageURL
+        return model
+      })
+      adapter_image.setupData(with: model)
     }
     
     interactor()
@@ -189,6 +215,14 @@ class ClosetVC: AGVC {
     let vc = AddClosetVC.vc
     navigationController?.pushViewController(vc)
   }
+  
+  
+  
+  //MARK: - Custom - AGCADelegate
+  func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
+    
+  }
+  
   
   
   

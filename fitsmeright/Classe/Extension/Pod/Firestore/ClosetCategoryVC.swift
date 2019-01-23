@@ -203,14 +203,14 @@ class ClosetCategoryVC: AGVC {
         switch $0.error {
         case .none:
           _s.fsClosets = $0.data
-          presentSuccess($0.data)
+          present($0.data)
         case let .some(e):
           presentError(e)
         }
       }
     }
     
-    func presentSuccess(_ response: [FSCloset]) {
+    func present(_ response: [FSCloset]) {
       v_state.setState(with: .hidden)
       var closet_dress: [FSCloset] = []
       var closet_jacket: [FSCloset] = []

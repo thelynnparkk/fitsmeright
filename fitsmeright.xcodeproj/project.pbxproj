@@ -97,6 +97,14 @@
 		A4796C9A21F5DD1D00B83F85 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8925921C411DC008A65ED /* PostView.swift */; };
 		A4796C9B21F5DD1D00B83F85 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8925B21C411E3008A65ED /* PostView.xib */; };
 		A4796C9D21F5DD7000B83F85 /* CGSize+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4796C9C21F5DD7000B83F85 /* CGSize+AG.swift */; };
+		A4C338B421F8A28B00147567 /* ControlContainableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C338B321F8A28B00147567 /* ControlContainableScrollView.swift */; };
+		A4C338B821F8A3CD00147567 /* ImageCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C338B721F8A3CD00147567 /* ImageCA.swift */; };
+		A4C338BA21F8A3D800147567 /* ImageCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C338B921F8A3D800147567 /* ImageCC.swift */; };
+		A4C338BC21F8A3E000147567 /* ImageCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4C338BB21F8A3E000147567 /* ImageCC.xib */; };
+		A4C338C021F8A54800147567 /* AGCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C338BF21F8A54800147567 /* AGCC.swift */; };
+		A4C338C221F8A62D00147567 /* AGCellInstantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C338C121F8A62D00147567 /* AGCellInstantiatable.swift */; };
+		A4C338C421F8AC2C00147567 /* AGCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C338C321F8AC2C00147567 /* AGCA.swift */; };
+		A4C338C621F8AE4200147567 /* UICollectionView+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C338C521F8AE4200147567 /* UICollectionView+AG.swift */; };
 		A4C4B6E621F81EA10036B0F7 /* LifeCyclable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6E521F81EA10036B0F7 /* LifeCyclable.swift */; };
 		A4C4B6E821F81FE60036B0F7 /* UIScrollView+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6E721F81FE60036B0F7 /* UIScrollView+AG.swift */; };
 		A4C4B6EA21F81FFB0036B0F7 /* UIViewController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6E921F81FFB0036B0F7 /* UIViewController+AG.swift */; };
@@ -233,6 +241,14 @@
 		A42F7C7221BE815500085DB5 /* UIApplication+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+AG.swift"; sourceTree = "<group>"; };
 		A4796C9421F5DC0100B83F85 /* UIColor+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AG.swift"; sourceTree = "<group>"; };
 		A4796C9C21F5DD7000B83F85 /* CGSize+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+AG.swift"; sourceTree = "<group>"; };
+		A4C338B321F8A28B00147567 /* ControlContainableScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlContainableScrollView.swift; sourceTree = "<group>"; };
+		A4C338B721F8A3CD00147567 /* ImageCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCA.swift; sourceTree = "<group>"; };
+		A4C338B921F8A3D800147567 /* ImageCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCC.swift; sourceTree = "<group>"; };
+		A4C338BB21F8A3E000147567 /* ImageCC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCC.xib; sourceTree = "<group>"; };
+		A4C338BF21F8A54800147567 /* AGCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGCC.swift; sourceTree = "<group>"; };
+		A4C338C121F8A62D00147567 /* AGCellInstantiatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGCellInstantiatable.swift; sourceTree = "<group>"; };
+		A4C338C321F8AC2C00147567 /* AGCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGCA.swift; sourceTree = "<group>"; };
+		A4C338C521F8AE4200147567 /* UICollectionView+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+AG.swift"; sourceTree = "<group>"; };
 		A4C4B6E521F81EA10036B0F7 /* LifeCyclable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCyclable.swift; sourceTree = "<group>"; };
 		A4C4B6E721F81FE60036B0F7 /* UIScrollView+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+AG.swift"; sourceTree = "<group>"; };
 		A4C4B6E921F81FFB0036B0F7 /* UIViewController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AG.swift"; sourceTree = "<group>"; };
@@ -436,6 +452,8 @@
 		5E74DA3221BBCCC400A97A89 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
+				A4C338B621F8A38500147567 /* Adapter */,
+				A4C338B521F8A29700147567 /* ScrollView */,
 				5EE8924221C3E696008A65ED /* View */,
 				5E0900B221C296F10099F81E /* TabBatItem */,
 				A42F7C7521BE837C00085DB5 /* NVC */,
@@ -518,6 +536,7 @@
 				A4C4B6E521F81EA10036B0F7 /* LifeCyclable.swift */,
 				A4C4B6F121F84E240036B0F7 /* Colorable.swift */,
 				A4C4B6F521F852B40036B0F7 /* AGViewInstantiatable.swift */,
+				A4C338C121F8A62D00147567 /* AGCellInstantiatable.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -807,6 +826,43 @@
 			path = NVC;
 			sourceTree = "<group>";
 		};
+		A4C338B521F8A29700147567 /* ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				A4C338B321F8A28B00147567 /* ControlContainableScrollView.swift */,
+			);
+			path = ScrollView;
+			sourceTree = "<group>";
+		};
+		A4C338B621F8A38500147567 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				A4C338BE21F8A52C00147567 /* CC */,
+				A4C338BD21F8A4FB00147567 /* Collection */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
+		A4C338BD21F8A4FB00147567 /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				A4C338B721F8A3CD00147567 /* ImageCA.swift */,
+				A4C338C321F8AC2C00147567 /* AGCA.swift */,
+			);
+			name = Collection;
+			path = ../Collection;
+			sourceTree = "<group>";
+		};
+		A4C338BE21F8A52C00147567 /* CC */ = {
+			isa = PBXGroup;
+			children = (
+				A4C338B921F8A3D800147567 /* ImageCC.swift */,
+				A4C338BB21F8A3E000147567 /* ImageCC.xib */,
+				A4C338BF21F8A54800147567 /* AGCC.swift */,
+			);
+			path = CC;
+			sourceTree = "<group>";
+		};
 		A4D6585A21BFA3CD007B8558 /* NeedRemove */ = {
 			isa = PBXGroup;
 			children = (
@@ -835,6 +891,7 @@
 				A4C4B6E921F81FFB0036B0F7 /* UIViewController+AG.swift */,
 				A4C4B6EB21F820C00036B0F7 /* AGVC+AG.swift */,
 				A4C4B6F721F86FE70036B0F7 /* StateView+AG.swift */,
+				A4C338C521F8AE4200147567 /* UICollectionView+AG.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1011,6 +1068,7 @@
 				5ECE8E8D21F76DED000AF65E /* FloatingView.xib in Resources */,
 				5E74DA0421BBACAA00A97A89 /* Assets.xcassets in Resources */,
 				5EC21D5B21F61A1C0013157F /* ClosetDetailVC.storyboard in Resources */,
+				A4C338BC21F8A3E000147567 /* ImageCC.xib in Resources */,
 				5E74DA7A21BBDB5200A97A89 /* FeedVC.storyboard in Resources */,
 				5ECE8E9221F77105000AF65E /* AddClosetVC.storyboard in Resources */,
 				A42F7C4E21BE321300085DB5 /* README.md in Resources */,
@@ -1223,6 +1281,7 @@
 				5E74DA6621BBD90800A97A89 /* DispatchQueueable.swift in Sources */,
 				A4796C9A21F5DD1D00B83F85 /* PostView.swift in Sources */,
 				A4C4B6F821F86FE70036B0F7 /* StateView+AG.swift in Sources */,
+				A4C338BA21F8A3D800147567 /* ImageCC.swift in Sources */,
 				A4C4B6E821F81FE60036B0F7 /* UIScrollView+AG.swift in Sources */,
 				A42F7C6221BE5BD100085DB5 /* AGApplicationWindow.swift in Sources */,
 				5EE8924121C3E615008A65ED /* ClosetDetailVC.swift in Sources */,
@@ -1234,10 +1293,12 @@
 				5EE8925821C40958008A65ED /* Entitible.swift in Sources */,
 				5ECE8E7621F75054000AF65E /* Firestore+CodableFirebase.swift in Sources */,
 				A4E31D8321C28B83004D1707 /* AGUserDefaults.swift in Sources */,
+				A4C338C021F8A54800147567 /* AGCC.swift in Sources */,
 				5ECE8E7421F74F53000AF65E /* FSCloset.swift in Sources */,
 				5E74D9FD21BBACA900A97A89 /* AppDelegate.swift in Sources */,
 				5E74DA6021BBD67600A97A89 /* UIWindow+AG.swift in Sources */,
 				5ECE8E8521F769F0000AF65E /* ClosetCategoryVC.swift in Sources */,
+				A4C338C621F8AE4200147567 /* UICollectionView+AG.swift in Sources */,
 				A42F7C7121BE7B7300085DB5 /* UIImage+AG.swift in Sources */,
 				5EE8923B21C3E566008A65ED /* ClosetVC.swift in Sources */,
 				5E74DA6E21BBDAAC00A97A89 /* MainTBC.swift in Sources */,
@@ -1246,12 +1307,14 @@
 				5E0900B821C2B88B0099F81E /* CreatePostDesignVC.swift in Sources */,
 				5E74DA5821BBD0B100A97A89 /* TemplateVIP.swift in Sources */,
 				5E74DA8021BBF7D700A97A89 /* R.swift in Sources */,
+				A4C338C221F8A62D00147567 /* AGCellInstantiatable.swift in Sources */,
 				5E74DA5921BBD0B100A97A89 /* Templatable.swift in Sources */,
 				5EC21D5521F60B1D0013157F /* ClosetMenuView.swift in Sources */,
 				A4D6584C21BF63B9007B8558 /* UITabbarController+AG.swift in Sources */,
 				A42F7C6521BE621300085DB5 /* BlankVC.swift in Sources */,
 				A4C4B6F621F852B40036B0F7 /* AGViewInstantiatable.swift in Sources */,
 				A4C4B6F421F851840036B0F7 /* StateView.swift in Sources */,
+				A4C338B421F8A28B00147567 /* ControlContainableScrollView.swift in Sources */,
 				5E74DA5E21BBD1F100A97A89 /* AGVCInstantiatable.swift in Sources */,
 				5E74DA2D21BBCB9E00A97A89 /* SplashVC.swift in Sources */,
 				5ECE8E6621F7453D000AF65E /* RAMAnimatedTabBarItem+AG.swift in Sources */,
@@ -1263,7 +1326,9 @@
 				A4796C9521F5DC0100B83F85 /* UIColor+AG.swift in Sources */,
 				5E74DA7621BBDACC00A97A89 /* CreatePostVC.swift in Sources */,
 				5E74DA5621BBD0B100A97A89 /* TemplateCC.swift in Sources */,
+				A4C338C421F8AC2C00147567 /* AGCA.swift in Sources */,
 				5ECE8E6C21F7459B000AF65E /* MockPost.swift in Sources */,
+				A4C338B821F8A3CD00147567 /* ImageCA.swift in Sources */,
 				A4C4B6F221F84E240036B0F7 /* Colorable.swift in Sources */,
 				5E74DA5421BBD0B100A97A89 /* TemplateEntity.swift in Sources */,
 				A4D6585521BF7460007B8558 /* AGImagePickerController.swift in Sources */,

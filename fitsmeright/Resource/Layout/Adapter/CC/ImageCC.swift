@@ -1,9 +1,9 @@
 //
-//  TemplateCC.swift
+//  ImageCC.swift
 //  fitsmeright
 //
-//  Created by Lynn Park on 8/12/2561 BE.
-//  Copyright © 2561 silpakorn. All rights reserved.
+//  Created by Sasawat Sankosik on 23/1/2562 BE.
+//  Copyright © 2562 silpakorn. All rights reserved.
 //
 
 
@@ -12,20 +12,20 @@ import UIKit
 
 
 
-class TemplateCCModel: AGCCModel {
-  
+class ImageCCModel: AGCCModel {
+  var imageUrl: URL?
 }
 
 
 
-extension TemplateCC
+extension ImageCC
 {
   
 }
 
 
 
-class TemplateCC: AGCC {
+class ImageCC: AGCC {
   
   //MARK: - Enum
   
@@ -40,7 +40,7 @@ class TemplateCC: AGCC {
   
   
   //MARK: - Constraint
-  typealias Model = TemplateCCModel
+  typealias Model = ImageCCModel
   
   
   

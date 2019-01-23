@@ -83,6 +83,9 @@ class FSCloset: Codable {
   var _usedTimes: Int {
     return usedTimes ?? 0
   }
+  var imageURL: URL? {
+    return URL(string: _image)
+  }
   var closetCategory: ClosetCategory {
     return ClosetCategory(rawValue: _category) ?? ClosetCategory.default
   }
