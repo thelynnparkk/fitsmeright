@@ -23,7 +23,7 @@ extension CreatePostView
  Note: Creating a Custom View with xib.
  Source: https://medium.com/@umairhassanbaig/ios-swift-creating-a-custom-view-with-xib-ace878cd41c5
  */
-class CreatePostView: UIView {
+class CreatePostView: AGView {
   
   //MARK: - UI
   @IBOutlet weak var v_container: UIView!
@@ -56,42 +56,29 @@ class CreatePostView: UIView {
   
   
   //MARK: - Initial
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-    onInit()
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    onInit()
-  }
   
   
   
   //MARK: - Life cycle
-  func onInit() {
+  override func onInit() {
     Bundle.main.loadNibNamed("CreatePostView", owner: self, options: nil)
     v_container.match(in: self)
-    setupViewOnInit()
+    super.onInit()
   }
   
-  func onDeinit() {
+  override func onDeinit() {
+    super.onDeinit()
     
   }
   
   
   //MARK: - Setup View
-  func setupViewOnInit() {
-    setupUI()
-    setupSnp()
-  }
-  
-  func setupUI() {
+  override func setupViewOnInit() {
     //MARK: Core
     
     
     
-    //MARK: UI
+    //MARK: Component
     v_container.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
     imgv_01.contentMode = .scaleAspectFit
     imgv_02.contentMode = .scaleAspectFit
@@ -101,19 +88,27 @@ class CreatePostView: UIView {
     
     
     
-    //MARK: Misc
+    //MARK: Other
     
     
     
-  }
-  
-  func setupSnp() {
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
     
   }
   
   
   
   //MARK: - Setup Data
+  override func setupDataOnInit() {
+    
+  }
+  
   func setupClothData(images: [UIImage]) {
     imgv_01.image = images[0]
     imgv_02.image = images[1]
@@ -132,6 +127,9 @@ class CreatePostView: UIView {
   
   
   //MARK: - Public
+  override func setupLocalize() {
+    
+  }
   
   
   

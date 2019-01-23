@@ -65,26 +65,6 @@ class BlankVC: AGVC {
   
   
   //MARK: - Initial
-  convenience init() {
-    self.init(nibName: nil, bundle: nil)
-  }
-  
-  
-  override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    onInit()
-    
-  }
-  
-  required public init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    onInit()
-    
-  }
-  
-  deinit {
-    onDeinit()
-  }
   
   
   
@@ -100,30 +80,30 @@ class BlankVC: AGVC {
   
   
   //MARK: - Life cycle
+  override func onInit() {
+    super.onInit()
+    
+  }
+  
+  override func prepareToDeinit() {
+    super.prepareToDeinit()
+    
+  }
+  
+  override func onDeinit() {
+    super.onDeinit()
+    
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupViewOnViewDidLoad()
-    setupDataOnViewDidLoad()
-    
-  }
-  
-  func onInit() {
-    
-  }
-  
-  func onDeinit() {
     
   }
   
   
   
   //MARK: - Setup View
-  func setupViewOnViewDidLoad() {
-    setupUI()
-    setupSnp()
-  }
-  
-  func setupUI() {
+  override func setupViewOnViewDidLoad() {
     //MARK: Core
     let nb = navigationController?.navigationBar
     let c = UIColor.Custom.self
@@ -135,7 +115,7 @@ class BlankVC: AGVC {
     
     
     
-    //MARK: UI
+    //MARK: Component
     let img_cancel = #imageLiteral(resourceName: "ic_control")
     let size = CGSize(width: 22, height: 44)
     let btn_cancel_1 = UIButton(type: .custom)
@@ -161,20 +141,26 @@ class BlankVC: AGVC {
     
     
     
-    //MARK: Misc
+    
+    
+    //MARK: Other
     
     
     
-  }
-  
-  func setupSnp() {
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
     
   }
   
   
   
   //MARK: - Setup Data
-  func setupDataOnViewDidLoad() {
+  override func setupDataOnViewDidLoad() {
     
   }
   
@@ -188,7 +174,11 @@ class BlankVC: AGVC {
   }
   
   
+  
   //MARK: - Public
+  override func setupLocalize() {
+    
+  }
   
   
   

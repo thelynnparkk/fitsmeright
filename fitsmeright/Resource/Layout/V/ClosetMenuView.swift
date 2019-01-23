@@ -29,7 +29,7 @@ extension ClosetMenuView
  Note: Creating a Custom View with xib.
  Source: https://medium.com/@umairhassanbaig/ios-swift-creating-a-custom-view-with-xib-ace878cd41c5
  */
-class ClosetMenuView: UIView {
+class ClosetMenuView: AGView {
   
   //MARK: - UI
   @IBOutlet weak var v_container: UIView!
@@ -61,37 +61,24 @@ class ClosetMenuView: UIView {
   
   
   //MARK: - Initial
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-    onInit()
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    onInit()
-  }
   
   
   
   //MARK: - Life cycle
-  func onInit() {
+  override func onInit() {
     Bundle.main.loadNibNamed("ClosetMenuView", owner: self, options: nil)
     v_container.match(in: self)
-    setupViewOnInit()
+    super.onInit()
   }
   
-  func onDeinit() {
+  override func onDeinit() {
+    super.onDeinit()
     
   }
   
   
   //MARK: - Setup View
-  func setupViewOnInit() {
-    setupUI()
-    setupSnp()
-  }
-  
-  func setupUI() {
+  override func setupViewOnInit() {
     //MARK: Core
     backgroundColor = .clear
     addShadow(ofColor: .black, radius: 8, offset: .less, opacity: 0.1)
@@ -102,7 +89,7 @@ class ClosetMenuView: UIView {
     
     
     
-    //MARK: UI
+    //MARK: Component
     setupViewFrame()
     v_container.backgroundColor = .white
     v_container.layer.cornerRadius = 8
@@ -112,19 +99,27 @@ class ClosetMenuView: UIView {
     
     
     
-    //MARK: Misc
+    //MARK: Other
     
     
     
-  }
-  
-  func setupSnp() {
+    //MARK: Snp
     
+    
+    
+    //MARK: Localize
+    
+    
+
   }
   
   
   
   //MARK: - Setup Data
+  override func setupDataOnInit() {
+    
+  }
+  
   func setup(title: String, image: UIImage) {
     lb_title.text = title
     imgv_icon.image = image
@@ -140,6 +135,9 @@ class ClosetMenuView: UIView {
   
   
   //MARK: - Public
+  override func setupLocalize() {
+    
+  }
   
   
   
@@ -160,4 +158,3 @@ class ClosetMenuView: UIView {
   
   
 }
-

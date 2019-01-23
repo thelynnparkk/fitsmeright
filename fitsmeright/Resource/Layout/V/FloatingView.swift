@@ -29,7 +29,7 @@ extension FloatingView
  Note: Creating a Custom View with xib.
  Source: https://medium.com/@umairhassanbaig/ios-swift-creating-a-custom-view-with-xib-ace878cd41c5
  */
-class FloatingView: UIView {
+class FloatingView: AGView {
   
   //MARK: - UI
   @IBOutlet weak var v_container: UIView!
@@ -60,37 +60,24 @@ class FloatingView: UIView {
   
   
   //MARK: - Initial
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-    onInit()
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    onInit()
-  }
   
   
   
   //MARK: - Life cycle
-  func onInit() {
+  override func onInit() {
     Bundle.main.loadNibNamed("FloatingView", owner: self, options: nil)
     v_container.match(in: self)
-    setupViewOnInit()
+    super.onInit()
   }
   
-  func onDeinit() {
+  override func onDeinit() {
+    super.onDeinit()
     
   }
   
   
   //MARK: - Setup View
-  func setupViewOnInit() {
-    setupUI()
-    setupSnp()
-  }
-  
-  func setupUI() {
+  override func setupViewOnInit() {
     //MARK: Core
     setupViewFrame()
     backgroundColor = .clear
@@ -102,7 +89,7 @@ class FloatingView: UIView {
     
     
     
-    //MARK: UI
+    //MARK: Component
     v_container.backgroundColor = UIColor.Custom.peach
     v_container.layer.cornerRadius = v_container.frame.midY
     v_container.clipsToBounds = true
@@ -110,19 +97,27 @@ class FloatingView: UIView {
     
     
     
-    //MARK: Misc
+    //MARK: Other
     
     
     
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+
   }
-  
-  func setupSnp() {
-    
-  }
-  
+
   
   
   //MARK: - Setup Data
+  override func setupDataOnInit() {
+    
+  }
+  
   func setup(image: UIImage) {
     imgv_icon.image = image
   }
@@ -137,6 +132,9 @@ class FloatingView: UIView {
   
   
   //MARK: - Public
+  override func setupLocalize() {
+    
+  }
   
   
   

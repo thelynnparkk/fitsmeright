@@ -1,9 +1,9 @@
 //
-//  TemplateVC.swift
+//  AGView.swift
 //  fitsmeright
 //
-//  Created by Lynn Park on 8/12/2561 BE.
-//  Copyright © 2561 silpakorn. All rights reserved.
+//  Created by Sasawat Sankosik on 23/1/2562 BE.
+//  Copyright © 2562 silpakorn. All rights reserved.
 //
 
 
@@ -13,18 +13,14 @@ import UIKit
 
 
 
-extension TemplateVC
+extension AGView
 {
   
 }
 
 
 
-class TemplateVC: AGVC {
-  
-  //MARK: - AGVCInstantiatable
-  
-  
+class AGView: UIView {
   
   //MARK: - UI
   
@@ -51,6 +47,19 @@ class TemplateVC: AGVC {
   
   
   //MARK: - Initial
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    onInit()
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    onInit()
+  }
+  
+  deinit {
+    onDeinit()
+  }
   
   
   
@@ -59,30 +68,23 @@ class TemplateVC: AGVC {
   
   
   //MARK: - Life cycle
-  override func onInit() {
-    super.onInit()
+  func onInit() {
+    setupViewOnInit()
+    setupDataOnInit()
+  }
+  
+  func prepareToDeinit() {
     
   }
   
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
-    
-  }
-  
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
+  func onDeinit() {
     
   }
   
   
   
   //MARK: - Setup View
-  override func setupViewOnViewDidLoad() {
+  func setupViewOnInit() {
     //MARK: Core
     
     
@@ -102,12 +104,13 @@ class TemplateVC: AGVC {
     //MARK: Localize
     
     
+    
   }
   
   
   
   //MARK: - Setup Data
-  override func setupDataOnViewDidLoad() {
+  func setupDataOnInit() {
     
   }
   
@@ -118,7 +121,11 @@ class TemplateVC: AGVC {
   
   
   //MARK: - Public
-  override func setupLocalize() {
+  func setupLocalize() {
+    
+  }
+  
+  func setupViewByOrientation() {
     
   }
   

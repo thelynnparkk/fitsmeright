@@ -109,12 +109,12 @@
 //    v_seperator.isHidden = true
 //  }
 //
-//  func onInit() {
+//  override func onInit() {
 //    setupUI()
 //    setupSnp()
 //  }
 //
-//  func onDeinit() {
+//  override func onDeinit() {
 //
 //  }
 //

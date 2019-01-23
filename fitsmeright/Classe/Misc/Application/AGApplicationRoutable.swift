@@ -29,7 +29,7 @@ extension AGApplicationRoutable {
     window?.makeKeyAndVisible()
     let vc = SplashVC.vc
     vc.launchOptions = launchOptions
-    window?.set(with: vc, transition: CATransition(transition: .fade))
+    window?.set(with: vc, style: .fade)
   }
   
   func start(with app: UIApplication, url: URL, options: [UIApplication.OpenURLOptionsKey : Any], condition isLoggedIn: Bool) -> Bool {

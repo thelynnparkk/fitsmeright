@@ -37,7 +37,6 @@ class FeedVC: AGVC {
   
   
   //MARK: - UI
-  
   @IBOutlet weak var sv_main: UIScrollView!
   @IBOutlet weak var btn_createPost: UIButton!
   @IBOutlet weak var v_post: PostView!
@@ -66,26 +65,6 @@ class FeedVC: AGVC {
   
   
   //MARK: - Initial
-  convenience init() {
-    self.init(nibName: nil, bundle: nil)
-  }
-  
-  
-  override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    onInit()
-    
-  }
-  
-  required public init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    onInit()
-    
-  }
-  
-  deinit {
-    onDeinit()
-  }
   
   
   
@@ -101,65 +80,61 @@ class FeedVC: AGVC {
   
   
   //MARK: - Life cycle
+  override func onInit() {
+    super.onInit()
+    
+  }
+  
+  override func prepareToDeinit() {
+    super.prepareToDeinit()
+    
+  }
+  
+  override func onDeinit() {
+    super.onDeinit()
+    
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupViewOnViewDidLoad()
-    setupDataOnViewDidLoad()
-    
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    fetchPostData()
-  }
-  
-  func onInit() {
-    
-  }
-  
-  func onDeinit() {
     
   }
   
   
   
   //MARK: - Setup View
-  func setupViewOnViewDidLoad() {
-    setupUI()
-    setupSnp()
-  }
-  
-  func setupUI() {
+  override func setupViewOnViewDidLoad() {
     //MARK: Core
-//    let c = UIColor.Custom.self
-//    let nb = navigationController?.navigationBar
-//    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
-
+    //    let c = UIColor.Custom.self
+    //    let nb = navigationController?.navigationBar
+    //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
+    
     navigationItem.title = FeedVC.sb_name
     
     
     
-    //MARK: UI
+    //MARK: Component
     sv_main.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
     btn_createPost.addTarget(self, action: #selector(createPostButtonPressed), for: .touchUpInside)
     v_post.isHidden = true
     
     
-    //MARK: Misc
-
+    
+    //MARK: Other
     
     
     
-  }
-  
-  func setupSnp() {
+    //MARK: Snp
     
+    
+    
+    //MARK: Localize
   }
   
   
   
   //MARK: - Setup Data
-  func setupDataOnViewDidLoad() {
+  override func setupDataOnViewDidLoad() {
     
   }
   
@@ -185,6 +160,9 @@ class FeedVC: AGVC {
   
   
   //MARK: - Public
+  override func setupLocalize() {
+    
+  }
   
   
   

@@ -77,26 +77,6 @@ class ClosetCategoryVC: AGVC {
   
   
   //MARK: - Initial
-  convenience init() {
-    self.init(nibName: nil, bundle: nil)
-  }
-  
-  
-  override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    onInit()
-    
-  }
-  
-  required public init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    onInit()
-    
-  }
-  
-  deinit {
-    onDeinit()
-  }
   
   
   
@@ -112,30 +92,30 @@ class ClosetCategoryVC: AGVC {
   
   
   //MARK: - Life cycle
+  override func onInit() {
+    super.onInit()
+    
+  }
+  
+  override func prepareToDeinit() {
+    super.prepareToDeinit()
+    
+  }
+  
+  override func onDeinit() {
+    super.onDeinit()
+    
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupViewOnViewDidLoad()
-    setupDataOnViewDidLoad()
-    
-  }
-  
-  func onInit() {
-    
-  }
-  
-  func onDeinit() {
     
   }
   
   
   
   //MARK: - Setup View
-  func setupViewOnViewDidLoad() {
-    setupUI()
-    setupSnp()
-  }
-  
-  func setupUI() {
+  override func setupViewOnViewDidLoad() {
     //MARK: Core
     //    let c = UIColor.Custom.self
     //    let nb = navigationController?.navigationBar
@@ -144,7 +124,8 @@ class ClosetCategoryVC: AGVC {
     lb_title.text = ClosetCategoryVC.sb_name
     
     
-    //MARK: UI
+    
+    //MARK: Component
     v_dress.delegate = self
     v_jacket.delegate = self
     v_hat.delegate = self
@@ -157,20 +138,21 @@ class ClosetCategoryVC: AGVC {
     
     
     
-    //MARK: Misc
+    //MARK: Other
     
     
     
-  }
-  
-  func setupSnp() {
+    //MARK: Snp
     
+    
+    
+    //MARK: Localize
   }
   
   
   
   //MARK: - Setup Data
-  func setupDataOnViewDidLoad() {
+  override func setupDataOnViewDidLoad() {
     fetchClosetMenus()
   }
   
@@ -181,6 +163,9 @@ class ClosetCategoryVC: AGVC {
   
   
   //MARK: - Public
+  override func setupLocalize() {
+    
+  }
   
   
   

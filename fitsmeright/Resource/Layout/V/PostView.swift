@@ -24,7 +24,7 @@ extension PostView
  Note: Creating a Custom View with xib.
  Source: https://medium.com/@umairhassanbaig/ios-swift-creating-a-custom-view-with-xib-ace878cd41c5
  */
-class PostView: UIView {
+class PostView: AGView {
   
   //MARK: - UI
   @IBOutlet weak var v_container: UIView!
@@ -64,42 +64,29 @@ class PostView: UIView {
   
   
   //MARK: - Initial
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-    onInit()
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    onInit()
-  }
   
   
   
   //MARK: - Life cycle
-  func onInit() {
+  override func onInit() {
     Bundle.main.loadNibNamed("PostView", owner: self, options: nil)
     v_container.match(in: self)
-    setupViewOnInit()
+    super.onInit()
   }
   
-  func onDeinit() {
+  override func onDeinit() {
+    super.onDeinit()
     
   }
   
   
   //MARK: - Setup View
-  func setupViewOnInit() {
-    setupUI()
-    setupSnp()
-  }
-  
-  func setupUI() {
+  override func setupViewOnInit() {
     //MARK: Core
     
     
     
-    //MARK: UI
+    //MARK: Component
     v_createPost.isUserInteractionEnabled = false
     v_createText.isUserInteractionEnabled = false
     
@@ -110,19 +97,27 @@ class PostView: UIView {
     
     
     
-    //MARK: Misc
+    //MARK: Other
     
     
     
-  }
-  
-  func setupSnp() {
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
     
   }
   
   
   
   //MARK: - Setup Data
+  override func setupDataOnInit() {
+    
+  }
+  
   func setupPostData(post: MockPost) {
 //    let bkk = Region(calendar: Calendars.buddhist, zone: Zones.asiaBangkok, locale: Locales.thai)
 //    let date = post._string_createdAt.toDate("yyyy-MM-dd HH:mm", region: bkk)
@@ -161,6 +156,9 @@ class PostView: UIView {
   
   
   //MARK: - Public
+  override func setupLocalize() {
+    
+  }
   
   
   

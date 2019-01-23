@@ -62,26 +62,6 @@ class ProfileVC: AGVC {
   
   
   //MARK: - Initial
-  convenience init() {
-    self.init(nibName: nil, bundle: nil)
-  }
-  
-  
-  override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    onInit()
-    
-  }
-  
-  required public init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    onInit()
-    
-  }
-  
-  deinit {
-    onDeinit()
-  }
   
   
   
@@ -97,57 +77,60 @@ class ProfileVC: AGVC {
   
   
   //MARK: - Life cycle
+  override func onInit() {
+    super.onInit()
+    
+  }
+  
+  override func prepareToDeinit() {
+    super.prepareToDeinit()
+    
+  }
+  
+  override func onDeinit() {
+    super.onDeinit()
+    
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupViewOnViewDidLoad()
-    setupDataOnViewDidLoad()
-    
-  }
-  
-  func onInit() {
-    
-  }
-  
-  func onDeinit() {
     
   }
   
   
   
   //MARK: - Setup View
-  func setupViewOnViewDidLoad() {
-    setupUI()
-    setupSnp()
-  }
-  
-  func setupUI() {
+  override func setupViewOnViewDidLoad() {
     //MARK: Core
-//    let c = UIColor.Custom.self
-//    let nb = navigationController?.navigationBar
-//    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
+    //    let c = UIColor.Custom.self
+    //    let nb = navigationController?.navigationBar
+    //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     navigationItem.title = ProfileVC.sb_name
     
     
     
-    //MARK: UI
+    //MARK: Component
     lb_title.text = ProfileVC.sb_name
     
     
     
-    //MARK: Misc
+    //MARK: Other
     
     
     
-  }
-  
-  func setupSnp() {
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
     
   }
   
   
   
   //MARK: - Setup Data
-  func setupDataOnViewDidLoad() {
+  override func setupDataOnViewDidLoad() {
     
   }
   
@@ -158,6 +141,9 @@ class ProfileVC: AGVC {
   
   
   //MARK: - Public
+  override func setupLocalize() {
+    
+  }
   
   
   

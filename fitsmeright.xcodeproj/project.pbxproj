@@ -100,6 +100,9 @@
 		A4C4B6E621F81EA10036B0F7 /* Objectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6E521F81EA10036B0F7 /* Objectable.swift */; };
 		A4C4B6E821F81FE60036B0F7 /* UIScrollView+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6E721F81FE60036B0F7 /* UIScrollView+AG.swift */; };
 		A4C4B6EA21F81FFB0036B0F7 /* UIViewController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6E921F81FFB0036B0F7 /* UIViewController+AG.swift */; };
+		A4C4B6EC21F820C00036B0F7 /* AGVC+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6EB21F820C00036B0F7 /* AGVC+AG.swift */; };
+		A4C4B6EE21F821740036B0F7 /* AGIPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6ED21F821740036B0F7 /* AGIPC.swift */; };
+		A4C4B6F021F826D90036B0F7 /* AGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6EF21F826D90036B0F7 /* AGView.swift */; };
 		A4D6584C21BF63B9007B8558 /* UITabbarController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6584B21BF63B9007B8558 /* UITabbarController+AG.swift */; };
 		A4D6584E21BF651F007B8558 /* UITabBar+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */; };
 		A4D6585521BF7460007B8558 /* AGImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6585421BF7460007B8558 /* AGImagePickerController.swift */; };
@@ -229,6 +232,9 @@
 		A4C4B6E521F81EA10036B0F7 /* Objectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objectable.swift; sourceTree = "<group>"; };
 		A4C4B6E721F81FE60036B0F7 /* UIScrollView+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+AG.swift"; sourceTree = "<group>"; };
 		A4C4B6E921F81FFB0036B0F7 /* UIViewController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AG.swift"; sourceTree = "<group>"; };
+		A4C4B6EB21F820C00036B0F7 /* AGVC+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGVC+AG.swift"; sourceTree = "<group>"; };
+		A4C4B6ED21F821740036B0F7 /* AGIPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGIPC.swift; sourceTree = "<group>"; };
+		A4C4B6EF21F826D90036B0F7 /* AGView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGView.swift; sourceTree = "<group>"; };
 		A4D6584B21BF63B9007B8558 /* UITabbarController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabbarController+AG.swift"; sourceTree = "<group>"; };
 		A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+AG.swift"; sourceTree = "<group>"; };
 		A4D6585421BF7460007B8558 /* AGImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGImagePickerController.swift; sourceTree = "<group>"; };
@@ -720,6 +726,7 @@
 				5EC21D5621F60B290013157F /* ClosetMenuView.xib */,
 				5ECE8E8A21F76DDB000AF65E /* FloatingView.swift */,
 				5ECE8E8C21F76DED000AF65E /* FloatingView.xib */,
+				A4C4B6EF21F826D90036B0F7 /* AGView.swift */,
 			);
 			name = View;
 			path = V;
@@ -777,6 +784,7 @@
 			children = (
 				5E74DA6321BBD7AB00A97A89 /* AGVC.swift */,
 				A4D6585421BF7460007B8558 /* AGImagePickerController.swift */,
+				A4C4B6ED21F821740036B0F7 /* AGIPC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -814,6 +822,7 @@
 				A4796C9C21F5DD7000B83F85 /* CGSize+AG.swift */,
 				A4C4B6E721F81FE60036B0F7 /* UIScrollView+AG.swift */,
 				A4C4B6E921F81FFB0036B0F7 /* UIViewController+AG.swift */,
+				A4C4B6EB21F820C00036B0F7 /* AGVC+AG.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1206,6 +1215,8 @@
 				5EE8924121C3E615008A65ED /* ClosetDetailVC.swift in Sources */,
 				A42F7C5E21BE5B4B00085DB5 /* AGApplicationRoutable.swift in Sources */,
 				5E74DA5321BBD0B100A97A89 /* TemplateV.swift in Sources */,
+				A4C4B6EC21F820C00036B0F7 /* AGVC+AG.swift in Sources */,
+				A4C4B6EE21F821740036B0F7 /* AGIPC.swift in Sources */,
 				5E74D9FF21BBACA900A97A89 /* ViewController.swift in Sources */,
 				5EE8925821C40958008A65ED /* AGEntity.swift in Sources */,
 				5ECE8E7621F75054000AF65E /* Firestore+CodableFirebase.swift in Sources */,
@@ -1233,6 +1244,7 @@
 				5ECE8E6821F74544000AF65E /* UIView+AG.swift in Sources */,
 				5E74DA7021BBDAB300A97A89 /* FeedVC.swift in Sources */,
 				5E74DA5A21BBD0B100A97A89 /* TemplateAFR.swift in Sources */,
+				A4C4B6F021F826D90036B0F7 /* AGView.swift in Sources */,
 				A4796C9521F5DC0100B83F85 /* UIColor+AG.swift in Sources */,
 				5E74DA7621BBDACC00A97A89 /* CreatePostVC.swift in Sources */,
 				5E74DA5621BBD0B100A97A89 /* TemplateCC.swift in Sources */,

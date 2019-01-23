@@ -62,27 +62,7 @@ class SplashVC: AGVC {
   
   
   //MARK: - Initial
-  convenience init() {
-    self.init(nibName: nil, bundle: nil)
-  }
-  
-  
-  override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    onInit()
-    
-  }
-  
-  required public init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    onInit()
-    
-  }
-  
-  deinit {
-    onDeinit()
-  }
-  
+
   
   
   //MARK: - Apperance
@@ -90,52 +70,56 @@ class SplashVC: AGVC {
   
   
   //MARK: - Life cycle
+  override func onInit() {
+    super.onInit()
+    
+  }
+  
+  override func prepareToDeinit() {
+    super.prepareToDeinit()
+    
+  }
+  
+  override func onDeinit() {
+    super.onDeinit()
+    
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupViewOnViewDidLoad()
-    setupDataOnViewDidLoad()
-    
-  }
-  
-  func onInit() {
-    
-  }
-  
-  func onDeinit() {
     
   }
   
   
   
   //MARK: - Setup View
-  func setupViewOnViewDidLoad() {
-    setupUI()
-    setupSnp()
-  }
-  
-  func setupUI() {
+  override func setupViewOnViewDidLoad() {
     //MARK: Core
     
     
     
-    //MARK: UI
+    //MARK: Component
     
     
     
-    //MARK: Misc
+    //MARK: Other
     
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
     
     
   }
   
-  func setupSnp() {
-    
-  }
-  
+ 
   
   
   //MARK: - Setup Data
-  func setupDataOnViewDidLoad() {
+  override func setupDataOnViewDidLoad() {
     fetchLoginData()
   }
   
@@ -154,6 +138,9 @@ class SplashVC: AGVC {
   
   
   //MARK: - Public
+  override func setupLocalize() {
+    
+  }
   
   
   
@@ -165,13 +152,13 @@ class SplashVC: AGVC {
   func routeToMain() {
     let vc = MainTBC.vc
     let nvc = UINavigationController(rootViewController: vc)
-    window?.set(with: nvc, transition: CATransition(transition: .fade))
+    window?.set(with: nvc, style: .fade)
   }
   
   func routeToLogin() {
     let vc = MainTBC.vc
     let nvc = UINavigationController(rootViewController: vc)
-    window?.set(with: nvc, transition: CATransition(transition: .fade))
+    window?.set(with: nvc, style: .fade)
   }
   
   

@@ -82,11 +82,11 @@
 //
 //
 //  //MARK: - Life cycle
-//  func onInit() {
+//  override func onInit() {
 //    setupUI()
 //  }
 //
-//  func onDeinit() {
+//  override func onDeinit() {
 //
 //  }
 //

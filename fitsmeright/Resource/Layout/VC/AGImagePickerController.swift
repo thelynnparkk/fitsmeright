@@ -94,8 +94,6 @@ class AGImagePC: UIImagePickerController {
   //MARK: - Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupViewOnViewDidLoad()
-    setupDataOnViewDidLoad()
     
   }
   

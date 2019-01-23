@@ -23,7 +23,7 @@ extension CreateTextView
  Note: Creating a Custom View with xib.
  Source: https://medium.com/@umairhassanbaig/ios-swift-creating-a-custom-view-with-xib-ace878cd41c5
  */
-class CreateTextView: UIView {
+class CreateTextView: AGView {
   
   //MARK: - UI
   @IBOutlet weak var v_container: UIView!
@@ -53,43 +53,30 @@ class CreateTextView: UIView {
   
   
   //MARK: - Initial
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-    onInit()
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    onInit()
-  }
   
   
   
   //MARK: - Life cycle
-  func onInit() {
+  override func onInit() {
     Bundle.main.loadNibNamed("CreateTextView", owner: self, options: nil)
     v_container.match(in: self)
-    setupViewOnInit()
+    super.onInit()
   }
   
-  func onDeinit() {
+  override func onDeinit() {
+    super.onDeinit()
     
   }
   
   
   //MARK: - Setup View
-  func setupViewOnInit() {
-    setupUI()
-    setupSnp()
-  }
-  
-  func setupUI() {
+  override func setupViewOnInit() {
     //MARK: Core
     backgroundColor = .clear
     
     
     
-    //MARK: UI
+    //MARK: Component
     v_container.backgroundColor = .clear
     v_overlay.backgroundColor = UIColor.black.withAlphaComponent(0.6)
     txt_main.text = ""
@@ -99,19 +86,29 @@ class CreateTextView: UIView {
     v_overlay.isHidden = true
     txt_main.isHidden = true
     
-    //MARK: Misc
     
     
-   
-  }
-  
-  func setupSnp() {
+    //MARK: Other
     
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+
   }
   
   
   
   //MARK: - Setup Data
+  override func setupDataOnInit() {
+    
+  }
+  
   func setupTextData(text: String) {
     txt_main.text = text
     txt_main.isHidden = false
@@ -124,6 +121,10 @@ class CreateTextView: UIView {
   
   
   //MARK: - Public
+  override func setupLocalize() {
+    
+  }
+  
   func startEdit() {
     txt_main.becomeFirstResponder()
   }

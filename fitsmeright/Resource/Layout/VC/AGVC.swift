@@ -12,21 +12,17 @@ import UIKit
 
 
 
-extension AGVC:
-  UIBarPositioningDelegate,
-  UIGestureRecognizerDelegate,
-  AGObject
-{ }
 
-
-
-open class AGVC: UIViewController {
-
-  //MARK: - Action
+extension AGVC
+{
   
+}
+
+
+
+class AGVC: UIViewController {
   
-  
-  //MARK: - VIP
+  //MARK: - AGVCInstantiatable
   
   
   
@@ -79,87 +75,176 @@ open class AGVC: UIViewController {
   
   
   //MARK: - Apperance
-  override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    super.touchesBegan(touches, with: event)
-    view.endEditing(true)
-    
-  }
-  
-  override open var preferredStatusBarStyle: UIStatusBarStyle {
-    return .default
-  }
   
   
   
   //MARK: - Life cycle
-  override open func viewDidLoad() {
+  func onInit() {
+    
+  }
+  
+  func prepareToDeinit() {
+    
+  }
+  
+  func onDeinit() {
+    
+  }
+  
+  override func viewDidLoad() {
     super.viewDidLoad()
     setupViewOnViewDidLoad()
     setupDataOnViewDidLoad()
-    
   }
   
-  override open func viewWillAppear(_ animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     setupViewOnWillAppear()
-    
+    setupDataOnWillAppear()
   }
   
-  override open func viewDidAppear(_ animated: Bool) {
+  override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     setupViewOnDidAppear()
-    
+    setupDataOnDidAppear()
   }
   
-  override open func viewWillDisappear(_ animated: Bool) {
+  override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     setupViewOnWillDisappear()
-    
+    setupDataOnWillDisappear()
   }
   
-  override open func viewDidDisappear(_ animated: Bool) {
+  override func viewDidDisappear(_ animated: Bool) {
     super.viewDidDisappear(animated)
     setupViewOnDidDisappear()
-    
-  }
-  
-  fileprivate func onInit() {
-    
-  }
-  
-  fileprivate func onDeinit() {
-    NotificationCenter.default.removeObserver(self)
-    
+    setupDataOnDidDisappear()
   }
   
   
   
   //MARK: - Setup View
-  fileprivate func setupViewOnViewDidLoad() {
-    interactivePopGestureEnable()
+  func setupViewOnViewDidLoad() {
+    //MARK: Core
     
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    setupLocalize()
   }
   
-  fileprivate func setupViewOnWillAppear() {
+  func setupViewOnWillAppear() {
+    //MARK: Core
     
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
   }
   
-  fileprivate func setupViewOnDidAppear() {
+  func setupViewOnDidAppear() {
+    //MARK: Core
     
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
   }
   
-  fileprivate func setupViewOnWillDisappear() {
+  func setupViewOnWillDisappear() {
+    //MARK: Core
     
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
   }
   
-  fileprivate func setupViewOnDidDisappear() {
+  func setupViewOnDidDisappear() {
+    //MARK: Core
     
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
   }
   
   
   
   //MARK: - Setup Data
-  fileprivate func setupDataOnViewDidLoad() {
+  func setupDataOnViewDidLoad() {
+    
+  }
+  
+  func setupDataOnWillAppear() {
+    
+  }
+  
+  func setupDataOnDidAppear() {
+    
+  }
+  
+  func setupDataOnWillDisappear() {
+    
+  }
+  
+  func setupDataOnDidDisappear() {
     
   }
   
@@ -170,41 +255,12 @@ open class AGVC: UIViewController {
   
   
   //MARK: - Public
-  public func interactivePopGestureEnable() {
-    navigationController?.interactivePopGestureRecognizer?.delegate = self
-    navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+  func setupLocalize() {
+    
   }
   
-  public func interactivePopGestureDisable() {
-    navigationController?.interactivePopGestureRecognizer?.delegate = nil
-    navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-  }
-  
-  @objc
-  public func popButtonPressed(_ sender: Any) {
-    navigationController?.popViewController(animated: true)
-  }
-  
-  @objc
-  public func dismissButtonPressed(_ sender: Any) {
-    dismiss(animated: true)
-  }
-  
-  @objc
-  public func backButtonPressed(_ sender: Any) {
-    var isDismiss = false
-    if let nav = navigationController {
-      if nav.viewControllers.count > 1 {
-        nav.popViewController(animated: true)
-      } else {
-        isDismiss = true
-      }
-    } else {
-      isDismiss = true
-    }
-    if isDismiss {
-      dismiss(animated: true)
-    }
+  func setupViewByOrientation() {
+    
   }
   
   
@@ -213,26 +269,7 @@ open class AGVC: UIViewController {
   
   
   
-  //MARK: - VIP - UseCase
-  
-  
-  
-  //MARK: Core - UIBarPositioningDelegate
-  public func position(for bar: UIBarPositioning) -> UIBarPosition {
-    return .topAttached
-  }
-  
-  
-  
-  //MARK: Core - UIBarPositioningDelegate
-  public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-    guard let gr = navigationController?.interactivePopGestureRecognizer, gr == gestureRecognizer else {
-      return false
-    }
-    let count = navigationController?.viewControllers.count ?? 0
-    return count > 1 ? true : false
-  }
-  
+  //MARK: - Core - Protocol
   
   
   
@@ -240,22 +277,28 @@ open class AGVC: UIViewController {
   
   
   
-  //MARK: - Pods - Protocol
-  
-  
+  //MARK: - Pod - Protocol
   
   
   
 }
+//MARK: Core
 
 
 
+//MARK: Component
 
 
 
+//MARK: Other
 
 
 
+//MARK: Snp
+
+
+
+//MARK: Localize
 
 
 
