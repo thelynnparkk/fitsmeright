@@ -13,8 +13,8 @@ import UIKit
 
 
 public extension UIImage {
-
-  public func overlay(with colors: UIColor..., axis: NSLayoutConstraint.Axis) -> UIImage? {
+  
+  public func filled(withColors colors: UIColor..., axis: NSLayoutConstraint.Axis) -> UIImage? {
     guard colors.count > 1 else { return nil }
     UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
     let context = UIGraphicsGetCurrentContext()

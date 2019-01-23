@@ -12,6 +12,7 @@ import UIKit
 
 
 
+
 extension TemplateVC
 {
   
@@ -21,17 +22,7 @@ extension TemplateVC
 
 class TemplateVC: UIViewController {
   
-  //MARK: - AGInstantiatable
-  static var sb_name: String = "TemplateTVC"
-  static var vc_name: String = "TemplateTVC"
-  
-  
-  
-  //MARK: - Action
-  
-  
-  
-  //MARK: - VIP
+  //MARK: - AGVCInstantiatable
   
   
   
@@ -84,29 +75,26 @@ class TemplateVC: UIViewController {
   
   
   //MARK: - Apperance
-  override var preferredStatusBarStyle: UIStatusBarStyle {
-    return .lightContent
-  }
-  
-  override var prefersStatusBarHidden: Bool {
-    return false
-  }
   
   
   
   //MARK: - Life cycle
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    setupViewOnViewDidLoad()
-    setupDataOnViewDidLoad()
-    
-  }
-  
   func onInit() {
     
   }
   
+  func prepareToDeinit() {
+    
+  }
+  
   func onDeinit() {
+    
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    setupViewOnViewDidLoad()
+    setupDataOnViewDidLoad()
     
   }
   
@@ -115,7 +103,7 @@ class TemplateVC: UIViewController {
   //MARK: - Setup View
   func setupViewOnViewDidLoad() {
     setupUI()
-    setupSnp()
+    setupLocalize()
   }
   
   func setupUI() {
@@ -123,17 +111,17 @@ class TemplateVC: UIViewController {
     
     
     
-    //MARK: UI
+    //MARK: Component
     
     
     
-    //MARK: Misc
+    //MARK: Other
     
     
     
-  }
-  
-  func setupSnp() {
+    //MARK: Snp
+    
+    
     
   }
   
@@ -151,14 +139,17 @@ class TemplateVC: UIViewController {
   
   
   //MARK: - Public
+  func setupLocalize() {
+    
+  }
+  
+  func setupViewByOrientation() {
+    
+  }
   
   
   
   //MARK: - Private
-  
-  
-  
-  //MARK: - VIP - UseCase
   
   
   
@@ -170,7 +161,7 @@ class TemplateVC: UIViewController {
   
   
   
-  //MARK: - Pods - Protocol
+  //MARK: - Pod - Protocol
   
   
   

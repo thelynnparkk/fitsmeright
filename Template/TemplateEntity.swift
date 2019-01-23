@@ -1,5 +1,5 @@
 //
-//  TemplateM.swift
+//  TemplateEntity.swift
 //  fitsmeright
 //
 //  Created by Lynn Park on 8/12/2561 BE.
@@ -8,43 +8,49 @@
 
 
 
+//MARK: - Core
 import Foundation
 
 
 
-public class TemplateD: AGEntity {
-
-  //MARK: - Key
-  public enum Key {
-    static var id = "id"
-  }
-  
-  
-  
-  //MARK: - Storage
-  public var id : Int?
+//MARK: - Pod
 
 
 
-  //MARK: - Initial
-  public init() {
-    
-  }
-
-
-
-  //MARK: - Public
-  public var _id: Int {
-    return id ?? 0
-  }
-
-
-
-  //MARK: - Private
-  
-
+extension TemplateEntity
+{
   
 }
 
 
 
+class TemplateEntity: AGEntity {
+  
+  //MARK: - Key
+  
+  
+  
+  //MARK: - Storage
+  var id : Int?
+  
+  
+  
+  //MARK: - Initial
+  init?() {
+    
+  }
+  
+  
+  
+  //MARK: - Public
+  var _id: Int {
+    return id ?? 0
+  }
+  
+  
+  
+  //MARK: - Private
+  
+  
+  
+}

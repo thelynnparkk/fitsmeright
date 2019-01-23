@@ -13,18 +13,19 @@ import QuartzCore
 
 
 
+//MARK: - Type
 public extension CATransition {
   
-  public enum Transition {
+  public enum Style {
     case fade
     case push
   }
   
-  public convenience init(transition: Transition) {
+  public convenience init(style: Style, duration: CFTimeInterval) {
     self.init()
-    duration = 0.3
+    self.duration = duration
     timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-    switch transition {
+    switch style {
     case .fade:
       type = CATransitionType.fade
     case .push:
