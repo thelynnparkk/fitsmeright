@@ -107,6 +107,7 @@
 		A4C4B6F421F851840036B0F7 /* StateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6F321F851840036B0F7 /* StateView.swift */; };
 		A4C4B6F621F852B40036B0F7 /* AGViewInstantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6F521F852B40036B0F7 /* AGViewInstantiatable.swift */; };
 		A4C4B6F821F86FE70036B0F7 /* StateView+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6F721F86FE70036B0F7 /* StateView+AG.swift */; };
+		A4C4B6FE21F87F320036B0F7 /* ControlContainableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6FD21F87F320036B0F7 /* ControlContainableScrollView.swift */; };
 		A4D6584C21BF63B9007B8558 /* UITabbarController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6584B21BF63B9007B8558 /* UITabbarController+AG.swift */; };
 		A4D6584E21BF651F007B8558 /* UITabBar+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */; };
 		A4D6585521BF7460007B8558 /* AGImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6585421BF7460007B8558 /* AGImagePickerController.swift */; };
@@ -243,6 +244,7 @@
 		A4C4B6F321F851840036B0F7 /* StateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateView.swift; sourceTree = "<group>"; };
 		A4C4B6F521F852B40036B0F7 /* AGViewInstantiatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGViewInstantiatable.swift; sourceTree = "<group>"; };
 		A4C4B6F721F86FE70036B0F7 /* StateView+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StateView+AG.swift"; sourceTree = "<group>"; };
+		A4C4B6FD21F87F320036B0F7 /* ControlContainableScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlContainableScrollView.swift; sourceTree = "<group>"; };
 		A4D6584B21BF63B9007B8558 /* UITabbarController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabbarController+AG.swift"; sourceTree = "<group>"; };
 		A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+AG.swift"; sourceTree = "<group>"; };
 		A4D6585421BF7460007B8558 /* AGImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGImagePickerController.swift; sourceTree = "<group>"; };
@@ -436,6 +438,7 @@
 		5E74DA3221BBCCC400A97A89 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
+				A4C4B6FC21F87F320036B0F7 /* ScrollView */,
 				5EE8924221C3E696008A65ED /* View */,
 				5E0900B221C296F10099F81E /* TabBatItem */,
 				A42F7C7521BE837C00085DB5 /* NVC */,
@@ -805,6 +808,15 @@
 			children = (
 			);
 			path = NVC;
+			sourceTree = "<group>";
+		};
+		A4C4B6FC21F87F320036B0F7 /* ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				A4C4B6FD21F87F320036B0F7 /* ControlContainableScrollView.swift */,
+			);
+			name = ScrollView;
+			path = ../../../../../../OTV/gitlab/Source/player/player/Resource/Layout/ScrollView;
 			sourceTree = "<group>";
 		};
 		A4D6585A21BFA3CD007B8558 /* NeedRemove */ = {
@@ -1252,6 +1264,7 @@
 				A42F7C6521BE621300085DB5 /* BlankVC.swift in Sources */,
 				A4C4B6F621F852B40036B0F7 /* AGViewInstantiatable.swift in Sources */,
 				A4C4B6F421F851840036B0F7 /* StateView.swift in Sources */,
+				A4C4B6FE21F87F320036B0F7 /* ControlContainableScrollView.swift in Sources */,
 				5E74DA5E21BBD1F100A97A89 /* AGVCInstantiatable.swift in Sources */,
 				5E74DA2D21BBCB9E00A97A89 /* SplashVC.swift in Sources */,
 				5ECE8E6621F7453D000AF65E /* RAMAnimatedTabBarItem+AG.swift in Sources */,
