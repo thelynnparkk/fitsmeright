@@ -184,14 +184,14 @@ class ClosetVC: AGVC {
     }
     
     func worker() {
-      mockMainWaiting(1) {
+//      mockMainWaiting(1) {
         present()
-      }
+//      }
     }
     
     func present() {
       lb_title.text = "\(fsClosets.count) \(closetCategory!.plural)"
-      let model = AGCAModel()
+      let model = ImageCAModel()
       model.displayedRows = fsClosets.compactMap({
         let model = ImageCCModel()
         model.imageUrl = $0.imageURL
@@ -220,7 +220,7 @@ class ClosetVC: AGVC {
   
   //MARK: - Custom - AGCADelegate
   func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
-    
+    print("indexPath: \(indexPath)")
   }
   
   

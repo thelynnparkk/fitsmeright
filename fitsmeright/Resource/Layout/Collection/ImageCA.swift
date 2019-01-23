@@ -21,6 +21,7 @@ class ImageCAModel: AGCAModel {
 extension ImageCA:
   UICollectionViewDelegate,
   UICollectionViewDataSource,
+  UICollectionViewDelegateFlowLayout,
   AGCCDelegate
 {
   
@@ -110,12 +111,12 @@ class ImageCA: AGCA {
     collection.contentInsetAdjustmentBehavior = .always
     collection.isPrefetchingEnabled = true
     
-//    let collectionLayout_main = TableFlowLayout()
-//    collectionLayout_main.minimumInteritemSpacing = 10
-//    collectionLayout_main.minimumLineSpacing = 0
-//    collectionLayout_main.sectionInset = UIEdgeInsets(top: 1, left: 1, bottom: 30, right: 1)
-//    collectionLayout_main.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-//    collection.collectionViewLayout = collectionLayout_main
+    let layout = UICollectionViewFlowLayout()
+//    layout.minimumInteritemSpacing = 10
+//    layout.minimumLineSpacing = 0
+//    layout.sectionInset = UIEdgeInsets(top: 1, left: 1, bottom: 30, right: 1)
+//    layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+    collection.collectionViewLayout = layout
     
     
     
@@ -145,8 +146,8 @@ class ImageCA: AGCA {
     if let d = data as? Model {
       model = d
       collection.isUserInteractionEnabled = true
+      collection.collectionViewLayout.invalidateLayout()
       collection.reloadData()
-      collection.invalidateIntrinsicContentSize()
     } else {
       
     }
@@ -177,7 +178,7 @@ class ImageCA: AGCA {
   public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     switch isEmpty {
     case true:
-      return 1
+      return 0
     case false:
       return model.displayedRows.count
     }
@@ -209,6 +210,26 @@ class ImageCA: AGCA {
         delegate?.agCAPressed(self, action: 0, indexPath: indexPath)
       }
     }
+  }
+  
+  
+  
+  //MARK: - Core - UICollectionViewDelegateFlowLayout
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let side = (collectionView.frame.width - (5 * 2) - (5 * 2)) / 3
+    return CGSize(width: side, height: side)
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return 5
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    return 5
   }
   
   

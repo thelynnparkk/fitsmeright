@@ -32,6 +32,8 @@ class ImageCC: AGCC {
   
   
   //MARK: - UI
+  @IBOutlet weak var v_container: UIView!
+  @IBOutlet weak var img: UIImageView!
   
   
   
@@ -105,6 +107,7 @@ class ImageCC: AGCC {
     
     
     //MARK: Component
+    img.backgroundColor = c_material.grey300
     
     
     
@@ -143,7 +146,12 @@ class ImageCC: AGCC {
   }
   
   override func setupData(with data: AGCCModel) {
-    guard let _ = data as? Model else { return }
+    guard let d = data as? Model else { return }
+    if let imageUrl = d.imageUrl {
+      img.download(from: imageUrl, contentMode: .scaleAspectFit, placeholder: nil)
+    } else {
+      img.image = nil
+    }
   }
   
   

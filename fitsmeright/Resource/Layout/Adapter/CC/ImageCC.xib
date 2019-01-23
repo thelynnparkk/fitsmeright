@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lD5-x2-egE">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lD5-x2-egE" customClass="ImageCC" customModule="fitsmeright" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="206" height="206"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -43,6 +43,10 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="zjt-gt-0Fn"/>
             <size key="customSize" width="206" height="206"/>
+            <connections>
+                <outlet property="img" destination="ozm-dW-5uP" id="vkZ-8Q-fU1"/>
+                <outlet property="v_container" destination="Pq8-Y3-Hcf" id="8v4-ty-ewg"/>
+            </connections>
             <point key="canvasLocation" x="-3.2000000000000002" y="-14.392803598200901"/>
         </collectionViewCell>
     </objects>
