@@ -12,12 +12,6 @@ import UIKit
 
 
 
-protocol FloatingViewDelegate: class {
-  func floatingViewPressed(_ view: UIView)
-}
-
-
-
 extension FloatingView:
   AGViewInstantiatable
 {
@@ -51,7 +45,6 @@ class FloatingView: AGView {
   
   
   //MARK: - Instance
-  weak var delegate: FloatingViewDelegate?
   
   
   
@@ -185,7 +178,7 @@ class FloatingView: AGView {
   
   //MARK: - Event
   @objc func viewTapped(_ sender: UITapGestureRecognizer) {
-    delegate?.floatingViewPressed(self)
+    delegate?.agViewPressed(self)
   }
   
   

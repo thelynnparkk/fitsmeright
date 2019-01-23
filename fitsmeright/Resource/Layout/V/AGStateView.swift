@@ -73,6 +73,11 @@ class AGStateView: AGView {
     
   }
   
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    
+  }
+  
   
   
   //MARK: - Setup View
@@ -96,6 +101,14 @@ class AGStateView: AGView {
     //MARK: Localize
     setupLocalize()
     
+    
+  }
+  
+  override func setupViewOnAwakeFromNib() {
+    setupViewOnInit()
+  }
+  
+  override func setupViewOnLayoutSubviews() {
     
   }
   

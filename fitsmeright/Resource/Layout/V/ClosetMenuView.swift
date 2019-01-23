@@ -12,12 +12,6 @@ import UIKit
 
 
 
-protocol ClosetMenuViewDelegate: class {
-  func closetMenuViewPressed(_ view: UIView)
-}
-
-
-
 extension ClosetMenuView:
   AGViewInstantiatable
 {
@@ -52,7 +46,6 @@ class ClosetMenuView: AGView {
   
   
   //MARK: - Instance
-  weak var delegate: ClosetMenuViewDelegate?
   
   
   
@@ -157,7 +150,7 @@ class ClosetMenuView: AGView {
   
   //MARK: - Event
   @objc func viewTapped(_ sender: UITapGestureRecognizer) {
-    delegate?.closetMenuViewPressed(self)
+    delegate?.agViewPressed(self)
   }
   
   

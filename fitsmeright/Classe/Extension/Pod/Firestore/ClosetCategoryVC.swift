@@ -14,7 +14,7 @@ import UIKit
 
 extension ClosetCategoryVC:
   AGVCInstantiatable,
-  ClosetMenuViewDelegate
+  AGViewDelegate
 {
   
 }
@@ -255,8 +255,8 @@ class ClosetCategoryVC: AGVC {
   
   
   
-  //MARK: - Custom - ClosetMenuViewDelegate
-  func closetMenuViewPressed(_ view: UIView) {
+  //MARK: - Custom - AGViewDelegate
+  func agViewPressed(_ view: UIView) {
     var category = ClosetCategory.default
     switch view {
     case v_dress:

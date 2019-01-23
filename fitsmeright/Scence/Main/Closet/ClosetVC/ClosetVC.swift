@@ -14,7 +14,7 @@ import UIKit
 
 extension ClosetVC:
   AGVCInstantiatable,
-  FloatingViewDelegate
+  AGViewDelegate
 {
   
 }
@@ -183,8 +183,8 @@ class ClosetVC: AGVC {
   
   
   
-  //MARK: - Custom - FloatingViewDelegate
-  func floatingViewPressed(_ view: UIView) {
+  //MARK: - Custom - AGViewDelegate
+  func agViewPressed(_ view: UIView) {
     let vc = AddClosetVC.vc
     navigationController?.pushViewController(vc)
   }

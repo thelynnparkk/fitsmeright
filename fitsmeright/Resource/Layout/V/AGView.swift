@@ -12,6 +12,11 @@ import UIKit
 
 
 
+protocol AGViewDelegate: class {
+  func agViewPressed(_ view: UIView)
+}
+
+
 
 extension AGView:
   LifeCyclable,
@@ -37,6 +42,7 @@ class AGView: UIView {
   
   
   //MARK: - Instance
+  weak var delegate: AGViewDelegate?
   
   
   
