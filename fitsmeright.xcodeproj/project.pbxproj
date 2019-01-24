@@ -99,7 +99,7 @@
 		A4C4B6E821F81FE60036B0F7 /* UIScrollView+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6E721F81FE60036B0F7 /* UIScrollView+AG.swift */; };
 		A4C4B6EA21F81FFB0036B0F7 /* UIViewController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6E921F81FFB0036B0F7 /* UIViewController+AG.swift */; };
 		A4C4B6EC21F820C00036B0F7 /* AGVC+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6EB21F820C00036B0F7 /* AGVC+AG.swift */; };
-		A4C4B6EE21F821740036B0F7 /* AGIPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6ED21F821740036B0F7 /* AGIPC.swift */; };
+		A4C4B6EE21F821740036B0F7 /* AGImagePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6ED21F821740036B0F7 /* AGImagePickerVC.swift */; };
 		A4C4B6F221F84E240036B0F7 /* Colorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6F121F84E240036B0F7 /* Colorable.swift */; };
 		A4C4B6F621F852B40036B0F7 /* AGViewInstantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6F521F852B40036B0F7 /* AGViewInstantiatable.swift */; };
 		A4C4B6F821F86FE70036B0F7 /* StateView+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6F721F86FE70036B0F7 /* StateView+AG.swift */; };
@@ -121,10 +121,10 @@
 		A4C4FAC021F9762A004A3F37 /* LabelCRV.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FABF21F9762A004A3F37 /* LabelCRV.swift */; };
 		A4C4FAC221F976FA004A3F37 /* AGCRV.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FAC121F976FA004A3F37 /* AGCRV.swift */; };
 		A4C4FAC421F979A7004A3F37 /* LabelCRV.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4C4FAC321F979A7004A3F37 /* LabelCRV.xib */; };
+		A4C4FAC621F9A13C004A3F37 /* ViewIPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FAC521F9A13C004A3F37 /* ViewIPC.swift */; };
+		A4C4FAC821F9A6BF004A3F37 /* UIAlertController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FAC721F9A6BF004A3F37 /* UIAlertController+AG.swift */; };
 		A4D6584C21BF63B9007B8558 /* UITabbarController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6584B21BF63B9007B8558 /* UITabbarController+AG.swift */; };
 		A4D6584E21BF651F007B8558 /* UITabBar+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */; };
-		A4D6585521BF7460007B8558 /* AGImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6585421BF7460007B8558 /* AGImagePickerController.swift */; };
-		A4D6585921BF7DF2007B8558 /* AttachmentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6585821BF7DF2007B8558 /* AttachmentHandler.swift */; };
 		A4E31D8321C28B83004D1707 /* AGUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E31D8221C28B83004D1707 /* AGUserDefaults.swift */; };
 		A4E31D8721C28BA9004D1707 /* FMUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E31D8621C28BA9004D1707 /* FMUserDefaults.swift */; };
 		DF2C096536742865E4346DE8 /* Pods_fitsmerightUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41EC81EF460A825BE1F780A3 /* Pods_fitsmerightUITests.framework */; };
@@ -249,7 +249,7 @@
 		A4C4B6E721F81FE60036B0F7 /* UIScrollView+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+AG.swift"; sourceTree = "<group>"; };
 		A4C4B6E921F81FFB0036B0F7 /* UIViewController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AG.swift"; sourceTree = "<group>"; };
 		A4C4B6EB21F820C00036B0F7 /* AGVC+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGVC+AG.swift"; sourceTree = "<group>"; };
-		A4C4B6ED21F821740036B0F7 /* AGIPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGIPC.swift; sourceTree = "<group>"; };
+		A4C4B6ED21F821740036B0F7 /* AGImagePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGImagePickerVC.swift; sourceTree = "<group>"; };
 		A4C4B6F121F84E240036B0F7 /* Colorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colorable.swift; sourceTree = "<group>"; };
 		A4C4B6F521F852B40036B0F7 /* AGViewInstantiatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGViewInstantiatable.swift; sourceTree = "<group>"; };
 		A4C4B6F721F86FE70036B0F7 /* StateView+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StateView+AG.swift"; sourceTree = "<group>"; };
@@ -271,10 +271,10 @@
 		A4C4FABF21F9762A004A3F37 /* LabelCRV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCRV.swift; sourceTree = "<group>"; };
 		A4C4FAC121F976FA004A3F37 /* AGCRV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGCRV.swift; sourceTree = "<group>"; };
 		A4C4FAC321F979A7004A3F37 /* LabelCRV.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelCRV.xib; sourceTree = "<group>"; };
+		A4C4FAC521F9A13C004A3F37 /* ViewIPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewIPC.swift; sourceTree = "<group>"; };
+		A4C4FAC721F9A6BF004A3F37 /* UIAlertController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+AG.swift"; sourceTree = "<group>"; };
 		A4D6584B21BF63B9007B8558 /* UITabbarController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabbarController+AG.swift"; sourceTree = "<group>"; };
 		A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+AG.swift"; sourceTree = "<group>"; };
-		A4D6585421BF7460007B8558 /* AGImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGImagePickerController.swift; sourceTree = "<group>"; };
-		A4D6585821BF7DF2007B8558 /* AttachmentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentHandler.swift; sourceTree = "<group>"; };
 		A4E31D8221C28B83004D1707 /* AGUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGUserDefaults.swift; sourceTree = "<group>"; };
 		A4E31D8621C28BA9004D1707 /* FMUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMUserDefaults.swift; sourceTree = "<group>"; };
 		B4DF961751964A701D834B17 /* Pods-fitsmerightUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmerightUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmerightUITests/Pods-fitsmerightUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -805,8 +805,8 @@
 			isa = PBXGroup;
 			children = (
 				5E74DA6321BBD7AB00A97A89 /* AGVC.swift */,
-				A4D6585421BF7460007B8558 /* AGImagePickerController.swift */,
-				A4C4B6ED21F821740036B0F7 /* AGIPC.swift */,
+				A4C4B6ED21F821740036B0F7 /* AGImagePickerVC.swift */,
+				A4C4FAC521F9A13C004A3F37 /* ViewIPC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -891,7 +891,6 @@
 		A4D6585A21BFA3CD007B8558 /* NeedRemove */ = {
 			isa = PBXGroup;
 			children = (
-				A4D6585821BF7DF2007B8558 /* AttachmentHandler.swift */,
 			);
 			path = NeedRemove;
 			sourceTree = "<group>";
@@ -899,24 +898,25 @@
 		A4D6E29621C0F7BF0085FB67 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				5E74DA5F21BBD67600A97A89 /* UIWindow+AG.swift */,
-				5E74DA6121BBD6AC00A97A89 /* CATransition+AG.swift */,
-				A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */,
-				5E74DA8321BBF94B00A97A89 /* UINavigationController+AG.swift */,
-				A42F7C6821BE71FB00085DB5 /* UINavigationBar+AG.swift */,
-				A42F7C7021BE7B7300085DB5 /* UIImage+AG.swift */,
-				A42F7C7221BE815500085DB5 /* UIApplication+AG.swift */,
-				A4D6584B21BF63B9007B8558 /* UITabbarController+AG.swift */,
-				A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */,
-				5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */,
-				5ECE8E6721F74544000AF65E /* UIView+AG.swift */,
-				A4796C9421F5DC0100B83F85 /* UIColor+AG.swift */,
-				A4796C9C21F5DD7000B83F85 /* CGSize+AG.swift */,
-				A4C4B6E721F81FE60036B0F7 /* UIScrollView+AG.swift */,
-				A4C4B6E921F81FFB0036B0F7 /* UIViewController+AG.swift */,
 				A4C4B6EB21F820C00036B0F7 /* AGVC+AG.swift */,
+				5E74DA6121BBD6AC00A97A89 /* CATransition+AG.swift */,
+				A4796C9C21F5DD7000B83F85 /* CGSize+AG.swift */,
 				A4C4B6F721F86FE70036B0F7 /* StateView+AG.swift */,
+				A42F7C7221BE815500085DB5 /* UIApplication+AG.swift */,
+				A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */,
 				A4C338C521F8AE4200147567 /* UICollectionView+AG.swift */,
+				A4796C9421F5DC0100B83F85 /* UIColor+AG.swift */,
+				A42F7C7021BE7B7300085DB5 /* UIImage+AG.swift */,
+				5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */,
+				A42F7C6821BE71FB00085DB5 /* UINavigationBar+AG.swift */,
+				5E74DA8321BBF94B00A97A89 /* UINavigationController+AG.swift */,
+				A4C4B6E721F81FE60036B0F7 /* UIScrollView+AG.swift */,
+				A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */,
+				A4D6584B21BF63B9007B8558 /* UITabbarController+AG.swift */,
+				5ECE8E6721F74544000AF65E /* UIView+AG.swift */,
+				A4C4B6E921F81FFB0036B0F7 /* UIViewController+AG.swift */,
+				5E74DA5F21BBD67600A97A89 /* UIWindow+AG.swift */,
+				A4C4FAC721F9A6BF004A3F37 /* UIAlertController+AG.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1294,7 +1294,6 @@
 				A4C4FABC21F975C7004A3F37 /* PostView.swift in Sources */,
 				5ECE8E7B21F752A8000AF65E /* FSClosetWorker.swift in Sources */,
 				5E74DA8421BBF94B00A97A89 /* UINavigationController+AG.swift in Sources */,
-				A4D6585921BF7DF2007B8558 /* AttachmentHandler.swift in Sources */,
 				5ECE8E7121F74B84000AF65E /* ClosetCategory.swift in Sources */,
 				5E74DA8621BBFC6700A97A89 /* UIImagePickerController+AG.swift in Sources */,
 				5E74DA5721BBD0B100A97A89 /* TemplateVC.swift in Sources */,
@@ -1316,7 +1315,7 @@
 				A42F7C5E21BE5B4B00085DB5 /* AGApplicationRoutable.swift in Sources */,
 				5E74DA5321BBD0B100A97A89 /* TemplateV.swift in Sources */,
 				A4C4B6EC21F820C00036B0F7 /* AGVC+AG.swift in Sources */,
-				A4C4B6EE21F821740036B0F7 /* AGIPC.swift in Sources */,
+				A4C4B6EE21F821740036B0F7 /* AGImagePickerVC.swift in Sources */,
 				A4C4FAB921F975C7004A3F37 /* AGView.swift in Sources */,
 				5E74D9FF21BBACA900A97A89 /* ViewController.swift in Sources */,
 				5EE8925821C40958008A65ED /* Entitible.swift in Sources */,
@@ -1337,7 +1336,9 @@
 				5ECE8E8221F76015000AF65E /* QueryDocumentSnapshot+AG.swift in Sources */,
 				A4C4FAC021F9762A004A3F37 /* LabelCRV.swift in Sources */,
 				5E0900B821C2B88B0099F81E /* CreatePostDesignVC.swift in Sources */,
+				A4C4FAC621F9A13C004A3F37 /* ViewIPC.swift in Sources */,
 				5E74DA5821BBD0B100A97A89 /* TemplateVIP.swift in Sources */,
+				A4C4FAC821F9A6BF004A3F37 /* UIAlertController+AG.swift in Sources */,
 				A4C4FAB821F975C7004A3F37 /* ClosetFormView.swift in Sources */,
 				5E74DA8021BBF7D700A97A89 /* R.swift in Sources */,
 				A4C338C221F8A62D00147567 /* AGCellInstantiatable.swift in Sources */,
@@ -1362,7 +1363,6 @@
 				A4C4FAB221F975C7004A3F37 /* FloatingView.swift in Sources */,
 				A4C4B6F221F84E240036B0F7 /* Colorable.swift in Sources */,
 				5E74DA5421BBD0B100A97A89 /* TemplateEntity.swift in Sources */,
-				A4D6585521BF7460007B8558 /* AGImagePickerController.swift in Sources */,
 				A4C4B6E621F81EA10036B0F7 /* LifeCyclable.swift in Sources */,
 				A4C4FAC221F976FA004A3F37 /* AGCRV.swift in Sources */,
 				A42F7C5621BE567D00085DB5 /* AGDefaults.swift in Sources */,

@@ -128,6 +128,19 @@ extension UIViewController {
   
   
   //MARK: - Public
+  func displaySettingAlert(_ devicePermission: DevicePermission) {
+    let ac = UIAlertController(title: devicePermission.message , message: nil, preferredStyle: .alert)
+    let action_setting = UIAlertAction(title: "Setting", style: .destructive) { _ in
+      let url_setting = URL(string:UIApplication.openSettingsURLString)
+      if let url = url_setting {
+        UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+      }
+    }
+    let action_cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+    ac.addAction(action_cancel)
+    ac.addAction(action_setting)
+    present(ac, animated: true, completion: nil)
+  }
   
   
   

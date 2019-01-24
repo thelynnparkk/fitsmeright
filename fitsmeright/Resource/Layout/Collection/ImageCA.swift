@@ -117,10 +117,6 @@ class ImageCA: AGCA {
     collection.isPrefetchingEnabled = true
     
     let layout = UICollectionViewFlowLayout()
-//    layout.minimumInteritemSpacing = 10
-//    layout.minimumLineSpacing = 0
-//    layout.sectionInset = UIEdgeInsets(top: 1, left: 1, bottom: 30, right: 1)
-//    layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
     collection.collectionViewLayout = layout
     
     

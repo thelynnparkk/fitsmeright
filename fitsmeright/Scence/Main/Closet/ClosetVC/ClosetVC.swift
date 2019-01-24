@@ -228,7 +228,6 @@ class ClosetVC: AGVC {
   
   
   
-  
   //MARK: - Pods - Protocol
   
   

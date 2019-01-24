@@ -13,15 +13,15 @@ import UIKit
 
 
 extension CreatePostVC:
-  AGVCInstantiatable,
-  AGImagePCDelegate
+  AGVCInstantiatable
 {
   
 }
 
 
 
-class CreatePostVC: AGVC {
+class CreatePostVC: AGIPC {
+  
   //MARK: - AGVCInstantiatable
   
   
@@ -158,7 +158,7 @@ class CreatePostVC: AGVC {
   
   @objc
   func addClothButtonPressed(_ sender: UIButton) {
-    AGImagePC.displaySourcePopup(on: self) 
+    displayImagePickerAlert()
   }
   
   
@@ -183,7 +183,7 @@ class CreatePostVC: AGVC {
   
   
   //MARK: - Custom - AGImagePickerDelegate
-  func didFinishPickingMedia(_ picker: UIImagePickerController, with image: UIImage) {
+  override func didFinishPickingMedia(_ picker: UIImagePickerController, image: UIImage) {
     picker.dismiss(animated: true, completion: nil)
     guard img_clothSelected.count < 4 else { return }
     switch img_clothSelected.count {
@@ -203,11 +203,11 @@ class CreatePostVC: AGVC {
     img_clothSelected.append(image)
   }
   
-  func didFinishPickingMediaError(_ picker: UIImagePickerController) {
+  override func didFinishPickingMediaError(_ picker: UIImagePickerController) {
     picker.dismiss(animated: true, completion: nil)
   }
   
-  func didCancelPickingMedia(_ picker: UIImagePickerController) {
+  override func didCancelPickingMedia(_ picker: UIImagePickerController) {
     picker.dismiss(animated: true, completion: nil)
   }
   

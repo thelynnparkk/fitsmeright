@@ -14,15 +14,14 @@ import UIKit
 
 extension CreatePostDesignVC:
   UITextFieldDelegate,
-  AGVCInstantiatable,
-  AGImagePCDelegate
+  AGVCInstantiatable
 {
   
 }
 
 
 
-class CreatePostDesignVC: AGVC {
+class CreatePostDesignVC: AGIPC {
   //MARK: - AGVCInstantiatable
   
   
@@ -182,7 +181,7 @@ class CreatePostDesignVC: AGVC {
   
   @objc
   func editBackgroundButtonPressed(_ sender: UIButton) {
-    AGImagePC.displaySourcePopup(on: self)
+    displayImagePickerAlert()
   }
   
   
@@ -228,17 +227,17 @@ class CreatePostDesignVC: AGVC {
   
   
   //MARK: - Custom - AGImagePickerDelegate
-  func didFinishPickingMedia(_ picker: UIImagePickerController, with image: UIImage) {
+  override func didFinishPickingMedia(_ picker: UIImagePickerController, image: UIImage) {
     picker.dismiss(animated: true, completion: nil)
     v_createPost.imgv_background.image = image
     img_backgroundSelected = image
   }
   
-  func didFinishPickingMediaError(_ picker: UIImagePickerController) {
+  override func didFinishPickingMediaError(_ picker: UIImagePickerController) {
     picker.dismiss(animated: true, completion: nil)
   }
   
-  func didCancelPickingMedia(_ picker: UIImagePickerController) {
+  override func didCancelPickingMedia(_ picker: UIImagePickerController) {
     picker.dismiss(animated: true, completion: nil)
   }
   
