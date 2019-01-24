@@ -12,6 +12,13 @@ import UIKit
 
 
 
+class ClosetMenuViewModel: AGViewModel {
+  var title: String?
+  var image: UIImage?
+}
+
+
+
 extension ClosetMenuView:
   AGViewInstantiatable
 {
@@ -46,6 +53,7 @@ class ClosetMenuView: AGView {
   
   
   //MARK: - Constraint
+  typealias Model =  ClosetMenuViewModel
   
   
   
@@ -150,9 +158,10 @@ class ClosetMenuView: AGView {
     
   }
   
-  func setup(title: String, image: UIImage) {
-    lb_title.text = title
-    imgv_icon.image = image
+  override func setupData(with data: AGViewModel) {
+    guard let d = data as? Model else { return }
+    lb_title.text = d.title
+    imgv_icon.image = d.image
   }
   
   

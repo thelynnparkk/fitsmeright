@@ -118,7 +118,9 @@ class ClosetVC: AGVC {
     adapter_image.delegate = self
     view.addSubview(collection_main)
     v_addClosetFloating.delegate = self
-    v_addClosetFloating.setup(image: #imageLiteral(resourceName: "plus").filled(withColor: .white))
+    let plus = FloatingViewModel()
+    plus.image = #imageLiteral(resourceName: "plus").filled(withColor: .white)
+    v_addClosetFloating.setupData(with: plus)
     
     
     

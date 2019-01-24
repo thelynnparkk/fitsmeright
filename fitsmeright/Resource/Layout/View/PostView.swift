@@ -13,6 +13,12 @@ import SwiftDate
 
 
 
+class PostViewModel: AGViewModel {
+  var mockPost: MockPost = MockPost()
+}
+
+
+
 extension PostView:
   AGViewInstantiatable
 {

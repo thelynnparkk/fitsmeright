@@ -182,10 +182,22 @@ class ClosetDetailVC: AGVC {
       } else {
         imgv_closet.image = nil
       }
-      v_brand.setup(key: "Brand", value: fsCloset!._brand)
-      v_price.setup(key: "Price", value: "\(fsCloset!._price)")
-      v_size.setup(key: "Size", value: fsCloset!._size)
-      v_place.setup(key: "Place", value: fsCloset!._place)
+      let brand = ClosetFormViewModel()
+      brand.key = "Brand"
+      brand.value = fsCloset!._brand
+      let price = ClosetFormViewModel()
+      price.key = "Price"
+      price.value = "\(fsCloset!._price)"
+      let size = ClosetFormViewModel()
+      size.key = "Size"
+      size.value = fsCloset!._size
+      let place = ClosetFormViewModel()
+      place.key = "Place"
+      place.value = fsCloset!._place
+      v_brand.setupData(with: brand)
+      v_price.setupData(with: price)
+      v_size.setupData(with: size)
+      v_place.setupData(with: place)
     }
     
     interactor()

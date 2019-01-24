@@ -12,6 +12,13 @@ import UIKit
 
 
 
+class ClosetFormViewModel: AGViewModel {
+  var key: String?
+  var value: String?
+}
+
+
+
 extension ClosetFormView:
   AGViewInstantiatable
 {
@@ -46,6 +53,7 @@ class ClosetFormView: AGView {
   
   
   //MARK: - Constraint
+  typealias Model =  ClosetFormViewModel
   
   
   
@@ -166,9 +174,10 @@ class ClosetFormView: AGView {
     
   }
   
-  func setup(key: String, value: String) {
-    lb_key.text = key
-    txt_value.text = value
+  override func setupData(with data: AGViewModel) {
+    guard let d = data as? Model else { return }
+    lb_key.text = d.key
+    txt_value.text = d.value
   }
   
   

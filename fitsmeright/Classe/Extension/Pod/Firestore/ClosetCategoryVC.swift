@@ -243,15 +243,43 @@ class ClosetCategoryVC: AGVC {
           closet_sock.append(i)
         }
       }
-      v_dress.setup(title: "\(closet_dress.count) \(ClosetCategory.dress.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_dress").filled(withColor: UIColor.Custom.peach))
-      v_jacket.setup(title: "\(closet_jacket.count) \(ClosetCategory.jacket.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_jacket").filled(withColor: UIColor.Custom.peach))
-      v_hat.setup(title: "\(closet_hat.count) \(ClosetCategory.hat.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_hat").filled(withColor: UIColor.Custom.peach))
-      v_accessory.setup(title: "\(closet_accessory.count) \(ClosetCategory.accessory.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_accessory").filled(withColor: UIColor.Custom.peach))
-      v_bag.setup(title: "\(closet_bag.count) \(ClosetCategory.bag.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_bag").filled(withColor: UIColor.Custom.peach))
-      v_shoe.setup(title: "\(closet_shoe.count) \(ClosetCategory.shoe.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_shoe").filled(withColor: UIColor.Custom.peach))
-      v_top.setup(title: "\(closet_top.count) \(ClosetCategory.top.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_top").filled(withColor: UIColor.Custom.peach))
-      v_bottom.setup(title: "\(closet_bottom.count) \(ClosetCategory.bottom.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_bottom").filled(withColor: UIColor.Custom.peach))
-      v_sock.setup(title: "\(closet_sock.count) \(ClosetCategory.sock.plural)", image: #imageLiteral(resourceName: "ic_closetmenu_sock").filled(withColor: UIColor.Custom.peach))
+      let dress = ClosetMenuViewModel()
+      dress.title = "\(closet_dress.count) \(ClosetCategory.dress.plural)"
+      dress.image = #imageLiteral(resourceName: "ic_closetmenu_dress").filled(withColor: c_custom.peach)
+      let jacket = ClosetMenuViewModel()
+      jacket.title = "\(closet_jacket.count) \(ClosetCategory.jacket.plural)"
+      jacket.image = #imageLiteral(resourceName: "ic_closetmenu_jacket").filled(withColor: c_custom.peach)
+      let hat = ClosetMenuViewModel()
+      hat.title = "\(closet_hat.count) \(ClosetCategory.hat.plural)"
+      hat.image = #imageLiteral(resourceName: "ic_closetmenu_hat").filled(withColor: c_custom.peach)
+      let accessory = ClosetMenuViewModel()
+      accessory.title = "\(closet_accessory.count) \(ClosetCategory.accessory.plural)"
+      accessory.image = #imageLiteral(resourceName: "ic_closetmenu_accessory").filled(withColor: c_custom.peach)
+      let bag = ClosetMenuViewModel()
+      bag.title = "\(closet_bag.count) \(ClosetCategory.bag.plural)"
+      bag.image = #imageLiteral(resourceName: "ic_closetmenu_shoe").filled(withColor: c_custom.peach)
+      let shoe = ClosetMenuViewModel()
+      shoe.title = "\(closet_shoe.count) \(ClosetCategory.shoe.plural)"
+      shoe.image = #imageLiteral(resourceName: "ic_closetmenu_shoe").filled(withColor: c_custom.peach)
+      let top = ClosetMenuViewModel()
+      top.title = "\(closet_top.count) \(ClosetCategory.top.plural)"
+      top.image = #imageLiteral(resourceName: "ic_closetmenu_top").filled(withColor: c_custom.peach)
+      let bottom = ClosetMenuViewModel()
+      bottom.title = "\(closet_bottom.count) \(ClosetCategory.bottom.plural)"
+      bottom.image = #imageLiteral(resourceName: "ic_closetmenu_bottom").filled(withColor: c_custom.peach)
+      let sock = ClosetMenuViewModel()
+      sock.title = "\(closet_sock.count) \(ClosetCategory.sock.plural)"
+      sock.image =  #imageLiteral(resourceName: "ic_closetmenu_sock").filled(withColor: c_custom.peach)
+      
+      v_dress.setupData(with: dress)
+      v_jacket.setupData(with: jacket)
+      v_hat.setupData(with: hat)
+      v_accessory.setupData(with: accessory)
+      v_bag.setupData(with: bag)
+      v_shoe.setupData(with: shoe)
+      v_top.setupData(with: top)
+      v_bottom.setupData(with: bottom)
+      v_sock.setupData(with: sock)
       v_closet.fadeIn(duration: 0.3, completion: nil)
     }
     

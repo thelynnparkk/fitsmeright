@@ -12,6 +12,12 @@ import UIKit
 
 
 
+class FloatingViewModel: AGViewModel {
+  var image: UIImage?
+}
+
+
+
 extension FloatingView:
   AGViewInstantiatable
 {
@@ -45,6 +51,7 @@ class FloatingView: AGView {
   
   
   //MARK: - Constraint
+  typealias Model = FloatingViewModel
   
   
   
@@ -179,8 +186,9 @@ class FloatingView: AGView {
     
   }
   
-  func setup(image: UIImage) {
-    imgv_icon.image = image
+  override func setupData(with data: AGViewModel) {
+    guard let d = data as? Model else { return }
+    imgv_icon.image = d.image
   }
   
   
