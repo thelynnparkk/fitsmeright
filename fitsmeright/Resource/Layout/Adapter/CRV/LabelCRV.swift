@@ -1,8 +1,8 @@
 //
-//  ImageCC.swift
+//  LabelCRV.swift
 //  fitsmeright
 //
-//  Created by Sasawat Sankosik on 23/1/2562 BE.
+//  Created by Sasawat Sankosik on 24/1/2562 BE.
 //  Copyright © 2562 silpakorn. All rights reserved.
 //
 
@@ -12,53 +12,38 @@ import UIKit
 
 
 
-class ImageCCModel: AGCCModel {
-  var imageUrl: URL?
+class LabelCRVModel: AGCRVModel {
+  var kind: String = ""
+  var title: String = ""
 }
 
 
 
-extension ImageCC
+extension LabelCRV
 {
   
 }
 
 
 
-class ImageCC: AGCC {
+class LabelCRV: AGCRV {
   
   //MARK: - Enum
   enum Sizing {
     
-    static func size(with bound: CGRect = .zero, rowItems: Int = 1) -> CGSize {
-      let rowSpace = CGFloat(rowItems - 1)
-      let side = (bound.width - (itemSpace() * rowSpace) - (inset().right + inset().left)) / CGFloat(rowItems)
-      return CGSize(width: side, height: side)
+    static func size(with bound: CGRect = .zero, height: CGFloat = 50) -> CGSize {
+      return CGSize(width: bound.width, height: height)
     }
-    
-    static func itemSpace(with bound: CGRect = .zero) -> CGFloat {
-      return 5
-    }
-    
-    static func lineSpace(with bound: CGRect = .zero) -> CGFloat {
-      return 5
-    }
-    
-    static func inset(with bound: CGRect = .zero) -> UIEdgeInsets {
-      return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-    }
-    
-    static func offset(with bound: CGRect = .zero) -> CGPoint {
-      return .zero
-    }
-    
+
   }
   
   
   
   //MARK: - UI
   @IBOutlet weak var v_container: UIView!
-  @IBOutlet weak var img: UIImageView!
+  @IBOutlet weak var lb_title: UILabel!
+  @IBOutlet weak var v_topSeperator: UIView!
+  @IBOutlet weak var v_bottomSeperator: UIView!
   
   
   
@@ -67,7 +52,7 @@ class ImageCC: AGCC {
   
   
   //MARK: - Constraint
-  typealias Model = ImageCCModel
+  typealias Model = LabelCRVModel
   
   
   
@@ -132,7 +117,9 @@ class ImageCC: AGCC {
     
     
     //MARK: Component
-    img.backgroundColor = c_material.grey300
+    lb_title.textAlignment = .center
+    v_topSeperator.backgroundColor = c_material.grey300
+    v_bottomSeperator.backgroundColor = c_material.grey300
     
     
     
@@ -170,12 +157,19 @@ class ImageCC: AGCC {
     
   }
   
-  override func setupData(with data: AGCCModel) {
+  override func setupData(with data: AGCRVModel) {
     guard let d = data as? Model else { return }
-    if let imageUrl = d.imageUrl {
-      img.download(from: imageUrl, contentMode: .scaleAspectFit, placeholder: nil)
-    } else {
-      img.image = nil
+    lb_title.text = d.title
+    switch d.kind {
+    case UICollectionView.elementKindSectionFooter:
+      v_topSeperator.isHidden = false
+      v_bottomSeperator.isHidden = true
+    case UICollectionView.elementKindSectionFooter:
+      v_topSeperator.isHidden = true
+      v_bottomSeperator.isHidden = false
+    default:
+      v_topSeperator.isHidden = true
+      v_bottomSeperator.isHidden = true
     }
   }
   

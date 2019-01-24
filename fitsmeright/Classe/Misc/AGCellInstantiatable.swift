@@ -15,7 +15,8 @@ import Foundation
 public protocol AGCellInstantiatable {
   static var cell_name: String { get }
   static var reuseId: String { get }
-  var indexPath: IndexPath { get set }
+//  var section: Int { get set }
+//  var indexPath: IndexPath { get set }
 }
 
 
@@ -26,10 +27,15 @@ extension AGCellInstantiatable {
   public static var cell_name: String {
     return String(describing: self)
   }
-  
   public static var reuseId: String {
     return String(describing: self)
   }
+//  var section: Int {
+//    return 0
+//  }
+//  var indexPath: IndexPath {
+//    return IndexPath(row: 0, section: 0)
+//  }
   
   
   

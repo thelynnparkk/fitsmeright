@@ -12,6 +12,12 @@ import UIKit
 
 
 
+class AGViewModel {
+  
+}
+
+
+
 protocol AGViewDelegate: class {
   func agViewPressed(_ view: UIView)
 }
@@ -173,6 +179,10 @@ class AGView: UIView {
   }
   
   func setupDataOnAwakeFromNib() {
+    
+  }
+  
+  func setupData(with data: AGViewModel) {
     
   }
   

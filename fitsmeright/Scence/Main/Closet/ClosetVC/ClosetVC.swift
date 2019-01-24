@@ -195,6 +195,7 @@ class ClosetVC: AGVC {
         model.imageUrl = $0.imageURL
         return model
       })
+      model.footerLabel = "\(model.displayedRows.count) items"
       adapter_image.setupData(with: model)
     }
     

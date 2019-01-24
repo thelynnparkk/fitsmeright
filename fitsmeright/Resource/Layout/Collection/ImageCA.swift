@@ -13,7 +13,7 @@ import UIKit
 
 
 class ImageCAModel: AGCAModel {
-  var imageURL: URL?
+  var footerLabel: String = ""
 }
 
 
@@ -22,7 +22,8 @@ extension ImageCA:
   UICollectionViewDelegate,
   UICollectionViewDataSource,
   UICollectionViewDelegateFlowLayout,
-  AGCCDelegate
+  AGCCDelegate,
+  AGCRVDelegate
 {
   
   
@@ -33,6 +34,7 @@ extension ImageCA:
 class ImageCA: AGCA {
   
   //MARK: - Enum
+  
   
   
   
@@ -48,6 +50,8 @@ class ImageCA: AGCA {
   typealias Model =  ImageCAModel
   typealias CC = ImageCC
   typealias CCModel = ImageCCModel
+  typealias CRV = LabelCRV
+  typealias CRVModel = LabelCRVModel
   
   
   
@@ -104,6 +108,7 @@ class ImageCA: AGCA {
     collection.setupCollectionDefault()
     collection.setupScrollVertical()
     collection.registerCellNib(CC.self)
+    collection.registerHeaderFooterViewNib(CRV.self, kind: UICollectionView.elementKindSectionFooter)
     collection.delegate = self
     collection.dataSource = self
     collection.backgroundColor = .clear
@@ -192,9 +197,30 @@ class ImageCA: AGCA {
       let cell = collectionView.dequeueReusableCell(CC.self, for: indexPath)
       let item = model.displayedRows[indexPath.row]
       cell.indexPath = indexPath
-      cell.setupData(with: item)
       cell.delegate = self
+      cell.setupData(with: item)
       return cell
+    }
+  }
+
+  func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    switch kind {
+    case UICollectionView.elementKindSectionHeader:
+      return UICollectionReusableView()
+    case UICollectionView.elementKindSectionFooter:
+      let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withClass: CRV.self, for: indexPath)
+      view.kind = kind
+      view.section = indexPath.section
+      view.delegate = self
+      let data = LabelCRVModel()
+      data.kind = kind
+      if let model = model as? ImageCAModel {
+        data.title = model.footerLabel
+      }
+      view.setupData(with: data)
+      return view
+    default:
+      return UICollectionReusableView()
     }
   }
   
@@ -212,30 +238,40 @@ class ImageCA: AGCA {
     }
   }
   
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+    return CRV.Sizing.size(with: collectionView.frame, height: 50)
+  }
+  
   
   
   //MARK: - Core - UICollectionViewDelegateFlowLayout
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    let side = (collectionView.frame.width - (5 * 2) - (5 * 2)) / 3
-    return CGSize(width: side, height: side)
+    return CC.Sizing.size(with: collectionView.frame, rowItems: 4)
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-    return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+    return CC.Sizing.inset()
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return 5
+    return CC.Sizing.lineSpace()
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-    return 5
+    return CC.Sizing.itemSpace()
   }
   
   
   
   //MARK: - Custom - AGCCDelegate
   func agCCPressed(_ cell: UICollectionViewCell, action: Any, indexPath: IndexPath) {
+    
+  }
+  
+  
+  
+  //MARK: - Custom - AGCRVDelegate
+  func agCRVPressed(_ cell: UICollectionReusableView, action: Any, section: Int) {
     
   }
   
