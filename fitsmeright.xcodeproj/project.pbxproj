@@ -99,7 +99,7 @@
 		A4C4B6E821F81FE60036B0F7 /* UIScrollView+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6E721F81FE60036B0F7 /* UIScrollView+AG.swift */; };
 		A4C4B6EA21F81FFB0036B0F7 /* UIViewController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6E921F81FFB0036B0F7 /* UIViewController+AG.swift */; };
 		A4C4B6EC21F820C00036B0F7 /* AGVC+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6EB21F820C00036B0F7 /* AGVC+AG.swift */; };
-		A4C4B6EE21F821740036B0F7 /* AGImagePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6ED21F821740036B0F7 /* AGImagePickerVC.swift */; };
+		A4C4B6EE21F821740036B0F7 /* AGIPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6ED21F821740036B0F7 /* AGIPC.swift */; };
 		A4C4B6F221F84E240036B0F7 /* Colorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6F121F84E240036B0F7 /* Colorable.swift */; };
 		A4C4B6F621F852B40036B0F7 /* AGViewInstantiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6F521F852B40036B0F7 /* AGViewInstantiatable.swift */; };
 		A4C4B6F821F86FE70036B0F7 /* StateView+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4B6F721F86FE70036B0F7 /* StateView+AG.swift */; };
@@ -123,6 +123,12 @@
 		A4C4FAC421F979A7004A3F37 /* LabelCRV.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4C4FAC321F979A7004A3F37 /* LabelCRV.xib */; };
 		A4C4FAC621F9A13C004A3F37 /* ViewIPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FAC521F9A13C004A3F37 /* ViewIPC.swift */; };
 		A4C4FAC821F9A6BF004A3F37 /* UIAlertController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FAC721F9A6BF004A3F37 /* UIAlertController+AG.swift */; };
+		A4C4FACB21F9B87C004A3F37 /* PopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FACA21F9B87C004A3F37 /* PopupVC.swift */; };
+		A4C4FACD21F9C0D8004A3F37 /* PopupHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FACC21F9C0D8004A3F37 /* PopupHeaderView.swift */; };
+		A4C4FACF21F9C396004A3F37 /* PopupFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FACE21F9C396004A3F37 /* PopupFooterView.swift */; };
+		A4C4FAD221F9C5AE004A3F37 /* UIButton+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FAD121F9C5AE004A3F37 /* UIButton+AG.swift */; };
+		A4C4FAD421F9C6E4004A3F37 /* PopupContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FAD321F9C6E4004A3F37 /* PopupContainerVC.swift */; };
+		A4C4FAD621F9CB35004A3F37 /* PopupDialogable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FAD521F9CB35004A3F37 /* PopupDialogable.swift */; };
 		A4D6584C21BF63B9007B8558 /* UITabbarController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6584B21BF63B9007B8558 /* UITabbarController+AG.swift */; };
 		A4D6584E21BF651F007B8558 /* UITabBar+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */; };
 		A4E31D8321C28B83004D1707 /* AGUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E31D8221C28B83004D1707 /* AGUserDefaults.swift */; };
@@ -249,7 +255,7 @@
 		A4C4B6E721F81FE60036B0F7 /* UIScrollView+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+AG.swift"; sourceTree = "<group>"; };
 		A4C4B6E921F81FFB0036B0F7 /* UIViewController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AG.swift"; sourceTree = "<group>"; };
 		A4C4B6EB21F820C00036B0F7 /* AGVC+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AGVC+AG.swift"; sourceTree = "<group>"; };
-		A4C4B6ED21F821740036B0F7 /* AGImagePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGImagePickerVC.swift; sourceTree = "<group>"; };
+		A4C4B6ED21F821740036B0F7 /* AGIPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGIPC.swift; sourceTree = "<group>"; };
 		A4C4B6F121F84E240036B0F7 /* Colorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colorable.swift; sourceTree = "<group>"; };
 		A4C4B6F521F852B40036B0F7 /* AGViewInstantiatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGViewInstantiatable.swift; sourceTree = "<group>"; };
 		A4C4B6F721F86FE70036B0F7 /* StateView+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StateView+AG.swift"; sourceTree = "<group>"; };
@@ -273,6 +279,12 @@
 		A4C4FAC321F979A7004A3F37 /* LabelCRV.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelCRV.xib; sourceTree = "<group>"; };
 		A4C4FAC521F9A13C004A3F37 /* ViewIPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewIPC.swift; sourceTree = "<group>"; };
 		A4C4FAC721F9A6BF004A3F37 /* UIAlertController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+AG.swift"; sourceTree = "<group>"; };
+		A4C4FACA21F9B87C004A3F37 /* PopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupVC.swift; sourceTree = "<group>"; };
+		A4C4FACC21F9C0D8004A3F37 /* PopupHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupHeaderView.swift; sourceTree = "<group>"; };
+		A4C4FACE21F9C396004A3F37 /* PopupFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupFooterView.swift; sourceTree = "<group>"; };
+		A4C4FAD121F9C5AE004A3F37 /* UIButton+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+AG.swift"; sourceTree = "<group>"; };
+		A4C4FAD321F9C6E4004A3F37 /* PopupContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupContainerVC.swift; sourceTree = "<group>"; };
+		A4C4FAD521F9CB35004A3F37 /* PopupDialogable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupDialogable.swift; sourceTree = "<group>"; };
 		A4D6584B21BF63B9007B8558 /* UITabbarController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabbarController+AG.swift"; sourceTree = "<group>"; };
 		A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+AG.swift"; sourceTree = "<group>"; };
 		A4E31D8221C28B83004D1707 /* AGUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGUserDefaults.swift; sourceTree = "<group>"; };
@@ -464,6 +476,7 @@
 		5E74DA3221BBCCC400A97A89 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
+				A4C4FAC921F9B84C004A3F37 /* Popup */,
 				A4C4FAA021F975C7004A3F37 /* View */,
 				A4C338B621F8A38500147567 /* Adapter */,
 				A4C338B521F8A29700147567 /* ScrollView */,
@@ -549,6 +562,7 @@
 				A4C4B6F121F84E240036B0F7 /* Colorable.swift */,
 				A4C4B6F521F852B40036B0F7 /* AGViewInstantiatable.swift */,
 				A4C338C121F8A62D00147567 /* AGCellInstantiatable.swift */,
+				A4C4FAD521F9CB35004A3F37 /* PopupDialogable.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -805,7 +819,7 @@
 			isa = PBXGroup;
 			children = (
 				5E74DA6321BBD7AB00A97A89 /* AGVC.swift */,
-				A4C4B6ED21F821740036B0F7 /* AGImagePickerVC.swift */,
+				A4C4B6ED21F821740036B0F7 /* AGIPC.swift */,
 				A4C4FAC521F9A13C004A3F37 /* ViewIPC.swift */,
 			);
 			path = VC;
@@ -888,6 +902,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		A4C4FAC921F9B84C004A3F37 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				A4C4FACA21F9B87C004A3F37 /* PopupVC.swift */,
+				A4C4FACC21F9C0D8004A3F37 /* PopupHeaderView.swift */,
+				A4C4FACE21F9C396004A3F37 /* PopupFooterView.swift */,
+				A4C4FAD321F9C6E4004A3F37 /* PopupContainerVC.swift */,
+			);
+			path = Popup;
+			sourceTree = "<group>";
+		};
 		A4D6585A21BFA3CD007B8558 /* NeedRemove */ = {
 			isa = PBXGroup;
 			children = (
@@ -917,6 +942,7 @@
 				A4C4B6E921F81FFB0036B0F7 /* UIViewController+AG.swift */,
 				5E74DA5F21BBD67600A97A89 /* UIWindow+AG.swift */,
 				A4C4FAC721F9A6BF004A3F37 /* UIAlertController+AG.swift */,
+				A4C4FAD121F9C5AE004A3F37 /* UIButton+AG.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1284,10 +1310,12 @@
 				A42F7C5C21BE597100085DB5 /* AGApplicationSetup.swift in Sources */,
 				A42F7C7321BE815500085DB5 /* UIApplication+AG.swift in Sources */,
 				5E74DA6421BBD7AB00A97A89 /* AGVC.swift in Sources */,
+				A4C4FAD221F9C5AE004A3F37 /* UIButton+AG.swift in Sources */,
 				5E74DA5C21BBD0B100A97A89 /* TemplateAFRM.swift in Sources */,
 				A4796C9D21F5DD7000B83F85 /* CGSize+AG.swift in Sources */,
 				A42F7C5821BE56AC00085DB5 /* AGDefaultsFoundation.swift in Sources */,
 				A4C4FAB421F975C7004A3F37 /* StateView.swift in Sources */,
+				A4C4FAD621F9CB35004A3F37 /* PopupDialogable.swift in Sources */,
 				5E74DA6821BBD9C000A97A89 /* Typealias+AG.swift in Sources */,
 				5E0900BF21C2B8C50099F81E /* CreatePostInfoVC.swift in Sources */,
 				5E0900B421C2970A0099F81E /* RAMNonAnimation.swift in Sources */,
@@ -1305,17 +1333,19 @@
 				A4C4FAB021F975C7004A3F37 /* CreatePostView.swift in Sources */,
 				5ECE8E7D21F75366000AF65E /* Firestore+AG.swift in Sources */,
 				A4E31D8721C28BA9004D1707 /* FMUserDefaults.swift in Sources */,
+				A4C4FACD21F9C0D8004A3F37 /* PopupHeaderView.swift in Sources */,
 				5E74DA6621BBD90800A97A89 /* DispatchQueueable.swift in Sources */,
 				A4C4B6F821F86FE70036B0F7 /* StateView+AG.swift in Sources */,
 				A4C338BA21F8A3D800147567 /* ImageCC.swift in Sources */,
 				A4C4B6E821F81FE60036B0F7 /* UIScrollView+AG.swift in Sources */,
 				A42F7C6221BE5BD100085DB5 /* AGApplicationWindow.swift in Sources */,
+				A4C4FAD421F9C6E4004A3F37 /* PopupContainerVC.swift in Sources */,
 				5EE8924121C3E615008A65ED /* ClosetDetailVC.swift in Sources */,
 				A4C4FAB621F975C7004A3F37 /* CreateTextView.swift in Sources */,
 				A42F7C5E21BE5B4B00085DB5 /* AGApplicationRoutable.swift in Sources */,
 				5E74DA5321BBD0B100A97A89 /* TemplateV.swift in Sources */,
 				A4C4B6EC21F820C00036B0F7 /* AGVC+AG.swift in Sources */,
-				A4C4B6EE21F821740036B0F7 /* AGImagePickerVC.swift in Sources */,
+				A4C4B6EE21F821740036B0F7 /* AGIPC.swift in Sources */,
 				A4C4FAB921F975C7004A3F37 /* AGView.swift in Sources */,
 				5E74D9FF21BBACA900A97A89 /* ViewController.swift in Sources */,
 				5EE8925821C40958008A65ED /* Entitible.swift in Sources */,
@@ -1354,6 +1384,7 @@
 				5ECE8E6821F74544000AF65E /* UIView+AG.swift in Sources */,
 				5E74DA7021BBDAB300A97A89 /* FeedVC.swift in Sources */,
 				5E74DA5A21BBD0B100A97A89 /* TemplateAFR.swift in Sources */,
+				A4C4FACB21F9B87C004A3F37 /* PopupVC.swift in Sources */,
 				A4796C9521F5DC0100B83F85 /* UIColor+AG.swift in Sources */,
 				5E74DA7621BBDACC00A97A89 /* CreatePostVC.swift in Sources */,
 				5E74DA5621BBD0B100A97A89 /* TemplateCC.swift in Sources */,
@@ -1370,6 +1401,7 @@
 				5E74DA5521BBD0B100A97A89 /* TemplateCCA.swift in Sources */,
 				5E74DA7321BBDABF00A97A89 /* ProfileVC.swift in Sources */,
 				5ECE8E9021F770FE000AF65E /* AddClosetVC.swift in Sources */,
+				A4C4FACF21F9C396004A3F37 /* PopupFooterView.swift in Sources */,
 				5E74DA5B21BBD0B100A97A89 /* TemplateAFApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

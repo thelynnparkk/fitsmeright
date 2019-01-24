@@ -154,9 +154,13 @@ class FeedVC: AGVC {
   //MARK: - Event
   @objc
   func createPostButtonPressed(_ sender: UIButton) {
-    let vc = CreatePostVC.vc
-    let nvc = UINavigationController(rootViewController: vc)
-    present(nvc, animated: true, completion: nil)
+//    let vc = CreatePostVC.vc
+//    let nvc = UINavigationController(rootViewController: vc)
+//    present(nvc, animated: true, completion: nil)
+    let model = PopupContainerVCModel()
+    displayPopupContainer(model, priority: .common, on: self) { bool in
+      
+    }
   }
   
   

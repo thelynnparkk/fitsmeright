@@ -103,10 +103,45 @@ class TemplateView: AGView {
     
   }
   
+  override func setupViewOnAwakeFromNib() {
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+  }
+  
+  override func setupViewOnLayoutSubviews() {
+    
+  }
+  
   
   
   //MARK: - Setup Data
   override func setupDataOnInit() {
+    
+  }
+  
+  override func setupDataOnAwakeFromNib() {
+    
+  }
+  
+  override func setupData(with data: AGViewModel) {
     
   }
   
