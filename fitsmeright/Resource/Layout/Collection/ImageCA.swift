@@ -13,7 +13,7 @@ import UIKit
 
 
 class ImageCAModel: AGCAModel {
-  var footerLabel: String = ""
+  var labelCRVModel: LabelCRVModel = LabelCRVModel()
 }
 
 
@@ -212,12 +212,9 @@ class ImageCA: AGCA {
       view.kind = kind
       view.section = indexPath.section
       view.delegate = self
-      let data = LabelCRVModel()
-      data.kind = kind
-      if let model = model as? ImageCAModel {
-        data.title = model.footerLabel
+      if let d = model as? ImageCAModel {
+        view.setupData(with: d.labelCRVModel)
       }
-      view.setupData(with: data)
       return view
     default:
       return UICollectionReusableView()
@@ -271,7 +268,7 @@ class ImageCA: AGCA {
   
   
   //MARK: - Custom - AGCRVDelegate
-  func agCRVPressed(_ cell: UICollectionReusableView, action: Any, section: Int) {
+  func agCRVPressed(_ view: UICollectionReusableView, action: Any, section: Int) {
     
   }
   
