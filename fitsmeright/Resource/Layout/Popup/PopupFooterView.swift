@@ -29,13 +29,6 @@ class PopupFooterViewUC {
 
 
 
-protocol PopupFooterViewDelegate: class {
-  func popupFooterViewDidCancel()
-  func popupFooterViewDidDone()
-}
-
-
-
 extension PopupFooterView
 {
   
@@ -45,6 +38,10 @@ extension PopupFooterView
 
 class PopupFooterView: AGView {
   //MARK: - Enum
+  enum Action {
+    case cancel
+    case ok
+  }
   
   
   
@@ -65,7 +62,6 @@ class PopupFooterView: AGView {
   
   
   //MARK: - Instance
-  weak var delegate_popupFooterView: PopupFooterViewDelegate?
   
   
   
@@ -203,11 +199,11 @@ class PopupFooterView: AGView {
   
   //MARK: - Event
   @objc func cancelButtonPressed(_ sender: UIButton) {
-    delegate_popupFooterView?.popupFooterViewDidCancel()
+    delegate?.agViewPressed(self, action: Action.cancel, tag: 0)
   }
   
   @objc func okButtonPressed(_ sender: UIButton) {
-    delegate_popupFooterView?.popupFooterViewDidDone()
+    delegate?.agViewPressed(self, action: Action.ok, tag: 0)
   }
   
   

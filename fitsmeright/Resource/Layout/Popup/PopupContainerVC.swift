@@ -32,7 +32,7 @@ class PopupContainerVCUC {
 
 
 extension PopupContainerVC:
-  PopupFooterViewDelegate
+  AGViewDelegate
 {
   
 }
@@ -149,7 +149,7 @@ class PopupContainerVC: PopupVC {
     
     v_footer = PopupFooterView()
     v_footer.backgroundColor = .clear
-    v_footer.delegate_popupFooterView = self
+    v_footer.delegate = self
     
     view.addSubview(v_container)
     v_container.addSubview(v_header)
@@ -271,12 +271,27 @@ class PopupContainerVC: PopupVC {
   
   
   
-  //MARK: - Custom - PopupFooterViewDelegate
-  func popupFooterViewDidCancel() {
+  //MARK: - Custom - AGViewDelegate
+  func agViewPressed(_ view: AGView, action: Any, tag: Int) {
     
-  }
-  
-  func popupFooterViewDidDone() {
+    func popupFooterView(action: PopupFooterView.Action) {
+      switch action {
+      case .cancel:
+        cancelButtonPressed()
+      case .ok:
+        okButtonPressed()
+      }
+      
+    }
+    
+    switch view {
+    case is PopupFooterView:
+      if let action = action as? PopupFooterView.Action {
+        popupFooterView(action: action)
+      }
+    default:
+      break
+    }
     
   }
   
