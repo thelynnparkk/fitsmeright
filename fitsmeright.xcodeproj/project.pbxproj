@@ -84,9 +84,10 @@
 		A42F7C6D21BE768A00085DB5 /* BlankTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C6C21BE768A00085DB5 /* BlankTVC.swift */; };
 		A42F7C6F21BE76A200085DB5 /* BlankTVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A42F7C6E21BE76A200085DB5 /* BlankTVC.storyboard */; };
 		A42F7C7121BE7B7300085DB5 /* UIImage+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C7021BE7B7300085DB5 /* UIImage+AG.swift */; };
-		A42F7C7321BE815500085DB5 /* UIApplication+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C7221BE815500085DB5 /* UIApplication+AG.swift */; };
 		A4796C9521F5DC0100B83F85 /* UIColor+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4796C9421F5DC0100B83F85 /* UIColor+AG.swift */; };
 		A4796C9D21F5DD7000B83F85 /* CGSize+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4796C9C21F5DD7000B83F85 /* CGSize+AG.swift */; };
+		A4A98DB321FB0C1900937AE5 /* UILabel+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A98DB221FB0C1900937AE5 /* UILabel+AG.swift */; };
+		A4A98DB521FB0C2200937AE5 /* UITextField+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A98DB421FB0C2200937AE5 /* UITextField+AG.swift */; };
 		A4C338B421F8A28B00147567 /* ControlContainableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C338B321F8A28B00147567 /* ControlContainableScrollView.swift */; };
 		A4C338B821F8A3CD00147567 /* ImageCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C338B721F8A3CD00147567 /* ImageCA.swift */; };
 		A4C338BA21F8A3D800147567 /* ImageCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C338B921F8A3D800147567 /* ImageCC.swift */; };
@@ -128,7 +129,6 @@
 		A4C4FAD221F9C5AE004A3F37 /* UIButton+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FAD121F9C5AE004A3F37 /* UIButton+AG.swift */; };
 		A4C4FAD421F9C6E4004A3F37 /* PopupContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FAD321F9C6E4004A3F37 /* PopupContainerVC.swift */; };
 		A4C4FAD621F9CB35004A3F37 /* PopupDialogable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FAD521F9CB35004A3F37 /* PopupDialogable.swift */; };
-		A4D6584C21BF63B9007B8558 /* UITabbarController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6584B21BF63B9007B8558 /* UITabbarController+AG.swift */; };
 		A4D6584E21BF651F007B8558 /* UITabBar+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */; };
 		A4E31D8321C28B83004D1707 /* AGUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E31D8221C28B83004D1707 /* AGUserDefaults.swift */; };
 		A4E31D8721C28BA9004D1707 /* FMUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E31D8621C28BA9004D1707 /* FMUserDefaults.swift */; };
@@ -239,9 +239,10 @@
 		A42F7C6C21BE768A00085DB5 /* BlankTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankTVC.swift; sourceTree = "<group>"; };
 		A42F7C6E21BE76A200085DB5 /* BlankTVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BlankTVC.storyboard; sourceTree = "<group>"; };
 		A42F7C7021BE7B7300085DB5 /* UIImage+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+AG.swift"; sourceTree = "<group>"; };
-		A42F7C7221BE815500085DB5 /* UIApplication+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+AG.swift"; sourceTree = "<group>"; };
 		A4796C9421F5DC0100B83F85 /* UIColor+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AG.swift"; sourceTree = "<group>"; };
 		A4796C9C21F5DD7000B83F85 /* CGSize+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+AG.swift"; sourceTree = "<group>"; };
+		A4A98DB221FB0C1900937AE5 /* UILabel+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+AG.swift"; sourceTree = "<group>"; };
+		A4A98DB421FB0C2200937AE5 /* UITextField+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+AG.swift"; sourceTree = "<group>"; };
 		A4C338B321F8A28B00147567 /* ControlContainableScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlContainableScrollView.swift; sourceTree = "<group>"; };
 		A4C338B721F8A3CD00147567 /* ImageCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCA.swift; sourceTree = "<group>"; };
 		A4C338B921F8A3D800147567 /* ImageCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCC.swift; sourceTree = "<group>"; };
@@ -283,7 +284,6 @@
 		A4C4FAD121F9C5AE004A3F37 /* UIButton+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+AG.swift"; sourceTree = "<group>"; };
 		A4C4FAD321F9C6E4004A3F37 /* PopupContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupContainerVC.swift; sourceTree = "<group>"; };
 		A4C4FAD521F9CB35004A3F37 /* PopupDialogable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupDialogable.swift; sourceTree = "<group>"; };
-		A4D6584B21BF63B9007B8558 /* UITabbarController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabbarController+AG.swift"; sourceTree = "<group>"; };
 		A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+AG.swift"; sourceTree = "<group>"; };
 		A4E31D8221C28B83004D1707 /* AGUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGUserDefaults.swift; sourceTree = "<group>"; };
 		A4E31D8621C28BA9004D1707 /* FMUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMUserDefaults.swift; sourceTree = "<group>"; };
@@ -925,7 +925,6 @@
 				5E74DA6121BBD6AC00A97A89 /* CATransition+AG.swift */,
 				A4796C9C21F5DD7000B83F85 /* CGSize+AG.swift */,
 				A4C4B6F721F86FE70036B0F7 /* StateView+AG.swift */,
-				A42F7C7221BE815500085DB5 /* UIApplication+AG.swift */,
 				A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */,
 				A4C338C521F8AE4200147567 /* UICollectionView+AG.swift */,
 				A4796C9421F5DC0100B83F85 /* UIColor+AG.swift */,
@@ -935,11 +934,12 @@
 				5E74DA8321BBF94B00A97A89 /* UINavigationController+AG.swift */,
 				A4C4B6E721F81FE60036B0F7 /* UIScrollView+AG.swift */,
 				A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */,
-				A4D6584B21BF63B9007B8558 /* UITabbarController+AG.swift */,
 				5ECE8E6721F74544000AF65E /* UIView+AG.swift */,
 				A4C4B6E921F81FFB0036B0F7 /* UIViewController+AG.swift */,
 				5E74DA5F21BBD67600A97A89 /* UIWindow+AG.swift */,
 				A4C4FAD121F9C5AE004A3F37 /* UIButton+AG.swift */,
+				A4A98DB221FB0C1900937AE5 /* UILabel+AG.swift */,
+				A4A98DB421FB0C2200937AE5 /* UITextField+AG.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1305,7 +1305,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A42F7C5C21BE597100085DB5 /* AGApplicationSetup.swift in Sources */,
-				A42F7C7321BE815500085DB5 /* UIApplication+AG.swift in Sources */,
 				5E74DA6421BBD7AB00A97A89 /* AGVC.swift in Sources */,
 				A4C4FAD221F9C5AE004A3F37 /* UIButton+AG.swift in Sources */,
 				5E74DA5C21BBD0B100A97A89 /* TemplateAFRM.swift in Sources */,
@@ -1369,7 +1368,6 @@
 				5E74DA8021BBF7D700A97A89 /* R.swift in Sources */,
 				A4C338C221F8A62D00147567 /* AGCellInstantiatable.swift in Sources */,
 				5E74DA5921BBD0B100A97A89 /* Templatable.swift in Sources */,
-				A4D6584C21BF63B9007B8558 /* UITabbarController+AG.swift in Sources */,
 				A42F7C6521BE621300085DB5 /* BlankVC.swift in Sources */,
 				A4C4B6F621F852B40036B0F7 /* AGViewInstantiatable.swift in Sources */,
 				A4C338B421F8A28B00147567 /* ControlContainableScrollView.swift in Sources */,
@@ -1379,7 +1377,9 @@
 				A42F7C5A21BE56D800085DB5 /* AGDefaultsCodable.swift in Sources */,
 				5ECE8E6821F74544000AF65E /* UIView+AG.swift in Sources */,
 				5E74DA7021BBDAB300A97A89 /* FeedVC.swift in Sources */,
+				A4A98DB521FB0C2200937AE5 /* UITextField+AG.swift in Sources */,
 				5E74DA5A21BBD0B100A97A89 /* TemplateAFR.swift in Sources */,
+				A4A98DB321FB0C1900937AE5 /* UILabel+AG.swift in Sources */,
 				A4C4FACB21F9B87C004A3F37 /* PopupVC.swift in Sources */,
 				A4796C9521F5DC0100B83F85 /* UIColor+AG.swift in Sources */,
 				5E74DA7621BBDACC00A97A89 /* CreatePostVC.swift in Sources */,
