@@ -19,6 +19,7 @@ class PopupContainerVCUC {
   class DisplayedContainer {
     var injectedView: UIView?
     var tapDismissal = true
+    var tapGesture = true
   }
   
   class ViewModel: PopupVCModel {
@@ -55,6 +56,7 @@ class PopupContainerVC: PopupVC {
   var v_seperator: UIView!
   var stv_container: UIStackView!
   var v_footer: PopupFooterView!
+  var tapGesture: UITapGestureRecognizer!
   
   
   
@@ -166,6 +168,12 @@ class PopupContainerVC: PopupVC {
       v_container.addGestureRecognizer(tapgr_container)
     }
     
+    if viewModel.displayedContainer.tapGesture {
+      tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTapGestureRecognized))
+      view.addGestureRecognizer(tapGesture)
+    }
+
+    
     
     //MARK: Component
     
@@ -251,6 +259,9 @@ class PopupContainerVC: PopupVC {
   
   
   //MARK: - Event
+  @objc func onTapGestureRecognized(_ sender: UITapGestureRecognizer) {
+    cancelButtonPressed()
+  }
   
   
   

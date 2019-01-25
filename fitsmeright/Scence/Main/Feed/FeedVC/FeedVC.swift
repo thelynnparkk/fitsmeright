@@ -158,11 +158,13 @@ class FeedVC: AGVC {
 //    let nvc = UINavigationController(rootViewController: vc)
 //    present(nvc, animated: true, completion: nil)
     let vm = PopupContainerVCUC.ViewModel()
+    vm.displayedHeader.style = .large
     vm.displayedHeader.icon = UIImage(color: c_custom.peach, size: .less)
     vm.displayedHeader.style = .small
     vm.displayedHeader.subtitle = "subtitle"
     vm.displayedHeader.tint = c_custom.peach
     vm.displayedHeader.title = "title"
+    vm.displayedContainer.tapDismissal = true
 //    vm.displayedFooter.flag_hideCancel = true
     displayPopupContainer(vm, priority: .common, on: self) { bool in
       
