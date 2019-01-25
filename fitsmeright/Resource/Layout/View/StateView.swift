@@ -13,8 +13,9 @@ import NVActivityIndicatorView
 
 
 
-struct StateViewModel {
-  struct Setting {
+class StateViewModel {
+  
+  class Setting {
     var img_icon: UIImage?
     var title: String?
     var description: String?
@@ -23,23 +24,26 @@ struct StateViewModel {
     var img_background: UIImage?
     var font: UIFont?
   }
-  struct DisplayedState {
-    var hidden: Setting
-    var loading: Setting
-    var noResults: Setting
-    var noConnection: Setting
-    var error: Setting
+  
+  class DisplayedState {
+    var hidden = Setting()
+    var loading = Setting()
+    var noResults = Setting()
+    var noConnection = Setting()
+    var error = Setting()
   }
-  struct ViewModel {
-    var displayedStates: DisplayedState
+  
+  class ViewModel {
+    var displayedStates = DisplayedState()
   }
+  
 }
 
 
 
-protocol StateViewDelegate: AGViewDelegate {
-  func stateViewPressed(with stateView: StateView , state: StateView.State)
-}
+//protocol StateViewDelegate: AGViewDelegate {
+//  func stateViewPressed(with stateView: StateView , state: StateView.State)
+//}
 
 
 
@@ -83,9 +87,9 @@ class StateView: AGView {
   
   
   //MARK: - Instance
-  var delegate_stateView: StateViewDelegate? {
-    return delegate as? StateViewDelegate
-  }
+//  var delegate_stateView: StateViewDelegate? {
+//    return delegate as? StateViewDelegate
+//  }
   
   
   
@@ -317,7 +321,7 @@ class StateView: AGView {
   
   //MARK: - Event
   @objc func stateViewPressed(_ sender: UITapGestureRecognizer) {
-    delegate_stateView?.stateViewPressed(with: self, state: state)
+    delegate?.agViewPressed(self, action: state, tag: 0)
   }
   
   

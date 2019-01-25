@@ -157,8 +157,13 @@ class FeedVC: AGVC {
 //    let vc = CreatePostVC.vc
 //    let nvc = UINavigationController(rootViewController: vc)
 //    present(nvc, animated: true, completion: nil)
-    let model = PopupContainerVCModel()
-    displayPopupContainer(model, priority: .common, on: self) { bool in
+    let vm = PopupContainerVCUC.ViewModel()
+    vm.displayedHeader.icon = UIImage(color: c_custom.peach, size: .less)
+    vm.displayedHeader.style = .small
+    vm.displayedHeader.subtitle = "subtitle"
+    vm.displayedHeader.tint = c_custom.peach
+    vm.displayedHeader.title = "title"
+    displayPopupContainer(vm, priority: .common, on: self) { bool in
       
     }
   }
@@ -180,7 +185,9 @@ class FeedVC: AGVC {
   func displayFetchPostData() {
     if let post = post {
       v_post.isHidden = false
-      v_post.setupPostData(post: post)
+      let vm_post = PostViewUC.ViewModel()
+      vm_post.displayedPost = post
+      v_post.setupData(with: vm_post)
     }
   }
   

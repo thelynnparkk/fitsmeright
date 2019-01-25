@@ -29,7 +29,8 @@ extension AGViewInstantiatable where Self: UIView {
   
   func loadContainerIntoNib() {
     Bundle.main.loadNibNamed(Self.nib_name, owner: self, options: nil)
-    v_container.match(in: self)
+    addSubview(v_container)
+    v_container.fillToSuperview()
   }
   
   

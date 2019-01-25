@@ -12,10 +12,19 @@ import UIKit
 
 
 
-class PopupFooterViewModel: AGViewModel {
-  var title_cancel: String? = "Cancel"
-  var title_ok: String? = "Ok"
-  var flag_hideCancel: Bool = false
+class PopupFooterViewUC {
+  
+  class DisplayedFooter {
+    var title_cancel: String? = "Cancel"
+    var title_ok: String? = "Ok"
+    var flag_hideCancel: Bool = false
+  }
+  
+  class ViewModel: AGViewModel {
+    var displayedFooter: DisplayedFooter = DisplayedFooter()
+  }
+  
+  
 }
 
 
@@ -51,7 +60,7 @@ class PopupFooterView: AGView {
   
   
   //MARK: - Constraint
-  typealias Model = PopupFooterViewModel
+  typealias ViewModel = PopupFooterViewUC.ViewModel
   
   
   
@@ -115,7 +124,7 @@ class PopupFooterView: AGView {
     btn_cancel.addTarget(self, action: #selector(cancelButtonPressed), for: .touchUpInside)
     
     btn_ok = UIButton(type: .custom)
-    btn_cancel.setupDark()
+    btn_ok.setupDark()
     btn_ok.addTarget(self, action: #selector(okButtonPressed), for: .touchUpInside)
     
     addSubview(stv_button)
@@ -183,11 +192,11 @@ class PopupFooterView: AGView {
     
   }
   
-  override func setupData(with data: AGViewModel) {
-    guard let d = data as? Model else { return }
-    btn_cancel.setTitle(d.title_cancel, for: .normal)
-    btn_ok.setTitle(d.title_ok, for: .normal)
-    btn_cancel.isHidden = d.flag_hideCancel
+  override func setupData(with viewModel: AGViewModel) {
+    guard let vm = viewModel as? ViewModel else { return }
+    btn_cancel.setTitle(vm.displayedFooter.title_cancel, for: .normal)
+    btn_ok.setTitle(vm.displayedFooter.title_ok, for: .normal)
+    btn_cancel.isHidden = vm.displayedFooter.flag_hideCancel
   }
   
   

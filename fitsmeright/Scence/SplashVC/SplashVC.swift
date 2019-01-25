@@ -101,6 +101,7 @@ class SplashVC: AGVC {
     
     
     //MARK: Other
+    view.backgroundColor = c_custom.peach
     
     
     

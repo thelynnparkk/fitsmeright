@@ -30,6 +30,7 @@ extension AGApplicationRoutable {
     let vc = SplashVC.vc
     vc.launchOptions = launchOptions
     window?.set(with: vc, style: .fade)
+//    window?.switchRootViewController(to: vc, animated: true)
   }
   
   func start(with app: UIApplication, url: URL, options: [UIApplication.OpenURLOptionsKey : Any], condition isLoggedIn: Bool) -> Bool {

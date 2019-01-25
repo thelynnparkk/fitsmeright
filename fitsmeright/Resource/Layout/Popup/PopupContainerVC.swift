@@ -14,11 +14,19 @@ import PopupDialog
 
 
 
-class PopupContainerVCModel: PopupVCModel {
-  var header = PopupHeaderViewModel()
-  var injectedView = UIView()
-  var footer = PopupFooterViewModel()
-  var tapDismissal = true
+class PopupContainerVCUC {
+  
+  class DisplayedContainer {
+    var injectedView = UIView()
+    var tapDismissal = true
+  }
+  
+  class ViewModel: PopupVCModel {
+    var displayedHeader = PopupHeaderViewUC.DisplayedHeader()
+    var displayedFooter = PopupFooterViewUC.DisplayedFooter()
+    var displayedContainer = DisplayedContainer()
+  }
+  
 }
 
 
@@ -57,7 +65,7 @@ class PopupContainerVC: PopupVC {
   
   
   //MARK: - Constraint
-  typealias Model = PopupContainerVCModel
+  typealias ViewModel = PopupContainerVCUC.ViewModel
   
   
   
@@ -71,7 +79,7 @@ class PopupContainerVC: PopupVC {
   
   
   //MARK: - Storage
-  var model: PopupContainerVCModel = PopupContainerVCModel()
+  var viewModel: PopupContainerVCUC.ViewModel = PopupContainerVCUC.ViewModel()
   
   
   
@@ -172,7 +180,7 @@ class PopupContainerVC: PopupVC {
     
     v_header.snp.makeConstraints {
       $0.top.right.left.equalToSuperview()
-      $0.height.lessThanOrEqualTo(PopupHeaderView.Sizing.height(style: model.header.style))
+      $0.height.lessThanOrEqualTo(PopupHeaderView.Sizing.height(style: viewModel.displayedHeader.style))
     }
     
     v_seperator.snp.makeConstraints {
@@ -224,15 +232,18 @@ class PopupContainerVC: PopupVC {
   
   //MARK: - Setup Data
   override func setupDataOnViewDidLoad() {
-    v_header.setupData(with: model.header)
-    stv_container.addArrangedSubview(model.injectedView)
-    v_footer.setupData(with: model.footer)
+    let vm_header = PopupHeaderViewUC.ViewModel()
+    vm_header.displayedHeader = viewModel.displayedHeader
+    let vm_footer = PopupFooterViewUC.ViewModel()
+    vm_footer.displayedFooter = viewModel.displayedFooter
+    v_header.setupData(with: vm_header)
+    stv_container.addArrangedSubview(viewModel.displayedContainer.injectedView)
+    v_footer.setupData(with: vm_footer)
   }
   
-  override func setupData(with data: PopupVCModel) {
-    guard let d = data as? Model else { return }
-    model = d
-    
+  override func setupData(with viewModel: PopupVCModel) {
+    guard let vm = viewModel as? ViewModel else { return }
+    self.viewModel = vm
   }
   
   

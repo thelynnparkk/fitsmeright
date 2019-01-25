@@ -12,9 +12,17 @@ import UIKit
 
 
 
-class ClosetMenuViewModel: AGViewModel {
-  var title: String?
-  var image: UIImage?
+class ClosetMenuViewUC: AGViewModel {
+  
+  class DisplayedMenu {
+    var title: String?
+    var image: UIImage?
+  }
+  
+  class ViewModel: AGViewModel {
+    var displayedMenu: DisplayedMenu = DisplayedMenu()
+  }
+  
 }
 
 
@@ -53,7 +61,7 @@ class ClosetMenuView: AGView {
   
   
   //MARK: - Constraint
-  typealias Model =  ClosetMenuViewModel
+  typealias ViewModel =  ClosetMenuViewUC.ViewModel
   
   
   
@@ -158,17 +166,17 @@ class ClosetMenuView: AGView {
     
   }
   
-  override func setupData(with data: AGViewModel) {
-    guard let d = data as? Model else { return }
-    lb_title.text = d.title
-    imgv_icon.image = d.image
+  override func setupData(with viewModel: AGViewModel) {
+    guard let vm = viewModel as? ViewModel else { return }
+    lb_title.text = vm.displayedMenu.title
+    imgv_icon.image = vm.displayedMenu.image
   }
   
   
   
   //MARK: - Event
   @objc func viewTapped(_ sender: UITapGestureRecognizer) {
-    delegate?.agViewPressed(self)
+    delegate?.agViewPressed(self, action: [], tag: tag)
   }
   
   

@@ -141,7 +141,7 @@ class TemplateView: AGView {
     
   }
   
-  override func setupData(with data: AGViewModel) {
+  override func setupData(with viewModel: AGViewModel) {
     
   }
   

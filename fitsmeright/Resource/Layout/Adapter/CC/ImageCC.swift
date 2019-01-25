@@ -12,8 +12,16 @@ import UIKit
 
 
 
-class ImageCCModel: AGCCModel {
-  var imageUrl: URL?
+class ImageCCUC {
+  
+  class DisplayedImage {
+    var imageUrl: URL?
+  }
+  
+  class ViewModel: AGCCModel {
+    var displayedImage = DisplayedImage()
+  }
+  
 }
 
 
@@ -67,7 +75,7 @@ class ImageCC: AGCC {
   
   
   //MARK: - Constraint
-  typealias Model = ImageCCModel
+  typealias ViewModel = ImageCCUC.ViewModel
   
   
   
@@ -170,9 +178,9 @@ class ImageCC: AGCC {
     
   }
   
-  override func setupData(with data: AGCCModel) {
-    guard let d = data as? Model else { return }
-    if let imageUrl = d.imageUrl {
+  override func setupData(with viewModel: AGCCModel) {
+    guard let vm = viewModel as? ViewModel else { return }
+    if let imageUrl = vm.displayedImage.imageUrl {
       img.download(from: imageUrl, contentMode: .scaleAspectFit, placeholder: nil)
     } else {
       img.image = nil

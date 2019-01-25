@@ -122,7 +122,6 @@
 		A4C4FAC221F976FA004A3F37 /* AGCRV.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FAC121F976FA004A3F37 /* AGCRV.swift */; };
 		A4C4FAC421F979A7004A3F37 /* LabelCRV.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4C4FAC321F979A7004A3F37 /* LabelCRV.xib */; };
 		A4C4FAC621F9A13C004A3F37 /* ViewIPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FAC521F9A13C004A3F37 /* ViewIPC.swift */; };
-		A4C4FAC821F9A6BF004A3F37 /* UIAlertController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FAC721F9A6BF004A3F37 /* UIAlertController+AG.swift */; };
 		A4C4FACB21F9B87C004A3F37 /* PopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FACA21F9B87C004A3F37 /* PopupVC.swift */; };
 		A4C4FACD21F9C0D8004A3F37 /* PopupHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FACC21F9C0D8004A3F37 /* PopupHeaderView.swift */; };
 		A4C4FACF21F9C396004A3F37 /* PopupFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FACE21F9C396004A3F37 /* PopupFooterView.swift */; };
@@ -278,7 +277,6 @@
 		A4C4FAC121F976FA004A3F37 /* AGCRV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGCRV.swift; sourceTree = "<group>"; };
 		A4C4FAC321F979A7004A3F37 /* LabelCRV.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelCRV.xib; sourceTree = "<group>"; };
 		A4C4FAC521F9A13C004A3F37 /* ViewIPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewIPC.swift; sourceTree = "<group>"; };
-		A4C4FAC721F9A6BF004A3F37 /* UIAlertController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+AG.swift"; sourceTree = "<group>"; };
 		A4C4FACA21F9B87C004A3F37 /* PopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupVC.swift; sourceTree = "<group>"; };
 		A4C4FACC21F9C0D8004A3F37 /* PopupHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupHeaderView.swift; sourceTree = "<group>"; };
 		A4C4FACE21F9C396004A3F37 /* PopupFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupFooterView.swift; sourceTree = "<group>"; };
@@ -672,6 +670,7 @@
 		5ECE8E6A21F7459B000AF65E /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				A4C4FAAB21F975C7004A3F37 /* Post.swift */,
 				5ECE8E6B21F7459B000AF65E /* MockPost.swift */,
 			);
 			path = Entity;
@@ -894,7 +893,6 @@
 				A4C4FAA621F975C7004A3F37 /* CreateTextView.xib */,
 				A4C4FAA321F975C7004A3F37 /* FloatingView.swift */,
 				A4C4FAA221F975C7004A3F37 /* FloatingView.xib */,
-				A4C4FAAB21F975C7004A3F37 /* Post.swift */,
 				A4C4FAAD21F975C7004A3F37 /* PostView.swift */,
 				A4C4FAAF21F975C7004A3F37 /* PostView.xib */,
 				A4C4FAA521F975C7004A3F37 /* StateView.swift */,
@@ -941,7 +939,6 @@
 				5ECE8E6721F74544000AF65E /* UIView+AG.swift */,
 				A4C4B6E921F81FFB0036B0F7 /* UIViewController+AG.swift */,
 				5E74DA5F21BBD67600A97A89 /* UIWindow+AG.swift */,
-				A4C4FAC721F9A6BF004A3F37 /* UIAlertController+AG.swift */,
 				A4C4FAD121F9C5AE004A3F37 /* UIButton+AG.swift */,
 			);
 			path = UIKit;
@@ -1368,7 +1365,6 @@
 				5E0900B821C2B88B0099F81E /* CreatePostDesignVC.swift in Sources */,
 				A4C4FAC621F9A13C004A3F37 /* ViewIPC.swift in Sources */,
 				5E74DA5821BBD0B100A97A89 /* TemplateVIP.swift in Sources */,
-				A4C4FAC821F9A6BF004A3F37 /* UIAlertController+AG.swift in Sources */,
 				A4C4FAB821F975C7004A3F37 /* ClosetFormView.swift in Sources */,
 				5E74DA8021BBF7D700A97A89 /* R.swift in Sources */,
 				A4C338C221F8A62D00147567 /* AGCellInstantiatable.swift in Sources */,

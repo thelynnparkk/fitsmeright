@@ -36,6 +36,9 @@ extension AGCA:
 open class AGCA: NSObject {
 
   //MARK: - Enum
+  enum Action {
+    case none
+  }
   
   
   
@@ -138,7 +141,7 @@ open class AGCA: NSObject {
     
   }
   
-  func setupData(with data: AGCAModel) {
+  func setupData(with viewModel: AGCAModel) {
     
   }
   

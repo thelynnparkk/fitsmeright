@@ -118,9 +118,9 @@ class ClosetVC: AGVC {
     adapter_image.delegate = self
     view.addSubview(collection_main)
     v_addClosetFloating.delegate = self
-    let plus = FloatingViewModel()
-    plus.image = #imageLiteral(resourceName: "plus").filled(withColor: .white)
-    v_addClosetFloating.setupData(with: plus)
+    let vm_plus = FloatingViewUC.ViewModel()
+    vm_plus.displayedFloating.image = #imageLiteral(resourceName: "plus").filled(withColor: .white)
+    v_addClosetFloating.setupData(with: vm_plus)
     
     
     
@@ -191,15 +191,15 @@ class ClosetVC: AGVC {
     
     func present() {
       lb_title.text = "\(fsClosets.count) \(closetCategory!.plural)"
-      let model = ImageCAModel()
-      model.displayedRows = fsClosets.compactMap({
-        let model = ImageCCModel()
-        model.imageUrl = $0.imageURL
-        return model
+      let vm = ImageCA.ViewModel()
+      vm.displayedRows = fsClosets.compactMap({
+        let vm = ImageCCUC.ViewModel()
+        vm.displayedImage.imageUrl = $0.imageURL
+        return vm
       })
-      model.labelCRVModel.kind = UICollectionView.elementKindSectionFooter
-      model.labelCRVModel.title = "\(model.displayedRows.count) items"
-      adapter_image.setupData(with: model)
+      vm.displayedImage.vm_labelCRV.displayedLabel.kind = UICollectionView.elementKindSectionFooter
+      vm.displayedImage.vm_labelCRV.displayedLabel.title = "\(vm.displayedRows.count) items"
+      adapter_image.setupData(with: vm)
     }
     
     interactor()
@@ -213,7 +213,7 @@ class ClosetVC: AGVC {
   
   
   //MARK: - Custom - AGViewDelegate
-  func agViewPressed(_ view: UIView) {
+  func agViewPressed(_ view: AGView, action: Any, tag: Int) {
     let vc = AddClosetVC.vc
     navigationController?.pushViewController(vc)
   }

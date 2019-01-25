@@ -20,7 +20,7 @@ class AGCCModel {
 
 
 protocol AGCCDelegate: class {
-  func agCCPressed(_ cell: UICollectionViewCell, action: Any, indexPath: IndexPath)
+  func agCCPressed(_ cell: AGCC, action: Any, indexPath: IndexPath)
 }
 
 
@@ -162,7 +162,7 @@ open class AGCC: UICollectionViewCell {
     
   }
   
-  func setupData(with data: AGCCModel) {
+  func setupData(with viewModel: AGCCModel) {
     
   }
   

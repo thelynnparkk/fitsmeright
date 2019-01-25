@@ -132,7 +132,7 @@ class PopupVC: AGVC {
     
   }
   
-  func setupData(with data: PopupVCModel) {
+  func setupData(with viewModel: PopupVCModel) {
     
   }
   

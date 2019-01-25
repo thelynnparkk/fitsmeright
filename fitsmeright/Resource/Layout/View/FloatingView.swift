@@ -12,8 +12,16 @@ import UIKit
 
 
 
-class FloatingViewModel: AGViewModel {
-  var image: UIImage?
+class FloatingViewUC {
+  
+  class DisplayedFloating {
+    var image: UIImage?
+  }
+  
+  class ViewModel: AGViewModel {
+    var displayedFloating: DisplayedFloating = DisplayedFloating()
+  }
+  
 }
 
 
@@ -51,7 +59,7 @@ class FloatingView: AGView {
   
   
   //MARK: - Constraint
-  typealias Model = FloatingViewModel
+  typealias ViewModel = FloatingViewUC.ViewModel
   
   
   
@@ -186,16 +194,16 @@ class FloatingView: AGView {
     
   }
   
-  override func setupData(with data: AGViewModel) {
-    guard let d = data as? Model else { return }
-    imgv_icon.image = d.image
+  override func setupData(with viewModel: AGViewModel) {
+    guard let vm = viewModel as? ViewModel else { return }
+    imgv_icon.image = vm.displayedFloating.image
   }
   
   
   
   //MARK: - Event
   @objc func viewTapped(_ sender: UITapGestureRecognizer) {
-    delegate?.agViewPressed(self)
+    delegate?.agViewPressed(self, action: [], tag: tag)
   }
   
   

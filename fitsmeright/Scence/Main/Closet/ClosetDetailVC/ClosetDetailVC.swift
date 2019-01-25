@@ -182,22 +182,22 @@ class ClosetDetailVC: AGVC {
       } else {
         imgv_closet.image = nil
       }
-      let brand = ClosetFormViewModel()
-      brand.key = "Brand"
-      brand.value = fsCloset!._brand
-      let price = ClosetFormViewModel()
-      price.key = "Price"
-      price.value = "\(fsCloset!._price)"
-      let size = ClosetFormViewModel()
-      size.key = "Size"
-      size.value = fsCloset!._size
-      let place = ClosetFormViewModel()
-      place.key = "Place"
-      place.value = fsCloset!._place
-      v_brand.setupData(with: brand)
-      v_price.setupData(with: price)
-      v_size.setupData(with: size)
-      v_place.setupData(with: place)
+      let vm_brand = ClosetFormViewUC.ViewModel()
+      vm_brand.displayedForm.key = "Brand"
+      vm_brand.displayedForm.value = fsCloset!._brand
+      let vm_price = ClosetFormViewUC.ViewModel()
+      vm_price.displayedForm.key = "Price"
+      vm_price.displayedForm.value = "\(fsCloset!._price)"
+      let vm_size = ClosetFormViewUC.ViewModel()
+      vm_size.displayedForm.key = "Size"
+      vm_size.displayedForm.value = fsCloset!._size
+      let vm_place = ClosetFormViewUC.ViewModel()
+      vm_place.displayedForm.key = "Place"
+      vm_place.displayedForm.value = fsCloset!._place
+      v_brand.setupData(with: vm_brand)
+      v_price.setupData(with: vm_price)
+      v_size.setupData(with: vm_size)
+      v_place.setupData(with: vm_place)
     }
     
     interactor()

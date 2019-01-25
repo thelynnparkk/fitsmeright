@@ -114,7 +114,7 @@ public class AGPopupManager {
 
 
 protocol PopupDialogable {
-  func displayPopupContainer(_ viewModel: PopupContainerVCModel,
+  func displayPopupContainer(_ viewModel: PopupContainerVCUC.ViewModel,
                              priority: AGPopupPriority,
                              on: UIViewController?,
                              onComplete: CBBool?)
@@ -126,7 +126,7 @@ extension PopupDialogable {
   
   
   //MARK: - Implements
-  func displayPopupContainer(_ viewModel: PopupContainerVCModel,
+  func displayPopupContainer(_ viewModel: PopupContainerVCUC.ViewModel,
                              priority: AGPopupPriority,
                              on: UIViewController?,
                              onComplete: CBBool?) {
@@ -142,7 +142,7 @@ extension PopupDialogable {
     let pd = PopupDialog(viewController: vc,
                          transitionStyle: .zoomIn,
                          preferredWidth: UIScreen.main.bounds.width,
-                         tapGestureDismissal: viewModel.tapDismissal,
+                         tapGestureDismissal: viewModel.displayedContainer.tapDismissal,
                          panGestureDismissal: true,
                          isAlignCenter: true,
                          completion: completion)

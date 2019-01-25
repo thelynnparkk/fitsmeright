@@ -19,7 +19,7 @@ class AGViewModel {
 
 
 protocol AGViewDelegate: class {
-  func agViewPressed(_ view: UIView)
+  func agViewPressed(_ view: AGView, action: Any, tag: Int)
 }
 
 
@@ -182,7 +182,7 @@ class AGView: UIView {
     
   }
   
-  func setupData(with data: AGViewModel) {
+  func setupData(with viewModel: AGViewModel) {
     
   }
   

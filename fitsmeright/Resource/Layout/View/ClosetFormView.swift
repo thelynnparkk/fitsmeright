@@ -12,9 +12,17 @@ import UIKit
 
 
 
-class ClosetFormViewModel: AGViewModel {
-  var key: String?
-  var value: String?
+class ClosetFormViewUC {
+  
+  class DisplayedForm {
+    var key: String?
+    var value: String?
+  }
+  
+  class ViewModel: AGViewModel {
+    var displayedForm: DisplayedForm = DisplayedForm()
+  }
+  
 }
 
 
@@ -53,7 +61,7 @@ class ClosetFormView: AGView {
   
   
   //MARK: - Constraint
-  typealias Model =  ClosetFormViewModel
+  typealias ViewModel = ClosetFormViewUC.ViewModel
   
   
   
@@ -174,10 +182,10 @@ class ClosetFormView: AGView {
     
   }
   
-  override func setupData(with data: AGViewModel) {
-    guard let d = data as? Model else { return }
-    lb_key.text = d.key
-    txt_value.text = d.value
+  override func setupData(with viewModel: AGViewModel) {
+    guard let vm = viewModel as? ViewModel else { return }
+    lb_key.text = vm.displayedForm.key
+    txt_value.text = vm.displayedForm.value
   }
   
   

@@ -13,8 +13,16 @@ import SwiftDate
 
 
 
-class PostViewModel: AGViewModel {
-  var mockPost: MockPost = MockPost()
+class PostViewUC {
+  
+  class DisplayedPost {
+    
+  }
+  
+  class ViewModel: AGViewModel {
+    var displayedPost: MockPost = MockPost()
+  }
+  
 }
 
 
@@ -62,6 +70,7 @@ class PostView: AGView {
   
   
   //MARK: - Constraint
+  typealias ViewModel = PostViewUC.ViewModel
   
   
   
@@ -160,18 +169,19 @@ class PostView: AGView {
     
   }
   
-  func setupPostData(post: MockPost) {
-//    let bkk = Region(calendar: Calendars.buddhist, zone: Zones.asiaBangkok, locale: Locales.thai)
-//    let date = post._string_createdAt.toDate("yyyy-MM-dd HH:mm", region: bkk)
-//    let date = post._string_createdAt.toFormat("dd MMM", locale: .thai)
+  override func setupData(with viewModel: AGViewModel) {
+    guard let vm = viewModel as? ViewModel else { return }
+    //    let bkk = Region(calendar: Calendars.buddhist, zone: Zones.asiaBangkok, locale: Locales.thai)
+    //    let date = post._string_createdAt.toDate("yyyy-MM-dd HH:mm", region: bkk)
+    //    let date = post._string_createdAt.toFormat("dd MMM", locale: .thai)
     lb_username.text = "lin-ping"
-    lb_createdAt.text = post._string_createdAt
-    lb_caption.text = post.string_captionSelected
-    v_createPost.setupClothData(images: post.img_clothSelected)
-    v_createPost.setupBackgroundData(image: post._img_backgroundSelected)
-    v_createText.setupTextData(text: post._string_textSelected)
+    lb_createdAt.text = vm.displayedPost._string_createdAt
+    lb_caption.text = vm.displayedPost.string_captionSelected
+    v_createPost.setupClothData(images: vm.displayedPost.img_clothSelected)
+    v_createPost.setupBackgroundData(image: vm.displayedPost._img_backgroundSelected)
+    v_createText.setupTextData(text: vm.displayedPost._string_textSelected)
   }
-  
+
   
   
   //MARK: - Event

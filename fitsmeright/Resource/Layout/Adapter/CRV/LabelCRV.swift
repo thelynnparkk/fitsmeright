@@ -12,9 +12,17 @@ import UIKit
 
 
 
-class LabelCRVModel: AGCRVModel {
-  var kind: String = ""
-  var title: String = ""
+class LabelCRVUC {
+  
+  class DisplayedLabel {
+    var kind: String = ""
+    var title: String = ""
+  }
+  
+  class ViewModel: AGCRVModel {
+    var displayedLabel = DisplayedLabel()
+  }
+  
 }
 
 
@@ -52,7 +60,7 @@ class LabelCRV: AGCRV {
   
   
   //MARK: - Constraint
-  typealias Model = LabelCRVModel
+  typealias ViewModel = LabelCRVUC.ViewModel
   
   
   
@@ -157,10 +165,10 @@ class LabelCRV: AGCRV {
     
   }
   
-  override func setupData(with data: AGCRVModel) {
-    guard let d = data as? Model else { return }
-    lb_title.text = d.title
-    switch d.kind {
+  override func setupData(with viewModel: AGCRVModel) {
+    guard let vm = viewModel as? ViewModel else { return }
+    lb_title.text = vm.displayedLabel.title
+    switch vm.displayedLabel.kind {
     case UICollectionView.elementKindSectionFooter:
       v_topSeperator.isHidden = false
       v_bottomSeperator.isHidden = true

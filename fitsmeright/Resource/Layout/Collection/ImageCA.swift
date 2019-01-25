@@ -12,8 +12,16 @@ import UIKit
 
 
 
-class ImageCAModel: AGCAModel {
-  var labelCRVModel: LabelCRVModel = LabelCRVModel()
+class ImageCAUC {
+  
+  class DisplayedImage {
+    var vm_labelCRV = LabelCRVUC.ViewModel()
+  }
+  
+  class ViewModel: AGCAModel {
+    var displayedImage = DisplayedImage()
+  }
+  
 }
 
 
@@ -47,11 +55,11 @@ class ImageCA: AGCA {
   
   
   //MARK: - Constraint
-  typealias Model =  ImageCAModel
+  typealias ViewModel = ImageCAUC.ViewModel
   typealias CC = ImageCC
-  typealias CCModel = ImageCCModel
+  typealias CCModel = ImageCCUC.ViewModel
   typealias CRV = LabelCRV
-  typealias CRVModel = LabelCRVModel
+  typealias CRVModel = LabelCRVUC.ViewModel
   
   
   
@@ -107,8 +115,8 @@ class ImageCA: AGCA {
     //MARK: Component
     collection.setupCollectionDefault()
     collection.setupScrollVertical()
-    collection.registerCellNib(CC.self)
-    collection.registerHeaderFooterViewNib(CRV.self, kind: UICollectionView.elementKindSectionFooter)
+    collection.register(nibWithCellClass: CC.self)
+    collection.register(nibWithCellClass: CRV.self, kind: UICollectionView.elementKindSectionFooter)
     collection.delegate = self
     collection.dataSource = self
     collection.backgroundColor = .clear
@@ -143,9 +151,9 @@ class ImageCA: AGCA {
     
   }
   
-  override func setupData(with data: AGCAModel) {
-    if let d = data as? Model {
-      model = d
+  override func setupData(with viewModel: AGCAModel) {
+    if let vm = viewModel as? ViewModel {
+      model = vm
       collection.isUserInteractionEnabled = true
       collection.collectionViewLayout.invalidateLayout()
       collection.reloadData()
@@ -190,7 +198,7 @@ class ImageCA: AGCA {
     case true:
       return UICollectionViewCell()
     case false:
-      let cell = collectionView.dequeueReusableCell(CC.self, for: indexPath)
+      let cell = collectionView.dequeueReusableCell(withClass: CC.self, for: indexPath)
       let item = model.displayedRows[indexPath.row]
       cell.indexPath = indexPath
       cell.delegate = self
@@ -208,8 +216,8 @@ class ImageCA: AGCA {
       view.kind = kind
       view.section = indexPath.section
       view.delegate = self
-      if let d = model as? ImageCAModel {
-        view.setupData(with: d.labelCRVModel)
+      if let vm = model as? ViewModel {
+        view.setupData(with: vm.displayedImage.vm_labelCRV)
       }
       return view
     default:
@@ -226,7 +234,7 @@ class ImageCA: AGCA {
       break
     case false:
       if let _ = model.displayedRows[indexPath.row] as? CCModel {
-        delegate?.agCAPressed(self, action: 0, indexPath: indexPath)
+        delegate?.agCAPressed(self, action: [], indexPath: indexPath)
       }
     }
   }
@@ -257,14 +265,14 @@ class ImageCA: AGCA {
   
   
   //MARK: - Custom - AGCCDelegate
-  func agCCPressed(_ cell: UICollectionViewCell, action: Any, indexPath: IndexPath) {
+  func agCCPressed(_ cell: AGCC, action: Any, indexPath: IndexPath) {
     
   }
   
   
   
   //MARK: - Custom - AGCRVDelegate
-  func agCRVPressed(_ view: UICollectionReusableView, action: Any, section: Int) {
+  func agCRVPressed(_ view: AGCRV, action: Any, section: Int) {
     
   }
   

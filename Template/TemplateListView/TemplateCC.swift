@@ -12,7 +12,11 @@ import UIKit
 
 
 
-class TemplateCCModel: AGCCModel {
+class TemplateCCUC {
+  
+  class ViewModel: AGCCModel {
+    
+  }
   
 }
 
@@ -40,7 +44,7 @@ class TemplateCC: AGCC {
   
   
   //MARK: - Constraint
-  typealias Model = TemplateCCModel
+  typealias ViewModel = TemplateCCUC.ViewModel
   
   
   
@@ -142,8 +146,8 @@ class TemplateCC: AGCC {
     
   }
   
-  override func setupData(with data: AGCCModel) {
-    guard let _ = data as? Model else { return }
+  override func setupData(with viewModel: AGCCModel) {
+    guard let _ = viewModel as? ViewModel else { return }
   }
   
   

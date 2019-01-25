@@ -19,7 +19,7 @@ class AGCRVModel {
 
 
 protocol AGCRVDelegate: class {
-  func agCRVPressed(_ view: UICollectionReusableView, action: Any, section: Int)
+  func agCRVPressed(_ view: AGCRV, action: Any, section: Int)
 }
 
 
@@ -161,7 +161,7 @@ class AGCRV: UICollectionReusableView {
     
   }
   
-  func setupData(with data: AGCRVModel) {
+  func setupData(with viewModel: AGCRVModel) {
     
   }
   

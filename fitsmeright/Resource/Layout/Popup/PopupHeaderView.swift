@@ -13,13 +13,21 @@ import SnapKit
 
 
 
-class PopupHeaderViewModel: AGViewModel {
-  var style: PopupHeaderView.Style = .default
-  var url: URL? = nil
-  var icon: UIImage? = nil
-  var title: String = "Title"
-  var subtitle: String? = nil
-  var tint: UIColor = .black
+class PopupHeaderViewUC {
+  
+  class DisplayedHeader {
+    var style: PopupHeaderView.Style = .small
+    var url: URL? = nil
+    var icon: UIImage? = nil
+    var title: String = "Title"
+    var subtitle: String? = nil
+    var tint: UIColor = .black
+  }
+  
+  class ViewModel: AGViewModel {
+    var displayedHeader: DisplayedHeader = DisplayedHeader()
+  }
+  
 }
 
 
@@ -34,7 +42,7 @@ extension PopupHeaderView
 class PopupHeaderView: AGView {
   //MARK: - Enum
   enum Style {
-    case `default`
+    case small
     case large
   }
   
@@ -42,7 +50,7 @@ class PopupHeaderView: AGView {
     
     static func height(style: Style) -> CGFloat {
       switch style {
-      case .default:
+      case .small:
         return 100
       case .large:
         return 240
@@ -51,7 +59,7 @@ class PopupHeaderView: AGView {
     
     static func inset(style: Style) -> CGFloat {
       switch style {
-      case .default:
+      case .small:
         return 25
       case .large:
         return 30
@@ -60,7 +68,7 @@ class PopupHeaderView: AGView {
     
     static func imageViewHeight(style: Style) -> CGFloat {
       switch style {
-      case .default:
+      case .small:
         return 50
       case .large:
         return 85
@@ -87,7 +95,7 @@ class PopupHeaderView: AGView {
   
   
   //MARK: - Constraint
-  typealias Model = PopupHeaderViewModel
+  typealias ViewModel = PopupHeaderViewUC.ViewModel
   
   
   
@@ -247,21 +255,21 @@ class PopupHeaderView: AGView {
     
   }
   
-  override func setupData(with data: AGViewModel) {
-    guard let d = data as? Model else { return }
-    if let url = d.url {
+  override func setupData(with viewModel: AGViewModel) {
+    guard let vm = viewModel as? ViewModel else { return }
+    if let url = vm.displayedHeader.url {
       imgv_header.download(from: url, contentMode: .scaleAspectFit, placeholder: nil)
-    } else if let icon = d.icon, icon != .none {
+    } else if let icon = vm.displayedHeader.icon, icon != .none {
       imgv_header.image = icon
       imgv_header.backgroundColor = .clear
     } else {
       imgv_header.isHidden = true
     }
-    lb_title.textColor = d.tint
-    lb_title.text = d.title
-    lb_subtitle.text = d.subtitle
-    switch d.style {
-    case .default:
+    lb_title.textColor = vm.displayedHeader.tint
+    lb_title.text = vm.displayedHeader.title
+    lb_subtitle.text = vm.displayedHeader.subtitle
+    switch vm.displayedHeader.style {
+    case .small:
       stv_header.axis = .horizontal
       stv_header.alignment = .fill
       stv_info.alignment = .leading
@@ -271,8 +279,8 @@ class PopupHeaderView: AGView {
       stv_info.alignment = .center
       lb_subtitle.textAlignment = .center
     }
-    con_headerStackViewTop.update(offset: Sizing.inset(style: d.style))
-    con_headerImageViewHeight.update(offset: Sizing.imageViewHeight(style: d.style))
+    con_headerStackViewTop.update(offset: Sizing.inset(style: vm.displayedHeader.style))
+    con_headerImageViewHeight.update(offset: Sizing.imageViewHeight(style: vm.displayedHeader.style))
   }
   
   
