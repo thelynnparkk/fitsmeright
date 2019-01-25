@@ -15,11 +15,11 @@ import UIKit
 class ImageCAUC {
   
   class DisplayedImage {
-    var vm_labelCRV = LabelCRVUC.ViewModel()
+    
   }
   
   class ViewModel: AGCAModel {
-    var displayedImage = DisplayedImage()
+    var displayedFooter = LabelCRVUC.DisplayedLabel()
   }
   
 }
@@ -153,7 +153,7 @@ class ImageCA: AGCA {
   
   override func setupData(with viewModel: AGCAModel) {
     if let vm = viewModel as? ViewModel {
-      model = vm
+      self.viewModel = vm
       collection.isUserInteractionEnabled = true
       collection.collectionViewLayout.invalidateLayout()
       collection.reloadData()
@@ -189,7 +189,7 @@ class ImageCA: AGCA {
     case true:
       return 0
     case false:
-      return model.displayedRows.count
+      return viewModel.displayedRows.count
     }
   }
   
@@ -199,7 +199,7 @@ class ImageCA: AGCA {
       return UICollectionViewCell()
     case false:
       let cell = collectionView.dequeueReusableCell(withClass: CC.self, for: indexPath)
-      let item = model.displayedRows[indexPath.row]
+      let item = viewModel.displayedRows[indexPath.row]
       cell.indexPath = indexPath
       cell.delegate = self
       cell.setupData(with: item)
@@ -216,8 +216,10 @@ class ImageCA: AGCA {
       view.kind = kind
       view.section = indexPath.section
       view.delegate = self
-      if let vm = model as? ViewModel {
-        view.setupData(with: vm.displayedImage.vm_labelCRV)
+      if let vm = viewModel as? ViewModel {
+        let vm_footer = LabelCRVUC.ViewModel()
+        vm_footer.displayedLabel = vm.displayedFooter
+        view.setupData(with: vm_footer)
       }
       return view
     default:
@@ -233,7 +235,7 @@ class ImageCA: AGCA {
     case true:
       break
     case false:
-      if let _ = model.displayedRows[indexPath.row] as? CCModel {
+      if let _ = viewModel.displayedRows[indexPath.row] as? CCModel {
         delegate?.agCAPressed(self, action: [], indexPath: indexPath)
       }
     }

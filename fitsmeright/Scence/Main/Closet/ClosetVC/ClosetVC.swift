@@ -197,8 +197,8 @@ class ClosetVC: AGVC {
         vm.displayedImage.imageUrl = $0.imageURL
         return vm
       })
-      vm.displayedImage.vm_labelCRV.displayedLabel.kind = UICollectionView.elementKindSectionFooter
-      vm.displayedImage.vm_labelCRV.displayedLabel.title = "\(vm.displayedRows.count) items"
+      vm.displayedFooter.kind = UICollectionView.elementKindSectionFooter
+      vm.displayedFooter.title = "\(vm.displayedRows.count) items"
       adapter_image.setupData(with: vm)
     }
     

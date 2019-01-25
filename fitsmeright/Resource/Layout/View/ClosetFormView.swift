@@ -20,7 +20,7 @@ class ClosetFormViewUC {
   }
   
   class ViewModel: AGViewModel {
-    var displayedForm: DisplayedForm = DisplayedForm()
+    var displayedForm = DisplayedForm()
   }
   
 }

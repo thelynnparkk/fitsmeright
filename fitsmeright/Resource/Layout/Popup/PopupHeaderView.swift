@@ -25,7 +25,7 @@ class PopupHeaderViewUC {
   }
   
   class ViewModel: AGViewModel {
-    var displayedHeader: DisplayedHeader = DisplayedHeader()
+    var displayedHeader = DisplayedHeader()
   }
   
 }
@@ -174,6 +174,7 @@ class PopupHeaderView: AGView {
     lb_subtitle = UILabel()
     lb_subtitle.text = ""
     lb_subtitle.numberOfLines = 0
+    lb_title.font = UIFont.systemFont(ofSize: 14, weight: .regular)
     //    lb_subtitle.setupSubtitleDark()
     
     addSubview(stv_header)

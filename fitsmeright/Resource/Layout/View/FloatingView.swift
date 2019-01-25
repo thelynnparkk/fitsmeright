@@ -19,7 +19,7 @@ class FloatingViewUC {
   }
   
   class ViewModel: AGViewModel {
-    var displayedFloating: DisplayedFloating = DisplayedFloating()
+    var displayedFloating = DisplayedFloating()
   }
   
 }

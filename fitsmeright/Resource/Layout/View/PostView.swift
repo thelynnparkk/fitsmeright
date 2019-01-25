@@ -20,7 +20,7 @@ class PostViewUC {
   }
   
   class ViewModel: AGViewModel {
-    var displayedPost: MockPost = MockPost()
+    var displayedPost = MockPost()
   }
   
 }

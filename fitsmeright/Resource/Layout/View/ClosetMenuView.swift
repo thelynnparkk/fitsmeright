@@ -20,7 +20,7 @@ class ClosetMenuViewUC: AGViewModel {
   }
   
   class ViewModel: AGViewModel {
-    var displayedMenu: DisplayedMenu = DisplayedMenu()
+    var displayedMenu = DisplayedMenu()
   }
   
 }

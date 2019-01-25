@@ -21,7 +21,7 @@ class PopupFooterViewUC {
   }
   
   class ViewModel: AGViewModel {
-    var displayedFooter: DisplayedFooter = DisplayedFooter()
+    var displayedFooter = DisplayedFooter()
   }
   
   
