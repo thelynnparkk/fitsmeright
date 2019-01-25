@@ -151,7 +151,7 @@ class PopupHeaderView: AGView {
     stv_header.axis = .horizontal
     stv_header.alignment = .fill
     stv_header.distribution = .fill
-    stv_header.spacing = 20
+    stv_header.spacing = 15
     
     imgv_header = UIImageView()
     imgv_header.image = nil
@@ -164,17 +164,18 @@ class PopupHeaderView: AGView {
     stv_info.axis = .vertical
     stv_info.alignment = .fill
     stv_info.distribution = .fill
-    stv_info.spacing = 5
+    stv_info.spacing = 0
     
     lb_title = UILabel()
     lb_title.text = ""
     //    lb_title.setupTitleDark()
-    lb_title.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+    lb_title.font = UIFont.systemFont(ofSize: 16, weight: .regular)
     
     lb_subtitle = UILabel()
     lb_subtitle.text = ""
     lb_subtitle.numberOfLines = 0
-    lb_title.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+    lb_subtitle.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+    lb_subtitle.textColor = .lightGray
     //    lb_subtitle.setupSubtitleDark()
     
     addSubview(stv_header)
@@ -205,9 +206,9 @@ class PopupHeaderView: AGView {
       $0.width.equalTo(imgv_header.snp.height)
     }
     
-    lb_title.snp.makeConstraints {
-      $0.height.equalTo(25)
-    }
+//    lb_title.snp.makeConstraints {
+//      $0.height.equalTo(25)
+//    }
     
     //    lb_subtitle.snp.makeConstraints {
     //      $0.height.equalTo(25)

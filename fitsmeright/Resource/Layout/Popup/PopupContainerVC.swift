@@ -17,7 +17,7 @@ import PopupDialog
 class PopupContainerVCUC {
   
   class DisplayedContainer {
-    var injectedView = UIView()
+    var injectedView: UIView?
     var tapDismissal = true
   }
   
@@ -79,7 +79,7 @@ class PopupContainerVC: PopupVC {
   
   
   //MARK: - Storage
-  var viewModel: PopupContainerVCUC.ViewModel = PopupContainerVCUC.ViewModel()
+  var viewModel = PopupContainerVCUC.ViewModel()
   
   
   
@@ -155,7 +155,9 @@ class PopupContainerVC: PopupVC {
     v_container.addSubview(v_header)
     v_container.addSubview(v_seperator)
     v_container.addSubview(stv_container)
-//    stv_container.addArrangedSubview(displayed.injectedView)
+    if let v = viewModel.displayedContainer.injectedView {
+      stv_container.addArrangedSubview(v)
+    }
     
     if !flag_hideFooter {
       v_container.addSubview(v_footer)
@@ -191,15 +193,16 @@ class PopupContainerVC: PopupVC {
     }
     
     if !flag_hideFooter {
+      let offset = viewModel.displayedContainer.injectedView == nil ? 0 : 15
       stv_container.snp.makeConstraints {
-        con_containerStackViewTop = $0.top.equalTo(v_seperator.snp.bottom).offset(15).constraint
+        $0.top.equalTo(v_seperator.snp.bottom).offset(offset)
         $0.right.equalToSuperview().offset(-20)
         $0.left.equalToSuperview().offset(20)
         $0.height.lessThanOrEqualToSuperview().multipliedBy(0.5)
       }
       
       v_footer.snp.makeConstraints {
-        con_containerStackViewBottom = $0.top.equalTo(stv_container.snp.bottom).offset(15).constraint
+        $0.top.equalTo(stv_container.snp.bottom).offset(offset)
         $0.right.equalToSuperview()
         $0.bottom.equalToSuperview()
         $0.left.equalToSuperview()
@@ -207,9 +210,9 @@ class PopupContainerVC: PopupVC {
       }
     } else {
       stv_container.snp.makeConstraints {
-        con_containerStackViewTop = $0.top.equalTo(v_seperator.snp.bottom).offset(15).constraint
+        $0.top.equalTo(v_seperator.snp.bottom).offset(15)
         $0.right.equalToSuperview().offset(-20)
-        con_containerStackViewBottom = $0.bottom.equalToSuperview().offset(-15).constraint
+        $0.bottom.equalToSuperview().offset(-15)
         $0.left.equalToSuperview().offset(20)
         $0.height.lessThanOrEqualToSuperview().multipliedBy(0.5)
       }
@@ -237,7 +240,6 @@ class PopupContainerVC: PopupVC {
     let vm_footer = PopupFooterViewUC.ViewModel()
     vm_footer.displayedFooter = viewModel.displayedFooter
     v_header.setupData(with: vm_header)
-    stv_container.addArrangedSubview(viewModel.displayedContainer.injectedView)
     v_footer.setupData(with: vm_footer)
   }
   

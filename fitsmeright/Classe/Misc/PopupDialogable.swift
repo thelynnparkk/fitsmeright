@@ -156,13 +156,13 @@ extension PopupDialogable {
   
   
   //MARK: - Private
-  public func popup(with priority: AGPopupPriority) -> Bool {
+  func popup(with priority: AGPopupPriority) -> Bool {
     guard AGPopupManager.shared.isHigher(with: priority) else { return false }
     AGPopupManager.shared.setPriority(with: priority)
     return true
   }
   
-  public func present(with popup: PopupDialog,
+  func present(with popup: PopupDialog,
                       priority: AGPopupPriority,
                       on: UIViewController?,
                       onPresented: CBVoid? = nil) {
@@ -181,7 +181,7 @@ extension PopupDialogable {
     }
   }
   
-  public func dismissed(with priority: AGPopupPriority) {
+  func dismissed(with priority: AGPopupPriority) {
     guard AGPopupManager.shared.isHigher(with: priority) else { return }
     AGPopupManager.shared.setPriority(with: .common)
   }

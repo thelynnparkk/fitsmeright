@@ -48,6 +48,7 @@ class PopupFooterView: AGView {
   //MARK: - UI
   var stv_button: UIStackView!
   var btn_cancel: UIButton!
+  var v_seperator: UIView!
   var btn_ok: UIButton!
   
   
@@ -113,17 +114,23 @@ class PopupFooterView: AGView {
     stv_button.axis = .horizontal
     stv_button.alignment = .fill
     stv_button.distribution = .fillEqually
-    stv_button.spacing = 0
+    stv_button.spacing = 1
     
     btn_cancel = UIButton(type: .custom)
+    btn_cancel.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .regular)
     btn_cancel.setupCancelDark()
     btn_cancel.addTarget(self, action: #selector(cancelButtonPressed), for: .touchUpInside)
     
+    v_seperator = UIView()
+    v_seperator.backgroundColor = c_material.grey200
+    
     btn_ok = UIButton(type: .custom)
-    btn_ok.setupDark()
+    btn_ok.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+    btn_ok.setupOkDark()
     btn_ok.addTarget(self, action: #selector(okButtonPressed), for: .touchUpInside)
     
     addSubview(stv_button)
+    addSubview(v_seperator)
     stv_button.addArrangedSubview(btn_cancel)
     stv_button.addArrangedSubview(btn_ok)
     
@@ -139,6 +146,13 @@ class PopupFooterView: AGView {
       $0.right.equalToSuperview()
       $0.bottom.equalToSuperview()
       $0.left.equalToSuperview()
+    }
+    
+    v_seperator.snp.makeConstraints {
+      $0.top.equalToSuperview()
+      $0.bottom.equalToSuperview()
+      $0.centerX.equalToSuperview()
+      $0.width.equalTo(1)
     }
     
     //    lb_subtitle.snp.makeConstraints {
@@ -193,6 +207,7 @@ class PopupFooterView: AGView {
     btn_cancel.setTitle(vm.displayedFooter.title_cancel, for: .normal)
     btn_ok.setTitle(vm.displayedFooter.title_ok, for: .normal)
     btn_cancel.isHidden = vm.displayedFooter.flag_hideCancel
+    v_seperator.isHidden = vm.displayedFooter.flag_hideCancel
   }
   
   
@@ -233,5 +248,6 @@ class PopupFooterView: AGView {
   
   
 }
+
 
 

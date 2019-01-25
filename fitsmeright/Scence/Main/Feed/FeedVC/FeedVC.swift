@@ -163,6 +163,7 @@ class FeedVC: AGVC {
     vm.displayedHeader.subtitle = "subtitle"
     vm.displayedHeader.tint = c_custom.peach
     vm.displayedHeader.title = "title"
+//    vm.displayedFooter.flag_hideCancel = true
     displayPopupContainer(vm, priority: .common, on: self) { bool in
       
     }
