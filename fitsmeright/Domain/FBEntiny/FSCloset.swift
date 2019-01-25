@@ -22,12 +22,11 @@ extension FSCloset:
 
 
 
-class FSCloset: Codable {
+class FSCloset: FirestoreCodable {
   
   //MARK: - Key
   static let collection = "closets"
   enum CodingKeys: String, CodingKey {
-    case id
     case userId
     case category
     case image
@@ -35,6 +34,7 @@ class FSCloset: Codable {
     case brand
     case place
     case size
+    case updatedAt
   }
   
   
@@ -53,7 +53,7 @@ class FSCloset: Codable {
   
   //MARK: - Storage
   var ref: DocumentReference?
-  var id: String?
+  var documentId: String?
   var userId: String?
   var category: Int?
   var image: String?
@@ -61,6 +61,7 @@ class FSCloset: Codable {
   var brand: String?
   var place: String?
   var size: String?
+  var updatedAt: String?
   
   
   
@@ -69,8 +70,8 @@ class FSCloset: Codable {
   
   
   //MARK: - Public
-  var _id: String {
-    return id ?? ""
+  var _documentId: String {
+    return documentId ?? ""
   }
   var _userId: String {
     return userId ?? ""
@@ -92,6 +93,9 @@ class FSCloset: Codable {
   }
   var _size: String {
     return size ?? ""
+  }
+  var _updatedAt: String {
+    return updatedAt ?? ""
   }
   var imageURL: URL? {
     return URL(string: _image)

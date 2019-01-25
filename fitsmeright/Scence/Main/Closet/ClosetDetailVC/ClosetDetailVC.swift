@@ -185,15 +185,19 @@ class ClosetDetailVC: AGVC {
       let vm_brand = ClosetFormViewUC.ViewModel()
       vm_brand.displayedForm.key = "Brand"
       vm_brand.displayedForm.value = fsCloset!._brand
+      vm_brand.displayedForm.isEditable = false
       let vm_price = ClosetFormViewUC.ViewModel()
       vm_price.displayedForm.key = "Price"
       vm_price.displayedForm.value = "\(fsCloset!._price)"
+      vm_price.displayedForm.isEditable = false
       let vm_size = ClosetFormViewUC.ViewModel()
       vm_size.displayedForm.key = "Size"
       vm_size.displayedForm.value = fsCloset!._size
+      vm_size.displayedForm.isEditable = false
       let vm_place = ClosetFormViewUC.ViewModel()
       vm_place.displayedForm.key = "Place"
       vm_place.displayedForm.value = fsCloset!._place
+      vm_place.displayedForm.isEditable = false
       v_brand.setupData(with: vm_brand)
       v_price.setupData(with: vm_price)
       v_size.setupData(with: vm_size)

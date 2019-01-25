@@ -72,7 +72,9 @@ class AppDelegate: UIResponder {
   //MARK: - Core - UIApplicationDelegate
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
-    
+    let fsUser = FSUser()
+    fsUser.documentId = "N5GUixP95dAMKzXBx5kG"
+    FMUserDefaults.FSUserDefault.set(data: fsUser)
     setupOnDidFinishLaunching(with: application, options: launchOptions)
     start(with: launchOptions, condition: FMUserDefaults.LoggedIn.get() ?? false)
     

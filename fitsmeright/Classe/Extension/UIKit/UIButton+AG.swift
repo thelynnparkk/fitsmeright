@@ -20,12 +20,16 @@ extension UIButton: Colorable {
   }
   
   func setupLight() {
+    setTitleColor(.white, for: [])
+    setTitleColor(.white, for: .disabled)
     setBackgroundImage(UIImage(color: c_custom.peach, size: .less), for: [])
+    setBackgroundImage(UIImage(color: c_custom.peachD, size: .less), for: .highlighted)
+    setBackgroundImage(UIImage(color: c_material.grey300, size: .less), for: .disabled)
   }
   
   func setupCancelDark() {
     setTitleColor(c_custom.peach, for: [])
-    setTitleColor(c_material.white, for: .disabled)
+    setTitleColor(.white, for: .disabled)
     setBackgroundImage(UIImage(color: .white, size: .less), for: [])
     setBackgroundImage(UIImage(color: c_material.grey100, size: .less), for: .highlighted)
     setBackgroundImage(UIImage(color: c_material.grey300, size: .less), for: .disabled)
@@ -37,7 +41,7 @@ extension UIButton: Colorable {
   
   func setupOkDark() {
     setTitleColor(c_custom.peach, for: [])
-    setTitleColor(c_material.white, for: .disabled)
+    setTitleColor(.white, for: .disabled)
     setBackgroundImage(UIImage(color: .white, size: .less), for: [])
     setBackgroundImage(UIImage(color: c_material.grey100, size: .less), for: .highlighted)
     setBackgroundImage(UIImage(color: c_material.grey300, size: .less), for: .disabled)

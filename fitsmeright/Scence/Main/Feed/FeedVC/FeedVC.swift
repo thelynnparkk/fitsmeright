@@ -114,6 +114,7 @@ class FeedVC: AGVC {
     //MARK: Component
     sv_main.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
     btn_createPost.addTarget(self, action: #selector(createPostButtonPressed), for: .touchUpInside)
+    btn_createPost.setupLight()
     v_post.isHidden = true
     
     
@@ -154,21 +155,22 @@ class FeedVC: AGVC {
   //MARK: - Event
   @objc
   func createPostButtonPressed(_ sender: UIButton) {
-//    let vc = CreatePostVC.vc
-//    let nvc = UINavigationController(rootViewController: vc)
-//    present(nvc, animated: true, completion: nil)
-    let vm = PopupContainerVCUC.ViewModel()
-    vm.displayedHeader.style = .large
-    vm.displayedHeader.icon = UIImage(color: c_custom.peach, size: .less)
-    vm.displayedHeader.style = .small
-    vm.displayedHeader.subtitle = "subtitle"
-    vm.displayedHeader.tint = c_custom.peach
-    vm.displayedHeader.title = "title"
-    vm.displayedContainer.tapDismissal = true
-//    vm.displayedFooter.flag_hideCancel = true
-    displayPopupContainer(vm, priority: .common, on: self) { bool in
-      
-    }
+    let vc = CreatePostVC.vc
+    let nvc = UINavigationController(rootViewController: vc)
+    present(nvc, animated: true, completion: nil)
+    
+//    let vm = PopupContainerVCUC.ViewModel()
+//    vm.displayedHeader.style = .large
+//    vm.displayedHeader.icon = UIImage(color: c_custom.peach, size: .less)
+//    vm.displayedHeader.style = .small
+//    vm.displayedHeader.subtitle = "subtitle"
+//    vm.displayedHeader.tint = c_custom.peach
+//    vm.displayedHeader.title = "title"
+//    vm.displayedContainer.tapDismissal = true
+////    vm.displayedFooter.flag_hideCancel = true
+//    displayPopupContainer(vm, priority: .common, on: self) { bool in
+//
+//    }
   }
   
   
