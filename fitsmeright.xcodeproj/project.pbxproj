@@ -69,6 +69,10 @@
 		5EE8923D21C3E572008A65ED /* ClosetVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8923C21C3E572008A65ED /* ClosetVC.storyboard */; };
 		5EE8924121C3E615008A65ED /* ClosetDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924021C3E615008A65ED /* ClosetDetailVC.swift */; };
 		5EE8925821C40958008A65ED /* Entitible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8925721C40958008A65ED /* Entitible.swift */; };
+		5EFC9BAA21FB57C00078ED50 /* SCloset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC9BA921FB57C00078ED50 /* SCloset.swift */; };
+		5EFC9BAC21FB67ED0078ED50 /* FSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC9BAB21FB67ED0078ED50 /* FSUser.swift */; };
+		5EFC9BAE21FB684A0078ED50 /* FirestoreCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC9BAD21FB684A0078ED50 /* FirestoreCodable.swift */; };
+		5EFC9BB121FB706D0078ED50 /* Date+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC9BB021FB706D0078ED50 /* Date+AG.swift */; };
 		6B93C7E7F1C1881D5030DBE8 /* Pods_fitsmerightTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B34B9F8A3E854F921D23C20 /* Pods_fitsmerightTests.framework */; };
 		A408A4D121BEB4970030F2F5 /* UIBarButtonItem +AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */; };
 		A42F7C4E21BE321300085DB5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A42F7C4D21BE321300085DB5 /* README.md */; };
@@ -223,6 +227,10 @@
 		5EE8923C21C3E572008A65ED /* ClosetVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClosetVC.storyboard; sourceTree = "<group>"; };
 		5EE8924021C3E615008A65ED /* ClosetDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetDetailVC.swift; sourceTree = "<group>"; };
 		5EE8925721C40958008A65ED /* Entitible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitible.swift; sourceTree = "<group>"; };
+		5EFC9BA921FB57C00078ED50 /* SCloset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCloset.swift; sourceTree = "<group>"; };
+		5EFC9BAB21FB67ED0078ED50 /* FSUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSUser.swift; sourceTree = "<group>"; };
+		5EFC9BAD21FB684A0078ED50 /* FirestoreCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreCodable.swift; sourceTree = "<group>"; };
+		5EFC9BB021FB706D0078ED50 /* Date+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+AG.swift"; sourceTree = "<group>"; };
 		72AF5AC3A3815243CAE96B6A /* Pods-fitsmerightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmerightTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmerightTests/Pods-fitsmerightTests.release.xcconfig"; sourceTree = "<group>"; };
 		9F8B67DFD7CF11E3D630A0C0 /* Pods-fitsmeright.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmeright.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmeright/Pods-fitsmeright.debug.xcconfig"; sourceTree = "<group>"; };
 		A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem +AG.swift"; sourceTree = "<group>"; };
@@ -561,6 +569,7 @@
 				A4C4B6F521F852B40036B0F7 /* AGViewInstantiatable.swift */,
 				A4C338C121F8A62D00147567 /* AGCellInstantiatable.swift */,
 				A4C4FAD521F9CB35004A3F37 /* PopupDialogable.swift */,
+				5EFC9BAD21FB684A0078ED50 /* FirestoreCodable.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -688,6 +697,8 @@
 			isa = PBXGroup;
 			children = (
 				5ECE8E7321F74F53000AF65E /* FSCloset.swift */,
+				5EFC9BA921FB57C00078ED50 /* SCloset.swift */,
+				5EFC9BAB21FB67ED0078ED50 /* FSUser.swift */,
 			);
 			path = FBEntiny;
 			sourceTree = "<group>";
@@ -940,6 +951,7 @@
 				A4C4FAD121F9C5AE004A3F37 /* UIButton+AG.swift */,
 				A4A98DB221FB0C1900937AE5 /* UILabel+AG.swift */,
 				A4A98DB421FB0C2200937AE5 /* UITextField+AG.swift */,
+				5EFC9BB021FB706D0078ED50 /* Date+AG.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1309,6 +1321,8 @@
 				A4C4FAD221F9C5AE004A3F37 /* UIButton+AG.swift in Sources */,
 				5E74DA5C21BBD0B100A97A89 /* TemplateAFRM.swift in Sources */,
 				A4796C9D21F5DD7000B83F85 /* CGSize+AG.swift in Sources */,
+				5EFC9BAC21FB67ED0078ED50 /* FSUser.swift in Sources */,
+				5EFC9BAE21FB684A0078ED50 /* FirestoreCodable.swift in Sources */,
 				A42F7C5821BE56AC00085DB5 /* AGDefaultsFoundation.swift in Sources */,
 				A4C4FAB421F975C7004A3F37 /* StateView.swift in Sources */,
 				A4C4FAD621F9CB35004A3F37 /* PopupDialogable.swift in Sources */,
@@ -1341,6 +1355,7 @@
 				A42F7C5E21BE5B4B00085DB5 /* AGApplicationRoutable.swift in Sources */,
 				5E74DA5321BBD0B100A97A89 /* TemplateV.swift in Sources */,
 				A4C4B6EC21F820C00036B0F7 /* AGVC+AG.swift in Sources */,
+				5EFC9BAA21FB57C00078ED50 /* SCloset.swift in Sources */,
 				A4C4B6EE21F821740036B0F7 /* AGIPC.swift in Sources */,
 				A4C4FAB921F975C7004A3F37 /* AGView.swift in Sources */,
 				5E74D9FF21BBACA900A97A89 /* ViewController.swift in Sources */,
@@ -1354,6 +1369,7 @@
 				5E74DA6021BBD67600A97A89 /* UIWindow+AG.swift in Sources */,
 				5ECE8E8521F769F0000AF65E /* ClosetCategoryVC.swift in Sources */,
 				A4C338C621F8AE4200147567 /* UICollectionView+AG.swift in Sources */,
+				5EFC9BB121FB706D0078ED50 /* Date+AG.swift in Sources */,
 				A42F7C7121BE7B7300085DB5 /* UIImage+AG.swift in Sources */,
 				5EE8923B21C3E566008A65ED /* ClosetVC.swift in Sources */,
 				5E74DA6E21BBDAAC00A97A89 /* MainTBC.swift in Sources */,
@@ -1576,7 +1592,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K7HW86J5X8;
 				INFOPLIST_FILE = fitsmeright/Main/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1598,7 +1614,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = K7HW86J5X8;
 				INFOPLIST_FILE = fitsmeright/Main/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -18,16 +18,52 @@ class FSClosetWorker {
   
   typealias FetchResponse = (data: [FSCloset], error: Error?)
   static func fetch(onComplete: @escaping ((FetchResponse) -> ())) {
+    var response: FetchResponse = ([], nil)
     let db = Firestore.default
     let collection_closets = db.collection(FSCloset.collection)
     collection_closets.getDocuments { (snapshot, error) in
-      var response: FetchResponse = ([], nil)
       switch error {
       case .none:
         guard let snapshot = snapshot else { return }
         response.data = snapshot.documents.toObjects(FSCloset.self)
       case let .some(e):
         response.error = e
+      }
+      onComplete(response)
+    }
+  }
+  
+  typealias AddResponse = Error?
+  static func add(fsCloset: FSCloset, onComplete: @escaping ((UpdateResponse) -> ())) {
+    var response: UpdateResponse = (nil)
+    let db = Firestore.default
+    let collection_closets = db.collection(FSCloset.collection)
+    guard let fields = try? FirestoreEncoder().encode(fsCloset) else {
+      onComplete(response)
+      return
+    }
+    collection_closets.addDocument(data: fields) { error in
+      switch error {
+      case .none:
+        break
+      case let .some(e):
+        response = e
+      }
+      onComplete(response)
+    }
+  }
+  
+  typealias UpdateResponse = Error?
+  static func update(id: String, fields: [AnyHashable : Any], onComplete: @escaping ((UpdateResponse) -> ())) {
+    var response: UpdateResponse = (nil)
+    let db = Firestore.default
+    let collection_closets = db.collection(FSCloset.collection)
+    collection_closets.document(id).updateData(fields) { error in
+      switch error {
+      case .none:
+        break
+      case let .some(e):
+        response = e
       }
       onComplete(response)
     }

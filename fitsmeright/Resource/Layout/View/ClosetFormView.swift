@@ -17,6 +17,8 @@ class ClosetFormViewUC {
   class DisplayedForm {
     var key: String?
     var value: String?
+    var placeHolder: String?
+    var isEditable: Bool = true
   }
   
   class ViewModel: AGViewModel {
@@ -150,9 +152,12 @@ class ClosetFormView: AGView {
     //MARK: Component
     v_container.backgroundColor = .clear
     v_seperator.backgroundColor = c_material.grey300
-    txt_value.borderStyle = .none
+    lb_key.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+    txt_value.textColor = c_material.grey500
     txt_value.textAlignment = .right
-    txt_value.isUserInteractionEnabled = false
+    txt_value.borderStyle = .none
+    txt_value.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+    
     
     
     //MARK: Other
@@ -186,6 +191,8 @@ class ClosetFormView: AGView {
     guard let vm = viewModel as? ViewModel else { return }
     lb_key.text = vm.displayedForm.key
     txt_value.text = vm.displayedForm.value
+    txt_value.isUserInteractionEnabled = vm.displayedForm.isEditable
+    txt_value.borderStyle = vm.displayedForm.isEditable ? .roundedRect : .none
   }
   
   

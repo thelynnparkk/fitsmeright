@@ -66,22 +66,22 @@ class ViewIPC: UIImagePickerController {
   
   
   //MARK: - Initial
-  convenience init() {
-    self.init(nibName: nil, bundle: nil)
-  }
-  
-  
-  override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    onInit()
-    
-  }
-  
-  required public init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    onInit()
-    
-  }
+  //  convenience init() {
+//    self.init(nibName: nil, bundle: nil)
+//  }
+//
+//
+//  override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+//    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+//    onInit()
+//
+//  }
+//
+//  required public init?(coder aDecoder: NSCoder) {
+//    super.init(coder: aDecoder)
+//    onInit()
+//
+//  }
   
   deinit {
     onDeinit()

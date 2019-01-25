@@ -21,12 +21,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xge-d3-UgR">
-                                <rect key="frame" x="183.5" y="333" width="8" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LWa-dp-aqj" customClass="FloatingView" customModule="fitsmeright" customModuleProvider="target">
                                 <rect key="frame" x="305" y="597" width="50" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -40,17 +34,14 @@
                         <constraints>
                             <constraint firstItem="RqQ-YR-0ds" firstAttribute="top" secondItem="8ZH-r3-RvC" secondAttribute="bottom" id="ANK-hD-Bzb"/>
                             <constraint firstItem="8ZH-r3-RvC" firstAttribute="leading" secondItem="RqQ-YR-0ds" secondAttribute="leading" id="C6E-jb-vop"/>
-                            <constraint firstItem="Xge-d3-UgR" firstAttribute="centerY" secondItem="RqQ-YR-0ds" secondAttribute="centerY" id="DV2-hG-4JL"/>
                             <constraint firstAttribute="trailing" secondItem="LWa-dp-aqj" secondAttribute="trailing" constant="20" id="Dao-OR-tu2"/>
                             <constraint firstItem="8ZH-r3-RvC" firstAttribute="top" secondItem="Wbp-6x-EXJ" secondAttribute="top" id="JzH-qk-WH0"/>
-                            <constraint firstItem="Xge-d3-UgR" firstAttribute="centerX" secondItem="RqQ-YR-0ds" secondAttribute="centerX" id="O6F-iw-6Xz"/>
                             <constraint firstAttribute="trailing" secondItem="8ZH-r3-RvC" secondAttribute="trailing" id="ZNB-DS-Yk3"/>
                             <constraint firstItem="RqQ-YR-0ds" firstAttribute="bottom" secondItem="LWa-dp-aqj" secondAttribute="bottom" constant="20" id="ahl-Xp-ZOE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RqQ-YR-0ds"/>
                     </view>
                     <connections>
-                        <outlet property="lb_title" destination="Xge-d3-UgR" id="ASr-DX-Djd"/>
                         <outlet property="v_addClosetFloating" destination="LWa-dp-aqj" id="weY-e1-AOT"/>
                     </connections>
                 </viewController>

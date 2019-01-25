@@ -16,11 +16,13 @@ import CodableFirebase
 
 extension Collection where Element == QueryDocumentSnapshot {
   
-  func toObjects<T: Decodable>(_ type: T.Type) -> [T] {
+  func toObjects<T: FirestoreCodable>(_ type: T.Type) -> [T] {
     var objects: [T] = []
     for d in self {
       do {
-        let decoded = try FirestoreDecoder().decode(type, from: d.data())
+        var decoded = try FirestoreDecoder().decode(type, from: d.data())
+        decoded.ref = d.reference
+        decoded.documentId = d.documentID
         objects.append(decoded)
       } catch let e {
         print(e.localizedDescription)

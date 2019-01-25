@@ -32,7 +32,6 @@ class ClosetVC: AGVC {
   
   
   //MARK: - UI
-  @IBOutlet weak var lb_title: UILabel!
   @IBOutlet weak var v_addClosetFloating: FloatingView!
   var collection_main: UICollectionView!
   var adapter_image: ImageCA!
@@ -112,7 +111,7 @@ class ClosetVC: AGVC {
     
     
     //MARK: Component
-    view.setupViewFrame()
+//    view.setupViewFrame()
     collection_main = ControlContainableCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     adapter_image = ImageCA(collection: collection_main)
     adapter_image.delegate = self
@@ -121,6 +120,7 @@ class ClosetVC: AGVC {
     let vm_plus = FloatingViewUC.ViewModel()
     vm_plus.displayedFloating.image = #imageLiteral(resourceName: "plus").filled(withColor: .white)
     v_addClosetFloating.setupData(with: vm_plus)
+    view.bringSubviewToFront(v_addClosetFloating)
     
     
     
@@ -165,7 +165,6 @@ class ClosetVC: AGVC {
   //MARK: - Public
   override func setupLocalize() {
     ni.title = ClosetVC.sb_name
-    lb_title.text = ClosetVC.sb_name
   }
   
   
@@ -190,14 +189,13 @@ class ClosetVC: AGVC {
     }
     
     func present() {
-      lb_title.text = "\(fsClosets.count) \(closetCategory!.plural)"
       let vm = ImageCA.ViewModel()
       vm.displayedRows = fsClosets.compactMap({
         let vm = ImageCCUC.ViewModel()
         vm.displayedImage.imageUrl = $0.imageURL
         return vm
       })
-      vm.displayedFooter.kind = UICollectionView.elementKindSectionFooter
+//      vm.displayedFooter.kind = UICollectionView.elementKindSectionFooter
       vm.displayedFooter.title = "\(vm.displayedRows.count) items"
       adapter_image.setupData(with: vm)
     }
@@ -215,6 +213,7 @@ class ClosetVC: AGVC {
   //MARK: - Custom - AGViewDelegate
   func agViewPressed(_ view: AGView, action: Any, tag: Int) {
     let vc = AddClosetVC.vc
+    vc.closetCategory = closetCategory
     navigationController?.pushViewController(vc)
   }
   
