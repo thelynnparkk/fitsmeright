@@ -98,6 +98,11 @@ class FeedVC: AGVC {
     
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+  }
+  
   override func setupViewOnDidLayoutSubviews() {
     
   }
@@ -134,11 +139,19 @@ class FeedVC: AGVC {
     
   }
   
+  override func setupViewOnWillAppear() {
+    
+  }
+  
   
   
   //MARK: - Setup Data
   override func setupDataOnViewDidLoad() {
     
+  }
+  
+  override func setupDataOnWillAppear() {
+    fetchPostData()
   }
   
   func fetchPostData() {
