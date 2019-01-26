@@ -117,6 +117,7 @@ class ClosetFormVC: AGIPC {
   //MARK: - Setup View
   override func setupViewOnViewDidLoad() {
     //MARK: Core
+    view.backgroundColor = .white
     //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     bbi_done = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneBarButtonPressed))
     ni.rightBarButtonItems = [bbi_done]

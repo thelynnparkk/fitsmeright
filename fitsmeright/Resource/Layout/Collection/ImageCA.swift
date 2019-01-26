@@ -14,10 +14,6 @@ import UIKit
 
 class ImageCAUC {
   
-  class DisplayedImage {
-    
-  }
-  
   class ViewModel: AGCAModel {
     var displayedFooter = LabelCRVUC.DisplayedLabel()
   }
@@ -185,26 +181,22 @@ class ImageCA: AGCA {
   }
   
   public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    switch isEmpty {
-    case true:
+    guard !isEmpty else {
       return 0
-    case false:
-      return viewModel.displayedRows.count
     }
+    return viewModel.displayedRows.count
   }
   
   public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    switch isEmpty {
-    case true:
+    guard !isEmpty else {
       return UICollectionViewCell()
-    case false:
-      let cell = collectionView.dequeueReusableCell(withClass: CC.self, for: indexPath)
-      let item = viewModel.displayedRows[indexPath.row]
-      cell.indexPath = indexPath
-      cell.delegate = self
-      cell.setupData(with: item)
-      return cell
     }
+    let cell = collectionView.dequeueReusableCell(withClass: CC.self, for: indexPath)
+    let item = viewModel.displayedRows[indexPath.row]
+    cell.indexPath = indexPath
+    cell.delegate = self
+    cell.setupData(with: item)
+    return cell
   }
 
   func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -231,13 +223,11 @@ class ImageCA: AGCA {
   
   //MARK: - Core - UICollectionViewDelegate
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    switch isEmpty {
-    case true:
-      break
-    case false:
-      if let _ = viewModel.displayedRows[indexPath.row] as? CCModel {
-        delegate?.agCAPressed(self, action: [], indexPath: indexPath)
-      }
+    guard !isEmpty else {
+      return
+    }
+    if let _ = viewModel.displayedRows[indexPath.row] as? CCModel {
+      delegate?.agCAPressed(self, action: [], indexPath: indexPath)
     }
   }
   

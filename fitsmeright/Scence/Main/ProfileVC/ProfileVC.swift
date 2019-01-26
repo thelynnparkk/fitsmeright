@@ -13,7 +13,10 @@ import UIKit
 
 
 extension ProfileVC:
-  AGVCInstantiatable
+  AGVCInstantiatable,
+  AGViewDelegate,
+  AGCADelegate,
+  AGVCDelegate
 {
   
 }
@@ -30,7 +33,9 @@ class ProfileVC: AGVC {
   
   
   //MARK: - UI
-  @IBOutlet weak var lb_title: UILabel!
+  @IBOutlet weak var v_addFriendFloating: FloatingView!
+  var collection_main: UICollectionView!
+  var adapter_profile: ProfileCA!
   
   
   
@@ -51,6 +56,8 @@ class ProfileVC: AGVC {
   
   
   //MARK: - Storage
+  var fsUser: FSUser?
+  var posts: [MockPost] = []
   
   
   
@@ -100,11 +107,22 @@ class ProfileVC: AGVC {
   //MARK: - Setup View
   override func setupViewOnViewDidLoad() {
     //MARK: Core
+    view.backgroundColor = c_material.grey300
     //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     
     
     
     //MARK: Component
+    //    view.setupViewFrame()
+    collection_main = ControlContainableCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    adapter_profile = ProfileCA(collection: collection_main)
+    adapter_profile.delegate = self
+    view.addSubview(collection_main)
+    v_addFriendFloating.delegate = self
+    let vm_plus = FloatingViewUC.ViewModel()
+    vm_plus.displayedFloating.image = #imageLiteral(resourceName: "plus").filled(withColor: .white)
+    v_addFriendFloating.setupData(with: vm_plus)
+    view.bringSubviewToFront(v_addFriendFloating)
     
     
     
@@ -113,6 +131,12 @@ class ProfileVC: AGVC {
     
     
     //MARK: Snp
+    collection_main.snp.makeConstraints {
+      $0.top.equalTo(view.snp.topMargin)
+      $0.right.equalToSuperview()
+      $0.bottom.equalTo(view.snp.bottomMargin)
+      $0.left.equalToSuperview()
+    }
     
     
     
@@ -131,7 +155,7 @@ class ProfileVC: AGVC {
   
   //MARK: - Setup Data
   override func setupDataOnViewDidLoad() {
-    
+    fetchProfile()
   }
   
   
@@ -143,7 +167,6 @@ class ProfileVC: AGVC {
   //MARK: - Public
   override func setupLocalize() {
     ni.title = ProfileVC.sb_name
-    lb_title.text = ProfileVC.sb_name
   }
   
   
@@ -152,7 +175,38 @@ class ProfileVC: AGVC {
   
   
   
-  //MARK: - VIP - UseCase
+  //MARK: - VIP - FetchProfile
+  func fetchProfile() {
+    
+    func interactor() {
+      worker()
+    }
+    
+    func worker() {
+      fsUser = FMUserDefaults.FSUserDefault.get()!
+      posts = [FMUserDefaults.Post.get()!]
+      present()
+    }
+    
+    func present() {
+      let vm = ProfileCAUC.ViewModel()
+      vm.displayedProfile.image = nil
+      vm.displayedProfile.displayName = fsUser!._displayName
+      vm.displayedProfile.bio = fsUser!._bio
+      vm.displayedProfile.posts = "\(posts.count)"
+      vm.displayedProfile.friends = "0"
+      vm.displayedProfile.closets = "0"
+      vm.displayedRows = posts.compactMap({
+        let vm = ImageCCUC.ViewModel()
+        vm.displayedImage.imageUrl = URL(string: $0._displayName)
+        return vm
+      })
+      adapter_profile.setupData(with: vm)
+    }
+    
+    interactor()
+    
+  }
   
   
   
@@ -160,7 +214,44 @@ class ProfileVC: AGVC {
   
   
   
-  //MARK: - Custom - Protocol
+  //MARK: - Custom - AGViewDelegate
+  func agViewPressed(_ view: AGView, action: Any, tag: Int) {
+//    let vc = ClosetFormVC.vc
+//    vc.closetCategory = closetCategory
+//    navigationController?.pushViewController(vc)
+  }
+  
+  
+  
+  //MARK: - Custom - AGCADelegate
+  func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
+//    let vc = ClosetVC.vc
+//    vc.fsCloset = fsClosets[indexPath.row]
+//    vc.closetCategory = closetCategory
+//    vc.delegate_agvc = self
+//    navigationController?.pushViewController(vc)
+  }
+  
+  
+  
+  //MARK: - Custom - AGVCDelegate
+  func agVCPressed(_ view: AGVC, action: Any) {
+    
+//    func closet(action: ClosetVC.Action) {
+//      switch action {
+//      case let .update(fsCloset):
+//        if let index = fsClosets.firstIndex(where: { $0._documentId == fsCloset._documentId }) {
+//          fsClosets[index] = fsCloset
+//          fetchClosets()
+//        }
+//      }
+//    }
+//
+//    if let action = action as? ClosetVC.Action {
+//      closet(action: action)
+//    }
+    
+  }
   
   
   

@@ -113,6 +113,7 @@ class ClosetVC: AGVC {
   //MARK: - Setup View
   override func setupViewOnViewDidLoad() {
     //MARK: Core
+    view.backgroundColor = .white
     //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     bbi_edit = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editClosetPressed))
     ni.rightBarButtonItems = [bbi_edit]

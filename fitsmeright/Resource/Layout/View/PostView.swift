@@ -174,7 +174,8 @@ class PostView: AGView {
     //    let bkk = Region(calendar: Calendars.buddhist, zone: Zones.asiaBangkok, locale: Locales.thai)
     //    let date = post._string_createdAt.toDate("yyyy-MM-dd HH:mm", region: bkk)
     //    let date = post._string_createdAt.toFormat("dd MMM", locale: .thai)
-    lb_username.text = "lin-ping"
+    imgv_user.backgroundColor = c_material.grey400
+    lb_username.text = vm.displayedPost._displayName
     lb_createdAt.text = vm.displayedPost._string_createdAt
     lb_caption.text = vm.displayedPost.string_captionSelected
     v_createPost.setupClothData(images: vm.displayedPost.img_clothSelected)

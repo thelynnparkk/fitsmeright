@@ -151,7 +151,7 @@ class FloatingView: AGView {
     //MARK: Core
     setupViewFrame()
     backgroundColor = .clear
-    addShadow(ofColor: .black, radius: frame.midY, offset: .less, opacity: 0.1)
+//    addShadow(ofColor: .black, radius: frame.midY, offset: .less, opacity: 0.1)
     layer.masksToBounds = true
     clipsToBounds = false
     let gesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
@@ -183,7 +183,7 @@ class FloatingView: AGView {
   }
   
   override func setupViewOnLayoutSubviews() {
-    addShadow(ofColor: .black, radius: frame.midY, offset: .less, opacity: 0.1)
+//    addShadow(ofColor: .black, radius: frame.midY, offset: .less, opacity: 0.1)
     v_container.layer.cornerRadius = v_container.frame.midY
   }
 

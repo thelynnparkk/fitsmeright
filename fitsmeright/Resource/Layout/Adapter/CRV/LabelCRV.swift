@@ -121,11 +121,13 @@ class LabelCRV: AGCRV {
   //MARK: - SetupView
   override func setupViewOnAwakeFromNib() {
     //MARK: Core
+    v_container.backgroundColor = .clear
     
     
     
     //MARK: Component
     lb_title.textAlignment = .center
+    lb_title.textColor = c_material.grey
     v_topSeperator.backgroundColor = c_material.grey300
     v_bottomSeperator.backgroundColor = c_material.grey300
     

@@ -13,7 +13,8 @@ import UIKit
 
 
 extension FeedVC:
-  AGVCInstantiatable
+  AGVCInstantiatable,
+  AGViewDelegate
 {
   
 }
@@ -31,8 +32,8 @@ class FeedVC: AGVC {
   
   //MARK: - UI
   @IBOutlet weak var sv_main: UIScrollView!
-  @IBOutlet weak var btn_createPost: UIButton!
   @IBOutlet weak var v_post: PostView!
+  @IBOutlet weak var v_addPostFloating: FloatingView!
   
   
   
@@ -112,15 +113,20 @@ class FeedVC: AGVC {
   //MARK: - Setup View
   override func setupViewOnViewDidLoad() {
     //MARK: Core
+    view.backgroundColor = c_material.grey300
     //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
-    
+    view.backgroundColor = c_material.grey300
     
     
     //MARK: Component
+    sv_main.setupScrollVertical()
     sv_main.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
-    btn_createPost.addTarget(self, action: #selector(createPostButtonPressed), for: .touchUpInside)
-    btn_createPost.setupLight()
     v_post.isHidden = true
+    v_addPostFloating.delegate = self
+    let vm_plus = FloatingViewUC.ViewModel()
+    vm_plus.displayedFloating.image = #imageLiteral(resourceName: "plus").filled(withColor: .white)
+    v_addPostFloating.setupData(with: vm_plus)
+    view.bringSubviewToFront(v_addPostFloating)
     
     
     
@@ -151,40 +157,12 @@ class FeedVC: AGVC {
   }
   
   override func setupDataOnWillAppear() {
-    fetchPostData()
-  }
-  
-  func fetchPostData() {
-    if let post = FMUserDefaults.Post.get() {
-      self.post = post
-      displayFetchPostData()
-    } else {
-      displayFetchPostDataError()
-    }
+    fetchPost()
   }
   
   
   
   //MARK: - Event
-  @objc
-  func createPostButtonPressed(_ sender: UIButton) {
-    let vc = CreatePostVC.vc
-    let nvc = UINavigationController(rootViewController: vc)
-    present(nvc, animated: true, completion: nil)
-    
-//    let vm = PopupContainerVCUC.ViewModel()
-//    vm.displayedHeader.style = .large
-//    vm.displayedHeader.icon = UIImage(color: c_custom.peach, size: .less)
-//    vm.displayedHeader.style = .small
-//    vm.displayedHeader.subtitle = "subtitle"
-//    vm.displayedHeader.tint = c_custom.peach
-//    vm.displayedHeader.title = "title"
-//    vm.displayedContainer.tapDismissal = true
-////    vm.displayedFooter.flag_hideCancel = true
-//    displayPopupContainer(vm, priority: .common, on: self) { bool in
-//
-//    }
-  }
   
   
   
@@ -199,27 +177,64 @@ class FeedVC: AGVC {
   
   
   
-  //MARK: - VIP - UseCase
-  func displayFetchPostData() {
-    if let post = post {
-      v_post.isHidden = false
-      let vm_post = PostViewUC.ViewModel()
-      vm_post.displayedPost = post
-      v_post.setupData(with: vm_post)
+  //MARK: - VIP - FetchPost
+  func fetchPost() {
+    
+    func interactor() {
+      worker()
     }
+    
+    func worker() {
+      if let post = FMUserDefaults.Post.get() {
+        self.post = post
+        presenter()
+      } else {
+        presenterError()
+      }
+    }
+    
+    func presenter() {
+      if let post = post {
+        v_post.isHidden = false
+        let vm_post = PostViewUC.ViewModel()
+        vm_post.displayedPost = post
+        v_post.setupData(with: vm_post)
+      }
+    }
+    
+    func presenterError() {
+      v_post.isHidden = true
+    }
+    
+    interactor()
+    
   }
-  
-  func displayFetchPostDataError() {
-    v_post.isHidden = true
-  }
-  
+
   
   
   //MARK: - Core - Protocol
   
   
   
-  //MARK: - Custom - Protocol
+  //MARK: - Custom - AGViewDelegate
+  func agViewPressed(_ view: AGView, action: Any, tag: Int) {
+    let vc = CreatePostVC.vc
+    let nvc = UINavigationController(rootViewController: vc)
+    present(nvc, animated: true, completion: nil)
+    
+    //    let vm = PopupContainerVCUC.ViewModel()
+    //    vm.displayedHeader.style = .large
+    //    vm.displayedHeader.icon = UIImage(color: c_custom.peach, size: .less)
+    //    vm.displayedHeader.style = .small
+    //    vm.displayedHeader.subtitle = "subtitle"
+    //    vm.displayedHeader.tint = c_custom.peach
+    //    vm.displayedHeader.title = "title"
+    //    vm.displayedContainer.tapDismissal = true
+    ////    vm.displayedFooter.flag_hideCancel = true
+    //    displayPopupContainer(vm, priority: .common, on: self) { bool in
+    //
+    //    }
+  }
   
   
   

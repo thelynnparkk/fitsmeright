@@ -107,6 +107,7 @@ class ClosetListVC: AGVC {
   //MARK: - Setup View
   override func setupViewOnViewDidLoad() {
     //MARK: Core
+    view.backgroundColor = c_material.grey300
     //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     
     
@@ -190,7 +191,7 @@ class ClosetListVC: AGVC {
     }
     
     func present() {
-      let vm = ImageCA.ViewModel()
+      let vm = ImageCAUC.ViewModel()
       vm.displayedRows = fsClosets.compactMap({
         let vm = ImageCCUC.ViewModel()
         vm.displayedImage.imageUrl = $0.imageURL

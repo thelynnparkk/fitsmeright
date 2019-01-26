@@ -69,6 +69,9 @@
 		5EF9F2D221FC7E880034F7B2 /* ClosetListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8923A21C3E566008A65ED /* ClosetListVC.swift */; };
 		5EF9F2D521FC7EBC0034F7B2 /* ClosetFormVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ECE8E9121F77105000AF65E /* ClosetFormVC.storyboard */; };
 		5EF9F2D621FC7EF20034F7B2 /* ClosetListVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8923C21C3E572008A65ED /* ClosetListVC.storyboard */; };
+		5EF9F2D821FC92200034F7B2 /* ProfileCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF9F2D721FC92200034F7B2 /* ProfileCA.swift */; };
+		5EF9F2DA21FC972F0034F7B2 /* ProfileCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF9F2D921FC972F0034F7B2 /* ProfileCC.swift */; };
+		5EF9F2DC21FC974D0034F7B2 /* ProfileCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EF9F2DB21FC974D0034F7B2 /* ProfileCC.xib */; };
 		5EFC9BAA21FB57C00078ED50 /* SCloset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC9BA921FB57C00078ED50 /* SCloset.swift */; };
 		5EFC9BAC21FB67ED0078ED50 /* FSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC9BAB21FB67ED0078ED50 /* FSUser.swift */; };
 		5EFC9BAE21FB684A0078ED50 /* FirestoreCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC9BAD21FB684A0078ED50 /* FirestoreCodable.swift */; };
@@ -227,6 +230,9 @@
 		5EE8923C21C3E572008A65ED /* ClosetListVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClosetListVC.storyboard; sourceTree = "<group>"; };
 		5EE8924021C3E615008A65ED /* ClosetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetVC.swift; sourceTree = "<group>"; };
 		5EE8925721C40958008A65ED /* Entitible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitible.swift; sourceTree = "<group>"; };
+		5EF9F2D721FC92200034F7B2 /* ProfileCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCA.swift; sourceTree = "<group>"; };
+		5EF9F2D921FC972F0034F7B2 /* ProfileCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCC.swift; sourceTree = "<group>"; };
+		5EF9F2DB21FC974D0034F7B2 /* ProfileCC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCC.xib; sourceTree = "<group>"; };
 		5EFC9BA921FB57C00078ED50 /* SCloset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCloset.swift; sourceTree = "<group>"; };
 		5EFC9BAB21FB67ED0078ED50 /* FSUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSUser.swift; sourceTree = "<group>"; };
 		5EFC9BAD21FB684A0078ED50 /* FirestoreCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreCodable.swift; sourceTree = "<group>"; };
@@ -865,6 +871,7 @@
 			children = (
 				A4C338B721F8A3CD00147567 /* ImageCA.swift */,
 				A4C338C321F8AC2C00147567 /* AGCA.swift */,
+				5EF9F2D721FC92200034F7B2 /* ProfileCA.swift */,
 			);
 			name = Collection;
 			path = ../Collection;
@@ -876,6 +883,8 @@
 				A4C338B921F8A3D800147567 /* ImageCC.swift */,
 				A4C338BB21F8A3E000147567 /* ImageCC.xib */,
 				A4C338BF21F8A54800147567 /* AGCC.swift */,
+				5EF9F2D921FC972F0034F7B2 /* ProfileCC.swift */,
+				5EF9F2DB21FC974D0034F7B2 /* ProfileCC.xib */,
 			);
 			path = CC;
 			sourceTree = "<group>";
@@ -1125,6 +1134,7 @@
 				5E74DA7C21BBDB5E00A97A89 /* ProfileVC.storyboard in Resources */,
 				5E74DA7821BBDADF00A97A89 /* MainTBC.storyboard in Resources */,
 				A42F7C6721BE621C00085DB5 /* BlankVC.storyboard in Resources */,
+				5EF9F2DC21FC974D0034F7B2 /* ProfileCC.xib in Resources */,
 				5E74DA0421BBACAA00A97A89 /* Assets.xcassets in Resources */,
 				A4C4FABE21F975C7004A3F37 /* PostView.xib in Resources */,
 				5EC21D5B21F61A1C0013157F /* ClosetVC.storyboard in Resources */,
@@ -1359,6 +1369,7 @@
 				A4C4B6EE21F821740036B0F7 /* AGIPC.swift in Sources */,
 				A4C4FAB921F975C7004A3F37 /* AGView.swift in Sources */,
 				5E74D9FF21BBACA900A97A89 /* ViewController.swift in Sources */,
+				5EF9F2D821FC92200034F7B2 /* ProfileCA.swift in Sources */,
 				5EE8925821C40958008A65ED /* Entitible.swift in Sources */,
 				5ECE8E7621F75054000AF65E /* Firestore+CodableFirebase.swift in Sources */,
 				A4E31D8321C28B83004D1707 /* AGUserDefaults.swift in Sources */,
@@ -1380,6 +1391,7 @@
 				A4C4FAC621F9A13C004A3F37 /* ViewIPC.swift in Sources */,
 				5E74DA5821BBD0B100A97A89 /* TemplateVIP.swift in Sources */,
 				A4C4FAB821F975C7004A3F37 /* ClosetFormView.swift in Sources */,
+				5EF9F2DA21FC972F0034F7B2 /* ProfileCC.swift in Sources */,
 				5E74DA8021BBF7D700A97A89 /* R.swift in Sources */,
 				A4C338C221F8A62D00147567 /* AGCellInstantiatable.swift in Sources */,
 				5E74DA5921BBD0B100A97A89 /* Templatable.swift in Sources */,

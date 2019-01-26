@@ -109,6 +109,7 @@ class CreatePostInfoVC: AGVC {
   //MARK: - Setup View
   override func setupViewOnViewDidLoad() {
     //MARK: Core
+    view.backgroundColor = c_material.grey300
     nb?.setupWith(content: .white, bg: c_custom.peach, isTranslucent: false)
     
     
@@ -169,6 +170,8 @@ class CreatePostInfoVC: AGVC {
   @objc
   func postButtonPresed(_ sender: UIButton) {
     let post = MockPost()
+    let fsUser = FMUserDefaults.FSUserDefault.get()!
+    post.displayName = fsUser._displayName
     post.img_clothSelected = img_clothSelected
     post.img_backgroundSelected = img_backgroundSelected
     post.string_textSelected = string_textSelected
