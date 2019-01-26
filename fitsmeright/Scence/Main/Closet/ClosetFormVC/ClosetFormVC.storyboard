@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add ClosetVC-->
+        <!--Closet FormVC-->
         <scene sceneID="xKz-Nv-fM7">
             <objects>
-                <viewController storyboardIdentifier="AddClosetVC" id="U35-Yp-WNJ" customClass="AddClosetVC" customModule="fitsmeright" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ClosetFormVC" id="U35-Yp-WNJ" customClass="ClosetFormVC" customModule="fitsmeright" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k62-1Q-u2f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

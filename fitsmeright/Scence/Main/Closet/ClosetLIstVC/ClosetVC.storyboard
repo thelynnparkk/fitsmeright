@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Closet ListVC-->
+        <scene sceneID="WiN-nS-yca">
+            <objects>
+                <viewController storyboardIdentifier="ClosetListVC" id="qoX-zs-hxm" customClass="ClosetListVC" customModule="fitsmeright" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wbp-6x-EXJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ZH-r3-RvC" userLabel="TopView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LWa-dp-aqj" customClass="FloatingView" customModule="fitsmeright" customModuleProvider="target">
+                                <rect key="frame" x="305" y="597" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4vL-HL-BoL"/>
+                                    <constraint firstAttribute="width" constant="50" id="uBx-HG-KQe"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RqQ-YR-0ds" firstAttribute="top" secondItem="8ZH-r3-RvC" secondAttribute="bottom" id="ANK-hD-Bzb"/>
+                            <constraint firstItem="8ZH-r3-RvC" firstAttribute="leading" secondItem="RqQ-YR-0ds" secondAttribute="leading" id="C6E-jb-vop"/>
+                            <constraint firstAttribute="trailing" secondItem="LWa-dp-aqj" secondAttribute="trailing" constant="20" id="Dao-OR-tu2"/>
+                            <constraint firstItem="8ZH-r3-RvC" firstAttribute="top" secondItem="Wbp-6x-EXJ" secondAttribute="top" id="JzH-qk-WH0"/>
+                            <constraint firstAttribute="trailing" secondItem="8ZH-r3-RvC" secondAttribute="trailing" id="ZNB-DS-Yk3"/>
+                            <constraint firstItem="RqQ-YR-0ds" firstAttribute="bottom" secondItem="LWa-dp-aqj" secondAttribute="bottom" constant="20" id="ahl-Xp-ZOE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RqQ-YR-0ds"/>
+                    </view>
+                    <connections>
+                        <outlet property="v_addClosetFloating" destination="LWa-dp-aqj" id="weY-e1-AOT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Crr-bL-AEd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="47" y="66"/>
+        </scene>
+    </scenes>
+</document>

@@ -13,9 +13,7 @@ import UIKit
 
 
 extension ClosetVC:
-  AGVCInstantiatable,
-  AGViewDelegate,
-  AGCADelegate
+  AGVCInstantiatable
 {
   
 }
@@ -32,9 +30,14 @@ class ClosetVC: AGVC {
   
   
   //MARK: - UI
-  @IBOutlet weak var v_addClosetFloating: FloatingView!
-  var collection_main: UICollectionView!
-  var adapter_image: ImageCA!
+  var bbi_edit: UIBarButtonItem!
+  @IBOutlet weak var sv_container: UIScrollView!
+  @IBOutlet weak var imgv_closet: UIImageView!
+  @IBOutlet weak var v_seperator: UIView!
+  @IBOutlet weak var v_brand: ClosetFormView!
+  @IBOutlet weak var v_price: ClosetFormView!
+  @IBOutlet weak var v_size: ClosetFormView!
+  @IBOutlet weak var v_place: ClosetFormView!
   
   
   
@@ -55,7 +58,7 @@ class ClosetVC: AGVC {
   
   
   //MARK: - Storage
-  var fsClosets: [FSCloset] = []
+  var fsCloset: FSCloset?
   var closetCategory: ClosetCategory?
   
   
@@ -107,20 +110,14 @@ class ClosetVC: AGVC {
   override func setupViewOnViewDidLoad() {
     //MARK: Core
     //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
+    bbi_edit = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editClosetPressed))
+    ni.rightBarButtonItems = [bbi_edit]
     
     
     
     //MARK: Component
-//    view.setupViewFrame()
-    collection_main = ControlContainableCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    adapter_image = ImageCA(collection: collection_main)
-    adapter_image.delegate = self
-    view.addSubview(collection_main)
-    v_addClosetFloating.delegate = self
-    let vm_plus = FloatingViewUC.ViewModel()
-    vm_plus.displayedFloating.image = #imageLiteral(resourceName: "plus").filled(withColor: .white)
-    v_addClosetFloating.setupData(with: vm_plus)
-    view.bringSubviewToFront(v_addClosetFloating)
+    sv_container.setupScrollVertical()
+    v_seperator.backgroundColor = c_material.grey300
     
     
     
@@ -129,18 +126,11 @@ class ClosetVC: AGVC {
     
     
     //MARK: Snp
-    collection_main.snp.makeConstraints {
-      $0.top.equalTo(view.snp.topMargin)
-      $0.right.equalToSuperview()
-      $0.bottom.equalTo(view.snp.bottomMargin)
-      $0.left.equalToSuperview()
-    }
     
     
     
     //MARK: Localize
     setupLocalize()
-    
     
     
   }
@@ -153,12 +143,18 @@ class ClosetVC: AGVC {
   
   //MARK: - Setup Data
   override func setupDataOnViewDidLoad() {
-    fetchClosets()
+    fetchCloset()
   }
   
   
   
   //MARK: - Event
+  @objc func editClosetPressed(_ sender: UIButton) {
+    let vc = ClosetFormVC.vc
+    vc.closetCategory = closetCategory
+    vc.fsCloset = fsCloset
+    navigationController?.pushViewController(vc)
+  }
   
   
   
@@ -173,11 +169,11 @@ class ClosetVC: AGVC {
   
   
   
-  //MARK: - VIP - FetchClosets
-  func fetchClosets() {
+  //MARK: - VIP - FetchCloset
+  func fetchCloset() {
     
     func interactor() {
-      if let _ = closetCategory {
+      if let _ = closetCategory, let _ = fsCloset {
         worker()
       } else {
         navigationController?.popViewController()
@@ -189,15 +185,32 @@ class ClosetVC: AGVC {
     }
     
     func present() {
-      let vm = ImageCA.ViewModel()
-      vm.displayedRows = fsClosets.compactMap({
-        let vm = ImageCCUC.ViewModel()
-        vm.displayedImage.imageUrl = $0.imageURL
-        return vm
-      })
-//      vm.displayedFooter.kind = UICollectionView.elementKindSectionFooter
-      vm.displayedFooter.title = "\(vm.displayedRows.count) items"
-      adapter_image.setupData(with: vm)
+      ni.title = closetCategory!.name.uppercased()
+      if let imageURL = fsCloset!.imageURL {
+        imgv_closet.download(from: imageURL, contentMode: .scaleAspectFit, placeholder: nil)
+      } else {
+        imgv_closet.image = nil
+      }
+      let vm_brand = ClosetFormViewUC.ViewModel()
+      vm_brand.displayedForm.key = "Brand"
+      vm_brand.displayedForm.value = fsCloset!._brand
+      vm_brand.displayedForm.isEditable = false
+      let vm_price = ClosetFormViewUC.ViewModel()
+      vm_price.displayedForm.key = "Price"
+      vm_price.displayedForm.value = "\(fsCloset!._price)"
+      vm_price.displayedForm.isEditable = false
+      let vm_size = ClosetFormViewUC.ViewModel()
+      vm_size.displayedForm.key = "Size"
+      vm_size.displayedForm.value = fsCloset!._size
+      vm_size.displayedForm.isEditable = false
+      let vm_place = ClosetFormViewUC.ViewModel()
+      vm_place.displayedForm.key = "Place"
+      vm_place.displayedForm.value = fsCloset!._place
+      vm_place.displayedForm.isEditable = false
+      v_brand.setupData(with: vm_brand)
+      v_price.setupData(with: vm_price)
+      v_size.setupData(with: vm_size)
+      v_place.setupData(with: vm_place)
     }
     
     interactor()
@@ -210,22 +223,7 @@ class ClosetVC: AGVC {
   
   
   
-  //MARK: - Custom - AGViewDelegate
-  func agViewPressed(_ view: AGView, action: Any, tag: Int) {
-    let vc = AddClosetVC.vc
-    vc.closetCategory = closetCategory
-    navigationController?.pushViewController(vc)
-  }
-  
-  
-  
-  //MARK: - Custom - AGCADelegate
-  func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
-    let vc = ClosetDetailVC.vc
-    vc.fsCloset = fsClosets[indexPath.row]
-    vc.closetCategory = closetCategory
-    navigationController?.pushViewController(vc)
-  }
+  //MARK: - Custom - Protocol
   
   
   

@@ -167,7 +167,7 @@ class ClosetCategoryVC: AGVC {
   
   //MARK: - Setup Data
   override func setupDataOnViewDidLoad() {
-    fetchClosetMenus()
+    observeClosetMenus()
   }
   
   
@@ -188,16 +188,17 @@ class ClosetCategoryVC: AGVC {
   
   
   
-  //MARK: - VIP - FetchClosetMenus
-  func fetchClosetMenus() {
+  //MARK: - VIP - ObserveClosetMenus
+  func observeClosetMenus() {
     
     func interactor() {
 //      v_state.setState(with: .loading, isAnimation: false)
-      worker()
+      let fsUser = FMUserDefaults.FSUserDefault.get()!
+      worker(userId: fsUser._documentId)
     }
     
-    func worker() {
-      FSClosetWorker.fetch { [weak self] in
+    func worker(userId: String) {
+      FSClosetWorker.observeWhere(userId: userId) { [weak self] in
         guard let _s = self else { return }
         switch $0.error {
         case .none:
@@ -283,6 +284,7 @@ class ClosetCategoryVC: AGVC {
     }
     
     func presentError(_ error: Error) {
+      present([])
 //      v_state.setState(with: .error, isAnimation: false)
       print(error.localizedDescription)
     }
@@ -339,7 +341,7 @@ class ClosetCategoryVC: AGVC {
       default:
         return
       }
-      let vc = ClosetVC.vc
+      let vc = ClosetListVC.vc
       vc.fsClosets = fsClosets.filter({ $0.closetCategory == category })
       vc.closetCategory = category
       navigationController?.pushViewController(vc)
