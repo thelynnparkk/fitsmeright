@@ -28,6 +28,9 @@ class ClosetFormVC: AGIPC {
   
   
   //MARK: - Enum
+  enum Action {
+    case update(FSCloset)
+  }
   
   
   
@@ -115,7 +118,7 @@ class ClosetFormVC: AGIPC {
   override func setupViewOnViewDidLoad() {
     //MARK: Core
     //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
-    bbi_done = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(addClosetPressed))
+    bbi_done = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneBarButtonPressed))
     ni.rightBarButtonItems = [bbi_done]
     
     
@@ -161,7 +164,7 @@ class ClosetFormVC: AGIPC {
     displayImagePickerAlert()
   }
   
-  @IBAction func addClosetPressed(_ sender: Any) {
+  @IBAction func doneBarButtonPressed(_ sender: Any) {
     if let _ = closetCategory, let _ = fsCloset {
       updateCloset()
     } else {
@@ -343,6 +346,7 @@ class ClosetFormVC: AGIPC {
     func interactor() {
       let fsUser = FMUserDefaults.FSUserDefault.get()!
       let fsCloset = FSCloset()
+      fsCloset.documentId = self.fsCloset?._documentId
       fsCloset.userId = fsUser._documentId
       fsCloset.category = closetCategory?.rawValue
       fsCloset.image = ""
@@ -393,7 +397,7 @@ class ClosetFormVC: AGIPC {
         FSClosetWorker.update(fsCloset: fsCloset) {
           switch $0 {
           case .none:
-            present()
+            present(fsCloset: fsCloset)
           case let .some(e):
             presentError(error: e)
           }
@@ -404,8 +408,8 @@ class ClosetFormVC: AGIPC {
       
     }
     
-    func present() {
-      navigationController?.popViewController(animated: true)
+    func present(fsCloset: FSCloset) {
+      delegate_agvc?.agVCPressed(self, action: Action.update(fsCloset))
     }
     
     func presentError() {
@@ -426,7 +430,7 @@ class ClosetFormVC: AGIPC {
   
   
   
-  //MARK: - Custom - Protocol
+  //MARK: - Custom - ViewIPCDelegate
   public override func didFinishPickingMedia(_ picker: UIImagePickerController, image: UIImage) {
     picker.dismiss(animated: true, completion: nil)
     bbi_done.isEnabled = true

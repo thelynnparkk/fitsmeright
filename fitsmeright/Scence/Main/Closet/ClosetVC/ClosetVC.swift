@@ -13,7 +13,8 @@ import UIKit
 
 
 extension ClosetVC:
-  AGVCInstantiatable
+  AGVCInstantiatable,
+  AGVCDelegate
 {
   
 }
@@ -26,6 +27,9 @@ class ClosetVC: AGVC {
   
   
   //MARK: - Enum
+  enum Action {
+    case update(FSCloset)
+  }
   
   
   
@@ -153,6 +157,7 @@ class ClosetVC: AGVC {
     let vc = ClosetFormVC.vc
     vc.closetCategory = closetCategory
     vc.fsCloset = fsCloset
+    vc.delegate_agvc = self
     navigationController?.pushViewController(vc)
   }
   
@@ -223,7 +228,26 @@ class ClosetVC: AGVC {
   
   
   
-  //MARK: - Custom - Protocol
+  //MARK: - Custom - AGVCDelegate
+  func agVCPressed(_ view: AGVC, action: Any) {
+    
+    func closetForm(action: ClosetFormVC.Action) {
+      switch action {
+      case let .update(fsCloset):
+        navigationController?.popViewController(animated: true) { [weak self] in
+          guard let _s = self else { return }
+          _s.fsCloset = fsCloset
+          _s.fetchCloset()
+          _s.delegate_agvc?.agVCPressed(_s, action: Action.update(fsCloset))
+        }
+      }
+    }
+    
+    if let action = action as? ClosetFormVC.Action {
+      closetForm(action: action)
+    }
+    
+  }
   
   
   

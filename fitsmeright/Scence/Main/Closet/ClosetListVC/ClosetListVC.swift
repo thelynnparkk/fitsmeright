@@ -15,7 +15,8 @@ import UIKit
 extension ClosetListVC:
   AGVCInstantiatable,
   AGViewDelegate,
-  AGCADelegate
+  AGCADelegate,
+  AGVCDelegate
 {
   
 }
@@ -224,7 +225,29 @@ class ClosetListVC: AGVC {
     let vc = ClosetVC.vc
     vc.fsCloset = fsClosets[indexPath.row]
     vc.closetCategory = closetCategory
+    vc.delegate_agvc = self
     navigationController?.pushViewController(vc)
+  }
+  
+  
+  
+  //MARK: - Custom - AGVCDelegate
+  func agVCPressed(_ view: AGVC, action: Any) {
+    
+    func closet(action: ClosetVC.Action) {
+      switch action {
+      case let .update(fsCloset):
+        if let index = fsClosets.firstIndex(where: { $0._documentId == fsCloset._documentId }) {
+          fsClosets[index] = fsCloset
+          fetchClosets()
+        }
+      }
+    }
+    
+    if let action = action as? ClosetVC.Action {
+      closet(action: action)
+    }
+    
   }
   
   
