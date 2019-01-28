@@ -117,8 +117,6 @@ class FloatingView: AGView {
     setupViewFrame()
     backgroundColor = .clear
     addShadow(ofColor: .black, radius: frame.midY, offset: .less, opacity: 0.1)
-    layer.masksToBounds = true
-    clipsToBounds = false
     let gesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
     addGestureRecognizer(gesture)
     
@@ -149,11 +147,7 @@ class FloatingView: AGView {
   
   override func setupViewOnAwakeFromNib() {
     //MARK: Core
-    setupViewFrame()
     backgroundColor = .clear
-//    addShadow(ofColor: .black, radius: frame.midY, offset: .less, opacity: 0.1)
-    layer.masksToBounds = true
-    clipsToBounds = false
     let gesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
     addGestureRecognizer(gesture)
     
@@ -162,7 +156,7 @@ class FloatingView: AGView {
     //MARK: Component
     v_container.backgroundColor = c_custom.peach
     v_container.layer.cornerRadius = v_container.frame.midY
-    v_container.clipsToBounds = true
+//    v_container.clipsToBounds = true
     imgv_icon.contentMode = .scaleAspectFit
     
     
@@ -183,8 +177,7 @@ class FloatingView: AGView {
   }
   
   override func setupViewOnLayoutSubviews() {
-//    addShadow(ofColor: .black, radius: frame.midY, offset: .less, opacity: 0.1)
-    v_container.layer.cornerRadius = v_container.frame.midY
+
   }
 
   
@@ -196,7 +189,13 @@ class FloatingView: AGView {
   
   override func setupData(with viewModel: AGViewModel) {
     guard let vm = viewModel as? ViewModel else { return }
+    setupViewFrame()
     imgv_icon.image = vm.displayedFloating.image
+    DispatchQueue.main.async { [weak self] in
+      guard let _s = self else { return }
+      _s.setupShadow(ofColor: .black, radius: _s.frame.midY, offset: .zero, opacity: 1)
+//      _s.v_container.layer.cornerRadius = _s.v_container.frame.midY
+    }
   }
   
   

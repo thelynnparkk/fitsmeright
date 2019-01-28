@@ -61,12 +61,10 @@
 		5ECE8E7D21F75366000AF65E /* Firestore+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8E7C21F75366000AF65E /* Firestore+AG.swift */; };
 		5ECE8E8021F75FF8000AF65E /* DocumentSnapshot+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8E7F21F75FF8000AF65E /* DocumentSnapshot+AG.swift */; };
 		5ECE8E8221F76015000AF65E /* QueryDocumentSnapshot+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8E8121F76015000AF65E /* QueryDocumentSnapshot+AG.swift */; };
-		5ECE8E8521F769F0000AF65E /* ClosetCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8E8421F769F0000AF65E /* ClosetCategoryVC.swift */; };
 		5ECE8E8721F769F7000AF65E /* ClosetCategoryVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ECE8E8621F769F7000AF65E /* ClosetCategoryVC.storyboard */; };
 		5ECE8E9021F770FE000AF65E /* ClosetFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8E8F21F770FE000AF65E /* ClosetFormVC.swift */; };
 		5EE8924121C3E615008A65ED /* ClosetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924021C3E615008A65ED /* ClosetVC.swift */; };
 		5EE8925821C40958008A65ED /* Entitible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8925721C40958008A65ED /* Entitible.swift */; };
-		5EF9F2D221FC7E880034F7B2 /* ClosetListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8923A21C3E566008A65ED /* ClosetListVC.swift */; };
 		5EF9F2D521FC7EBC0034F7B2 /* ClosetFormVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ECE8E9121F77105000AF65E /* ClosetFormVC.storyboard */; };
 		5EF9F2D621FC7EF20034F7B2 /* ClosetListVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8923C21C3E572008A65ED /* ClosetListVC.storyboard */; };
 		5EF9F2D821FC92200034F7B2 /* ProfileCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF9F2D721FC92200034F7B2 /* ProfileCA.swift */; };
@@ -137,6 +135,8 @@
 		A4C4FAD421F9C6E4004A3F37 /* PopupContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FAD321F9C6E4004A3F37 /* PopupContainerVC.swift */; };
 		A4C4FAD621F9CB35004A3F37 /* PopupDialogable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FAD521F9CB35004A3F37 /* PopupDialogable.swift */; };
 		A4D6584E21BF651F007B8558 /* UITabBar+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */; };
+		A4E1288121FEB9E700F85C66 /* ClosetCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E1288021FEB9E700F85C66 /* ClosetCategoryVC.swift */; };
+		A4E1288321FEBA4D00F85C66 /* ClosetListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E1288221FEBA4D00F85C66 /* ClosetListVC.swift */; };
 		A4E31D8321C28B83004D1707 /* AGUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E31D8221C28B83004D1707 /* AGUserDefaults.swift */; };
 		A4E31D8721C28BA9004D1707 /* FMUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E31D8621C28BA9004D1707 /* FMUserDefaults.swift */; };
 		DF2C096536742865E4346DE8 /* Pods_fitsmerightUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41EC81EF460A825BE1F780A3 /* Pods_fitsmerightUITests.framework */; };
@@ -222,11 +222,9 @@
 		5ECE8E7C21F75366000AF65E /* Firestore+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firestore+AG.swift"; sourceTree = "<group>"; };
 		5ECE8E7F21F75FF8000AF65E /* DocumentSnapshot+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DocumentSnapshot+AG.swift"; sourceTree = "<group>"; };
 		5ECE8E8121F76015000AF65E /* QueryDocumentSnapshot+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueryDocumentSnapshot+AG.swift"; sourceTree = "<group>"; };
-		5ECE8E8421F769F0000AF65E /* ClosetCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClosetCategoryVC.swift; path = fitsmeright/Classe/Extension/Pod/Firestore/ClosetCategoryVC.swift; sourceTree = SOURCE_ROOT; };
 		5ECE8E8621F769F7000AF65E /* ClosetCategoryVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClosetCategoryVC.storyboard; sourceTree = "<group>"; };
 		5ECE8E8F21F770FE000AF65E /* ClosetFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetFormVC.swift; sourceTree = "<group>"; };
 		5ECE8E9121F77105000AF65E /* ClosetFormVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClosetFormVC.storyboard; sourceTree = "<group>"; };
-		5EE8923A21C3E566008A65ED /* ClosetListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListVC.swift; sourceTree = "<group>"; };
 		5EE8923C21C3E572008A65ED /* ClosetListVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClosetListVC.storyboard; sourceTree = "<group>"; };
 		5EE8924021C3E615008A65ED /* ClosetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetVC.swift; sourceTree = "<group>"; };
 		5EE8925721C40958008A65ED /* Entitible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitible.swift; sourceTree = "<group>"; };
@@ -299,6 +297,8 @@
 		A4C4FAD321F9C6E4004A3F37 /* PopupContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupContainerVC.swift; sourceTree = "<group>"; };
 		A4C4FAD521F9CB35004A3F37 /* PopupDialogable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupDialogable.swift; sourceTree = "<group>"; };
 		A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+AG.swift"; sourceTree = "<group>"; };
+		A4E1288021FEB9E700F85C66 /* ClosetCategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosetCategoryVC.swift; sourceTree = "<group>"; };
+		A4E1288221FEBA4D00F85C66 /* ClosetListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListVC.swift; sourceTree = "<group>"; };
 		A4E31D8221C28B83004D1707 /* AGUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGUserDefaults.swift; sourceTree = "<group>"; };
 		A4E31D8621C28BA9004D1707 /* FMUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMUserDefaults.swift; sourceTree = "<group>"; };
 		B4DF961751964A701D834B17 /* Pods-fitsmerightUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitsmerightUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fitsmerightUITests/Pods-fitsmerightUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -731,7 +731,7 @@
 		5ECE8E8321F76993000AF65E /* ClosetCategoryVC */ = {
 			isa = PBXGroup;
 			children = (
-				5ECE8E8421F769F0000AF65E /* ClosetCategoryVC.swift */,
+				A4E1288021FEB9E700F85C66 /* ClosetCategoryVC.swift */,
 				5ECE8E8621F769F7000AF65E /* ClosetCategoryVC.storyboard */,
 			);
 			path = ClosetCategoryVC;
@@ -749,8 +749,8 @@
 		5EE8923821C3E45E008A65ED /* ClosetListVC */ = {
 			isa = PBXGroup;
 			children = (
-				5EE8923A21C3E566008A65ED /* ClosetListVC.swift */,
 				5EE8923C21C3E572008A65ED /* ClosetListVC.storyboard */,
+				A4E1288221FEBA4D00F85C66 /* ClosetListVC.swift */,
 			);
 			path = ClosetListVC;
 			sourceTree = "<group>";
@@ -1355,6 +1355,7 @@
 				A4E31D8721C28BA9004D1707 /* FMUserDefaults.swift in Sources */,
 				A4C4FACD21F9C0D8004A3F37 /* PopupHeaderView.swift in Sources */,
 				5E74DA6621BBD90800A97A89 /* DispatchQueueable.swift in Sources */,
+				A4E1288121FEB9E700F85C66 /* ClosetCategoryVC.swift in Sources */,
 				A4C4B6F821F86FE70036B0F7 /* StateView+AG.swift in Sources */,
 				A4C338BA21F8A3D800147567 /* ImageCC.swift in Sources */,
 				A4C4B6E821F81FE60036B0F7 /* UIScrollView+AG.swift in Sources */,
@@ -1375,10 +1376,10 @@
 				A4E31D8321C28B83004D1707 /* AGUserDefaults.swift in Sources */,
 				A4C4FABB21F975C7004A3F37 /* ClosetMenuView.swift in Sources */,
 				A4C338C021F8A54800147567 /* AGCC.swift in Sources */,
+				A4E1288321FEBA4D00F85C66 /* ClosetListVC.swift in Sources */,
 				5ECE8E7421F74F53000AF65E /* FSCloset.swift in Sources */,
 				5E74D9FD21BBACA900A97A89 /* AppDelegate.swift in Sources */,
 				5E74DA6021BBD67600A97A89 /* UIWindow+AG.swift in Sources */,
-				5ECE8E8521F769F0000AF65E /* ClosetCategoryVC.swift in Sources */,
 				A4C338C621F8AE4200147567 /* UICollectionView+AG.swift in Sources */,
 				5EFC9BB121FB706D0078ED50 /* Date+AG.swift in Sources */,
 				A42F7C7121BE7B7300085DB5 /* UIImage+AG.swift in Sources */,
@@ -1403,7 +1404,6 @@
 				5ECE8E6621F7453D000AF65E /* RAMAnimatedTabBarItem+AG.swift in Sources */,
 				A42F7C5A21BE56D800085DB5 /* AGDefaultsCodable.swift in Sources */,
 				5ECE8E6821F74544000AF65E /* UIView+AG.swift in Sources */,
-				5EF9F2D221FC7E880034F7B2 /* ClosetListVC.swift in Sources */,
 				5E74DA7021BBDAB300A97A89 /* FeedVC.swift in Sources */,
 				A4A98DB521FB0C2200937AE5 /* UITextField+AG.swift in Sources */,
 				5E74DA5A21BBD0B100A97A89 /* TemplateAFR.swift in Sources */,

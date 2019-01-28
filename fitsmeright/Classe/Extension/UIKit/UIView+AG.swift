@@ -18,16 +18,15 @@ extension UIView {
     setNeedsLayout()
     layoutIfNeeded()
   }
-//
-//
-//  func match(in parent: UIView!) -> Void{
-//    self.translatesAutoresizingMaskIntoConstraints = false;
-//    self.frame = parent.frame;
-//    parent.addSubview(self);
-//    NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: parent, attribute: .leading, multiplier: 1.0, constant: 0).isActive = true
-//    NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: parent, attribute: .trailing, multiplier: 1.0, constant: 0).isActive = true
-//    NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: parent, attribute: .top, multiplier: 1.0, constant: 0).isActive = true
-//    NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: parent, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
-//  }
-//  
+
+  public func setupShadow(ofColor color: UIColor = UIColor(red: 0.07, green: 0.47, blue: 0.57, alpha: 1.0), radius: CGFloat = 3, offset: CGSize = .zero, opacity: Float = 0.5) {
+    layer.shadowColor = color.cgColor
+    layer.shadowOffset = offset
+    layer.shadowRadius = radius
+    layer.shadowOpacity = opacity
+    layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: radius).cgPath
+    layer.masksToBounds = false
+    clipsToBounds = false
+  }
+  
 }
