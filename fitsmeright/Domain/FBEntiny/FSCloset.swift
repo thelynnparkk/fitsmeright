@@ -61,7 +61,7 @@ class FSCloset: FirestoreCodable {
   var brand: String?
   var place: String?
   var size: String?
-  var updatedAt: String?
+  var updatedAt: Timestamp?
   
   
   
@@ -94,8 +94,8 @@ class FSCloset: FirestoreCodable {
   var _size: String {
     return size ?? ""
   }
-  var _updatedAt: String {
-    return updatedAt ?? ""
+  var _updatedAt: Timestamp {
+    return updatedAt ?? Timestamp(date: Date())
   }
   var imageURL: URL? {
     return URL(string: _image)

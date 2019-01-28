@@ -93,6 +93,7 @@ class SplashVC: AGVC {
   //MARK: - Setup View
   override func setupViewOnViewDidLoad() {
     //MARK: Core
+    view.backgroundColor = c_material.grey300
     
     
     

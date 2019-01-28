@@ -1,5 +1,5 @@
 //
-//  AddClosetVC.swift
+//  ClosetFormVC.swift
 //  fitsmeright
 //
 //  Created by Lynn Park on 22/1/2562 BE.
@@ -10,10 +10,11 @@
 
 import UIKit
 import FirebaseStorage
+import FirebaseFirestore
 
 
 
-extension AddClosetVC:
+extension ClosetFormVC:
   AGVCInstantiatable
 {
   
@@ -21,12 +22,15 @@ extension AddClosetVC:
 
 
 
-class AddClosetVC: AGIPC {
+class ClosetFormVC: AGIPC {
   //MARK: - AGVCInstantiatable
   
   
   
   //MARK: - Enum
+  enum Action {
+    case update(FSCloset)
+  }
   
   
   
@@ -113,8 +117,9 @@ class AddClosetVC: AGIPC {
   //MARK: - Setup View
   override func setupViewOnViewDidLoad() {
     //MARK: Core
+    view.backgroundColor = .white
     //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
-    bbi_done = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(addClosetPressed))
+    bbi_done = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneBarButtonPressed))
     ni.rightBarButtonItems = [bbi_done]
     
     
@@ -160,7 +165,7 @@ class AddClosetVC: AGIPC {
     displayImagePickerAlert()
   }
   
-  @IBAction func addClosetPressed(_ sender: Any) {
+  @IBAction func doneBarButtonPressed(_ sender: Any) {
     if let _ = closetCategory, let _ = fsCloset {
       updateCloset()
     } else {
@@ -172,7 +177,7 @@ class AddClosetVC: AGIPC {
   
   //MARK: - Public
   override func setupLocalize() {
-    ni.title = AddClosetVC.sb_name
+    ni.title = ClosetFormVC.sb_name
   }
   
   
@@ -266,7 +271,7 @@ class AddClosetVC: AGIPC {
       fsCloset.brand = v_brand.txt_value.text
       fsCloset.place = v_place.txt_value.text
       fsCloset.size = v_size.txt_value.text
-      fsCloset.updatedAt = Date().toString()
+      fsCloset.updatedAt = Timestamp(date: Date())
       worker(fsCloset: fsCloset)
     }
     
@@ -339,6 +344,85 @@ class AddClosetVC: AGIPC {
   //MARK: - VIP - UpdateCloset
   func updateCloset() {
     
+    func interactor() {
+      let fsUser = FMUserDefaults.FSUserDefault.get()!
+      let fsCloset = FSCloset()
+      fsCloset.documentId = self.fsCloset?._documentId
+      fsCloset.userId = fsUser._documentId
+      fsCloset.category = closetCategory?.rawValue
+      fsCloset.image = ""
+      fsCloset.price = v_price.txt_value.text?.int ?? 0
+      fsCloset.brand = v_brand.txt_value.text
+      fsCloset.place = v_place.txt_value.text
+      fsCloset.size = v_size.txt_value.text
+      fsCloset.updatedAt = Timestamp(date: Date())
+      worker(fsCloset: fsCloset)
+    }
+    
+    func worker(fsCloset: FSCloset) {
+      
+      func uploadClosetImage() {
+        guard let data = imgv_closet.image?.jpegData(compressionQuality: 1) else {
+          presentError()
+          return
+        }
+        let ref_folder = Storage.storage().reference(withPath: SCloset.folder)
+        let ref_create = ref_folder.child("\(Date().millisecondsSince1970).jpg")
+        ref_create.putData(data, metadata: nil) { (metadata, error) in
+          if let e = error {
+            presentError(error: e)
+            return
+          }
+          guard let _ = metadata else {
+            presentError()
+            return
+          }
+          ref_create.downloadURL { (url, error) in
+            if let e = error {
+              presentError(error: e)
+              return
+            }
+            guard let url = url else {
+              presentError()
+              return
+            }
+            let ref_old = Storage.storage().reference(forURL: self.fsCloset!._image)
+            ref_old.delete()
+            fsCloset.image = url.absoluteString
+            updateCloset()
+          }
+        }
+      }
+      
+      func updateCloset() {
+        FSClosetWorker.update(fsCloset: fsCloset) {
+          switch $0 {
+          case .none:
+            present(fsCloset: fsCloset)
+          case let .some(e):
+            presentError(error: e)
+          }
+        }
+      }
+      
+      uploadClosetImage()
+      
+    }
+    
+    func present(fsCloset: FSCloset) {
+      delegate_agvc?.agVCPressed(self, action: Action.update(fsCloset))
+    }
+    
+    func presentError() {
+      
+    }
+    
+    func presentError(error: Error) {
+      print(error.localizedDescription)
+    }
+    
+    interactor()
+    
   }
   
   
@@ -347,7 +431,7 @@ class AddClosetVC: AGIPC {
   
   
   
-  //MARK: - Custom - Protocol
+  //MARK: - Custom - ViewIPCDelegate
   public override func didFinishPickingMedia(_ picker: UIImagePickerController, image: UIImage) {
     picker.dismiss(animated: true, completion: nil)
     bbi_done.isEnabled = true

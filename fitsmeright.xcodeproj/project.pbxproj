@@ -49,7 +49,7 @@
 		5E74DA8021BBF7D700A97A89 /* R.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA7F21BBF7D700A97A89 /* R.swift */; };
 		5E74DA8421BBF94B00A97A89 /* UINavigationController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA8321BBF94B00A97A89 /* UINavigationController+AG.swift */; };
 		5E74DA8621BBFC6700A97A89 /* UIImagePickerController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */; };
-		5EC21D5B21F61A1C0013157F /* ClosetDetailVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EC21D5A21F61A1C0013157F /* ClosetDetailVC.storyboard */; };
+		5EC21D5B21F61A1C0013157F /* ClosetVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EC21D5A21F61A1C0013157F /* ClosetVC.storyboard */; };
 		5ECE8E6621F7453D000AF65E /* RAMAnimatedTabBarItem+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8E6521F7453D000AF65E /* RAMAnimatedTabBarItem+AG.swift */; };
 		5ECE8E6821F74544000AF65E /* UIView+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8E6721F74544000AF65E /* UIView+AG.swift */; };
 		5ECE8E6C21F7459B000AF65E /* MockPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8E6B21F7459B000AF65E /* MockPost.swift */; };
@@ -63,12 +63,15 @@
 		5ECE8E8221F76015000AF65E /* QueryDocumentSnapshot+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8E8121F76015000AF65E /* QueryDocumentSnapshot+AG.swift */; };
 		5ECE8E8521F769F0000AF65E /* ClosetCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8E8421F769F0000AF65E /* ClosetCategoryVC.swift */; };
 		5ECE8E8721F769F7000AF65E /* ClosetCategoryVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ECE8E8621F769F7000AF65E /* ClosetCategoryVC.storyboard */; };
-		5ECE8E9021F770FE000AF65E /* AddClosetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8E8F21F770FE000AF65E /* AddClosetVC.swift */; };
-		5ECE8E9221F77105000AF65E /* AddClosetVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ECE8E9121F77105000AF65E /* AddClosetVC.storyboard */; };
-		5EE8923B21C3E566008A65ED /* ClosetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8923A21C3E566008A65ED /* ClosetVC.swift */; };
-		5EE8923D21C3E572008A65ED /* ClosetVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8923C21C3E572008A65ED /* ClosetVC.storyboard */; };
-		5EE8924121C3E615008A65ED /* ClosetDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924021C3E615008A65ED /* ClosetDetailVC.swift */; };
+		5ECE8E9021F770FE000AF65E /* ClosetFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8E8F21F770FE000AF65E /* ClosetFormVC.swift */; };
+		5EE8924121C3E615008A65ED /* ClosetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924021C3E615008A65ED /* ClosetVC.swift */; };
 		5EE8925821C40958008A65ED /* Entitible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8925721C40958008A65ED /* Entitible.swift */; };
+		5EF9F2D221FC7E880034F7B2 /* ClosetListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8923A21C3E566008A65ED /* ClosetListVC.swift */; };
+		5EF9F2D521FC7EBC0034F7B2 /* ClosetFormVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ECE8E9121F77105000AF65E /* ClosetFormVC.storyboard */; };
+		5EF9F2D621FC7EF20034F7B2 /* ClosetListVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8923C21C3E572008A65ED /* ClosetListVC.storyboard */; };
+		5EF9F2D821FC92200034F7B2 /* ProfileCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF9F2D721FC92200034F7B2 /* ProfileCA.swift */; };
+		5EF9F2DA21FC972F0034F7B2 /* ProfileCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF9F2D921FC972F0034F7B2 /* ProfileCC.swift */; };
+		5EF9F2DC21FC974D0034F7B2 /* ProfileCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EF9F2DB21FC974D0034F7B2 /* ProfileCC.xib */; };
 		5EFC9BAA21FB57C00078ED50 /* SCloset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC9BA921FB57C00078ED50 /* SCloset.swift */; };
 		5EFC9BAC21FB67ED0078ED50 /* FSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC9BAB21FB67ED0078ED50 /* FSUser.swift */; };
 		5EFC9BAE21FB684A0078ED50 /* FirestoreCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC9BAD21FB684A0078ED50 /* FirestoreCodable.swift */; };
@@ -207,7 +210,7 @@
 		5E74DA7F21BBF7D700A97A89 /* R.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R.swift; sourceTree = "<group>"; };
 		5E74DA8321BBF94B00A97A89 /* UINavigationController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+AG.swift"; sourceTree = "<group>"; };
 		5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+AG.swift"; sourceTree = "<group>"; };
-		5EC21D5A21F61A1C0013157F /* ClosetDetailVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClosetDetailVC.storyboard; sourceTree = "<group>"; };
+		5EC21D5A21F61A1C0013157F /* ClosetVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClosetVC.storyboard; sourceTree = "<group>"; };
 		5ECE8E6521F7453D000AF65E /* RAMAnimatedTabBarItem+AG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RAMAnimatedTabBarItem+AG.swift"; sourceTree = "<group>"; };
 		5ECE8E6721F74544000AF65E /* UIView+AG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AG.swift"; sourceTree = "<group>"; };
 		5ECE8E6B21F7459B000AF65E /* MockPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPost.swift; sourceTree = "<group>"; };
@@ -221,12 +224,15 @@
 		5ECE8E8121F76015000AF65E /* QueryDocumentSnapshot+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QueryDocumentSnapshot+AG.swift"; sourceTree = "<group>"; };
 		5ECE8E8421F769F0000AF65E /* ClosetCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClosetCategoryVC.swift; path = fitsmeright/Classe/Extension/Pod/Firestore/ClosetCategoryVC.swift; sourceTree = SOURCE_ROOT; };
 		5ECE8E8621F769F7000AF65E /* ClosetCategoryVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClosetCategoryVC.storyboard; sourceTree = "<group>"; };
-		5ECE8E8F21F770FE000AF65E /* AddClosetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClosetVC.swift; sourceTree = "<group>"; };
-		5ECE8E9121F77105000AF65E /* AddClosetVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddClosetVC.storyboard; sourceTree = "<group>"; };
-		5EE8923A21C3E566008A65ED /* ClosetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetVC.swift; sourceTree = "<group>"; };
-		5EE8923C21C3E572008A65ED /* ClosetVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClosetVC.storyboard; sourceTree = "<group>"; };
-		5EE8924021C3E615008A65ED /* ClosetDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetDetailVC.swift; sourceTree = "<group>"; };
+		5ECE8E8F21F770FE000AF65E /* ClosetFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetFormVC.swift; sourceTree = "<group>"; };
+		5ECE8E9121F77105000AF65E /* ClosetFormVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClosetFormVC.storyboard; sourceTree = "<group>"; };
+		5EE8923A21C3E566008A65ED /* ClosetListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListVC.swift; sourceTree = "<group>"; };
+		5EE8923C21C3E572008A65ED /* ClosetListVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClosetListVC.storyboard; sourceTree = "<group>"; };
+		5EE8924021C3E615008A65ED /* ClosetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetVC.swift; sourceTree = "<group>"; };
 		5EE8925721C40958008A65ED /* Entitible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitible.swift; sourceTree = "<group>"; };
+		5EF9F2D721FC92200034F7B2 /* ProfileCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCA.swift; sourceTree = "<group>"; };
+		5EF9F2D921FC972F0034F7B2 /* ProfileCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCC.swift; sourceTree = "<group>"; };
+		5EF9F2DB21FC974D0034F7B2 /* ProfileCC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCC.xib; sourceTree = "<group>"; };
 		5EFC9BA921FB57C00078ED50 /* SCloset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCloset.swift; sourceTree = "<group>"; };
 		5EFC9BAB21FB67ED0078ED50 /* FSUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSUser.swift; sourceTree = "<group>"; };
 		5EFC9BAD21FB684A0078ED50 /* FirestoreCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreCodable.swift; sourceTree = "<group>"; };
@@ -731,22 +737,22 @@
 			path = ClosetCategoryVC;
 			sourceTree = "<group>";
 		};
-		5ECE8E8E21F76F8A000AF65E /* AddClosetVC */ = {
+		5ECE8E8E21F76F8A000AF65E /* ClosetFormVC */ = {
 			isa = PBXGroup;
 			children = (
-				5ECE8E8F21F770FE000AF65E /* AddClosetVC.swift */,
-				5ECE8E9121F77105000AF65E /* AddClosetVC.storyboard */,
+				5ECE8E8F21F770FE000AF65E /* ClosetFormVC.swift */,
+				5ECE8E9121F77105000AF65E /* ClosetFormVC.storyboard */,
 			);
-			path = AddClosetVC;
+			path = ClosetFormVC;
 			sourceTree = "<group>";
 		};
-		5EE8923821C3E45E008A65ED /* ClosetVC */ = {
+		5EE8923821C3E45E008A65ED /* ClosetListVC */ = {
 			isa = PBXGroup;
 			children = (
-				5EE8923A21C3E566008A65ED /* ClosetVC.swift */,
-				5EE8923C21C3E572008A65ED /* ClosetVC.storyboard */,
+				5EE8923A21C3E566008A65ED /* ClosetListVC.swift */,
+				5EE8923C21C3E572008A65ED /* ClosetListVC.storyboard */,
 			);
-			path = ClosetVC;
+			path = ClosetListVC;
 			sourceTree = "<group>";
 		};
 		5EE8923921C3E46F008A65ED /* Feed */ = {
@@ -761,21 +767,21 @@
 		5EE8923E21C3E5F5008A65ED /* Closet */ = {
 			isa = PBXGroup;
 			children = (
-				5ECE8E8E21F76F8A000AF65E /* AddClosetVC */,
+				5ECE8E8E21F76F8A000AF65E /* ClosetFormVC */,
 				5ECE8E8321F76993000AF65E /* ClosetCategoryVC */,
-				5EE8923821C3E45E008A65ED /* ClosetVC */,
-				5EE8923F21C3E602008A65ED /* ClosetDetailVC */,
+				5EE8923821C3E45E008A65ED /* ClosetListVC */,
+				5EE8923F21C3E602008A65ED /* ClosetVC */,
 			);
 			path = Closet;
 			sourceTree = "<group>";
 		};
-		5EE8923F21C3E602008A65ED /* ClosetDetailVC */ = {
+		5EE8923F21C3E602008A65ED /* ClosetVC */ = {
 			isa = PBXGroup;
 			children = (
-				5EE8924021C3E615008A65ED /* ClosetDetailVC.swift */,
-				5EC21D5A21F61A1C0013157F /* ClosetDetailVC.storyboard */,
+				5EE8924021C3E615008A65ED /* ClosetVC.swift */,
+				5EC21D5A21F61A1C0013157F /* ClosetVC.storyboard */,
 			);
-			path = ClosetDetailVC;
+			path = ClosetVC;
 			sourceTree = "<group>";
 		};
 		A42F7C5F21BE5BA400085DB5 /* Application */ = {
@@ -865,6 +871,7 @@
 			children = (
 				A4C338B721F8A3CD00147567 /* ImageCA.swift */,
 				A4C338C321F8AC2C00147567 /* AGCA.swift */,
+				5EF9F2D721FC92200034F7B2 /* ProfileCA.swift */,
 			);
 			name = Collection;
 			path = ../Collection;
@@ -876,6 +883,8 @@
 				A4C338B921F8A3D800147567 /* ImageCC.swift */,
 				A4C338BB21F8A3E000147567 /* ImageCC.xib */,
 				A4C338BF21F8A54800147567 /* AGCC.swift */,
+				5EF9F2D921FC972F0034F7B2 /* ProfileCC.swift */,
+				5EF9F2DB21FC974D0034F7B2 /* ProfileCC.xib */,
 			);
 			path = CC;
 			sourceTree = "<group>";
@@ -1122,25 +1131,26 @@
 				A4C4FABD21F975C7004A3F37 /* ClosetFormView.xib in Resources */,
 				5E74DA7E21BBDB6800A97A89 /* CreatePostVC.storyboard in Resources */,
 				A4C4FAB521F975C7004A3F37 /* CreateTextView.xib in Resources */,
-				5EE8923D21C3E572008A65ED /* ClosetVC.storyboard in Resources */,
 				5E74DA7C21BBDB5E00A97A89 /* ProfileVC.storyboard in Resources */,
 				5E74DA7821BBDADF00A97A89 /* MainTBC.storyboard in Resources */,
 				A42F7C6721BE621C00085DB5 /* BlankVC.storyboard in Resources */,
+				5EF9F2DC21FC974D0034F7B2 /* ProfileCC.xib in Resources */,
 				5E74DA0421BBACAA00A97A89 /* Assets.xcassets in Resources */,
 				A4C4FABE21F975C7004A3F37 /* PostView.xib in Resources */,
-				5EC21D5B21F61A1C0013157F /* ClosetDetailVC.storyboard in Resources */,
+				5EC21D5B21F61A1C0013157F /* ClosetVC.storyboard in Resources */,
 				A4C338BC21F8A3E000147567 /* ImageCC.xib in Resources */,
 				A4C4FAB721F975C7004A3F37 /* CreatePostView.xib in Resources */,
 				5E74DA7A21BBDB5200A97A89 /* FeedVC.storyboard in Resources */,
-				5ECE8E9221F77105000AF65E /* AddClosetVC.storyboard in Resources */,
 				A42F7C4E21BE321300085DB5 /* README.md in Resources */,
 				5E74DA4521BBD04300A97A89 /* SplashVC.storyboard in Resources */,
 				5E0900BA21C2B89B0099F81E /* CreatePostDesignVC.storyboard in Resources */,
 				5ECE8E6E21F747B7000AF65E /* GoogleService-Info.plist in Resources */,
 				A4C4FAC421F979A7004A3F37 /* LabelCRV.xib in Resources */,
 				5E74DA0221BBACA900A97A89 /* Main.storyboard in Resources */,
+				5EF9F2D521FC7EBC0034F7B2 /* ClosetFormVC.storyboard in Resources */,
 				5ECE8E8721F769F7000AF65E /* ClosetCategoryVC.storyboard in Resources */,
 				A42F7C6F21BE76A200085DB5 /* BlankTVC.storyboard in Resources */,
+				5EF9F2D621FC7EF20034F7B2 /* ClosetListVC.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1350,7 +1360,7 @@
 				A4C4B6E821F81FE60036B0F7 /* UIScrollView+AG.swift in Sources */,
 				A42F7C6221BE5BD100085DB5 /* AGApplicationWindow.swift in Sources */,
 				A4C4FAD421F9C6E4004A3F37 /* PopupContainerVC.swift in Sources */,
-				5EE8924121C3E615008A65ED /* ClosetDetailVC.swift in Sources */,
+				5EE8924121C3E615008A65ED /* ClosetVC.swift in Sources */,
 				A4C4FAB621F975C7004A3F37 /* CreateTextView.swift in Sources */,
 				A42F7C5E21BE5B4B00085DB5 /* AGApplicationRoutable.swift in Sources */,
 				5E74DA5321BBD0B100A97A89 /* TemplateV.swift in Sources */,
@@ -1359,6 +1369,7 @@
 				A4C4B6EE21F821740036B0F7 /* AGIPC.swift in Sources */,
 				A4C4FAB921F975C7004A3F37 /* AGView.swift in Sources */,
 				5E74D9FF21BBACA900A97A89 /* ViewController.swift in Sources */,
+				5EF9F2D821FC92200034F7B2 /* ProfileCA.swift in Sources */,
 				5EE8925821C40958008A65ED /* Entitible.swift in Sources */,
 				5ECE8E7621F75054000AF65E /* Firestore+CodableFirebase.swift in Sources */,
 				A4E31D8321C28B83004D1707 /* AGUserDefaults.swift in Sources */,
@@ -1371,7 +1382,6 @@
 				A4C338C621F8AE4200147567 /* UICollectionView+AG.swift in Sources */,
 				5EFC9BB121FB706D0078ED50 /* Date+AG.swift in Sources */,
 				A42F7C7121BE7B7300085DB5 /* UIImage+AG.swift in Sources */,
-				5EE8923B21C3E566008A65ED /* ClosetVC.swift in Sources */,
 				5E74DA6E21BBDAAC00A97A89 /* MainTBC.swift in Sources */,
 				A4C4FABA21F975C7004A3F37 /* Post.swift in Sources */,
 				A408A4D121BEB4970030F2F5 /* UIBarButtonItem +AG.swift in Sources */,
@@ -1381,6 +1391,7 @@
 				A4C4FAC621F9A13C004A3F37 /* ViewIPC.swift in Sources */,
 				5E74DA5821BBD0B100A97A89 /* TemplateVIP.swift in Sources */,
 				A4C4FAB821F975C7004A3F37 /* ClosetFormView.swift in Sources */,
+				5EF9F2DA21FC972F0034F7B2 /* ProfileCC.swift in Sources */,
 				5E74DA8021BBF7D700A97A89 /* R.swift in Sources */,
 				A4C338C221F8A62D00147567 /* AGCellInstantiatable.swift in Sources */,
 				5E74DA5921BBD0B100A97A89 /* Templatable.swift in Sources */,
@@ -1392,6 +1403,7 @@
 				5ECE8E6621F7453D000AF65E /* RAMAnimatedTabBarItem+AG.swift in Sources */,
 				A42F7C5A21BE56D800085DB5 /* AGDefaultsCodable.swift in Sources */,
 				5ECE8E6821F74544000AF65E /* UIView+AG.swift in Sources */,
+				5EF9F2D221FC7E880034F7B2 /* ClosetListVC.swift in Sources */,
 				5E74DA7021BBDAB300A97A89 /* FeedVC.swift in Sources */,
 				A4A98DB521FB0C2200937AE5 /* UITextField+AG.swift in Sources */,
 				5E74DA5A21BBD0B100A97A89 /* TemplateAFR.swift in Sources */,
@@ -1412,7 +1424,7 @@
 				A42F7C6D21BE768A00085DB5 /* BlankTVC.swift in Sources */,
 				5E74DA5521BBD0B100A97A89 /* TemplateCCA.swift in Sources */,
 				5E74DA7321BBDABF00A97A89 /* ProfileVC.swift in Sources */,
-				5ECE8E9021F770FE000AF65E /* AddClosetVC.swift in Sources */,
+				5ECE8E9021F770FE000AF65E /* ClosetFormVC.swift in Sources */,
 				A4C4FACF21F9C396004A3F37 /* PopupFooterView.swift in Sources */,
 				5E74DA5B21BBD0B100A97A89 /* TemplateAFApi.swift in Sources */,
 			);

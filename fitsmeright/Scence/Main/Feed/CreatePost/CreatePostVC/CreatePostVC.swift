@@ -105,6 +105,7 @@ class CreatePostVC: AGIPC {
   //MARK: - Setup View
   override func setupViewOnViewDidLoad() {
     //MARK: Core
+    view.backgroundColor = c_material.grey300
     nb?.setupWith(content: .white, bg: c_custom.peach, isTranslucent: false)
     
     

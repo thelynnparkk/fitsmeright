@@ -38,21 +38,34 @@ class ImageCC: AGCC {
   //MARK: - Enum
   enum Sizing {
     
-    static func size(with bound: CGRect = .zero, rowItems: Int = 1) -> CGSize {
+    static func size(with bound: CGRect = .zero,
+                     rowItems: Int = 1,
+                     customItemSpace: CGFloat? = nil,
+                     customItemLine: CGFloat? = nil,
+                     customInset: UIEdgeInsets? = nil) -> CGSize {
       let rowSpace = CGFloat(rowItems - 1)
-      let side = (bound.width - (itemSpace() * rowSpace) - (inset().right + inset().left)) / CGFloat(rowItems)
+      let side = (bound.width - (itemSpace(custom: customItemSpace) * rowSpace) - (inset(custom: customInset).right + inset(custom: customInset).left)) / CGFloat(rowItems)
       return CGSize(width: side, height: side)
     }
     
-    static func itemSpace(with bound: CGRect = .zero) -> CGFloat {
+    static func itemSpace(with bound: CGRect = .zero, custom: CGFloat? = nil) -> CGFloat {
+      if let custom = custom {
+        return custom
+      }
       return 5
     }
     
-    static func lineSpace(with bound: CGRect = .zero) -> CGFloat {
+    static func lineSpace(with bound: CGRect = .zero, custom: CGFloat? = nil) -> CGFloat {
+      if let custom = custom {
+        return custom
+      }
       return 5
     }
     
-    static func inset(with bound: CGRect = .zero) -> UIEdgeInsets {
+    static func inset(with bound: CGRect = .zero, custom: UIEdgeInsets? = nil) -> UIEdgeInsets {
+      if let custom = custom {
+        return custom
+      }
       return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
     
@@ -66,7 +79,7 @@ class ImageCC: AGCC {
   
   //MARK: - UI
   @IBOutlet weak var v_container: UIView!
-  @IBOutlet weak var img: UIImageView!
+  @IBOutlet weak var imgv: UIImageView!
   
   
   
@@ -140,7 +153,7 @@ class ImageCC: AGCC {
     
     
     //MARK: Component
-    img.backgroundColor = c_material.grey300
+    imgv.backgroundColor = c_material.grey400
     
     
     
@@ -181,9 +194,9 @@ class ImageCC: AGCC {
   override func setupData(with viewModel: AGCCModel) {
     guard let vm = viewModel as? ViewModel else { return }
     if let imageUrl = vm.displayedImage.imageUrl {
-      img.download(from: imageUrl, contentMode: .scaleAspectFit, placeholder: nil)
+      imgv.download(from: imageUrl, contentMode: .scaleAspectFit, placeholder: nil)
     } else {
-      img.image = nil
+      imgv.image = nil
     }
   }
   

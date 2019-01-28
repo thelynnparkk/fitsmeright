@@ -31,8 +31,9 @@ class FSUser: FirestoreCodable {
     case facebookId
     case email
     case username
-    case name
+    case displayName
     case password
+    case bio
     case image
     case updatedAt
   }
@@ -57,10 +58,11 @@ class FSUser: FirestoreCodable {
   var facebookId: String?
   var email: String?
   var username: String?
-  var name: String?
+  var displayName: String?
   var password: String?
+  var bio: String?
   var image: String?
-  var updatedAt: String?
+  var updatedAt: Timestamp?
   
   
   
@@ -81,17 +83,20 @@ class FSUser: FirestoreCodable {
   var _username: String {
     return username ?? ""
   }
-  var _name: String {
-    return name ?? ""
+  var _displayName: String {
+    return displayName ?? ""
   }
   var _password: String {
     return password ?? ""
   }
+  var _bio: String {
+    return bio ?? ""
+  }
   var _image: String {
     return image ?? ""
   }
-  var _updatedAt: String {
-    return updatedAt ?? ""
+  var _updatedAt: Timestamp {
+    return updatedAt ?? Timestamp(date: Date())
   }
   var imageURL: URL? {
     return URL(string: _image)

@@ -12,6 +12,17 @@ import UIKit
 
 
 
+class AGVCModel {
+  
+}
+
+
+
+protocol AGVCDelegate: class {
+  func agVCPressed(_ view: AGVC, action: Any)
+}
+
+
 
 extension AGVC:
   LifeCyclable,
@@ -42,6 +53,7 @@ class AGVC: UIViewController {
   
   
   //MARK: - Instance
+  var delegate_agvc: AGVCDelegate?
   
   
   

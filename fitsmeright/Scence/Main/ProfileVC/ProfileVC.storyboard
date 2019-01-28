@@ -21,26 +21,28 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRa-XL-vLf">
-                                <rect key="frame" x="183.5" y="333" width="8" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g5o-lk-wLS" customClass="FloatingView" customModule="fitsmeright" customModuleProvider="target">
+                                <rect key="frame" x="305" y="597" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="5QP-lS-JXo"/>
+                                    <constraint firstAttribute="height" constant="50" id="dMZ-HN-mdx"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tan-At-E1k" firstAttribute="top" secondItem="9jJ-2u-gTN" secondAttribute="top" id="0gF-0y-G30"/>
+                            <constraint firstItem="897-iu-dkr" firstAttribute="bottom" secondItem="g5o-lk-wLS" secondAttribute="bottom" constant="20" id="19N-AC-acp"/>
                             <constraint firstItem="tan-At-E1k" firstAttribute="leading" secondItem="897-iu-dkr" secondAttribute="leading" id="3Pv-AU-GBR"/>
-                            <constraint firstItem="zRa-XL-vLf" firstAttribute="centerX" secondItem="897-iu-dkr" secondAttribute="centerX" id="4h5-H2-5Yh"/>
+                            <constraint firstItem="897-iu-dkr" firstAttribute="trailing" secondItem="g5o-lk-wLS" secondAttribute="trailing" constant="20" id="Bua-5E-voL"/>
                             <constraint firstAttribute="trailing" secondItem="tan-At-E1k" secondAttribute="trailing" id="XX8-iS-SoE"/>
                             <constraint firstItem="897-iu-dkr" firstAttribute="top" secondItem="tan-At-E1k" secondAttribute="bottom" id="axm-gk-rA5"/>
-                            <constraint firstItem="zRa-XL-vLf" firstAttribute="centerY" secondItem="897-iu-dkr" secondAttribute="centerY" id="uv3-KH-YTZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="897-iu-dkr"/>
                     </view>
                     <connections>
-                        <outlet property="lb_title" destination="zRa-XL-vLf" id="WGd-8k-BWW"/>
+                        <outlet property="v_addFriendFloating" destination="g5o-lk-wLS" id="7cr-A3-JUe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZC-Ai-7aT" userLabel="First Responder" sceneMemberID="firstResponder"/>
