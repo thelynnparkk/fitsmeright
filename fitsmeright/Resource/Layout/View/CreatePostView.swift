@@ -34,7 +34,7 @@ class CreatePostView: AGView {
   
   
   //MARK: - UI
-  @IBOutlet weak var v_container: UIView!
+  @IBOutlet weak var view: UIView!
   @IBOutlet weak var imgv_01: UIImageView!
   @IBOutlet weak var imgv_02: UIImageView!
   @IBOutlet weak var imgv_03: UIImageView!
@@ -73,7 +73,7 @@ class CreatePostView: AGView {
   
   //MARK: - Life cycle
   override func onInit() {
-    loadContainerIntoNib()
+    loadContainerIntoView()
     super.onInit()
   }
   
@@ -93,7 +93,7 @@ class CreatePostView: AGView {
   }
   
   override func awakeFromNib() {
-    loadContainerIntoNib()
+    loadContainerIntoView()
     super.awakeFromNib()
     
   }
@@ -106,7 +106,7 @@ class CreatePostView: AGView {
     
     
     //MARK: Component
-    v_container.backgroundColor = c.lightGray.withAlphaComponent(0.2)
+    view.backgroundColor = c.lightGray.withAlphaComponent(0.2)
     imgv_01.contentMode = .scaleAspectFit
     imgv_02.contentMode = .scaleAspectFit
     imgv_03.contentMode = .scaleAspectFit

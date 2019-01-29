@@ -12,7 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FloatingView" customModule="fitsmeright" customModuleProvider="target">
             <connections>
                 <outlet property="imgv_icon" destination="5x2-r8-CfL" id="lrZ-ZZ-6WS"/>
-                <outlet property="v_container" destination="bEf-PV-GUt" id="Ngt-8B-rLA"/>
+                <outlet property="view" destination="bEf-PV-GUt" id="igM-mK-vns"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -27,10 +27,10 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="5x2-r8-CfL" firstAttribute="leading" secondItem="bEf-PV-GUt" secondAttribute="leading" constant="15" id="jpN-4F-RqJ"/>
-                <constraint firstItem="5x2-r8-CfL" firstAttribute="top" secondItem="bEf-PV-GUt" secondAttribute="top" constant="15" id="jw3-gc-CPW"/>
-                <constraint firstAttribute="trailing" secondItem="5x2-r8-CfL" secondAttribute="trailing" constant="15" id="lWR-7e-uIZ"/>
-                <constraint firstAttribute="bottom" secondItem="5x2-r8-CfL" secondAttribute="bottom" constant="15" id="sEZ-EM-jye"/>
+                <constraint firstItem="5x2-r8-CfL" firstAttribute="top" secondItem="bEf-PV-GUt" secondAttribute="top" constant="15" id="BkU-bh-ZXM"/>
+                <constraint firstAttribute="bottom" secondItem="5x2-r8-CfL" secondAttribute="bottom" constant="15" id="fRe-ez-7JL"/>
+                <constraint firstAttribute="trailing" secondItem="5x2-r8-CfL" secondAttribute="trailing" constant="15" id="nCI-wC-IVR"/>
+                <constraint firstItem="5x2-r8-CfL" firstAttribute="leading" secondItem="bEf-PV-GUt" secondAttribute="leading" constant="15" id="y9O-7x-arA"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="MW0-Zh-pv2"/>
             <point key="canvasLocation" x="137.59999999999999" y="148.42578710644679"/>

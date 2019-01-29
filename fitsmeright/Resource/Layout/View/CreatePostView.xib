@@ -16,7 +16,7 @@
                 <outlet property="imgv_03" destination="Le3-Ou-0qu" id="gOP-gb-eU4"/>
                 <outlet property="imgv_04" destination="j5r-Hw-ln2" id="kYW-Sh-GSt"/>
                 <outlet property="imgv_background" destination="JPA-3b-GWn" id="ul1-ok-nb7"/>
-                <outlet property="v_container" destination="W2t-Ab-vpi" id="twx-eh-jC9"/>
+                <outlet property="view" destination="W2t-Ab-vpi" id="l8a-AX-skU"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

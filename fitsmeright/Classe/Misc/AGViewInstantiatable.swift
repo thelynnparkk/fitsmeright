@@ -14,8 +14,8 @@ import UIKit
 
 protocol AGViewInstantiatable {
   static var nib_name: String { get }
-  var v_container: UIView! { get set }
-  func loadContainerIntoNib()
+  var view: UIView! { get set }
+  func loadContainerIntoView()
 }
 
 
@@ -27,10 +27,10 @@ extension AGViewInstantiatable where Self: UIView {
     return String(describing: Self.self)
   }
   
-  func loadContainerIntoNib() {
+  func loadContainerIntoView() {
     Bundle.main.loadNibNamed(Self.nib_name, owner: self, options: nil)
-    addSubview(v_container)
-    v_container.fillToSuperview()
+    addSubview(view)
+    view.fillToSuperview()
   }
   
   

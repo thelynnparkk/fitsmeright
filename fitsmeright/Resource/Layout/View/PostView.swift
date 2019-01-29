@@ -49,7 +49,7 @@ class PostView: AGView {
   
   
   //MARK: - UI
-  @IBOutlet weak var v_container: UIView!
+  @IBOutlet weak var view: UIView!
   @IBOutlet weak var imgv_user: UIImageView!
   @IBOutlet weak var lb_username: UILabel!
   @IBOutlet weak var lb_createdAt: UILabel!
@@ -96,7 +96,7 @@ class PostView: AGView {
   
   //MARK: - Life cycle
   override func onInit() {
-    loadContainerIntoNib()
+    loadContainerIntoView()
     super.onInit()
   }
   
@@ -116,7 +116,7 @@ class PostView: AGView {
   }
   
   override func awakeFromNib() {
-    loadContainerIntoNib()
+    loadContainerIntoView()
     super.awakeFromNib()
     
   }

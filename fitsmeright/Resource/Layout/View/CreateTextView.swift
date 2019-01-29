@@ -34,7 +34,7 @@ class CreateTextView: AGView {
   
   
   //MARK: - UI
-  @IBOutlet weak var v_container: UIView!
+  @IBOutlet weak var view: UIView!
   @IBOutlet weak var v_overlay: UIView!
   @IBOutlet weak var txt_main: UITextField!
   
@@ -70,7 +70,7 @@ class CreateTextView: AGView {
   
   //MARK: - Life cycle
   override func onInit() {
-    loadContainerIntoNib()
+    loadContainerIntoView()
     super.onInit()
   }
   
@@ -90,7 +90,7 @@ class CreateTextView: AGView {
   }
   
   override func awakeFromNib() {
-    loadContainerIntoNib()
+    loadContainerIntoView()
     super.awakeFromNib()
     
   }
@@ -104,7 +104,7 @@ class CreateTextView: AGView {
     
     
     //MARK: Component
-    v_container.backgroundColor = .clear
+    view.backgroundColor = .clear
     v_overlay.backgroundColor = c.black.withAlphaComponent(0.6)
     txt_main.text = ""
     txt_main.placeholder = "text"
@@ -174,18 +174,14 @@ class CreateTextView: AGView {
     v_overlay.isHidden = false
     txt_main.isHidden = false
     v_overlay.alpha = 0
-    UIView.animate(withDuration: 0.3, animations: {
-      self.v_overlay.alpha = 1
-    }) { _ in
+    v_overlay.fadeIn(duration: 0.3) { bool in
       onComplete()
     }
   }
   
   func displayStopEdit(onComplete: @escaping CBVoid) {
     v_overlay.alpha = 1
-    UIView.animate(withDuration: 0.3, animations: {
-      self.v_overlay.alpha = 0
-    }) { _ in
+    v_overlay.fadeOut(duration: 0.3) { bool in
       self.v_overlay.isHidden = true
       self.txt_main.isHidden = (self.txt_main.text ?? "").isEmpty
       onComplete()

@@ -51,7 +51,7 @@ class ClosetFormView: AGView {
   
   
   //MARK: - UI
-  @IBOutlet weak var v_container: UIView!
+  @IBOutlet weak var view: UIView!
   @IBOutlet weak var v_seperator: UIView!
   @IBOutlet weak var lb_key: UILabel!
   @IBOutlet weak var txt_value: UITextField!
@@ -89,7 +89,7 @@ class ClosetFormView: AGView {
   
   //MARK: - Life cycle
   override func onInit() {
-    loadContainerIntoNib()
+    loadContainerIntoView()
     super.onInit()
   }
   
@@ -109,7 +109,7 @@ class ClosetFormView: AGView {
   }
   
   override func awakeFromNib() {
-    loadContainerIntoNib()
+    loadContainerIntoView()
     super.awakeFromNib()
     
   }
@@ -123,8 +123,13 @@ class ClosetFormView: AGView {
     
     
     //MARK: Component
-    v_container.backgroundColor = .clear
+    view.backgroundColor = .white
     v_seperator.backgroundColor = c_material.grey300
+    lb_key.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+    txt_value.textColor = c_material.grey500
+    txt_value.textAlignment = .right
+    txt_value.borderStyle = .none
+    txt_value.font = UIFont.systemFont(ofSize: 14, weight: .regular)
     
     
     
@@ -150,7 +155,7 @@ class ClosetFormView: AGView {
     
     
     //MARK: Component
-    v_container.backgroundColor = .clear
+    view.backgroundColor = .white
     v_seperator.backgroundColor = c_material.grey300
     lb_key.font = UIFont.systemFont(ofSize: 14, weight: .bold)
     txt_value.textColor = c_material.grey500
@@ -176,8 +181,7 @@ class ClosetFormView: AGView {
   }
   
   override func setupViewOnLayoutSubviews() {
-    addShadow(ofColor: .black, radius: frame.midY, offset: .less, opacity: 0.1)
-    v_container.layer.cornerRadius = v_container.frame.midY
+    
   }
   
   
@@ -189,6 +193,7 @@ class ClosetFormView: AGView {
   
   override func setupData(with viewModel: AGViewModel) {
     guard let vm = viewModel as? ViewModel else { return }
+    setupViewFrame()
     lb_key.text = vm.displayedForm.key
     txt_value.text = vm.displayedForm.value
     txt_value.isUserInteractionEnabled = vm.displayedForm.isEditable

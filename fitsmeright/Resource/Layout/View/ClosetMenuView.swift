@@ -49,7 +49,7 @@ class ClosetMenuView: AGView {
   
   
   //MARK: - UI
-  @IBOutlet weak var v_container: UIView!
+  @IBOutlet weak var view: UIView!
   @IBOutlet weak var lb_title: UILabel!
   @IBOutlet weak var imgv_icon: UIImageView!
   var tapGesture: UITapGestureRecognizer!
@@ -87,7 +87,7 @@ class ClosetMenuView: AGView {
   
   //MARK: - Life cycle
   override func onInit() {
-    loadContainerIntoNib()
+    loadContainerIntoView()
     super.onInit()
   }
   
@@ -107,7 +107,7 @@ class ClosetMenuView: AGView {
   }
   
   override func awakeFromNib() {
-    loadContainerIntoNib()
+    loadContainerIntoView()
     super.awakeFromNib()
     
   }
@@ -117,7 +117,6 @@ class ClosetMenuView: AGView {
   override func setupViewOnInit() {
     //MARK: Core
     backgroundColor = .clear
-    addShadow(ofColor: .black, radius: 8, offset: .less, opacity: 0.1)
     layer.masksToBounds = true
     clipsToBounds = false
     let gesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
@@ -126,10 +125,9 @@ class ClosetMenuView: AGView {
     
     
     //MARK: Component
-    setupViewFrame()
-    v_container.backgroundColor = .white
-    v_container.layer.cornerRadius = 8
-    v_container.clipsToBounds = true
+    view.backgroundColor = .white
+    view.layer.cornerRadius = 8
+    view.clipsToBounds = true
     imgv_icon.contentMode = .scaleAspectFit
     lb_title.textColor = UIColor.Custom.peach
     
@@ -155,8 +153,7 @@ class ClosetMenuView: AGView {
   }
   
   override func setupViewOnLayoutSubviews() {
-    addShadow(ofColor: .black, radius: 8, offset: .less, opacity: 0.1)
-    v_container.layer.cornerRadius = 8
+    
   }
   
   
@@ -170,6 +167,8 @@ class ClosetMenuView: AGView {
     guard let vm = viewModel as? ViewModel else { return }
     lb_title.text = vm.displayedMenu.title
     imgv_icon.image = vm.displayedMenu.image
+    setupViewFrame()
+    addShadow(ofColor: .black, radius: 8, offset: .less, opacity: 0.1)
   }
   
   

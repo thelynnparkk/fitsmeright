@@ -48,7 +48,7 @@ class FloatingView: AGView {
   
   
   //MARK: - UI
-  @IBOutlet weak var v_container: UIView!
+  @IBOutlet weak var view: UIView!
   @IBOutlet weak var imgv_icon: UIImageView!
   var tapGesture: UITapGestureRecognizer!
   
@@ -85,7 +85,7 @@ class FloatingView: AGView {
   
   //MARK: - Life cycle
   override func onInit() {
-    loadContainerIntoNib()
+    loadContainerIntoView()
     super.onInit()
   }
   
@@ -105,7 +105,7 @@ class FloatingView: AGView {
   }
   
   override func awakeFromNib() {
-    loadContainerIntoNib()
+    loadContainerIntoView()
     super.awakeFromNib()
     
   }
@@ -114,18 +114,14 @@ class FloatingView: AGView {
   //MARK: - Setup View
   override func setupViewOnInit() {
     //MARK: Core
-    setupViewFrame()
     backgroundColor = .clear
-    addShadow(ofColor: .black, radius: frame.midY, offset: .less, opacity: 0.1)
     let gesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
     addGestureRecognizer(gesture)
     
     
     
     //MARK: Component
-    v_container.backgroundColor = c_custom.peach
-    v_container.layer.cornerRadius = v_container.frame.midY
-    v_container.clipsToBounds = true
+    view.backgroundColor = c_custom.peach
     imgv_icon.contentMode = .scaleAspectFit
     
     
@@ -154,9 +150,7 @@ class FloatingView: AGView {
     
     
     //MARK: Component
-    v_container.backgroundColor = c_custom.peach
-    v_container.layer.cornerRadius = v_container.frame.midY
-//    v_container.clipsToBounds = true
+    view.backgroundColor = c_custom.peach
     imgv_icon.contentMode = .scaleAspectFit
     
     
@@ -179,7 +173,7 @@ class FloatingView: AGView {
   override func setupViewOnLayoutSubviews() {
 
   }
-
+  
   
   
   //MARK: - Setup Data
@@ -190,12 +184,9 @@ class FloatingView: AGView {
   override func setupData(with viewModel: AGViewModel) {
     guard let vm = viewModel as? ViewModel else { return }
     setupViewFrame()
+    view.addShadow(ofColor: .black, radius: 5, offset: CGSize(width: -1, height: 1), opacity: 0.3)
+    view.layer.cornerRadius = frame.width / 2
     imgv_icon.image = vm.displayedFloating.image
-    DispatchQueue.main.async { [weak self] in
-      guard let _s = self else { return }
-      _s.setupShadow(ofColor: .black, radius: _s.frame.midY, offset: .zero, opacity: 1)
-//      _s.v_container.layer.cornerRadius = _s.v_container.frame.midY
-    }
   }
   
   

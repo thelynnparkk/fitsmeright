@@ -21,9 +21,9 @@
                 <outlet property="lb_createdAt" destination="slQ-DV-1FW" id="xUp-wm-0rv"/>
                 <outlet property="lb_like" destination="i5V-QW-lCb" id="yGN-wH-YmE"/>
                 <outlet property="lb_username" destination="kLw-lL-kjE" id="rEf-sf-8ak"/>
-                <outlet property="v_container" destination="iN0-l3-epB" id="8a9-iJ-2uv"/>
                 <outlet property="v_createPost" destination="KMA-Ef-T7Q" id="2D3-LJ-nkd"/>
                 <outlet property="v_createText" destination="Fua-Nd-Wvc" id="vyg-1L-afb"/>
+                <outlet property="view" destination="iN0-l3-epB" id="5Vy-eH-1tJ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -192,9 +192,9 @@
         </view>
     </objects>
     <resources>
-        <image name="ic_comment" width="24" height="24"/>
-        <image name="ic_like" width="24" height="24"/>
-        <image name="ic_more" width="24" height="24"/>
-        <image name="ic_share" width="24" height="24"/>
+        <image name="ic_comment" width="17" height="17"/>
+        <image name="ic_like" width="17" height="17"/>
+        <image name="ic_more" width="20" height="20"/>
+        <image name="ic_share" width="20" height="20"/>
     </resources>
 </document>

@@ -13,8 +13,8 @@
             <connections>
                 <outlet property="lb_key" destination="W7n-va-vEq" id="OAD-Dg-3tv"/>
                 <outlet property="txt_value" destination="WoN-9S-dLX" id="U1m-Qa-f0s"/>
-                <outlet property="v_container" destination="iN0-l3-epB" id="jqy-Na-qao"/>
                 <outlet property="v_seperator" destination="NZX-RW-hJK" id="cM7-Yz-y1X"/>
+                <outlet property="view" destination="iN0-l3-epB" id="A0W-FK-C3Y"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

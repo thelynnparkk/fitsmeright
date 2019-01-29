@@ -12,8 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateTextView" customModule="fitsmeright" customModuleProvider="target">
             <connections>
                 <outlet property="txt_main" destination="TsB-6u-Ohx" id="S0a-Yi-Cfk"/>
-                <outlet property="v_container" destination="iN0-l3-epB" id="8rz-rX-gZY"/>
                 <outlet property="v_overlay" destination="KSn-RY-Lag" id="WyI-f0-pG6"/>
+                <outlet property="view" destination="iN0-l3-epB" id="JMa-5u-swf"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
