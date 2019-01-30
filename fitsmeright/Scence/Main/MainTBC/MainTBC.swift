@@ -203,7 +203,7 @@ class MainTBC: RAMAnimatedTabBarController {
 //    var shouldSelect: Bool = true
 //    switch viewController {
 //    case let vc where vc is BlankVC:
-//      let vc = CreatePostVC.vc
+//      let vc = CreatePostItemListVC.vc
 //      let nvc = UINavigationController(rootViewController: vc)
 //      present(nvc, animated: true, completion: nil)
 //      shouldSelect = false

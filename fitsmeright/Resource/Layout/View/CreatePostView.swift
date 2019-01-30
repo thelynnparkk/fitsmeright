@@ -12,6 +12,21 @@ import UIKit
 
 
 
+class CreatePostViewUC {
+  
+  class DisplayedCreatePost {
+    var img_clothListSelected: [UIImage] = []
+    var img_background: UIImage?
+  }
+  
+  class ViewModel: AGViewModel {
+    var displayedCreatePost = DisplayedCreatePost()
+  }
+  
+}
+
+
+
 extension CreatePostView:
   AGViewInstantiatable
 {
@@ -48,6 +63,7 @@ class CreatePostView: AGView {
   
   
   //MARK: - Constraint
+  typealias ViewModel = CreatePostViewUC.ViewModel
   
   
   
@@ -144,12 +160,21 @@ class CreatePostView: AGView {
     
   }
   
-  func setupClothData(images: [UIImage]) {
-    imgv_01.image = images[0]
-    imgv_02.image = images[1]
-    imgv_03.image = images[2]
-    imgv_04.image = images[3]
+  override func setupData(with viewModel: AGViewModel) {
+    guard let vm = viewModel as? ViewModel else { return }
+    imgv_01.image = vm.displayedCreatePost.img_clothListSelected[0]
+    imgv_02.image = vm.displayedCreatePost.img_clothListSelected[1]
+    imgv_03.image = vm.displayedCreatePost.img_clothListSelected[2]
+    imgv_04.image = vm.displayedCreatePost.img_clothListSelected[3]
+    imgv_background.image = vm.displayedCreatePost.img_background
   }
+//
+//  func setupClothData(images: [UIImage]) {
+//    imgv_01.image = images[0]
+//    imgv_02.image = images[1]
+//    imgv_03.image = images[2]
+//    imgv_04.image = images[3]
+//  }
   
   func setupBackgroundData(image: UIImage) {
     imgv_background.image = image

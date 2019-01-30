@@ -58,7 +58,7 @@ class CreatePostDesignVC: AGIPC {
   
   
   //MARK: - Storage
-  var img_clothSelected: [UIImage] = []
+  var img_clothListSelected: [UIImage] = []
   var img_backgroundSelected: UIImage?
   
   
@@ -151,11 +151,7 @@ class CreatePostDesignVC: AGIPC {
   
   //MARK: - Setup Data
   override func setupDataOnViewDidLoad() {
-    setupPostData()
-  }
-  
-  func setupPostData() {
-    v_createPost.setupClothData(images: img_clothSelected)
+    fetchPost()
   }
   
   
@@ -164,7 +160,7 @@ class CreatePostDesignVC: AGIPC {
   @objc
   func nextBarButtonPressed(_ sender: UIBarButtonItem) {
     let vc = CreatePostInfoVC.vc
-    vc.img_clothSelected = img_clothSelected
+    vc.img_clothListSelected = img_clothListSelected
     vc.img_backgroundSelected = img_backgroundSelected
     vc.string_textSelected = v_createText.txt_main.text
     navigationController?.pushViewController(vc, animated: true)
@@ -198,7 +194,26 @@ class CreatePostDesignVC: AGIPC {
   
   
   
-  //MARK: - VIP - UseCase
+  //MARK: - VIP - FetchPost
+  func fetchPost() {
+    
+    func interactor() {
+      worker()
+    }
+    
+    func worker() {
+      present()
+    }
+    
+    func present() {
+      let vm = CreatePostViewUC.ViewModel()
+      vm.displayedCreatePost.img_clothListSelected = img_clothListSelected
+      v_createPost.setupData(with: vm)
+    }
+    
+    interactor()
+    
+  }
   
   
   

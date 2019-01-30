@@ -218,7 +218,7 @@ class FeedVC: AGVC {
   
   //MARK: - Custom - AGViewDelegate
   func agViewPressed(_ view: AGView, action: Any, tag: Int) {
-    let vc = CreatePostVC.vc
+    let vc = CreatePostItemListVC.vc
     let nvc = UINavigationController(rootViewController: vc)
     present(nvc, animated: true, completion: nil)
     

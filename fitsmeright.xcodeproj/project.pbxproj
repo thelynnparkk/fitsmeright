@@ -41,11 +41,11 @@
 		5E74DA6E21BBDAAC00A97A89 /* MainTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA6D21BBDAAC00A97A89 /* MainTBC.swift */; };
 		5E74DA7021BBDAB300A97A89 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA6F21BBDAB300A97A89 /* FeedVC.swift */; };
 		5E74DA7321BBDABF00A97A89 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA7221BBDABF00A97A89 /* ProfileVC.swift */; };
-		5E74DA7621BBDACC00A97A89 /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA7521BBDACC00A97A89 /* CreatePostVC.swift */; };
+		5E74DA7621BBDACC00A97A89 /* CreatePostItemListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA7521BBDACC00A97A89 /* CreatePostItemListVC.swift */; };
 		5E74DA7821BBDADF00A97A89 /* MainTBC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA7721BBDADF00A97A89 /* MainTBC.storyboard */; };
 		5E74DA7A21BBDB5200A97A89 /* FeedVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA7921BBDB5200A97A89 /* FeedVC.storyboard */; };
 		5E74DA7C21BBDB5E00A97A89 /* ProfileVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA7B21BBDB5E00A97A89 /* ProfileVC.storyboard */; };
-		5E74DA7E21BBDB6800A97A89 /* CreatePostVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA7D21BBDB6800A97A89 /* CreatePostVC.storyboard */; };
+		5E74DA7E21BBDB6800A97A89 /* CreatePostItemListVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA7D21BBDB6800A97A89 /* CreatePostItemListVC.storyboard */; };
 		5E74DA8021BBF7D700A97A89 /* R.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA7F21BBF7D700A97A89 /* R.swift */; };
 		5E74DA8421BBF94B00A97A89 /* UINavigationController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA8321BBF94B00A97A89 /* UINavigationController+AG.swift */; };
 		5E74DA8621BBFC6700A97A89 /* UIImagePickerController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */; };
@@ -202,11 +202,11 @@
 		5E74DA6D21BBDAAC00A97A89 /* MainTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTBC.swift; sourceTree = "<group>"; };
 		5E74DA6F21BBDAB300A97A89 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		5E74DA7221BBDABF00A97A89 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
-		5E74DA7521BBDACC00A97A89 /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
+		5E74DA7521BBDACC00A97A89 /* CreatePostItemListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostItemListVC.swift; sourceTree = "<group>"; };
 		5E74DA7721BBDADF00A97A89 /* MainTBC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTBC.storyboard; sourceTree = "<group>"; };
 		5E74DA7921BBDB5200A97A89 /* FeedVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeedVC.storyboard; sourceTree = "<group>"; };
 		5E74DA7B21BBDB5E00A97A89 /* ProfileVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileVC.storyboard; sourceTree = "<group>"; };
-		5E74DA7D21BBDB6800A97A89 /* CreatePostVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePostVC.storyboard; sourceTree = "<group>"; };
+		5E74DA7D21BBDB6800A97A89 /* CreatePostItemListVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePostItemListVC.storyboard; sourceTree = "<group>"; };
 		5E74DA7F21BBF7D700A97A89 /* R.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R.swift; sourceTree = "<group>"; };
 		5E74DA8321BBF94B00A97A89 /* UINavigationController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+AG.swift"; sourceTree = "<group>"; };
 		5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+AG.swift"; sourceTree = "<group>"; };
@@ -650,8 +650,8 @@
 		5E74DA6C21BBDA2000A97A89 /* CreatePostVC */ = {
 			isa = PBXGroup;
 			children = (
-				5E74DA7521BBDACC00A97A89 /* CreatePostVC.swift */,
-				5E74DA7D21BBDB6800A97A89 /* CreatePostVC.storyboard */,
+				5E74DA7521BBDACC00A97A89 /* CreatePostItemListVC.swift */,
+				5E74DA7D21BBDB6800A97A89 /* CreatePostItemListVC.storyboard */,
 			);
 			path = CreatePostVC;
 			sourceTree = "<group>";
@@ -1129,7 +1129,7 @@
 				5E74DA0721BBACAA00A97A89 /* LaunchScreen.storyboard in Resources */,
 				5E0900BD21C2B8B90099F81E /* CreatePostInfoVC.storyboard in Resources */,
 				A4C4FABD21F975C7004A3F37 /* ClosetFormView.xib in Resources */,
-				5E74DA7E21BBDB6800A97A89 /* CreatePostVC.storyboard in Resources */,
+				5E74DA7E21BBDB6800A97A89 /* CreatePostItemListVC.storyboard in Resources */,
 				A4C4FAB521F975C7004A3F37 /* CreateTextView.xib in Resources */,
 				5E74DA7C21BBDB5E00A97A89 /* ProfileVC.storyboard in Resources */,
 				5E74DA7821BBDADF00A97A89 /* MainTBC.storyboard in Resources */,
@@ -1410,7 +1410,7 @@
 				A4A98DB321FB0C1900937AE5 /* UILabel+AG.swift in Sources */,
 				A4C4FACB21F9B87C004A3F37 /* PopupVC.swift in Sources */,
 				A4796C9521F5DC0100B83F85 /* UIColor+AG.swift in Sources */,
-				5E74DA7621BBDACC00A97A89 /* CreatePostVC.swift in Sources */,
+				5E74DA7621BBDACC00A97A89 /* CreatePostItemListVC.swift in Sources */,
 				5E74DA5621BBD0B100A97A89 /* TemplateCC.swift in Sources */,
 				A4C338C421F8AC2C00147567 /* AGCA.swift in Sources */,
 				5ECE8E6C21F7459B000AF65E /* MockPost.swift in Sources */,

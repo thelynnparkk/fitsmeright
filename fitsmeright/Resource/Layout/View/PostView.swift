@@ -178,7 +178,11 @@ class PostView: AGView {
     lb_username.text = vm.displayedPost._displayName
     lb_createdAt.text = vm.displayedPost._string_createdAt
     lb_caption.text = vm.displayedPost.string_captionSelected
-    v_createPost.setupClothData(images: vm.displayedPost.img_clothSelected)
+    
+    let vm_createPost = CreatePostViewUC.ViewModel()
+    vm_createPost.displayedCreatePost.img_clothListSelected = vm.displayedPost._img_clothSelected
+    vm_createPost.displayedCreatePost.img_background = vm.displayedPost.img_backgroundSelected
+    v_createPost.setupData(with: vm_createPost)
     v_createPost.setupBackgroundData(image: vm.displayedPost._img_backgroundSelected)
     v_createText.setupTextData(text: vm.displayedPost._string_textSelected)
   }

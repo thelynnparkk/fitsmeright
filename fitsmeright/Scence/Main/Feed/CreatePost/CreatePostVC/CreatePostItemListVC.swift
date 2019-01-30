@@ -1,5 +1,5 @@
 //
-//  CreatePostVC.swift
+//  CreatePostItemListVC.swift
 //  fitsmeright
 //
 //  Created by Lynn Park on 8/12/2561 BE.
@@ -12,7 +12,7 @@ import UIKit
 
 
 
-extension CreatePostVC:
+extension CreatePostItemListVC:
   AGVCInstantiatable
 {
   
@@ -20,7 +20,7 @@ extension CreatePostVC:
 
 
 
-class CreatePostVC: AGIPC {
+class CreatePostItemListVC: AGIPC {
   
   //MARK: - AGVCInstantiatable
   
@@ -55,7 +55,7 @@ class CreatePostVC: AGIPC {
   
   
   //MARK: - Storage
-  var img_clothSelected: [UIImage] = []
+  var img_clothListSelected: [UIImage] = []
   
   
   
@@ -153,7 +153,7 @@ class CreatePostVC: AGIPC {
   @objc
   func nextBarButtonPressed(_ sender: UIBarButtonItem) {
     let vc = CreatePostDesignVC.vc
-    vc.img_clothSelected = img_clothSelected
+    vc.img_clothListSelected = img_clothListSelected
     navigationController?.pushViewController(vc, animated: true)
   }
   
@@ -166,7 +166,7 @@ class CreatePostVC: AGIPC {
   
   //MARK: - Public
   override func setupLocalize() {
-    ni.title = CreatePostVC.sb_name
+    ni.title = CreatePostItemListVC.sb_name
   }
   
   
@@ -186,8 +186,8 @@ class CreatePostVC: AGIPC {
   //MARK: - Custom - AGImagePickerDelegate
   override func didFinishPickingMedia(_ picker: UIImagePickerController, image: UIImage) {
     picker.dismiss(animated: true, completion: nil)
-    guard img_clothSelected.count < 4 else { return }
-    switch img_clothSelected.count {
+    guard img_clothListSelected.count < 4 else { return }
+    switch img_clothListSelected.count {
     case 0:
       v_createPost.imgv_01.image = image
     case 1:
@@ -201,7 +201,7 @@ class CreatePostVC: AGIPC {
     default:
       return
     }
-    img_clothSelected.append(image)
+    img_clothListSelected.append(image)
   }
   
   override func didFinishPickingMediaError(_ picker: UIImagePickerController) {
