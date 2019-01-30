@@ -14,7 +14,7 @@ import Firebase
 
 
 
-protocol AGApplicationSetup {
+protocol AGApplicationSetup: Colorable {
   func setupOnInit()
   func setupOnDidFinishLaunching(with app: UIApplication, options: [UIApplication.LaunchOptionsKey: Any]?)
   func setupOnDeinit()
@@ -25,7 +25,16 @@ protocol AGApplicationSetup {
 extension AGApplicationSetup {
   
   func setupOnInit() {
-    
+    //    FMUserDefaults.removeAll()
+    let fsUser = FSUser()
+    fsUser.documentId = "N5GUixP95dAMKzXBx5kG"
+    //    fsUser.documentId = "VceACbsT1S2QPNV3JQS7"
+    fsUser.email = "lhnkki@gmail.com"
+    fsUser.username = "lin999"
+    fsUser.displayName = "linping"
+    fsUser.password = "1234"
+    fsUser.bio = "hi it's me"
+    FMUserDefaults.FSUserDefault.set(data: fsUser)
   }
   
   func setupOnDidFinishLaunching(with app: UIApplication, options: [UIApplication.LaunchOptionsKey: Any]?) {
@@ -54,11 +63,9 @@ extension AGApplicationSetup {
   
   //MARK: - Core Setups
   private func setupCores(with app: UIApplication, options: [UIApplication.LaunchOptionsKey: Any]?) {
-    let c = UIColor.Custom.self
-    
     //MARK: UIBarButtonItem
     let nb = UINavigationBar.appearance()
-    nb.setupWith(content: .white, bg: c.peach, isTranslucent: false)
+    nb.setupWith(content: .white, bg: c_custom.peach, isTranslucent: false)
     
     //MARK: UIBarButtonItem
     let bbi = UIBarButtonItem.appearance()
@@ -66,7 +73,11 @@ extension AGApplicationSetup {
     
     //MARK: UITabBar
     let tb = UITabBar.appearance()
-    tb.setupWith(content: .white, bg: c.peach, isTranslucent: false)
+    tb.setupWith(content: .white, bg: c_custom.peach, isTranslucent: false)
+    
+    //MARK: UITextField
+    let txt = UITextField.appearance()
+    txt.setupDark()
     
   }
   
@@ -81,6 +92,14 @@ extension AGApplicationSetup {
     let iqkbm = IQKeyboardManager.shared
     iqkbm.enable = true
     iqkbm.placeholderFont = UIFont.preferredFont(forTextStyle: .body)
+    iqkbm.shouldToolbarUsesTextFieldTintColor = true
+    iqkbm.previousNextDisplayMode = .alwaysShow
+//    @objc public var toolbarTintColor : UIColor?
+//    
+//    /**
+//     This is used for toolbar.barTintColor. Default is nil and uses white color.
+//     */
+//    @objc public var toolbarBarTintColor : UIColor?
     
   }
   

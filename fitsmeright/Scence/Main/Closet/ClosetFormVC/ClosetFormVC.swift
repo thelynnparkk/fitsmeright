@@ -15,7 +15,8 @@ import FirebaseFirestore
 
 
 extension ClosetFormVC:
-  AGVCInstantiatable
+  AGVCInstantiatable,
+  UITextFieldDelegate
 {
   
 }
@@ -45,7 +46,6 @@ class ClosetFormVC: AGIPC {
   @IBOutlet weak var v_price: ClosetFormView!
   @IBOutlet weak var v_size: ClosetFormView!
   @IBOutlet weak var v_place: ClosetFormView!
-  
   
   
   
@@ -132,6 +132,12 @@ class ClosetFormVC: AGIPC {
     v_seperator.backgroundColor = c_material.grey300
     btn_chooseCloset.addTarget(self, action: #selector(chooseClosetPressed), for: .touchUpInside)
     
+    v_brand.txt_value.delegate = self
+    v_price.txt_value.delegate = self
+    v_size.txt_value.delegate = self
+    v_place.txt_value.delegate = self
+    
+    
     
     //MARK: Other
     
@@ -161,6 +167,11 @@ class ClosetFormVC: AGIPC {
   
   
   //MARK: - Event
+//  @objc
+//  func keyboardToolbarDoneBarButtonPressed(_ sender: UITextField) {
+//    sender.resignFirstResponder()
+//  }
+  
   @IBAction func chooseClosetPressed(_ sender: Any) {
     displayImagePickerAlert()
   }

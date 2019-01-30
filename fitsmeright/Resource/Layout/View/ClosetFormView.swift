@@ -158,7 +158,6 @@ class ClosetFormView: AGView {
     view.backgroundColor = .white
     v_seperator.backgroundColor = c_material.grey300
     lb_key.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-    txt_value.textColor = c_material.grey500
     txt_value.textAlignment = .right
     txt_value.borderStyle = .none
     txt_value.font = UIFont.systemFont(ofSize: 14, weight: .regular)
