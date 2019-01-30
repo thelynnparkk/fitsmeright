@@ -67,6 +67,9 @@ class ProfileCA: AGCA {
   
   
   //MARK: - Flag
+  override var isEmpty: Bool {
+    return false
+  }
   
   
   
@@ -276,6 +279,9 @@ class ProfileCA: AGCA {
   
   //MARK: - Core - UICollectionViewDelegateFlowLayout
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    guard !isEmpty else {
+      return .zero
+    }
     switch indexPath.section {
     case 0:
       return CCProfile.Sizing.size(with: collectionView.frame)
@@ -291,6 +297,9 @@ class ProfileCA: AGCA {
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    guard !isEmpty else {
+      return .zero
+    }
     switch section {
     case 0:
       return CCProfile.Sizing.inset()
@@ -302,6 +311,9 @@ class ProfileCA: AGCA {
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    guard !isEmpty else {
+      return 0
+    }
     switch section {
     case 0:
       return CCProfile.Sizing.lineSpace()
@@ -313,6 +325,9 @@ class ProfileCA: AGCA {
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    guard !isEmpty else {
+      return 0
+    }
     switch section {
     case 0:
       return CCProfile.Sizing.itemSpace()

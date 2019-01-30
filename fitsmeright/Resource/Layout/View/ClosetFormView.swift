@@ -195,6 +195,7 @@ class ClosetFormView: AGView {
     setupViewFrame()
     lb_key.text = vm.displayedForm.key
     txt_value.text = vm.displayedForm.value
+    txt_value.placeholder = vm.displayedForm.placeHolder
     txt_value.isUserInteractionEnabled = vm.displayedForm.isEditable
     txt_value.borderStyle = vm.displayedForm.isEditable ? .roundedRect : .none
   }

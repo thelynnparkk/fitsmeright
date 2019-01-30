@@ -17,7 +17,7 @@ extension UITextField: Colorable {
   func setupDark() {
     textColor = c_material.grey500
     tintColor = c_custom.peach
-    setPlaceHolderTextColor(c_material.grey500)
+    setPlaceHolderTextColor(c_material.grey300)
   }
   
   func setupLight() {

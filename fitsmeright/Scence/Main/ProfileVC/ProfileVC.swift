@@ -184,7 +184,9 @@ class ProfileVC: AGVC {
     
     func worker() {
       fsUser = FMUserDefaults.FSUserDefault.get()!
-      posts = [FMUserDefaults.Post.get()!]
+      if let p = FMUserDefaults.Post.get() {
+        posts = [p]
+      }
       present()
     }
     
@@ -201,7 +203,11 @@ class ProfileVC: AGVC {
         vm.displayedImage.imageUrl = URL(string: $0._displayName)
         return vm
       })
-      adapter_profile.setupData(with: vm)
+      
+      DispatchQueue.main.async { [weak self] in
+        guard let _s = self else { return }
+        _s.adapter_profile.setupData(with: vm)
+      }
     }
     
     interactor()

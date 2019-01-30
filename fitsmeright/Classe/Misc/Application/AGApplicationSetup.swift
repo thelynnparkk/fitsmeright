@@ -79,6 +79,10 @@ extension AGApplicationSetup {
     let txt = UITextField.appearance()
     txt.setupDark()
     
+    //MARK: UIBarItem
+//    let bi = UIBarItem.appearance()
+    
+    
   }
   
   //MARK: - Pod Setups
@@ -93,7 +97,12 @@ extension AGApplicationSetup {
     iqkbm.enable = true
     iqkbm.placeholderFont = UIFont.preferredFont(forTextStyle: .body)
     iqkbm.shouldToolbarUsesTextFieldTintColor = true
-    iqkbm.previousNextDisplayMode = .alwaysShow
+    iqkbm.overrideKeyboardAppearance = true
+    iqkbm.shouldResignOnTouchOutside = true
+    iqkbm.toolbarDoneBarButtonItemText = "Done"
+//    iqkbm.toolbarManageBehaviour = .byPosition
+//    iqkbm.previousNextDisplayMode = .alwaysShow
+    
 //    @objc public var toolbarTintColor : UIColor?
 //    
 //    /**

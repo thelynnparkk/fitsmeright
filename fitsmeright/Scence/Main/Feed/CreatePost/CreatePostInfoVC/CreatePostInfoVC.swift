@@ -115,7 +115,7 @@ class CreatePostInfoVC: AGVC {
     
     
     //MARK: Component
-    bbi_cancel = UIBarButtonItem(title: "cancel", style: .plain, target: self, action: #selector(dismissButtonPressed))
+    bbi_cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissButtonPressed))
     ni.leftBarButtonItems = [bbi_cancel]
     
     txt_caption.text = ""

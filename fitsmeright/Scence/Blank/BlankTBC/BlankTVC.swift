@@ -112,9 +112,9 @@ class BlankTVC: AGVC {
     //MARK: Component
     table_main.dataSource = self
     table_main.delegate = self
-    //    bbi_cancel = UIBarButtonItem(title: "cancel", style: .plain, target: self, action: #selector(dismissButtonPressed))
+    //    bbi_cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissButtonPressed))
     //    ni.leftBarButtonItems = [bbi_cancel]
-    bbi_next = UIBarButtonItem(title: "next", style: .plain, target: self, action: #selector(nextButtonPressed))
+    bbi_next = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextButtonPressed))
     ni.rightBarButtonItems = [bbi_next]
     
     

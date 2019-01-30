@@ -61,14 +61,14 @@ open class AGCA: NSObject {
   
   
   //MARK: - Flag
+  var isEmpty: Bool {
+    return viewModel.displayedRows.isEmpty
+  }
   
   
   
   //MARK: - Storage
   var viewModel: AGCAModel = AGCAModel()
-  var isEmpty: Bool {
-    return viewModel.displayedRows.isEmpty
-  }
   
   
   

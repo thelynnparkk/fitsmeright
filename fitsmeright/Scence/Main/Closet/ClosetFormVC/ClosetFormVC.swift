@@ -167,10 +167,11 @@ class ClosetFormVC: AGIPC {
   
   
   //MARK: - Event
-//  @objc
-//  func keyboardToolbarDoneBarButtonPressed(_ sender: UITextField) {
-//    sender.resignFirstResponder()
-//  }
+  @objc
+  func test(_ sender: UITextField) {
+    
+    print("test")
+  }
   
   @IBAction func chooseClosetPressed(_ sender: Any) {
     displayImagePickerAlert()

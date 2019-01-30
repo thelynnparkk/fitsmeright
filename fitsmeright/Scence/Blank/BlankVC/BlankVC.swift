@@ -104,7 +104,7 @@ class BlankVC: AGVC {
   override func setupViewOnViewDidLoad() {
     //MARK: Core
     nb?.setupWith(content: .white, bg: c_custom.peach, isTranslucent: false)
-    //    bbi_cancel = UIBarButtonItem(title: "cancel", style: .plain, target: self, action: #selector(dismissButtonPressed))
+    //    bbi_cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissButtonPressed))
     //    ni.leftBarButtonItems = [bbi_cancel]
     
     
@@ -128,7 +128,7 @@ class BlankVC: AGVC {
     
     ni.leftBarButtonItems = [bbi_cancel_1, bbi_cancel_2, bbi_cancel_3]
     
-    bbi_next = UIBarButtonItem(title: "next", style: .plain, target: self, action: #selector(backButtonPressed))
+    bbi_next = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(backButtonPressed))
     ni.rightBarButtonItems = [bbi_next]
     lb_title.text = BlankVC.sb_name
     btn_push.addTarget(self, action: #selector(pushButtonPressed), for: .touchUpInside)

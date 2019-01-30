@@ -111,9 +111,9 @@ class CreatePostVC: AGIPC {
     
     
     //MARK: Component
-    bbi_cancel = UIBarButtonItem(title: "cancel", style: .plain, target: self, action: #selector(dismissButtonPressed))
+    bbi_cancel = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissButtonPressed))
     ni.leftBarButtonItems = [bbi_cancel]
-    bbi_next = UIBarButtonItem(title: "next", style: .plain, target: self, action: #selector(nextBarButtonPressed))
+    bbi_next = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextBarButtonPressed))
     bbi_next.isEnabled = false
     ni.rightBarButtonItems = [bbi_next]
     

@@ -40,30 +40,42 @@
                                                     <constraint firstAttribute="height" constant="1" id="c1z-1N-8Uj"/>
                                                 </constraints>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Xc7-ww-kUZ">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WoV-ky-1HK" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
                                                 <rect key="frame" x="0.0" y="376" width="375" height="200"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="usz-L0-gwr" customClass="ClosetFormView" customModule="fitsmeright" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="ov3-y7-7aG"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="luY-U5-WgG" customClass="ClosetFormView" customModule="fitsmeright" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="50" width="375" height="50"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcB-xP-oho" customClass="ClosetFormView" customModule="fitsmeright" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="100" width="375" height="50"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sMS-wA-eN1" customClass="ClosetFormView" customModule="fitsmeright" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="150" width="375" height="50"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </view>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Xc7-ww-kUZ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="usz-L0-gwr" customClass="ClosetFormView" customModule="fitsmeright" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" id="ov3-y7-7aG"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="luY-U5-WgG" customClass="ClosetFormView" customModule="fitsmeright" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="50" width="375" height="50"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcB-xP-oho" customClass="ClosetFormView" customModule="fitsmeright" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="100" width="375" height="50"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sMS-wA-eN1" customClass="ClosetFormView" customModule="fitsmeright" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="150" width="375" height="50"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
-                                            </stackView>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="Xc7-ww-kUZ" firstAttribute="leading" secondItem="WoV-ky-1HK" secondAttribute="leading" id="8Te-aT-Oct"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Xc7-ww-kUZ" secondAttribute="bottom" id="Q3i-wp-T0x"/>
+                                                    <constraint firstItem="Xc7-ww-kUZ" firstAttribute="top" secondItem="WoV-ky-1HK" secondAttribute="top" id="b2f-2z-cld"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Xc7-ww-kUZ" secondAttribute="trailing" id="de0-sg-wDH"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eO-5c-0aW">
