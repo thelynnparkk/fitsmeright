@@ -134,6 +134,7 @@
 		A4C4FAD221F9C5AE004A3F37 /* UIButton+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FAD121F9C5AE004A3F37 /* UIButton+AG.swift */; };
 		A4C4FAD421F9C6E4004A3F37 /* PopupContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FAD321F9C6E4004A3F37 /* PopupContainerVC.swift */; };
 		A4C4FAD621F9CB35004A3F37 /* PopupDialogable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FAD521F9CB35004A3F37 /* PopupDialogable.swift */; };
+		A4C532612201AA37003E6061 /* CGRect+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C532602201AA37003E6061 /* CGRect+AG.swift */; };
 		A4D6584E21BF651F007B8558 /* UITabBar+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */; };
 		A4E1288121FEB9E700F85C66 /* ClosetCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E1288021FEB9E700F85C66 /* ClosetCategoryVC.swift */; };
 		A4E1288321FEBA4D00F85C66 /* ClosetListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E1288221FEBA4D00F85C66 /* ClosetListVC.swift */; };
@@ -296,6 +297,7 @@
 		A4C4FAD121F9C5AE004A3F37 /* UIButton+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+AG.swift"; sourceTree = "<group>"; };
 		A4C4FAD321F9C6E4004A3F37 /* PopupContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupContainerVC.swift; sourceTree = "<group>"; };
 		A4C4FAD521F9CB35004A3F37 /* PopupDialogable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupDialogable.swift; sourceTree = "<group>"; };
+		A4C532602201AA37003E6061 /* CGRect+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+AG.swift"; sourceTree = "<group>"; };
 		A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+AG.swift"; sourceTree = "<group>"; };
 		A4E1288021FEB9E700F85C66 /* ClosetCategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosetCategoryVC.swift; sourceTree = "<group>"; };
 		A4E1288221FEBA4D00F85C66 /* ClosetListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListVC.swift; sourceTree = "<group>"; };
@@ -944,6 +946,7 @@
 				A4C4B6EB21F820C00036B0F7 /* AGVC+AG.swift */,
 				5E74DA6121BBD6AC00A97A89 /* CATransition+AG.swift */,
 				A4796C9C21F5DD7000B83F85 /* CGSize+AG.swift */,
+				A4C532602201AA37003E6061 /* CGRect+AG.swift */,
 				A4C4B6F721F86FE70036B0F7 /* StateView+AG.swift */,
 				A408A4D021BEB4970030F2F5 /* UIBarButtonItem +AG.swift */,
 				A4C338C521F8AE4200147567 /* UICollectionView+AG.swift */,
@@ -1375,6 +1378,7 @@
 				5ECE8E7621F75054000AF65E /* Firestore+CodableFirebase.swift in Sources */,
 				A4E31D8321C28B83004D1707 /* AGUserDefaults.swift in Sources */,
 				A4C4FABB21F975C7004A3F37 /* ClosetMenuView.swift in Sources */,
+				A4C532612201AA37003E6061 /* CGRect+AG.swift in Sources */,
 				A4C338C021F8A54800147567 /* AGCC.swift in Sources */,
 				A4E1288321FEBA4D00F85C66 /* ClosetListVC.swift in Sources */,
 				5ECE8E7421F74F53000AF65E /* FSCloset.swift in Sources */,

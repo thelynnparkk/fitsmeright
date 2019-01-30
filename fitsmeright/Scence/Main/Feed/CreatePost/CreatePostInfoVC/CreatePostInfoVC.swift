@@ -10,6 +10,7 @@
 
 import UIKit
 import SwiftDate
+import AVFoundation
 
 
 
@@ -214,20 +215,82 @@ class CreatePostInfoVC: AGVC {
     }
     
     func presentInsertPost() {
-      let post = MockPost()
-      let fsUser = FMUserDefaults.FSUserDefault.get()!
-      post.displayName = fsUser._displayName
-      post.img_clothSelected = img_clothListSelected
-      post.img_backgroundSelected = img_backgroundSelected
-      post.string_textSelected = string_textSelected
-      post.string_captionSelected = txt_caption.text ?? ""
-      post.string_createdAt = Date().toString()
-      FMUserDefaults.Post.set(data: post)
-      dismiss(animated: true)
+      
+      let side = CGFloat(500)
+      let side_clothList = CGFloat(side * 0.8)
+      let space = CGFloat(20)
+      let side_cloth = (side_clothList - space) / 2
+
+      let rect_container = CGRect(origin: .zero, size: CGSize(side: side))
+      let rect_clothList = rect_container.insetBy(dx: (side - side_clothList) / 2, dy: (side - side_clothList) / 2)
+      let rect_cloth = CGRect(origin: rect_clothList.origin, size: CGSize(side: side_cloth))
+      
+      let rect_cloth01 = rect_cloth
+      var rect_cloth02 = rect_cloth
+      rect_cloth02.origin.x = rect_clothList.origin.x + rect_cloth.size.width + space
+      var rect_cloth03 = rect_cloth
+      rect_cloth03.origin.y = rect_clothList.origin.y + rect_cloth.size.height + space
+      var rect_cloth04 = rect_cloth
+      rect_cloth04.origin.x = rect_clothList.origin.x + rect_cloth.size.width + space
+      rect_cloth04.origin.y = rect_clothList.origin.y + rect_cloth.size.height + space
+      
+      UIGraphicsBeginImageContext(rect_container.size)
+      
+      let rect_containerByAspectRatio = AVMakeRect(aspectRatio: img_backgroundSelected!.size,
+                                                   insideRect: rect_container)
+      let rect_cloth01ByAspectRatio = AVMakeRect(aspectRatio: img_clothListSelected[0].size,
+                                                   insideRect: rect_cloth01)
+      let rect_cloth02ByAspectRatio = AVMakeRect(aspectRatio: img_clothListSelected[1].size,
+                                                   insideRect: rect_cloth02)
+      let rect_cloth03ByAspectRatio = AVMakeRect(aspectRatio: img_clothListSelected[2].size,
+                                                   insideRect: rect_cloth03)
+      let rect_cloth04ByAspectRatio = AVMakeRect(aspectRatio: img_clothListSelected[3].size,
+                                                   insideRect: rect_cloth04)
+      img_backgroundSelected!.draw(in: rect_containerByAspectRatio)
+      img_clothListSelected[0].draw(in: rect_cloth01ByAspectRatio)
+      img_clothListSelected[1].draw(in: rect_cloth02ByAspectRatio)
+      img_clothListSelected[2].draw(in: rect_cloth03ByAspectRatio)
+      img_clothListSelected[3].draw(in: rect_cloth04ByAspectRatio)
+      
+      let img_result = UIGraphicsGetImageFromCurrentImageContext()!
+      UIGraphicsEndImageContext()
+      
+      v_createText.isHidden = true
+      v_createPost.imgv_01.isHidden = true
+      v_createPost.imgv_02.isHidden = true
+      v_createPost.imgv_03.isHidden = true
+      v_createPost.imgv_04.isHidden = true
+      
+      let vm = CreatePostViewUC.ViewModel()
+      vm.displayedCreatePost.img_clothListSelected = Array(repeating: UIImage(), count: 4)
+      vm.displayedCreatePost.img_background = img_result
+      v_createPost.setupData(with: vm)
+      
+      
+      
+//      let post = MockPost()
+//      let fsUser = FMUserDefaults.FSUserDefault.get()!
+//      post.displayName = fsUser._displayName
+//      post.img_clothSelected = img_clothListSelected
+//      post.img_backgroundSelected = img_backgroundSelected
+//      post.string_textSelected = string_textSelected
+//      post.string_captionSelected = txt_caption.text ?? ""
+//      post.string_createdAt = Date().toString()
+//      FMUserDefaults.Post.set(data: post)
+//      dismiss(animated: true)
     }
     
     interactor()
     
+  }
+  
+  func mergeImages(imageView: UIImageView) -> UIImage {
+    UIGraphicsBeginImageContextWithOptions(imageView.frame.size, false, 0.0)
+    imageView.superview!.layer.render(in: UIGraphicsGetCurrentContext()!)
+    let image = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    
+    return image!
   }
   
   
