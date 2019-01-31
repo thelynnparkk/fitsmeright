@@ -12,6 +12,20 @@ import UIKit
 
 
 
+class CreateTextViewUC {
+  
+  class DisplayedCreateText {
+    var text: String?
+  }
+  
+  class ViewModel: AGViewModel {
+    var displayedCreateText = DisplayedCreateText()
+  }
+  
+}
+
+
+
 extension CreateTextView:
   AGViewInstantiatable
 {
@@ -45,6 +59,7 @@ class CreateTextView: AGView {
   
   
   //MARK: - Constraint
+  typealias ViewModel = CreateTextViewUC.ViewModel
   
   
   
@@ -145,8 +160,9 @@ class CreateTextView: AGView {
     
   }
   
-  func setupTextData(text: String) {
-    txt_main.text = text
+  override func setupData(with viewModel: AGViewModel) {
+    guard let vm = viewModel as? ViewModel else { return }
+    txt_main.text = vm.displayedCreateText.text
     txt_main.isHidden = false
   }
   

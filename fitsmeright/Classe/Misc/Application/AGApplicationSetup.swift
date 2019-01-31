@@ -9,6 +9,7 @@
 
 
 import UIKit
+import SwifterSwift
 import IQKeyboardManagerSwift
 import Firebase
 
@@ -25,7 +26,9 @@ protocol AGApplicationSetup: Colorable {
 extension AGApplicationSetup {
   
   func setupOnInit() {
-    //    FMUserDefaults.removeAll()
+    
+//    SwifterSwift.appVersion
+//    FMUserDefaults.removeAll()
     let fsUser = FSUser()
     fsUser.documentId = "N5GUixP95dAMKzXBx5kG"
     //    fsUser.documentId = "VceACbsT1S2QPNV3JQS7"

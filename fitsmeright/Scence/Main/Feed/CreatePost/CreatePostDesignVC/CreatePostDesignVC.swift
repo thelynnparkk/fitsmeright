@@ -245,8 +245,10 @@ class CreatePostDesignVC: AGIPC {
   //MARK: - Custom - AGImagePickerDelegate
   override func didFinishPickingMedia(_ picker: UIImagePickerController, image: UIImage) {
     picker.dismiss(animated: true, completion: nil)
-    v_createPost.imgv_background.image = image
     img_backgroundSelected = image
+    let vm = CreatePostViewUC.ViewModel()
+    vm.displayedCreatePost.img_background = img_backgroundSelected
+    v_createPost.setupData(with: vm)
   }
   
   override func didFinishPickingMediaError(_ picker: UIImagePickerController) {

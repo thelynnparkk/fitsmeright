@@ -19,8 +19,14 @@ class CreatePostViewUC {
     var img_background: UIImage?
   }
   
+  class DisplayedPost {
+    var img_post: UIImage?
+  }
+  
   class ViewModel: AGViewModel {
+    var isMerged = false
     var displayedCreatePost = DisplayedCreatePost()
+    var displayedPost = DisplayedPost()
   }
   
 }
@@ -162,22 +168,35 @@ class CreatePostView: AGView {
   
   override func setupData(with viewModel: AGViewModel) {
     guard let vm = viewModel as? ViewModel else { return }
-    imgv_01.image = vm.displayedCreatePost.img_clothListSelected[0]
-    imgv_02.image = vm.displayedCreatePost.img_clothListSelected[1]
-    imgv_03.image = vm.displayedCreatePost.img_clothListSelected[2]
-    imgv_04.image = vm.displayedCreatePost.img_clothListSelected[3]
-    imgv_background.image = vm.displayedCreatePost.img_background
-  }
-//
-//  func setupClothData(images: [UIImage]) {
-//    imgv_01.image = images[0]
-//    imgv_02.image = images[1]
-//    imgv_03.image = images[2]
-//    imgv_04.image = images[3]
-//  }
-  
-  func setupBackgroundData(image: UIImage) {
-    imgv_background.image = image
+    switch vm.isMerged {
+    case true:
+      imgv_01.isHidden = true
+      imgv_02.isHidden = true
+      imgv_03.isHidden = true
+      imgv_04.isHidden = true
+      if let img = vm.displayedPost.img_post {
+        imgv_background.image = img
+      }
+    case false:
+      for img in vm.displayedCreatePost.img_clothListSelected.enumerated() {
+        switch img.offset {
+        case 0:
+          imgv_01.image = img.element
+        case 1:
+          imgv_02.image = img.element
+        case 2:
+          imgv_03.image = img.element
+        case 3:
+          imgv_04.image = img.element
+        default:
+          return
+        }
+      }
+      if let img = vm.displayedCreatePost.img_background {
+        imgv_background.image = img
+      }
+    }
+    
   }
   
   

@@ -15,12 +15,16 @@ import SwiftDate
 
 class PostViewUC {
   
-  class DisplayedPost {
-    
+  class DisplayedPostDetail {
+    var displayName: String?
+    var createdAt: String?
+    var caption: String?
   }
   
   class ViewModel: AGViewModel {
-    var displayedPost = MockPost()
+    var displayedPost = CreatePostViewUC.DisplayedPost()
+    var displayedPostDetail = DisplayedPostDetail()
+    var displayedPostText = CreateTextViewUC.DisplayedCreateText()
   }
   
 }
@@ -175,16 +179,18 @@ class PostView: AGView {
     //    let date = post._string_createdAt.toDate("yyyy-MM-dd HH:mm", region: bkk)
     //    let date = post._string_createdAt.toFormat("dd MMM", locale: .thai)
     imgv_user.backgroundColor = c_material.grey400
-    lb_username.text = vm.displayedPost._displayName
-    lb_createdAt.text = vm.displayedPost._string_createdAt
-    lb_caption.text = vm.displayedPost.string_captionSelected
+    lb_username.text = vm.displayedPostDetail.displayName
+    lb_createdAt.text = vm.displayedPostDetail.createdAt
+    lb_caption.text = vm.displayedPostDetail.caption
     
     let vm_createPost = CreatePostViewUC.ViewModel()
-    vm_createPost.displayedCreatePost.img_clothListSelected = vm.displayedPost._img_clothSelected
-    vm_createPost.displayedCreatePost.img_background = vm.displayedPost.img_backgroundSelected
+    vm_createPost.isMerged = true
+    vm_createPost.displayedPost = vm.displayedPost
     v_createPost.setupData(with: vm_createPost)
-    v_createPost.setupBackgroundData(image: vm.displayedPost._img_backgroundSelected)
-    v_createText.setupTextData(text: vm.displayedPost._string_textSelected)
+    
+    let vm_createText = CreateTextViewUC.ViewModel()
+    vm_createText.displayedCreateText = vm.displayedPostText
+    v_createText.setupData(with: vm_createText)
   }
 
   

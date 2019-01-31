@@ -348,7 +348,7 @@
 		5E0900B521C2B7AF0099F81E /* CreatePost */ = {
 			isa = PBXGroup;
 			children = (
-				5E74DA6C21BBDA2000A97A89 /* CreatePostVC */,
+				5E74DA6C21BBDA2000A97A89 /* CreatePostItemListVC */,
 				5E0900B621C2B8340099F81E /* CreatePostDesignVC */,
 				5E0900BB21C2B8A60099F81E /* CreatePostInfoVC */,
 			);
@@ -649,13 +649,13 @@
 			path = ProfileVC;
 			sourceTree = "<group>";
 		};
-		5E74DA6C21BBDA2000A97A89 /* CreatePostVC */ = {
+		5E74DA6C21BBDA2000A97A89 /* CreatePostItemListVC */ = {
 			isa = PBXGroup;
 			children = (
 				5E74DA7521BBDACC00A97A89 /* CreatePostItemListVC.swift */,
 				5E74DA7D21BBDB6800A97A89 /* CreatePostItemListVC.storyboard */,
 			);
-			path = CreatePostVC;
+			path = CreatePostItemListVC;
 			sourceTree = "<group>";
 		};
 		5ECE8E6321F744F7000AF65E /* Auth */ = {

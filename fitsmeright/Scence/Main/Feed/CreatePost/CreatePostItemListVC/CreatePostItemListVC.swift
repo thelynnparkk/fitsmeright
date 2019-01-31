@@ -187,21 +187,14 @@ class CreatePostItemListVC: AGIPC {
   override func didFinishPickingMedia(_ picker: UIImagePickerController, image: UIImage) {
     picker.dismiss(animated: true, completion: nil)
     guard img_clothListSelected.count < 4 else { return }
-    switch img_clothListSelected.count {
-    case 0:
-      v_createPost.imgv_01.image = image
-    case 1:
-      v_createPost.imgv_02.image = image
-    case 2:
-      v_createPost.imgv_03.image = image
-    case 3:
-      v_createPost.imgv_04.image = image
+    img_clothListSelected.append(image)
+    let vm = CreatePostViewUC.ViewModel()
+    vm.displayedCreatePost.img_clothListSelected = img_clothListSelected
+    v_createPost.setupData(with: vm)
+    if img_clothListSelected.count == 4 {
       btn_addCloth.isHidden = true
       bbi_next.isEnabled = true
-    default:
-      return
     }
-    img_clothListSelected.append(image)
   }
   
   override func didFinishPickingMediaError(_ picker: UIImagePickerController) {

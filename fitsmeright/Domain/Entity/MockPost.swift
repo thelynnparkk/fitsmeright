@@ -26,8 +26,7 @@ public class MockPost: Codable {
   public enum CodingKeys: String, CodingKey {
     case displayName
     case string_createdAt
-    case img_clothSelected
-    case img_backgroundSelected
+    case img_post
     case string_textSelected
     case string_captionSelected
   }
@@ -36,8 +35,7 @@ public class MockPost: Codable {
   //MARK: - Storage
   var displayName: String?
   var string_createdAt: String?
-  var img_clothSelected: [UIImage] = []
-  var img_backgroundSelected: UIImage?
+  var img_post: UIImage?
   var string_textSelected: String?
   var string_captionSelected: String?
   
@@ -52,10 +50,8 @@ public class MockPost: Codable {
     var container = encoder.container(keyedBy: CodingKeys.self)
     try container.encode(displayName, forKey: .displayName)
     try container.encode(string_createdAt, forKey: .string_createdAt)
-    let imgs = img_clothSelected.map({ convertImageToBase64(image: $0) })
-    try container.encode(imgs, forKey: .img_clothSelected)
-    if let img = img_backgroundSelected {
-      try container.encode(convertImageToBase64(image: img), forKey: .img_backgroundSelected)
+    if let img = img_post {
+      try container.encode(convertImageToBase64(image: img), forKey: .img_post)
     }
     try container.encode(string_textSelected, forKey: .string_textSelected)
     try container.encode(string_captionSelected, forKey: .string_captionSelected)
@@ -65,11 +61,8 @@ public class MockPost: Codable {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     displayName = try? container.decode(String.self, forKey: .displayName)
     string_createdAt = try? container.decode(String.self, forKey: .string_createdAt)
-    if let data = try? container.decode([String].self, forKey: .img_clothSelected) {
-      img_clothSelected = data.compactMap({ convertBase64ToImage(imageString: $0) })
-    }
-    if let data = try? container.decode(String.self, forKey: .img_backgroundSelected) {
-      img_backgroundSelected = convertBase64ToImage(imageString: data)
+    if let data = try? container.decode(String.self, forKey: .img_post) {
+      img_post = convertBase64ToImage(imageString: data)
     }
     string_textSelected = try? container.decode(String.self, forKey: .string_textSelected)
     string_captionSelected = try? container.decode(String.self, forKey: .string_captionSelected)
@@ -83,11 +76,8 @@ public class MockPost: Codable {
   public var _string_createdAt: String {
     return string_createdAt ?? ""
   }
-  public var _img_clothSelected: [UIImage] {
-    return img_clothSelected
-  }
-  public var _img_backgroundSelected: UIImage {
-    return img_backgroundSelected ?? UIImage()
+  public var _img_post: UIImage {
+    return img_post ?? UIImage()
   }
   public var _string_textSelected: String {
     return string_textSelected ?? ""

@@ -192,12 +192,9 @@ class CreatePostInfoVC: AGVC {
       vm_createPost.displayedCreatePost.img_clothListSelected = img_clothListSelected
       vm_createPost.displayedCreatePost.img_background = img_backgroundSelected
       v_createPost.setupData(with: vm_createPost)
-      if let img = img_backgroundSelected {
-        v_createPost.setupBackgroundData(image: img)
-      }
-      if let string = string_textSelected {
-        v_createText.setupTextData(text: string)
-      }
+      let vm_createText = CreateTextViewUC.ViewModel()
+      vm_createText.displayedCreateText.text = string_textSelected
+      v_createText.setupData(with: vm_createText)
     }
     
     interactor()
@@ -207,45 +204,36 @@ class CreatePostInfoVC: AGVC {
   func insertPost() {
     
     func interactor() {
-      worker()
-    }
-    
-    func worker() {
-      presentInsertPost()
-    }
-    
-    func presentInsertPost() {
-      
+      guard let backgroud = img_backgroundSelected, img_clothListSelected.count == 4 else {
+        return
+      }
       let side = CGFloat(500)
       let side_clothList = CGFloat(side * 0.8)
       let space = CGFloat(20)
       let side_cloth = (side_clothList - space) / 2
-
+      
       let rect_container = CGRect(origin: .zero, size: CGSize(side: side))
       let rect_clothList = rect_container.insetBy(dx: (side - side_clothList) / 2, dy: (side - side_clothList) / 2)
       let rect_cloth = CGRect(origin: rect_clothList.origin, size: CGSize(side: side_cloth))
       
       let rect_cloth01 = rect_cloth
       var rect_cloth02 = rect_cloth
-      rect_cloth02.origin.x = rect_clothList.origin.x + rect_cloth.size.width + space
       var rect_cloth03 = rect_cloth
-      rect_cloth03.origin.y = rect_clothList.origin.y + rect_cloth.size.height + space
       var rect_cloth04 = rect_cloth
-      rect_cloth04.origin.x = rect_clothList.origin.x + rect_cloth.size.width + space
-      rect_cloth04.origin.y = rect_clothList.origin.y + rect_cloth.size.height + space
+      
+      rect_cloth02.origin.x += rect_cloth.size.width + space
+      rect_cloth03.origin.y += rect_cloth.size.height + space
+      rect_cloth04.origin.x += rect_cloth.size.width + space
+      rect_cloth04.origin.y += rect_cloth.size.height + space
+      
+      let rect_containerByAspectRatio = AVMakeRect(aspectRatio: backgroud.size, insideRect: rect_container)
+      let rect_cloth01ByAspectRatio = AVMakeRect(aspectRatio: img_clothListSelected[0].size, insideRect: rect_cloth01)
+      let rect_cloth02ByAspectRatio = AVMakeRect(aspectRatio: img_clothListSelected[1].size, insideRect: rect_cloth02)
+      let rect_cloth03ByAspectRatio = AVMakeRect(aspectRatio: img_clothListSelected[2].size, insideRect: rect_cloth03)
+      let rect_cloth04ByAspectRatio = AVMakeRect(aspectRatio: img_clothListSelected[3].size, insideRect: rect_cloth04)
       
       UIGraphicsBeginImageContext(rect_container.size)
       
-      let rect_containerByAspectRatio = AVMakeRect(aspectRatio: img_backgroundSelected!.size,
-                                                   insideRect: rect_container)
-      let rect_cloth01ByAspectRatio = AVMakeRect(aspectRatio: img_clothListSelected[0].size,
-                                                   insideRect: rect_cloth01)
-      let rect_cloth02ByAspectRatio = AVMakeRect(aspectRatio: img_clothListSelected[1].size,
-                                                   insideRect: rect_cloth02)
-      let rect_cloth03ByAspectRatio = AVMakeRect(aspectRatio: img_clothListSelected[2].size,
-                                                   insideRect: rect_cloth03)
-      let rect_cloth04ByAspectRatio = AVMakeRect(aspectRatio: img_clothListSelected[3].size,
-                                                   insideRect: rect_cloth04)
       img_backgroundSelected!.draw(in: rect_containerByAspectRatio)
       img_clothListSelected[0].draw(in: rect_cloth01ByAspectRatio)
       img_clothListSelected[1].draw(in: rect_cloth02ByAspectRatio)
@@ -254,6 +242,14 @@ class CreatePostInfoVC: AGVC {
       
       let img_result = UIGraphicsGetImageFromCurrentImageContext()!
       UIGraphicsEndImageContext()
+      worker(image: img_result)
+    }
+    
+    func worker(image: UIImage) {
+      presentInsertPost(image: image)
+    }
+    
+    func presentInsertPost(image: UIImage) {
       
       v_createText.isHidden = true
       v_createPost.imgv_01.isHidden = true
@@ -263,21 +259,18 @@ class CreatePostInfoVC: AGVC {
       
       let vm = CreatePostViewUC.ViewModel()
       vm.displayedCreatePost.img_clothListSelected = Array(repeating: UIImage(), count: 4)
-      vm.displayedCreatePost.img_background = img_result
+      vm.displayedCreatePost.img_background = image
       v_createPost.setupData(with: vm)
       
-      
-      
-//      let post = MockPost()
-//      let fsUser = FMUserDefaults.FSUserDefault.get()!
-//      post.displayName = fsUser._displayName
-//      post.img_clothSelected = img_clothListSelected
-//      post.img_backgroundSelected = img_backgroundSelected
-//      post.string_textSelected = string_textSelected
-//      post.string_captionSelected = txt_caption.text ?? ""
-//      post.string_createdAt = Date().toString()
-//      FMUserDefaults.Post.set(data: post)
-//      dismiss(animated: true)
+      let post = MockPost()
+      let fsUser = FMUserDefaults.FSUserDefault.get()!
+      post.displayName = fsUser._displayName
+      post.img_post = image
+      post.string_textSelected = string_textSelected
+      post.string_captionSelected = txt_caption.text ?? ""
+      post.string_createdAt = Date().toString()
+      FMUserDefaults.Post.set(data: post)
+      dismiss(animated: true)
     }
     
     interactor()

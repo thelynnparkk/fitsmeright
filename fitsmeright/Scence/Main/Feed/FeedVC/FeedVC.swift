@@ -197,7 +197,11 @@ class FeedVC: AGVC {
       if let post = post {
         v_post.isHidden = false
         let vm_post = PostViewUC.ViewModel()
-        vm_post.displayedPost = post
+        vm_post.displayedPostDetail.caption = post._string_captionSelected
+        vm_post.displayedPostDetail.createdAt = post._string_createdAt
+        vm_post.displayedPostDetail.displayName = post._displayName
+        vm_post.displayedPost.img_post = post._img_post
+        vm_post.displayedPostText.text = post._string_textSelected
         v_post.setupData(with: vm_post)
       }
     }
