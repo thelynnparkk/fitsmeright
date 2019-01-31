@@ -15,9 +15,9 @@ import UIKit
 class PopupFooterViewUC {
   
   class DisplayedFooter {
-    var title_cancel: String? = "Cancel"
-    var title_ok: String? = "Ok"
-    var flag_hideCancel: Bool = false
+    var title_cancel: String? = "CANCEL"
+    var title_ok: String? = "OK"
+    var display: PopupFooterView.Display = .both
   }
   
   class ViewModel: AGViewModel {
@@ -42,13 +42,19 @@ class PopupFooterView: AGView {
     case cancel
     case ok
   }
+  enum Display {
+    case cancel
+    case ok
+    case both
+  }
   
   
   
   //MARK: - UI
+  var v_seperator: UIView!
   var stv_button: UIStackView!
   var btn_cancel: UIButton!
-  var v_seperator: UIView!
+  var v_seperatorButton: UIView!
   var btn_ok: UIButton!
   
   
@@ -109,6 +115,9 @@ class PopupFooterView: AGView {
     
     
     //MARK: Component
+    v_seperator = UIView()
+    v_seperator.backgroundColor = c_material.grey200
+    
     stv_button = UIStackView()
     stv_button.backgroundColor = .clear
     stv_button.axis = .horizontal
@@ -121,16 +130,17 @@ class PopupFooterView: AGView {
     btn_cancel.setupCancelDark()
     btn_cancel.addTarget(self, action: #selector(cancelButtonPressed), for: .touchUpInside)
     
-    v_seperator = UIView()
-    v_seperator.backgroundColor = c_material.grey200
+    v_seperatorButton = UIView()
+    v_seperatorButton.backgroundColor = c_material.grey200
     
     btn_ok = UIButton(type: .custom)
     btn_ok.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .regular)
     btn_ok.setupOkDark()
     btn_ok.addTarget(self, action: #selector(okButtonPressed), for: .touchUpInside)
     
-    addSubview(stv_button)
     addSubview(v_seperator)
+    addSubview(stv_button)
+    addSubview(v_seperatorButton)
     stv_button.addArrangedSubview(btn_cancel)
     stv_button.addArrangedSubview(btn_ok)
     
@@ -141,14 +151,22 @@ class PopupFooterView: AGView {
     
     
     //MARK: Snp
-    stv_button.snp.makeConstraints {
+    v_seperator.snp.makeConstraints { 
       $0.top.equalToSuperview()
+      $0.right.equalToSuperview()
+      $0.left.equalToSuperview()
+      $0.height.equalTo(1)
+    }
+    
+    stv_button.snp.makeConstraints { [weak self] in
+      guard let _s = self else { return }
+      $0.top.equalTo(_s.v_seperator.snp.bottom)
       $0.right.equalToSuperview()
       $0.bottom.equalToSuperview()
       $0.left.equalToSuperview()
     }
     
-    v_seperator.snp.makeConstraints {
+    v_seperatorButton.snp.makeConstraints {
       $0.top.equalToSuperview()
       $0.bottom.equalToSuperview()
       $0.centerX.equalToSuperview()
@@ -206,8 +224,18 @@ class PopupFooterView: AGView {
     guard let vm = viewModel as? ViewModel else { return }
     btn_cancel.setTitle(vm.displayedFooter.title_cancel, for: .normal)
     btn_ok.setTitle(vm.displayedFooter.title_ok, for: .normal)
-    btn_cancel.isHidden = vm.displayedFooter.flag_hideCancel
-    v_seperator.isHidden = vm.displayedFooter.flag_hideCancel
+    
+    switch vm.displayedFooter.display {
+    case .cancel:
+      btn_cancel.isHidden = true
+      v_seperatorButton.isHidden = true
+    case .ok:
+      btn_ok.isHidden = true
+      v_seperatorButton.isHidden = true
+    case .both:
+      break
+    }
+    
   }
   
   

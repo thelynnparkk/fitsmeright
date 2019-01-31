@@ -85,6 +85,7 @@ class PopupHeaderView: AGView {
   var stv_info: UIStackView!
   var lb_title: UILabel!
   var lb_subtitle: UILabel!
+  var v_seperator: UIView!
   
   
   
@@ -178,11 +179,15 @@ class PopupHeaderView: AGView {
     lb_subtitle.textColor = .lightGray
     //    lb_subtitle.setupSubtitleDark()
     
+    v_seperator = UIView()
+    v_seperator.backgroundColor = c_material.grey200
+    
     addSubview(stv_header)
     stv_header.addArrangedSubview(imgv_header)
     stv_header.addArrangedSubview(stv_info)
     stv_info.addArrangedSubview(lb_title)
     stv_info.addArrangedSubview(lb_subtitle)
+    addSubview(v_seperator)
     
     
     
@@ -197,13 +202,21 @@ class PopupHeaderView: AGView {
     stv_header.snp.makeConstraints {
       con_headerStackViewTop = $0.top.equalToSuperview().constraint
       $0.right.equalToSuperview().offset(-20)
-      $0.bottom.lessThanOrEqualToSuperview().offset(-20)
       $0.left.equalToSuperview().offset(20)
     }
     
     imgv_header.snp.makeConstraints {
       con_headerImageViewHeight = $0.height.equalTo(0).constraint
       $0.width.equalTo(imgv_header.snp.height)
+    }
+    
+    v_seperator.snp.makeConstraints { [weak self] in
+      guard let _s = self else { return }
+      $0.top.equalTo(_s.stv_header.snp.bottom).offset(20)
+      $0.right.equalToSuperview()
+      $0.bottom.equalToSuperview()
+      $0.left.equalToSuperview()
+      $0.height.equalTo(1)
     }
     
 //    lb_title.snp.makeConstraints {

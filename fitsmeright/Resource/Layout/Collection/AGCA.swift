@@ -73,6 +73,8 @@ open class AGCA: NSObject {
   
   
   //MARK: - Initial
+  
+  
   required public init(collection: UICollectionView) {
     super.init()
     self.collection = collection

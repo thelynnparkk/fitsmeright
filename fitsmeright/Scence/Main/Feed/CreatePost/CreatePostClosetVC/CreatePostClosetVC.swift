@@ -1,5 +1,5 @@
 //
-//  CreatePostItemListVC.swift
+//  CreatePostClosetVC.swift
 //  fitsmeright
 //
 //  Created by Lynn Park on 8/12/2561 BE.
@@ -12,7 +12,7 @@ import UIKit
 
 
 
-extension CreatePostItemListVC:
+extension CreatePostClosetVC:
   AGVCInstantiatable
 {
   
@@ -20,7 +20,7 @@ extension CreatePostItemListVC:
 
 
 
-class CreatePostItemListVC: AGIPC {
+class CreatePostClosetVC: AGIPC {
   
   //MARK: - AGVCInstantiatable
   
@@ -166,7 +166,7 @@ class CreatePostItemListVC: AGIPC {
   
   //MARK: - Public
   override func setupLocalize() {
-    ni.title = CreatePostItemListVC.sb_name
+    ni.title = CreatePostClosetVC.sb_name
   }
   
   

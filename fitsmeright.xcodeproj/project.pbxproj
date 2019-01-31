@@ -41,11 +41,11 @@
 		5E74DA6E21BBDAAC00A97A89 /* MainTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA6D21BBDAAC00A97A89 /* MainTBC.swift */; };
 		5E74DA7021BBDAB300A97A89 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA6F21BBDAB300A97A89 /* FeedVC.swift */; };
 		5E74DA7321BBDABF00A97A89 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA7221BBDABF00A97A89 /* ProfileVC.swift */; };
-		5E74DA7621BBDACC00A97A89 /* CreatePostItemListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA7521BBDACC00A97A89 /* CreatePostItemListVC.swift */; };
+		5E74DA7621BBDACC00A97A89 /* CreatePostClosetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA7521BBDACC00A97A89 /* CreatePostClosetVC.swift */; };
 		5E74DA7821BBDADF00A97A89 /* MainTBC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA7721BBDADF00A97A89 /* MainTBC.storyboard */; };
 		5E74DA7A21BBDB5200A97A89 /* FeedVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA7921BBDB5200A97A89 /* FeedVC.storyboard */; };
 		5E74DA7C21BBDB5E00A97A89 /* ProfileVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA7B21BBDB5E00A97A89 /* ProfileVC.storyboard */; };
-		5E74DA7E21BBDB6800A97A89 /* CreatePostItemListVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA7D21BBDB6800A97A89 /* CreatePostItemListVC.storyboard */; };
+		5E74DA7E21BBDB6800A97A89 /* CreatePostClosetVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA7D21BBDB6800A97A89 /* CreatePostClosetVC.storyboard */; };
 		5E74DA8021BBF7D700A97A89 /* R.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA7F21BBF7D700A97A89 /* R.swift */; };
 		5E74DA8421BBF94B00A97A89 /* UINavigationController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA8321BBF94B00A97A89 /* UINavigationController+AG.swift */; };
 		5E74DA8621BBFC6700A97A89 /* UIImagePickerController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */; };
@@ -136,6 +136,7 @@
 		A4C4FAD621F9CB35004A3F37 /* PopupDialogable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FAD521F9CB35004A3F37 /* PopupDialogable.swift */; };
 		A4C532612201AA37003E6061 /* CGRect+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C532602201AA37003E6061 /* CGRect+AG.swift */; };
 		A4D6584E21BF651F007B8558 /* UITabBar+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */; };
+		A4DF18D62202FD7F008B67DA /* PopupListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF18D52202FD7F008B67DA /* PopupListVC.swift */; };
 		A4E1288121FEB9E700F85C66 /* ClosetCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E1288021FEB9E700F85C66 /* ClosetCategoryVC.swift */; };
 		A4E1288321FEBA4D00F85C66 /* ClosetListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E1288221FEBA4D00F85C66 /* ClosetListVC.swift */; };
 		A4E31D8321C28B83004D1707 /* AGUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E31D8221C28B83004D1707 /* AGUserDefaults.swift */; };
@@ -203,11 +204,11 @@
 		5E74DA6D21BBDAAC00A97A89 /* MainTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTBC.swift; sourceTree = "<group>"; };
 		5E74DA6F21BBDAB300A97A89 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		5E74DA7221BBDABF00A97A89 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
-		5E74DA7521BBDACC00A97A89 /* CreatePostItemListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostItemListVC.swift; sourceTree = "<group>"; };
+		5E74DA7521BBDACC00A97A89 /* CreatePostClosetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostClosetVC.swift; sourceTree = "<group>"; };
 		5E74DA7721BBDADF00A97A89 /* MainTBC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTBC.storyboard; sourceTree = "<group>"; };
 		5E74DA7921BBDB5200A97A89 /* FeedVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeedVC.storyboard; sourceTree = "<group>"; };
 		5E74DA7B21BBDB5E00A97A89 /* ProfileVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileVC.storyboard; sourceTree = "<group>"; };
-		5E74DA7D21BBDB6800A97A89 /* CreatePostItemListVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePostItemListVC.storyboard; sourceTree = "<group>"; };
+		5E74DA7D21BBDB6800A97A89 /* CreatePostClosetVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePostClosetVC.storyboard; sourceTree = "<group>"; };
 		5E74DA7F21BBF7D700A97A89 /* R.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R.swift; sourceTree = "<group>"; };
 		5E74DA8321BBF94B00A97A89 /* UINavigationController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+AG.swift"; sourceTree = "<group>"; };
 		5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+AG.swift"; sourceTree = "<group>"; };
@@ -299,6 +300,7 @@
 		A4C4FAD521F9CB35004A3F37 /* PopupDialogable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupDialogable.swift; sourceTree = "<group>"; };
 		A4C532602201AA37003E6061 /* CGRect+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+AG.swift"; sourceTree = "<group>"; };
 		A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+AG.swift"; sourceTree = "<group>"; };
+		A4DF18D52202FD7F008B67DA /* PopupListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupListVC.swift; sourceTree = "<group>"; };
 		A4E1288021FEB9E700F85C66 /* ClosetCategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosetCategoryVC.swift; sourceTree = "<group>"; };
 		A4E1288221FEBA4D00F85C66 /* ClosetListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListVC.swift; sourceTree = "<group>"; };
 		A4E31D8221C28B83004D1707 /* AGUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGUserDefaults.swift; sourceTree = "<group>"; };
@@ -348,7 +350,7 @@
 		5E0900B521C2B7AF0099F81E /* CreatePost */ = {
 			isa = PBXGroup;
 			children = (
-				5E74DA6C21BBDA2000A97A89 /* CreatePostItemListVC */,
+				5E74DA6C21BBDA2000A97A89 /* CreatePostClosetVC */,
 				5E0900B621C2B8340099F81E /* CreatePostDesignVC */,
 				5E0900BB21C2B8A60099F81E /* CreatePostInfoVC */,
 			);
@@ -649,13 +651,13 @@
 			path = ProfileVC;
 			sourceTree = "<group>";
 		};
-		5E74DA6C21BBDA2000A97A89 /* CreatePostItemListVC */ = {
+		5E74DA6C21BBDA2000A97A89 /* CreatePostClosetVC */ = {
 			isa = PBXGroup;
 			children = (
-				5E74DA7521BBDACC00A97A89 /* CreatePostItemListVC.swift */,
-				5E74DA7D21BBDB6800A97A89 /* CreatePostItemListVC.storyboard */,
+				5E74DA7521BBDACC00A97A89 /* CreatePostClosetVC.swift */,
+				5E74DA7D21BBDB6800A97A89 /* CreatePostClosetVC.storyboard */,
 			);
-			path = CreatePostItemListVC;
+			path = CreatePostClosetVC;
 			sourceTree = "<group>";
 		};
 		5ECE8E6321F744F7000AF65E /* Auth */ = {
@@ -929,6 +931,7 @@
 				A4C4FACC21F9C0D8004A3F37 /* PopupHeaderView.swift */,
 				A4C4FACE21F9C396004A3F37 /* PopupFooterView.swift */,
 				A4C4FAD321F9C6E4004A3F37 /* PopupContainerVC.swift */,
+				A4DF18D52202FD7F008B67DA /* PopupListVC.swift */,
 			);
 			path = Popup;
 			sourceTree = "<group>";
@@ -1132,7 +1135,7 @@
 				5E74DA0721BBACAA00A97A89 /* LaunchScreen.storyboard in Resources */,
 				5E0900BD21C2B8B90099F81E /* CreatePostInfoVC.storyboard in Resources */,
 				A4C4FABD21F975C7004A3F37 /* ClosetFormView.xib in Resources */,
-				5E74DA7E21BBDB6800A97A89 /* CreatePostItemListVC.storyboard in Resources */,
+				5E74DA7E21BBDB6800A97A89 /* CreatePostClosetVC.storyboard in Resources */,
 				A4C4FAB521F975C7004A3F37 /* CreateTextView.xib in Resources */,
 				5E74DA7C21BBDB5E00A97A89 /* ProfileVC.storyboard in Resources */,
 				5E74DA7821BBDADF00A97A89 /* MainTBC.storyboard in Resources */,
@@ -1367,6 +1370,7 @@
 				5EE8924121C3E615008A65ED /* ClosetVC.swift in Sources */,
 				A4C4FAB621F975C7004A3F37 /* CreateTextView.swift in Sources */,
 				A42F7C5E21BE5B4B00085DB5 /* AGApplicationRoutable.swift in Sources */,
+				A4DF18D62202FD7F008B67DA /* PopupListVC.swift in Sources */,
 				5E74DA5321BBD0B100A97A89 /* TemplateV.swift in Sources */,
 				A4C4B6EC21F820C00036B0F7 /* AGVC+AG.swift in Sources */,
 				5EFC9BAA21FB57C00078ED50 /* SCloset.swift in Sources */,
@@ -1414,7 +1418,7 @@
 				A4A98DB321FB0C1900937AE5 /* UILabel+AG.swift in Sources */,
 				A4C4FACB21F9B87C004A3F37 /* PopupVC.swift in Sources */,
 				A4796C9521F5DC0100B83F85 /* UIColor+AG.swift in Sources */,
-				5E74DA7621BBDACC00A97A89 /* CreatePostItemListVC.swift in Sources */,
+				5E74DA7621BBDACC00A97A89 /* CreatePostClosetVC.swift in Sources */,
 				5E74DA5621BBD0B100A97A89 /* TemplateCC.swift in Sources */,
 				A4C338C421F8AC2C00147567 /* AGCA.swift in Sources */,
 				5ECE8E6C21F7459B000AF65E /* MockPost.swift in Sources */,

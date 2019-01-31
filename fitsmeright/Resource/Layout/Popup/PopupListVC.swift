@@ -1,8 +1,8 @@
 //
-//  PopupContainerVC.swift
+//  PopupListVC.swift
 //  fitsmeright
 //
-//  Created by Sasawat Sankosik on 24/1/2562 BE.
+//  Created by Sasawat Sankosik on 31/1/2562 BE.
 //  Copyright © 2562 silpakorn. All rights reserved.
 //
 
@@ -14,11 +14,11 @@ import PopupDialog
 
 
 
-class PopupContainerVCUC {
+class PopupListVCUC {
   
-  class DisplayedContainer {
-    var injectedView: UIView?
-    var injectedViewHeight: CGFloat?
+  class DisplayedList {
+    var viewModel: AGCAModel!
+    var adapter: AGCA.Type!
     var tapDismissal = true
     var tapGesture = true
   }
@@ -26,22 +26,23 @@ class PopupContainerVCUC {
   class ViewModel: PopupVCModel {
     var displayedHeader = PopupHeaderViewUC.DisplayedHeader()
     var displayedFooter = PopupFooterViewUC.DisplayedFooter()
-    var displayedContainer = DisplayedContainer()
+    var displayedList = DisplayedList()
   }
   
 }
 
 
 
-extension PopupContainerVC:
-  AGViewDelegate
+extension PopupListVC:
+  AGViewDelegate,
+  AGCADelegate
 {
   
 }
 
 
 
-class PopupContainerVC: PopupVC {
+class PopupListVC: PopupVC {
   //MARK: - AGInstantiatable
   
   
@@ -54,7 +55,8 @@ class PopupContainerVC: PopupVC {
   var v_container: UIView!
   var tapgr_container: UIGestureRecognizer!
   var v_header: PopupHeaderView!
-  var stv_container: UIStackView!
+  var collection: UICollectionView!
+  var adpater: AGCA!
   var v_footer: PopupFooterView!
   var tapGesture: UITapGestureRecognizer!
   
@@ -67,7 +69,7 @@ class PopupContainerVC: PopupVC {
   
   
   //MARK: - Constraint
-  typealias ViewModel = PopupContainerVCUC.ViewModel
+  typealias ViewModel = PopupListVCUC.ViewModel
   
   
   
@@ -81,7 +83,7 @@ class PopupContainerVC: PopupVC {
   
   
   //MARK: - Storage
-  var viewModel = PopupContainerVCUC.ViewModel()
+  var viewModel = PopupListVCUC.ViewModel()
   
   
   
@@ -139,12 +141,9 @@ class PopupContainerVC: PopupVC {
     v_header = PopupHeaderView()
     v_header.backgroundColor = .clear
     
-    stv_container = UIStackView()
-    stv_container.backgroundColor = .clear
-    stv_container.axis = .vertical
-    stv_container.alignment = .fill
-    stv_container.distribution = .fillProportionally
-    stv_container.spacing = 0
+    collection = ControlContainableCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    adpater = viewModel.displayedList.adapter!.init(collection: collection)
+    adpater.delegate = self
     
     v_footer = PopupFooterView()
     v_footer.backgroundColor = .clear
@@ -152,10 +151,7 @@ class PopupContainerVC: PopupVC {
     
     view.addSubview(v_container)
     v_container.addSubview(v_header)
-    v_container.addSubview(stv_container)
-    if let v = viewModel.displayedContainer.injectedView {
-      stv_container.addArrangedSubview(v)
-    }
+    v_container.addSubview(collection)
     
     if !flag_hideFooter {
       v_container.addSubview(v_footer)
@@ -164,11 +160,11 @@ class PopupContainerVC: PopupVC {
       v_container.addGestureRecognizer(tapgr_container)
     }
     
-    if viewModel.displayedContainer.tapGesture {
+    if viewModel.displayedList.tapGesture {
       tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTapGestureRecognized))
       view.addGestureRecognizer(tapGesture)
     }
-
+    
     
     
     //MARK: Component
@@ -190,23 +186,37 @@ class PopupContainerVC: PopupVC {
     }
     
     if !flag_hideFooter {
-      let offset = viewModel.displayedContainer.injectedView == nil ? -1 : 15
-      stv_container.snp.makeConstraints {
+      let count = CGFloat(viewModel.displayedList.viewModel.displayedRows.count)
+      let offset = count > 0 ? -1 : 15
+      let scale = 0.8
+      collection.snp.makeConstraints { [weak self] in
+        guard let _s = self else { return }
         $0.top.equalTo(v_header.snp.bottom).offset(offset)
         $0.right.equalToSuperview().offset(-20)
         $0.left.equalToSuperview().offset(20)
-        $0.height.lessThanOrEqualToSuperview().multipliedBy(0.8)
+//        $0.height.lessThanOrEqualToSuperview().multipliedBy(scale)
+        if count > 0 {
+          let con_max = (UIScreen.main.bounds.size.height * (CGFloat(scale) - 0.2))
+          let h_sum = con_max * count
+          if h_sum <= con_max {
+            $0.height.equalTo(h_sum)
+          } else {
+            $0.height.equalTo(con_max)
+          }
+        } else {
+          $0.height.equalTo(_s.collection.snp.width)
+        }
       }
       
       v_footer.snp.makeConstraints {
-        $0.top.equalTo(stv_container.snp.bottom).offset(offset)
+        $0.top.equalTo(collection.snp.bottom).offset(offset)
         $0.right.equalToSuperview()
         $0.bottom.equalToSuperview()
         $0.left.equalToSuperview()
         $0.height.equalTo(45)
       }
     } else {
-      stv_container.snp.makeConstraints {
+      collection.snp.makeConstraints {
         $0.top.equalTo(v_header.snp.bottom).offset(15)
         $0.right.equalToSuperview().offset(-20)
         $0.bottom.equalToSuperview().offset(-15)
@@ -238,6 +248,10 @@ class PopupContainerVC: PopupVC {
     vm_footer.displayedFooter = viewModel.displayedFooter
     v_header.setupData(with: vm_header)
     v_footer.setupData(with: vm_footer)
+    DispatchQueue.main.async { [weak self] in
+      guard let _s = self else { return }
+      _s.adpater!.setupData(with: _s.viewModel.displayedList.viewModel)
+    }
   }
   
   override func setupData(with viewModel: PopupVCModel) {
@@ -295,6 +309,14 @@ class PopupContainerVC: PopupVC {
       break
     }
     
+  }
+  
+  
+  
+  
+  //MARK: - Custom - AGCADelegate
+  func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
+    okButtonPressed()
   }
   
   

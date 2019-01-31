@@ -118,6 +118,10 @@ protocol PopupDialogable {
                              priority: AGPopupPriority,
                              on: UIViewController?,
                              onComplete: CBBool?)
+  func displayPopupList(_ viewModel: PopupListVCUC.ViewModel,
+                        priority: AGPopupPriority,
+                        on: UIViewController?,
+                        onComplete: CBBoolIndexPath?)
 }
 
 
@@ -149,6 +153,29 @@ extension PopupDialogable {
     present(with: pd, priority: priority, on: on)
   }
   
+  func displayPopupList(_ viewModel: PopupListVCUC.ViewModel,
+                        priority: AGPopupPriority,
+                        on: UIViewController?,
+                        onComplete: CBBoolIndexPath?) {
+    guard popup(with: priority) else { return }
+    let vc = PopupListVC()
+    vc.setupData(with: viewModel)
+    let completion: CBVoid = {
+      self.dismissed(with: priority)
+      if let onComplete = onComplete {
+        onComplete((vc.flag_selected, vc.collection.indexPathsForSelectedItems?.first ?? IndexPath(row: 0, section: 0)))
+      }
+    }
+    let pd = PopupDialog(viewController: vc,
+                         transitionStyle: .zoomIn,
+                         preferredWidth: UIScreen.main.bounds.width,
+                         tapGestureDismissal: viewModel.displayedList.tapDismissal,
+                         panGestureDismissal: true,
+                         isAlignCenter: true,
+                         completion: completion)
+    present(with: pd, priority: priority, on: on)
+  }
+  
   
   
   //MARK: - Public
@@ -163,9 +190,9 @@ extension PopupDialogable {
   }
   
   func present(with popup: PopupDialog,
-                      priority: AGPopupPriority,
-                      on: UIViewController?,
-                      onPresented: CBVoid? = nil) {
+               priority: AGPopupPriority,
+               on: UIViewController?,
+               onPresented: CBVoid? = nil) {
     if let on = on {
       on.present(popup, animated: true) {
         if let onPresented = onPresented {
