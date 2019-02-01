@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		0DFE4632E6408B3440B1DCCA /* Pods_fitsmeright.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B60CBC6408CBD54FA78D747 /* Pods_fitsmeright.framework */; };
 		5E0900B421C2970A0099F81E /* RAMNonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0900B321C2970A0099F81E /* RAMNonAnimation.swift */; };
-		5E0900B821C2B88B0099F81E /* CreatePostDesignVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0900B721C2B88B0099F81E /* CreatePostDesignVC.swift */; };
-		5E0900BA21C2B89B0099F81E /* CreatePostDesignVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E0900B921C2B89B0099F81E /* CreatePostDesignVC.storyboard */; };
-		5E0900BD21C2B8B90099F81E /* CreatePostInfoVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E0900BC21C2B8B90099F81E /* CreatePostInfoVC.storyboard */; };
-		5E0900BF21C2B8C50099F81E /* CreatePostInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0900BE21C2B8C50099F81E /* CreatePostInfoVC.swift */; };
+		5E0900B821C2B88B0099F81E /* PostCreateDesignVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0900B721C2B88B0099F81E /* PostCreateDesignVC.swift */; };
+		5E0900BA21C2B89B0099F81E /* PostCreateDesignVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E0900B921C2B89B0099F81E /* PostCreateDesignVC.storyboard */; };
+		5E0900BD21C2B8B90099F81E /* PostCreateInfoVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E0900BC21C2B8B90099F81E /* PostCreateInfoVC.storyboard */; };
+		5E0900BF21C2B8C50099F81E /* PostCreateInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0900BE21C2B8C50099F81E /* PostCreateInfoVC.swift */; };
 		5E74D9FD21BBACA900A97A89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74D9FC21BBACA900A97A89 /* AppDelegate.swift */; };
 		5E74D9FF21BBACA900A97A89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74D9FE21BBACA900A97A89 /* ViewController.swift */; };
 		5E74DA0221BBACA900A97A89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA0021BBACA900A97A89 /* Main.storyboard */; };
@@ -41,11 +41,11 @@
 		5E74DA6E21BBDAAC00A97A89 /* MainTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA6D21BBDAAC00A97A89 /* MainTBC.swift */; };
 		5E74DA7021BBDAB300A97A89 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA6F21BBDAB300A97A89 /* FeedVC.swift */; };
 		5E74DA7321BBDABF00A97A89 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA7221BBDABF00A97A89 /* ProfileVC.swift */; };
-		5E74DA7621BBDACC00A97A89 /* CreatePostClosetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA7521BBDACC00A97A89 /* CreatePostClosetVC.swift */; };
+		5E74DA7621BBDACC00A97A89 /* PostCreateClosetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA7521BBDACC00A97A89 /* PostCreateClosetVC.swift */; };
 		5E74DA7821BBDADF00A97A89 /* MainTBC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA7721BBDADF00A97A89 /* MainTBC.storyboard */; };
 		5E74DA7A21BBDB5200A97A89 /* FeedVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA7921BBDB5200A97A89 /* FeedVC.storyboard */; };
 		5E74DA7C21BBDB5E00A97A89 /* ProfileVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA7B21BBDB5E00A97A89 /* ProfileVC.storyboard */; };
-		5E74DA7E21BBDB6800A97A89 /* CreatePostClosetVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA7D21BBDB6800A97A89 /* CreatePostClosetVC.storyboard */; };
+		5E74DA7E21BBDB6800A97A89 /* PostCreateClosetVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA7D21BBDB6800A97A89 /* PostCreateClosetVC.storyboard */; };
 		5E74DA8021BBF7D700A97A89 /* R.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA7F21BBF7D700A97A89 /* R.swift */; };
 		5E74DA8421BBF94B00A97A89 /* UINavigationController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA8321BBF94B00A97A89 /* UINavigationController+AG.swift */; };
 		5E74DA8621BBFC6700A97A89 /* UIImagePickerController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */; };
@@ -166,10 +166,10 @@
 		41EC81EF460A825BE1F780A3 /* Pods_fitsmerightUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitsmerightUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B34B9F8A3E854F921D23C20 /* Pods_fitsmerightTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitsmerightTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E0900B321C2970A0099F81E /* RAMNonAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAMNonAnimation.swift; sourceTree = "<group>"; };
-		5E0900B721C2B88B0099F81E /* CreatePostDesignVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostDesignVC.swift; sourceTree = "<group>"; };
-		5E0900B921C2B89B0099F81E /* CreatePostDesignVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePostDesignVC.storyboard; sourceTree = "<group>"; };
-		5E0900BC21C2B8B90099F81E /* CreatePostInfoVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePostInfoVC.storyboard; sourceTree = "<group>"; };
-		5E0900BE21C2B8C50099F81E /* CreatePostInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostInfoVC.swift; sourceTree = "<group>"; };
+		5E0900B721C2B88B0099F81E /* PostCreateDesignVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreateDesignVC.swift; sourceTree = "<group>"; };
+		5E0900B921C2B89B0099F81E /* PostCreateDesignVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostCreateDesignVC.storyboard; sourceTree = "<group>"; };
+		5E0900BC21C2B8B90099F81E /* PostCreateInfoVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostCreateInfoVC.storyboard; sourceTree = "<group>"; };
+		5E0900BE21C2B8C50099F81E /* PostCreateInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreateInfoVC.swift; sourceTree = "<group>"; };
 		5E74D9F921BBACA900A97A89 /* fitsmeright.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fitsmeright.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E74D9FC21BBACA900A97A89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E74D9FE21BBACA900A97A89 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -204,11 +204,11 @@
 		5E74DA6D21BBDAAC00A97A89 /* MainTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTBC.swift; sourceTree = "<group>"; };
 		5E74DA6F21BBDAB300A97A89 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 		5E74DA7221BBDABF00A97A89 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
-		5E74DA7521BBDACC00A97A89 /* CreatePostClosetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostClosetVC.swift; sourceTree = "<group>"; };
+		5E74DA7521BBDACC00A97A89 /* PostCreateClosetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreateClosetVC.swift; sourceTree = "<group>"; };
 		5E74DA7721BBDADF00A97A89 /* MainTBC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainTBC.storyboard; sourceTree = "<group>"; };
 		5E74DA7921BBDB5200A97A89 /* FeedVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeedVC.storyboard; sourceTree = "<group>"; };
 		5E74DA7B21BBDB5E00A97A89 /* ProfileVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileVC.storyboard; sourceTree = "<group>"; };
-		5E74DA7D21BBDB6800A97A89 /* CreatePostClosetVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePostClosetVC.storyboard; sourceTree = "<group>"; };
+		5E74DA7D21BBDB6800A97A89 /* PostCreateClosetVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostCreateClosetVC.storyboard; sourceTree = "<group>"; };
 		5E74DA7F21BBF7D700A97A89 /* R.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R.swift; sourceTree = "<group>"; };
 		5E74DA8321BBF94B00A97A89 /* UINavigationController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+AG.swift"; sourceTree = "<group>"; };
 		5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+AG.swift"; sourceTree = "<group>"; };
@@ -350,29 +350,30 @@
 		5E0900B521C2B7AF0099F81E /* CreatePost */ = {
 			isa = PBXGroup;
 			children = (
-				5E74DA6C21BBDA2000A97A89 /* CreatePostClosetVC */,
-				5E0900B621C2B8340099F81E /* CreatePostDesignVC */,
-				5E0900BB21C2B8A60099F81E /* CreatePostInfoVC */,
+				A49F8C63220449290081F5EA /* New Group */,
+				5E74DA6C21BBDA2000A97A89 /* PostCreateClosetVC */,
+				5E0900B621C2B8340099F81E /* PostCreateDesignVC */,
+				5E0900BB21C2B8A60099F81E /* PostCreateInfoVC */,
 			);
 			path = CreatePost;
 			sourceTree = "<group>";
 		};
-		5E0900B621C2B8340099F81E /* CreatePostDesignVC */ = {
+		5E0900B621C2B8340099F81E /* PostCreateDesignVC */ = {
 			isa = PBXGroup;
 			children = (
-				5E0900B721C2B88B0099F81E /* CreatePostDesignVC.swift */,
-				5E0900B921C2B89B0099F81E /* CreatePostDesignVC.storyboard */,
+				5E0900B721C2B88B0099F81E /* PostCreateDesignVC.swift */,
+				5E0900B921C2B89B0099F81E /* PostCreateDesignVC.storyboard */,
 			);
-			path = CreatePostDesignVC;
+			path = PostCreateDesignVC;
 			sourceTree = "<group>";
 		};
-		5E0900BB21C2B8A60099F81E /* CreatePostInfoVC */ = {
+		5E0900BB21C2B8A60099F81E /* PostCreateInfoVC */ = {
 			isa = PBXGroup;
 			children = (
-				5E0900BC21C2B8B90099F81E /* CreatePostInfoVC.storyboard */,
-				5E0900BE21C2B8C50099F81E /* CreatePostInfoVC.swift */,
+				5E0900BC21C2B8B90099F81E /* PostCreateInfoVC.storyboard */,
+				5E0900BE21C2B8C50099F81E /* PostCreateInfoVC.swift */,
 			);
-			path = CreatePostInfoVC;
+			path = PostCreateInfoVC;
 			sourceTree = "<group>";
 		};
 		5E74D9F021BBACA900A97A89 = {
@@ -651,13 +652,13 @@
 			path = ProfileVC;
 			sourceTree = "<group>";
 		};
-		5E74DA6C21BBDA2000A97A89 /* CreatePostClosetVC */ = {
+		5E74DA6C21BBDA2000A97A89 /* PostCreateClosetVC */ = {
 			isa = PBXGroup;
 			children = (
-				5E74DA7521BBDACC00A97A89 /* CreatePostClosetVC.swift */,
-				5E74DA7D21BBDB6800A97A89 /* CreatePostClosetVC.storyboard */,
+				5E74DA7521BBDACC00A97A89 /* PostCreateClosetVC.swift */,
+				5E74DA7D21BBDB6800A97A89 /* PostCreateClosetVC.storyboard */,
 			);
-			path = CreatePostClosetVC;
+			path = PostCreateClosetVC;
 			sourceTree = "<group>";
 		};
 		5ECE8E6321F744F7000AF65E /* Auth */ = {
@@ -850,6 +851,13 @@
 			children = (
 			);
 			path = NVC;
+			sourceTree = "<group>";
+		};
+		A49F8C63220449290081F5EA /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		A4C338B521F8A29700147567 /* ScrollView */ = {
@@ -1133,9 +1141,9 @@
 				A4C4FAB121F975C7004A3F37 /* FloatingView.xib in Resources */,
 				A4C4FAB321F975C7004A3F37 /* ClosetMenuView.xib in Resources */,
 				5E74DA0721BBACAA00A97A89 /* LaunchScreen.storyboard in Resources */,
-				5E0900BD21C2B8B90099F81E /* CreatePostInfoVC.storyboard in Resources */,
+				5E0900BD21C2B8B90099F81E /* PostCreateInfoVC.storyboard in Resources */,
 				A4C4FABD21F975C7004A3F37 /* ClosetFormView.xib in Resources */,
-				5E74DA7E21BBDB6800A97A89 /* CreatePostClosetVC.storyboard in Resources */,
+				5E74DA7E21BBDB6800A97A89 /* PostCreateClosetVC.storyboard in Resources */,
 				A4C4FAB521F975C7004A3F37 /* CreateTextView.xib in Resources */,
 				5E74DA7C21BBDB5E00A97A89 /* ProfileVC.storyboard in Resources */,
 				5E74DA7821BBDADF00A97A89 /* MainTBC.storyboard in Resources */,
@@ -1149,7 +1157,7 @@
 				5E74DA7A21BBDB5200A97A89 /* FeedVC.storyboard in Resources */,
 				A42F7C4E21BE321300085DB5 /* README.md in Resources */,
 				5E74DA4521BBD04300A97A89 /* SplashVC.storyboard in Resources */,
-				5E0900BA21C2B89B0099F81E /* CreatePostDesignVC.storyboard in Resources */,
+				5E0900BA21C2B89B0099F81E /* PostCreateDesignVC.storyboard in Resources */,
 				5ECE8E6E21F747B7000AF65E /* GoogleService-Info.plist in Resources */,
 				A4C4FAC421F979A7004A3F37 /* LabelCRV.xib in Resources */,
 				5E74DA0221BBACA900A97A89 /* Main.storyboard in Resources */,
@@ -1343,7 +1351,7 @@
 				A4C4FAB421F975C7004A3F37 /* StateView.swift in Sources */,
 				A4C4FAD621F9CB35004A3F37 /* PopupDialogable.swift in Sources */,
 				5E74DA6821BBD9C000A97A89 /* Typealias+AG.swift in Sources */,
-				5E0900BF21C2B8C50099F81E /* CreatePostInfoVC.swift in Sources */,
+				5E0900BF21C2B8C50099F81E /* PostCreateInfoVC.swift in Sources */,
 				5E0900B421C2970A0099F81E /* RAMNonAnimation.swift in Sources */,
 				A4C4FABC21F975C7004A3F37 /* PostView.swift in Sources */,
 				5ECE8E7B21F752A8000AF65E /* FSClosetWorker.swift in Sources */,
@@ -1396,7 +1404,7 @@
 				A408A4D121BEB4970030F2F5 /* UIBarButtonItem +AG.swift in Sources */,
 				5ECE8E8221F76015000AF65E /* QueryDocumentSnapshot+AG.swift in Sources */,
 				A4C4FAC021F9762A004A3F37 /* LabelCRV.swift in Sources */,
-				5E0900B821C2B88B0099F81E /* CreatePostDesignVC.swift in Sources */,
+				5E0900B821C2B88B0099F81E /* PostCreateDesignVC.swift in Sources */,
 				A4C4FAC621F9A13C004A3F37 /* ViewIPC.swift in Sources */,
 				5E74DA5821BBD0B100A97A89 /* TemplateVIP.swift in Sources */,
 				A4C4FAB821F975C7004A3F37 /* ClosetFormView.swift in Sources */,
@@ -1418,7 +1426,7 @@
 				A4A98DB321FB0C1900937AE5 /* UILabel+AG.swift in Sources */,
 				A4C4FACB21F9B87C004A3F37 /* PopupVC.swift in Sources */,
 				A4796C9521F5DC0100B83F85 /* UIColor+AG.swift in Sources */,
-				5E74DA7621BBDACC00A97A89 /* CreatePostClosetVC.swift in Sources */,
+				5E74DA7621BBDACC00A97A89 /* PostCreateClosetVC.swift in Sources */,
 				5E74DA5621BBD0B100A97A89 /* TemplateCC.swift in Sources */,
 				A4C338C421F8AC2C00147567 /* AGCA.swift in Sources */,
 				5ECE8E6C21F7459B000AF65E /* MockPost.swift in Sources */,

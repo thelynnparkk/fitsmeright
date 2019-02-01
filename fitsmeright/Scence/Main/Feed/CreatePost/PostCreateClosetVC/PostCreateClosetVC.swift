@@ -1,5 +1,5 @@
 //
-//  CreatePostClosetVC.swift
+//  PostCreateClosetVC.swift
 //  fitsmeright
 //
 //  Created by Lynn Park on 8/12/2561 BE.
@@ -12,7 +12,7 @@ import UIKit
 
 
 
-extension CreatePostClosetVC:
+extension PostCreateClosetVC:
   AGVCInstantiatable
 {
   
@@ -20,7 +20,7 @@ extension CreatePostClosetVC:
 
 
 
-class CreatePostClosetVC: AGIPC {
+class PostCreateClosetVC: AGIPC {
   
   //MARK: - AGVCInstantiatable
   
@@ -152,7 +152,7 @@ class CreatePostClosetVC: AGIPC {
   //MARK: - Event
   @objc
   func nextBarButtonPressed(_ sender: UIBarButtonItem) {
-    let vc = CreatePostDesignVC.vc
+    let vc = PostCreateDesignVC.vc
     vc.img_clothListSelected = img_clothListSelected
     navigationController?.pushViewController(vc, animated: true)
   }
@@ -166,7 +166,7 @@ class CreatePostClosetVC: AGIPC {
   
   //MARK: - Public
   override func setupLocalize() {
-    ni.title = CreatePostClosetVC.sb_name
+    ni.title = PostCreateClosetVC.sb_name
   }
   
   

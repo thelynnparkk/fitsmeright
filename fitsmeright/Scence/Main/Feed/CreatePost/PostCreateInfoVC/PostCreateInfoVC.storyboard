@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Create Post InfoVC-->
+        <!--Post Create InfoVC-->
         <scene sceneID="Mz4-zY-uf9">
             <objects>
-                <viewController storyboardIdentifier="CreatePostInfoVC" id="SZw-ww-Tu3" customClass="CreatePostInfoVC" customModule="fitsmeright" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostCreateInfoVC" id="SZw-ww-Tu3" customClass="PostCreateInfoVC" customModule="fitsmeright" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d0B-ve-LTX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

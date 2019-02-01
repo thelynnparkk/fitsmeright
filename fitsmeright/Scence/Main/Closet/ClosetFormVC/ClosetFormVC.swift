@@ -174,7 +174,7 @@ class ClosetFormVC: AGIPC {
   }
   
   @IBAction func chooseClosetPressed(_ sender: Any) {
-    displayImagePickerAlert()
+//    displayImagePickerAlert()
   }
   
   @IBAction func doneBarButtonPressed(_ sender: Any) {

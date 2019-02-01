@@ -1,5 +1,5 @@
 //
-//  CreatePostInfoVC.swift
+//  PostCreateInfoVC.swift
 //  fitsmeright
 //
 //  Created by Lynn Park on 13/12/2561 BE.
@@ -14,7 +14,7 @@ import AVFoundation
 
 
 
-extension CreatePostInfoVC:
+extension PostCreateInfoVC:
   AGVCInstantiatable,
   UITextFieldDelegate
 {
@@ -23,7 +23,7 @@ extension CreatePostInfoVC:
 
 
 
-class CreatePostInfoVC: AGVC {
+class PostCreateInfoVC: AGVC {
   //MARK: - AGInstantiatable
   
   
@@ -167,7 +167,7 @@ class CreatePostInfoVC: AGVC {
   
   //MARK: - Public
   override func setupLocalize() {
-    ni.title = CreatePostInfoVC.sb_name
+    ni.title = PostCreateInfoVC.sb_name
   }
   
   

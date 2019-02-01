@@ -12,7 +12,7 @@ import UIKit
 
 
 
-extension CreatePostDesignVC:
+extension PostCreateDesignVC:
   UITextFieldDelegate,
   AGVCInstantiatable
 {
@@ -21,7 +21,7 @@ extension CreatePostDesignVC:
 
 
 
-class CreatePostDesignVC: AGIPC {
+class PostCreateDesignVC: AGIPC {
   //MARK: - AGVCInstantiatable
   
   
@@ -159,7 +159,7 @@ class CreatePostDesignVC: AGIPC {
   //MARK: - Event
   @objc
   func nextBarButtonPressed(_ sender: UIBarButtonItem) {
-    let vc = CreatePostInfoVC.vc
+    let vc = PostCreateInfoVC.vc
     vc.img_clothListSelected = img_clothListSelected
     vc.img_backgroundSelected = img_backgroundSelected
     vc.string_textSelected = v_createText.txt_main.text
@@ -185,7 +185,7 @@ class CreatePostDesignVC: AGIPC {
   
   //MARK: - Public
   override func setupLocalize() {
-    ni.title = CreatePostDesignVC.sb_name
+    ni.title = PostCreateDesignVC.sb_name
   }
   
   

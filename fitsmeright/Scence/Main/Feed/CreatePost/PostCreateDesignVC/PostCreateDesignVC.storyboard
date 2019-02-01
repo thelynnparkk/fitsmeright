@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Create Post DesignVC-->
+        <!--Post Create DesignVC-->
         <scene sceneID="c1g-dA-wt0">
             <objects>
-                <viewController storyboardIdentifier="CreatePostDesignVC" id="aVQ-kc-qli" customClass="CreatePostDesignVC" customModule="fitsmeright" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostCreateDesignVC" id="aVQ-kc-qli" customClass="PostCreateDesignVC" customModule="fitsmeright" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="coq-jX-e2O">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
