@@ -193,13 +193,13 @@ class ClosetListVC: AGVC {
     
     func present() {
       let vm = ImageCAUC.ViewModel()
-      vm.displayedRows = fsClosets.compactMap({
+      vm.displayedItems = fsClosets.compactMap({
         let vm = ImageCCUC.ViewModel()
         vm.displayedImage.imageUrl = $0.imageURL
         return vm
       })
       //      vm.displayedFooter.kind = UICollectionView.elementKindSectionFooter
-      vm.displayedFooter.title = "\(vm.displayedRows.count) items"
+      vm.displayedFooter.title = "\(vm.displayedItems.count) items"
       adapter_image.setupData(with: vm)
     }
     

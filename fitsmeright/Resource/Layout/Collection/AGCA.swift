@@ -13,7 +13,7 @@ import UIKit
 
 
 class AGCAModel {
-  var displayedRows: [AGCCModel] = []
+  var displayedItems: [AGCCModel] = []
 }
 
 
@@ -61,8 +61,12 @@ open class AGCA: NSObject {
   
   
   //MARK: - Flag
+  var height: CGFloat {
+    return 0.0
+  }
+  
   var isEmpty: Bool {
-    return viewModel.displayedRows.isEmpty
+    return viewModel.displayedItems.isEmpty
   }
   
   

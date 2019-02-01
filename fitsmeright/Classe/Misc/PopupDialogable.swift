@@ -140,7 +140,7 @@ extension PopupDialogable {
     let completion: CBVoid = {
       self.dismissed(with: priority)
       if let onComplete = onComplete {
-        onComplete((vc.flag_selected))
+        onComplete((vc.isSelected))
       }
     }
     let pd = PopupDialog(viewController: vc,
@@ -163,7 +163,7 @@ extension PopupDialogable {
     let completion: CBVoid = {
       self.dismissed(with: priority)
       if let onComplete = onComplete {
-        onComplete((vc.flag_selected, vc.collection.indexPathsForSelectedItems?.first ?? IndexPath(row: 0, section: 0)))
+        onComplete((vc.isSelected, vc.indexPathSeleted ?? IndexPath(row: 0, section: 0)))
       }
     }
     let pd = PopupDialog(viewController: vc,

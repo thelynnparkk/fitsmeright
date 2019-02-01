@@ -198,7 +198,7 @@ class ProfileVC: AGVC {
       vm.displayedProfile.posts = "\(posts.count)"
       vm.displayedProfile.friends = "0"
       vm.displayedProfile.closets = "0"
-      vm.displayedRows = posts.compactMap({
+      vm.displayedItems = posts.compactMap({
         let vm = ImageCCUC.ViewModel()
         vm.displayedImage.imageUrl = URL(string: $0._displayName)
         return vm

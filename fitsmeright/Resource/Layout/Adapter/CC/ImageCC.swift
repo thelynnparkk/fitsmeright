@@ -43,8 +43,9 @@ class ImageCC: AGCC {
                      customItemSpace: CGFloat? = nil,
                      customItemLine: CGFloat? = nil,
                      customInset: UIEdgeInsets? = nil) -> CGSize {
-      let rowSpace = CGFloat(rowItems - 1)
-      let side = (bound.width - (itemSpace(custom: customItemSpace) * rowSpace) - (inset(custom: customInset).right + inset(custom: customInset).left)) / CGFloat(rowItems)
+      let spaces = itemSpace(custom: customItemSpace) * CGFloat(rowItems - 1)
+      let insets = inset(custom: customInset).right + inset(custom: customInset).left
+      let side = ((bound.width - spaces - insets) / CGFloat(rowItems)).rounded(.down)
       return CGSize(width: side, height: side)
     }
     
@@ -66,7 +67,7 @@ class ImageCC: AGCC {
       if let custom = custom {
         return custom
       }
-      return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+      return UIEdgeInsets(inset: 5)
     }
     
     static func offset(with bound: CGRect = .zero) -> CGPoint {

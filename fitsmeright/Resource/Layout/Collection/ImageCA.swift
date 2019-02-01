@@ -68,6 +68,16 @@ class ImageCA: AGCA {
   
   
   //MARK: - Storage
+  override var height: CGFloat {
+    let rowItems = 4
+    let rows = (CGFloat(viewModel.displayedItems.count) / CGFloat(rowItems)).rounded(.up)
+    let image_items = CC.Sizing.size(with: collection.bounds, rowItems: rowItems).height * rows
+    let image_spaces = (CC.Sizing.lineSpace() * (rows - 1))
+    let image_insets = (CC.Sizing.inset().top * CC.Sizing.inset().bottom)
+    let image = image_items + image_spaces + image_insets
+    let footer = CRV.Sizing.size(with: collection.frame, height: 50).height
+    return image + footer
+  }
   
   
   
@@ -184,7 +194,7 @@ class ImageCA: AGCA {
     guard !isEmpty else {
       return 0
     }
-    return viewModel.displayedRows.count
+    return viewModel.displayedItems.count
   }
   
   public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -192,7 +202,7 @@ class ImageCA: AGCA {
       return UICollectionViewCell()
     }
     let cell = collectionView.dequeueReusableCell(withClass: CC.self, for: indexPath)
-    let item = viewModel.displayedRows[indexPath.row]
+    let item = viewModel.displayedItems[indexPath.row]
     cell.indexPath = indexPath
     cell.delegate = self
     cell.setupData(with: item)
@@ -226,26 +236,26 @@ class ImageCA: AGCA {
     guard !isEmpty else {
       return
     }
-    if let _ = viewModel.displayedRows[indexPath.row] as? CCModel {
+    if let _ = viewModel.displayedItems[indexPath.row] as? CCModel {
       delegate?.agCAPressed(self, action: [], indexPath: indexPath)
     }
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-    return CRV.Sizing.size(with: collectionView.frame, height: 50)
+    return CRV.Sizing.size(with: collectionView.bounds, height: 50)
   }
   
   
   
   //MARK: - Core - UICollectionViewDelegateFlowLayout
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CC.Sizing.size(with: collectionView.frame, rowItems: 4)
+    return CC.Sizing.size(with: collectionView.bounds, rowItems: 4)
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
     return CC.Sizing.inset()
   }
-  
+
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
     return CC.Sizing.lineSpace()
   }

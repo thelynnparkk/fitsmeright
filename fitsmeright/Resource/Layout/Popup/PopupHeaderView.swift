@@ -164,7 +164,7 @@ class PopupHeaderView: AGView {
     stv_info.backgroundColor = .clear
     stv_info.axis = .vertical
     stv_info.alignment = .fill
-    stv_info.distribution = .fill
+    stv_info.distribution = .fillProportionally
     stv_info.spacing = 0
     
     lb_title = UILabel()
@@ -219,9 +219,9 @@ class PopupHeaderView: AGView {
       $0.height.equalTo(1)
     }
     
-//    lb_title.snp.makeConstraints {
-//      $0.height.equalTo(25)
-//    }
+    lb_title.snp.makeConstraints {
+      $0.height.equalTo(20)
+    }
     
     //    lb_subtitle.snp.makeConstraints {
     //      $0.height.equalTo(25)

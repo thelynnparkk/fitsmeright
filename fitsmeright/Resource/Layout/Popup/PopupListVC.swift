@@ -21,6 +21,7 @@ class PopupListVCUC {
     var adapter: AGCA.Type!
     var tapDismissal = true
     var tapGesture = true
+    var isHideFooter = false
   }
   
   class ViewModel: PopupVCModel {
@@ -63,13 +64,15 @@ class PopupListVC: PopupVC {
   
   
   //MARK: - LayoutConstraint
-  var con_containerStackViewTop: Constraint!
-  var con_containerStackViewBottom: Constraint!
+  var con_collectionHeight: Constraint!
   
   
   
   //MARK: - Constraint
   typealias ViewModel = PopupListVCUC.ViewModel
+  var con_heightMax: CGFloat {
+    return (UIScreen.main.bounds.size.height * CGFloat(0.5))
+  }
   
   
   
@@ -78,12 +81,12 @@ class PopupListVC: PopupVC {
   
   
   //MARK: - Flag
-  var flag_hideFooter = false
   
   
   
   //MARK: - Storage
   var viewModel = PopupListVCUC.ViewModel()
+  var indexPathSeleted: IndexPath?
   
   
   
@@ -153,11 +156,11 @@ class PopupListVC: PopupVC {
     v_container.addSubview(v_header)
     v_container.addSubview(collection)
     
-    if !flag_hideFooter {
-      v_container.addSubview(v_footer)
-    } else {
+    if viewModel.displayedList.isHideFooter {
       tapgr_container = UITapGestureRecognizer(target: self, action: #selector(okButtonPressed))
       v_container.addGestureRecognizer(tapgr_container)
+    } else {
+      v_container.addSubview(v_footer)
     }
     
     if viewModel.displayedList.tapGesture {
@@ -185,43 +188,31 @@ class PopupListVC: PopupVC {
       $0.height.lessThanOrEqualTo(PopupHeaderView.Sizing.height(style: viewModel.displayedHeader.style))
     }
     
-    if !flag_hideFooter {
-      let count = CGFloat(viewModel.displayedList.viewModel.displayedRows.count)
-      let offset = count > 0 ? -1 : 15
-      let scale = 0.8
+    if viewModel.displayedList.isHideFooter {
       collection.snp.makeConstraints { [weak self] in
         guard let _s = self else { return }
-        $0.top.equalTo(v_header.snp.bottom).offset(offset)
-        $0.right.equalToSuperview().offset(-20)
-        $0.left.equalToSuperview().offset(20)
-//        $0.height.lessThanOrEqualToSuperview().multipliedBy(scale)
-        if count > 0 {
-          let con_max = (UIScreen.main.bounds.size.height * (CGFloat(scale) - 0.2))
-          let h_sum = con_max * count
-          if h_sum <= con_max {
-            $0.height.equalTo(h_sum)
-          } else {
-            $0.height.equalTo(con_max)
-          }
-        } else {
-          $0.height.equalTo(_s.collection.snp.width)
-        }
+        $0.top.equalTo(v_header.snp.bottom)
+        $0.right.equalToSuperview()
+        $0.bottom.equalToSuperview()
+        $0.left.equalToSuperview()
+        _s.con_collectionHeight = $0.height.equalTo(100).constraint
+      }
+    } else {
+      collection.snp.makeConstraints { [weak self] in
+        guard let _s = self else { return }
+        $0.top.equalTo(v_header.snp.bottom)
+        $0.right.equalToSuperview()
+        $0.left.equalToSuperview()
+        _s.con_collectionHeight = $0.height.equalTo(100).constraint
       }
       
-      v_footer.snp.makeConstraints {
-        $0.top.equalTo(collection.snp.bottom).offset(offset)
+      v_footer.snp.makeConstraints { [weak self] in
+        guard let _s = self else { return }
+        $0.top.equalTo(_s.collection.snp.bottom)
         $0.right.equalToSuperview()
         $0.bottom.equalToSuperview()
         $0.left.equalToSuperview()
         $0.height.equalTo(45)
-      }
-    } else {
-      collection.snp.makeConstraints {
-        $0.top.equalTo(v_header.snp.bottom).offset(15)
-        $0.right.equalToSuperview().offset(-20)
-        $0.bottom.equalToSuperview().offset(-15)
-        $0.left.equalToSuperview().offset(20)
-        $0.height.lessThanOrEqualToSuperview().multipliedBy(0.5)
       }
     }
     
@@ -242,16 +233,7 @@ class PopupListVC: PopupVC {
   
   //MARK: - Setup Data
   override func setupDataOnViewDidLoad() {
-    let vm_header = PopupHeaderViewUC.ViewModel()
-    vm_header.displayedHeader = viewModel.displayedHeader
-    let vm_footer = PopupFooterViewUC.ViewModel()
-    vm_footer.displayedFooter = viewModel.displayedFooter
-    v_header.setupData(with: vm_header)
-    v_footer.setupData(with: vm_footer)
-    DispatchQueue.main.async { [weak self] in
-      guard let _s = self else { return }
-      _s.adpater!.setupData(with: _s.viewModel.displayedList.viewModel)
-    }
+    fetchList()
   }
   
   override func setupData(with viewModel: PopupVCModel) {
@@ -279,7 +261,44 @@ class PopupListVC: PopupVC {
   
   
   
-  //MARK: - VIP - UseCase
+  //MARK: - VIP - FetchList
+  func fetchList() {
+    
+    func interactor() {
+      worker()
+    }
+    
+    func worker() {
+      presenter()
+    }
+    
+    func presenter() {
+      DispatchQueue.main.async { [weak self] in
+        guard let _s = self else { return }
+        _s.view.setupViewFrame()
+        let vm_header = PopupHeaderViewUC.ViewModel()
+        vm_header.displayedHeader = _s.viewModel.displayedHeader
+        let vm_footer = PopupFooterViewUC.ViewModel()
+        vm_footer.displayedFooter = _s.viewModel.displayedFooter
+        _s.v_header.setupData(with: vm_header)
+        _s.v_footer.setupData(with: vm_footer)
+        _s.adpater.setupData(with: _s.viewModel.displayedList.viewModel)
+        if _s.adpater.isEmpty {
+          _s.con_collectionHeight.update(offset: 0)
+        } else {
+          let h_sum = _s.adpater.height
+          if h_sum <= _s.con_heightMax {
+            _s.con_collectionHeight.update(offset: h_sum)
+          } else {
+            _s.con_collectionHeight.update(offset: _s.con_heightMax)
+          }
+        }
+      }
+    }
+    
+    interactor()
+    
+  }
   
   
   
@@ -316,6 +335,7 @@ class PopupListVC: PopupVC {
   
   //MARK: - Custom - AGCADelegate
   func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
+    indexPathSeleted = indexPath
     okButtonPressed()
   }
   

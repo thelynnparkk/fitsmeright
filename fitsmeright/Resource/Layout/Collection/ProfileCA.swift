@@ -198,7 +198,7 @@ class ProfileCA: AGCA {
     case 0:
       return 1
     case 1:
-      return viewModel.displayedRows.count
+      return viewModel.displayedItems.count
     default:
       return 0
     }
@@ -221,7 +221,7 @@ class ProfileCA: AGCA {
       return cell
     case 1:
       let cell = collectionView.dequeueReusableCell(withClass: CCImage.self, for: indexPath)
-      let item = viewModel.displayedRows[indexPath.row]
+      let item = viewModel.displayedItems[indexPath.row]
       cell.indexPath = indexPath
       cell.delegate = self
       cell.setupData(with: item)
@@ -262,7 +262,7 @@ class ProfileCA: AGCA {
     case 0:
       break
     case 1:
-      if let _ = viewModel.displayedRows[indexPath.row] as? CCImageModel {
+      if let _ = viewModel.displayedItems[indexPath.row] as? CCImageModel {
         delegate?.agCAPressed(self, action: [], indexPath: indexPath)
       }
     default:

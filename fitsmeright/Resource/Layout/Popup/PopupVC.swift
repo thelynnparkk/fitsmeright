@@ -52,7 +52,7 @@ class PopupVC: AGVC {
   
   
   //MARK: - Flag
-  public var flag_selected = false
+  public var isSelected = false
   
   
   
@@ -140,12 +140,12 @@ class PopupVC: AGVC {
   
   //MARK: - Event
   @objc public func cancelButtonPressed() {
-    flag_selected = false
+    isSelected = false
     dismiss(animated: true, completion: nil)
   }
   
   @objc public func okButtonPressed() {
-    flag_selected = true
+    isSelected = true
     dismiss(animated: true, completion: nil)
   }
   

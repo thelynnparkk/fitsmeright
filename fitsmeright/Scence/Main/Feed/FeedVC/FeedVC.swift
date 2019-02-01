@@ -295,13 +295,16 @@ class FeedVC: AGVC {
       ]
       urls += urls
       urls += urls
-      vm_imageCA.displayedRows = urls.compactMap({
+      urls += urls
+//      urls = []
+//      vm.displayedList.isHideFooter = true
+      vm_imageCA.displayedItems = urls.compactMap({
         let vm = ImageCCUC.ViewModel()
         vm.displayedImage.imageUrl = URL(string: $0)
         return vm
       })
       //      vm.displayedFooter.kind = UICollectionView.elementKindSectionFooter
-      vm_imageCA.displayedFooter.title = "\(vm_imageCA.displayedRows.count) items"
+      vm_imageCA.displayedFooter.title = "\(vm_imageCA.displayedItems.count) items"
       vm.displayedList.adapter = ImageCA.self
       vm.displayedList.viewModel = vm_imageCA
       vm.displayedList.tapDismissal = true
