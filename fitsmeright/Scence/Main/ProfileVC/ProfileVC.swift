@@ -241,7 +241,7 @@ class ProfileVC: AGVC {
   
   
   //MARK: - Custom - AGVCDelegate
-  func agVCPressed(_ view: AGVC, action: Any) {
+  func agVCPressed(_ vc: AGVC, action: Any) {
     
 //    func closet(action: ClosetVC.Action) {
 //      switch action {

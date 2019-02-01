@@ -230,7 +230,7 @@ class ClosetVC: AGVC {
   
   
   //MARK: - Custom - AGVCDelegate
-  func agVCPressed(_ view: AGVC, action: Any) {
+  func agVCPressed(_ vc: AGVC, action: Any) {
     
     func closetForm(action: ClosetFormVC.Action) {
       switch action {

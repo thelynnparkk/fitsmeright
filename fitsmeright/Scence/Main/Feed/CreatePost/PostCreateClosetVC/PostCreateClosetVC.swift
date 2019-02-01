@@ -13,7 +13,8 @@ import UIKit
 
 
 extension PostCreateClosetVC:
-  AGVCInstantiatable
+  AGVCInstantiatable,
+  AGVCDelegate
 {
   
 }
@@ -35,6 +36,7 @@ class PostCreateClosetVC: AGIPC {
   var bbi_next: UIBarButtonItem!
   @IBOutlet weak var v_createPost: CreatePostView!
   @IBOutlet weak var btn_addCloth: UIButton!
+  var vc_panelListVC: PanelListVC!
   
   
   
@@ -55,6 +57,7 @@ class PostCreateClosetVC: AGIPC {
   
   
   //MARK: - Storage
+  var isPanelListVisible = false
   var img_clothListSelected: [UIImage] = []
   
   
@@ -119,6 +122,8 @@ class PostCreateClosetVC: AGIPC {
     
     btn_addCloth.addTarget(self, action: #selector(addClothButtonPressed), for: .touchUpInside)
     
+    vc_panelListVC = PanelListVC()
+    
     
     
     //MARK: Other
@@ -159,7 +164,8 @@ class PostCreateClosetVC: AGIPC {
   
   @objc
   func addClothButtonPressed(_ sender: UIButton) {
-    displayImagePickerAlert()
+    fetchList()
+//    displayImagePickerAlert()
   }
   
   
@@ -172,10 +178,75 @@ class PostCreateClosetVC: AGIPC {
   
   
   //MARK: - Private
+  func addPanelVC() {
+    isPanelListVisible = true
+    vc_panelListVC.delegate_agvc = self
+    addChild(vc_panelListVC)
+    view.addSubview(vc_panelListVC.view)
+    vc_panelListVC.didMove(toParent: self)
+    let height = view.frame.height
+    let width  = view.frame.width
+    vc_panelListVC.view.frame = CGRect(x: 0, y: view.frame.maxY , width: width, height: height)
+  }
+  
+  func removePanelVC() {
+    isPanelListVisible = false
+    UIView.animate(withDuration: 0.3,
+                   delay: 0,
+                   options: UIView.AnimationOptions.curveEaseIn,
+                   animations: {
+                    var frame = self.vc_panelListVC.view.frame
+                    frame.origin.y = UIScreen.main.bounds.maxY
+                    self.vc_panelListVC.view.frame = frame
+                    
+    }, completion: { _ in
+      self.vc_panelListVC.view.removeFromSuperview()
+      self.vc_panelListVC.removeFromParent()
+    })
+  }
   
   
   
-  //MARK: - VIP - UseCase
+  //MARK: - VIP - FetchList
+  func fetchList() {
+    
+    func interactor() {
+      worker()
+    }
+    
+    func worker() {
+      presenter()
+    }
+    
+    func presenter() {
+      
+      let vm = PanelListVCUC.ViewModel()
+      let vm_imageCA = ImageCAUC.ViewModel()
+      var urls = [
+        "https://firebasestorage.googleapis.com/v0/b/fitsmeright-8598a.appspot.com/o/closets%2F1548495936804.jpg?alt=media&token=3b5070b0-7c2e-4ff7-8e9e-ce79aa4215c2",
+        "https://firebasestorage.googleapis.com/v0/b/fitsmeright-8598a.appspot.com/o/closets%2F1548495953089.jpg?alt=media&token=e53a9fa4-40c0-4e43-b46b-aade819609e1",
+        "https://firebasestorage.googleapis.com/v0/b/fitsmeright-8598a.appspot.com/o/closets%2F1548495975284.jpg?alt=media&token=0f7293d4-27a3-4457-ac07-cb7aaba69f8e"
+      ]
+      urls += urls
+      urls += urls
+      urls += urls
+      //      urls = []
+      vm_imageCA.displayedItems = urls.compactMap({
+        let vm = ImageCCUC.ViewModel()
+        vm.displayedImage.imageUrl = URL(string: $0)
+        return vm
+      })
+      //      vm.displayedFooter.kind = UICollectionView.elementKindSectionFooter
+      vm_imageCA.displayedFooter.title = "\(vm_imageCA.displayedItems.count) items"
+      vm.displayedList.adapter = ImageCA.self
+      vm.displayedList.viewModel = vm_imageCA
+      vc_panelListVC.setupData(with: vm)
+      addPanelVC()
+    }
+    
+    interactor()
+    
+  }
   
   
   
@@ -183,27 +254,60 @@ class PostCreateClosetVC: AGIPC {
   
   
   
-  //MARK: - Custom - AGImagePickerDelegate
-  override func didFinishPickingMedia(_ picker: UIImagePickerController, image: UIImage) {
-    picker.dismiss(animated: true, completion: nil)
-    guard img_clothListSelected.count < 4 else { return }
-    img_clothListSelected.append(image)
-    let vm = CreatePostViewUC.ViewModel()
-    vm.displayedCreatePost.img_clothListSelected = img_clothListSelected
-    v_createPost.setupData(with: vm)
-    if img_clothListSelected.count == 4 {
-      btn_addCloth.isHidden = true
-      bbi_next.isEnabled = true
+  //MARK: - Custom - AGVCDelegate
+  func agVCPressed(_ vc: AGVC, action: Any) {
+    
+    func panelList(action: PanelListVC.Action) {
+      switch action {
+      case .view(_):
+        break
+//        self.removeStickersView()
+//        view.center = canvasImageView.center
+//        self.canvasImageView.addSubview(view)
+//        addGestures(view: view)
+      case .image(_):
+        break
+//        self.removeStickersView()
+//        let imageView = UIImageView(image: image)
+//        imageView.contentMode = .scaleAspectFit
+//        imageView.frame.size = CGSize(width: 150, height: 150)
+//        imageView.center = canvasImageView.center
+//        self.canvasImageView.addSubview(imageView)
+//        addGestures(view: imageView)
+      case .disappear:
+        isPanelListVisible = false
+      }
     }
+    
+    if let action = action as? PanelListVC.Action {
+      panelList(action: action)
+    }
+    
   }
   
-  override func didFinishPickingMediaError(_ picker: UIImagePickerController) {
-    picker.dismiss(animated: true, completion: nil)
-  }
   
-  override func didCancelPickingMedia(_ picker: UIImagePickerController) {
-    picker.dismiss(animated: true, completion: nil)
-  }
+  
+  //MARK: - Custom - AGImagePickerDelegate
+//  override func didFinishPickingMedia(_ picker: UIImagePickerController, image: UIImage) {
+//    picker.dismiss(animated: true, completion: nil)
+//    guard img_clothListSelected.count < 4 else { return }
+//    img_clothListSelected.append(image)
+//    let vm = CreatePostViewUC.ViewModel()
+//    vm.displayedCreatePost.img_clothListSelected = img_clothListSelected
+//    v_createPost.setupData(with: vm)
+//    if img_clothListSelected.count == 4 {
+//      btn_addCloth.isHidden = true
+//      bbi_next.isEnabled = true
+//    }
+//  }
+//
+//  override func didFinishPickingMediaError(_ picker: UIImagePickerController) {
+//    picker.dismiss(animated: true, completion: nil)
+//  }
+//
+//  override func didCancelPickingMedia(_ picker: UIImagePickerController) {
+//    picker.dismiss(animated: true, completion: nil)
+//  }
   
   
   

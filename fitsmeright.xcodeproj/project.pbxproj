@@ -91,6 +91,7 @@
 		A42F7C7121BE7B7300085DB5 /* UIImage+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C7021BE7B7300085DB5 /* UIImage+AG.swift */; };
 		A4796C9521F5DC0100B83F85 /* UIColor+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4796C9421F5DC0100B83F85 /* UIColor+AG.swift */; };
 		A4796C9D21F5DD7000B83F85 /* CGSize+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4796C9C21F5DD7000B83F85 /* CGSize+AG.swift */; };
+		A49F8C6522044A630081F5EA /* PanelListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F8C6422044A630081F5EA /* PanelListVC.swift */; };
 		A4A98DB321FB0C1900937AE5 /* UILabel+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A98DB221FB0C1900937AE5 /* UILabel+AG.swift */; };
 		A4A98DB521FB0C2200937AE5 /* UITextField+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A98DB421FB0C2200937AE5 /* UITextField+AG.swift */; };
 		A4C338B421F8A28B00147567 /* ControlContainableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C338B321F8A28B00147567 /* ControlContainableScrollView.swift */; };
@@ -255,6 +256,7 @@
 		A42F7C7021BE7B7300085DB5 /* UIImage+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+AG.swift"; sourceTree = "<group>"; };
 		A4796C9421F5DC0100B83F85 /* UIColor+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AG.swift"; sourceTree = "<group>"; };
 		A4796C9C21F5DD7000B83F85 /* CGSize+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+AG.swift"; sourceTree = "<group>"; };
+		A49F8C6422044A630081F5EA /* PanelListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelListVC.swift; sourceTree = "<group>"; };
 		A4A98DB221FB0C1900937AE5 /* UILabel+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+AG.swift"; sourceTree = "<group>"; };
 		A4A98DB421FB0C2200937AE5 /* UITextField+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+AG.swift"; sourceTree = "<group>"; };
 		A4C338B321F8A28B00147567 /* ControlContainableScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlContainableScrollView.swift; sourceTree = "<group>"; };
@@ -350,7 +352,7 @@
 		5E0900B521C2B7AF0099F81E /* CreatePost */ = {
 			isa = PBXGroup;
 			children = (
-				A49F8C63220449290081F5EA /* New Group */,
+				A49F8C63220449290081F5EA /* PanelListVC */,
 				5E74DA6C21BBDA2000A97A89 /* PostCreateClosetVC */,
 				5E0900B621C2B8340099F81E /* PostCreateDesignVC */,
 				5E0900BB21C2B8A60099F81E /* PostCreateInfoVC */,
@@ -853,11 +855,12 @@
 			path = NVC;
 			sourceTree = "<group>";
 		};
-		A49F8C63220449290081F5EA /* New Group */ = {
+		A49F8C63220449290081F5EA /* PanelListVC */ = {
 			isa = PBXGroup;
 			children = (
+				A49F8C6422044A630081F5EA /* PanelListVC.swift */,
 			);
-			path = "New Group";
+			path = PanelListVC;
 			sourceTree = "<group>";
 		};
 		A4C338B521F8A29700147567 /* ScrollView */ = {
@@ -1373,6 +1376,7 @@
 				A4C4B6F821F86FE70036B0F7 /* StateView+AG.swift in Sources */,
 				A4C338BA21F8A3D800147567 /* ImageCC.swift in Sources */,
 				A4C4B6E821F81FE60036B0F7 /* UIScrollView+AG.swift in Sources */,
+				A49F8C6522044A630081F5EA /* PanelListVC.swift in Sources */,
 				A42F7C6221BE5BD100085DB5 /* AGApplicationWindow.swift in Sources */,
 				A4C4FAD421F9C6E4004A3F37 /* PopupContainerVC.swift in Sources */,
 				5EE8924121C3E615008A65ED /* ClosetVC.swift in Sources */,

@@ -19,7 +19,7 @@ class AGVCModel {
 
 
 protocol AGVCDelegate: class {
-  func agVCPressed(_ view: AGVC, action: Any)
+  func agVCPressed(_ vc: AGVC, action: Any)
 }
 
 
@@ -273,6 +273,10 @@ class AGVC: UIViewController {
   }
   
   func setupDataOnDidDisappear() {
+    
+  }
+  
+  func setupData(with viewModel: AGVCModel) {
     
   }
   
