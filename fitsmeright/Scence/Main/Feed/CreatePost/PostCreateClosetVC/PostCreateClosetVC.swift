@@ -21,7 +21,7 @@ extension PostCreateClosetVC:
 
 
 
-class PostCreateClosetVC: AGIPC {
+class PostCreateClosetVC: AGPVC {
   
   //MARK: - AGVCInstantiatable
   
@@ -36,7 +36,6 @@ class PostCreateClosetVC: AGIPC {
   var bbi_next: UIBarButtonItem!
   @IBOutlet weak var v_createPost: CreatePostView!
   @IBOutlet weak var btn_addCloth: UIButton!
-  var vc_panelListVC: PanelListVC!
   
   
   
@@ -57,7 +56,6 @@ class PostCreateClosetVC: AGIPC {
   
   
   //MARK: - Storage
-  var isPanelListVisible = false
   var img_clothListSelected: [UIImage] = []
   
   
@@ -178,32 +176,6 @@ class PostCreateClosetVC: AGIPC {
   
   
   //MARK: - Private
-  func addPanelVC() {
-    isPanelListVisible = true
-    vc_panelListVC.delegate_agvc = self
-    addChild(vc_panelListVC)
-    view.addSubview(vc_panelListVC.view)
-    vc_panelListVC.didMove(toParent: self)
-    let height = view.frame.height
-    let width  = view.frame.width
-    vc_panelListVC.view.frame = CGRect(x: 0, y: view.frame.maxY , width: width, height: height)
-  }
-  
-  func removePanelVC() {
-    isPanelListVisible = false
-    UIView.animate(withDuration: 0.3,
-                   delay: 0,
-                   options: UIView.AnimationOptions.curveEaseIn,
-                   animations: {
-                    var frame = self.vc_panelListVC.view.frame
-                    frame.origin.y = UIScreen.main.bounds.maxY
-                    self.vc_panelListVC.view.frame = frame
-                    
-    }, completion: { _ in
-      self.vc_panelListVC.view.removeFromSuperview()
-      self.vc_panelListVC.removeFromParent()
-    })
-  }
   
   
   
@@ -241,6 +213,7 @@ class PostCreateClosetVC: AGIPC {
       vm.displayedList.adapter = ImageCA.self
       vm.displayedList.viewModel = vm_imageCA
       vc_panelListVC.setupData(with: vm)
+      vc_panelListVC.delegate_agvc = self
       addPanelVC()
     }
     

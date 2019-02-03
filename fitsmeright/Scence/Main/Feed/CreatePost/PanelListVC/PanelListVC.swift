@@ -143,7 +143,7 @@ class PanelListVC: AGVC {
     
     //MARK: Component
     v_header = UIView()
-    v_header.backgroundColor = .clear
+    v_header.backgroundColor = c_custom.peach
     
     v_holder = UIView()
     v_holder.backgroundColor = .white
@@ -179,7 +179,7 @@ class PanelListVC: AGVC {
     }
     
     v_holder.snp.makeConstraints {
-      $0.top.equalToSuperview().offset(20)
+      $0.top.equalToSuperview().offset(5)
       $0.centerX.equalToSuperview()
       $0.width.equalTo(50)
       $0.height.equalTo(5)

@@ -94,6 +94,7 @@
 		A49F8C6522044A630081F5EA /* PanelListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49F8C6422044A630081F5EA /* PanelListVC.swift */; };
 		A4A98DB321FB0C1900937AE5 /* UILabel+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A98DB221FB0C1900937AE5 /* UILabel+AG.swift */; };
 		A4A98DB521FB0C2200937AE5 /* UITextField+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A98DB421FB0C2200937AE5 /* UITextField+AG.swift */; };
+		A4C1271E2207392200BF1E61 /* AGPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C1271D2207392200BF1E61 /* AGPVC.swift */; };
 		A4C338B421F8A28B00147567 /* ControlContainableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C338B321F8A28B00147567 /* ControlContainableScrollView.swift */; };
 		A4C338B821F8A3CD00147567 /* ImageCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C338B721F8A3CD00147567 /* ImageCA.swift */; };
 		A4C338BA21F8A3D800147567 /* ImageCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C338B921F8A3D800147567 /* ImageCC.swift */; };
@@ -259,6 +260,7 @@
 		A49F8C6422044A630081F5EA /* PanelListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelListVC.swift; sourceTree = "<group>"; };
 		A4A98DB221FB0C1900937AE5 /* UILabel+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+AG.swift"; sourceTree = "<group>"; };
 		A4A98DB421FB0C2200937AE5 /* UITextField+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+AG.swift"; sourceTree = "<group>"; };
+		A4C1271D2207392200BF1E61 /* AGPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGPVC.swift; sourceTree = "<group>"; };
 		A4C338B321F8A28B00147567 /* ControlContainableScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlContainableScrollView.swift; sourceTree = "<group>"; };
 		A4C338B721F8A3CD00147567 /* ImageCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCA.swift; sourceTree = "<group>"; };
 		A4C338B921F8A3D800147567 /* ImageCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCC.swift; sourceTree = "<group>"; };
@@ -844,6 +846,7 @@
 				5E74DA6321BBD7AB00A97A89 /* AGVC.swift */,
 				A4C4B6ED21F821740036B0F7 /* AGIPC.swift */,
 				A4C4FAC521F9A13C004A3F37 /* ViewIPC.swift */,
+				A4C1271D2207392200BF1E61 /* AGPVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -1442,6 +1445,7 @@
 				A4C4FAC221F976FA004A3F37 /* AGCRV.swift in Sources */,
 				A42F7C5621BE567D00085DB5 /* AGDefaults.swift in Sources */,
 				A42F7C6D21BE768A00085DB5 /* BlankTVC.swift in Sources */,
+				A4C1271E2207392200BF1E61 /* AGPVC.swift in Sources */,
 				5E74DA5521BBD0B100A97A89 /* TemplateCCA.swift in Sources */,
 				5E74DA7321BBDABF00A97A89 /* ProfileVC.swift in Sources */,
 				5ECE8E9021F770FE000AF65E /* ClosetFormVC.swift in Sources */,
