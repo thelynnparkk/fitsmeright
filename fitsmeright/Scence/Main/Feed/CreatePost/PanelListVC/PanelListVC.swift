@@ -222,6 +222,7 @@ class PanelListVC: AGVC {
     
     
     //MARK: Component
+    view.alpha = 0
     setupViewAnimation(with: .dock, duration: 0.3)
     
     
@@ -323,7 +324,7 @@ class PanelListVC: AGVC {
                     var frame = self.view.frame
                     frame.origin.y = UIScreen.main.bounds.maxY
                     self.view.frame = frame
-                    
+                    self.view.alpha = 0
     }, completion: { _ in
       self.view.removeFromSuperview()
       self.removeFromParent()
@@ -332,12 +333,14 @@ class PanelListVC: AGVC {
   }
   
   func setupViewAnimation(with state: State, duration: TimeInterval) {
-    UIView.animate(withDuration: duration, delay: 0.0, options: [.allowUserInteraction], animations: {
+    UIView.animate(withDuration: duration, delay: 0.0, options: [.allowUserInteraction, .curveEaseOut], animations: {
       switch state {
       case .open:
+        self.view.alpha = 1
         self.view.frame = CGRect(x: 0, y: self.y_open, width: self.view.frame.width, height: UIScreen.main.bounds.height - self.y_open)
         self.view.layoutIfNeeded()
       case .dock:
+        self.view.alpha = 1
         self.view.frame = CGRect(x: 0, y: self.y_dock, width: self.view.frame.width, height: self.h_dock)
         self.view.layoutIfNeeded()
       case .close:
