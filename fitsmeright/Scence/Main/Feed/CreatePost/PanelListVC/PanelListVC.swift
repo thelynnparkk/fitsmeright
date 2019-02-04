@@ -44,6 +44,12 @@ class PanelListVC: AGVC {
   
   
   //MARK: - Enum
+  enum State {
+    case open
+    case dock
+    case close
+  }
+  
   enum Action {
     case view(UIView)
     case image(UIView)
@@ -70,12 +76,18 @@ class PanelListVC: AGVC {
   var screenSize: CGSize {
     return UIScreen.main.bounds.size
   }
-  var fullView: CGFloat {
-    // remainder of screen height
+  var y_open: CGFloat {
     return 100
   }
-  var partialView: CGFloat {
-    return UIScreen.main.bounds.height - 380
+  var h_dock: CGFloat {
+    return 380
+  }
+  var y_dock: CGFloat {
+    return UIScreen.main.bounds.height - h_dock
+  }
+  var bottom: CGFloat {
+    //    return 100
+    return UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0
   }
   
   
@@ -89,6 +101,8 @@ class PanelListVC: AGVC {
   
   
   //MARK: - Storage
+  var y_start: CGFloat = 0.0
+  var direction_last: UIPanGestureRecognizer.Direction?
   var viewModel = PanelListVCUC.ViewModel()
   
   
@@ -154,7 +168,7 @@ class PanelListVC: AGVC {
     adpater.delegate = self
     collection.insetsLayoutMarginsFromSafeArea = true
     collection.contentInsetAdjustmentBehavior = .always
-//    additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
+    additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: bottom, right: 0)
     
     panGesture = UIPanGestureRecognizer(target: self, action: #selector(onPanGestureRecognized))
     panGesture.delegate = self
@@ -208,14 +222,7 @@ class PanelListVC: AGVC {
     
     
     //MARK: Component
-    UIView.animate(withDuration: 0.3) {
-      let frame = self.view.frame
-      let yComponent = self.partialView
-      self.view.frame = CGRect(x: 0,
-                             y: yComponent,
-                             width: frame.width,
-                             height: UIScreen.main.bounds.height - self.partialView)
-    }
+    setupViewAnimation(with: .dock, duration: 0.3)
     
     
     
@@ -255,41 +262,46 @@ class PanelListVC: AGVC {
   @objc func onPanGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
     let translation = recognizer.translation(in: view)
     let velocity = recognizer.velocity(in: view)
-
-    let y = view.frame.minY
-    if y + translation.y >= fullView {
-      let newMinY = y + translation.y
-      view.frame = CGRect(x: 0, y: newMinY, width: view.frame.width, height: UIScreen.main.bounds.height - newMinY )
-      view.layoutIfNeeded()
-      recognizer.setTranslation(CGPoint.zero, in: view)
-    }
-
-    if recognizer.state == .ended {
-      var duration = velocity.y < 0 ? Double((y - fullView) / -velocity.y) : Double((partialView - y) / velocity.y )
+    let y_min = view.frame.minY
+    switch recognizer.state {
+    case .began:
+      y_start = y_min
+      direction_last = nil
+    case .changed:
+      if let direction = recognizer.direction, direction.isVertical, direction != direction_last {
+        y_start = y_min
+        direction_last = direction
+      }
+      if y_min + translation.y >= y_open {
+        let y = y_min + translation.y
+        view.frame = CGRect(x: 0, y: y, width: view.frame.width, height: UIScreen.main.bounds.height - y)
+        view.layoutIfNeeded()
+        recognizer.setTranslation(CGPoint.zero, in: view)
+      }
+    case .ended:
+      var duration = velocity.y < 0 ? Double((y_min - y_open) / -velocity.y) : Double((y_dock - y_min) / velocity.y )
       duration = duration > 0.5 ? 0.5 : duration
-      //velocity is direction of gesture
-      UIView.animate(withDuration: duration, delay: 0.0, options: [.allowUserInteraction], animations: {
-        if  velocity.y >= 0 {
-          if y + translation.y >= self.partialView  {
-            self.removeBottomSheetView()
-          } else {
-            self.view.frame = CGRect(x: 0, y: self.partialView,
-                                     width: self.view.frame.width, height: UIScreen.main.bounds.height - self.partialView)
-            self.view.layoutIfNeeded()
-          }
+      if velocity.y > 0 {
+        if y_min + translation.y >= self.y_dock {
+          self.setupViewAnimation(with: .close, duration: duration)
         } else {
-          if y + translation.y >= self.partialView  {
-            self.view.frame = CGRect(x: 0, y: self.partialView,
-                                     width: self.view.frame.width, height: UIScreen.main.bounds.height - self.partialView)
-            self.view.layoutIfNeeded()
+          self.setupViewAnimation(with: .dock, duration: duration)
+        }
+      } else {
+        if y_min + translation.y >= self.y_dock {
+          self.setupViewAnimation(with: .dock, duration: duration)
+        } else if y_min + translation.y == self.y_open {
+          self.setupViewAnimation(with: .open, duration: duration)
+        } else {
+          if let direction = self.direction_last, direction == .up {
+            self.setupViewAnimation(with: .open, duration: duration)
           } else {
-            self.view.frame = CGRect(x: 0, y: self.fullView,
-                                     width: self.view.frame.width, height: UIScreen.main.bounds.height - self.fullView)
-            self.view.layoutIfNeeded()
+            self.setupViewAnimation(with: .dock, duration: duration)
           }
         }
-
-      }, completion: nil)
+      }
+    default:
+      break
     }
   }
   
@@ -318,6 +330,22 @@ class PanelListVC: AGVC {
       self.delegate_agvc?.agVCPressed(self, action: Action.disappear)
     })
   }
+  
+  func setupViewAnimation(with state: State, duration: TimeInterval) {
+    UIView.animate(withDuration: duration, delay: 0.0, options: [.allowUserInteraction], animations: {
+      switch state {
+      case .open:
+        self.view.frame = CGRect(x: 0, y: self.y_open, width: self.view.frame.width, height: UIScreen.main.bounds.height - self.y_open)
+        self.view.layoutIfNeeded()
+      case .dock:
+        self.view.frame = CGRect(x: 0, y: self.y_dock, width: self.view.frame.width, height: self.h_dock)
+        self.view.layoutIfNeeded()
+      case .close:
+        self.removeBottomSheetView()
+      }
+    }, completion: nil)
+  }
+  
   
   
   

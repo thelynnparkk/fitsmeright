@@ -138,6 +138,7 @@
 		A4C4FAD621F9CB35004A3F37 /* PopupDialogable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C4FAD521F9CB35004A3F37 /* PopupDialogable.swift */; };
 		A4C532612201AA37003E6061 /* CGRect+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C532602201AA37003E6061 /* CGRect+AG.swift */; };
 		A4D6584E21BF651F007B8558 /* UITabBar+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */; };
+		A4DAA1A72207F44500DA31F7 /* UIPanGestureRecognizer+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DAA1A62207F44500DA31F7 /* UIPanGestureRecognizer+AG.swift */; };
 		A4DF18D62202FD7F008B67DA /* PopupListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF18D52202FD7F008B67DA /* PopupListVC.swift */; };
 		A4E1288121FEB9E700F85C66 /* ClosetCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E1288021FEB9E700F85C66 /* ClosetCategoryVC.swift */; };
 		A4E1288321FEBA4D00F85C66 /* ClosetListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E1288221FEBA4D00F85C66 /* ClosetListVC.swift */; };
@@ -304,6 +305,7 @@
 		A4C4FAD521F9CB35004A3F37 /* PopupDialogable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupDialogable.swift; sourceTree = "<group>"; };
 		A4C532602201AA37003E6061 /* CGRect+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+AG.swift"; sourceTree = "<group>"; };
 		A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+AG.swift"; sourceTree = "<group>"; };
+		A4DAA1A62207F44500DA31F7 /* UIPanGestureRecognizer+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPanGestureRecognizer+AG.swift"; sourceTree = "<group>"; };
 		A4DF18D52202FD7F008B67DA /* PopupListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupListVC.swift; sourceTree = "<group>"; };
 		A4E1288021FEB9E700F85C66 /* ClosetCategoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosetCategoryVC.swift; sourceTree = "<group>"; };
 		A4E1288221FEBA4D00F85C66 /* ClosetListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListVC.swift; sourceTree = "<group>"; };
@@ -981,6 +983,7 @@
 				A4A98DB221FB0C1900937AE5 /* UILabel+AG.swift */,
 				A4A98DB421FB0C2200937AE5 /* UITextField+AG.swift */,
 				5EFC9BB021FB706D0078ED50 /* Date+AG.swift */,
+				A4DAA1A62207F44500DA31F7 /* UIPanGestureRecognizer+AG.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1385,6 +1388,7 @@
 				5EE8924121C3E615008A65ED /* ClosetVC.swift in Sources */,
 				A4C4FAB621F975C7004A3F37 /* CreateTextView.swift in Sources */,
 				A42F7C5E21BE5B4B00085DB5 /* AGApplicationRoutable.swift in Sources */,
+				A4DAA1A72207F44500DA31F7 /* UIPanGestureRecognizer+AG.swift in Sources */,
 				A4DF18D62202FD7F008B67DA /* PopupListVC.swift in Sources */,
 				5E74DA5321BBD0B100A97A89 /* TemplateV.swift in Sources */,
 				A4C4B6EC21F820C00036B0F7 /* AGVC+AG.swift in Sources */,
