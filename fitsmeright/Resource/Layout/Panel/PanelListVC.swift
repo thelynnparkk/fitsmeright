@@ -83,12 +83,15 @@ class PanelListVC: PanelVC {
   var h_dock: CGFloat {
     return 380
   }
+  var h_underScreen: CGFloat {
+    return 60
+  }
   var y_dock: CGFloat {
     return UIScreen.main.bounds.height - h_dock
   }
   var bottom: CGFloat {
     //    return 100
-    return (UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0) * 3
+    return (UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0)
   }
   
   
@@ -169,7 +172,7 @@ class PanelListVC: PanelVC {
     adpater.delegate = self
     collection.insetsLayoutMarginsFromSafeArea = true
     collection.contentInsetAdjustmentBehavior = .always
-    additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: bottom, right: 0)
+    additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: h_underScreen + (bottom * 1.5), right: 0)
     
     panGesture = UIPanGestureRecognizer(target: self, action: #selector(onPanGestureRecognized))
     panGesture.delegate = self
