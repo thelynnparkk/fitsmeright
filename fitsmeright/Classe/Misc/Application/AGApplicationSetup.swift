@@ -12,6 +12,7 @@ import UIKit
 import SwifterSwift
 import IQKeyboardManagerSwift
 import Firebase
+import PopupDialog
 
 
 
@@ -112,6 +113,47 @@ extension AGApplicationSetup {
 //     This is used for toolbar.barTintColor. Default is nil and uses white color.
 //     */
 //    @objc public var toolbarBarTintColor : UIColor?
+    
+    
+    
+    //MARK: PopupDialog
+    let pddv = PopupDialogDefaultView.appearance()
+    pddv.backgroundColor = .white
+    //    pddv.titleFont = .boldSystemFont(ofSize: 14)
+    //    pddv.titleColor = UIColor(white: 0.4, alpha: 1)
+    //    pddv.titleTextAlignment = .center
+    //    pddv.messageFont = .systemFont(ofSize: 14)
+    //    pddv.messageColor = UIColor(white: 0.6, alpha: 1)
+    //    pddv.messageTextAlignment = .center
+    
+    let pdcv = PopupDialogContainerView.appearance()
+    pdcv.backgroundColor = UIColor(red:0.23, green:0.23, blue:0.27, alpha:1.00)
+    //    pdcv.cornerRadius = 2
+    //    pdcv.shadowEnabled = true
+//    pdcv.shadowColor = c_material.grey300
+    //    pdcv.shadowOpacity = 0.6
+    //    pdcv.shadowRadius = 20
+    //    pdcv.shadowOffset = CGSize(width: 0, height: 8)
+    //    pdcv.shadowPath = CGPath(...)
+    
+    let pdov = PopupDialogOverlayView.appearance()
+    pdov.color = c_material.grey300
+    //    pdov.blurRadius = 20
+    //    pdov.blurEnabled = true
+    //    pdov.liveBlurEnabled = false
+    //    pdov.opacity = 0.7
+    
+    let db = DefaultButton.appearance()
+    db.titleFont = .systemFont(ofSize: 14)
+    //    db.titleColor = UIColor(red: 0.25, green: 0.53, blue: 0.91, alpha: 1)
+    //    db.buttonColor = .clear
+    //    db.separatorColor = UIColor(white: 0.9, alpha: 1)
+    
+    let cb = CancelButton.appearance()
+    cb.titleFont = .systemFont(ofSize: 14)
+    //    cb.titleColor = UIColor(red: 0.25, green: 0.53, blue: 0.91, alpha: 1)
+    //    cb.buttonColor = .clear
+    //    cb.separatorColor = UIColor(white: 0.9, alpha: 1)
     
   }
   

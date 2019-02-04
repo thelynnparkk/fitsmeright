@@ -14,10 +14,38 @@ import Photos
 
 
 
-protocol ViewIPCDelegate: class {
-  func didFinishPickingMedia(_ picker: UIImagePickerController, image: UIImage)
-  func didFinishPickingMediaError(_ picker: UIImagePickerController)
-  func didCancelPickingMedia(_ picker: UIImagePickerController)
+@objc protocol ViewIPCDelegate: class {
+  @objc optional func didFinishPickingMedia(_ picker: UIImagePickerController, image: UIImage)
+  @objc optional func didFinishPickingMediaError(_ picker: UIImagePickerController)
+  @objc optional func didCancelPickingMedia(_ picker: UIImagePickerController)
+}
+
+
+
+extension ViewIPCDelegate {
+  
+  //MARK: - Implements
+//  func didFinishPickingMedia(_ picker: UIImagePickerController, image: UIImage) {
+//    print("A")
+//  }
+//
+//  func didFinishPickingMediaError(_ picker: UIImagePickerController) {
+//    print("B")
+//  }
+//
+//  func didCancelPickingMedia(_ picker: UIImagePickerController) {
+//    print("C")
+//  }
+  
+  
+  
+  //MARK: - Public
+  
+  
+  
+  //MARK: - Private
+  
+  
 }
 
 
@@ -313,16 +341,16 @@ class ViewIPC: UIImagePickerController {
   //MARK: - Core - UIImagePickerControllerDelegate
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
     if let editedImage = info[.editedImage] as? UIImage {
-      delegate_viewIPC?.didFinishPickingMedia(self, image: editedImage)
+      delegate_viewIPC?.didFinishPickingMedia?(self, image: editedImage)
     } else if let orginalImage = info[.originalImage] as? UIImage {
-      delegate_viewIPC?.didFinishPickingMedia(self, image: orginalImage)
+      delegate_viewIPC?.didFinishPickingMedia?(self, image: orginalImage)
     } else {
-      delegate_viewIPC?.didFinishPickingMediaError(self)
+      delegate_viewIPC?.didFinishPickingMediaError?(self)
     }
   }
   
   func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-    delegate_viewIPC?.didCancelPickingMedia(self)
+    delegate_viewIPC?.didCancelPickingMedia?(self)
   }
   
   

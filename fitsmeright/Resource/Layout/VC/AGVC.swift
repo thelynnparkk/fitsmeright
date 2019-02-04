@@ -40,7 +40,12 @@ class AGVC: UIViewController {
   
   
   
+  //MARK: - Enum
+  
+  
+  
   //MARK: - UI
+  var vc_panelVC: PanelVC!
   
   
   
@@ -58,6 +63,7 @@ class AGVC: UIViewController {
   
   
   //MARK: - Flag
+  var isPanelListVisible = false
   
   
   

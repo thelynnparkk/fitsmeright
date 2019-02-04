@@ -64,7 +64,7 @@ public extension UIViewController {
 
 
 
-extension UIViewController: PopupDialogable {
+extension UIViewController {
   //MARK: - Enum
   
   

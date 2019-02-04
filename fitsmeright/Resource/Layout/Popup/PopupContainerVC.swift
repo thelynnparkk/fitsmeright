@@ -52,7 +52,6 @@ class PopupContainerVC: PopupVC {
   
   //MARK: - UI
   var v_container: UIView!
-  var tapgr_container: UIGestureRecognizer!
   var v_header: PopupHeaderView!
   var stv_container: UIStackView!
   var v_footer: PopupFooterView!
@@ -157,11 +156,11 @@ class PopupContainerVC: PopupVC {
       stv_container.addArrangedSubview(v)
     }
     
-    if !flag_hideFooter {
-      v_container.addSubview(v_footer)
+    if flag_hideFooter {
+      //      tapgr_container = UITapGestureRecognizer(target: self, action: #selector(okButtonPressed))
+      //      v_container.addGestureRecognizer(tapgr_container)
     } else {
-      tapgr_container = UITapGestureRecognizer(target: self, action: #selector(okButtonPressed))
-      v_container.addGestureRecognizer(tapgr_container)
+      v_container.addSubview(v_footer)
     }
     
     if viewModel.displayedContainer.tapGesture {

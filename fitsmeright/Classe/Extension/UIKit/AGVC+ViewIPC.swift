@@ -1,8 +1,8 @@
 //
-//  AGIPC.swift
+//  AGVC+ViewIPC.swift
 //  fitsmeright
 //
-//  Created by Sasawat Sankosik on 23/1/2562 BE.
+//  Created by Sasawat Sankosik on 4/2/2562 BE.
 //  Copyright © 2562 silpakorn. All rights reserved.
 //
 
@@ -14,77 +14,9 @@ import Photos
 
 
 
-extension DevicePermission:
-  CaseIterable
-{
+extension AGVC: ViewIPCDelegate {
   
-}
-
-
-enum DevicePermission: String {
-  case camera
-  case video
-  case photoLibrary
-  case location
-  
-  //MARK: - Constraint
-  static let `default` = DevicePermission.camera
-  
-  
-  
-  //MARK: - Instance
-  
-  
-  
-  //MARK: - Flag
-  
-  
-  
-  //MARK: - Storage
-  
-  
-  
-  //MARK: - Initial
-  
-  
-  
-  //MARK: - Public
-  var message: String {
-    var message: String = ""
-    switch self {
-    case .camera:
-      message = "Allow app to access this device photo library."
-    case .video:
-      message = "Allow app to access this device camera."
-    case .photoLibrary:
-      message = "Allow app to access this device video library."
-    case .location:
-      message = "Allow app to access this device location."
-    }
-    return message
-  }
-
-  
-  
-  //MARK: - Private
-  
-  
-  
-}
-
-
-
-extension AGIPC:
-  ViewIPCDelegate
-{
-  
-}
-
-
-
-class AGIPC: AGVC {
-  
-  //MARK: - AGVCInstantiatable
+  //MARK: - Enum
   
   
   
@@ -121,68 +53,14 @@ class AGIPC: AGVC {
   
   
   //MARK: - Life cycle
-  override func onInit() {
-    super.onInit()
-    
-  }
-  
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
-    
-  }
-  
-  override func prepare() {
-    super.prepare()
-    
-  }
-  
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-  }
   
   
   
   //MARK: - Setup View
-  override func setupViewOnViewDidLoad() {
-    //MARK: Core
-    
-    
-    
-    //MARK: Component
-    
-    
-    
-    //MARK: Other
-    
-    
-    
-    //MARK: Snp
-    
-    
-    
-    //MARK: Localize
-    setupLocalize()
-    
-    
-    
-  }
-  
-  override func setupViewOnDidLayoutSubviews() {
-    
-  }
   
   
   
   //MARK: - Setup Data
-  override func setupDataOnViewDidLoad() {
-    
-  }
   
   
   
@@ -191,10 +69,6 @@ class AGIPC: AGVC {
   
   
   //MARK: - Public
-  override func setupLocalize() {
-    
-  }
-  
   func displayImagePickerAlert() {
     let ac = UIAlertController(title: "Choose image",
                                message: "Message",
@@ -213,7 +87,43 @@ class AGIPC: AGVC {
     ac.addAction(action_cancel)
     present(ac, animated: true, completion: nil)
   }
-
+  
+  func displayImagePickerPopup() {
+    let vm = PopupListVCUC.ViewModel()
+    vm.displayedHeader.style = .large
+    vm.displayedHeader.icon = UIImage(color: c_custom.peach, size: .less)
+    vm.displayedHeader.subtitle = "Message"
+    vm.displayedHeader.tint = c_custom.peach
+    vm.displayedHeader.title = "Choose image"
+    vm.displayedList.isHideFooter = true
+    let vm_labelCA = LabelCAUC.ViewModel()
+    let vm_cameraLabel = LabelCCUC.ViewModel()
+    vm_cameraLabel.displayedLabel.title = "Camera"
+    vm_cameraLabel.displayedLabel.style = .normal
+    let vm_libraryLabel = LabelCCUC.ViewModel()
+    vm_libraryLabel.displayedLabel.title = "Photo Library"
+    vm_libraryLabel.displayedLabel.style = .normal
+    let vm_cancelLabel = LabelCCUC.ViewModel()
+    vm_cancelLabel.displayedLabel.title = "Cancel"
+    vm_cancelLabel.displayedLabel.weight = .semibold
+    vm_cancelLabel.displayedLabel.style = .negative
+    vm_labelCA.displayedItems = [vm_cameraLabel, vm_libraryLabel, vm_cancelLabel]
+    vm.displayedList.adapter = LabelCA.self
+    vm.displayedList.viewModel = vm_labelCA
+    displayPopupList(vm, priority: .common, on: self) { [weak self] in
+      guard let _s = self else { return }
+      guard $0.isSelected else { return }
+      switch $0.indexPath.row {
+      case 0:
+        _s.requestDevicePermission(with: .camera)
+      case 1:
+        _s.requestDevicePermission(with: .photoLibrary)
+      default:
+        break
+      }
+    }
+  }
+  
   
   
   //MARK: - Private
@@ -329,28 +239,11 @@ class AGIPC: AGVC {
   
   
   //MARK: - Custom - ViewIPCDelegate
-  public func didFinishPickingMedia(_ picker: UIImagePickerController, image: UIImage) {
-    
-  }
-  
-  public func didFinishPickingMediaError(_ picker: UIImagePickerController) {
-    
-  }
-  
-  public func didCancelPickingMedia(_ picker: UIImagePickerController) {
-    
-  }
   
   
   
-  //MARK: - Pods - Protocol
+  //MARK: - Pod - Protocol
   
   
   
 }
-
-
-
-
-
-

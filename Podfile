@@ -29,6 +29,8 @@ pod 'SkyFloatingLabelTextField', '~> 3.6.0'
 pod 'IQKeyboardManagerSwift', '~> 6.0'
 # note
 pod 'RevealingSplashView', '~> 0.6.0'
+# note
+pod 'Kingfisher'
 end
 
 

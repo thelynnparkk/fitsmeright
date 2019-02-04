@@ -21,7 +21,7 @@ extension PostCreateDesignVC:
 
 
 
-class PostCreateDesignVC: AGIPC {
+class PostCreateDesignVC: AGVC {
   //MARK: - AGVCInstantiatable
   
   
@@ -243,7 +243,7 @@ class PostCreateDesignVC: AGIPC {
   
   
   //MARK: - Custom - AGImagePickerDelegate
-  override func didFinishPickingMedia(_ picker: UIImagePickerController, image: UIImage) {
+  func didFinishPickingMedia(_ picker: UIImagePickerController, image: UIImage) {
     picker.dismiss(animated: true, completion: nil)
     img_backgroundSelected = image
     let vm = CreatePostViewUC.ViewModel()
@@ -251,11 +251,11 @@ class PostCreateDesignVC: AGIPC {
     v_createPost.setupData(with: vm)
   }
   
-  override func didFinishPickingMediaError(_ picker: UIImagePickerController) {
+  func didFinishPickingMediaError(_ picker: UIImagePickerController) {
     picker.dismiss(animated: true, completion: nil)
   }
   
-  override func didCancelPickingMedia(_ picker: UIImagePickerController) {
+  func didCancelPickingMedia(_ picker: UIImagePickerController) {
     picker.dismiss(animated: true, completion: nil)
   }
   

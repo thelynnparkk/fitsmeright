@@ -20,7 +20,7 @@ class PopupListVCUC {
     var viewModel: AGCAModel!
     var adapter: AGCA.Type!
     var tapDismissal = true
-    var tapGesture = true
+    var tapGesture = false
     var isHideFooter = false
   }
   
@@ -54,7 +54,6 @@ class PopupListVC: PopupVC {
   
   //MARK: - UI
   var v_container: UIView!
-  var tapgr_container: UIGestureRecognizer!
   var v_header: PopupHeaderView!
   var collection: UICollectionView!
   var adpater: AGCA!
@@ -157,14 +156,15 @@ class PopupListVC: PopupVC {
     v_container.addSubview(collection)
     
     if viewModel.displayedList.isHideFooter {
-      tapgr_container = UITapGestureRecognizer(target: self, action: #selector(okButtonPressed))
-      v_container.addGestureRecognizer(tapgr_container)
+//      tapgr_container = UITapGestureRecognizer(target: self, action: #selector(okButtonPressed))
+//      v_container.addGestureRecognizer(tapgr_container)
     } else {
       v_container.addSubview(v_footer)
     }
     
     if viewModel.displayedList.tapGesture {
       tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTapGestureRecognized))
+      tapGesture.cancelsTouchesInView = false
       view.addGestureRecognizer(tapGesture)
     }
     

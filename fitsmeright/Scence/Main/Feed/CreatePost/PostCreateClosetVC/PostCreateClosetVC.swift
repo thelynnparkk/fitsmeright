@@ -21,7 +21,7 @@ extension PostCreateClosetVC:
 
 
 
-class PostCreateClosetVC: AGPVC {
+class PostCreateClosetVC: AGVC {
   
   //MARK: - AGVCInstantiatable
   
@@ -163,7 +163,6 @@ class PostCreateClosetVC: AGPVC {
   @objc
   func addClothButtonPressed(_ sender: UIButton) {
     fetchList()
-//    displayImagePickerAlert()
   }
   
   

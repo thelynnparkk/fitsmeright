@@ -170,13 +170,13 @@ class PopupHeaderView: AGView {
     lb_title = UILabel()
     lb_title.text = ""
     //    lb_title.setupTitleDark()
-    lb_title.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+    lb_title.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
     
     lb_subtitle = UILabel()
     lb_subtitle.text = ""
     lb_subtitle.numberOfLines = 0
     lb_subtitle.font = UIFont.systemFont(ofSize: 13, weight: .regular)
-    lb_subtitle.textColor = .lightGray
+    lb_subtitle.textColor = c_material.grey500
     //    lb_subtitle.setupSubtitleDark()
     
     v_seperator = UIView()
@@ -220,7 +220,7 @@ class PopupHeaderView: AGView {
     }
     
     lb_title.snp.makeConstraints {
-      $0.height.equalTo(20)
+      $0.height.lessThanOrEqualTo(20)
     }
     
     //    lb_subtitle.snp.makeConstraints {

@@ -23,7 +23,7 @@ extension ClosetFormVC:
 
 
 
-class ClosetFormVC: AGIPC {
+class ClosetFormVC: AGVC {
   //MARK: - AGVCInstantiatable
   
   
@@ -169,12 +169,11 @@ class ClosetFormVC: AGIPC {
   //MARK: - Event
   @objc
   func test(_ sender: UITextField) {
-    
     print("test")
   }
   
   @IBAction func chooseClosetPressed(_ sender: Any) {
-//    displayImagePickerAlert()
+    displayImagePickerPopup()
   }
   
   @IBAction func doneBarButtonPressed(_ sender: Any) {
@@ -444,18 +443,18 @@ class ClosetFormVC: AGIPC {
   
   
   //MARK: - Custom - ViewIPCDelegate
-  public override func didFinishPickingMedia(_ picker: UIImagePickerController, image: UIImage) {
+  func didFinishPickingMedia(_ picker: UIImagePickerController, image: UIImage) {
     picker.dismiss(animated: true, completion: nil)
     bbi_done.isEnabled = true
     imgv_addCloset.isHidden = true
     imgv_closet.image = image
   }
   
-  public override func didFinishPickingMediaError(_ picker: UIImagePickerController) {
+  func didFinishPickingMediaError(_ picker: UIImagePickerController) {
     picker.dismiss(animated: true, completion: nil)
   }
   
-  public override func didCancelPickingMedia(_ picker: UIImagePickerController) {
+  func didCancelPickingMedia(_ picker: UIImagePickerController) {
     picker.dismiss(animated: true, completion: nil)
   }
   

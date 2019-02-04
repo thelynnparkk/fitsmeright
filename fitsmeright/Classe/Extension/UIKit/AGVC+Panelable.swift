@@ -1,8 +1,8 @@
 //
-//  AGPVC.swift
+//  AGVC+Panelable.swift
 //  fitsmeright
 //
-//  Created by Sasawat Sankosik on 3/2/2562 BE.
+//  Created by Sasawat Sankosik on 4/2/2562 BE.
 //  Copyright © 2562 silpakorn. All rights reserved.
 //
 
@@ -12,22 +12,13 @@ import UIKit
 
 
 
-extension AGPVC
-{
+extension AGVC: Panelable {
   
-}
-
-
-
-class AGPVC: AGVC {
-  
-  //MARK: - AGVCInstantiatable
+  //MARK: - Enum
   
   
   
   //MARK: - UI
-  var vc_panelVC: PanelVC!
-  var isPanelListVisible = false
   
   
   
@@ -60,68 +51,14 @@ class AGPVC: AGVC {
   
   
   //MARK: - Life cycle
-  override func onInit() {
-    super.onInit()
-    
-  }
-  
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
-    
-  }
-  
-  override func prepare() {
-    super.prepare()
-    
-  }
-  
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-  }
   
   
   
   //MARK: - Setup View
-  override func setupViewOnViewDidLoad() {
-    //MARK: Core
-    
-    
-    
-    //MARK: Component
-    
-    
-    
-    //MARK: Other
-    
-    
-    
-    //MARK: Snp
-    
-    
-    
-    //MARK: Localize
-    setupLocalize()
-    
-    
-    
-  }
-  
-  override func setupViewOnDidLayoutSubviews() {
-    
-  }
   
   
   
   //MARK: - Setup Data
-  override func setupDataOnViewDidLoad() {
-    
-  }
   
   
   
@@ -130,10 +67,18 @@ class AGPVC: AGVC {
   
   
   //MARK: - Public
-  override func setupLocalize() {
-    
-  }
   
+  
+  
+  //MARK: - Private
+  
+  
+  
+  //MARK: - Core - Protocol
+  
+  
+  
+  //MARK: - Custom - Panelable
   func addPanelVC() {
     isPanelListVisible = true
     addChild(vc_panelVC)
@@ -162,30 +107,9 @@ class AGPVC: AGVC {
   }
   
   
-  //MARK: - Private
   
-  
-  
-  //MARK: - VIP - UseCase
-  
-  
-  
-  //MARK: - Core - Protocol
-  
-  
-  
-  //MARK: - Custom - ViewIPCDelegate
-  
-  
-  
-  //MARK: - Pods - Protocol
+  //MARK: - Pod - Protocol
   
   
   
 }
-
-
-
-
-
-

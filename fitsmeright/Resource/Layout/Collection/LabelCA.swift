@@ -1,8 +1,8 @@
 //
-//  ImageCA.swift
+//  LabelCA.swift
 //  fitsmeright
 //
-//  Created by Sasawat Sankosik on 23/1/2562 BE.
+//  Created by Sasawat Sankosik on 4/2/2562 BE.
 //  Copyright © 2562 silpakorn. All rights reserved.
 //
 
@@ -12,22 +12,21 @@ import UIKit
 
 
 
-class ImageCAUC {
+class LabelCAUC {
   
   class ViewModel: AGCAModel {
-    var displayedFooter = LabelCRVUC.DisplayedLabel()
+    
   }
   
 }
 
 
 
-extension ImageCA:
+extension LabelCA:
   UICollectionViewDelegate,
   UICollectionViewDataSource,
   UICollectionViewDelegateFlowLayout,
-  AGCCDelegate,
-  AGCRVDelegate
+  AGCCDelegate
 {
   
   
@@ -35,7 +34,7 @@ extension ImageCA:
 
 
 
-class ImageCA: AGCA {
+class LabelCA: AGCA {
   
   //MARK: - Enum
   
@@ -51,11 +50,9 @@ class ImageCA: AGCA {
   
   
   //MARK: - Constraint
-  typealias ViewModel = ImageCAUC.ViewModel
-  typealias CC = ImageCC
-  typealias CCModel = ImageCCUC.ViewModel
-  typealias CRV = LabelCRV
-  typealias CRVModel = LabelCRVUC.ViewModel
+  typealias ViewModel = LabelCAUC.ViewModel
+  typealias CC = LabelCC
+  typealias CCModel = LabelCCUC.ViewModel
   
   
   
@@ -69,14 +66,12 @@ class ImageCA: AGCA {
   
   //MARK: - Storage
   override var height: CGFloat {
-    let rowItems = 4
-    let rows = (CGFloat(viewModel.displayedItems.count) / CGFloat(rowItems)).rounded(.up)
-    let image_items = CC.Sizing.size(with: collection.bounds, rowItems: rowItems).height * rows
-    let image_spaces = (CC.Sizing.lineSpace() * (rows - 1))
-    let image_insets = (CC.Sizing.inset().top + CC.Sizing.inset().bottom)
-    let image = image_items + image_spaces + image_insets
-    let footer = CRV.Sizing.size(with: collection.frame, height: 50).height
-    return image + footer
+    let rows = viewModel.displayedItems.count.cgFloat
+    let label_items = CC.Sizing.size(with: collection.bounds).height * rows
+    let label_spaces = (CC.Sizing.lineSpace() * (rows - 1))
+    let label_insets = (CC.Sizing.inset().top + CC.Sizing.inset().bottom)
+    let label = label_items + label_spaces + label_insets
+    return label
   }
   
   
@@ -122,7 +117,6 @@ class ImageCA: AGCA {
     collection.setupCollectionDefault()
     collection.setupScrollVertical()
     collection.register(nibWithCellClass: CC.self)
-    collection.register(nibWithCellClass: CRV.self, kind: UICollectionView.elementKindSectionFooter)
     collection.delegate = self
     collection.dataSource = self
     collection.backgroundColor = .clear
@@ -208,26 +202,6 @@ class ImageCA: AGCA {
     cell.setupData(with: item)
     return cell
   }
-
-  func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-    switch kind {
-    case UICollectionView.elementKindSectionHeader:
-      return UICollectionReusableView()
-    case UICollectionView.elementKindSectionFooter:
-      let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withClass: CRV.self, for: indexPath)
-      view.kind = kind
-      view.section = indexPath.section
-      view.delegate = self
-      if let vm = viewModel as? ViewModel {
-        let vm_footer = LabelCRVUC.ViewModel()
-        vm_footer.displayedLabel = vm.displayedFooter
-        view.setupData(with: vm_footer)
-      }
-      return view
-    default:
-      return UICollectionReusableView()
-    }
-  }
   
   
   
@@ -241,21 +215,26 @@ class ImageCA: AGCA {
     }
   }
   
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-    return CRV.Sizing.size(with: collectionView.bounds, height: 50)
+  func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    guard !isEmpty else {
+      return
+    }
+    let isLastRow = indexPath.row == viewModel.displayedItems.count - 1
+    let cell = cell as? CC
+    cell?.v_seperator.isHidden = isLastRow
   }
   
   
   
   //MARK: - Core - UICollectionViewDelegateFlowLayout
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CC.Sizing.size(with: collectionView.bounds, rowItems: 4)
+    return CC.Sizing.size(with: collectionView.bounds)
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
     return CC.Sizing.inset()
   }
-
+  
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
     return CC.Sizing.lineSpace()
   }
@@ -268,13 +247,6 @@ class ImageCA: AGCA {
   
   //MARK: - Custom - AGCCDelegate
   func agCCPressed(_ cell: AGCC, action: Any, indexPath: IndexPath) {
-    
-  }
-  
-  
-  
-  //MARK: - Custom - AGCRVDelegate
-  func agCRVPressed(_ view: AGCRV, action: Any, section: Int) {
     
   }
   
