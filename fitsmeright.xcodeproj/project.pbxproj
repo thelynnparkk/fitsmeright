@@ -356,7 +356,6 @@
 		5E0900B521C2B7AF0099F81E /* CreatePost */ = {
 			isa = PBXGroup;
 			children = (
-				A49F8C63220449290081F5EA /* PanelListVC */,
 				5E74DA6C21BBDA2000A97A89 /* PostCreateClosetVC */,
 				5E0900B621C2B8340099F81E /* PostCreateDesignVC */,
 				5E0900BB21C2B8A60099F81E /* PostCreateInfoVC */,
@@ -499,6 +498,7 @@
 		5E74DA3221BBCCC400A97A89 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
+				A4DAA1A82207FFB300DA31F7 /* Panel */,
 				A4C4FAC921F9B84C004A3F37 /* Popup */,
 				A4C4FAA021F975C7004A3F37 /* View */,
 				A4C338B621F8A38500147567 /* Adapter */,
@@ -860,14 +860,6 @@
 			path = NVC;
 			sourceTree = "<group>";
 		};
-		A49F8C63220449290081F5EA /* PanelListVC */ = {
-			isa = PBXGroup;
-			children = (
-				A49F8C6422044A630081F5EA /* PanelListVC.swift */,
-			);
-			path = PanelListVC;
-			sourceTree = "<group>";
-		};
 		A4C338B521F8A29700147567 /* ScrollView */ = {
 			isa = PBXGroup;
 			children = (
@@ -995,6 +987,14 @@
 				A4D6E29621C0F7BF0085FB67 /* UIKit */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		A4DAA1A82207FFB300DA31F7 /* Panel */ = {
+			isa = PBXGroup;
+			children = (
+				A49F8C6422044A630081F5EA /* PanelListVC.swift */,
+			);
+			path = Panel;
 			sourceTree = "<group>";
 		};
 		A4E31D8421C28B96004D1707 /* Data */ = {
