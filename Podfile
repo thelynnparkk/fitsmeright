@@ -45,8 +45,6 @@ pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
 # note
 pod 'CodableFirebase', '~> 0.2.1'
-# note
-pod 'SwiftDate', '~> 5.0.13'
 # > 4.6.0
 pod 'SwifterSwift', '~> 4.6.0'
 end

@@ -110,8 +110,6 @@ PODS:
   - Protobuf (3.6.1)
   - RAMAnimatedTabBarController (4.0.1)
   - RevealingSplashView (0.6.0)
-  - SkeletonView (1.4.1)
-  - SkyFloatingLabelTextField (3.6.0)
   - SnapKit (4.2.0)
   - SwiftDate (5.0.13)
   - SwifterSwift (4.6.0):
@@ -138,13 +136,11 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - IQKeyboardManagerSwift (~> 6.0)
-  - Kingfisher
+  - Kingfisher (~> 5.0.1)
   - NVActivityIndicatorView (~> 4.4.0)
   - PopupDialog (~> 0.9)
   - RAMAnimatedTabBarController (~> 4.0.1)
   - RevealingSplashView (~> 0.6.0)
-  - SkeletonView (~> 1.4)
-  - SkyFloatingLabelTextField (~> 3.6.0)
   - SnapKit (~> 4.2.0)
   - SwiftDate (~> 5.0.13)
   - SwifterSwift (~> 4.6.0)
@@ -175,8 +171,6 @@ SPEC REPOS:
     - Protobuf
     - RAMAnimatedTabBarController
     - RevealingSplashView
-    - SkeletonView
-    - SkyFloatingLabelTextField
     - SnapKit
     - SwiftDate
     - SwifterSwift
@@ -206,12 +200,10 @@ SPEC CHECKSUMS:
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   RAMAnimatedTabBarController: 677d6f7ec7e88b1089486f4db49b0a5067e8ad1c
   RevealingSplashView: 40c5a770894459736acdc95655eeba0dd30ce91c
-  SkeletonView: 60d6ce7edb0cb4c7758db33c74add50392b3c475
-  SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftDate: f4aea5fa9dee812485f34041121a4cbde01b0dee
   SwifterSwift: 812ffec6f301922f5430e75be3f2939ea3a80024
 
-PODFILE CHECKSUM: ae85e761541ec44b2d51816ebe8ac3ccc5e1a81c
+PODFILE CHECKSUM: d58907ca5a2034f6caa372a3bc0c4633f29a3304
 
 COCOAPODS: 1.6.0.beta.2
