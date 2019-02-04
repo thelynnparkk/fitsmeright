@@ -18,13 +18,9 @@ pod 'NVActivityIndicatorView', '~> 4.4.0'
 # note
 pod 'PopupDialog', '~> 0.9'
 # note
-pod 'SkeletonView', '~> 1.4'
-# note
 pod 'RAMAnimatedTabBarController', '~> 4.0.1'
 # note
 pod 'SnapKit', '~> 4.2.0'
-# note
-pod 'SkyFloatingLabelTextField', '~> 3.6.0'
 # note
 pod 'IQKeyboardManagerSwift', '~> 6.0'
 # note
