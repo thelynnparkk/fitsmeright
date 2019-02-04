@@ -13,6 +13,8 @@ import SwifterSwift
 import IQKeyboardManagerSwift
 import Firebase
 import PopupDialog
+import SwifterSwift
+import Kingfisher
 
 
 
@@ -154,6 +156,17 @@ extension AGApplicationSetup {
     //    cb.titleColor = UIColor(red: 0.25, green: 0.53, blue: 0.91, alpha: 1)
     //    cb.buttonColor = .clear
     //    cb.separatorColor = UIColor(white: 0.9, alpha: 1)
+    
+    
+    
+    //MARK: Kingfisher
+    let kf = KingfisherManager.shared
+    kf.defaultOptions = [.transition(.fade(1))]
+    // Limit memory cache size to 300 MB.
+    kf.cache.memoryStorage.config.totalCostLimit = 300 * 1024 * 1024
+    // Limit memory cache to hold 150 images at most.
+    kf.cache.diskStorage.config.expiration = .seconds(1000 * 1024 * 1024)
+    kf.cache.diskStorage.config.sizeLimit = 600
     
   }
   

@@ -17,7 +17,7 @@ class PopupHeaderViewUC {
   
   class DisplayedHeader {
     var style: PopupHeaderView.Style = .small
-    var url: URL? = nil
+    var imageURL: URL? = nil
     var icon: UIImage? = nil
     var title: String = "Title"
     var subtitle: String? = nil
@@ -272,8 +272,8 @@ class PopupHeaderView: AGView {
   
   override func setupData(with viewModel: AGViewModel) {
     guard let vm = viewModel as? ViewModel else { return }
-    if let url = vm.displayedHeader.url {
-      imgv_header.download(from: url, contentMode: .scaleAspectFit, placeholder: nil)
+    if let imageURL = vm.displayedHeader.imageURL {
+      imgv_header.kf.setImage(with: imageURL, placeholder: nil, options: nil)
     } else if let icon = vm.displayedHeader.icon, icon != .none {
       imgv_header.image = icon
       imgv_header.backgroundColor = .clear

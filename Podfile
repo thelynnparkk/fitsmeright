@@ -30,7 +30,7 @@ pod 'IQKeyboardManagerSwift', '~> 6.0'
 # note
 pod 'RevealingSplashView', '~> 0.6.0'
 # note
-pod 'Kingfisher'
+pod 'Kingfisher', '~> 5.0.1'
 end
 
 

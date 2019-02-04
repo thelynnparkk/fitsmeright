@@ -15,7 +15,7 @@ import UIKit
 class ProfileCCUC {
   
   class DisplayedProfile {
-    var image: URL?
+    var imageURL: URL?
     var displayName: String = ""
     var bio: String = ""
     var posts: String = ""
@@ -211,8 +211,8 @@ class ProfileCC: AGCC {
   
   override func setupData(with viewModel: AGCCModel) {
     guard let vm = viewModel as? ViewModel else { return }
-    if let imageUrl = vm.displayedProfile.image {
-      imgv_profile.download(from: imageUrl, contentMode: .scaleAspectFit, placeholder: nil)
+    if let imageURL = vm.displayedProfile.imageURL {
+      imgv_profile.kf.setImage(with: imageURL, placeholder: nil, options: nil)
     } else {
       imgv_profile.image = nil
     }

@@ -15,7 +15,7 @@ import UIKit
 class ImageCCUC {
   
   class DisplayedImage {
-    var imageUrl: URL?
+    var imageURL: URL?
   }
   
   class ViewModel: AGCCModel {
@@ -194,8 +194,8 @@ class ImageCC: AGCC {
   
   override func setupData(with viewModel: AGCCModel) {
     guard let vm = viewModel as? ViewModel else { return }
-    if let imageUrl = vm.displayedImage.imageUrl {
-      imgv.download(from: imageUrl, contentMode: .scaleAspectFit, placeholder: nil)
+    if let imageURL = vm.displayedImage.imageURL {
+      imgv.kf.setImage(with: imageURL, placeholder: nil, options: nil)
     } else {
       imgv.image = nil
     }

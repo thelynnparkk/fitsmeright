@@ -192,7 +192,7 @@ class ProfileVC: AGVC {
     
     func present() {
       let vm = ProfileCAUC.ViewModel()
-      vm.displayedProfile.image = nil
+      vm.displayedProfile.imageURL = nil
       vm.displayedProfile.displayName = fsUser!._displayName
       vm.displayedProfile.bio = fsUser!._bio
       vm.displayedProfile.posts = "\(posts.count)"
@@ -200,7 +200,7 @@ class ProfileVC: AGVC {
       vm.displayedProfile.closets = "0"
       vm.displayedItems = posts.compactMap({
         let vm = ImageCCUC.ViewModel()
-        vm.displayedImage.imageUrl = URL(string: $0._displayName)
+        vm.displayedImage.imageURL = URL(string: $0._displayName)
         return vm
       })
       

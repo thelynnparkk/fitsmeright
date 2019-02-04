@@ -95,6 +95,7 @@ PODS:
   - gRPC-Core/Interface (1.14.0)
   - GTMSessionFetcher/Core (1.2.1)
   - IQKeyboardManagerSwift (6.2.0)
+  - Kingfisher (5.0.1)
   - leveldb-library (1.20)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
@@ -137,6 +138,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - IQKeyboardManagerSwift (~> 6.0)
+  - Kingfisher
   - NVActivityIndicatorView (~> 4.4.0)
   - PopupDialog (~> 0.9)
   - RAMAnimatedTabBarController (~> 4.0.1)
@@ -165,6 +167,7 @@ SPEC REPOS:
     - gRPC-Core
     - GTMSessionFetcher
     - IQKeyboardManagerSwift
+    - Kingfisher
     - leveldb-library
     - nanopb
     - NVActivityIndicatorView
@@ -195,6 +198,7 @@ SPEC CHECKSUMS:
   gRPC-Core: f4836515817c0eb479aeeb9cc27c91c4ba62a9f6
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
+  Kingfisher: 4f771421b9208185217550528a06fd48756cb7c2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   NVActivityIndicatorView: ec7440a57af2450319d3a4181cca7da6fc127064
@@ -208,6 +212,6 @@ SPEC CHECKSUMS:
   SwiftDate: f4aea5fa9dee812485f34041121a4cbde01b0dee
   SwifterSwift: 812ffec6f301922f5430e75be3f2939ea3a80024
 
-PODFILE CHECKSUM: 7278ae9903856b5859e8a74900cc581b0daadf5f
+PODFILE CHECKSUM: ae85e761541ec44b2d51816ebe8ac3ccc5e1a81c
 
 COCOAPODS: 1.6.0.beta.2

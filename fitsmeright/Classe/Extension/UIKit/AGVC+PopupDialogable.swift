@@ -141,7 +141,7 @@ extension AGVC: PopupDialogable {
       //      vm.displayedList.isHideFooter = true
       vm_imageCA.displayedItems = urls.compactMap({
         let vm = ImageCCUC.ViewModel()
-        vm.displayedImage.imageUrl = URL(string: $0)
+        vm.displayedImage.imageURL = URL(string: $0)
         return vm
       })
       //      vm.displayedFooter.kind = UICollectionView.elementKindSectionFooter

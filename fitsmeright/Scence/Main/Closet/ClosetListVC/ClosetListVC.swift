@@ -195,7 +195,7 @@ class ClosetListVC: AGVC {
       let vm = ImageCAUC.ViewModel()
       vm.displayedItems = fsClosets.compactMap({
         let vm = ImageCCUC.ViewModel()
-        vm.displayedImage.imageUrl = $0.imageURL
+        vm.displayedImage.imageURL = $0.imageURL
         return vm
       })
       //      vm.displayedFooter.kind = UICollectionView.elementKindSectionFooter

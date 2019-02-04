@@ -215,7 +215,7 @@ class ClosetFormVC: AGVC {
     func presentEdit() {
       ni.title = closetCategory!.name.uppercased()
       if let imageURL = fsCloset!.imageURL {
-        imgv_closet.download(from: imageURL, contentMode: .scaleAspectFit, placeholder: nil)
+        imgv_closet.kf.setImage(with: imageURL, placeholder: nil, options: nil)
       } else {
         imgv_closet.image = nil
       }
