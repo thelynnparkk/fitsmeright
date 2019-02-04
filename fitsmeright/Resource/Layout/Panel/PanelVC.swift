@@ -1,8 +1,8 @@
 //
-//  AGPVC.swift
+//  PanelVC.swift
 //  fitsmeright
 //
-//  Created by Sasawat Sankosik on 3/2/2562 BE.
+//  Created by Sasawat Sankosik on 4/2/2562 BE.
 //  Copyright © 2562 silpakorn. All rights reserved.
 //
 
@@ -12,26 +12,33 @@ import UIKit
 
 
 
-extension AGPVC
+class PanelVCModel {
+  
+}
+
+
+
+extension PanelVC
 {
   
 }
 
 
 
-class AGPVC: AGVC {
+class PanelVC: AGVC {
+  //MARK: - AGInstantiatable
   
-  //MARK: - AGVCInstantiatable
+  
+  
+  //MARK: - Enum
   
   
   
   //MARK: - UI
-  var vc_panelVC: PanelVC!
-  var isPanelListVisible = false
   
   
   
-  //MARK: - NSLayout
+  //MARK: - LayoutConstraint
   
   
   
@@ -123,6 +130,10 @@ class AGPVC: AGVC {
     
   }
   
+  func setupData(with viewModel: PanelVCModel) {
+    
+  }
+  
   
   
   //MARK: - Event
@@ -134,32 +145,6 @@ class AGPVC: AGVC {
     
   }
   
-  func addPanelVC() {
-    isPanelListVisible = true
-    addChild(vc_panelVC)
-    view.addSubview(vc_panelVC.view)
-    vc_panelVC.didMove(toParent: self)
-    let height = view.frame.height
-    let width  = view.frame.width
-    vc_panelVC.view.frame = CGRect(x: 0, y: view.frame.maxY , width: width, height: height)
-    vc_panelVC.view.addShadow(ofColor: .black, radius: 5, offset: .less, opacity: 0.3)
-  }
-  
-  func removePanelVC() {
-    isPanelListVisible = false
-    UIView.animate(withDuration: 0.3,
-                   delay: 0,
-                   options: UIView.AnimationOptions.curveEaseIn,
-                   animations: {
-                    var frame = self.vc_panelVC.view.frame
-                    frame.origin.y = UIScreen.main.bounds.maxY
-                    self.vc_panelVC.view.frame = frame
-                    
-    }, completion: { _ in
-      self.vc_panelVC.view.removeFromSuperview()
-      self.vc_panelVC.removeFromParent()
-    })
-  }
   
   
   //MARK: - Private
@@ -174,7 +159,7 @@ class AGPVC: AGVC {
   
   
   
-  //MARK: - Custom - ViewIPCDelegate
+  //MARK: - Custom - Protocol
   
   
   
@@ -183,9 +168,3 @@ class AGPVC: AGVC {
   
   
 }
-
-
-
-
-
-

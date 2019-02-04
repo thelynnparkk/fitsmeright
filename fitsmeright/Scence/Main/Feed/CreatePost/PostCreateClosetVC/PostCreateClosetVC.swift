@@ -120,7 +120,7 @@ class PostCreateClosetVC: AGPVC {
     
     btn_addCloth.addTarget(self, action: #selector(addClothButtonPressed), for: .touchUpInside)
     
-    vc_panelListVC = PanelListVC()
+    vc_panelVC = PanelListVC()
     
     
     
@@ -212,8 +212,8 @@ class PostCreateClosetVC: AGPVC {
       vm_imageCA.displayedFooter.title = "\(vm_imageCA.displayedItems.count) items"
       vm.displayedList.adapter = ImageCA.self
       vm.displayedList.viewModel = vm_imageCA
-      vc_panelListVC.setupData(with: vm)
-      vc_panelListVC.delegate_agvc = self
+      vc_panelVC.setupData(with: vm)
+      vc_panelVC.delegate_agvc = self
       addPanelVC()
     }
     
@@ -247,6 +247,9 @@ class PostCreateClosetVC: AGPVC {
 //        imageView.center = canvasImageView.center
 //        self.canvasImageView.addSubview(imageView)
 //        addGestures(view: imageView)
+      case let .indexPath(i):
+        print(i)
+        removePanelVC()
       case .disappear:
         isPanelListVisible = false
       }

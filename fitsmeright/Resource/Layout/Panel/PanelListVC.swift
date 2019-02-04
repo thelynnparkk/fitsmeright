@@ -38,7 +38,7 @@ extension PanelListVC:
 
 
 
-class PanelListVC: AGVC {
+class PanelListVC: PanelVC {
   //MARK: - AGVCInstantiatable
   
   
@@ -53,6 +53,7 @@ class PanelListVC: AGVC {
   enum Action {
     case view(UIView)
     case image(UIView)
+    case indexPath(IndexPath)
     case disappear
   }
   
@@ -87,7 +88,7 @@ class PanelListVC: AGVC {
   }
   var bottom: CGFloat {
     //    return 100
-    return UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0
+    return (UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0) * 3
   }
   
   
@@ -380,7 +381,7 @@ class PanelListVC: AGVC {
   
   //MARK: - Custom - AGCADelegate
   func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
-    
+    delegate_agvc?.agVCPressed(self, action: Action.indexPath(indexPath))
   }
   
   
