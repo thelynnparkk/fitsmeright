@@ -27,7 +27,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_closet" translatesAutoresizingMaskIntoConstraints="NO" id="F2W-Qs-GyO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="closet-cc-new-edit-2" translatesAutoresizingMaskIntoConstraints="NO" id="F2W-Qs-GyO">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="33j-N3-Nuh" userLabel="Closet View">
@@ -189,6 +189,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="img_closet" width="750" height="1334"/>
+        <image name="closet-cc-new-edit-2" width="750" height="1334"/>
     </resources>
 </document>

@@ -258,7 +258,7 @@ class ClosetCategoryVC: AGVC {
       vm_accessory.displayedMenu.image = #imageLiteral(resourceName: "ic_closetmenu_accessory").filled(withColor: c_custom.peach)
       let vm_bag = ClosetMenuViewUC.ViewModel()
       vm_bag.displayedMenu.title = "\(closet_bag.count) \(ClosetCategory.bag.plural)"
-      vm_bag.displayedMenu.image = #imageLiteral(resourceName: "ic_closetmenu_shoe").filled(withColor: c_custom.peach)
+      vm_bag.displayedMenu.image = #imageLiteral(resourceName: "ic_closetmenu_bag").filled(withColor: c_custom.peach)
       let vm_shoe = ClosetMenuViewUC.ViewModel()
       vm_shoe.displayedMenu.title = "\(closet_shoe.count) \(ClosetCategory.shoe.plural)"
       vm_shoe.displayedMenu.image = #imageLiteral(resourceName: "ic_closetmenu_shoe").filled(withColor: c_custom.peach)
