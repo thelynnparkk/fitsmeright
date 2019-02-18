@@ -13,6 +13,11 @@
 		5E0900BA21C2B89B0099F81E /* PostCreateDesignVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E0900B921C2B89B0099F81E /* PostCreateDesignVC.storyboard */; };
 		5E0900BD21C2B8B90099F81E /* PostCreateInfoVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E0900BC21C2B8B90099F81E /* PostCreateInfoVC.storyboard */; };
 		5E0900BF21C2B8C50099F81E /* PostCreateInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0900BE21C2B8C50099F81E /* PostCreateInfoVC.swift */; };
+		5E5BD815221B05BB003D1C3D /* ClosetTagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E5BD814221B05BB003D1C3D /* ClosetTagView.xib */; };
+		5E5BD818221B08EA003D1C3D /* SelectClosetCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5BD817221B08EA003D1C3D /* SelectClosetCategoryVC.swift */; };
+		5E5BD81A221B08F0003D1C3D /* SelectClosetCategoryVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E5BD819221B08F0003D1C3D /* SelectClosetCategoryVC.storyboard */; };
+		5E5BD81C221B0AFE003D1C3D /* ClosetLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5BD81B221B0AFE003D1C3D /* ClosetLabelView.swift */; };
+		5E5BD81E221B0B05003D1C3D /* ClosetLabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E5BD81D221B0B05003D1C3D /* ClosetLabelView.xib */; };
 		5E74D9FD21BBACA900A97A89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74D9FC21BBACA900A97A89 /* AppDelegate.swift */; };
 		5E74D9FF21BBACA900A97A89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74D9FE21BBACA900A97A89 /* ViewController.swift */; };
 		5E74DA0221BBACA900A97A89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA0021BBACA900A97A89 /* Main.storyboard */; };
@@ -49,6 +54,11 @@
 		5E74DA8421BBF94B00A97A89 /* UINavigationController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA8321BBF94B00A97A89 /* UINavigationController+AG.swift */; };
 		5E74DA8621BBFC6700A97A89 /* UIImagePickerController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */; };
 		5EC21D5B21F61A1C0013157F /* ClosetVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EC21D5A21F61A1C0013157F /* ClosetVC.storyboard */; };
+		5ECC1D63221AEA9100B03268 /* PostCreateOutfitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECC1D62221AEA9100B03268 /* PostCreateOutfitVC.swift */; };
+		5ECC1D65221AEA9B00B03268 /* PostCreateOutfitVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ECC1D64221AEA9B00B03268 /* PostCreateOutfitVC.storyboard */; };
+		5ECC1D69221AF8DD00B03268 /* PostCreateTagVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECC1D68221AF8DD00B03268 /* PostCreateTagVC.swift */; };
+		5ECC1D6B221AF8E100B03268 /* PostCreateTagVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ECC1D6A221AF8E100B03268 /* PostCreateTagVC.storyboard */; };
+		5ECC1D6D221B037500B03268 /* ClosetTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECC1D6C221B037500B03268 /* ClosetTagView.swift */; };
 		5ECE8E6621F7453D000AF65E /* RAMAnimatedTabBarItem+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8E6521F7453D000AF65E /* RAMAnimatedTabBarItem+AG.swift */; };
 		5ECE8E6821F74544000AF65E /* UIView+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8E6721F74544000AF65E /* UIView+AG.swift */; };
 		5ECE8E6C21F7459B000AF65E /* MockPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8E6B21F7459B000AF65E /* MockPost.swift */; };
@@ -179,6 +189,11 @@
 		5E0900B921C2B89B0099F81E /* PostCreateDesignVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostCreateDesignVC.storyboard; sourceTree = "<group>"; };
 		5E0900BC21C2B8B90099F81E /* PostCreateInfoVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostCreateInfoVC.storyboard; sourceTree = "<group>"; };
 		5E0900BE21C2B8C50099F81E /* PostCreateInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreateInfoVC.swift; sourceTree = "<group>"; };
+		5E5BD814221B05BB003D1C3D /* ClosetTagView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClosetTagView.xib; sourceTree = "<group>"; };
+		5E5BD817221B08EA003D1C3D /* SelectClosetCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectClosetCategoryVC.swift; sourceTree = "<group>"; };
+		5E5BD819221B08F0003D1C3D /* SelectClosetCategoryVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectClosetCategoryVC.storyboard; sourceTree = "<group>"; };
+		5E5BD81B221B0AFE003D1C3D /* ClosetLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetLabelView.swift; sourceTree = "<group>"; };
+		5E5BD81D221B0B05003D1C3D /* ClosetLabelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClosetLabelView.xib; sourceTree = "<group>"; };
 		5E74D9F921BBACA900A97A89 /* fitsmeright.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fitsmeright.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E74D9FC21BBACA900A97A89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E74D9FE21BBACA900A97A89 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +236,11 @@
 		5E74DA8321BBF94B00A97A89 /* UINavigationController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+AG.swift"; sourceTree = "<group>"; };
 		5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+AG.swift"; sourceTree = "<group>"; };
 		5EC21D5A21F61A1C0013157F /* ClosetVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClosetVC.storyboard; sourceTree = "<group>"; };
+		5ECC1D62221AEA9100B03268 /* PostCreateOutfitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreateOutfitVC.swift; sourceTree = "<group>"; };
+		5ECC1D64221AEA9B00B03268 /* PostCreateOutfitVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostCreateOutfitVC.storyboard; sourceTree = "<group>"; };
+		5ECC1D68221AF8DD00B03268 /* PostCreateTagVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreateTagVC.swift; sourceTree = "<group>"; };
+		5ECC1D6A221AF8E100B03268 /* PostCreateTagVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostCreateTagVC.storyboard; sourceTree = "<group>"; };
+		5ECC1D6C221B037500B03268 /* ClosetTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetTagView.swift; sourceTree = "<group>"; };
 		5ECE8E6521F7453D000AF65E /* RAMAnimatedTabBarItem+AG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RAMAnimatedTabBarItem+AG.swift"; sourceTree = "<group>"; };
 		5ECE8E6721F74544000AF65E /* UIView+AG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AG.swift"; sourceTree = "<group>"; };
 		5ECE8E6B21F7459B000AF65E /* MockPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPost.swift; sourceTree = "<group>"; };
@@ -365,14 +385,15 @@
 			path = TabBatItem;
 			sourceTree = "<group>";
 		};
-		5E0900B521C2B7AF0099F81E /* CreatePost */ = {
+		5E0900B521C2B7AF0099F81E /* PostCreate */ = {
 			isa = PBXGroup;
 			children = (
-				5E74DA6C21BBDA2000A97A89 /* PostCreateClosetVC */,
-				5E0900B621C2B8340099F81E /* PostCreateDesignVC */,
-				5E0900BB21C2B8A60099F81E /* PostCreateInfoVC */,
+				5E5BD816221B08C9003D1C3D /* SelectClosetCategoryVC */,
+				5ECC1D66221AF89B00B03268 /* Old */,
+				5ECC1D61221AE9E000B03268 /* PostCreateOutfitVC */,
+				5ECC1D67221AF8B100B03268 /* PostCreateTagVC */,
 			);
-			path = CreatePost;
+			path = PostCreate;
 			sourceTree = "<group>";
 		};
 		5E0900B621C2B8340099F81E /* PostCreateDesignVC */ = {
@@ -391,6 +412,15 @@
 				5E0900BE21C2B8C50099F81E /* PostCreateInfoVC.swift */,
 			);
 			path = PostCreateInfoVC;
+			sourceTree = "<group>";
+		};
+		5E5BD816221B08C9003D1C3D /* SelectClosetCategoryVC */ = {
+			isa = PBXGroup;
+			children = (
+				5E5BD817221B08EA003D1C3D /* SelectClosetCategoryVC.swift */,
+				5E5BD819221B08F0003D1C3D /* SelectClosetCategoryVC.storyboard */,
+			);
+			path = SelectClosetCategoryVC;
 			sourceTree = "<group>";
 		};
 		5E74D9F021BBACA900A97A89 = {
@@ -670,6 +700,34 @@
 			path = PostCreateClosetVC;
 			sourceTree = "<group>";
 		};
+		5ECC1D61221AE9E000B03268 /* PostCreateOutfitVC */ = {
+			isa = PBXGroup;
+			children = (
+				5ECC1D62221AEA9100B03268 /* PostCreateOutfitVC.swift */,
+				5ECC1D64221AEA9B00B03268 /* PostCreateOutfitVC.storyboard */,
+			);
+			path = PostCreateOutfitVC;
+			sourceTree = "<group>";
+		};
+		5ECC1D66221AF89B00B03268 /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				5E74DA6C21BBDA2000A97A89 /* PostCreateClosetVC */,
+				5E0900B621C2B8340099F81E /* PostCreateDesignVC */,
+				5E0900BB21C2B8A60099F81E /* PostCreateInfoVC */,
+			);
+			path = Old;
+			sourceTree = "<group>";
+		};
+		5ECC1D67221AF8B100B03268 /* PostCreateTagVC */ = {
+			isa = PBXGroup;
+			children = (
+				5ECC1D68221AF8DD00B03268 /* PostCreateTagVC.swift */,
+				5ECC1D6A221AF8E100B03268 /* PostCreateTagVC.storyboard */,
+			);
+			path = PostCreateTagVC;
+			sourceTree = "<group>";
+		};
 		5ECE8E6321F744F7000AF65E /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -774,7 +832,7 @@
 			isa = PBXGroup;
 			children = (
 				5E74DA6A21BBDA0100A97A89 /* FeedVC */,
-				5E0900B521C2B7AF0099F81E /* CreatePost */,
+				5E0900B521C2B7AF0099F81E /* PostCreate */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -915,8 +973,12 @@
 				A4C4FAAA21F975C7004A3F37 /* AGView.swift */,
 				A4C4FAA921F975C7004A3F37 /* ClosetFormView.swift */,
 				A4C4FAAE21F975C7004A3F37 /* ClosetFormView.xib */,
+				5E5BD81B221B0AFE003D1C3D /* ClosetLabelView.swift */,
+				5E5BD81D221B0B05003D1C3D /* ClosetLabelView.xib */,
 				A4C4FAAC21F975C7004A3F37 /* ClosetMenuView.swift */,
 				A4C4FAA421F975C7004A3F37 /* ClosetMenuView.xib */,
+				5ECC1D6C221B037500B03268 /* ClosetTagView.swift */,
+				5E5BD814221B05BB003D1C3D /* ClosetTagView.xib */,
 				A4C4FAA121F975C7004A3F37 /* CreatePostView.swift */,
 				A4C4FAA821F975C7004A3F37 /* CreatePostView.xib */,
 				A4C4FAA721F975C7004A3F37 /* CreateTextView.swift */,
@@ -1159,6 +1221,7 @@
 			files = (
 				A4C4FAB121F975C7004A3F37 /* FloatingView.xib in Resources */,
 				A4C4FAB321F975C7004A3F37 /* ClosetMenuView.xib in Resources */,
+				5E5BD81E221B0B05003D1C3D /* ClosetLabelView.xib in Resources */,
 				A4DAA1BC220823E300DA31F7 /* LabelCC.xib in Resources */,
 				5E74DA0721BBACAA00A97A89 /* LaunchScreen.storyboard in Resources */,
 				5E0900BD21C2B8B90099F81E /* PostCreateInfoVC.storyboard in Resources */,
@@ -1168,15 +1231,18 @@
 				5E74DA7C21BBDB5E00A97A89 /* ProfileVC.storyboard in Resources */,
 				5E74DA7821BBDADF00A97A89 /* MainTBC.storyboard in Resources */,
 				A42F7C6721BE621C00085DB5 /* BlankVC.storyboard in Resources */,
+				5E5BD81A221B08F0003D1C3D /* SelectClosetCategoryVC.storyboard in Resources */,
 				5EF9F2DC21FC974D0034F7B2 /* ProfileCC.xib in Resources */,
 				5E74DA0421BBACAA00A97A89 /* Assets.xcassets in Resources */,
 				A4C4FABE21F975C7004A3F37 /* PostView.xib in Resources */,
+				5ECC1D6B221AF8E100B03268 /* PostCreateTagVC.storyboard in Resources */,
 				5EC21D5B21F61A1C0013157F /* ClosetVC.storyboard in Resources */,
 				A4C338BC21F8A3E000147567 /* ImageCC.xib in Resources */,
 				A4C4FAB721F975C7004A3F37 /* CreatePostView.xib in Resources */,
 				5E74DA7A21BBDB5200A97A89 /* FeedVC.storyboard in Resources */,
 				A42F7C4E21BE321300085DB5 /* README.md in Resources */,
 				5E74DA4521BBD04300A97A89 /* SplashVC.storyboard in Resources */,
+				5ECC1D65221AEA9B00B03268 /* PostCreateOutfitVC.storyboard in Resources */,
 				5E0900BA21C2B89B0099F81E /* PostCreateDesignVC.storyboard in Resources */,
 				5ECE8E6E21F747B7000AF65E /* GoogleService-Info.plist in Resources */,
 				A4C4FAC421F979A7004A3F37 /* LabelCRV.xib in Resources */,
@@ -1185,6 +1251,7 @@
 				5ECE8E8721F769F7000AF65E /* ClosetCategoryVC.storyboard in Resources */,
 				A42F7C6F21BE76A200085DB5 /* BlankTVC.storyboard in Resources */,
 				5EF9F2D621FC7EF20034F7B2 /* ClosetListVC.storyboard in Resources */,
+				5E5BD815221B05BB003D1C3D /* ClosetTagView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1375,11 +1442,13 @@
 				5E0900B421C2970A0099F81E /* RAMNonAnimation.swift in Sources */,
 				A4C4FABC21F975C7004A3F37 /* PostView.swift in Sources */,
 				5ECE8E7B21F752A8000AF65E /* FSClosetWorker.swift in Sources */,
+				5ECC1D63221AEA9100B03268 /* PostCreateOutfitVC.swift in Sources */,
 				5E74DA8421BBF94B00A97A89 /* UINavigationController+AG.swift in Sources */,
 				5ECE8E7121F74B84000AF65E /* ClosetCategory.swift in Sources */,
 				5E74DA8621BBFC6700A97A89 /* UIImagePickerController+AG.swift in Sources */,
 				5E74DA5721BBD0B100A97A89 /* TemplateVC.swift in Sources */,
 				5E74DA6221BBD6AC00A97A89 /* CATransition+AG.swift in Sources */,
+				5E5BD818221B08EA003D1C3D /* SelectClosetCategoryVC.swift in Sources */,
 				A42F7C6921BE71FB00085DB5 /* UINavigationBar+AG.swift in Sources */,
 				A4DAA1B222081DFD00DA31F7 /* PopupManager.swift in Sources */,
 				A4D6584E21BF651F007B8558 /* UITabBar+AG.swift in Sources */,
@@ -1389,6 +1458,7 @@
 				5ECE8E7D21F75366000AF65E /* Firestore+AG.swift in Sources */,
 				A4E31D8721C28BA9004D1707 /* FMUserDefaults.swift in Sources */,
 				A4C4FACD21F9C0D8004A3F37 /* PopupHeaderView.swift in Sources */,
+				5ECC1D69221AF8DD00B03268 /* PostCreateTagVC.swift in Sources */,
 				A4E1288121FEB9E700F85C66 /* ClosetCategoryVC.swift in Sources */,
 				A4C4B6F821F86FE70036B0F7 /* StateView+AG.swift in Sources */,
 				A4C338BA21F8A3D800147567 /* ImageCC.swift in Sources */,
@@ -1404,6 +1474,7 @@
 				A4DF18D62202FD7F008B67DA /* PopupListVC.swift in Sources */,
 				5E74DA5321BBD0B100A97A89 /* TemplateV.swift in Sources */,
 				A4C4B6EC21F820C00036B0F7 /* AGVC+AG.swift in Sources */,
+				5E5BD81C221B0AFE003D1C3D /* ClosetLabelView.swift in Sources */,
 				5EFC9BAA21FB57C00078ED50 /* SCloset.swift in Sources */,
 				A4C4FAB921F975C7004A3F37 /* AGView.swift in Sources */,
 				5E74D9FF21BBACA900A97A89 /* ViewController.swift in Sources */,
@@ -1469,6 +1540,7 @@
 				A4C4FACF21F9C396004A3F37 /* PopupFooterView.swift in Sources */,
 				5E74DA5B21BBD0B100A97A89 /* TemplateAFApi.swift in Sources */,
 				A4DAA1B022081C4400DA31F7 /* AGVC+Panelable.swift in Sources */,
+				5ECC1D6D221B037500B03268 /* ClosetTagView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

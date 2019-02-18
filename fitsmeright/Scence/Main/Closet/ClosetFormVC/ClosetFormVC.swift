@@ -126,7 +126,7 @@ class ClosetFormVC: AGVC {
     
     //MARK: Component
     sv_container.setupScrollVertical()
-    imgv_closet.contentMode = .scaleAspectFit
+    imgv_closet.contentMode = .scaleAspectFill
     imgv_addCloset.image = UIImage(color: c_custom.peach, size: .less)
     imgv_addCloset.contentMode = .scaleAspectFit
     v_seperator.backgroundColor = c_material.grey300

@@ -221,7 +221,7 @@ class FeedVC: AGVC {
   
   //MARK: - Custom - AGViewDelegate
   func agViewPressed(_ view: AGView, action: Any, tag: Int) {
-    let vc = PostCreateClosetVC.vc
+    let vc = PostCreateOutfitVC.vc
     let nvc = UINavigationController(rootViewController: vc)
     present(nvc, animated: true, completion: nil)
   }
