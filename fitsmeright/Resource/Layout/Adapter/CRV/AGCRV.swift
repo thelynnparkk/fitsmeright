@@ -25,7 +25,6 @@ protocol AGCRVDelegate: class {
 
 
 extension AGCRV:
-  AGCellInstantiatable,
   LifeCyclable,
   Colorable
 {

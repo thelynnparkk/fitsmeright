@@ -65,3 +65,28 @@ public extension AGVCInstantiatable where Self: UIViewController {
   
 }
 
+
+extension UIViewController {
+  
+  class var sb_name2: String {
+    return String(describing: self)
+  }
+  
+  class var vc_name2: String {
+    return String(describing: self)
+  }
+  
+  class var sb2: UIStoryboard {
+    return UIStoryboard(name: sb_name2, bundle: nil)
+  }
+  
+  class func create2() -> Self {
+    return instantiateFromStoryboardHelper()
+  }
+  
+  fileprivate class func instantiateFromStoryboardHelper<T>() -> T {
+    return sb2.instantiateViewController(withIdentifier: vc_name2) as! T
+  }
+
+}
+

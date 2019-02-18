@@ -26,7 +26,6 @@ protocol AGVCDelegate: class {
 
 extension AGVC:
   LifeCyclable,
-  DispatchQueueable,
   Colorable
 {
   

@@ -26,7 +26,6 @@ protocol AGCCDelegate: class {
 
 
 extension AGCC:
-  AGCellInstantiatable,
   LifeCyclable,
   Colorable
 {

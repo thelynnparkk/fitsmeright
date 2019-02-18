@@ -52,7 +52,6 @@ extension ViewIPCDelegate {
 
 extension ViewIPC:
   LifeCyclable,
-  DispatchQueueable,
   Colorable,
   UIImagePickerControllerDelegate,
   UINavigationControllerDelegate
