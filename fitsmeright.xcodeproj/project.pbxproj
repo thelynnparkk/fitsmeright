@@ -79,6 +79,9 @@
 		5EF9F2D821FC92200034F7B2 /* ProfileCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF9F2D721FC92200034F7B2 /* ProfileCA.swift */; };
 		5EF9F2DA21FC972F0034F7B2 /* ProfileCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF9F2D921FC972F0034F7B2 /* ProfileCC.swift */; };
 		5EF9F2DC21FC974D0034F7B2 /* ProfileCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EF9F2DB21FC974D0034F7B2 /* ProfileCC.xib */; };
+		5EFB7F97221BCD9D00D7D8F5 /* IconLabelCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFB7F96221BCD9D00D7D8F5 /* IconLabelCC.swift */; };
+		5EFB7F99221BCDAE00D7D8F5 /* IconLabelCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EFB7F98221BCDAE00D7D8F5 /* IconLabelCC.xib */; };
+		5EFB7F9B221BCF9300D7D8F5 /* SelectClosetCategoryCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFB7F9A221BCF9300D7D8F5 /* SelectClosetCategoryCA.swift */; };
 		5EFC9BAA21FB57C00078ED50 /* SCloset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC9BA921FB57C00078ED50 /* SCloset.swift */; };
 		5EFC9BAC21FB67ED0078ED50 /* FSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC9BAB21FB67ED0078ED50 /* FSUser.swift */; };
 		5EFC9BAE21FB684A0078ED50 /* FirestoreCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC9BAD21FB684A0078ED50 /* FirestoreCodable.swift */; };
@@ -261,6 +264,9 @@
 		5EF9F2D721FC92200034F7B2 /* ProfileCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCA.swift; sourceTree = "<group>"; };
 		5EF9F2D921FC972F0034F7B2 /* ProfileCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCC.swift; sourceTree = "<group>"; };
 		5EF9F2DB21FC974D0034F7B2 /* ProfileCC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCC.xib; sourceTree = "<group>"; };
+		5EFB7F96221BCD9D00D7D8F5 /* IconLabelCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconLabelCC.swift; sourceTree = "<group>"; };
+		5EFB7F98221BCDAE00D7D8F5 /* IconLabelCC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconLabelCC.xib; sourceTree = "<group>"; };
+		5EFB7F9A221BCF9300D7D8F5 /* SelectClosetCategoryCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectClosetCategoryCA.swift; sourceTree = "<group>"; };
 		5EFC9BA921FB57C00078ED50 /* SCloset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCloset.swift; sourceTree = "<group>"; };
 		5EFC9BAB21FB67ED0078ED50 /* FSUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSUser.swift; sourceTree = "<group>"; };
 		5EFC9BAD21FB684A0078ED50 /* FirestoreCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreCodable.swift; sourceTree = "<group>"; };
@@ -419,6 +425,7 @@
 			children = (
 				5E5BD817221B08EA003D1C3D /* SelectClosetCategoryVC.swift */,
 				5E5BD819221B08F0003D1C3D /* SelectClosetCategoryVC.storyboard */,
+				5EFB7F9A221BCF9300D7D8F5 /* SelectClosetCategoryCA.swift */,
 			);
 			path = SelectClosetCategoryVC;
 			sourceTree = "<group>";
@@ -685,6 +692,7 @@
 		5E74DA6B21BBDA1300A97A89 /* ProfileVC */ = {
 			isa = PBXGroup;
 			children = (
+				5EF9F2D721FC92200034F7B2 /* ProfileCA.swift */,
 				5E74DA7221BBDABF00A97A89 /* ProfileVC.swift */,
 				5E74DA7B21BBDB5E00A97A89 /* ProfileVC.storyboard */,
 			);
@@ -936,7 +944,6 @@
 			children = (
 				A4C338B721F8A3CD00147567 /* ImageCA.swift */,
 				A4C338C321F8AC2C00147567 /* AGCA.swift */,
-				5EF9F2D721FC92200034F7B2 /* ProfileCA.swift */,
 				A4DAA1BD220823ED00DA31F7 /* LabelCA.swift */,
 			);
 			name = Collection;
@@ -953,6 +960,8 @@
 				5EF9F2DB21FC974D0034F7B2 /* ProfileCC.xib */,
 				A4DAA1B9220823D900DA31F7 /* LabelCC.swift */,
 				A4DAA1BB220823E300DA31F7 /* LabelCC.xib */,
+				5EFB7F96221BCD9D00D7D8F5 /* IconLabelCC.swift */,
+				5EFB7F98221BCDAE00D7D8F5 /* IconLabelCC.xib */,
 			);
 			path = CC;
 			sourceTree = "<group>";
@@ -1252,6 +1261,7 @@
 				A42F7C6F21BE76A200085DB5 /* BlankTVC.storyboard in Resources */,
 				5EF9F2D621FC7EF20034F7B2 /* ClosetListVC.storyboard in Resources */,
 				5E5BD815221B05BB003D1C3D /* ClosetTagView.xib in Resources */,
+				5EFB7F99221BCDAE00D7D8F5 /* IconLabelCC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1434,6 +1444,7 @@
 				A4796C9D21F5DD7000B83F85 /* CGSize+AG.swift in Sources */,
 				5EFC9BAC21FB67ED0078ED50 /* FSUser.swift in Sources */,
 				5EFC9BAE21FB684A0078ED50 /* FirestoreCodable.swift in Sources */,
+				5EFB7F9B221BCF9300D7D8F5 /* SelectClosetCategoryCA.swift in Sources */,
 				A42F7C5821BE56AC00085DB5 /* AGDefaultsFoundation.swift in Sources */,
 				A4C4FAB421F975C7004A3F37 /* StateView.swift in Sources */,
 				A4C4FAD621F9CB35004A3F37 /* PopupDialogable.swift in Sources */,
@@ -1488,6 +1499,7 @@
 				A4E1288321FEBA4D00F85C66 /* ClosetListVC.swift in Sources */,
 				5ECE8E7421F74F53000AF65E /* FSCloset.swift in Sources */,
 				5E74D9FD21BBACA900A97A89 /* AppDelegate.swift in Sources */,
+				5EFB7F97221BCD9D00D7D8F5 /* IconLabelCC.swift in Sources */,
 				5E74DA6021BBD67600A97A89 /* UIWindow+AG.swift in Sources */,
 				A4DAA1B822081FC000DA31F7 /* Panelable.swift in Sources */,
 				A4C338C621F8AE4200147567 /* UICollectionView+AG.swift in Sources */,

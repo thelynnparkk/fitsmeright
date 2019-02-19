@@ -283,7 +283,7 @@ class PopupListVC: PopupVC {
         _s.v_header.setupData(with: vm_header)
         _s.v_footer.setupData(with: vm_footer)
         _s.adpater.setupData(with: _s.viewModel.displayedList.viewModel)
-        if _s.adpater.isEmpty {
+        if _s.adpater.isSectionEmpty() {
           _s.con_collectionHeight.update(offset: 0)
         } else {
           let h_sum = _s.adpater.height

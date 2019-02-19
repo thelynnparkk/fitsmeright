@@ -13,7 +13,12 @@ import UIKit
 
 
 class AGCAModel {
-  var displayedItems: [AGCCModel] = []
+  class Section {
+    var header: AGCRVModel?
+    var footer: AGCRVModel?
+    var items: [AGCCModel] = []
+  }
+  var section: [Section] = []
 }
 
 
@@ -63,10 +68,6 @@ open class AGCA: NSObject {
   //MARK: - Flag
   var height: CGFloat {
     return 0.0
-  }
-  
-  var isEmpty: Bool {
-    return viewModel.displayedItems.isEmpty
   }
   
   
@@ -160,6 +161,14 @@ open class AGCA: NSObject {
   //MARK: - Public
   func setupLocalize() {
     
+  }
+  
+  func isSectionEmpty() -> Bool {
+    return viewModel.section.isEmpty
+  }
+  
+  func isRowInSectionEmpty(with indexPath: IndexPath) -> Bool {
+    return viewModel.section[indexPath.section].items.isEmpty
   }
   
   
