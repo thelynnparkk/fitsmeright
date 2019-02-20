@@ -13,7 +13,6 @@ import UIKit
 
 
 extension ClosetListVC:
-  AGVCInstantiatable,
   AGViewDelegate,
   AGCADelegate,
   AGVCDelegate
@@ -61,10 +60,6 @@ class ClosetListVC: AGVC {
   
   
   
-  //MARK: - Initial
-  
-  
-  
   //MARK: - Apperance
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
@@ -76,38 +71,49 @@ class ClosetListVC: AGVC {
   
   
   
+  //MARK: - Initial
+  override func setupInit() {
+    super.setupInit()
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
+    
+  }
+  
+  override func setupDeinit() {
+    super.setupDeinit()
+    
+  }
+  
+  
+  
   //MARK: - Life cycle
-  override func onInit() {
-    super.onInit()
-    
-  }
-  
-  override func prepare() {
-    super.prepare()
-    
-  }
-  
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
-    
-  }
-  
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
-  
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-  }
-  
-  
-  
-  //MARK: - Setup View
-  override func setupViewOnViewDidLoad() {
     //MARK: Core
-//    view.backgroundColor = c_material.grey300
+    //    view.backgroundColor = c_material.grey300
     view.backgroundColor = .white
     //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     
@@ -120,8 +126,8 @@ class ClosetListVC: AGVC {
     adapter_image.delegate = self
     view.addSubview(collection_main)
     v_addClosetFloating.delegate = self
-    let vm_plus = FloatingViewUC.ViewModel()
-    vm_plus.displayedFloating.image = #imageLiteral(resourceName: "plus").filled(withColor: .white)
+    let vm_plus = FloatingViewDisplayed()
+    vm_plus.image = #imageLiteral(resourceName: "plus").filled(withColor: .white)
     v_addClosetFloating.setupData(with: vm_plus)
     view.bringSubviewToFront(v_addClosetFloating)
     
@@ -146,18 +152,17 @@ class ClosetListVC: AGVC {
     
     
     
+    //MARK: Data
+    fetchClosets()
   }
   
-  override func setupViewOnDidLayoutSubviews() {
-    
-  }
+  
+  
+  //MARK: - Setup View
   
   
   
   //MARK: - Setup Data
-  override func setupDataOnViewDidLoad() {
-    fetchClosets()
-  }
   
   
   
@@ -192,14 +197,17 @@ class ClosetListVC: AGVC {
     }
     
     func present() {
-      let vm = ImageCAUC.ViewModel()
-      vm.displayedItems = fsClosets.compactMap({
-        let vm = ImageCCUC.ViewModel()
-        vm.displayedImage.imageURL = $0.imageURL
+      let section = ImageCADisplayed.Section()
+      section.items = fsClosets.compactMap({
+        let vm = ImageCCDisplayed()
+        vm.imageURL = $0.imageURL
         return vm
       })
-      //      vm.displayedFooter.kind = UICollectionView.elementKindSectionFooter
-      vm.displayedFooter.title = "\(vm.displayedItems.count) items"
+      let footer = LabelCRVDisplayed()
+      footer.title = "\(section.items.count) items"
+      section.footer = footer
+      let vm = ImageCADisplayed()
+      vm.sections = [section]
       adapter_image.setupData(with: vm)
     }
     
@@ -215,7 +223,7 @@ class ClosetListVC: AGVC {
   
   //MARK: - Custom - AGViewDelegate
   func agViewPressed(_ view: AGView, action: Any, tag: Int) {
-    let vc = ClosetFormVC.vc
+    let vc = ClosetFormVC.vc()
     vc.closetCategory = closetCategory
     navigationController?.pushViewController(vc)
   }
@@ -224,7 +232,7 @@ class ClosetListVC: AGVC {
   
   //MARK: - Custom - AGCADelegate
   func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
-    let vc = ClosetVC.vc
+    let vc = ClosetVC.vc()
     vc.fsCloset = fsClosets[indexPath.row]
     vc.closetCategory = closetCategory
     vc.delegate_agvc = self

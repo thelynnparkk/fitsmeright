@@ -8,26 +8,18 @@
 
 
 
-import UIKit
+import SwifterSwift
 import SnapKit
 
 
 
-class PopupHeaderViewUC {
-  
-  class DisplayedHeader {
-    var style: PopupHeaderView.Style = .small
-    var imageURL: URL? = nil
-    var icon: UIImage? = nil
-    var title: String = "Title"
-    var subtitle: String? = nil
-    var tint: UIColor = .black
-  }
-  
-  class ViewModel: AGViewModel {
-    var displayedHeader = DisplayedHeader()
-  }
-  
+class PopupHeaderViewDisplayed: AGViewDisplayed {
+  var style: PopupHeaderView.Style = .small
+  var imageURL: URL? = nil
+  var icon: UIImage? = nil
+  var title: String = "Title"
+  var subtitle: String? = nil
+  var tint: UIColor = .black
 }
 
 
@@ -96,7 +88,7 @@ class PopupHeaderView: AGView {
   
   
   //MARK: - Constraint
-  typealias ViewModel = PopupHeaderViewUC.ViewModel
+  typealias Displayed = PopupHeaderViewDisplayed
   
   
   
@@ -112,35 +104,13 @@ class PopupHeaderView: AGView {
   
   
   
+  //MARK: - Apperance
+  
+  
+  
   //MARK: - Initial
-  
-  
-  
-  //MARK: -  Life Cycle
-  override func onInit() {
-    super.onInit()
-    
-  }
-  
-  override func prepare() {
-    super.prepare()
-    
-  }
-  
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
-    
-  }
-  
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
-  
-  
-  
-  //MARK: - Setup View
-  override func setupViewOnInit() {
+  override func setupInit() {
+    super.setupInit()
     //MARK: Core
     backgroundColor = .white
     
@@ -159,6 +129,7 @@ class PopupHeaderView: AGView {
     imgv_header.contentMode = .scaleAspectFit
     imgv_header.backgroundColor = .white
     imgv_header.clipsToBounds = true
+    imgv_header.kf.indicatorType = .activity
     
     stv_info = UIStackView()
     stv_info.backgroundColor = .clear
@@ -230,13 +201,27 @@ class PopupHeaderView: AGView {
     
     
     //MARK: Localize
-    setupLocalize()
     
     
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
     
   }
   
-  override func setupViewOnAwakeFromNib() {
+  override func setupDeinit() {
+    super.setupDeinit()
+    
+  }
+  
+  
+  
+  //MARK: -  LifeCycle
+  override func awakeFromNib() {
+    super.awakeFromNib()
     //MARK: Core
     
     
@@ -257,45 +242,46 @@ class PopupHeaderView: AGView {
     
     
     
+    //MARK: Data
   }
   
   
   
-  //MARK: - Setup Data
-  override func setupDataOnInit() {
-    
-  }
+  //MARK: - SetupView
   
-  override func setupDataOnAwakeFromNib() {
-    
-  }
   
-  override func setupData(with viewModel: AGViewModel) {
-    guard let vm = viewModel as? ViewModel else { return }
-    if let imageURL = vm.displayedHeader.imageURL {
-      imgv_header.kf.setImage(with: imageURL, placeholder: nil, options: nil)
-    } else if let icon = vm.displayedHeader.icon, icon != .none {
-      imgv_header.image = icon
-      imgv_header.backgroundColor = .clear
+  
+  //MARK: - SetupData
+  override func setupData(with displayed: AGViewDisplayed?) {
+    if let displayed = displayed as? Displayed {
+      displayedView = displayed
+      if let imageURL = displayed.imageURL {
+        imgv_header.kf.setImage(with: imageURL, placeholder: nil, options: nil)
+      } else if let icon = displayed.icon, icon != .none {
+        imgv_header.image = icon
+        imgv_header.backgroundColor = .clear
+      } else {
+        imgv_header.isHidden = true
+      }
+      lb_title.textColor = displayed.tint
+      lb_title.text = displayed.title
+      lb_subtitle.text = displayed.subtitle
+      switch displayed.style {
+      case .small:
+        stv_header.axis = .horizontal
+        stv_header.alignment = .fill
+        stv_info.alignment = .leading
+      case .large:
+        stv_header.axis = .vertical
+        stv_header.alignment = .center
+        stv_info.alignment = .center
+        lb_subtitle.textAlignment = .center
+      }
+      con_headerStackViewTop.update(offset: Sizing.inset(style: displayed.style))
+      con_headerImageViewHeight.update(offset: Sizing.imageViewHeight(style: displayed.style))
     } else {
-      imgv_header.isHidden = true
+      
     }
-    lb_title.textColor = vm.displayedHeader.tint
-    lb_title.text = vm.displayedHeader.title
-    lb_subtitle.text = vm.displayedHeader.subtitle
-    switch vm.displayedHeader.style {
-    case .small:
-      stv_header.axis = .horizontal
-      stv_header.alignment = .fill
-      stv_info.alignment = .leading
-    case .large:
-      stv_header.axis = .vertical
-      stv_header.alignment = .center
-      stv_info.alignment = .center
-      lb_subtitle.textAlignment = .center
-    }
-    con_headerStackViewTop.update(offset: Sizing.inset(style: vm.displayedHeader.style))
-    con_headerImageViewHeight.update(offset: Sizing.imageViewHeight(style: vm.displayedHeader.style))
   }
   
   

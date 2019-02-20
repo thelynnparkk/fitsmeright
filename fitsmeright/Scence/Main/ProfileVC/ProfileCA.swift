@@ -12,12 +12,7 @@ import UIKit
 
 
 
-class ProfileCAUC {
-  
-  class ViewModel: AGCAModel {
-    var displayedProfile = ProfileCCUC.DisplayedProfile()
-    //    var displayedFooter = LabelCRVUC.DisplayedLabel()
-  }
+class ProfileCADisplayed: AGCADisplayed {
   
 }
 
@@ -52,13 +47,13 @@ class ProfileCA: AGCA {
   
   
   //MARK: - Constraint
-  typealias ViewModel = ProfileCAUC.ViewModel
+  typealias Displayed = ProfileCADisplayed
   typealias CCProfile = ProfileCC
-  typealias CCProfileModel = ProfileCCUC.ViewModel
   typealias CCImage = ImageCC
-  typealias CCImageModel = ImageCCUC.ViewModel
-  //  typealias CRV = LabelCRV
-  //  typealias CRVModel = LabelCRVUC.ViewModel
+  var displayedCAProfile: Displayed? {
+    return displayedCA as? Displayed
+  }
+  
   
   
   
@@ -67,9 +62,6 @@ class ProfileCA: AGCA {
   
   
   //MARK: - Flag
-  override var isEmpty: Bool {
-    return false
-  }
   
   
   
@@ -77,39 +69,13 @@ class ProfileCA: AGCA {
   
   
   
-  //MARK: - Initial
-  
-  
-  
   //MARK: - Apperance
   
   
   
-  //MARK: - Life cycle
-  override func onInit() {
-    super.onInit()
-    
-  }
-  
-  override func prepare() {
-    super.prepare()
-    
-  }
-  
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
-    
-  }
-  
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
-  
-  
-  
-  //MARK: - Setup View
-  override func setupViewOnInit() {
+  //MARK: - Initial
+  override func setupInit() {
+    super.setupInit()
     //MARK: Core
     
     
@@ -119,10 +85,9 @@ class ProfileCA: AGCA {
     collection.setupScrollVertical()
     collection.register(nibWithCellClass: CCProfile.self)
     collection.register(nibWithCellClass: CCImage.self)
-    //    collection.register(nibWithCellClass: CRV.self, kind: UICollectionView.elementKindSectionFooter)
     collection.delegate = self
     collection.dataSource = self
-    collection.backgroundColor = .white
+    collection.backgroundColor = .clear
     collection.allowsSelection = true
     collection.contentInsetAdjustmentBehavior = .always
     collection.isPrefetchingEnabled = true
@@ -141,22 +106,32 @@ class ProfileCA: AGCA {
     
     
     //MARK: Localize
-    setupLocalize()
     
     
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
     
   }
+  
+  override func setupDeinit() {
+    super.setupDeinit()
+    
+  }
+  
+  
+  
+  //MARK: - Setup View
   
   
   
   //MARK: - Setup Data
-  override func setupDataOnInit() {
-    
-  }
-  
-  override func setupData(with viewModel: AGCAModel) {
-    if let vm = viewModel as? ViewModel {
-      self.viewModel = vm
+  override func setupData(with displayed: AGCADisplayed?) {
+    if let displayed = displayed as? Displayed {
+      displayedCA = displayed
       collection.isUserInteractionEnabled = true
       collection.collectionViewLayout.invalidateLayout()
       collection.reloadData()
@@ -184,91 +159,48 @@ class ProfileCA: AGCA {
   
   //MARK: - Core - UICollectionViewDataSource
   func numberOfSections(in collectionView: UICollectionView) -> Int {
-    guard !isEmpty else {
-      return 1
-    }
-    return 2
+    return displayedCA.sections.count
   }
   
   public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    guard !isEmpty else {
+    guard !isSectionEmpty() else {
       return 0
     }
-    switch section {
-    case 0:
-      return 1
-    case 1:
-      return viewModel.displayedItems.count
-    default:
-      return 0
-    }
+    return displayedCA.sections[section].items.count
   }
   
   public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard !isEmpty else {
+    guard !isRowInSectionEmpty(with: indexPath) else {
       return UICollectionViewCell()
     }
-    switch indexPath.section {
-    case 0:
+    let item = displayedCAProfile?.sections[indexPath.section].items[indexPath.row]
+    if let item = item as? CCProfile.Displayed {
       let cell = collectionView.dequeueReusableCell(withClass: CCProfile.self, for: indexPath)
       cell.indexPath = indexPath
       cell.delegate = self
-      if let vm = viewModel as? ViewModel {
-        let vm_profile = ProfileCCUC.ViewModel()
-        vm_profile.displayedProfile = vm.displayedProfile
-        cell.setupData(with: vm_profile)
-      }
-      return cell
-    case 1:
-      let cell = collectionView.dequeueReusableCell(withClass: CCImage.self, for: indexPath)
-      let item = viewModel.displayedItems[indexPath.row]
-      cell.indexPath = indexPath
-      cell.delegate = self
+      item.isAnimated = false
       cell.setupData(with: item)
       return cell
-    default:
+    } else if let item = item as? CCImage.Displayed {
+      let cell = collectionView.dequeueReusableCell(withClass: CCImage.self, for: indexPath)
+      cell.indexPath = indexPath
+      cell.delegate = self
+      item.isAnimated = false
+      cell.setupData(with: item)
+      return cell
+    } else {
       return UICollectionViewCell()
     }
   }
-  
-  //  func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-  //    switch kind {
-  //    case UICollectionView.elementKindSectionHeader:
-  //      return UICollectionReusableView()
-  //    case UICollectionView.elementKindSectionFooter:
-  //      let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withClass: CRV.self, for: indexPath)
-  //      view.kind = kind
-  //      view.section = indexPath.section
-  //      view.delegate = self
-  //      if let vm = viewModel as? ViewModel {
-  //        let vm_footer = LabelCRVUC.ViewModel()
-  //        vm_footer.displayedLabel = vm.displayedFooter
-  //        view.setupData(with: vm_footer)
-  //      }
-  //      return view
-  //    default:
-  //      return UICollectionReusableView()
-  //    }
-  //  }
   
   
   
   //MARK: - Core - UICollectionViewDelegate
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    guard !isEmpty else {
+    guard !isRowInSectionEmpty(with: indexPath) else {
       return
     }
-    switch indexPath.section {
-    case 0:
-      break
-    case 1:
-      if let _ = viewModel.displayedItems[indexPath.row] as? CCImageModel {
-        delegate?.agCAPressed(self, action: [], indexPath: indexPath)
-      }
-    default:
-      break
-    }
-    
+    delegate?.agCAPressed(self, action: [], indexPath: indexPath)
   }
   
   //  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
@@ -279,62 +211,50 @@ class ProfileCA: AGCA {
   
   //MARK: - Core - UICollectionViewDelegateFlowLayout
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    guard !isEmpty else {
-      return .zero
-    }
-    switch indexPath.section {
-    case 0:
+    let item = displayedCAProfile?.sections[indexPath.section].items[indexPath.row]
+    if let _ = item as? CCProfile.Displayed {
       return CCProfile.Sizing.size(with: collectionView.frame)
-    case 1:
+    } else if let _ = item as? CCImage.Displayed {
       return CCImage.Sizing.size(with: collectionView.frame,
                                  rowItems: 2,
                                  customItemSpace: 10,
                                  customItemLine: 10,
                                  customInset: UIEdgeInsets(inset: 10))
-    default:
+    } else {
       return .zero
     }
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-    guard !isEmpty else {
-      return .zero
-    }
-    switch section {
-    case 0:
+    let item = displayedCAProfile?.sections[section].items
+    if let _ = item as? [CCProfile.Displayed] {
       return CCProfile.Sizing.inset()
-    case 1:
-      return CCImage.Sizing.inset(custom: UIEdgeInsets(inset: 10))
-    default:
+    } else if let _ = item as? [CCImage.Displayed] {
+      return CCImage.Sizing.inset()
+    } else {
       return .zero
     }
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    guard !isEmpty else {
-      return 0
-    }
-    switch section {
-    case 0:
+    let item = displayedCAProfile?.sections[section].items
+    if let _ = item as? [CCProfile.Displayed] {
       return CCProfile.Sizing.lineSpace()
-    case 1:
-      return CCImage.Sizing.itemSpace(custom: 10)
-    default:
-      return 0
+    } else if let _ = item as? [CCImage.Displayed] {
+      return CCImage.Sizing.lineSpace()
+    } else {
+      return .zero
     }
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-    guard !isEmpty else {
-      return 0
-    }
-    switch section {
-    case 0:
+    let item = displayedCAProfile?.sections[section].items
+    if let _ = item as? [CCProfile.Displayed] {
       return CCProfile.Sizing.itemSpace()
-    case 1:
-      return CCImage.Sizing.itemSpace(custom: 10)
-    default:
-      return 0
+    } else if let _ = item as? [CCImage.Displayed] {
+      return CCImage.Sizing.itemSpace()
+    } else {
+      return .zero
     }
   }
   

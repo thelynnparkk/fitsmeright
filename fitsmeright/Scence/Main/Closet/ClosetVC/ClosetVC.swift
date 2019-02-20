@@ -13,7 +13,6 @@ import UIKit
 
 
 extension ClosetVC:
-  AGVCInstantiatable,
   AGVCDelegate
 {
   
@@ -67,10 +66,6 @@ class ClosetVC: AGVC {
   
   
   
-  //MARK: - Initial
-  
-  
-  
   //MARK: - Apperance
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
@@ -82,36 +77,47 @@ class ClosetVC: AGVC {
   
   
   
-  //MARK: - Life cycle
-  override func onInit() {
-    super.onInit()
+  //MARK: - Initial
+  override func setupInit() {
+    super.setupInit()
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
     
   }
   
-  override func prepare() {
-    super.prepare()
+  override func setupDeinit() {
+    super.setupDeinit()
     
   }
   
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
-    
-  }
   
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
   
+  //MARK: - LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-  }
-  
-  
-  
-  //MARK: - Setup View
-  override func setupViewOnViewDidLoad() {
     //MARK: Core
     view.backgroundColor = .white
     //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
@@ -138,24 +144,24 @@ class ClosetVC: AGVC {
     setupLocalize()
     
     
-  }
-  
-  override func setupViewOnDidLayoutSubviews() {
     
-  }
-  
-  
-  
-  //MARK: - Setup Data
-  override func setupDataOnViewDidLoad() {
+    //MARK: Data
     fetchCloset()
   }
   
   
   
+  //MARK: - Setup View
+  
+  
+  
+  //MARK: - Setup Data
+  
+  
+  
   //MARK: - Event
   @objc func editClosetPressed(_ sender: UIButton) {
-    let vc = ClosetFormVC.vc
+    let vc = ClosetFormVC.vc()
     vc.closetCategory = closetCategory
     vc.fsCloset = fsCloset
     vc.delegate_agvc = self
@@ -197,22 +203,22 @@ class ClosetVC: AGVC {
       } else {
         imgv_closet.image = nil
       }
-      let vm_brand = ClosetFormViewUC.ViewModel()
-      vm_brand.displayedForm.key = "Brand"
-      vm_brand.displayedForm.value = fsCloset!._brand
-      vm_brand.displayedForm.isEditable = false
-      let vm_price = ClosetFormViewUC.ViewModel()
-      vm_price.displayedForm.key = "Price"
-      vm_price.displayedForm.value = "\(fsCloset!._price)"
-      vm_price.displayedForm.isEditable = false
-      let vm_size = ClosetFormViewUC.ViewModel()
-      vm_size.displayedForm.key = "Size"
-      vm_size.displayedForm.value = fsCloset!._size
-      vm_size.displayedForm.isEditable = false
-      let vm_place = ClosetFormViewUC.ViewModel()
-      vm_place.displayedForm.key = "Place"
-      vm_place.displayedForm.value = fsCloset!._place
-      vm_place.displayedForm.isEditable = false
+      let vm_brand = ClosetFormViewDisplayed()
+      vm_brand.key = "Brand"
+      vm_brand.value = fsCloset!._brand
+      vm_brand.isEditable = false
+      let vm_price = ClosetFormViewDisplayed()
+      vm_price.key = "Price"
+      vm_price.value = "\(fsCloset!._price)"
+      vm_price.isEditable = false
+      let vm_size = ClosetFormViewDisplayed()
+      vm_size.key = "Size"
+      vm_size.value = fsCloset!._size
+      vm_size.isEditable = false
+      let vm_place = ClosetFormViewDisplayed()
+      vm_place.key = "Place"
+      vm_place.value = fsCloset!._place
+      vm_place.isEditable = false
       v_brand.setupData(with: vm_brand)
       v_price.setupData(with: vm_price)
       v_size.setupData(with: vm_size)

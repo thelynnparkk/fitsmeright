@@ -8,42 +8,30 @@
 
 
 
-import UIKit
+import SwifterSwift
 import NVActivityIndicatorView
 
 
 
-class StateViewModel {
+class StateViewDisplayed {
   
   class Setting {
     var img_icon: UIImage?
     var title: String?
     var description: String?
     var isIndicatorHidden: Bool = true
-    var tint: UIColor?
+    var tint: UIColor = .white
     var img_background: UIImage?
     var font: UIFont?
   }
   
-  class DisplayedState {
-    var hidden = Setting()
-    var loading = Setting()
-    var noResults = Setting()
-    var noConnection = Setting()
-    var error = Setting()
-  }
-  
-  class ViewModel {
-    var displayedStates = DisplayedState()
-  }
+  var hidden = Setting()
+  var loading = Setting()
+  var noResults = Setting()
+  var noConnection = Setting()
+  var error = Setting()
   
 }
-
-
-
-//protocol StateViewDelegate: AGViewDelegate {
-//  func stateViewPressed(with stateView: StateView , state: StateView.State)
-//}
 
 
 
@@ -57,7 +45,7 @@ extension StateView
 class StateView: AGView {
   
   //MARK: - Enum
-  enum State {
+  enum State: CaseIterable {
     case hidden
     case loading
     case noResults
@@ -83,13 +71,16 @@ class StateView: AGView {
   
   
   //MARK: - Constraint
+  static var `default`: StateView {
+    return StateView(axis: .vertical)
+  }
   
   
   
   //MARK: - Instance
-//  var delegate_stateView: StateViewDelegate? {
-//    return delegate as? StateViewDelegate
-//  }
+  //  var delegate_stateView: StateViewDelegate? {
+  //    return delegate as? StateViewDelegate
+  //  }
   
   
   
@@ -98,69 +89,29 @@ class StateView: AGView {
   
   
   //MARK: - Storage
-  fileprivate var state: StateView.State = .hidden
-  fileprivate var displayed: StateViewModel.DisplayedState = StateView.default.displayedStates
+  fileprivate var state = State.hidden
+  var displayed = StateViewDisplayed()
   fileprivate var axis: NSLayoutConstraint.Axis = .vertical
   
   
   
+  //MARK: - Apperance
+  
+  
+  
   //MARK: - Initial
-  init(viewModel: StateViewModel.ViewModel, axis: NSLayoutConstraint.Axis) {
-    self.displayed = viewModel.displayedStates
+  init(axis: NSLayoutConstraint.Axis) {
     self.axis = axis
     super.init(frame: .zero)
   }
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
-    onInit()
+    setupInit()
   }
   
-  
-  
-  //MARK: - Apperance
-  
-  
-  
-  //MARK: - Apperance
-  
-  
-  
-  //MARK: - Life cycle
-  override func onInit() {
-    super.onInit()
-    
-  }
-  
-  override func prepare() {
-    super.prepare()
-    imgv_background.image = nil
-    iv_center.isHidden = true
-    imgv_icon.image = nil
-    lb_title.text = ""
-    lb_description.text = ""
-    alpha = 0
-  }
-  
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
-    
-  }
-  
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
-  
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    
-  }
-  
-  
-  
-  //MARK: - Setup View
-  override func setupViewOnInit() {
+  override func setupInit() {
+    super.setupInit()
     //MARK: Core
     backgroundColor = .clear
     
@@ -200,10 +151,10 @@ class StateView: AGView {
     lb_description.numberOfLines = 0
     lb_description.font = UIFont.systemFont(ofSize: 14, weight: .regular)
     
-    iv_center = NVActivityIndicatorView(frame: .zero, type: .ballScaleMultiple, color: UIColor.white, padding: nil)
+    iv_center = NVActivityIndicatorView(frame: .zero, type: .ballScaleMultiple, color: .white, padding: nil)
     iv_center.startAnimating()
     
-    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(stateViewPressed(_:)))
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(panGestureRecognized))
     tapGesture.cancelsTouchesInView = false
     addGestureRecognizer(tapGesture)
     
@@ -225,7 +176,7 @@ class StateView: AGView {
     stv_info.addArrangedSubview(lb_title)
     stv_info.addArrangedSubview(lb_description)
     
-    prepare()
+    setupPrepare()
     
     
     
@@ -295,32 +246,68 @@ class StateView: AGView {
     
     
     //MARK: Localize
-    setupLocalize()
     
     
-  }
-  
-  override func setupViewOnAwakeFromNib() {
-    setupViewOnInit()
-  }
-  
-  override func setupViewOnLayoutSubviews() {
     
-  }
-  
-  
-  
-  //MARK: - Setup Data
-  override func setupDataOnInit() {
+    //MARK: Data
     setupData()
   }
   
+  override func setupPrepare() {
+    super.setupPrepare()
+    imgv_background.image = nil
+    iv_center.isHidden = true
+    imgv_icon.image = nil
+    lb_title.text = ""
+    lb_description.text = ""
+    alpha = 0
+  }
   
+  override func setupDeinit() {
+    super.setupDeinit()
+    
+  }
+  
+  
+  
+  //MARK: - LifeCycle
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
+  }
+  
+  
+  
+  //MARK: - SetupView
+  
+  
+  
+  //MARK: - SetupData
   
   
   
   //MARK: - Event
-  @objc func stateViewPressed(_ sender: UITapGestureRecognizer) {
+  @objc func panGestureRecognized(_ recognizer: UITapGestureRecognizer) {
     delegate?.agViewPressed(self, action: state, tag: 0)
   }
   
@@ -332,6 +319,7 @@ class StateView: AGView {
   }
   
   public func setState(with state: StateView.State, isAnimation: Bool = true, onComplete: CBVoid? = nil) {
+    superview?.bringSubviewToFront(self)
     let duration = isAnimation ? 0.3 : 0.0
     self.state = state
     switch state {
@@ -339,6 +327,7 @@ class StateView: AGView {
       fadeOut(duration: duration) { [weak self] bool in
         guard let _s = self else { return }
         _s.setupData()
+        _s.isHidden = true
         onComplete?()
       }
     default:
@@ -353,7 +342,7 @@ class StateView: AGView {
   
   //MARK: - Private
   private func setupData() {
-    let setting: StateViewModel.Setting
+    let setting: StateViewDisplayed.Setting
     switch state {
     case .hidden:
       setting = displayed.hidden
@@ -367,7 +356,7 @@ class StateView: AGView {
       setting = displayed.error
     }
     
-    let tint = setting.tint ?? UIColor.black
+    let tint = setting.tint
     if let img = setting.img_background {
       imgv_background.image = img
     } else {
@@ -380,6 +369,7 @@ class StateView: AGView {
       iv_center.startAnimating()
     }
     
+    imgv_icon.isHidden = !setting.isIndicatorHidden
     if let img = setting.img_icon {
       imgv_icon.image = img
     } else {
@@ -411,6 +401,7 @@ class StateView: AGView {
   
   
   //MARK: - Pod - Protocol
+  
   
   
 }

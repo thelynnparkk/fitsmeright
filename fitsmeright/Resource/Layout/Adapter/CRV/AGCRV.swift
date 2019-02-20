@@ -8,12 +8,12 @@
 
 
 
-import UIKit
+import SwifterSwift
 
 
 
-class AGCRVModel {
-  
+class AGCRVDisplayed {
+  var kind: String = ""
 }
 
 
@@ -25,8 +25,7 @@ protocol AGCRVDelegate: class {
 
 
 extension AGCRV:
-  LifeCyclable,
-  Colorable
+  Preparable
 {
   
 }
@@ -61,8 +60,13 @@ class AGCRV: UICollectionReusableView {
   
   
   //MARK: - Storage
+  var displayedCRV = AGCRVDisplayed()
   var kind: String = ""
   var section: Int = 0
+  
+  
+  
+  //MARK: - Apperance
   
   
   
@@ -73,32 +77,44 @@ class AGCRV: UICollectionReusableView {
   }
   
   deinit {
-    onDeinit()
+    setupDeinit()
   }
   
+  func setupInit() {
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
+  }
   
-  
-  //MARK: - Apperance
-  
-  
-  
-  //MARK: - Life cycle
-  func onInit() {
+  func setupPrepare() {
     
   }
   
-  func prepare() {
+  func setupDeinit() {
     
   }
   
-  func prepareToDeinit() {
-    
-  }
   
-  func onDeinit() {
-    
-  }
   
+  //MARK: - LifeCycle
   override func awakeFromNib() {
     super.awakeFromNib()
     setupViewOnAwakeFromNib()
@@ -150,8 +166,13 @@ class AGCRV: UICollectionReusableView {
   }
   
   
+  func setupViewByOrientation() {
+    
+  }
   
-  //MARK: - Setup Data
+  
+  
+  //MARK: - SetupData
   func setupDataOnAwakeFromNib() {
     
   }
@@ -160,7 +181,7 @@ class AGCRV: UICollectionReusableView {
     
   }
   
-  func setupData(with viewModel: AGCRVModel) {
+  func setupData(with displayed: AGCRVDisplayed) {
     
   }
   
@@ -172,10 +193,6 @@ class AGCRV: UICollectionReusableView {
   
   //MARK: - Public
   func setupLocalize() {
-    
-  }
-  
-  func setupViewByOrientation() {
     
   }
   

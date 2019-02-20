@@ -12,22 +12,13 @@ import UIKit
 
 
 
-class ClosetTagViewUC: AGViewModel {
-  
-  class DisplayedTag {
-    var title: String?
-  }
-  
-  class ViewModel: AGViewModel {
-    var displayedMenu = DisplayedTag()
-  }
-  
+class ClosetTagViewDisplayed: AGViewDisplayed {
+  var title: String?
 }
 
 
 
-extension ClosetTagView:
-  AGViewInstantiatable
+extension ClosetTagView
 {
   
 }
@@ -59,7 +50,7 @@ class ClosetTagView: AGView {
   
   
   //MARK: - Constraint
-  typealias ViewModel =  ClosetTagViewUC.ViewModel
+  typealias Displayed =  ClosetTagViewDisplayed
   
   
   
@@ -75,44 +66,16 @@ class ClosetTagView: AGView {
   
   
   
-  //MARK: - Initial
-  
-  
-  
   //MARK: - Apperance
   
   
   
-  //MARK: - Life cycle
-  override func onInit() {
-    loadContainerIntoView()
-    super.onInit()
-  }
-  
-  override func prepare() {
-    super.prepare()
-    
-  }
-  
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
-    
-  }
-  
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
-  
-  override func awakeFromNib() {
-    loadContainerIntoView()
-    super.awakeFromNib()
-    
-  }
-  
-  
-  //MARK: - Setup View
-  override func setupViewOnInit() {
+  //MARK: - Initial
+  override func setupInit() {
+    Bundle.main.loadNibNamed(String(describing: ClosetTagView.self), owner: self, options: nil)
+    addSubview(view)
+    view.fillToSuperview()
+    super.setupInit()
     //MARK: Core
     backgroundColor = .clear
     layer.masksToBounds = true
@@ -139,30 +102,60 @@ class ClosetTagView: AGView {
     
     
     //MARK: Localize
+    
+    
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
+    
+  }
+  
+  override func setupDeinit() {
+    super.setupDeinit()
+    
+  }
+  
+  
+  
+  //MARK: - Life cycle
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
     setupLocalize()
     
     
     
+    //MARK: Data
   }
   
-  override func setupViewOnAwakeFromNib() {
-    setupViewOnInit()
-  }
   
-  override func setupViewOnLayoutSubviews() {
-    
-  }
+  //MARK: - Setup View
   
   
   
   //MARK: - Setup Data
-  override func setupDataOnInit() {
-    
-  }
-  
-  override func setupData(with viewModel: AGViewModel) {
-    guard let vm = viewModel as? ViewModel else { return }
-    lb_title.text = vm.displayedMenu.title
+  override func setupData(with displayed: AGViewDisplayed?) {
+    guard let displayed = displayed as? Displayed else { return }
+    lb_title.text = displayed.title
     setupViewFrame()
     addShadow(ofColor: .black, radius: 8, offset: .less, opacity: 0.3)
   }

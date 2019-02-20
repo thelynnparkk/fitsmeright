@@ -27,7 +27,7 @@ extension AGApplicationRoutable {
   //MARK: - Implements
   func start(with launchOptions: [UIApplication.LaunchOptionsKey: Any]?, condition isLoggedIn: Bool) {
     window?.makeKeyAndVisible()
-    let vc = SplashVC.vc
+    let vc = SplashVC.vc()
     vc.launchOptions = launchOptions
     window?.set(with: vc, style: .fade)
 //    window?.switchRootViewController(to: vc, animated: true)

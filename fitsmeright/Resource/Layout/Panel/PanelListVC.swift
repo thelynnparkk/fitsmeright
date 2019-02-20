@@ -8,20 +8,21 @@
 
 
 
-import UIKit
+import SwifterSwift
 import SnapKit
 
 
 
 class PanelListVCUC {
   
-  class DisplayedList {
-    var viewModel: AGCAModel!
-    var adapter: AGCA.Type!
-  }
-  
-  class ViewModel: AGVCModel {
-    var displayedList = DisplayedList()
+  class Setup {
+    class DisplayedSetupPanelList: PanelVCUC.Setup.DisplayedSetupPanel {
+      var viewModel: AGCADisplayed!
+      var adapter: AGCA.Type!
+    }
+    class ViewModel: PanelVCUC.Setup.ViewModel {
+      
+    }
   }
   
 }
@@ -73,7 +74,10 @@ class PanelListVC: PanelVC {
   
   
   //MARK: - Constraint
-  typealias ViewModel = PanelListVCUC.ViewModel
+  typealias UC = PanelListVCUC
+  var displayedSetupPanelList: UC.Setup.DisplayedSetupPanelList? {
+    return displayedSetup as? UC.Setup.DisplayedSetupPanelList
+  }
   var screenSize: CGSize {
     return UIScreen.main.bounds.size
   }
@@ -107,11 +111,6 @@ class PanelListVC: PanelVC {
   //MARK: - Storage
   var y_start: CGFloat = 0.0
   var direction_last: UIPanGestureRecognizer.Direction?
-  var viewModel = PanelListVCUC.ViewModel()
-  
-  
-  
-  //MARK: - Initial
   
   
   
@@ -119,41 +118,47 @@ class PanelListVC: PanelVC {
   
   
   
-  //MARK: - Life cycle
-  override func onInit() {
-    super.onInit()
+  //MARK: - Initial
+  override func setupInit() {
+    super.setupInit()
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
     
   }
   
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
+  override func setupDeinit() {
+    super.setupDeinit()
     
   }
   
-  override func prepare() {
-    super.prepare()
-    
-  }
   
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
   
+  //MARK: - LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    
-  }
-  
-  
-  
-  //MARK: - Setup View
-  override func setupViewOnViewDidLoad() {
     //MARK: Core
     view.backgroundColor = .white
     
@@ -161,20 +166,20 @@ class PanelListVC: PanelVC {
     
     //MARK: Component
     v_header = UIView()
-    v_header.backgroundColor = c_custom.peach
+    v_header.backgroundColor = .red
     
     v_holder = UIView()
     v_holder.backgroundColor = .white
     v_holder.layer.cornerRadius = 3
     
     collection = ControlContainableCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    adpater = viewModel.displayedList.adapter!.init(collection: collection)
+    adpater = displayedSetupPanelList!.adapter!.init(collection: collection)
     adpater.delegate = self
     collection.insetsLayoutMarginsFromSafeArea = true
     collection.contentInsetAdjustmentBehavior = .always
-    additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: h_underScreen + (bottom * 1.5), right: 0)
+    additionalSafeAreaInsets = UIEdgeInsets(top: 0, left: 0, bottom: (bottom * 1), right: 0)
     
-    panGesture = UIPanGestureRecognizer(target: self, action: #selector(onPanGestureRecognized))
+    panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognized))
     panGesture.delegate = self
     view.addGestureRecognizer(panGesture)
     
@@ -214,13 +219,14 @@ class PanelListVC: PanelVC {
     
     
     //MARK: Localize
-    setupLocalize()
     
     
     
+    //MARK: Data
   }
   
-  override func setupViewOnDidAppear() {
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
     //MARK: Core
     
     
@@ -243,28 +249,27 @@ class PanelListVC: PanelVC {
     
     
     
-  }
-  
-  override func setupViewOnDidLayoutSubviews() {
-    
-  }
-  
-  
-  
-  //MARK: - Setup Data
-  override func setupDataOnViewDidLoad() {
+    //MARK: Data
     fetchList()
   }
   
-  override func setupData(with viewModel: AGVCModel) {
-    guard let vm = viewModel as? ViewModel else { return }
-    self.viewModel = vm
+  
+  
+  //MARK: - SetupView
+  
+  
+  
+  //MARK: - SetupData
+  override func setupData(with viewModel: AGVCUC.Setup.ViewModel) {
+    guard let vm = viewModel as? UC.Setup.ViewModel else { return }
+    guard let displayed = vm.displayedSetup as? UC.Setup.DisplayedSetupPanelList else { return }
+    displayedSetup = displayed
   }
   
   
   
   //MARK: - Event
-  @objc func onPanGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
+  @objc func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
     let translation = recognizer.translation(in: view)
     let velocity = recognizer.velocity(in: view)
     let y_min = view.frame.minY
@@ -277,28 +282,34 @@ class PanelListVC: PanelVC {
         y_start = y_min
         direction_last = direction
       }
-      if y_min + translation.y >= y_open {
-        let y = y_min + translation.y
-        view.frame = CGRect(x: 0, y: y, width: view.frame.width, height: UIScreen.main.bounds.height - y)
-        view.layoutIfNeeded()
-        recognizer.setTranslation(CGPoint.zero, in: view)
-      }
+      //      if y_min + translation.y >= y_open {
+      let y = y_min + translation.y
+      view.frame = CGRect(x: 0, y: y, width: view.frame.width, height: UIScreen.main.bounds.height - y)
+      view.layoutIfNeeded()
+      recognizer.setTranslation(CGPoint.zero, in: view)
+    //      }
     case .ended:
       var duration = velocity.y < 0 ? Double((y_min - y_open) / -velocity.y) : Double((y_dock - y_min) / velocity.y )
       duration = duration > 0.5 ? 0.5 : duration
       if velocity.y > 0 {
-        if y_min + translation.y >= self.y_dock {
+        if y_min + translation.y >= y_dock {
           self.setupViewAnimation(with: .close, duration: duration)
-        } else {
-          self.setupViewAnimation(with: .dock, duration: duration)
-        }
-      } else {
-        if y_min + translation.y >= self.y_dock {
-          self.setupViewAnimation(with: .dock, duration: duration)
-        } else if y_min + translation.y == self.y_open {
+        } else if y_min + translation.y == y_open {
           self.setupViewAnimation(with: .open, duration: duration)
         } else {
-          if let direction = self.direction_last, direction == .up {
+          if let direction = direction_last, direction == .up {
+            self.setupViewAnimation(with: .open, duration: duration)
+          } else {
+            self.setupViewAnimation(with: .dock, duration: duration)
+          }
+        }
+      } else {
+        if y_min + translation.y >= y_dock {
+          self.setupViewAnimation(with: .dock, duration: duration)
+        } else if y_min + translation.y == y_open {
+          self.setupViewAnimation(with: .open, duration: duration)
+        } else {
+          if let direction = direction_last, direction == .up {
             self.setupViewAnimation(with: .open, duration: duration)
           } else {
             self.setupViewAnimation(with: .dock, duration: duration)
@@ -369,7 +380,7 @@ class PanelListVC: PanelVC {
     
     func presenter() {
       view.setupViewFrame()
-      adpater.setupData(with: viewModel.displayedList.viewModel)
+      adpater.setupData(with: displayedSetupPanelList!.viewModel)
     }
     
     interactor()

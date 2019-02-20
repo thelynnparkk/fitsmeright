@@ -1,43 +1,43 @@
 //
-//  ImageCC.swift
+//  OutfitItemCC.swift
 //  fitsmeright
 //
-//  Created by Sasawat Sankosik on 23/1/2562 BE.
+//  Created by Sasawat Sankosik on 20/2/2562 BE.
 //  Copyright © 2562 silpakorn. All rights reserved.
 //
 
 
 
-import SwifterSwift
+import UIKit
 
 
 
-class ImageCCDisplayed: AGCCDisplayed {
+class OutfitItemCCDisplayed: AGCCDisplayed {
+  var icon: UIImage?
   var imageURL: URL?
 }
 
 
 
-extension ImageCC
+extension OutfitItemCC
 {
   
 }
 
 
 
-class ImageCC: AGCC {
+class OutfitItemCC: AGCC {
   
   //MARK: - Enum
-  enum Sizing: Sizeable {
+  enum Sizing {
     
     static func size(with bound: CGRect = .zero,
-                     rowItems: Int = 1,
                      customItemSpace: CGFloat? = nil,
                      customItemLine: CGFloat? = nil,
                      customInset: UIEdgeInsets? = nil) -> CGSize {
-      let spaces = itemSpace(custom: customItemSpace) * CGFloat(rowItems - 1)
+      let spaces = itemSpace(custom: customItemSpace)
       let insets = inset(custom: customInset).right + inset(custom: customInset).left
-      let side = ((bound.width - spaces - insets) / CGFloat(rowItems)).rounded(.down)
+      let side = (bound.height - spaces - insets)
       return CGSize(width: side, height: side)
     }
     
@@ -45,21 +45,21 @@ class ImageCC: AGCC {
       if let custom = custom {
         return custom
       }
-      return 2
+      return 10
     }
     
     static func lineSpace(with bound: CGRect = .zero, custom: CGFloat? = nil) -> CGFloat {
       if let custom = custom {
         return custom
       }
-      return 2
+      return 10
     }
     
     static func inset(with bound: CGRect = .zero, custom: UIEdgeInsets? = nil) -> UIEdgeInsets {
       if let custom = custom {
         return custom
       }
-      return UIEdgeInsets(inset: 2)
+      return UIEdgeInsets(inset: 10)
     }
     
     static func offset(with bound: CGRect = .zero) -> CGPoint {
@@ -72,7 +72,10 @@ class ImageCC: AGCC {
   
   //MARK: - UI
   @IBOutlet weak var v_container: UIView!
-  @IBOutlet weak var imgv: UIImageView!
+  @IBOutlet weak var imgv_icon: UIImageView!
+  @IBOutlet weak var imgv_closet: UIImageView!
+  
+  
   
   
   
@@ -81,10 +84,7 @@ class ImageCC: AGCC {
   
   
   //MARK: - Constraint
-  typealias Displayed = ImageCCDisplayed
-  var displayedCCImage: Displayed? {
-    return displayedCC as? Displayed
-  }
+  typealias Displayed = OutfitItemCCDisplayed
   
   
   
@@ -100,11 +100,15 @@ class ImageCC: AGCC {
   
   
   
+  //MARK: - Initial
+  
+  
+  
   //MARK: - Apperance
   
   
   
-  //MARK: - Initial
+  //MARK: - LifeCycle
   override func setupInit() {
     super.setupInit()
     //MARK: Core
@@ -145,7 +149,33 @@ class ImageCC: AGCC {
   //MARK: - LifeCycle
   override func awakeFromNib() {
     super.awakeFromNib()
+    //MARK: Core
     
+    
+    
+    //MARK: Component
+    
+    v_container.layer.cornerRadius = 8
+    v_container.clipsToBounds = true
+    imgv_icon.contentMode = .scaleAspectFit
+    imgv_closet.contentMode = .scaleAspectFit
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    setupLocalize()
+    
+    
+    
+    //MARK: Data
   }
   
   override func layoutSubviews() {
@@ -167,8 +197,6 @@ class ImageCC: AGCC {
     
     
     //MARK: Component
-    v_container.backgroundColor = .white
-    imgv.kf.indicatorType = .activity
     
     
     
@@ -218,28 +246,28 @@ class ImageCC: AGCC {
   }
   
   override func setupDataOnPrepareForReuse() {
-    setupData(with: Displayed())
+    
   }
   
   override func setupData(with displayed: AGCCDisplayed?) {
-    
     func present() {
       if let displayed = displayed as? Displayed {
-        displayedCC = displayed
+        self.displayedCC = displayed
+        imgv_icon.image = displayed.icon
         if let imageURL = displayed.imageURL {
-          imgv.kf.setImage(with: imageURL, placeholder: nil, options: nil)
+          imgv_closet.kf.setImage(with: imageURL)
+          imgv_closet.isHidden = false
         } else {
-          imgv.image = #imageLiteral(resourceName: "library_white")
+          imgv_closet.isHidden = true
         }
-        imgv.alpha = 1
       } else {
-        imgv.image = #imageLiteral(resourceName: "library_white")
-        imgv.alpha = 0
+        imgv_closet.isHidden = true
       }
+      setupViewFrame()
+      
+      addShadow(ofColor: .black, radius: 8, offset: .less, opacity: 0.3)
     }
-    
-    displaySetupData(with: displayed, onPresented: present)
-    
+    present()
   }
   
   

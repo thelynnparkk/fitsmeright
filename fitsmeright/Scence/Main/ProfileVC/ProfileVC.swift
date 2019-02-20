@@ -13,7 +13,6 @@ import UIKit
 
 
 extension ProfileVC:
-  AGVCInstantiatable,
   AGViewDelegate,
   AGCADelegate,
   AGVCDelegate
@@ -61,10 +60,6 @@ class ProfileVC: AGVC {
   
   
   
-  //MARK: - Initial
-  
-  
-  
   //MARK: - Apperance
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
@@ -76,36 +71,47 @@ class ProfileVC: AGVC {
   
   
   
+  //MARK: - Initial
+  override func setupInit() {
+    super.setupInit()
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
+    
+  }
+  
+  override func setupDeinit() {
+    super.setupDeinit()
+    
+  }
+  
+  
+  
   //MARK: - Life cycle
-  override func onInit() {
-    super.onInit()
-    
-  }
-  
-  override func prepare() {
-    super.prepare()
-    
-  }
-  
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
-    
-  }
-  
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
-  
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-  }
-  
-  
-  
-  //MARK: - Setup View
-  override func setupViewOnViewDidLoad() {
     //MARK: Core
     view.backgroundColor = c_material.grey300
     //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
@@ -119,8 +125,8 @@ class ProfileVC: AGVC {
     adapter_profile.delegate = self
     view.addSubview(collection_main)
     v_addFriendFloating.delegate = self
-    let vm_plus = FloatingViewUC.ViewModel()
-    vm_plus.displayedFloating.image = #imageLiteral(resourceName: "plus").filled(withColor: .white)
+    let vm_plus = FloatingViewDisplayed()
+    vm_plus.image = #imageLiteral(resourceName: "plus").filled(withColor: .white)
     v_addFriendFloating.setupData(with: vm_plus)
     view.bringSubviewToFront(v_addFriendFloating)
     
@@ -145,18 +151,17 @@ class ProfileVC: AGVC {
     
     
     
+    //MARK: Data
+    fetchProfile()
   }
   
-  override func setupViewOnDidLayoutSubviews() {
-    
-  }
+  
+  
+  //MARK: - Setup View
   
   
   
   //MARK: - Setup Data
-  override func setupDataOnViewDidLoad() {
-    fetchProfile()
-  }
   
   
   
@@ -191,18 +196,18 @@ class ProfileVC: AGVC {
     }
     
     func present() {
-      let vm = ProfileCAUC.ViewModel()
-      vm.displayedProfile.imageURL = nil
-      vm.displayedProfile.displayName = fsUser!._displayName
-      vm.displayedProfile.bio = fsUser!._bio
-      vm.displayedProfile.posts = "\(posts.count)"
-      vm.displayedProfile.friends = "0"
-      vm.displayedProfile.closets = "0"
-      vm.displayedItems = posts.compactMap({
-        let vm = ImageCCUC.ViewModel()
-        vm.displayedImage.imageURL = URL(string: $0._displayName)
-        return vm
-      })
+      let vm = ProfileCADisplayed()
+//      vm.imageURL = nil
+//      vm.displayName = fsUser!._displayName
+//      vm.bio = fsUser!._bio
+//      vm.posts = "\(posts.count)"
+//      vm.friends = "0"
+//      vm.closets = "0"
+//      vm = posts.compactMap({
+//        let vm = ImageCCModel.ViewModel()
+//        vm.displayedImage.imageURL = URL(string: $0._displayName)
+//        return vm
+//      })
       
       DispatchQueue.main.async { [weak self] in
         guard let _s = self else { return }
@@ -222,7 +227,7 @@ class ProfileVC: AGVC {
   
   //MARK: - Custom - AGViewDelegate
   func agViewPressed(_ view: AGView, action: Any, tag: Int) {
-//    let vc = ClosetFormVC.vc
+//    let vc = ClosetFormVC.vc()
 //    vc.closetCategory = closetCategory
 //    navigationController?.pushViewController(vc)
   }
@@ -231,7 +236,7 @@ class ProfileVC: AGVC {
   
   //MARK: - Custom - AGCADelegate
   func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
-//    let vc = ClosetVC.vc
+//    let vc = ClosetVC.vc()
 //    vc.fsCloset = fsClosets[indexPath.row]
 //    vc.closetCategory = closetCategory
 //    vc.delegate_agvc = self

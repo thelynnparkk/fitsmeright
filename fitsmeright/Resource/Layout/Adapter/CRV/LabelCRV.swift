@@ -8,21 +8,12 @@
 
 
 
-import UIKit
+import SwifterSwift
 
 
 
-class LabelCRVUC {
-  
-  class DisplayedLabel {
-    var kind: String = ""
-    var title: String = ""
-  }
-  
-  class ViewModel: AGCRVModel {
-    var displayedLabel = DisplayedLabel()
-  }
-  
+class LabelCRVDisplayed: AGCRVDisplayed {
+  var title: String = ""
 }
 
 
@@ -37,12 +28,12 @@ extension LabelCRV
 class LabelCRV: AGCRV {
   
   //MARK: - Enum
-  enum Sizing {
+  enum Sizing: Sizeable {
     
     static func size(with bound: CGRect = .zero, height: CGFloat = 50) -> CGSize {
       return CGSize(width: bound.width, height: height)
     }
-
+    
   }
   
   
@@ -60,7 +51,7 @@ class LabelCRV: AGCRV {
   
   
   //MARK: - Constraint
-  typealias ViewModel = LabelCRVUC.ViewModel
+  typealias Displayed = LabelCRVDisplayed
   
   
   
@@ -76,31 +67,49 @@ class LabelCRV: AGCRV {
   
   
   
-  //MARK: - Initial
-  
-  
-  
   //MARK: - Apperance
   
   
   
+  //MARK: - Initial
+  override func setupInit() {
+    super.setupInit()
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
+    
+  }
+  
+  override func setupDeinit() {
+    super.setupDeinit()
+    
+  }
+  
+  
+  
   //MARK: - LifeCycle
-  override func onInit() {
-    
-  }
-  
-  override func prepare() {
-    
-  }
-  
-  override func prepareToDeinit() {
-    
-  }
-  
-  override func onDeinit() {
-    
-  }
-  
   override func awakeFromNib() {
     super.awakeFromNib()
     
@@ -128,8 +137,8 @@ class LabelCRV: AGCRV {
     //MARK: Component
     lb_title.textAlignment = .center
     lb_title.textColor = c_material.grey
-    v_topSeperator.backgroundColor = c_material.grey300
-    v_bottomSeperator.backgroundColor = c_material.grey300
+    v_topSeperator.backgroundColor = c_material.grey200
+    v_bottomSeperator.backgroundColor = c_material.grey200
     
     
     
@@ -164,23 +173,31 @@ class LabelCRV: AGCRV {
   }
   
   override func setupDataOnPrepareForReuse() {
-    
+    setupData(with: Displayed())
   }
   
-  override func setupData(with viewModel: AGCRVModel) {
-    guard let vm = viewModel as? ViewModel else { return }
-    lb_title.text = vm.displayedLabel.title
-    switch vm.displayedLabel.kind {
-    case UICollectionView.elementKindSectionFooter:
-      v_topSeperator.isHidden = false
-      v_bottomSeperator.isHidden = true
-    case UICollectionView.elementKindSectionFooter:
-      v_topSeperator.isHidden = true
-      v_bottomSeperator.isHidden = false
-    default:
+  override func setupData(with displayed: AGCRVDisplayed?) {
+    
+    if let displayed = displayed as? Displayed {
+      self.displayedCRV = displayed
+      lb_title.text = displayed.title
+      switch displayed.kind {
+      case UICollectionView.elementKindSectionHeader:
+        v_topSeperator.isHidden = true
+        v_bottomSeperator.isHidden = false
+      case UICollectionView.elementKindSectionFooter:
+        v_topSeperator.isHidden = false
+        v_bottomSeperator.isHidden = true
+      default:
+        v_topSeperator.isHidden = true
+        v_bottomSeperator.isHidden = true
+      }
+    } else {
+      lb_title.text = ""
       v_topSeperator.isHidden = true
       v_bottomSeperator.isHidden = true
     }
+    
   }
   
   

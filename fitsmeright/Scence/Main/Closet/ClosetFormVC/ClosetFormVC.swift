@@ -15,7 +15,6 @@ import FirebaseFirestore
 
 
 extension ClosetFormVC:
-  AGVCInstantiatable,
   UITextFieldDelegate
 {
   
@@ -71,10 +70,6 @@ class ClosetFormVC: AGVC {
   
   
   
-  //MARK: - Initial
-  
-  
-  
   //MARK: - Apperance
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
@@ -86,36 +81,47 @@ class ClosetFormVC: AGVC {
   
   
   
+  //MARK: - Initial
+  override func setupInit() {
+    super.setupInit()
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
+    
+  }
+  
+  override func setupDeinit() {
+    super.setupDeinit()
+    
+  }
+  
+  
+  
   //MARK: - Life cycle
-  override func onInit() {
-    super.onInit()
-    
-  }
-  
-  override func prepare() {
-    super.prepare()
-    
-  }
-  
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
-    
-  }
-  
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
-  
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-  }
-  
-  
-  
-  //MARK: - Setup View
-  override func setupViewOnViewDidLoad() {
     //MARK: Core
     view.backgroundColor = .white
     //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
@@ -151,18 +157,18 @@ class ClosetFormVC: AGVC {
     setupLocalize()
     
     
+    
+    //MARK: Data
+    fetchCloset()
   }
   
-  override func setupViewOnDidLayoutSubviews() {
-    
-  }
+  
+  
+  //MARK: - Setup View
   
   
   
   //MARK: - Setup Data
-  override func setupDataOnViewDidLoad() {
-    fetchCloset()
-  }
   
   
   
@@ -220,22 +226,22 @@ class ClosetFormVC: AGVC {
         imgv_closet.image = nil
       }
       imgv_addCloset.isHidden = true
-      let vm_brand = ClosetFormViewUC.ViewModel()
-      vm_brand.displayedForm.key = "Brand"
-      vm_brand.displayedForm.placeHolder = "Add Brand"
-      vm_brand.displayedForm.value = fsCloset!._brand
-      let vm_price = ClosetFormViewUC.ViewModel()
-      vm_price.displayedForm.key = "Price"
-      vm_price.displayedForm.placeHolder = "Add Price"
-      vm_price.displayedForm.value = "\(fsCloset!._price)"
-      let vm_size = ClosetFormViewUC.ViewModel()
-      vm_size.displayedForm.key = "Size"
-      vm_size.displayedForm.placeHolder = "Add Size"
-      vm_size.displayedForm.value = fsCloset!._size
-      let vm_place = ClosetFormViewUC.ViewModel()
-      vm_place.displayedForm.key = "Place"
-      vm_place.displayedForm.placeHolder = "Add Place"
-      vm_place.displayedForm.value = fsCloset!._place
+      let vm_brand = ClosetFormViewDisplayed()
+      vm_brand.key = "Brand"
+      vm_brand.placeHolder = "Add Brand"
+      vm_brand.value = fsCloset!._brand
+      let vm_price = ClosetFormViewDisplayed()
+      vm_price.key = "Price"
+      vm_price.placeHolder = "Add Price"
+      vm_price.value = "\(fsCloset!._price)"
+      let vm_size = ClosetFormViewDisplayed()
+      vm_size.key = "Size"
+      vm_size.placeHolder = "Add Size"
+      vm_size.value = fsCloset!._size
+      let vm_place = ClosetFormViewDisplayed()
+      vm_place.key = "Place"
+      vm_place.placeHolder = "Add Place"
+      vm_place.value = fsCloset!._place
       v_brand.setupData(with: vm_brand)
       v_price.setupData(with: vm_price)
       v_size.setupData(with: vm_size)
@@ -244,18 +250,18 @@ class ClosetFormVC: AGVC {
     
     func presentAdd() {
       ni.title = closetCategory!.name.uppercased()
-      let vm_brand = ClosetFormViewUC.ViewModel()
-      vm_brand.displayedForm.key = "Brand"
-      vm_brand.displayedForm.placeHolder = "Add Brand"
-      let vm_price = ClosetFormViewUC.ViewModel()
-      vm_price.displayedForm.key = "Price"
-      vm_price.displayedForm.placeHolder = "Add Price"
-      let vm_size = ClosetFormViewUC.ViewModel()
-      vm_size.displayedForm.key = "Size"
-      vm_size.displayedForm.placeHolder = "Add Size"
-      let vm_place = ClosetFormViewUC.ViewModel()
-      vm_place.displayedForm.key = "Place"
-      vm_place.displayedForm.placeHolder = "Add Place"
+      let vm_brand = ClosetFormViewDisplayed()
+      vm_brand.key = "Brand"
+      vm_brand.placeHolder = "Add Brand"
+      let vm_price = ClosetFormViewDisplayed()
+      vm_price.key = "Price"
+      vm_price.placeHolder = "Add Price"
+      let vm_size = ClosetFormViewDisplayed()
+      vm_size.key = "Size"
+      vm_size.placeHolder = "Add Size"
+      let vm_place = ClosetFormViewDisplayed()
+      vm_place.key = "Place"
+      vm_place.placeHolder = "Add Place"
       v_brand.setupData(with: vm_brand)
       v_price.setupData(with: vm_price)
       v_size.setupData(with: vm_size)

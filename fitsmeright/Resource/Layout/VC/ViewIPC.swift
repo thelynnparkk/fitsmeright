@@ -8,7 +8,7 @@
 
 
 
-import UIKit
+import SwifterSwift
 import MobileCoreServices
 import Photos
 
@@ -24,18 +24,18 @@ import Photos
 
 extension ViewIPCDelegate {
   
-  //MARK: - Implements
-//  func didFinishPickingMedia(_ picker: UIImagePickerController, image: UIImage) {
-//    print("A")
-//  }
-//
-//  func didFinishPickingMediaError(_ picker: UIImagePickerController) {
-//    print("B")
-//  }
-//
-//  func didCancelPickingMedia(_ picker: UIImagePickerController) {
-//    print("C")
-//  }
+  //MARK: - Implement
+  //  func didFinishPickingMedia(_ picker: UIImagePickerController, image: UIImage) {
+  //    print("A")
+  //  }
+  //
+  //  func didFinishPickingMediaError(_ picker: UIImagePickerController) {
+  //    print("B")
+  //  }
+  //
+  //  func didCancelPickingMedia(_ picker: UIImagePickerController) {
+  //    print("C")
+  //  }
   
   
   
@@ -51,8 +51,7 @@ extension ViewIPCDelegate {
 
 
 extension ViewIPC:
-  LifeCyclable,
-  Colorable,
+  Preparable,
   UIImagePickerControllerDelegate,
   UINavigationControllerDelegate
 {
@@ -92,30 +91,6 @@ class ViewIPC: UIImagePickerController {
   
   
   
-  //MARK: - Initial
-  //  convenience init() {
-//    self.init(nibName: nil, bundle: nil)
-//  }
-//
-//
-//  override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-//    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-//    onInit()
-//
-//  }
-//
-//  required public init?(coder aDecoder: NSCoder) {
-//    super.init(coder: aDecoder)
-//    onInit()
-//
-//  }
-  
-  deinit {
-    onDeinit()
-  }
-  
-  
-  
   //MARK: - Apperance
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
@@ -131,62 +106,65 @@ class ViewIPC: UIImagePickerController {
   
   
   
-  //MARK: - Life cycle
-  func onInit() {
+  //MARK: - Initial
+  //  convenience init() {
+  //    self.init(nibName: nil, bundle: nil)
+  //  }
+  //
+  //
+  //  override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+  //    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+  //    setupInit()
+  //
+  //  }
+  //
+  //  required public init?(coder aDecoder: NSCoder) {
+  //    super.init(coder: aDecoder)
+  //    setupInit()
+  //
+  //  }
+  
+  deinit {
+    setupDeinit()
+  }
+  
+  func setupInit() {
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
+  }
+  
+  func setupPrepare() {
     
   }
   
-  func prepare() {
+  func setupDeinit() {
     
   }
   
-  func prepareToDeinit() {
-    
-  }
   
-  func onDeinit() {
-    
-  }
   
+  //MARK: - LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupViewOnViewDidLoad()
-    setupDataOnViewDidLoad()
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    setupViewOnWillAppear()
-    setupDataOnWillAppear()
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    setupViewOnDidAppear()
-    setupDataOnDidAppear()
-  }
-  
-  override func viewWillDisappear(_ animated: Bool) {
-    super.viewWillDisappear(animated)
-    setupViewOnWillDisappear()
-    setupDataOnWillDisappear()
-  }
-  
-  override func viewDidDisappear(_ animated: Bool) {
-    super.viewDidDisappear(animated)
-    setupViewOnDidDisappear()
-    setupDataOnDidDisappear()
-  }
-  
-  override func viewDidLayoutSubviews() {
-    super.viewDidLayoutSubviews()
-    setupViewOnDidLayoutSubviews()
-  }
-  
-  
-  
-  //MARK: - Setup View
-  func setupViewOnViewDidLoad() {
     //MARK: Core
     nb?.setupWith(content: .white, bg: .black, isTranslucent: false)
     delegate = self
@@ -207,9 +185,13 @@ class ViewIPC: UIImagePickerController {
     
     //MARK: Localize
     setupLocalize()
+    
+    
+    //MARK: Data
   }
   
-  func setupViewOnWillAppear() {
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
     //MARK: Core
     
     
@@ -227,9 +209,14 @@ class ViewIPC: UIImagePickerController {
     
     
     //MARK: Localize
+    
+    
+    
+    //MARK: Data
   }
   
-  func setupViewOnDidAppear() {
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
     //MARK: Core
     
     
@@ -247,9 +234,14 @@ class ViewIPC: UIImagePickerController {
     
     
     //MARK: Localize
+    
+    
+    
+    //MARK: Data
   }
   
-  func setupViewOnWillDisappear() {
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
     //MARK: Core
     
     
@@ -267,9 +259,14 @@ class ViewIPC: UIImagePickerController {
     
     
     //MARK: Localize
+    
+    
+    
+    //MARK: Data
   }
   
-  func setupViewOnDidDisappear() {
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
     //MARK: Core
     
     
@@ -287,34 +284,26 @@ class ViewIPC: UIImagePickerController {
     
     
     //MARK: Localize
+    
+    
+    
+    //MARK: Data
   }
   
-  func setupViewOnDidLayoutSubviews() {
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+  }
+  
+  
+  
+  //MARK: - SetupView
+  func setupViewByOrientation() {
     
   }
   
   
   
-  //MARK: - Setup Data
-  func setupDataOnViewDidLoad() {
-    
-  }
-  
-  func setupDataOnWillAppear() {
-    
-  }
-  
-  func setupDataOnDidAppear() {
-    
-  }
-  
-  func setupDataOnWillDisappear() {
-    
-  }
-  
-  func setupDataOnDidDisappear() {
-    
-  }
+  //MARK: - SetupData
   
   
   
@@ -324,10 +313,6 @@ class ViewIPC: UIImagePickerController {
   
   //MARK: - Public
   func setupLocalize() {
-    
-  }
-  
-  func setupViewByOrientation() {
     
   }
   

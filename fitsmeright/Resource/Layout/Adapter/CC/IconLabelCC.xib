@@ -29,7 +29,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="65R-mh-sQK">
-                                <rect key="frame" x="161" y="30" width="92" height="40"/>
+                                <rect key="frame" x="10" y="30" width="92" height="40"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mWJ-8Y-rJN">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -51,12 +51,11 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="TBU-fl-JJ2" secondAttribute="bottom" id="5Q6-Lj-wtF"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="65R-mh-sQK" secondAttribute="trailing" constant="5" id="EB4-1R-2Nw"/>
-                            <constraint firstItem="65R-mh-sQK" firstAttribute="centerX" secondItem="XlU-pW-FKG" secondAttribute="centerX" id="FEG-hg-zqx"/>
                             <constraint firstItem="TBU-fl-JJ2" firstAttribute="leading" secondItem="XlU-pW-FKG" secondAttribute="leading" id="GAL-nZ-97t"/>
                             <constraint firstItem="65R-mh-sQK" firstAttribute="centerY" secondItem="XlU-pW-FKG" secondAttribute="centerY" id="Pgr-lV-bqq"/>
                             <constraint firstAttribute="trailing" secondItem="TBU-fl-JJ2" secondAttribute="trailing" id="YZj-6P-6EB"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="65R-mh-sQK" secondAttribute="bottom" constant="5" id="YbO-jN-E7j"/>
-                            <constraint firstItem="65R-mh-sQK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XlU-pW-FKG" secondAttribute="leading" constant="5" id="sSn-3a-GQz"/>
+                            <constraint firstItem="65R-mh-sQK" firstAttribute="leading" secondItem="XlU-pW-FKG" secondAttribute="leading" constant="10" id="sSn-3a-GQz"/>
                             <constraint firstItem="65R-mh-sQK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="XlU-pW-FKG" secondAttribute="top" constant="5" id="vob-x3-hA9"/>
                         </constraints>
                     </view>

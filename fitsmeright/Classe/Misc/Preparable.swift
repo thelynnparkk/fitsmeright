@@ -1,5 +1,5 @@
 //
-//  LifeCyclable.swift
+//  Preparable.swift
 //  fitsmeright
 //
 //  Created by Sasawat Sankosik on 23/1/2562 BE.
@@ -11,18 +11,15 @@
 import Foundation
 
 
-
-protocol LifeCyclable {
-  func onInit()
-  func prepare()
-  func prepareToDeinit()
-  func onDeinit()
+protocol Preparable {
+  func setupInit()
+  func setupPrepare()
+  func setupDeinit()
 }
 
 
 
-extension LifeCyclable
-{
+extension Preparable {
   
   //MARK: - Implement
   

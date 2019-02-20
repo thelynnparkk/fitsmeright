@@ -12,22 +12,13 @@ import UIKit
 
 
 
-class FloatingViewUC {
-  
-  class DisplayedFloating {
-    var image: UIImage?
-  }
-  
-  class ViewModel: AGViewModel {
-    var displayedFloating = DisplayedFloating()
-  }
-  
+class FloatingViewDisplayed: AGViewDisplayed {
+  var image: UIImage?
 }
 
 
 
-extension FloatingView:
-  AGViewInstantiatable
+extension FloatingView
 {
   
 }
@@ -59,7 +50,7 @@ class FloatingView: AGView {
   
   
   //MARK: - Constraint
-  typealias ViewModel = FloatingViewUC.ViewModel
+  typealias Displayed = FloatingViewDisplayed
   
   
   
@@ -75,54 +66,73 @@ class FloatingView: AGView {
   
   
   
-  //MARK: - Initial
-  
-  
-  
   //MARK: - Apperance
   
   
   
-  //MARK: - Life cycle
-  override func onInit() {
-    loadContainerIntoView()
-    super.onInit()
+  //MARK: - Initial
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
   }
   
-  override func prepare() {
-    super.prepare()
+  override func setupInit() {
+    Bundle.main.loadNibNamed(String(describing: FloatingView.self), owner: self, options: nil)
+    addSubview(view)
+    view.fillToSuperview()
+    super.setupInit()
+    //MARK: Core
+    backgroundColor = .clear
+    let gesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+    addGestureRecognizer(gesture)
+    
+    
+    
+    //MARK: Component
+    view.backgroundColor = c_custom.peach
+    imgv_icon.contentMode = .scaleAspectFit
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
     
   }
   
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
+  override func setupDeinit() {
+    super.setupDeinit()
     
   }
   
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
   
+  
+  //MARK: - LifeCycle
   override func awakeFromNib() {
-    loadContainerIntoView()
     super.awakeFromNib()
-    
-  }
-  
-  
-  //MARK: - Setup View
-  override func setupViewOnInit() {
     //MARK: Core
-    backgroundColor = .clear
-    let gesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
-    addGestureRecognizer(gesture)
+//    backgroundColor = .clear
+//    let gesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+//    addGestureRecognizer(gesture)
     
     
     
     //MARK: Component
-    view.backgroundColor = c_custom.peach
-    imgv_icon.contentMode = .scaleAspectFit
+//    view.backgroundColor = c_custom.peach
+//    imgv_icon.contentMode = .scaleAspectFit
     
     
     
@@ -135,58 +145,25 @@ class FloatingView: AGView {
     
     
     //MARK: Localize
-    setupLocalize()
-    
-    
-
-  }
-  
-  override func setupViewOnAwakeFromNib() {
-    //MARK: Core
-    backgroundColor = .clear
-    let gesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
-    addGestureRecognizer(gesture)
     
     
     
-    //MARK: Component
-    view.backgroundColor = c_custom.peach
-    imgv_icon.contentMode = .scaleAspectFit
-    
-    
-    
-    //MARK: Other
-    
-    
-    
-    //MARK: Snp
-    
-    
-    
-    //MARK: Localize
-    setupLocalize()
-    
-    
-
-  }
-  
-  override func setupViewOnLayoutSubviews() {
-
+    //MARK: Data
   }
   
   
   
-  //MARK: - Setup Data
-  override func setupDataOnInit() {
-    
-  }
+  //MARK: - SetupView
   
-  override func setupData(with viewModel: AGViewModel) {
-    guard let vm = viewModel as? ViewModel else { return }
+  
+  
+  //MARK: - SetupData
+  override func setupData(with displayed: AGViewDisplayed?) {
+    guard let displayed = displayed as? Displayed else { return }
     setupViewFrame()
-    view.addShadow(ofColor: .black, radius: 5, offset: .less, opacity: 0.3)
+    addShadow(ofColor: .black, radius: 5, offset: .less, opacity: 0.3)
     view.layer.cornerRadius = frame.width / 2
-    imgv_icon.image = vm.displayedFloating.image
+    imgv_icon.image = displayed.image
   }
   
   

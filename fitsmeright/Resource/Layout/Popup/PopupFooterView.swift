@@ -8,23 +8,14 @@
 
 
 
-import UIKit
+import SwifterSwift
 
 
 
-class PopupFooterViewUC {
-  
-  class DisplayedFooter {
-    var title_cancel: String? = "CANCEL"
-    var title_ok: String? = "OK"
-    var display: PopupFooterView.Display = .both
-  }
-  
-  class ViewModel: AGViewModel {
-    var displayedFooter = DisplayedFooter()
-  }
-  
-  
+class PopupFooterViewDisplayed: AGViewDisplayed {
+  var title_cancel: String? = "CANCEL"
+  var title_ok: String? = "OK"
+  var display: PopupFooterView.Display = .both
 }
 
 
@@ -64,7 +55,10 @@ class PopupFooterView: AGView {
   
   
   //MARK: - Constraint
-  typealias ViewModel = PopupFooterViewUC.ViewModel
+  typealias Displayed = PopupFooterViewDisplayed
+  var displayedViewFooter: Displayed? {
+    return displayedView as? Displayed
+  }
   
   
   
@@ -80,35 +74,13 @@ class PopupFooterView: AGView {
   
   
   
+  //MARK: - Apperance
+  
+  
+  
   //MARK: - Initial
-  
-  
-  
-  //MARK: -  Life Cycle
-  override func onInit() {
-    super.onInit()
-    
-  }
-  
-  override func prepare() {
-    super.prepare()
-    
-  }
-  
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
-    
-  }
-  
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
-  
-  
-  
-  //MARK: - Setup View
-  override func setupViewOnInit() {
+  override func setupInit() {
+    super.setupInit()
     //MARK: Core
     backgroundColor = .white
     
@@ -151,7 +123,7 @@ class PopupFooterView: AGView {
     
     
     //MARK: Snp
-    v_seperator.snp.makeConstraints { 
+    v_seperator.snp.makeConstraints {
       $0.top.equalToSuperview()
       $0.right.equalToSuperview()
       $0.left.equalToSuperview()
@@ -180,13 +152,27 @@ class PopupFooterView: AGView {
     
     
     //MARK: Localize
-    setupLocalize()
     
     
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
     
   }
   
-  override func setupViewOnAwakeFromNib() {
+  override func setupDeinit() {
+    super.setupDeinit()
+    
+  }
+  
+  
+  
+  //MARK: -  LifeCycle
+  override func awakeFromNib() {
+    super.awakeFromNib()
     //MARK: Core
     
     
@@ -207,35 +193,34 @@ class PopupFooterView: AGView {
     
     
     
+    //MARK: Data
   }
   
   
   
-  //MARK: - Setup Data
-  override func setupDataOnInit() {
-    
-  }
+  //MARK: - SetupView
   
-  override func setupDataOnAwakeFromNib() {
-    
-  }
   
-  override func setupData(with viewModel: AGViewModel) {
-    guard let vm = viewModel as? ViewModel else { return }
-    btn_cancel.setTitle(vm.displayedFooter.title_cancel, for: .normal)
-    btn_ok.setTitle(vm.displayedFooter.title_ok, for: .normal)
-    
-    switch vm.displayedFooter.display {
-    case .cancel:
-      btn_cancel.isHidden = true
-      v_seperatorButton.isHidden = true
-    case .ok:
-      btn_ok.isHidden = true
-      v_seperatorButton.isHidden = true
-    case .both:
-      break
+  
+  //MARK: - SetupData
+  override func setupData(with displayed: AGViewDisplayed?) {
+    if let displayed = displayed as? Displayed {
+      displayedView = displayed
+      btn_cancel.setTitle(displayed.title_cancel, for: .normal)
+      btn_ok.setTitle(displayed.title_ok, for: .normal)
+      switch displayed.display {
+      case .cancel:
+        btn_cancel.isHidden = true
+        v_seperatorButton.isHidden = true
+      case .ok:
+        btn_ok.isHidden = true
+        v_seperatorButton.isHidden = true
+      case .both:
+        break
+      }
+    } else {
+      
     }
-    
   }
   
   

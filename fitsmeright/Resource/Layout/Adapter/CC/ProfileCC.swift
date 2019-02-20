@@ -12,21 +12,13 @@ import UIKit
 
 
 
-class ProfileCCUC {
-  
-  class DisplayedProfile {
-    var imageURL: URL?
-    var displayName: String = ""
-    var bio: String = ""
-    var posts: String = ""
-    var friends: String = ""
-    var closets: String = ""
-  }
-  
-  class ViewModel: AGCCModel {
-    var displayedProfile = DisplayedProfile()
-  }
-  
+class ProfileCCDisplayed: AGCCDisplayed {
+  var imageURL: URL?
+  var displayName: String = ""
+  var bio: String = ""
+  var posts: String = ""
+  var friends: String = ""
+  var closets: String = ""
 }
 
 
@@ -90,7 +82,7 @@ class ProfileCC: AGCC {
   
   
   //MARK: - Constraint
-  typealias ViewModel = ProfileCCUC.ViewModel
+  typealias Displayed = ProfileCCDisplayed
   
   
   
@@ -106,43 +98,52 @@ class ProfileCC: AGCC {
   
   
   
-  //MARK: - Initial
-  
-  
-  
   //MARK: - Apperance
   
   
   
+  //MARK: - Initial
+  override func setupInit() {
+    super.setupInit()
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
+    
+  }
+  
+  override func setupDeinit() {
+    super.setupDeinit()
+    
+  }
+  
+  
+  
+  
   //MARK: - LifeCycle
-  override func onInit() {
-    
-  }
-  
-  override func prepare() {
-    
-  }
-  
-  override func prepareToDeinit() {
-    
-  }
-  
-  override func onDeinit() {
-    
-  }
-  
   override func awakeFromNib() {
     super.awakeFromNib()
-    
-  }
-  
-  override func layoutSubviews() {
-    super.layoutSubviews()
-    
-  }
-  
-  override func prepareForReuse() {
-    super.prepareForReuse()
     
   }
   
@@ -209,18 +210,28 @@ class ProfileCC: AGCC {
     
   }
   
-  override func setupData(with viewModel: AGCCModel) {
-    guard let vm = viewModel as? ViewModel else { return }
-    if let imageURL = vm.displayedProfile.imageURL {
-      imgv_profile.kf.setImage(with: imageURL, placeholder: nil, options: nil)
-    } else {
-      imgv_profile.image = nil
+  override func setupData(with displayed: AGCCDisplayed?) {
+    
+    func present() {
+      if let displayed = displayed as? Displayed {
+        self.displayedCC = displayed
+        if let imageURL = displayed.imageURL {
+          imgv_profile.kf.setImage(with: imageURL, placeholder: nil, options: nil)
+        } else {
+          imgv_profile.image = nil
+        }
+        lb_displayName.text = displayed.displayName
+        lb_bio.text = displayed.bio
+        lb_postsValue.text = displayed.posts
+        lb_friendsValue.text = displayed.friends
+        lb_closetsValue.text = displayed.closets
+      } else {
+        
+      }
     }
-    lb_displayName.text = vm.displayedProfile.displayName
-    lb_bio.text = vm.displayedProfile.bio
-    lb_postsValue.text = vm.displayedProfile.posts
-    lb_friendsValue.text = vm.displayedProfile.friends
-    lb_closetsValue.text = vm.displayedProfile.closets
+    
+    present()
+    
   }
   
   

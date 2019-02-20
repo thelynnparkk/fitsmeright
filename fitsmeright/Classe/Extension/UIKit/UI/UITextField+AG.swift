@@ -12,7 +12,7 @@ import UIKit
 
 
 
-extension UITextField: Colorable {
+extension UITextField {
   
   func setupDark() {
     textColor = c_material.grey500

@@ -1,8 +1,8 @@
 //
-//  ImageCA.swift
+//  OutfitItemCA.swift
 //  fitsmeright
 //
-//  Created by Sasawat Sankosik on 23/1/2562 BE.
+//  Created by Sasawat Sankosik on 20/2/2562 BE.
 //  Copyright © 2562 silpakorn. All rights reserved.
 //
 
@@ -12,23 +12,17 @@ import SwifterSwift
 
 
 
-import Kingfisher
-
-
-
-class ImageCADisplayed: AGCADisplayed {
+class OutfitItemCADisplayed: AGCADisplayed {
   
 }
 
 
 
-extension ImageCA:
-  UICollectionViewDataSourcePrefetching,
+extension OutfitItemCA:
   UICollectionViewDataSource,
   UICollectionViewDelegate,
   UICollectionViewDelegateFlowLayout,
-  AGCCDelegate,
-  AGCRVDelegate
+  AGCCDelegate
 {
   
   
@@ -36,7 +30,7 @@ extension ImageCA:
 
 
 
-class ImageCA: AGCA {
+class OutfitItemCA: AGCA {
   
   //MARK: - Enum
   
@@ -52,10 +46,9 @@ class ImageCA: AGCA {
   
   
   //MARK: - Constraint
-  typealias Displayed = ImageCADisplayed
-  typealias CC = ImageCC
-  typealias CRV = LabelCRV
-  var displayedCAImage: Displayed? {
+  typealias Displayed = OutfitItemCADisplayed
+  typealias CC = OutfitItemCC
+  var displayedCAOutfitItem: Displayed? {
     return displayedCA as? Displayed
   }
   
@@ -71,14 +64,7 @@ class ImageCA: AGCA {
   
   //MARK: - Storage
   override var height: CGFloat {
-    let rowItems = 4
-    let rows = displayedCA.sections.map({ ($0.items.count.cgFloat / rowItems.cgFloat).rounded(.up) }).reduce(0, +)
-    let image_items = CC.Sizing.size(with: collection.bounds, rowItems: rowItems).height * rows
-    let image_spaces = (CC.Sizing.lineSpace() * (rows - 1))
-    let image_insets = (CC.Sizing.inset().top + CC.Sizing.inset().bottom)
-    let image = image_items + image_spaces + image_insets
-    let footer = CRV.Sizing.size(with: collection.frame, height: 50).height
-    return image + footer
+    return 0
   }
   
   
@@ -96,18 +82,17 @@ class ImageCA: AGCA {
     
     //MARK: Component
     collection.setupCollectionDefault()
-    collection.setupScrollVertical()
+    collection.setupScrollHorizontal()
     collection.register(nibWithCellClass: CC.self)
-    collection.register(nibWithCellClass: CRV.self, kind: UICollectionView.elementKindSectionFooter)
     collection.delegate = self
     collection.dataSource = self
     collection.backgroundColor = .clear
     collection.allowsSelection = true
     collection.contentInsetAdjustmentBehavior = .always
     collection.isPrefetchingEnabled = true
-    collection.prefetchDataSource = self
     
     let layout = UICollectionViewFlowLayout()
+    layout.scrollDirection = .horizontal
     collection.collectionViewLayout = layout
     
     
@@ -140,30 +125,7 @@ class ImageCA: AGCA {
   
   
   //MARK: - LifeCycle
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    //MARK: Core
-    
-    
-    
-    //MARK: Component
-    
-    
-    
-    //MARK: Other
-    
-    
-    
-    //MARK: Snp
-    
-    
-    
-    //MARK: Localize
-    
-    
-    
-    //MARK: Data
-  }
+  
   
   
   
@@ -173,8 +135,8 @@ class ImageCA: AGCA {
   
   //MARK: - SetupData
   override func setupData(with displayed: AGCADisplayed?) {
-    if let displayed = displayed {
-      self.displayedCA = displayed
+    if let displayed = displayed as? Displayed {
+      displayedCA = displayed
       collection.isUserInteractionEnabled = true
       collection.collectionViewLayout.invalidateLayout()
       collection.reloadData()
@@ -200,38 +162,6 @@ class ImageCA: AGCA {
   
   
   
-  //MARK: - Core - UICollectionViewDataSourcePrefetching
-  func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-    var urls: [URL] = []
-    for section in displayedCAImage!.sections.enumerated() {
-      for row in section.element.items.enumerated() {
-        guard let displayed = row.element as? CC.Displayed,
-          let url = displayed.imageURL,
-          indexPaths.contains(IndexPath(row: row.offset, section: section.offset)) else { continue }
-        urls.append(url)
-      }
-    }
-    ImagePrefetcher(urls: urls).start()
-    //    for indexPath in indexPaths {
-    //      if let _ = operations_loading[indexPath] {
-    //        continue
-    //      }
-    //      let operation = RandomDelayOperation()
-    //      q_loading.addOperation(operation)
-    //      operations_loading[indexPath] = operation
-    //    }
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
-    //    for indexPath in indexPaths {
-    //      if let operation = operations_loading[indexPath] {
-    //        operation.cancel()
-    //        operations_loading.removeValue(forKey: indexPath)
-    //      }
-    //    }
-  }
-  
-  
   
   //MARK: - Core - UICollectionViewDataSource
   func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -250,30 +180,12 @@ class ImageCA: AGCA {
       return UICollectionViewCell()
     }
     let cell = collectionView.dequeueReusableCell(withClass: CC.self, for: indexPath)
+    let item = displayedCAOutfitItem?.sections[indexPath.section].items[indexPath.row] as? CC.Displayed
     cell.indexPath = indexPath
     cell.delegate = self
-    cell.setupData(with: .none)
+    item?.isAnimated = false
+    cell.setupData(with: item)
     return cell
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-    return CRV.Sizing.size(with: collectionView.bounds, height: 50)
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-    switch kind {
-    case UICollectionView.elementKindSectionHeader:
-      return UICollectionReusableView()
-    case UICollectionView.elementKindSectionFooter:
-      let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withClass: CRV.self, for: indexPath)
-      view.kind = kind
-      view.section = indexPath.section
-      view.delegate = self
-      view.setupData(with: displayedCAImage?.sections[indexPath.section].footer)
-      return view
-    default:
-      return UICollectionReusableView()
-    }
   }
   
   
@@ -284,8 +196,8 @@ class ImageCA: AGCA {
       return
     }
     let cell = cell as? CC
-    let item = displayedCAImage?.sections[indexPath.section].items[indexPath.row] as? CC.Displayed
-    item?.isAnimated = true
+    let item = displayedCAOutfitItem?.sections[indexPath.section].items[indexPath.row] as? CC.Displayed
+    item?.isAnimated = false
     cell?.setupData(with: item)
   }
   
@@ -305,18 +217,18 @@ class ImageCA: AGCA {
   }
   
   func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-    
+    collectionView.cellForItem(at: indexPath)?.isHighlighted = true
   }
   
   func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-    
+    collectionView.cellForItem(at: indexPath)?.isHighlighted = false
   }
   
   
   
   //MARK: - Core - UICollectionViewDelegateFlowLayout
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CC.Sizing.size(with: collectionView.bounds, rowItems: 4)
+    return CC.Sizing.size(with: collectionView.bounds)
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -340,18 +252,8 @@ class ImageCA: AGCA {
   
   
   
-  //MARK: - Custom - AGCRVDelegate
-  func agCRVPressed(_ view: AGCRV, action: Any, section: Int) {
-    
-  }
-  
-  
-  
   //MARK: - Pod - Protocol
   
   
   
 }
-
-
-

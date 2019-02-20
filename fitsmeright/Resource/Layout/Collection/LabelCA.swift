@@ -8,23 +8,19 @@
 
 
 
-import UIKit
+import SwifterSwift
 
 
 
-class LabelCAUC {
-  
-  class ViewModel: AGCAModel {
-    
-  }
+class LabelCADisplayed: AGCADisplayed {
   
 }
 
 
 
 extension LabelCA:
-  UICollectionViewDelegate,
   UICollectionViewDataSource,
+  UICollectionViewDelegate,
   UICollectionViewDelegateFlowLayout,
   AGCCDelegate
 {
@@ -50,9 +46,11 @@ class LabelCA: AGCA {
   
   
   //MARK: - Constraint
-  typealias ViewModel = LabelCAUC.ViewModel
+  typealias Displayed = LabelCADisplayed
   typealias CC = LabelCC
-  typealias CCModel = LabelCCUC.ViewModel
+  var displayedCALabel: Displayed? {
+    return displayedCA as? Displayed
+  }
   
   
   
@@ -66,7 +64,7 @@ class LabelCA: AGCA {
   
   //MARK: - Storage
   override var height: CGFloat {
-    let rows = viewModel.displayedItems.count.cgFloat
+    let rows = displayedCA.sections.map({ $0.items.count }).reduce(0, +).cgFloat
     let label_items = CC.Sizing.size(with: collection.bounds).height * rows
     let label_spaces = (CC.Sizing.lineSpace() * (rows - 1))
     let label_insets = (CC.Sizing.inset().top + CC.Sizing.inset().bottom)
@@ -76,39 +74,13 @@ class LabelCA: AGCA {
   
   
   
-  //MARK: - Initial
-  
-  
-  
   //MARK: - Apperance
   
   
   
-  //MARK: - Life cycle
-  override func onInit() {
-    super.onInit()
-    
-  }
-  
-  override func prepare() {
-    super.prepare()
-    
-  }
-  
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
-    
-  }
-  
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
-  
-  
-  
-  //MARK: - Setup View
-  override func setupViewOnInit() {
+  //MARK: - Initial
+  override func setupInit() {
+    super.setupInit()
     //MARK: Core
     
     
@@ -138,22 +110,37 @@ class LabelCA: AGCA {
     
     
     //MARK: Localize
-    setupLocalize()
     
     
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
+    
+  }
+  
+  override func setupDeinit() {
+    super.setupDeinit()
     
   }
   
   
   
-  //MARK: - Setup Data
-  override func setupDataOnInit() {
-    
-  }
+  //MARK: - LifeCycle
   
-  override func setupData(with viewModel: AGCAModel) {
-    if let vm = viewModel as? ViewModel {
-      self.viewModel = vm
+  
+  
+  
+  //MARK: - SetupView
+  
+  
+  
+  //MARK: - SetupData
+  override func setupData(with displayed: AGCADisplayed?) {
+    if let displayed = displayed as? Displayed {
+      displayedCA = displayed
       collection.isUserInteractionEnabled = true
       collection.collectionViewLayout.invalidateLayout()
       collection.reloadData()
@@ -179,26 +166,28 @@ class LabelCA: AGCA {
   
   
   
+  
   //MARK: - Core - UICollectionViewDataSource
   func numberOfSections(in collectionView: UICollectionView) -> Int {
     return 1
   }
   
   public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    guard !isEmpty else {
+    guard !isSectionEmpty() else {
       return 0
     }
-    return viewModel.displayedItems.count
+    return displayedCA.sections[section].items.count
   }
   
   public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard !isEmpty else {
+    guard !isRowInSectionEmpty(with: indexPath) else {
       return UICollectionViewCell()
     }
     let cell = collectionView.dequeueReusableCell(withClass: CC.self, for: indexPath)
-    let item = viewModel.displayedItems[indexPath.row]
+    let item = displayedCALabel?.sections[indexPath.section].items[indexPath.row] as? CC.Displayed
     cell.indexPath = indexPath
     cell.delegate = self
+    item?.isAnimated = false
     cell.setupData(with: item)
     return cell
   }
@@ -206,22 +195,38 @@ class LabelCA: AGCA {
   
   
   //MARK: - Core - UICollectionViewDelegate
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    guard !isEmpty else {
+  func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    guard !isRowInSectionEmpty(with: indexPath) else {
       return
     }
-    if let _ = viewModel.displayedItems[indexPath.row] as? CCModel {
-      delegate?.agCAPressed(self, action: [], indexPath: indexPath)
-    }
+    let cell = cell as? CC
+    let item = displayedCALabel?.sections[indexPath.section].items[indexPath.row] as? CC.Displayed
+    item?.isAnimated = false
+    item?.isLastRow = collectionView.indexPathForLastItem == indexPath
+    cell?.setupData(with: item)
   }
   
-  func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-    guard !isEmpty else {
+  func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    guard !isRowInSectionEmpty(with: indexPath) else {
       return
     }
-    let isLastRow = indexPath.row == viewModel.displayedItems.count - 1
-    let cell = cell as? CC
-    cell?.v_seperator.isHidden = isLastRow
+    delegate?.agCAPressed(self, action: [], indexPath: indexPath)
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+    
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+    collectionView.cellForItem(at: indexPath)?.isHighlighted = true
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+    collectionView.cellForItem(at: indexPath)?.isHighlighted = false
   }
   
   

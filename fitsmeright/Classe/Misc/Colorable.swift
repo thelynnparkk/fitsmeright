@@ -8,44 +8,30 @@
 
 
 
-import UIKit
+import SwifterSwift
 
 
 
 protocol Colorable {
-  var c: UIColor.Type { get }
   var c_custom: UIColor.Custom.Type { get }
   var c_material: UIColor.Material.Type { get }
 }
 
 
 
-extension Colorable
-{
+extension Colorable {
   
   //MARK: - Implement
-  var c: UIColor.Type {
-    return UIColor.self
-  }
   var c_custom: UIColor.Custom.Type {
-    return c.Custom.self
+    return UIColor.Custom.self
   }
   var c_material: UIColor.Material.Type {
-    return c.Material.self
+    return UIColor.Material.self
   }
   
   
   
   //MARK: - Public
-  static var c: UIColor.Type {
-    return UIColor.self
-  }
-  static var c_custom: UIColor.Custom.Type {
-    return c.Custom.self
-  }
-  static var c_material: UIColor.Material.Type {
-    return c.Material.self
-  }
   
   
   
@@ -54,3 +40,9 @@ extension Colorable
   
   
 }
+
+
+
+extension UIView: Colorable { }
+extension UIViewController: Colorable { }
+

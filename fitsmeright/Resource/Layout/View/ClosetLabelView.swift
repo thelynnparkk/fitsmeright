@@ -12,23 +12,14 @@ import UIKit
 
 
 
-class ClosetLabelViewUC: AGViewModel {
-  
-  class DisplayedLabel {
-    var title: String?
-    var image: UIImage?
-  }
-  
-  class ViewModel: AGViewModel {
-    var displayedLabel = DisplayedLabel()
-  }
-  
+class ClosetLabelViewDisplayed: AGViewDisplayed {
+  var title: String?
+  var image: UIImage?
 }
 
 
 
-extension ClosetLabelView:
-  AGViewInstantiatable
+extension ClosetLabelView
 {
   
 }
@@ -61,7 +52,7 @@ class ClosetLabelView: AGView {
   
   
   //MARK: - Constraint
-  typealias ViewModel =  ClosetLabelViewUC.ViewModel
+  typealias Displayed =  ClosetLabelViewDisplayed
   
   
   
@@ -77,44 +68,54 @@ class ClosetLabelView: AGView {
   
   
   
-  //MARK: - Initial
-  
-  
-  
   //MARK: - Apperance
   
   
   
+  //MARK: - Initial
+  override func setupInit() {
+    Bundle.main.loadNibNamed(String(describing: FloatingView.self), owner: self, options: nil)
+    addSubview(view)
+    view.fillToSuperview()
+    super.setupInit()
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
+    
+  }
+  
+  override func setupDeinit() {
+    super.setupDeinit()
+    
+  }
+  
+  
+  
   //MARK: - Life cycle
-  override func onInit() {
-    loadContainerIntoView()
-    super.onInit()
-  }
-  
-  override func prepare() {
-    super.prepare()
-    
-  }
-  
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
-    
-  }
-  
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
-  
   override func awakeFromNib() {
-    loadContainerIntoView()
     super.awakeFromNib()
-    
-  }
-  
-  
-  //MARK: - Setup View
-  override func setupViewOnInit() {
     //MARK: Core
     backgroundColor = .clear
     layer.masksToBounds = true
@@ -146,27 +147,21 @@ class ClosetLabelView: AGView {
     
     
     
+    //MARK: Data
   }
   
-  override func setupViewOnAwakeFromNib() {
-    setupViewOnInit()
-  }
   
-  override func setupViewOnLayoutSubviews() {
-    
-  }
+  
+  //MARK: - Setup View
+
   
   
   
   //MARK: - Setup Data
-  override func setupDataOnInit() {
-    
-  }
-  
-  override func setupData(with viewModel: AGViewModel) {
-    guard let vm = viewModel as? ViewModel else { return }
-    lb_title.text = vm.displayedLabel.title
-    imgv_icon.image = vm.displayedLabel.image
+  override func setupData(with displayed: AGViewDisplayed?) {
+    guard let displayed = displayed as? Displayed else { return }
+    lb_title.text = displayed.title
+    imgv_icon.image = displayed.image
   }
   
   

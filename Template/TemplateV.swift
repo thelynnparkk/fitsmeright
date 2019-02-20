@@ -8,17 +8,28 @@
 
 
 
-import UIKit
+import SwifterSwift
 
+
+
+class TemplateViewDisplayed: AGViewDisplayed {
+  
+}
 
 
 extension TemplateView
-{ }
+{
+  
+}
 
 
 
 class TemplateView: AGView {
-
+  
+  //MARK: - Instantiatable
+  
+  
+  
   //MARK: - Enum
   
   
@@ -47,63 +58,13 @@ class TemplateView: AGView {
   
   
   
-  //MARK: - Initial
-  
-  
-  
   //MARK: - Apperance
   
   
   
-  //MARK: - Life cycle
-  override func onInit() {
-    super.onInit()
-    
-  }
-  
-  override func prepare() {
-    super.prepare()
-    
-  }
-  
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
-    
-  }
-  
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
-  
-  
-  
-  //MARK: - Setup View
-  override func setupViewOnInit() {
-    //MARK: Core
-    
-    
-    
-    //MARK: Component
-    
-    
-    
-    //MARK: Other
-    
-    
-    
-    //MARK: Snp
-    
-    
-    
-    //MARK: Localize
-    setupLocalize()
-    
-    
-    
-  }
-  
-  override func setupViewOnAwakeFromNib() {
+  //MARK: - Initial
+  override func setupInit() {
+    super.setupInit()
     //MARK: Core
     
     
@@ -124,24 +85,55 @@ class TemplateView: AGView {
     
     
     
+    //MARK: Data
   }
   
-  override func setupViewOnLayoutSubviews() {
+  override func setupPrepare() {
+    super.setupPrepare()
+    
+  }
+  
+  override func setupDeinit() {
+    super.setupDeinit()
     
   }
   
   
   
-  //MARK: - Setup Data
-  override func setupDataOnInit() {
+  //MARK: - LifeCycle
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    //MARK: Core
     
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
   }
   
-  override func setupDataOnAwakeFromNib() {
-    
-  }
   
-  override func setupData(with viewModel: AGViewModel) {
+  
+  //MARK: - SetupView
+  
+  
+  
+  //MARK: - SetupData
+  override func setupData(with displayed: AGViewDisplayed?) {
     
   }
   
@@ -159,6 +151,10 @@ class TemplateView: AGView {
   
   
   //MARK: - Private
+  
+  
+  
+  //MARK: - VIP - UseCase
   
   
   

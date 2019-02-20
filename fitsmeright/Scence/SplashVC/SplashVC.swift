@@ -12,8 +12,7 @@ import UIKit
 
 
 
-extension SplashVC:
-  AGVCInstantiatable
+extension SplashVC
 {
   
 }
@@ -54,44 +53,59 @@ class SplashVC: AGVC {
   
   
   
-  //MARK: - Initial
-
-  
-  
   //MARK: - Apperance
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
+  }
+  
+  override var prefersStatusBarHidden: Bool {
+    return false
+  }
+  
+  
+  
+  //MARK: - Initial
+  override func setupInit() {
+    super.setupInit()
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
+    
+  }
+  
+  override func setupDeinit() {
+    super.setupDeinit()
+    
+  }
+  
   
   
   
   //MARK: - Life cycle
-  override func onInit() {
-    super.onInit()
-    
-  }
-  
-  override func prepare() {
-    super.prepare()
-    
-  }
-  
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
-    
-  }
-  
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
-  
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-  }
-  
-  
-  
-  //MARK: - Setup View
-  override func setupViewOnViewDidLoad() {
     //MARK: Core
     view.backgroundColor = c_material.grey300
     
@@ -114,19 +128,18 @@ class SplashVC: AGVC {
     setupLocalize()
     
     
+    
+    //MARK: Data
+    fetchLoginData()
   }
   
-  override func setupViewOnDidLayoutSubviews() {
-    
-  }
+  
+  
+  //MARK: - Setup View
   
   
   
   //MARK: - Setup Data
-  override func setupDataOnViewDidLoad() {
-    fetchLoginData()
-  }
-  
   func fetchLoginData() {
     if let loggedIn = FMUserDefaults.LoggedIn.get(), loggedIn {
       routeToMain()
@@ -154,13 +167,13 @@ class SplashVC: AGVC {
   
   //MARK: - VIP - UseCase
   func routeToMain() {
-    let vc = MainTBC.vc
+    let vc = MainTBC.vc()
     let nvc = UINavigationController(rootViewController: vc)
     window?.set(with: nvc, style: .fade)
   }
   
   func routeToLogin() {
-    let vc = MainTBC.vc
+    let vc = MainTBC.vc()
     let nvc = UINavigationController(rootViewController: vc)
     window?.set(with: nvc, style: .fade)
   }

@@ -12,17 +12,9 @@ import UIKit
 
 
 
-class IconLabelCCUC {
-  
-  class DisplayedIconLabel {
-    var title: String = ""
-    var icon: UIImage?
-  }
-  
-  class ViewModel: AGCCModel {
-    var displayedIconLabel = DisplayedIconLabel()
-  }
-  
+class IconLabelCCDisplayed: AGCCDisplayed {
+  var title: String = ""
+  var icon: UIImage?
 }
 
 
@@ -60,14 +52,14 @@ class IconLabelCC: AGCC {
       if let custom = custom {
         return custom
       }
-      return 5
+      return 0
     }
     
     static func inset(with bound: CGRect = .zero, custom: UIEdgeInsets? = nil) -> UIEdgeInsets {
       if let custom = custom {
         return custom
       }
-      return UIEdgeInsets(inset: 5)
+      return UIEdgeInsets(inset: 0)
     }
     
     static func offset(with bound: CGRect = .zero) -> CGPoint {
@@ -91,7 +83,7 @@ class IconLabelCC: AGCC {
   
   
   //MARK: - Constraint
-  typealias ViewModel = IconLabelCCUC.ViewModel
+  typealias Displayed = IconLabelCCDisplayed
   
   
   
@@ -116,25 +108,72 @@ class IconLabelCC: AGCC {
   
   
   //MARK: - LifeCycle
-  override func onInit() {
+  override func setupInit() {
+    super.setupInit()
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
     
   }
   
-  override func prepare() {
+  override func setupDeinit() {
+    super.setupDeinit()
     
   }
   
-  override func prepareToDeinit() {
-    
-  }
   
-  override func onDeinit() {
-    
-  }
   
+  //MARK: - LifeCycle
   override func awakeFromNib() {
     super.awakeFromNib()
+    //MARK: Core
     
+    
+    
+    //MARK: Component
+    lb_title.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+    lb_title.textColor = .black
+    imgv_icon.contentMode = .scaleAspectFit
+    v_seperator.backgroundColor = c_material.grey200
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    setupLocalize()
+    
+    
+    
+    //MARK: Data
   }
   
   override func layoutSubviews() {
@@ -156,10 +195,6 @@ class IconLabelCC: AGCC {
     
     
     //MARK: Component
-    lb_title.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-    lb_title.textColor = c_material.grey500
-    imgv_icon.contentMode = .scaleAspectFit
-    v_seperator.backgroundColor = c_material.grey200
     
     
     
@@ -176,6 +211,21 @@ class IconLabelCC: AGCC {
     
     
     
+  }
+  
+  override func setupViewOnStateChange(_ state: UIControl.State) {
+    switch state {
+    case .normal:
+      break
+    case .highlighted:
+      break
+    case .disabled:
+      break
+    case .selected:
+      break
+    default:
+      break
+    }
   }
   
   override func setupViewOnLayoutSubviews() {
@@ -197,10 +247,17 @@ class IconLabelCC: AGCC {
     
   }
   
-  override func setupData(with viewModel: AGCCModel) {
-    guard let vm = viewModel as? ViewModel else { return }
-    lb_title.text = vm.displayedIconLabel.title
-    imgv_icon.image = vm.displayedIconLabel.icon
+  override func setupData(with displayed: AGCCDisplayed?) {
+    func present() {
+      if let displayed = displayed as? Displayed {
+        self.displayedCC = displayed
+        lb_title.text = displayed.title
+        imgv_icon.image = displayed.icon
+      } else {
+        
+      }
+    }
+    present()
   }
   
   

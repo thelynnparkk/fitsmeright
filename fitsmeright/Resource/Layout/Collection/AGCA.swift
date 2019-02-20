@@ -8,17 +8,17 @@
 
 
 
-import UIKit
+import SwifterSwift
 
 
 
-class AGCAModel {
+class AGCADisplayed {
   class Section {
-    var header: AGCRVModel?
-    var footer: AGCRVModel?
-    var items: [AGCCModel] = []
+    var header: AGCRVDisplayed?
+    var footer: AGCRVDisplayed?
+    var items: [AGCCDisplayed] = []
   }
-  var section: [Section] = []
+  var sections: [Section] = []
 }
 
 
@@ -30,7 +30,7 @@ protocol AGCADelegate: class {
 
 
 extension AGCA:
-  LifeCyclable,
+  Preparable,
   Colorable
 {
   
@@ -38,8 +38,8 @@ extension AGCA:
 
 
 
-open class AGCA: NSObject {
-
+class AGCA: NSObject {
+  
   //MARK: - Enum
   enum Action {
     case none
@@ -73,22 +73,7 @@ open class AGCA: NSObject {
   
   
   //MARK: - Storage
-  var viewModel: AGCAModel = AGCAModel()
-  
-  
-  
-  //MARK: - Initial
-  
-  
-  required public init(collection: UICollectionView) {
-    super.init()
-    self.collection = collection
-    onInit()
-  }
-  
-  deinit {
-    onDeinit()
-  }
+  var displayedCA = AGCADisplayed()
   
   
   
@@ -96,28 +81,54 @@ open class AGCA: NSObject {
   
   
   
-  //MARK: - Life cycle
-  func onInit() {
-    setupViewOnInit()
-    setupDataOnInit()
+  //MARK: - Initial
+  required public init(collection: UICollectionView) {
+    super.init()
+    self.collection = collection
+    setupInit()
   }
   
-  func prepare() {
+  deinit {
+    setupDeinit()
+  }
+  
+  func setupInit() {
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
+  }
+  
+  func setupPrepare() {
     
   }
   
-  func prepareToDeinit() {
-    
-  }
-  
-  func onDeinit() {
+  func setupDeinit() {
     
   }
   
   
   
-  //MARK: - Setup View
-  func setupViewOnInit() {
+  //MARK: - LifeCycle
+  override func awakeFromNib() {
+    super.awakeFromNib()
     //MARK: Core
     
     
@@ -139,16 +150,18 @@ open class AGCA: NSObject {
     
     
     
+    //MARK: Data
   }
   
   
   
-  //MARK: - Setup Data
-  func setupDataOnInit() {
-    
-  }
   
-  func setupData(with viewModel: AGCAModel) {
+  //MARK: - SetupView
+  
+  
+  
+  //MARK: - SetupData
+  func setupData(with viewModel: AGCADisplayed?) {
     
   }
   
@@ -164,11 +177,11 @@ open class AGCA: NSObject {
   }
   
   func isSectionEmpty() -> Bool {
-    return viewModel.section.isEmpty
+    return displayedCA.sections.isEmpty
   }
   
   func isRowInSectionEmpty(with indexPath: IndexPath) -> Bool {
-    return viewModel.section[indexPath.section].items.isEmpty
+    return displayedCA.sections[indexPath.section].items.isEmpty
   }
   
   

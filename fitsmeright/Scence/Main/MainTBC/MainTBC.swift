@@ -15,9 +15,7 @@ import RAMAnimatedTabBarController
 
 extension MainTBC:
   UIBarPositioningDelegate,
-  UITabBarControllerDelegate,
-  AGVCInstantiatable,
-  Colorable
+  UITabBarControllerDelegate
 {
   
 }
@@ -28,8 +26,6 @@ extension MainTBC:
 class MainTBC: RAMAnimatedTabBarController {
   
   //MARK: - AGVCInstantiatable
-  static var sb_name: String = "MainTBC"
-  static var vc_name: String = "MainTBC"
   
   
   
@@ -131,9 +127,9 @@ class MainTBC: RAMAnimatedTabBarController {
     
     
     //MARK: UI
-    vc_01 = FeedVC.vc
-    vc_02 = ClosetCategoryVC.vc
-    vc_03 = ProfileVC.vc
+    vc_01 = FeedVC.vc()
+    vc_02 = ClosetCategoryVC.vc()
+    vc_03 = ProfileVC.vc()
     
     let nvc_01 = UINavigationController(rootViewController: vc_01)
     let nvc_02 = UINavigationController(rootViewController: vc_02)
@@ -203,7 +199,7 @@ class MainTBC: RAMAnimatedTabBarController {
 //    var shouldSelect: Bool = true
 //    switch viewController {
 //    case let vc where vc is BlankVC:
-//      let vc = PostCreateClosetVC.vc
+//      let vc = PostCreateClosetVC.vc()
 //      let nvc = UINavigationController(rootViewController: vc)
 //      present(nvc, animated: true, completion: nil)
 //      shouldSelect = false

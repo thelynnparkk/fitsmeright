@@ -8,11 +8,11 @@
 
 
 
-import UIKit
+import SwifterSwift
 
 
 
-class AGViewModel {
+class AGViewDisplayed {
   
 }
 
@@ -25,8 +25,7 @@ protocol AGViewDelegate: class {
 
 
 extension AGView:
-  LifeCyclable,
-  Colorable
+  Preparable
 {
   
 }
@@ -61,6 +60,11 @@ class AGView: UIView {
   
   
   //MARK: - Storage
+  var displayedView = AGViewDisplayed()
+  
+  
+  
+  //MARK: - Apperance
   
   
   
@@ -71,118 +75,93 @@ class AGView: UIView {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
-    onInit()
+    setupInit()
   }
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
-    
+    setupInit()
   }
   
   deinit {
-    onDeinit()
+    setupDeinit()
   }
   
-  
-  
-  //MARK: - Apperance
-  
-  
-  
-  //MARK: - Life cycle
-  func onInit() {
-    setupViewOnInit()
-    setupDataOnInit()
+  func setupInit() {
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
   }
   
-  func prepare() {
+  func setupPrepare() {
     
   }
   
-  func prepareToDeinit() {
+  func setupDeinit() {
     
   }
   
-  func onDeinit() {
-    
-  }
   
+  
+  //MARK: - LifeCycle
   override func awakeFromNib() {
     super.awakeFromNib()
-    setupViewOnAwakeFromNib()
-    setupDataOnAwakeFromNib()
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
   }
   
   override func layoutSubviews() {
     super.layoutSubviews()
-    setupViewOnLayoutSubviews()
   }
   
   
   
-  //MARK: - Setup View
-  func setupViewOnInit() {
-    //MARK: Core
-    
-    
-    
-    //MARK: Component
-    
-    
-    
-    //MARK: Other
-    
-    
-    
-    //MARK: Snp
-    
-    
-    
-    //MARK: Localize
-    
-    
-    
-  }
-  
-  func setupViewOnAwakeFromNib() {
-    //MARK: Core
-    
-    
-    
-    //MARK: Component
-    
-    
-    
-    //MARK: Other
-    
-    
-    
-    //MARK: Snp
-    
-    
-    
-    //MARK: Localize
-    
-    
-    
-  }
-  
-  func setupViewOnLayoutSubviews() {
+  //MARK: - SetupView
+  func setupViewByOrientation() {
     
   }
   
   
   
-  //MARK: - Setup Data
-  func setupDataOnInit() {
-    
-  }
-  
-  func setupDataOnAwakeFromNib() {
-    
-  }
-  
-  func setupData(with viewModel: AGViewModel) {
+  //MARK: - SetupData
+  func setupData(with displayed: AGViewDisplayed?) {
     
   }
   
@@ -197,9 +176,6 @@ class AGView: UIView {
     
   }
   
-  func setupViewByOrientation() {
-    
-  }
   
   
   

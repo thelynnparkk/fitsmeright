@@ -8,8 +8,7 @@
 
 
 
-import UIKit
-
+import SwifterSwift
 
 
 
@@ -21,7 +20,8 @@ extension TemplateVC
 
 
 class TemplateVC: AGVC {
-  //MARK: - AGVCInstantiatable
+  
+  //MARK: - Instantiatable
   
   
   
@@ -53,44 +53,58 @@ class TemplateVC: AGVC {
   
   
   
-  //MARK: - Initial
-  
-  
-  
   //MARK: - Apperance
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
+  }
+  
+  override var prefersStatusBarHidden: Bool {
+    return false
+  }
   
   
   
-  //MARK: - Life cycle
-  override func onInit() {
-    super.onInit()
+  //MARK: - Initial
+  override func setupInit() {
+    super.setupInit()
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
     
   }
   
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
+  override func setupDeinit() {
+    super.setupDeinit()
     
   }
   
-  override func prepare() {
-    super.prepare()
-    
-  }
   
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
   
+  //MARK: - LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-  }
-  
-  
-  
-  //MARK: - Setup View
-  override func setupViewOnViewDidLoad() {
     //MARK: Core
     
     
@@ -112,18 +126,16 @@ class TemplateVC: AGVC {
     
     
     
-  }
-  
-  override func setupViewOnDidLayoutSubviews() {
-    
+    //MARK: Data
   }
   
   
   
-  //MARK: - Setup Data
-  override func setupDataOnViewDidLoad() {
-    
-  }
+  //MARK: - SetupView
+  
+  
+  
+  //MARK: - SetupData
   
   
   
@@ -139,6 +151,10 @@ class TemplateVC: AGVC {
   
   
   //MARK: - Private
+  
+  
+  
+  //MARK: - VIP - UseCase
   
   
   

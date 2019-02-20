@@ -12,23 +12,14 @@ import UIKit
 
 
 
-class ClosetMenuViewUC: AGViewModel {
-  
-  class DisplayedMenu {
-    var title: String?
-    var image: UIImage?
-  }
-  
-  class ViewModel: AGViewModel {
-    var displayedMenu = DisplayedMenu()
-  }
-  
+class ClosetMenuViewDisplayed: AGViewDisplayed {
+  var title: String?
+  var image: UIImage?
 }
 
 
 
-extension ClosetMenuView:
-  AGViewInstantiatable
+extension ClosetMenuView
 {
   
 }
@@ -61,7 +52,7 @@ class ClosetMenuView: AGView {
   
   
   //MARK: - Constraint
-  typealias ViewModel =  ClosetMenuViewUC.ViewModel
+  typealias Displayed = ClosetMenuViewDisplayed
   
   
   
@@ -77,44 +68,51 @@ class ClosetMenuView: AGView {
   
   
   
-  //MARK: - Initial
-  
-  
-  
   //MARK: - Apperance
   
   
   
+  //MARK: - Initial
+  override func setupInit() {
+    super.setupInit()
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
+    
+  }
+  
+  override func setupDeinit() {
+    super.setupDeinit()
+    
+  }
+  
+  
+  
   //MARK: - Life cycle
-  override func onInit() {
-    loadContainerIntoView()
-    super.onInit()
-  }
-  
-  override func prepare() {
-    super.prepare()
-    
-  }
-  
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
-    
-  }
-  
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
-  
   override func awakeFromNib() {
-    loadContainerIntoView()
     super.awakeFromNib()
-    
-  }
-  
-  
-  //MARK: - Setup View
-  override func setupViewOnInit() {
     //MARK: Core
     backgroundColor = .clear
     layer.masksToBounds = true
@@ -145,28 +143,22 @@ class ClosetMenuView: AGView {
     setupLocalize()
     
     
-
-  }
-  
-  override func setupViewOnAwakeFromNib() {
-    setupViewOnInit()
-  }
-  
-  override func setupViewOnLayoutSubviews() {
     
+    //MARK: Data
   }
+  
+  
+  
+  //MARK: - Setup View
+  
   
   
   
   //MARK: - Setup Data
-  override func setupDataOnInit() {
-    
-  }
-  
-  override func setupData(with viewModel: AGViewModel) {
-    guard let vm = viewModel as? ViewModel else { return }
-    lb_title.text = vm.displayedMenu.title
-    imgv_icon.image = vm.displayedMenu.image
+  override func setupData(with displayed: AGViewDisplayed?) {
+    guard let displayed = displayed as? Displayed else { return }
+    lb_title.text = displayed.title
+    imgv_icon.image = displayed.image
     setupViewFrame()
     addShadow(ofColor: .black, radius: 8, offset: .less, opacity: 0.3)
   }

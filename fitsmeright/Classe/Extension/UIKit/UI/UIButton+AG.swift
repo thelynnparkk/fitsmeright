@@ -12,7 +12,7 @@ import UIKit
 
 
 
-extension UIButton: Colorable {
+extension UIButton {
   
   func setupDark() {
     setTitleColor(c_custom.peach, for: [])

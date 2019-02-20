@@ -8,7 +8,7 @@
 
 
 
-import UIKit
+import SwifterSwift
 import SnapKit
 import PopupDialog
 
@@ -16,17 +16,15 @@ import PopupDialog
 
 class PopupContainerVCUC {
   
-  class DisplayedContainer {
-    var injectedView: UIView?
-    var injectedViewHeight: CGFloat?
-    var tapDismissal = true
-    var tapGesture = true
-  }
-  
-  class ViewModel: PopupVCModel {
-    var displayedHeader = PopupHeaderViewUC.DisplayedHeader()
-    var displayedFooter = PopupFooterViewUC.DisplayedFooter()
-    var displayedContainer = DisplayedContainer()
+  class Setup {
+    class DisplayedSetupPopupContainer: PopupVCUC.Setup.DisplayedSetupPopup {
+      var injectedView: UIView?
+      var injectedViewHeight: CGFloat?
+    }
+    
+    class ViewModel: PopupVCUC.Setup.ViewModel {
+      
+    }
   }
   
 }
@@ -66,7 +64,10 @@ class PopupContainerVC: PopupVC {
   
   
   //MARK: - Constraint
-  typealias ViewModel = PopupContainerVCUC.ViewModel
+  typealias UC = PopupContainerVCUC
+  var displayedPopupContainer: UC.Setup.DisplayedSetupPopupContainer? {
+    return displayedSetup as? UC.Setup.DisplayedSetupPopupContainer
+  }
   
   
   
@@ -75,16 +76,10 @@ class PopupContainerVC: PopupVC {
   
   
   //MARK: - Flag
-  var flag_hideFooter = false
   
   
   
   //MARK: - Storage
-  var viewModel = PopupContainerVCUC.ViewModel()
-  
-  
-  
-  //MARK: - Initial
   
   
   
@@ -99,36 +94,47 @@ class PopupContainerVC: PopupVC {
   
   
   
-  //MARK: - Life cycle
-  override func onInit() {
-    super.onInit()
+  //MARK: - Initial
+  override func setupInit() {
+    super.setupInit()
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
     
   }
   
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
+  override func setupDeinit() {
+    super.setupDeinit()
     
   }
   
-  override func prepare() {
-    super.prepare()
-    
-  }
   
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
   
+  //MARK: - LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-  }
-  
-  
-  
-  //MARK: - Setup View
-  override func setupViewOnViewDidLoad() {
     //MARK: Core
     view.backgroundColor = .white
     
@@ -152,22 +158,21 @@ class PopupContainerVC: PopupVC {
     view.addSubview(v_container)
     v_container.addSubview(v_header)
     v_container.addSubview(stv_container)
-    if let v = viewModel.displayedContainer.injectedView {
+    if let v = displayedPopupContainer!.injectedView {
       stv_container.addArrangedSubview(v)
     }
     
-    if flag_hideFooter {
-      //      tapgr_container = UITapGestureRecognizer(target: self, action: #selector(okButtonPressed))
-      //      v_container.addGestureRecognizer(tapgr_container)
+    if displayedPopupContainer!.isHideFooter {
+      
     } else {
       v_container.addSubview(v_footer)
     }
     
-    if viewModel.displayedContainer.tapGesture {
-      tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTapGestureRecognized))
+    if displayedPopupContainer!.isTapContainerEnabled {
+      tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognized))
       view.addGestureRecognizer(tapGesture)
     }
-
+    
     
     
     //MARK: Component
@@ -185,11 +190,19 @@ class PopupContainerVC: PopupVC {
     
     v_header.snp.makeConstraints {
       $0.top.right.left.equalToSuperview()
-      $0.height.lessThanOrEqualTo(PopupHeaderView.Sizing.height(style: viewModel.displayedHeader.style))
+      $0.height.lessThanOrEqualTo(PopupHeaderView.Sizing.height(style: displayedPopupContainer!.displayedHeader.style))
     }
     
-    if !flag_hideFooter {
-      let offset = viewModel.displayedContainer.injectedView == nil ? -1 : 15
+    if displayedPopupContainer!.isHideFooter {
+      stv_container.snp.makeConstraints {
+        $0.top.equalTo(v_header.snp.bottom).offset(15)
+        $0.right.equalToSuperview().offset(-20)
+        $0.bottom.equalToSuperview().offset(-15)
+        $0.left.equalToSuperview().offset(20)
+        $0.height.lessThanOrEqualToSuperview().multipliedBy(0.5)
+      }
+    } else {
+      let offset = displayedPopupContainer!.injectedView == nil ? -1 : 15
       stv_container.snp.makeConstraints {
         $0.top.equalTo(v_header.snp.bottom).offset(offset)
         $0.right.equalToSuperview().offset(-20)
@@ -204,14 +217,6 @@ class PopupContainerVC: PopupVC {
         $0.left.equalToSuperview()
         $0.height.equalTo(45)
       }
-    } else {
-      stv_container.snp.makeConstraints {
-        $0.top.equalTo(v_header.snp.bottom).offset(15)
-        $0.right.equalToSuperview().offset(-20)
-        $0.bottom.equalToSuperview().offset(-15)
-        $0.left.equalToSuperview().offset(20)
-        $0.height.lessThanOrEqualToSuperview().multipliedBy(0.5)
-      }
     }
     
     
@@ -221,33 +226,27 @@ class PopupContainerVC: PopupVC {
     
     
     
+    //MARK: Data
+    v_header.setupData(with: displayedPopupContainer!.displayedHeader)
+    v_footer.setupData(with: displayedPopupContainer!.displayedFooter)
   }
   
-  override func setupViewOnDidLayoutSubviews() {
-    
-  }
+  
+  
+  //MARK: - SetupView
   
   
   
-  //MARK: - Setup Data
-  override func setupDataOnViewDidLoad() {
-    let vm_header = PopupHeaderViewUC.ViewModel()
-    vm_header.displayedHeader = viewModel.displayedHeader
-    let vm_footer = PopupFooterViewUC.ViewModel()
-    vm_footer.displayedFooter = viewModel.displayedFooter
-    v_header.setupData(with: vm_header)
-    v_footer.setupData(with: vm_footer)
-  }
-  
-  override func setupData(with viewModel: PopupVCModel) {
-    guard let vm = viewModel as? ViewModel else { return }
-    self.viewModel = vm
+  //MARK: - SetupData
+  override func setupData(with viewModel: AGVCUC.Setup.ViewModel) {
+    guard let vm = viewModel as? UC.Setup.ViewModel else { return }
+    displayedSetup = vm.displayedSetup
   }
   
   
   
   //MARK: - Event
-  @objc func onTapGestureRecognized(_ sender: UITapGestureRecognizer) {
+  @objc func tapGestureRecognized(_ sender: UITapGestureRecognizer) {
     cancelButtonPressed()
   }
   
@@ -274,21 +273,15 @@ class PopupContainerVC: PopupVC {
   
   //MARK: - Custom - AGViewDelegate
   func agViewPressed(_ view: AGView, action: Any, tag: Int) {
-    
-    func popupFooterView(action: PopupFooterView.Action) {
-      switch action {
-      case .cancel:
-        cancelButtonPressed()
-      case .ok:
-        okButtonPressed()
-      }
-      
-    }
-    
     switch view {
     case is PopupFooterView:
       if let action = action as? PopupFooterView.Action {
-        popupFooterView(action: action)
+        switch action {
+        case .cancel:
+          cancelButtonPressed()
+        case .ok:
+          okButtonPressed()
+        }
       }
     default:
       break

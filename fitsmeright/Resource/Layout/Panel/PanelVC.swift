@@ -8,7 +8,22 @@
 
 
 
-import UIKit
+import SwifterSwift
+
+
+
+class PanelVCUC {
+  
+  class Setup {
+    class DisplayedSetupPanel: AGVCUC.Setup.DisplayedSetup {
+      
+    }
+    class ViewModel: AGVCUC.Setup.ViewModel {
+      
+    }
+  }
+  
+}
 
 
 
@@ -58,44 +73,13 @@ class PanelVC: AGVC {
   
   
   
-  //MARK: - Initial
-  
-  
-  
   //MARK: - Apperance
   
   
   
-  //MARK: - Life cycle
-  override func onInit() {
-    super.onInit()
-    
-  }
-  
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
-    
-  }
-  
-  override func prepare() {
-    super.prepare()
-    
-  }
-  
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-  }
-  
-  
-  
-  //MARK: - Setup View
-  override func setupViewOnViewDidLoad() {
+  //MARK: - Initial
+  override func setupInit() {
+    super.setupInit()
     //MARK: Core
     
     
@@ -113,24 +97,58 @@ class PanelVC: AGVC {
     
     
     //MARK: Localize
-    setupLocalize()
     
     
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
     
   }
   
-  override func setupViewOnDidLayoutSubviews() {
+  override func setupDeinit() {
+    super.setupDeinit()
     
   }
   
   
   
-  //MARK: - Setup Data
-  override func setupDataOnViewDidLoad() {
+  //MARK: - LifeCycle
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    //MARK: Core
     
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
   }
   
-  func setupData(with viewModel: PanelVCModel) {
+  
+  
+  //MARK: - SetupView
+  
+  
+  
+  //MARK: - SetupData
+  override func setupData(with viewModel: AGVCUC.Setup.ViewModel) {
     
   }
   

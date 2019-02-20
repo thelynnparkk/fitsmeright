@@ -8,14 +8,14 @@
 
 
 
-import UIKit
+import SwifterSwift
 
 
 
-class AGCCModel {
-  
+class AGCCDisplayed {
+  var isAnimated: Bool = false
+  var isEnabled: Bool = true
 }
-
 
 
 
@@ -26,15 +26,14 @@ protocol AGCCDelegate: class {
 
 
 extension AGCC:
-  LifeCyclable,
-  Colorable
+  Preparable
 {
   
 }
 
 
 
-open class AGCC: UICollectionViewCell {
+class AGCC: UICollectionViewCell {
   
   //MARK: - Enum
   
@@ -62,55 +61,91 @@ open class AGCC: UICollectionViewCell {
   
   
   //MARK: - Storage
-  public var indexPath: IndexPath = IndexPath(row: 0, section: 0)
+  var displayedCC = AGCCDisplayed()
+  var indexPath: IndexPath = IndexPath(row: 0, section: 0)
+  
+  
+  
+  //MARK: - Apperance
+  override var isHighlighted: Bool {
+    didSet {
+      isHighlighted ? setupViewOnStateChange(.highlighted) : setupViewOnStateChange(.normal)
+    }
+  }
+  
+  override var isSelected: Bool {
+    didSet {
+      isSelected ? setupViewOnStateChange(.selected) : setupViewOnStateChange(.normal)
+    }
+  }
+  
+  override var isUserInteractionEnabled: Bool {
+    didSet {
+      isUserInteractionEnabled ? setupViewOnStateChange(.normal) : setupViewOnStateChange(.disabled)
+    }
+  }
   
   
   
   //MARK: - Initial
-  required public init?(coder aDecoder: NSCoder) {
+  required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     
   }
   
   deinit {
-    onDeinit()
+    setupDeinit()
   }
   
+  //MARK: - Initial
+  func setupInit() {
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
+  }
   
+  func setupPrepare() {
+    
+  }
   
-  //MARK: - Apperance
+  func setupDeinit() {
+    
+  }
+  
   
   
   
   //MARK: - LifeCycle
-  func onInit() {
-    
-  }
-  
-  func prepare() {
-    
-  }
-  
-  func prepareToDeinit() {
-    
-  }
-  
-  func onDeinit() {
-    
-  }
-  
-  open override func awakeFromNib() {
+  override func awakeFromNib() {
     super.awakeFromNib()
     setupViewOnAwakeFromNib()
     setupDataOnAwakeFromNib()
   }
   
-  open override func layoutSubviews() {
+  override func layoutSubviews() {
     super.layoutSubviews()
     setupViewOnLayoutSubviews()
   }
   
-  open override func prepareForReuse() {
+  override func prepareForReuse() {
     super.prepareForReuse()
     setupViewOnPrepareForReuse()
     setupDataOnPrepareForReuse()
@@ -142,6 +177,21 @@ open class AGCC: UICollectionViewCell {
     
   }
   
+  func setupViewOnStateChange(_ state: UIControl.State) {
+    switch state {
+    case .normal:
+      break
+    case .highlighted:
+      break
+    case .disabled:
+      break
+    case .selected:
+      break
+    default:
+      break
+    }
+  }
+  
   func setupViewOnLayoutSubviews() {
     
   }
@@ -161,8 +211,20 @@ open class AGCC: UICollectionViewCell {
     
   }
   
-  func setupData(with viewModel: AGCCModel) {
+  func setupData(with displayed: AGCCDisplayed?) {
     
+  }
+  
+  func displaySetupData(with displayed: AGCCDisplayed?, onPresented: @escaping CBVoid) {
+    DispatchQueue.main.async {
+      if let displayed = displayed, displayed.isAnimated {
+        UIView.animate(withDuration: 0.3) {
+          onPresented()
+        }
+      } else {
+        onPresented()
+      }
+    }
   }
   
   

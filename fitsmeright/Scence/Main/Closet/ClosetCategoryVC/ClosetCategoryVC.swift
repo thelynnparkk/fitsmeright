@@ -13,7 +13,6 @@ import UIKit
 
 
 extension ClosetCategoryVC:
-  AGVCInstantiatable,
   AGViewDelegate
 {
   
@@ -69,10 +68,6 @@ class ClosetCategoryVC: AGVC {
   
   
   
-  //MARK: - Initial
-  
-  
-  
   //MARK: - Apperance
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
@@ -84,36 +79,47 @@ class ClosetCategoryVC: AGVC {
   
   
   
-  //MARK: - Life cycle
-  override func onInit() {
-    super.onInit()
+  //MARK: - Initial
+  override func setupInit() {
+    super.setupInit()
+    //MARK: Core
     
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
   }
   
-  override func prepare() {
-    super.prepare()
+  override func setupPrepare() {
+    super.setupPrepare()
     v_closet.alpha = 0
   }
   
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
+  override func setupDeinit() {
+    super.setupDeinit()
     
   }
   
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
   
+  
+  //MARK: - LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-  }
-  
-  
-  
-  //MARK: - Setup View
-  override func setupViewOnViewDidLoad() {
     //MARK: Core
     view.backgroundColor = c_material.grey300
     //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
@@ -131,11 +137,12 @@ class ClosetCategoryVC: AGVC {
     v_bottom.delegate = self
     v_sock.delegate = self
     
-    v_state = StateView(viewModel: StateView.light, axis: .vertical)
+    v_state = StateView(axis: .vertical)
+    v_state.setupLight()
     v_state.delegate = self
     view.addSubview(v_state)
     
-    prepare()
+    setupPrepare()
     
     
     
@@ -158,18 +165,17 @@ class ClosetCategoryVC: AGVC {
     
     
     
+    //MARK: Data
+    observeClosetMenus()
   }
   
-  override func setupViewOnDidLayoutSubviews() {
-    
-  }
+  
+  
+  //MARK: - Setup View
   
   
   
   //MARK: - Setup Data
-  override func setupDataOnViewDidLoad() {
-    observeClosetMenus()
-  }
   
   
   
@@ -191,13 +197,11 @@ class ClosetCategoryVC: AGVC {
   
   //MARK: - VIP - ObserveClosetMenus
   func observeClosetMenus() {
-    
     func interactor() {
       v_state.setState(with: .loading, isAnimation: false)
       let fsUser = FMUserDefaults.FSUserDefault.get()!
       worker(userId: fsUser._documentId)
     }
-    
     func worker(userId: String) {
       FSClosetWorker.observeWhere(userId: userId) { [weak self] in
         guard let _s = self else { return }
@@ -210,7 +214,6 @@ class ClosetCategoryVC: AGVC {
         }
       }
     }
-    
     func present(_ response: [FSCloset]) {
       v_state.setState(with: .hidden)
       var closet_dress: [FSCloset] = []
@@ -244,33 +247,33 @@ class ClosetCategoryVC: AGVC {
           closet_sock.append(i)
         }
       }
-      let vm_dress = ClosetMenuViewUC.ViewModel()
-      vm_dress.displayedMenu.title = "\(closet_dress.count) \(ClosetCategory.dress.plural)"
-      vm_dress.displayedMenu.image = #imageLiteral(resourceName: "ic_closetmenu_dress").filled(withColor: c_custom.peach)
-      let vm_jacket = ClosetMenuViewUC.ViewModel()
-      vm_jacket.displayedMenu.title = "\(closet_jacket.count) \(ClosetCategory.jacket.plural)"
-      vm_jacket.displayedMenu.image = #imageLiteral(resourceName: "ic_closetmenu_jacket").filled(withColor: c_custom.peach)
-      let vm_hat = ClosetMenuViewUC.ViewModel()
-      vm_hat.displayedMenu.title = "\(closet_hat.count) \(ClosetCategory.hat.plural)"
-      vm_hat.displayedMenu.image = #imageLiteral(resourceName: "ic_closetmenu_hat").filled(withColor: c_custom.peach)
-      let vm_accessory = ClosetMenuViewUC.ViewModel()
-      vm_accessory.displayedMenu.title = "\(closet_accessory.count) \(ClosetCategory.accessory.plural)"
-      vm_accessory.displayedMenu.image = #imageLiteral(resourceName: "ic_closetmenu_accessory").filled(withColor: c_custom.peach)
-      let vm_bag = ClosetMenuViewUC.ViewModel()
-      vm_bag.displayedMenu.title = "\(closet_bag.count) \(ClosetCategory.bag.plural)"
-      vm_bag.displayedMenu.image = #imageLiteral(resourceName: "ic_closetmenu_bag").filled(withColor: c_custom.peach)
-      let vm_shoe = ClosetMenuViewUC.ViewModel()
-      vm_shoe.displayedMenu.title = "\(closet_shoe.count) \(ClosetCategory.shoe.plural)"
-      vm_shoe.displayedMenu.image = #imageLiteral(resourceName: "ic_closetmenu_shoe").filled(withColor: c_custom.peach)
-      let vm_top = ClosetMenuViewUC.ViewModel()
-      vm_top.displayedMenu.title = "\(closet_top.count) \(ClosetCategory.top.plural)"
-      vm_top.displayedMenu.image = #imageLiteral(resourceName: "ic_closetmenu_top").filled(withColor: c_custom.peach)
-      let vm_bottom = ClosetMenuViewUC.ViewModel()
-      vm_bottom.displayedMenu.title = "\(closet_bottom.count) \(ClosetCategory.bottom.plural)"
-      vm_bottom.displayedMenu.image = #imageLiteral(resourceName: "ic_closetmenu_bottom").filled(withColor: c_custom.peach)
-      let vm_sock = ClosetMenuViewUC.ViewModel()
-      vm_sock.displayedMenu.title = "\(closet_sock.count) \(ClosetCategory.sock.plural)"
-      vm_sock.displayedMenu.image =  #imageLiteral(resourceName: "ic_closetmenu_sock").filled(withColor: c_custom.peach)
+      let vm_dress = ClosetMenuViewDisplayed()
+      vm_dress.title = "\(closet_dress.count) \(ClosetCategory.dress.plural)"
+      vm_dress.image = ClosetCategory.dress.icon.filled(withColor: c_custom.peach)
+      let vm_jacket = ClosetMenuViewDisplayed()
+      vm_jacket.title = "\(closet_jacket.count) \(ClosetCategory.jacket.plural)"
+      vm_jacket.image = ClosetCategory.jacket.icon.filled(withColor: c_custom.peach)
+      let vm_hat = ClosetMenuViewDisplayed()
+      vm_hat.title = "\(closet_hat.count) \(ClosetCategory.hat.plural)"
+      vm_hat.image = #imageLiteral(resourceName: "ic_closetmenu_hat").filled(withColor: c_custom.peach)
+      let vm_accessory = ClosetMenuViewDisplayed()
+      vm_accessory.title = "\(closet_accessory.count) \(ClosetCategory.accessory.plural)"
+      vm_accessory.image = #imageLiteral(resourceName: "ic_closetmenu_accessory").filled(withColor: c_custom.peach)
+      let vm_bag = ClosetMenuViewDisplayed()
+      vm_bag.title = "\(closet_bag.count) \(ClosetCategory.bag.plural)"
+      vm_bag.image = #imageLiteral(resourceName: "ic_closetmenu_bag").filled(withColor: c_custom.peach)
+      let vm_shoe = ClosetMenuViewDisplayed()
+      vm_shoe.title = "\(closet_shoe.count) \(ClosetCategory.shoe.plural)"
+      vm_shoe.image = #imageLiteral(resourceName: "ic_closetmenu_shoe").filled(withColor: c_custom.peach)
+      let vm_top = ClosetMenuViewDisplayed()
+      vm_top.title = "\(closet_top.count) \(ClosetCategory.top.plural)"
+      vm_top.image = ClosetCategory.top.icon.filled(withColor: c_custom.peach)
+      let vm_bottom = ClosetMenuViewDisplayed()
+      vm_bottom.title = "\(closet_bottom.count) \(ClosetCategory.bottom.plural)"
+      vm_bottom.image = ClosetCategory.bottom.icon.filled(withColor: c_custom.peach)
+      let vm_sock = ClosetMenuViewDisplayed()
+      vm_sock.title = "\(closet_sock.count) \(ClosetCategory.sock.plural)"
+      vm_sock.image =  ClosetCategory.sock.icon.filled(withColor: c_custom.peach)
       
       v_dress.setupData(with: vm_dress)
       v_jacket.setupData(with: vm_jacket)
@@ -283,15 +286,12 @@ class ClosetCategoryVC: AGVC {
       v_sock.setupData(with: vm_sock)
       v_closet.fadeIn(duration: 0.3, completion: nil)
     }
-    
     func presentError(_ error: Error) {
       present([])
       v_state.setState(with: .error, isAnimation: false)
       print(error.localizedDescription)
     }
-    
     interactor()
-    
   }
   
   
@@ -342,7 +342,7 @@ class ClosetCategoryVC: AGVC {
       default:
         return
       }
-      let vc = ClosetListVC.vc
+      let vc = ClosetListVC.vc()
       vc.fsClosets = fsClosets.filter({ $0.closetCategory == category })
       vc.closetCategory = category
       navigationController?.pushViewController(vc)

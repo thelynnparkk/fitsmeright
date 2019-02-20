@@ -8,18 +8,20 @@
 
 
 
-import UIKit
+import SwifterSwift
+
+
+
 import PopupDialog
 
 
 
 protocol PopupDialogable {
-  
-  func displayPopupContainer(_ viewModel: PopupContainerVCUC.ViewModel,
+  func displayPopupContainer(_ viewModel: PopupContainerVCUC.Setup.ViewModel,
                              priority: PopupManager.Priority,
                              on: UIViewController?,
                              onComplete: CBBool?)
-  func displayPopupList(_ viewModel: PopupListVCUC.ViewModel,
+  func displayPopupList(_ viewModel: PopupListVCUC.Setup.ViewModel,
                         priority: PopupManager.Priority,
                         on: UIViewController?,
                         onComplete: CBBoolIndexPath?)
@@ -30,7 +32,7 @@ protocol PopupDialogable {
 extension PopupDialogable {
   
   
-  //MARK: - Implements
+  //MARK: - Implement
   
   
   

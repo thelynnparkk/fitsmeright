@@ -8,7 +8,7 @@
 
 
 
-import Foundation
+import SwifterSwift
 
 
 
@@ -101,6 +101,31 @@ enum ClosetCategory: Int {
       plural = "socks"
     }
     return plural
+  }
+  
+  var icon: UIImage {
+    var icon: UIImage = UIImage()
+    switch self {
+    case .dress:
+      icon = #imageLiteral(resourceName: "ic_closetmenu_dress")
+    case .jacket:
+      icon = #imageLiteral(resourceName: "ic_closetmenu_jacket")
+    case .hat:
+      icon = #imageLiteral(resourceName: "ic_closetmenu_hat")
+    case .accessory:
+      icon = #imageLiteral(resourceName: "ic_closetmenu_accessory")
+    case .bag:
+      icon = #imageLiteral(resourceName: "ic_closetmenu_bag")
+    case .shoe:
+      icon = #imageLiteral(resourceName: "ic_closetmenu_shoe")
+    case .top:
+      icon = #imageLiteral(resourceName: "ic_closetmenu_top")
+    case .bottom:
+      icon = #imageLiteral(resourceName: "ic_closetmenu_bottom")
+    case .sock:
+      icon = #imageLiteral(resourceName: "ic_closetmenu_sock")
+    }
+    return icon
   }
   
 

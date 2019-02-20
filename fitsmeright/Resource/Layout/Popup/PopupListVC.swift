@@ -8,7 +8,7 @@
 
 
 
-import UIKit
+import SwifterSwift
 import SnapKit
 import PopupDialog
 
@@ -16,18 +16,14 @@ import PopupDialog
 
 class PopupListVCUC {
   
-  class DisplayedList {
-    var viewModel: AGCAModel!
-    var adapter: AGCA.Type!
-    var tapDismissal = true
-    var tapGesture = false
-    var isHideFooter = false
-  }
-  
-  class ViewModel: PopupVCModel {
-    var displayedHeader = PopupHeaderViewUC.DisplayedHeader()
-    var displayedFooter = PopupFooterViewUC.DisplayedFooter()
-    var displayedList = DisplayedList()
+  class Setup {
+    class DisplayedSetupPopupList: PopupVCUC.Setup.DisplayedSetupPopup {
+      var viewModel: AGCADisplayed!
+      var adapter: AGCA.Type!
+    }
+    class ViewModel: PopupVCUC.Setup.ViewModel {
+      
+    }
   }
   
 }
@@ -35,6 +31,7 @@ class PopupListVCUC {
 
 
 extension PopupListVC:
+  UIGestureRecognizerDelegate,
   AGViewDelegate,
   AGCADelegate
 {
@@ -68,7 +65,10 @@ class PopupListVC: PopupVC {
   
   
   //MARK: - Constraint
-  typealias ViewModel = PopupListVCUC.ViewModel
+  typealias UC = PopupListVCUC
+  var displayedSetPopupList: UC.Setup.DisplayedSetupPopupList? {
+    return displayedSetup as? UC.Setup.DisplayedSetupPopupList
+  }
   var con_heightMax: CGFloat {
     return (UIScreen.main.bounds.size.height * CGFloat(0.5))
   }
@@ -84,12 +84,7 @@ class PopupListVC: PopupVC {
   
   
   //MARK: - Storage
-  var viewModel = PopupListVCUC.ViewModel()
   var indexPathSeleted: IndexPath?
-  
-  
-  
-  //MARK: - Initial
   
   
   
@@ -104,36 +99,47 @@ class PopupListVC: PopupVC {
   
   
   
-  //MARK: - Life cycle
-  override func onInit() {
-    super.onInit()
+  //MARK: - Initial
+  override func setupInit() {
+    super.setupInit()
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
     
   }
   
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
+  override func setupDeinit() {
+    super.setupDeinit()
     
   }
   
-  override func prepare() {
-    super.prepare()
-    
-  }
   
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
   
+  //MARK: - LifeCycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-  }
-  
-  
-  
-  //MARK: - Setup View
-  override func setupViewOnViewDidLoad() {
     //MARK: Core
     view.backgroundColor = .white
     
@@ -144,7 +150,7 @@ class PopupListVC: PopupVC {
     v_header.backgroundColor = .clear
     
     collection = ControlContainableCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    adpater = viewModel.displayedList.adapter!.init(collection: collection)
+    adpater = displayedSetPopupList!.adapter!.init(collection: collection)
     adpater.delegate = self
     
     v_footer = PopupFooterView()
@@ -155,15 +161,15 @@ class PopupListVC: PopupVC {
     v_container.addSubview(v_header)
     v_container.addSubview(collection)
     
-    if viewModel.displayedList.isHideFooter {
-//      tapgr_container = UITapGestureRecognizer(target: self, action: #selector(okButtonPressed))
-//      v_container.addGestureRecognizer(tapgr_container)
+    if displayedSetPopupList!.isHideFooter {
+      
     } else {
       v_container.addSubview(v_footer)
     }
     
-    if viewModel.displayedList.tapGesture {
-      tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTapGestureRecognized))
+    if displayedSetPopupList!.isTapContainerEnabled {
+      tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognized))
+      tapGesture.delegate = self
       tapGesture.cancelsTouchesInView = false
       view.addGestureRecognizer(tapGesture)
     }
@@ -185,10 +191,10 @@ class PopupListVC: PopupVC {
     
     v_header.snp.makeConstraints {
       $0.top.right.left.equalToSuperview()
-      $0.height.lessThanOrEqualTo(PopupHeaderView.Sizing.height(style: viewModel.displayedHeader.style))
+      $0.height.lessThanOrEqualTo(PopupHeaderView.Sizing.height(style: displayedSetPopupList!.displayedHeader.style))
     }
     
-    if viewModel.displayedList.isHideFooter {
+    if displayedSetPopupList!.isHideFooter {
       collection.snp.makeConstraints { [weak self] in
         guard let _s = self else { return }
         $0.top.equalTo(v_header.snp.bottom)
@@ -223,28 +229,26 @@ class PopupListVC: PopupVC {
     
     
     
-  }
-  
-  override func setupViewOnDidLayoutSubviews() {
-    
-  }
-  
-  
-  
-  //MARK: - Setup Data
-  override func setupDataOnViewDidLoad() {
+    //MARK: Data
     fetchList()
   }
   
-  override func setupData(with viewModel: PopupVCModel) {
-    guard let vm = viewModel as? ViewModel else { return }
-    self.viewModel = vm
+  
+  
+  //MARK: - SetupView
+  
+  
+  
+  //MARK: - SetupData
+  override func setupData(with viewModel: AGVCUC.Setup.ViewModel?) {
+    guard let vm = viewModel else { return }
+    displayedSetup = vm.displayedSetup
   }
   
   
   
   //MARK: - Event
-  @objc func onTapGestureRecognized(_ sender: UITapGestureRecognizer) {
+  @objc func tapGestureRecognized(_ sender: UITapGestureRecognizer) {
     cancelButtonPressed()
   }
   
@@ -276,13 +280,9 @@ class PopupListVC: PopupVC {
       DispatchQueue.main.async { [weak self] in
         guard let _s = self else { return }
         _s.view.setupViewFrame()
-        let vm_header = PopupHeaderViewUC.ViewModel()
-        vm_header.displayedHeader = _s.viewModel.displayedHeader
-        let vm_footer = PopupFooterViewUC.ViewModel()
-        vm_footer.displayedFooter = _s.viewModel.displayedFooter
-        _s.v_header.setupData(with: vm_header)
-        _s.v_footer.setupData(with: vm_footer)
-        _s.adpater.setupData(with: _s.viewModel.displayedList.viewModel)
+        _s.v_header.setupData(with: _s.displayedSetPopupList!.displayedHeader)
+        _s.v_footer.setupData(with: _s.displayedSetPopupList!.displayedFooter)
+        _s.adpater.setupData(with: _s.displayedSetPopupList!.viewModel)
         if _s.adpater.isSectionEmpty() {
           _s.con_collectionHeight.update(offset: 0)
         } else {
@@ -302,7 +302,11 @@ class PopupListVC: PopupVC {
   
   
   
-  //MARK: - Core - Protocol
+  //MARK: - Core - UIGestureRecognizerDelegate
+  func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+    guard let view = touch.view else { return false }
+    return !view.isDescendant(of: collection)
+  }
   
   
   

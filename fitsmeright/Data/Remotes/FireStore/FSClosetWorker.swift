@@ -34,11 +34,16 @@ class FSClosetWorker {
   }
   
   typealias FetchWhereResponse = (data: [FSCloset], error: Error?)
-  static func fetchWhere(userId: String, onComplete: @escaping ((FetchResponse) -> ())) {
+  static func fetchWhere(userId: String?, category: Int? = nil, onComplete: @escaping ((FetchResponse) -> ())) {
     var response: FetchResponse = ([], nil)
     let db = Firestore.default
     let collection_closets = db.collection(FSCloset.collection)
-    collection_closets.whereField(FSCloset.CodingKeys.userId.rawValue, isEqualTo: userId)
+    if let userId = userId {
+      collection_closets.whereField(FSCloset.CodingKeys.userId.rawValue, isEqualTo: userId)
+    }
+    if let category = category {
+      collection_closets.whereField(FSCloset.CodingKeys.category.rawValue, isEqualTo: category)
+    }
     collection_closets.order(by: FSCloset.CodingKeys.updatedAt.rawValue, descending: false)
     collection_closets.getDocuments { (snapshot, error) in
       switch error {

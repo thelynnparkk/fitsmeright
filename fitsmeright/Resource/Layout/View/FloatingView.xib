@@ -11,8 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FloatingView" customModule="fitsmeright" customModuleProvider="target">
             <connections>
-                <outlet property="imgv_icon" destination="5x2-r8-CfL" id="lrZ-ZZ-6WS"/>
-                <outlet property="view" destination="bEf-PV-GUt" id="igM-mK-vns"/>
+                <outlet property="imgv_icon" destination="5x2-r8-CfL" id="OL1-g7-MRT"/>
+                <outlet property="view" destination="bEf-PV-GUt" id="bQD-9o-Sxn"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

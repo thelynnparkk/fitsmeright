@@ -8,30 +8,16 @@
 
 
 
-import UIKit
+import SwifterSwift
 
 
 
-class LabelCCUC {
-  
-  enum Style {
-    case normal
-    case disable
-    case negative
-    case positive
-  }
-  
-  class DisplayedLabel {
-    var title: String = ""
-    var subtitle: String?
-    var weight: UIFont.Weight = .regular
-    var style: Style = .normal
-  }
-  
-  class ViewModel: AGCCModel {
-    var displayedLabel = DisplayedLabel()
-  }
-  
+class LabelCCDisplayed: AGCCDisplayed {
+  var title: String = ""
+  var subtitle: String?
+  var weight: UIFont.Weight = .regular
+  var style: LabelCC.Style = .normal
+  var isLastRow: Bool = false
 }
 
 
@@ -46,7 +32,7 @@ extension LabelCC
 class LabelCC: AGCC {
   
   //MARK: - Enum
-  enum Sizing {
+  enum Sizing: Sizeable {
     
     static func size(with bound: CGRect = .zero,
                      customItemSpace: CGFloat? = nil,
@@ -69,20 +55,26 @@ class LabelCC: AGCC {
       if let custom = custom {
         return custom
       }
-      return 5
+      return 0
     }
     
     static func inset(with bound: CGRect = .zero, custom: UIEdgeInsets? = nil) -> UIEdgeInsets {
       if let custom = custom {
         return custom
       }
-      return UIEdgeInsets(inset: 5)
+      return UIEdgeInsets(inset: 0)
     }
     
     static func offset(with bound: CGRect = .zero) -> CGPoint {
       return .zero
     }
     
+  }
+  
+  enum Style {
+    case normal
+    case negative
+    case positive
   }
   
   
@@ -101,7 +93,10 @@ class LabelCC: AGCC {
   
   
   //MARK: - Constraint
-  typealias ViewModel = LabelCCUC.ViewModel
+  typealias Displayed = LabelCCDisplayed
+  var displayedCCLabel: Displayed? {
+    return displayedCC as? Displayed
+  }
   
   
   
@@ -117,31 +112,49 @@ class LabelCC: AGCC {
   
   
   
-  //MARK: - Initial
-  
-  
-  
   //MARK: - Apperance
   
   
   
+  //MARK: - Initial
+  override func setupInit() {
+    super.setupInit()
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
+    
+  }
+  
+  override func setupDeinit() {
+    super.setupDeinit()
+    
+  }
+  
+  
+  
   //MARK: - LifeCycle
-  override func onInit() {
-    
-  }
-  
-  override func prepare() {
-    
-  }
-  
-  override func prepareToDeinit() {
-    
-  }
-  
-  override func onDeinit() {
-    
-  }
-  
   override func awakeFromNib() {
     super.awakeFromNib()
     
@@ -188,6 +201,27 @@ class LabelCC: AGCC {
     
   }
   
+  override func setupViewOnStateChange(_ state: UIControl.State) {
+    if let displayed = displayedCCLabel {
+      setupViewLabelStyle(with: displayed.style)
+    }
+    switch state {
+    case .normal:
+      break
+    case .highlighted:
+      v_container.backgroundColor = c_material.grey100
+    case .disabled:
+      lb_title.textColor = .white
+      lb_subtitle.textColor = .white
+      v_container.backgroundColor = c_material.grey300
+    case .selected:
+      v_container.backgroundColor = c_material.grey100
+    default:
+      break
+    }
+  }
+  
+  
   override func setupViewOnLayoutSubviews() {
     
   }
@@ -204,33 +238,44 @@ class LabelCC: AGCC {
   }
   
   override func setupDataOnPrepareForReuse() {
+    setupData(with: Displayed())
+  }
+  
+  override func setupData(with displayed: AGCCDisplayed?) {
+    
+    func present() {
+      if let displayed = displayed as? Displayed {
+        self.displayedCC = displayed
+        lb_title.text = displayed.title
+        lb_subtitle.text = displayed.subtitle
+        lb_title.font = UIFont.systemFont(ofSize: 14, weight: displayed.weight)
+        lb_subtitle.font = UIFont.systemFont(ofSize: 11, weight: displayed.weight)
+        isUserInteractionEnabled = displayed.isEnabled
+        v_seperator.isHidden = displayed.isLastRow
+      } else {
+        lb_title.text = ""
+        lb_subtitle.text = ""
+      }
+    }
+    
+    displaySetupData(with: displayed, onPresented: present)
     
   }
   
-  override func setupData(with viewModel: AGCCModel) {
-    guard let vm = viewModel as? ViewModel else { return }
-    lb_title.text = vm.displayedLabel.title
-    lb_subtitle.text = vm.displayedLabel.subtitle
-    lb_title.font = UIFont.systemFont(ofSize: 14, weight: vm.displayedLabel.weight)
-    lb_subtitle.font = UIFont.systemFont(ofSize: 11, weight: vm.displayedLabel.weight)
-    switch vm.displayedLabel.style {
+  func setupViewLabelStyle(with style: Style) {
+    switch style {
     case .normal:
       lb_title.textColor = c_material.grey500
       lb_subtitle.textColor = c_material.grey400
-      backgroundColor = .white
-    case .disable:
-      isUserInteractionEnabled = false
-      lb_title.textColor = .white
-      lb_subtitle.textColor = .white
-      backgroundColor = c_material.grey300
+      v_container.backgroundColor = .white
     case .negative:
       lb_title.textColor = c_material.red
       lb_subtitle.textColor = c_material.grey300
-      backgroundColor = c_material.grey300
+      v_container.backgroundColor = .white
     case .positive:
-      lb_title.textColor = c_custom.peach
+      lb_title.textColor = .red
       lb_subtitle.textColor = c_material.grey300
-      backgroundColor = c_material.grey300
+      v_container.backgroundColor = .white
     }
   }
   

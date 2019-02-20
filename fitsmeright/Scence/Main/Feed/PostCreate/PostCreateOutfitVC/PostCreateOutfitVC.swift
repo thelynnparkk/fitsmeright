@@ -13,9 +13,9 @@ import SwifterSwift
 
 
 extension PostCreateOutfitVC:
-  AGVCInstantiatable,
   AGVCDelegate,
-  AGViewDelegate
+  AGViewDelegate,
+  AGCADelegate
 {
   
 }
@@ -44,6 +44,7 @@ class PostCreateOutfitVC: AGVC {
   
   @IBOutlet weak var v_itemSection: UIView!
   @IBOutlet weak var collection_item: UICollectionView!
+  var adapter_item: OutfitItemCA!
   
   
   
@@ -64,13 +65,11 @@ class PostCreateOutfitVC: AGVC {
   
   
   //MARK: - Storage
+  var closetCategoryListSelected: [ClosetCategory] = []
+  var fsClosets: [FSCloset] = []
   
   
-  
-  //MARK: - Initial
-  
-  
-  
+
   //MARK: - Apperance
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .default
@@ -82,42 +81,54 @@ class PostCreateOutfitVC: AGVC {
   
   
   
+  //MARK: - Initial
+  override func setupInit() {
+    super.setupInit()
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
+    
+  }
+  
+  override func setupDeinit() {
+    super.setupDeinit()
+    
+  }
+  
+  
+  
+  
   //MARK: - Life cycle
-  override func onInit() {
-    super.onInit()
-    
-  }
-  
-  override func prepare() {
-    super.prepare()
-    
-  }
-  
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
-    
-  }
-  
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
-  
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-  }
-  
-  
-  
-  //MARK: - Setup View
-  override func setupViewOnViewDidLoad() {
     //MARK: Core
     view.backgroundColor = c_material.grey300
     nb?.setupWith(content: c_custom.peach, bg: .white, isTranslucent: false)
-
-
-
+    
+    
+    
     //MARK: Component
     view.setupViewFrame()
     bbi_close = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(dismissButtonPressed))
@@ -125,7 +136,7 @@ class PostCreateOutfitVC: AGVC {
     bbi_post = UIBarButtonItem(title: "Post", style: .plain, target: self, action: #selector(postButtonPressed))
     bbi_post.isEnabled = false
     ni.rightBarButtonItems = [bbi_post]
-
+    
     v_outfit.addShadow(ofColor: .black, radius: 8, offset: .less, opacity: 0.3)
     imgv_outfit.layer.cornerRadius = 8
     imgv_outfit.contentMode = .scaleAspectFill
@@ -134,9 +145,13 @@ class PostCreateOutfitVC: AGVC {
     btn_clearOutfit.layer.cornerRadius = btn_clearOutfit.bounds.width / 2
     btn_clearOutfit.addTarget(self, action: #selector(clearOutfitButtonPressed), for: .touchUpInside)
     
+    adapter_item = OutfitItemCA(collection: collection_item)
+    adapter_item.delegate = self
+    
     vc_panelVC = PanelListVC()
     
-    v_state = StateView(viewModel: StateView.light, axis: .vertical)
+    v_state = StateView(axis: .vertical)
+    v_state.setupLight()
     v_state.delegate = self
     view.addSubview(v_state)
     
@@ -162,12 +177,14 @@ class PostCreateOutfitVC: AGVC {
     
     
     
+    //MARK: Data
+    v_itemSection.isHidden = true
   }
   
-  override func setupViewOnDidLayoutSubviews() {
-    
-  }
   
+  
+  //MARK: - Setup View
+ 
   func setupClearOutfit() {
     imgv_outfit.image = UIImage(color: c_material.grey200, size: .less)
     btn_clearOutfit.isHidden = true
@@ -176,16 +193,13 @@ class PostCreateOutfitVC: AGVC {
   
   
   //MARK: - Setup Data
-  override func setupDataOnViewDidLoad() {
-    v_itemSection.isHidden = true
-  }
   
   
   
   //MARK: - Event
   @objc
   func postButtonPressed(_ sender: UIBarButtonItem) {
-    fetchPost()
+    
   }
   
   @objc
@@ -195,6 +209,7 @@ class PostCreateOutfitVC: AGVC {
   
   @objc
   func clearOutfitButtonPressed(_ sender: UIButton) {
+    btn_outfit.isUserInteractionEnabled = true
     setupClearOutfit()
   }
   
@@ -212,23 +227,55 @@ class PostCreateOutfitVC: AGVC {
   
   
   //MARK: - VIP - FetchPost
-  func fetchPost() {
-    
+  func fetchClosetCategory(category: Int) {
     func interactor() {
       v_state.setState(with: .loading, isAnimation: false)
-      worker()
+      let fsUser = FMUserDefaults.FSUserDefault.get()!
+      worker(userId: fsUser._documentId)
     }
-    
-    func worker() {
-      presenter()
+    func worker(userId: String) {
+      FSClosetWorker.fetchWhere(userId: userId, category: category) { [weak self] in
+        guard let _s = self else { return }
+        switch $0.error {
+        case .none:
+          _s.fsClosets = $0.data
+          present($0.data)
+        case let .some(e):
+          presentError(e)
+        }
+      }
     }
-    
-    func presenter() {
+    func present(_ response: [FSCloset]) {
       v_state.setState(with: .hidden)
+      let displayed_ca = ImageCADisplayed()
+      let displayed_cc: [AGCCDisplayed] = response.map({ $0.imageURL }).compactMap({
+        let displayed = ImageCCDisplayed()
+        displayed.imageURL = $0
+        return displayed
+      })
+      let displayed_footer = LabelCRVDisplayed()
+      displayed_footer.title = "\(displayed_cc.count) items"
+      let section = AGCADisplayed.Section()
+      section.footer = displayed_footer
+      section.items = displayed_cc
+      displayed_ca.sections = [section]
+      vc_panelVC = PanelListVC()
+      let displayed = PanelListVCUC.Setup.DisplayedSetupPanelList()
+      displayed.viewModel = displayed_ca
+      displayed.adapter = ImageCA.self
+      let vm = PanelListVCUC.Setup.ViewModel()
+      vm.displayedSetup = displayed
+      vc_panelVC.setupData(with: vm)
+      vc_panelVC.delegate_agvc = self
+      addPanelVC()
+      
     }
-    
+    func presentError(_ error: Error) {
+      present([])
+      v_state.setState(with: .error, isAnimation: false)
+      print(error.localizedDescription)
+    }
     interactor()
-    
   }
   
   
@@ -268,10 +315,22 @@ class PostCreateOutfitVC: AGVC {
     case is PostCreateTagVC:
       if let action = action as? PostCreateTagVC.Action {
         switch action {
-        case .images(_):
+        case let .closetCategorys(list):
           dismiss(animated: true) {
-            DispatchQueue.main.async {
-              
+            DispatchQueue.main.async { [weak self] in
+              guard let _s = self else { return }
+              _s.btn_outfit.isUserInteractionEnabled = false
+              _s.v_itemSection.isHidden = false
+              _s.closetCategoryListSelected = list
+              let section = OutfitItemCADisplayed.Section()
+              section.items = list.map({
+                let displayed = OutfitItemCCDisplayed()
+                displayed.icon = $0.icon.filled(withColor: _s.c_custom.peach)
+                return displayed
+              })
+              let displayed = OutfitItemCADisplayed()
+              displayed.sections = [section]
+              _s.adapter_item.setupData(with: displayed)
             }
           }
         }
@@ -290,6 +349,14 @@ class PostCreateOutfitVC: AGVC {
   
   
   
+  //MARK: - Custom - AGCADelegate
+  func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
+    let closetCategory = closetCategoryListSelected[indexPath.row]
+    fetchClosetCategory(category: closetCategory.rawValue)
+  }
+  
+  
+  
   //MARK: - Custom - ViewIPCDelegate
   func didFinishPickingMedia(_ picker: UIImagePickerController, image: UIImage) {
     picker.dismiss(animated: true, completion: nil)
@@ -298,11 +365,11 @@ class PostCreateOutfitVC: AGVC {
     imgv_outfit.image = image
     DispatchQueue.main.async { [weak self] in
       guard let _s = self else { return }
-      let vc = PostCreateTagVC.vc
+      let vc = PostCreateTagVC.vc()
       vc.delegate_agvc = self
       vc.img_outfitSelected = _s.imgv_outfit.image
       let nvc = UINavigationController(rootViewController: vc)
-      _s.present(nvc)
+      _s.present(vc: nvc)
     }
   }
   

@@ -12,25 +12,16 @@ import UIKit
 
 
 
-class ClosetFormViewUC {
-  
-  class DisplayedForm {
-    var key: String?
-    var value: String?
-    var placeHolder: String?
-    var isEditable: Bool = true
-  }
-  
-  class ViewModel: AGViewModel {
-    var displayedForm = DisplayedForm()
-  }
-  
+class ClosetFormViewDisplayed: AGViewDisplayed {
+  var key: String?
+  var value: String?
+  var placeHolder: String?
+  var isEditable: Bool = true
 }
 
 
 
-extension ClosetFormView:
-  AGViewInstantiatable
+extension ClosetFormView
 {
   
 }
@@ -63,7 +54,7 @@ class ClosetFormView: AGView {
   
   
   //MARK: - Constraint
-  typealias ViewModel = ClosetFormViewUC.ViewModel
+  typealias Displayed = ClosetFormViewDisplayed
   
   
   
@@ -88,35 +79,46 @@ class ClosetFormView: AGView {
   
   
   //MARK: - Life cycle
-  override func onInit() {
-    loadContainerIntoView()
-    super.onInit()
+  override func setupInit() {
+    super.setupInit()
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
+    
+    
+    
+    //MARK: Data
   }
   
-  override func prepare() {
-    super.prepare()
+  override func setupPrepare() {
+    super.setupPrepare()
     
   }
   
-  override func prepareToDeinit() {
-    super.prepareToDeinit()
+  override func setupDeinit() {
+    super.setupDeinit()
     
   }
   
-  override func onDeinit() {
-    super.onDeinit()
-    
-  }
   
+  
+  //MARK: - LifeCycle
   override func awakeFromNib() {
-    loadContainerIntoView()
     super.awakeFromNib()
-    
-  }
-  
-  
-  //MARK: - Setup View
-  override func setupViewOnInit() {
     //MARK: Core
     backgroundColor = .clear
     
@@ -146,58 +148,25 @@ class ClosetFormView: AGView {
     
     
     
-  }
-  
-  override func setupViewOnAwakeFromNib() {
-    //MARK: Core
-    backgroundColor = .clear
     
-    
-    
-    //MARK: Component
-    view.backgroundColor = .white
-    v_seperator.backgroundColor = c_material.grey300
-    lb_key.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-    txt_value.textAlignment = .right
-    txt_value.borderStyle = .none
-    txt_value.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-    
-    
-    
-    //MARK: Other
-    
-    
-    
-    //MARK: Snp
-    
-    
-    
-    //MARK: Localize
-    setupLocalize()
-    
-    
-    
-  }
-  
-  override func setupViewOnLayoutSubviews() {
-    
+    //MARK: Data
   }
   
   
   
-  //MARK: - Setup Data
-  override func setupDataOnInit() {
-    
-  }
+  //MARK: - SetupView
   
-  override func setupData(with viewModel: AGViewModel) {
-    guard let vm = viewModel as? ViewModel else { return }
+  
+  
+  //MARK: - SetupData
+  override func setupData(with displayed: AGViewDisplayed?) {
+    guard let displayed = displayed as? Displayed else { return }
     setupViewFrame()
-    lb_key.text = vm.displayedForm.key
-    txt_value.text = vm.displayedForm.value
-    txt_value.placeholder = vm.displayedForm.placeHolder
-    txt_value.isUserInteractionEnabled = vm.displayedForm.isEditable
-    txt_value.borderStyle = vm.displayedForm.isEditable ? .roundedRect : .none
+    lb_key.text = displayed.key
+    txt_value.text = displayed.value
+    txt_value.placeholder = displayed.placeHolder
+    txt_value.isUserInteractionEnabled = displayed.isEditable
+    txt_value.borderStyle = displayed.isEditable ? .roundedRect : .none
   }
   
   

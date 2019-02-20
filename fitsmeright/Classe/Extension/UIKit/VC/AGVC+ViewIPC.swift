@@ -8,7 +8,7 @@
 
 
 
-import UIKit
+import SwifterSwift
 import MobileCoreServices
 import Photos
 
@@ -44,23 +44,23 @@ extension AGVC: ViewIPCDelegate {
   
   
   
-  //MARK: - Initial
-  
-  
-  
   //MARK: - Apperance
   
   
   
-  //MARK: - Life cycle
+  //MARK: - Initial
   
   
   
-  //MARK: - Setup View
+  //MARK: - LifeCycle
   
   
   
-  //MARK: - Setup Data
+  //MARK: - SetupView
+  
+  
+  
+  //MARK: - SetupData
   
   
   
@@ -69,47 +69,37 @@ extension AGVC: ViewIPCDelegate {
   
   
   //MARK: - Public
-  func displayImagePickerAlert() {
-    let ac = UIAlertController(title: "Choose image",
-                               message: "Message",
-                               preferredStyle: .actionSheet)
-    let action_photo = UIAlertAction(title: "Camera", style: .default) { [weak self] _ in
-      guard let _s = self else { return }
-      _s.requestDevicePermission(with: .camera)
-    }
-    let action_library = UIAlertAction(title: "Photo Library", style: .default) { [weak self] _ in
-      guard let _s = self else { return }
-      _s.requestDevicePermission(with: .photoLibrary)
-    }
-    let action_cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-    ac.addAction(action_photo)
-    ac.addAction(action_library)
-    ac.addAction(action_cancel)
-    present(ac, animated: true, completion: nil)
-  }
-  
   func displayImagePickerPopup() {
-    let vm = PopupListVCUC.ViewModel()
-    vm.displayedHeader.style = .large
-    vm.displayedHeader.icon = UIImage(color: c_custom.peach, size: .less)
-    vm.displayedHeader.subtitle = "Message"
-    vm.displayedHeader.tint = c_custom.peach
-    vm.displayedHeader.title = "Choose image"
-    vm.displayedList.isHideFooter = true
-    let vm_labelCA = LabelCAUC.ViewModel()
-    let vm_cameraLabel = LabelCCUC.ViewModel()
-    vm_cameraLabel.displayedLabel.title = "Camera"
-    vm_cameraLabel.displayedLabel.style = .normal
-    let vm_libraryLabel = LabelCCUC.ViewModel()
-    vm_libraryLabel.displayedLabel.title = "Photo Library"
-    vm_libraryLabel.displayedLabel.style = .normal
-    let vm_cancelLabel = LabelCCUC.ViewModel()
-    vm_cancelLabel.displayedLabel.title = "Cancel"
-    vm_cancelLabel.displayedLabel.weight = .semibold
-    vm_cancelLabel.displayedLabel.style = .negative
-    vm_labelCA.displayedItems = [vm_cameraLabel, vm_libraryLabel, vm_cancelLabel]
-    vm.displayedList.adapter = LabelCA.self
-    vm.displayedList.viewModel = vm_labelCA
+    func getLabelCAModel() -> LabelCADisplayed {
+      let displayed = LabelCADisplayed()
+      let displayed_cameraLabel = LabelCCDisplayed()
+      displayed_cameraLabel.title = "Camera"
+      displayed_cameraLabel.style = .normal
+      let displayed_libraryLabel = LabelCCDisplayed()
+      displayed_libraryLabel.title = "Photo Library"
+      displayed_libraryLabel.style = .normal
+      let displayed_cancelLabel = LabelCCDisplayed()
+      displayed_cancelLabel.title = "Cancel"
+      displayed_cancelLabel.weight = .semibold
+      displayed_cancelLabel.style = .negative
+      let section = LabelCADisplayed.Section()
+      section.items = [displayed_cameraLabel, displayed_libraryLabel, displayed_cancelLabel]
+      displayed.sections = [section]
+      return displayed
+    }
+    let displayed = PopupListVCUC.Setup.DisplayedSetupPopupList()
+    displayed.viewModel = getLabelCAModel()
+    displayed.adapter = LabelCA.self
+    displayed.isTapOverlayEnabled = true
+    displayed.isTapContainerEnabled = true
+    displayed.isHideFooter = true
+    displayed.displayedHeader.icon = UIImage(color: .red, size: .less)
+    displayed.displayedHeader.style = .large
+    displayed.displayedHeader.subtitle = "Message"
+    displayed.displayedHeader.tint = .red
+    displayed.displayedHeader.title = "Choose image"
+    let vm = PopupListVCUC.Setup.ViewModel()
+    vm.displayedSetup = displayed
     displayPopupList(vm, priority: .common, on: self) { [weak self] in
       guard let _s = self else { return }
       guard $0.isSelected else { return }
@@ -225,7 +215,7 @@ extension AGVC: ViewIPCDelegate {
     }
     
     func presentError() {
-      displaySettingAlert(type)
+      displaySettingPopup(type)
     }
     
     interactor()

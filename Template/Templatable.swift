@@ -12,7 +12,7 @@ import Foundation
 
 
 
-protocol Templatable: LifeCyclable {
+protocol Templatable: Preparable {
   
 }
 
