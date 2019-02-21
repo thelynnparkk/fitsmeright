@@ -36,7 +36,7 @@ class OutfitItemCC: AGCC {
                      customItemLine: CGFloat? = nil,
                      customInset: UIEdgeInsets? = nil) -> CGSize {
       let spaces = itemSpace(custom: customItemSpace)
-      let insets = inset(custom: customInset).right + inset(custom: customInset).left
+      let insets = inset(custom: customInset).top + inset(custom: customInset).bottom
       let side = (bound.height - spaces - insets)
       return CGSize(width: side, height: side)
     }
@@ -265,7 +265,7 @@ class OutfitItemCC: AGCC {
       }
       setupViewFrame()
       
-      addShadow(ofColor: .black, radius: 8, offset: .less, opacity: 0.3)
+      addShadow(ofColor: .black, radius: 8, offset: .less, opacity: 0.1)
     }
     present()
   }

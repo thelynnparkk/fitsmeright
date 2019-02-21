@@ -166,7 +166,7 @@ class PanelListVC: PanelVC {
     
     //MARK: Component
     v_header = UIView()
-    v_header.backgroundColor = .red
+    v_header.backgroundColor = c_custom.peach
     
     v_holder = UIView()
     v_holder.backgroundColor = .white

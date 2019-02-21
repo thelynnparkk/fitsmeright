@@ -167,7 +167,7 @@ class ClosetMenuView: AGView {
     lb_title.text = displayed.title
     imgv_icon.image = displayed.image
     setupViewFrame()
-    addShadow(ofColor: .black, radius: 8, offset: .less, opacity: 0.3)
+    addShadow(ofColor: .black, radius: 8, offset: .less, opacity: 0.1)
   }
   
   

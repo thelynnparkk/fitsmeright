@@ -36,12 +36,14 @@ class PostCreateOutfitVC: AGVC {
   var bbi_close: UIBarButtonItem!
   var bbi_post: UIBarButtonItem!
   var v_state: StateView!
-  
+  @IBOutlet weak var txt_caption: UITextField!
   @IBOutlet weak var v_outfit: UIView!
+  @IBOutlet weak var lb_outfit: UILabel!
   @IBOutlet weak var imgv_outfit: UIImageView!
+  @IBOutlet weak var imgv_outfitAdd: UIImageView!
   @IBOutlet weak var btn_outfit: UIButton!
   @IBOutlet weak var btn_clearOutfit: UIButton!
-  
+  @IBOutlet weak var lb_items: UILabel!
   @IBOutlet weak var v_itemSection: UIView!
   @IBOutlet weak var collection_item: UICollectionView!
   var adapter_item: OutfitItemCA!
@@ -124,7 +126,7 @@ class PostCreateOutfitVC: AGVC {
   override func viewDidLoad() {
     super.viewDidLoad()
     //MARK: Core
-    view.backgroundColor = c_material.grey300
+    view.backgroundColor = .white
     nb?.setupWith(content: c_custom.peach, bg: .white, isTranslucent: false)
     
     
@@ -137,18 +139,27 @@ class PostCreateOutfitVC: AGVC {
     bbi_post.isEnabled = false
     ni.rightBarButtonItems = [bbi_post]
     
-    v_outfit.addShadow(ofColor: .black, radius: 8, offset: .less, opacity: 0.3)
-    imgv_outfit.layer.cornerRadius = 8
+    txt_caption.borderStyle = .none
+    let attributedPlaceholder: [NSAttributedString.Key : Any] = [
+      .font: UIFont(name: f_system.helvetica, size: f_size.h3)!
+    ]
+    txt_caption.attributedPlaceholder = NSAttributedString(string: "Add a caption..", attributes: attributedPlaceholder)
+    
+    v_outfit.addShadow(ofColor: .black, radius: 8, offset: .less, opacity: 0.1)
+    lb_outfit.font = UIFont(name: f_system.helveticaBold, size: f_size.h1)
+    imgv_outfit.layer.cornerRadius = 20
     imgv_outfit.contentMode = .scaleAspectFill
     imgv_outfit.clipsToBounds = true
+    imgv_outfitAdd.image = #imageLiteral(resourceName: "library_add")
     btn_outfit.addTarget(self, action: #selector(outfitButtonPressed), for: .touchUpInside)
     btn_clearOutfit.layer.cornerRadius = btn_clearOutfit.bounds.width / 2
     btn_clearOutfit.addTarget(self, action: #selector(clearOutfitButtonPressed), for: .touchUpInside)
     
+    lb_items.font = UIFont(name: f_system.helveticaBold, size: f_size.h1)
     adapter_item = OutfitItemCA(collection: collection_item)
     adapter_item.delegate = self
     
-    vc_panelVC = PanelListVC()
+//    vc_panelVC = PanelListVC()
     
     v_state = StateView(axis: .vertical)
     v_state.setupLight()
@@ -186,7 +197,8 @@ class PostCreateOutfitVC: AGVC {
   //MARK: - Setup View
  
   func setupClearOutfit() {
-    imgv_outfit.image = UIImage(color: c_material.grey200, size: .less)
+    imgv_outfit.image = UIImage(color: .white, size: .less)
+    imgv_outfitAdd.isHidden = false
     btn_clearOutfit.isHidden = true
     btn_outfit.isUserInteractionEnabled = true
     closetCategoryListSelected = []
@@ -250,29 +262,39 @@ class PostCreateOutfitVC: AGVC {
       }
     }
     func present(_ response: [FSCloset]) {
-      v_state.setState(with: .hidden)
-      let displayed_ca = ImageCADisplayed()
-      let displayed_cc: [AGCCDisplayed] = response.map({ $0.imageURL }).compactMap({
-        let displayed = ImageCCDisplayed()
-        displayed.imageURL = $0
-        return displayed
-      })
-      let displayed_footer = LabelCRVDisplayed()
-      displayed_footer.title = "\(displayed_cc.count) items"
-      let section = AGCADisplayed.Section()
-      section.footer = displayed_footer
-      section.items = displayed_cc
-      displayed_ca.sections = [section]
-      vc_panelVC = PanelListVC()
-      let displayed = PanelListVCUC.Setup.DisplayedSetupPanelList()
-      displayed.viewModel = displayed_ca
-      displayed.adapter = ImageCA.self
-      let vm = PanelListVCUC.Setup.ViewModel()
-      vm.displayedSetup = displayed
-      vc_panelVC.setupData(with: vm)
-      vc_panelVC.delegate_agvc = self
-      addPanelVC()
-      
+      func display() {
+        v_state.setState(with: .hidden)
+        let displayed_ca = ImageCADisplayed()
+        let displayed_cc: [AGCCDisplayed] = response.map({ $0.imageURL }).compactMap({
+          let displayed = ImageCCDisplayed()
+          displayed.imageURL = $0
+          return displayed
+        })
+        let displayed_footer = LabelCRVDisplayed()
+        displayed_footer.title = "\(displayed_cc.count) items"
+        let section = AGCADisplayed.Section()
+        section.footer = displayed_footer
+        section.items = displayed_cc
+        displayed_ca.sections = [section]
+        vc_panelVC = PanelListVC()
+        let displayed = PanelListVCUC.Setup.DisplayedSetupPanelList()
+        displayed.viewModel = displayed_ca
+        displayed.adapter = ImageCA.self
+        let vm = PanelListVCUC.Setup.ViewModel()
+        vm.displayedSetup = displayed
+        vc_panelVC!.setupData(with: vm)
+        vc_panelVC!.delegate_agvc = self
+        addPanelVC()
+      }
+      if let vc = vc_panelVC as? PanelListVC {
+        vc.removeBottomSheetView()
+        SwifterSwift.delay(milliseconds: 300) { [weak self] in
+          guard let _ = self else { return }
+          display()
+        }
+      } else {
+        display()
+      }
     }
     func presentError(_ error: Error) {
       present([])
@@ -364,7 +386,7 @@ class PostCreateOutfitVC: AGVC {
   //MARK: - Custom - ViewIPCDelegate
   func didFinishPickingMedia(_ picker: UIImagePickerController, image: UIImage) {
     picker.dismiss(animated: true, completion: nil)
-//    bbi_done.isEnabled = true
+    imgv_outfitAdd.isHidden = true
     btn_clearOutfit.isHidden = false
     imgv_outfit.image = image
     DispatchQueue.main.async { [weak self] in

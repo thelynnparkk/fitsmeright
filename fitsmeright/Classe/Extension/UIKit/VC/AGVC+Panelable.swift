@@ -81,28 +81,29 @@ extension AGVC: Panelable {
   //MARK: - Custom - Panelable
   func addPanelVC() {
     isPanelListVisible = true
-    addChild(vc_panelVC)
-    view.addSubview(vc_panelVC.view)
-    vc_panelVC.didMove(toParent: self)
+    addChild(vc_panelVC!)
+    view.addSubview(vc_panelVC!.view)
+    vc_panelVC!.didMove(toParent: self)
     let height = view.frame.height
     let width  = view.frame.width
-    vc_panelVC.view.frame = CGRect(x: 0, y: view.frame.maxY , width: width, height: height)
-    vc_panelVC.view.addShadow(ofColor: .black, radius: 5, offset: .less, opacity: 0.3)
+    vc_panelVC!.view.frame = CGRect(x: 0, y: view.frame.maxY , width: width, height: height)
+    vc_panelVC!.view.addShadow(ofColor: .black, radius: 8, offset: .less, opacity: 0.1)
   }
   
-  func removePanelVC() {
+  func removePanelVC(onComplate: CBVoid? = nil) {
     isPanelListVisible = false
     UIView.animate(withDuration: 0.3,
                    delay: 0,
                    options: UIView.AnimationOptions.curveEaseIn,
                    animations: {
-                    var frame = self.vc_panelVC.view.frame
+                    var frame = self.vc_panelVC?.view.frame ?? .zero
                     frame.origin.y = UIScreen.main.bounds.maxY
-                    self.vc_panelVC.view.frame = frame
+                    self.vc_panelVC?.view.frame = frame
                     
     }, completion: { _ in
-      self.vc_panelVC.view.removeFromSuperview()
-      self.vc_panelVC.removeFromParent()
+      self.vc_panelVC?.view.removeFromSuperview()
+      self.vc_panelVC?.removeFromParent()
+      onComplate?()
     })
   }
   

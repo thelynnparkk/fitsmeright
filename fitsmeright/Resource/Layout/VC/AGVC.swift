@@ -52,7 +52,7 @@ class AGVC: UIViewController {
   
   
   //MARK: - UI
-  var vc_panelVC: PanelVC!
+  var vc_panelVC: PanelVC?
   
   
   

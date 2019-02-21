@@ -13,10 +13,10 @@ import UIKit
 
 
 protocol Panelable {
-  var vc_panelVC: PanelVC! { get set }
+  var vc_panelVC: PanelVC? { get set }
   var isPanelListVisible: Bool { get set }
   func addPanelVC()
-  func removePanelVC()
+  func removePanelVC(onComplate: CBVoid?)
 }
 
 

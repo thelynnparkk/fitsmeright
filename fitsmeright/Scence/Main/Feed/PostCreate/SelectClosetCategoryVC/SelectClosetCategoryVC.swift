@@ -110,7 +110,7 @@ class SelectClosetCategoryVC: AGVC {
   override func viewDidLoad() {
     super.viewDidLoad()
     //MARK: Core
-    view.backgroundColor = c_material.grey300
+    view.backgroundColor = .white
     nb?.setupWith(content: .black, bg: .white, isTranslucent: false)
     
     

@@ -156,7 +156,7 @@ class FloatingView: AGView {
   override func setupData(with displayed: AGViewDisplayed?) {
     guard let displayed = displayed as? Displayed else { return }
     setupViewFrame()
-    addShadow(ofColor: .black, radius: 5, offset: .less, opacity: 0.3)
+    addShadow(ofColor: .black, radius: 8, offset: .less, opacity: 0.1)
     view.layer.cornerRadius = frame.width / 2
     imgv_icon.image = displayed.image
   }

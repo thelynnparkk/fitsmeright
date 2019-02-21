@@ -157,7 +157,7 @@ class ClosetTagView: AGView {
     guard let displayed = displayed as? Displayed else { return }
     lb_title.text = displayed.title
     setupViewFrame()
-    addShadow(ofColor: .black, radius: 8, offset: .less, opacity: 0.3)
+    addShadow(ofColor: .black, radius: 8, offset: .less, opacity: 0.1)
   }
   
   
