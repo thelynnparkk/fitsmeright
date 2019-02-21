@@ -34,7 +34,7 @@ extension AGApplicationSetup {
 //    FMUserDefaults.removeAll()
     let fsUser = FSUser()
     fsUser.documentId = "N5GUixP95dAMKzXBx5kG"
-    //    fsUser.documentId = "VceACbsT1S2QPNV3JQS7"
+//        fsUser.documentId = "VceACbsT1S2QPNV3JQS7"
     fsUser.email = "lhnkki@gmail.com"
     fsUser.username = "lin999"
     fsUser.displayName = "linping"

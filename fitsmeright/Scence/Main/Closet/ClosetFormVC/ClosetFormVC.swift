@@ -273,6 +273,7 @@ class ClosetFormVC: AGVC {
       } else {
         imgv_closet.image = nil
       }
+      v_addCloset.isHidden = true
       imgv_addCloset.isHidden = true
       let vm_brand = ClosetFormViewDisplayed()
       vm_brand.key = "Brand"
@@ -486,6 +487,7 @@ class ClosetFormVC: AGVC {
   func didFinishPickingMedia(_ picker: UIImagePickerController, image: UIImage) {
     picker.dismiss(animated: true, completion: nil)
     bbi_done.isEnabled = true
+    v_addCloset.isHidden = true
     imgv_addCloset.isHidden = true
     imgv_closet.image = image
   }
