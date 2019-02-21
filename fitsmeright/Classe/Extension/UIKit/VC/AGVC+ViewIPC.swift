@@ -93,10 +93,10 @@ extension AGVC: ViewIPCDelegate {
     displayed.isTapOverlayEnabled = true
     displayed.isTapContainerEnabled = true
     displayed.isHideFooter = true
-    displayed.displayedHeader.icon = UIImage(color: .red, size: .less)
+    displayed.displayedHeader.icon = #imageLiteral(resourceName: "library_white").filled(withColor: c_custom.peach)
     displayed.displayedHeader.style = .large
     displayed.displayedHeader.subtitle = "Message"
-    displayed.displayedHeader.tint = .red
+    displayed.displayedHeader.tint = c_custom.peach
     displayed.displayedHeader.title = "Choose image"
     let vm = PopupListVCUC.Setup.ViewModel()
     vm.displayedSetup = displayed
