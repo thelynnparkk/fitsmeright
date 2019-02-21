@@ -130,13 +130,17 @@ class ProfileCA: AGCA {
   
   //MARK: - Setup Data
   override func setupData(with displayed: AGCADisplayed?) {
-    if let displayed = displayed as? Displayed {
-      displayedCA = displayed
-      collection.isUserInteractionEnabled = true
-      collection.collectionViewLayout.invalidateLayout()
-      collection.reloadData()
-    } else {
-      
+    DispatchQueue.main.async { [weak self] in
+      guard let _s = self else { return }
+      if let displayed = displayed as? Displayed {
+        _s.displayedCA = displayed
+      } else {
+        _s.displayedCA = Displayed()
+      }
+      _s.collection.reloadData()
+      _s.collection.isUserInteractionEnabled = true
+      _s.collection.collectionViewLayout.invalidateLayout()
+      _s.collection.refreshControl?.endRefreshing()
     }
   }
   

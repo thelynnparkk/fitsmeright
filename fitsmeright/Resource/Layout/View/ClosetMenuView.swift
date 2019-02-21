@@ -73,13 +73,30 @@ class ClosetMenuView: AGView {
   
   
   //MARK: - Initial
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+  }
+  
   override func setupInit() {
+    Bundle.main.loadNibNamed(String(describing: ClosetMenuView.self), owner: self, options: nil)
+    addSubview(view)
+    view.fillToSuperview()
     super.setupInit()
     //MARK: Core
+    backgroundColor = .clear
+    layer.masksToBounds = true
+    clipsToBounds = false
+    let gesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+    addGestureRecognizer(gesture)
     
     
     
     //MARK: Component
+    view.backgroundColor = .white
+    view.layer.cornerRadius = 8
+    view.clipsToBounds = true
+    imgv_icon.contentMode = .scaleAspectFit
+    lb_title.textColor = c_custom.peach
     
     
     
@@ -92,6 +109,7 @@ class ClosetMenuView: AGView {
     
     
     //MARK: Localize
+    setupLocalize()
     
     
     
@@ -114,20 +132,10 @@ class ClosetMenuView: AGView {
   override func awakeFromNib() {
     super.awakeFromNib()
     //MARK: Core
-    backgroundColor = .clear
-    layer.masksToBounds = true
-    clipsToBounds = false
-    let gesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
-    addGestureRecognizer(gesture)
     
     
     
     //MARK: Component
-    view.backgroundColor = .white
-    view.layer.cornerRadius = 8
-    view.clipsToBounds = true
-    imgv_icon.contentMode = .scaleAspectFit
-    lb_title.textColor = UIColor.Custom.peach
     
     
     
@@ -140,7 +148,6 @@ class ClosetMenuView: AGView {
     
     
     //MARK: Localize
-    setupLocalize()
     
     
     

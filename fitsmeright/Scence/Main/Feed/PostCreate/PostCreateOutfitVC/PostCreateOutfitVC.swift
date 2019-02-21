@@ -188,6 +188,10 @@ class PostCreateOutfitVC: AGVC {
   func setupClearOutfit() {
     imgv_outfit.image = UIImage(color: c_material.grey200, size: .less)
     btn_clearOutfit.isHidden = true
+    btn_outfit.isUserInteractionEnabled = true
+    closetCategoryListSelected = []
+    fsClosets = []
+    adapter_item.setupData(with: .none)
   }
   
   
@@ -209,7 +213,7 @@ class PostCreateOutfitVC: AGVC {
   
   @objc
   func clearOutfitButtonPressed(_ sender: UIButton) {
-    btn_outfit.isUserInteractionEnabled = true
+    
     setupClearOutfit()
   }
   

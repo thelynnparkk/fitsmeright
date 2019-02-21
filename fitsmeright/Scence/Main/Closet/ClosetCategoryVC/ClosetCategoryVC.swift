@@ -46,7 +46,6 @@ class ClosetCategoryVC: AGVC {
   
   
   
-  
   //MARK: - NSLayout
   
   
@@ -60,6 +59,7 @@ class ClosetCategoryVC: AGVC {
   
   
   //MARK: - Flag
+  var isFetctClosetMenuListFirstTime = true
   
   
   
@@ -166,7 +166,7 @@ class ClosetCategoryVC: AGVC {
     
     
     //MARK: Data
-    observeClosetMenus()
+    observeClosetMenuList()
   }
   
   
@@ -195,10 +195,13 @@ class ClosetCategoryVC: AGVC {
   
   
   
-  //MARK: - VIP - ObserveClosetMenus
-  func observeClosetMenus() {
+  //MARK: - VIP - ObserveClosetMenuList
+  func observeClosetMenuList() {
     func interactor() {
-      v_state.setState(with: .loading, isAnimation: false)
+      if isFetctClosetMenuListFirstTime {
+        isFetctClosetMenuListFirstTime  = false
+        v_state.setState(with: .loading, isAnimation: false)
+      }
       let fsUser = FMUserDefaults.FSUserDefault.get()!
       worker(userId: fsUser._documentId)
     }
@@ -287,7 +290,6 @@ class ClosetCategoryVC: AGVC {
       v_closet.fadeIn(duration: 0.3, completion: nil)
     }
     func presentError(_ error: Error) {
-      present([])
       v_state.setState(with: .error, isAnimation: false)
       print(error.localizedDescription)
     }
@@ -314,7 +316,7 @@ class ClosetCategoryVC: AGVC {
       case .noConnection:
         break
       case .error:
-        break
+        observeClosetMenuList()
       }
     }
     

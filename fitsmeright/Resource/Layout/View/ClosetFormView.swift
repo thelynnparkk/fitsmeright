@@ -70,55 +70,20 @@ class ClosetFormView: AGView {
   
   
   
-  //MARK: - Initial
-  
-  
-  
   //MARK: - Apperance
   
   
   
-  //MARK: - Life cycle
+  //MARK: - Initial
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+  }
+  
   override func setupInit() {
+    Bundle.main.loadNibNamed(String(describing: ClosetFormView.self), owner: self, options: nil)
+    addSubview(view)
+    view.fillToSuperview()
     super.setupInit()
-    //MARK: Core
-    
-    
-    
-    //MARK: Component
-    
-    
-    
-    //MARK: Other
-    
-    
-    
-    //MARK: Snp
-    
-    
-    
-    //MARK: Localize
-    
-    
-    
-    //MARK: Data
-  }
-  
-  override func setupPrepare() {
-    super.setupPrepare()
-    
-  }
-  
-  override func setupDeinit() {
-    super.setupDeinit()
-    
-  }
-  
-  
-  
-  //MARK: - LifeCycle
-  override func awakeFromNib() {
-    super.awakeFromNib()
     //MARK: Core
     backgroundColor = .clear
     
@@ -146,6 +111,47 @@ class ClosetFormView: AGView {
     //MARK: Localize
     setupLocalize()
     
+    
+    
+    //MARK: Data
+  }
+  
+  override func setupPrepare() {
+    super.setupPrepare()
+    
+  }
+  
+  override func setupDeinit() {
+    super.setupDeinit()
+    
+  }
+  
+  
+  
+  //MARK: - Life cycle
+
+  
+  
+  //MARK: - LifeCycle
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    //MARK: Core
+    
+    
+    
+    //MARK: Component
+    
+    
+    
+    //MARK: Other
+    
+    
+    
+    //MARK: Snp
+    
+    
+    
+    //MARK: Localize
     
     
     

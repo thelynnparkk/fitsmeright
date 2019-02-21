@@ -124,15 +124,10 @@ class FloatingView: AGView {
   override func awakeFromNib() {
     super.awakeFromNib()
     //MARK: Core
-//    backgroundColor = .clear
-//    let gesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
-//    addGestureRecognizer(gesture)
     
     
     
     //MARK: Component
-//    view.backgroundColor = c_custom.peach
-//    imgv_icon.contentMode = .scaleAspectFit
     
     
     

@@ -15,7 +15,8 @@ import FirebaseFirestore
 
 
 extension ClosetFormVC:
-  UITextFieldDelegate
+UITextFieldDelegate,
+AGViewDelegate
 {
   
 }
@@ -36,9 +37,11 @@ class ClosetFormVC: AGVC {
   
   //MARK: - UI
   var bbi_done: UIBarButtonItem!
+  var v_state: StateView!
   @IBOutlet weak var sv_container: UIScrollView!
   @IBOutlet weak var imgv_closet: UIImageView!
   @IBOutlet weak var imgv_addCloset: UIImageView!
+  @IBOutlet weak var v_addCloset: UIView!
   @IBOutlet weak var btn_chooseCloset: UIButton!
   @IBOutlet weak var v_seperator: UIView!
   @IBOutlet weak var v_brand: ClosetFormView!
@@ -131,9 +134,12 @@ class ClosetFormVC: AGVC {
     
     
     //MARK: Component
+    view.setupViewFrame()
     sv_container.setupScrollVertical()
     imgv_closet.contentMode = .scaleAspectFill
-    imgv_addCloset.image = UIImage(color: c_custom.peach, size: .less)
+    v_addCloset.backgroundColor = c_custom.peach
+    v_addCloset.layer.cornerRadius = v_addCloset.bounds.width / 2
+    v_addCloset.clipsToBounds = true
     imgv_addCloset.contentMode = .scaleAspectFit
     v_seperator.backgroundColor = c_material.grey300
     btn_chooseCloset.addTarget(self, action: #selector(chooseClosetPressed), for: .touchUpInside)
@@ -143,6 +149,11 @@ class ClosetFormVC: AGVC {
     v_size.txt_value.delegate = self
     v_place.txt_value.delegate = self
     
+    v_state = StateView(axis: .vertical)
+    v_state.setupLight()
+    v_state.delegate = self
+    view.addSubview(v_state)
+    
     
     
     //MARK: Other
@@ -150,6 +161,12 @@ class ClosetFormVC: AGVC {
     
     
     //MARK: Snp
+    v_state.snp.makeConstraints {
+      $0.top.equalToSuperview()
+      $0.right.equalToSuperview()
+      $0.bottom.equalToSuperview()
+      $0.left.equalToSuperview()
+    }
     
     
     
@@ -159,7 +176,11 @@ class ClosetFormVC: AGVC {
     
     
     //MARK: Data
-    fetchCloset()
+    if let _ = closetCategory, let _ = fsCloset {
+      fetchClosetEdit()
+    } else {
+      fetchClosetAdd()
+    }
   }
   
   
@@ -203,22 +224,49 @@ class ClosetFormVC: AGVC {
   
   
   
-  //MARK: - VIP - FetchCloset
-  func fetchCloset() {
-    
+  //MARK: - VIP - FetchClosetAdd
+  func fetchClosetAdd() {
     func interactor() {
-      if let _ = closetCategory, let _ = fsCloset {
-        worker()
-      } else {
-        presentAdd()
-      }
+      worker()
     }
-    
     func worker() {
-      presentEdit()
+      present()
     }
-    
-    func presentEdit() {
+    func present() {
+      ni.title = closetCategory!.name.uppercased()
+      let vm_brand = ClosetFormViewDisplayed()
+      vm_brand.key = "Brand"
+      vm_brand.placeHolder = "Add Brand"
+      let vm_price = ClosetFormViewDisplayed()
+      vm_price.key = "Price"
+      vm_price.placeHolder = "Add Price"
+      let vm_size = ClosetFormViewDisplayed()
+      vm_size.key = "Size"
+      vm_size.placeHolder = "Add Size"
+      let vm_place = ClosetFormViewDisplayed()
+      vm_place.key = "Place"
+      vm_place.placeHolder = "Add Place"
+      v_brand.setupData(with: vm_brand)
+      v_price.setupData(with: vm_price)
+      v_size.setupData(with: vm_size)
+      v_place.setupData(with: vm_place)
+      bbi_done.isEnabled = false
+      imgv_addCloset.image = closetCategory?.iconAdd
+    }
+    interactor()
+  }
+  
+  
+  
+  //MARK: - VIP - FetchClosetEdit
+  func fetchClosetEdit() {
+    func interactor() {
+      worker()
+    }
+    func worker() {
+      present()
+    }
+    func present() {
       ni.title = closetCategory!.name.uppercased()
       if let imageURL = fsCloset!.imageURL {
         imgv_closet.kf.setImage(with: imageURL, placeholder: nil, options: nil)
@@ -247,38 +295,15 @@ class ClosetFormVC: AGVC {
       v_size.setupData(with: vm_size)
       v_place.setupData(with: vm_place)
     }
-    
-    func presentAdd() {
-      ni.title = closetCategory!.name.uppercased()
-      let vm_brand = ClosetFormViewDisplayed()
-      vm_brand.key = "Brand"
-      vm_brand.placeHolder = "Add Brand"
-      let vm_price = ClosetFormViewDisplayed()
-      vm_price.key = "Price"
-      vm_price.placeHolder = "Add Price"
-      let vm_size = ClosetFormViewDisplayed()
-      vm_size.key = "Size"
-      vm_size.placeHolder = "Add Size"
-      let vm_place = ClosetFormViewDisplayed()
-      vm_place.key = "Place"
-      vm_place.placeHolder = "Add Place"
-      v_brand.setupData(with: vm_brand)
-      v_price.setupData(with: vm_price)
-      v_size.setupData(with: vm_size)
-      v_place.setupData(with: vm_place)
-      bbi_done.isEnabled = false
-    }
-    
     interactor()
-    
   }
   
   
   
   //MARK: - VIP - AddCloset
   func addCloset() {
-    
     func interactor() {
+      v_state.setState(with: .loading, isAnimation: false)
       let fsUser = FMUserDefaults.FSUserDefault.get()!
       let fsCloset = FSCloset()
       fsCloset.userId = fsUser._documentId
@@ -291,9 +316,7 @@ class ClosetFormVC: AGVC {
       fsCloset.updatedAt = Timestamp(date: Date())
       worker(fsCloset: fsCloset)
     }
-    
     func worker(fsCloset: FSCloset) {
-      
       func uploadClosetImage() {
         guard let data = imgv_closet.image?.jpegData(compressionQuality: 1) else {
           presentError()
@@ -303,7 +326,8 @@ class ClosetFormVC: AGVC {
         let ref_create = ref_folder.child("\(Date().millisecondsSince1970).jpg")
         ref_create.putData(data, metadata: nil) { (metadata, error) in
           if let e = error {
-            presentError(error: e)
+            presentError()
+            print(e.localizedDescription)
             return
           }
           guard let _ = metadata else {
@@ -312,7 +336,8 @@ class ClosetFormVC: AGVC {
           }
           ref_create.downloadURL { (url, error) in
             if let e = error {
-              presentError(error: e)
+              presentError()
+              print(e.localizedDescription)
               return
             }
             guard let url = url else {
@@ -324,44 +349,37 @@ class ClosetFormVC: AGVC {
           }
         }
       }
-      
       func addCloset() {
           FSClosetWorker.add(fsCloset: fsCloset) {
           switch $0 {
           case .none:
             present()
           case let .some(e):
-            presentError(error: e)
+            presentError()
+            print(e.localizedDescription)
           }
         }
       }
-      
       uploadClosetImage()
-      
     }
-    
     func present() {
-      navigationController?.popToRootViewController(animated: true)
+      v_state.setState(with: .hidden) { [weak self] in
+        guard let _s = self else { return }
+        _s.navigationController?.popToRootViewController(animated: true)
+      }
     }
-    
     func presentError() {
-      
+      v_state.setState(with: .error, isAnimation: false)
     }
-    
-    func presentError(error: Error) {
-      print(error.localizedDescription)
-    }
-    
     interactor()
-    
   }
   
   
   
   //MARK: - VIP - UpdateCloset
   func updateCloset() {
-    
     func interactor() {
+      v_state.setState(with: .loading, isAnimation: false)
       let fsUser = FMUserDefaults.FSUserDefault.get()!
       let fsCloset = FSCloset()
       fsCloset.documentId = self.fsCloset?._documentId
@@ -375,9 +393,7 @@ class ClosetFormVC: AGVC {
       fsCloset.updatedAt = Timestamp(date: Date())
       worker(fsCloset: fsCloset)
     }
-    
     func worker(fsCloset: FSCloset) {
-      
       func uploadClosetImage() {
         guard let data = imgv_closet.image?.jpegData(compressionQuality: 1) else {
           presentError()
@@ -387,7 +403,8 @@ class ClosetFormVC: AGVC {
         let ref_create = ref_folder.child("\(Date().millisecondsSince1970).jpg")
         ref_create.putData(data, metadata: nil) { (metadata, error) in
           if let e = error {
-            presentError(error: e)
+            presentError()
+            print(e.localizedDescription)
             return
           }
           guard let _ = metadata else {
@@ -396,7 +413,8 @@ class ClosetFormVC: AGVC {
           }
           ref_create.downloadURL { (url, error) in
             if let e = error {
-              presentError(error: e)
+              presentError()
+              print(e.localizedDescription)
               return
             }
             guard let url = url else {
@@ -410,41 +428,57 @@ class ClosetFormVC: AGVC {
           }
         }
       }
-      
       func updateCloset() {
         FSClosetWorker.update(fsCloset: fsCloset) {
           switch $0 {
           case .none:
             present(fsCloset: fsCloset)
           case let .some(e):
-            presentError(error: e)
+            presentError()
+            print(e.localizedDescription)
           }
         }
       }
-      
       uploadClosetImage()
-      
     }
-    
     func present(fsCloset: FSCloset) {
+      v_state.setState(with: .hidden)
       delegate_agvc?.agVCPressed(self, action: Action.update(fsCloset))
     }
-    
     func presentError() {
-      
+      v_state.setState(with: .error, isAnimation: false)
     }
-    
-    func presentError(error: Error) {
-      print(error.localizedDescription)
-    }
-    
     interactor()
-    
   }
   
   
   
   //MARK: - Core - Protocol
+  
+  
+  
+  //MARK: - Custom - AGViewDelegate
+  func agViewPressed(_ view: AGView, action: Any, tag: Int) {
+    switch view {
+    case is StateView:
+      if let state = action as? StateView.State {
+        switch state {
+        case .hidden:
+          break
+        case .loading:
+          break
+        case .noResults:
+          break
+        case .noConnection:
+          break
+        case .error:
+          v_state.setState(with: .hidden)
+        }
+      }
+    default:
+      break
+    }
+  }
   
   
   

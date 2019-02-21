@@ -32,6 +32,7 @@ class FeedVC: AGVC {
   //MARK: - UI
   @IBOutlet weak var sv_main: UIScrollView!
   @IBOutlet weak var v_addPostFloating: FloatingView!
+  var v_state: StateView!
   
   
   
@@ -48,6 +49,7 @@ class FeedVC: AGVC {
   
   
   //MARK: - Flag
+  var isFetchPostFirstTime = true
   
   
   
@@ -120,6 +122,12 @@ class FeedVC: AGVC {
     let vm_plus = FloatingViewDisplayed()
     vm_plus.image = #imageLiteral(resourceName: "plus").filled(withColor: .white)
     v_addPostFloating.setupData(with: vm_plus)
+    
+    v_state = StateView(axis: .vertical)
+    v_state.setupLight()
+    v_state.delegate = self
+    
+    view.addSubview(v_state)
     view.bringSubviewToFront(v_addPostFloating)
     
     
@@ -129,6 +137,12 @@ class FeedVC: AGVC {
     
     
     //MARK: Snp
+    v_state.snp.makeConstraints {
+      $0.top.equalToSuperview()
+      $0.right.equalToSuperview()
+      $0.bottom.equalToSuperview()
+      $0.left.equalToSuperview()
+    }
     
     
     
@@ -144,7 +158,7 @@ class FeedVC: AGVC {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    fetchPost()
+    fetchPostList()
   }
   
   
@@ -164,13 +178,15 @@ class FeedVC: AGVC {
   
   
   
-  //MARK: - VIP - FetchPost
-  func fetchPost() {
-    
+  //MARK: - VIP - FetchPostList
+  func fetchPostList() {
     func interactor() {
+      if isFetchPostFirstTime {
+        isFetchPostFirstTime = false
+        v_state.setState(with: .loading, isAnimation: false)
+      }
       worker()
     }
-    
     func worker() {
       if let post = FMUserDefaults.Post.get() {
         self.post = post
@@ -179,18 +195,15 @@ class FeedVC: AGVC {
         presenterError()
       }
     }
-    
     func presenter() {
+      v_state.setState(with: .hidden)
       if let _ = post {
       }
     }
-    
     func presenterError() {
-      
+      v_state.setState(with: .error)
     }
-    
     interactor()
-    
   }
 
   

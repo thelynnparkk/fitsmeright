@@ -35,6 +35,7 @@ class ProfileVC: AGVC {
   @IBOutlet weak var v_addFriendFloating: FloatingView!
   var collection_main: UICollectionView!
   var adapter_profile: ProfileCA!
+  var v_state: StateView!
   
   
   
@@ -51,6 +52,7 @@ class ProfileVC: AGVC {
   
   
   //MARK: - Flag
+  var isFetctProfileFristTime = true
   
   
   
@@ -123,11 +125,18 @@ class ProfileVC: AGVC {
     collection_main = ControlContainableCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     adapter_profile = ProfileCA(collection: collection_main)
     adapter_profile.delegate = self
-    view.addSubview(collection_main)
+    
     v_addFriendFloating.delegate = self
     let vm_plus = FloatingViewDisplayed()
     vm_plus.image = #imageLiteral(resourceName: "plus").filled(withColor: .white)
     v_addFriendFloating.setupData(with: vm_plus)
+    
+    v_state = StateView(axis: .vertical)
+    v_state.setupLight()
+    v_state.delegate = self
+    
+    view.addSubview(collection_main)
+    view.addSubview(v_state)
     view.bringSubviewToFront(v_addFriendFloating)
     
     
@@ -141,6 +150,13 @@ class ProfileVC: AGVC {
       $0.top.equalTo(view.snp.topMargin)
       $0.right.equalToSuperview()
       $0.bottom.equalTo(view.snp.bottomMargin)
+      $0.left.equalToSuperview()
+    }
+    
+    v_state.snp.makeConstraints {
+      $0.top.equalToSuperview()
+      $0.right.equalToSuperview()
+      $0.bottom.equalToSuperview()
       $0.left.equalToSuperview()
     }
     
@@ -182,11 +198,13 @@ class ProfileVC: AGVC {
   
   //MARK: - VIP - FetchProfile
   func fetchProfile() {
-    
     func interactor() {
+      if isFetctProfileFristTime {
+        isFetctProfileFristTime  = false
+        v_state.setState(with: .loading, isAnimation: false)
+      }
       worker()
     }
-    
     func worker() {
       fsUser = FMUserDefaults.FSUserDefault.get()!
       if let p = FMUserDefaults.Post.get() {
@@ -194,29 +212,33 @@ class ProfileVC: AGVC {
       }
       present()
     }
-    
     func present() {
-      let vm = ProfileCADisplayed()
-//      vm.imageURL = nil
-//      vm.displayName = fsUser!._displayName
-//      vm.bio = fsUser!._bio
-//      vm.posts = "\(posts.count)"
-//      vm.friends = "0"
-//      vm.closets = "0"
-//      vm = posts.compactMap({
-//        let vm = ImageCCModel.ViewModel()
-//        vm.displayedImage.imageURL = URL(string: $0._displayName)
-//        return vm
-//      })
+      v_state.setState(with: .hidden)
+      let section_profile = ProfileCADisplayed.Section()
+      let cc_displayed = ProfileCCDisplayed()
+      cc_displayed.imageURL = nil
+      cc_displayed.displayName = fsUser!._displayName
+      cc_displayed.bio = fsUser!._bio
+      cc_displayed.posts = "\(posts.count)"
+      cc_displayed.friends = "0"
+      cc_displayed.closets = "0"
+      section_profile.items = [cc_displayed]
       
-      DispatchQueue.main.async { [weak self] in
-        guard let _s = self else { return }
-        _s.adapter_profile.setupData(with: vm)
-      }
+      let section_post = ProfileCADisplayed.Section()
+      section_post.items = posts.compactMap({
+        let displayed = ImageCCDisplayed()
+        displayed.imageURL = URL(string: $0._displayName)
+        return displayed
+      })
+      
+      let displayed = ProfileCADisplayed()
+      displayed.sections = [section_profile, section_post]
+      adapter_profile.setupData(with: displayed)
     }
-    
+    func presentError() {
+      v_state.setState(with: .error, isAnimation: false)
+    }
     interactor()
-    
   }
   
   

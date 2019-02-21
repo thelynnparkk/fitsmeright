@@ -128,6 +128,31 @@ enum ClosetCategory: Int {
     return icon
   }
   
+  var iconAdd: UIImage {
+    var iconAdd: UIImage = UIImage()
+    switch self {
+    case .dress:
+      iconAdd = #imageLiteral(resourceName: "ic_add_dress")
+    case .jacket:
+      iconAdd = #imageLiteral(resourceName: "ic_add_jacket")
+    case .hat:
+      iconAdd = #imageLiteral(resourceName: "ic_add_hat")
+    case .accessory:
+      iconAdd = #imageLiteral(resourceName: "library_add")
+    case .bag:
+      iconAdd = #imageLiteral(resourceName: "ic_add_bag")
+    case .shoe:
+      iconAdd = #imageLiteral(resourceName: "ic_add_shoes")
+    case .top:
+      iconAdd = #imageLiteral(resourceName: "ic_add_top")
+    case .bottom:
+      iconAdd = #imageLiteral(resourceName: "ic_add_bottom")
+    case .sock:
+      iconAdd = #imageLiteral(resourceName: "library_add")
+    }
+    return iconAdd
+  }
+  
 
   
   //MARK: - Private
