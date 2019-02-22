@@ -306,6 +306,7 @@ class ClosetFormVC: AGVC {
   func addCloset() {
     func interactor() {
       v_state.setState(with: .loading, isAnimation: false)
+      bbi_done.isEnabled = false
       let fsUser = FMUserDefaults.FSUserDefault.get()!
       let fsCloset = FSCloset()
       fsCloset.userId = fsUser._documentId
@@ -372,6 +373,7 @@ class ClosetFormVC: AGVC {
     }
     func presentError() {
       v_state.setState(with: .error, isAnimation: false)
+      bbi_done.isEnabled = true
     }
     interactor()
   }
@@ -382,6 +384,7 @@ class ClosetFormVC: AGVC {
   func updateCloset() {
     func interactor() {
       v_state.setState(with: .loading, isAnimation: false)
+      bbi_done.isEnabled = false
       let fsUser = FMUserDefaults.FSUserDefault.get()!
       let fsCloset = FSCloset()
       fsCloset.documentId = self.fsCloset?._documentId
@@ -449,6 +452,7 @@ class ClosetFormVC: AGVC {
     }
     func presentError() {
       v_state.setState(with: .error, isAnimation: false)
+      bbi_done.isEnabled = true
     }
     interactor()
   }

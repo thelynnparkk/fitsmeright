@@ -26,18 +26,17 @@ extension UINavigationBar {
       setBackgroundImage(UIImage(), for: .default)
     } else {
       //Set color
-      
       setBackgroundImage(UIImage(color: colorBG, size: .less), for: .default)
     }
     let nb_titleTextAttributes: [NSAttributedString.Key: Any] = [
-      .font: UIFont(name: f_system.helveticaBold, size: f_size.h3)!,
+      .font: UIFont(name: f_system.helvetica, size: f_size.h1)!,
       .foregroundColor: colorContent
     ]
     titleTextAttributes = nb_titleTextAttributes
     if isLargeTitles {
       prefersLargeTitles = true
       let nb_largeTitleTextAttributes: [NSAttributedString.Key: Any] = [
-        .font: UIFont(name: f_system.helveticaBold, size: f_size.h2)!,
+        .font: UIFont(name: f_system.helveticaBold, size: f_size.h1)!,
         .foregroundColor: colorContent
       ]
       largeTitleTextAttributes = nb_largeTitleTextAttributes

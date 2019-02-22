@@ -321,6 +321,7 @@ class PostCreateOutfitVC: AGVC {
   func addPost() {
     func interactor() {
       v_state.setState(with: .loading, isAnimation: false)
+      bbi_post.isEnabled = false
       let fsUser = FMUserDefaults.FSUserDefault.get()!
       let fsPost = FSPost()
       fsPost.userId = fsUser._documentId
@@ -404,6 +405,7 @@ class PostCreateOutfitVC: AGVC {
     }
     func presentError() {
       v_state.setState(with: .error, isAnimation: false)
+      bbi_post.isEnabled = true
     }
     interactor()
   }
