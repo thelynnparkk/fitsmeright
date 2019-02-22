@@ -84,11 +84,11 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTU-mU-hg2">
-                                        <rect key="frame" x="185" y="30" width="20" height="20"/>
+                                        <rect key="frame" x="175" y="30" width="30" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="M5e-ln-CqZ"/>
-                                            <constraint firstAttribute="width" constant="20" id="kJT-c1-ZTD"/>
+                                            <constraint firstAttribute="height" constant="30" id="M5e-ln-CqZ"/>
+                                            <constraint firstAttribute="width" constant="30" id="kJT-c1-ZTD"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <state key="normal" title="X">
@@ -101,11 +101,11 @@
                                     <constraint firstItem="97v-VC-DAH" firstAttribute="top" secondItem="FFp-LL-wrI" secondAttribute="bottom" constant="10" id="4xR-q0-oMe"/>
                                     <constraint firstItem="97v-VC-DAH" firstAttribute="leading" secondItem="0E4-f7-8CI" secondAttribute="leading" constant="15" id="5oS-gd-7Xh"/>
                                     <constraint firstAttribute="bottom" secondItem="97v-VC-DAH" secondAttribute="bottom" constant="20" id="VHn-Ff-oIc"/>
-                                    <constraint firstItem="CTU-mU-hg2" firstAttribute="centerX" secondItem="97v-VC-DAH" secondAttribute="trailing" id="aZd-bF-oy5"/>
+                                    <constraint firstItem="CTU-mU-hg2" firstAttribute="centerX" secondItem="97v-VC-DAH" secondAttribute="trailing" constant="-5" id="aZd-bF-oy5"/>
                                     <constraint firstItem="FFp-LL-wrI" firstAttribute="leading" secondItem="0E4-f7-8CI" secondAttribute="leading" constant="15" id="cHy-YG-YEP"/>
                                     <constraint firstAttribute="trailing" secondItem="FFp-LL-wrI" secondAttribute="trailing" constant="10" id="fdH-I4-yUU"/>
                                     <constraint firstItem="FFp-LL-wrI" firstAttribute="top" secondItem="0E4-f7-8CI" secondAttribute="top" constant="10" id="tNl-rQ-K8O"/>
-                                    <constraint firstItem="CTU-mU-hg2" firstAttribute="centerY" secondItem="97v-VC-DAH" secondAttribute="top" id="vbA-5H-ADk"/>
+                                    <constraint firstItem="CTU-mU-hg2" firstAttribute="centerY" secondItem="97v-VC-DAH" secondAttribute="top" constant="5" id="vbA-5H-ADk"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ZS-wW-6Qx">

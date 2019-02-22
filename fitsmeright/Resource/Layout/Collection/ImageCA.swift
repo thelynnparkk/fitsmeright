@@ -213,23 +213,10 @@ class ImageCA: AGCA {
       }
     }
     ImagePrefetcher(urls: urls).start()
-    //    for indexPath in indexPaths {
-    //      if let _ = operations_loading[indexPath] {
-    //        continue
-    //      }
-    //      let operation = RandomDelayOperation()
-    //      q_loading.addOperation(operation)
-    //      operations_loading[indexPath] = operation
-    //    }
   }
   
   func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
-    //    for indexPath in indexPaths {
-    //      if let operation = operations_loading[indexPath] {
-    //        operation.cancel()
-    //        operations_loading.removeValue(forKey: indexPath)
-    //      }
-    //    }
+    
   }
   
   

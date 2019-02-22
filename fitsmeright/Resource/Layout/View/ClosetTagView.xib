@@ -11,29 +11,27 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ClosetTagView" customModule="fitsmeright" customModuleProvider="target">
             <connections>
-                <outlet property="lb_title" destination="NmU-Gr-tNK" id="Quk-9h-CDH"/>
+                <outlet property="imgv" destination="tST-aq-M3i" id="LJA-Q7-pTC"/>
                 <outlet property="view" destination="Np6-Yz-BkH" id="Tq7-2d-pQM"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="Np6-Yz-BkH">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NmU-Gr-tNK">
-                    <rect key="frame" x="5" y="25" width="365" height="637"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tST-aq-M3i">
+                    <rect key="frame" x="7" y="7" width="26" height="26"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="8NP-8h-MOp" firstAttribute="trailing" secondItem="NmU-Gr-tNK" secondAttribute="trailing" constant="5" id="ReX-Gi-os0"/>
-                <constraint firstItem="8NP-8h-MOp" firstAttribute="bottom" secondItem="NmU-Gr-tNK" secondAttribute="bottom" constant="5" id="jqo-xO-yfY"/>
-                <constraint firstItem="NmU-Gr-tNK" firstAttribute="leading" secondItem="8NP-8h-MOp" secondAttribute="leading" constant="5" id="mgY-HQ-w2P"/>
-                <constraint firstItem="NmU-Gr-tNK" firstAttribute="top" secondItem="8NP-8h-MOp" secondAttribute="top" constant="5" id="n2o-Pd-c6v"/>
+                <constraint firstAttribute="trailing" secondItem="tST-aq-M3i" secondAttribute="trailing" constant="7" id="Igr-RJ-hJ3"/>
+                <constraint firstItem="tST-aq-M3i" firstAttribute="leading" secondItem="Np6-Yz-BkH" secondAttribute="leading" constant="7" id="YIM-9J-532"/>
+                <constraint firstAttribute="bottom" secondItem="tST-aq-M3i" secondAttribute="bottom" constant="7" id="k5p-Ei-BOC"/>
+                <constraint firstItem="tST-aq-M3i" firstAttribute="top" secondItem="Np6-Yz-BkH" secondAttribute="top" constant="7" id="tZe-sl-T7p"/>
             </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="8NP-8h-MOp"/>
             <point key="canvasLocation" x="-158" y="-93"/>
         </view>

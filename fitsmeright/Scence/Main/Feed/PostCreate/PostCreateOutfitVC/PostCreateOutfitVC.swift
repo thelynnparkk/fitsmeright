@@ -69,6 +69,7 @@ class PostCreateOutfitVC: AGVC {
   //MARK: - Storage
   var closetCategoryListSelected: [ClosetCategory] = []
   var fsClosets: [FSCloset] = []
+  var collectionItemSelected: IndexPath?
   
   
 
@@ -135,7 +136,7 @@ class PostCreateOutfitVC: AGVC {
     view.setupViewFrame()
     bbi_close = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(dismissButtonPressed))
     ni.leftBarButtonItems = [bbi_close]
-    bbi_post = UIBarButtonItem(title: "Post", style: .plain, target: self, action: #selector(postButtonPressed))
+    bbi_post = UIBarButtonItem(title: "Post", style: .done, target: self, action: #selector(postButtonPressed))
     bbi_post.isEnabled = false
     ni.rightBarButtonItems = [bbi_post]
     
@@ -150,7 +151,7 @@ class PostCreateOutfitVC: AGVC {
     imgv_outfit.layer.cornerRadius = 20
     imgv_outfit.contentMode = .scaleAspectFill
     imgv_outfit.clipsToBounds = true
-    imgv_outfitAdd.image = #imageLiteral(resourceName: "library_add")
+    imgv_outfitAdd.image = #imageLiteral(resourceName: "ic_add_outfit")
     btn_outfit.addTarget(self, action: #selector(outfitButtonPressed), for: .touchUpInside)
     btn_clearOutfit.layer.cornerRadius = btn_clearOutfit.bounds.width / 2
     btn_clearOutfit.addTarget(self, action: #selector(clearOutfitButtonPressed), for: .touchUpInside)
@@ -225,7 +226,6 @@ class PostCreateOutfitVC: AGVC {
   
   @objc
   func clearOutfitButtonPressed(_ sender: UIButton) {
-    
     setupClearOutfit()
   }
   
@@ -286,8 +286,8 @@ class PostCreateOutfitVC: AGVC {
         vc_panelVC!.delegate_agvc = self
         addPanelVC()
       }
-      if let vc = vc_panelVC as? PanelListVC {
-        vc.removeBottomSheetView()
+      if let _ = vc_panelVC as? PanelListVC {
+        removePanelVC()
         SwifterSwift.delay(milliseconds: 300) { [weak self] in
           guard let _ = self else { return }
           display()
@@ -318,22 +318,17 @@ class PostCreateOutfitVC: AGVC {
         switch action {
         case .view(_):
           break
-          //        self.removeStickersView()
-          //        view.center = canvasImageView.center
-          //        self.canvasImageView.addSubview(view)
-        //        addGestures(view: view)
         case .image(_):
           break
-          //        self.removeStickersView()
-          //        let imageView = UIImageView(image: image)
-          //        imageView.contentMode = .scaleAspectFit
-          //        imageView.frame.size = CGSize(width: 150, height: 150)
-          //        imageView.center = canvasImageView.center
-          //        self.canvasImageView.addSubview(imageView)
-        //        addGestures(view: imageView)
         case let .indexPath(i):
-          print(i)
           removePanelVC()
+          let displayed = OutfitItemCCDisplayed()
+          displayed.imageURL = fsClosets[i.row].imageURL
+          adapter_item.displayedCA.sections[collectionItemSelected!.section].items[collectionItemSelected!.row] = displayed
+          adapter_item.collection.reloadItems(at: [collectionItemSelected!])
+          let items = adapter_item.displayedCA.sections[collectionItemSelected!.section].items as! [OutfitItemCCDisplayed]
+          bbi_post.isEnabled = items.filter({ $0.imageURL == nil }).isEmpty
+          collectionItemSelected = nil
         case .disappear:
           isPanelListVisible = false
         }
@@ -377,6 +372,7 @@ class PostCreateOutfitVC: AGVC {
   
   //MARK: - Custom - AGCADelegate
   func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
+    collectionItemSelected = indexPath
     let closetCategory = closetCategoryListSelected[indexPath.row]
     fetchClosetCategory(category: closetCategory.rawValue)
   }

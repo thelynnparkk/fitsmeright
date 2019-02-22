@@ -201,7 +201,7 @@ class FeedVC: AGVC {
       }
     }
     func presenterError() {
-      v_state.setState(with: .error)
+      v_state.setState(with: .hidden)
     }
     interactor()
   }

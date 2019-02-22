@@ -155,10 +155,10 @@ class OutfitItemCC: AGCC {
     
     //MARK: Component
     
-    v_container.layer.cornerRadius = 8
+    v_container.layer.cornerRadius = 20
     v_container.clipsToBounds = true
     imgv_icon.contentMode = .scaleAspectFit
-    imgv_closet.contentMode = .scaleAspectFit
+    imgv_closet.contentMode = .scaleAspectFill
     
     
     

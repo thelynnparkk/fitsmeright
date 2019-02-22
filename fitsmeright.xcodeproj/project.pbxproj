@@ -12,8 +12,6 @@
 		5E5BD815221B05BB003D1C3D /* ClosetTagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E5BD814221B05BB003D1C3D /* ClosetTagView.xib */; };
 		5E5BD818221B08EA003D1C3D /* SelectClosetCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5BD817221B08EA003D1C3D /* SelectClosetCategoryVC.swift */; };
 		5E5BD81A221B08F0003D1C3D /* SelectClosetCategoryVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E5BD819221B08F0003D1C3D /* SelectClosetCategoryVC.storyboard */; };
-		5E5BD81C221B0AFE003D1C3D /* ClosetLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5BD81B221B0AFE003D1C3D /* ClosetLabelView.swift */; };
-		5E5BD81E221B0B05003D1C3D /* ClosetLabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E5BD81D221B0B05003D1C3D /* ClosetLabelView.xib */; };
 		5E74D9FD21BBACA900A97A89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74D9FC21BBACA900A97A89 /* AppDelegate.swift */; };
 		5E74D9FF21BBACA900A97A89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74D9FE21BBACA900A97A89 /* ViewController.swift */; };
 		5E74DA0221BBACA900A97A89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E74DA0021BBACA900A97A89 /* Main.storyboard */; };
@@ -178,8 +176,6 @@
 		5E5BD814221B05BB003D1C3D /* ClosetTagView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClosetTagView.xib; sourceTree = "<group>"; };
 		5E5BD817221B08EA003D1C3D /* SelectClosetCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectClosetCategoryVC.swift; sourceTree = "<group>"; };
 		5E5BD819221B08F0003D1C3D /* SelectClosetCategoryVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectClosetCategoryVC.storyboard; sourceTree = "<group>"; };
-		5E5BD81B221B0AFE003D1C3D /* ClosetLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetLabelView.swift; sourceTree = "<group>"; };
-		5E5BD81D221B0B05003D1C3D /* ClosetLabelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClosetLabelView.xib; sourceTree = "<group>"; };
 		5E74D9F921BBACA900A97A89 /* fitsmeright.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fitsmeright.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E74D9FC21BBACA900A97A89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E74D9FE21BBACA900A97A89 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -934,8 +930,6 @@
 				A4C4FAAA21F975C7004A3F37 /* AGView.swift */,
 				A4C4FAA921F975C7004A3F37 /* ClosetFormView.swift */,
 				A4C4FAAE21F975C7004A3F37 /* ClosetFormView.xib */,
-				5E5BD81B221B0AFE003D1C3D /* ClosetLabelView.swift */,
-				5E5BD81D221B0B05003D1C3D /* ClosetLabelView.xib */,
 				A4C4FAAC21F975C7004A3F37 /* ClosetMenuView.swift */,
 				A4C4FAA421F975C7004A3F37 /* ClosetMenuView.xib */,
 				5ECC1D6C221B037500B03268 /* ClosetTagView.swift */,
@@ -1167,7 +1161,6 @@
 			files = (
 				A4C4FAB121F975C7004A3F37 /* FloatingView.xib in Resources */,
 				A4C4FAB321F975C7004A3F37 /* ClosetMenuView.xib in Resources */,
-				5E5BD81E221B0B05003D1C3D /* ClosetLabelView.xib in Resources */,
 				A4DAA1BC220823E300DA31F7 /* LabelCC.xib in Resources */,
 				5E74DA0721BBACAA00A97A89 /* LaunchScreen.storyboard in Resources */,
 				A4C4FABD21F975C7004A3F37 /* ClosetFormView.xib in Resources */,
@@ -1408,7 +1401,6 @@
 				A4DF18D62202FD7F008B67DA /* PopupListVC.swift in Sources */,
 				5E74DA5321BBD0B100A97A89 /* TemplateV.swift in Sources */,
 				A4C4B6EC21F820C00036B0F7 /* AGVC+AG.swift in Sources */,
-				5E5BD81C221B0AFE003D1C3D /* ClosetLabelView.swift in Sources */,
 				5EFC9BAA21FB57C00078ED50 /* SCloset.swift in Sources */,
 				A4C4FAB921F975C7004A3F37 /* AGView.swift in Sources */,
 				5E74D9FF21BBACA900A97A89 /* ViewController.swift in Sources */,

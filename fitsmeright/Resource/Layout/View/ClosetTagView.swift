@@ -13,7 +13,7 @@ import UIKit
 
 
 class ClosetTagViewDisplayed: AGViewDisplayed {
-  var title: String?
+  var icon: UIImage?
 }
 
 
@@ -40,9 +40,8 @@ class ClosetTagView: AGView {
   
   //MARK: - UI
   @IBOutlet weak var view: UIView!
-  @IBOutlet weak var lb_title: UILabel!
-  var tapGesture: UITapGestureRecognizer!
-  
+  @IBOutlet weak var imgv: UIImageView!
+  var longGesture: UILongPressGestureRecognizer!
   
   
   //MARK: - NSLayout
@@ -79,17 +78,19 @@ class ClosetTagView: AGView {
     //MARK: Core
     backgroundColor = .clear
     layer.masksToBounds = true
-    clipsToBounds = false
-    let gesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
-    addGestureRecognizer(gesture)
+    longGesture = UILongPressGestureRecognizer(target: self, action: #selector(longGestureRecognized))
+    addGestureRecognizer(longGesture)
     
     
     
     //MARK: Component
-    view.backgroundColor = .white
-    view.layer.cornerRadius = 8
-    view.clipsToBounds = true
-    lb_title.textColor = UIColor.Custom.peach
+    view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+    view.layer.masksToBounds = true
+    
+    imgv.contentMode = .scaleAspectFit
+    imgv.clipsToBounds = true
+    
+    
     
     
     
@@ -155,15 +156,17 @@ class ClosetTagView: AGView {
   //MARK: - Setup Data
   override func setupData(with displayed: AGViewDisplayed?) {
     guard let displayed = displayed as? Displayed else { return }
-    lb_title.text = displayed.title
+    imgv.image = displayed.icon
     setupViewFrame()
+    view.layer.cornerRadius = view.bounds.width / 2
     addShadow(ofColor: .black, radius: 8, offset: .less, opacity: 0.1)
   }
   
   
   
   //MARK: - Event
-  @objc func viewTapped(_ sender: UITapGestureRecognizer) {
+  @objc
+  func longGestureRecognized(_ sender: UILongPressGestureRecognizer) {
     delegate?.agViewPressed(self, action: [], tag: tag)
   }
   

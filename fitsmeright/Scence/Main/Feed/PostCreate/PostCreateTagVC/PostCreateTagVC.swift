@@ -14,7 +14,8 @@ import SwifterSwift
 
 
 extension PostCreateTagVC:
-  AGVCDelegate
+  AGVCDelegate,
+  AGViewDelegate
 {
   
 }
@@ -174,7 +175,7 @@ class PostCreateTagVC: AGVC {
     let vc = SelectClosetCategoryVC.vc()
     vc.delegate_agvc = self
     let nvc = UINavigationController(rootViewController: vc)
-    present(vc: nvc)
+    present(nvc, animated: true)
   }
   
   
@@ -187,32 +188,88 @@ class PostCreateTagVC: AGVC {
   
   
   //MARK: - Private
+  private func displayAddClosetTag(origin: CGPoint, closetCategory: ClosetCategory) {
+    let view = ClosetTagView()
+    view.tag = closetCategory.rawValue
+    view.frame = CGRect(origin: origin, size: CGSize(side: 40))
+    view.delegate = self
+    let displayed = ClosetTagViewDisplayed()
+    displayed.icon = closetCategory.icon.filled(withColor: .white)
+    view.setupData(with: displayed)
+    imgv_outfit.addSubview(view)
+    v_tagList[closetCategory] = view
+    bbi_done.isEnabled = true
+  }
   
   
   
   //MARK: - VIP - FetchOutfit
   func fetchOutfit() {
-    
     func interactor() {
       worker()
     }
-    
     func worker() {
       present()
     }
-    
     func present() {
       imgv_outfit.image = img_outfitSelected
     }
-    
     interactor()
-    
   }
   
   
   
   //MARK: - Core - Protocol
   
+  
+  
+  //MARK: - Custom - AGViewDelegate
+  func agViewPressed(_ view: AGView, action: Any, tag: Int) {
+    func getLabelCAModel() -> LabelCADisplayed {
+      let displayed = LabelCADisplayed()
+      let displayed_delete = LabelCCDisplayed()
+      displayed_delete.title = "Delete"
+      displayed_delete.style = .normal
+      let displayed_cancel = LabelCCDisplayed()
+      displayed_cancel.title = "Cancel"
+      displayed_cancel.weight = .semibold
+      displayed_cancel.style = .negative
+      let section = LabelCADisplayed.Section()
+      section.items = [displayed_delete, displayed_cancel]
+      displayed.sections = [section]
+      return displayed
+    }
+    let displayed = PopupListVCUC.Setup.DisplayedSetupPopupList()
+    displayed.viewModel = getLabelCAModel()
+    displayed.adapter = LabelCA.self
+    displayed.isTapOverlayEnabled = true
+    displayed.isTapContainerEnabled = true
+    displayed.isHideFooter = true
+    displayed.displayedHeader.icon = #imageLiteral(resourceName: "library_white").filled(withColor: c_custom.peach)
+    displayed.displayedHeader.style = .large
+    displayed.displayedHeader.subtitle = "Please confirm to delete tagged item."
+    displayed.displayedHeader.tint = c_custom.peach
+    displayed.displayedHeader.title = "Delete item?"
+    let vm = PopupListVCUC.Setup.ViewModel()
+    vm.displayedSetup = displayed
+    displayPopupList(vm, priority: .common, on: self) { [weak self] in
+      guard let _ = self else { return }
+      guard $0.isSelected else { return }
+      switch $0.indexPath.row {
+      case 0:
+        view.fadeOut(duration: 0.2) { [weak self] bool in
+          guard let _s = self else { return }
+          view.removeFromSuperview()
+          _s.v_tagList.removeValue(forKey: ClosetCategory(rawValue: tag)!)
+        }
+      case 1:
+        break
+      default:
+        break
+      }
+    }
+  }
+
   
   
   //MARK: - Custom - AGVCDelegate
@@ -224,16 +281,15 @@ class PostCreateTagVC: AGVC {
           DispatchQueue.main.async { [weak self] in
             guard let _s = self else { return }
             if let view = _s.v_tagList[closetCategory] {
-              view.removeFromSuperview()
-              _s.v_tagList.removeValue(forKey: closetCategory)
+              view.fadeOut(duration: 0.2) { [weak self] bool in
+                guard let _s = self else { return }
+                view.removeFromSuperview()
+                _s.v_tagList.removeValue(forKey: closetCategory)
+                _s.displayAddClosetTag(origin: point_lastTapped, closetCategory: closetCategory)
+              }
+            } else {
+              _s.displayAddClosetTag(origin: point_lastTapped, closetCategory: closetCategory)
             }
-            let view = UIView()
-            view.frame = CGRect(origin: point_lastTapped, size: CGSize(side: 20))
-            view.layer.cornerRadius = 10
-            view.backgroundColor = _s.c_custom.peach
-            _s.imgv_outfit.addSubview(view)
-            _s.v_tagList[closetCategory] = view
-            _s.bbi_done.isEnabled = true
           }
         }
       }

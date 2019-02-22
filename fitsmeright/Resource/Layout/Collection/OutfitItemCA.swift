@@ -229,14 +229,14 @@ class OutfitItemCA: AGCA {
   
   //MARK: - Core - UICollectionViewDelegateFlowLayout
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    let inset = CC.Sizing.inset(with: collectionView.bounds, custom: UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 10))
+    let inset = CC.Sizing.inset(with: collectionView.bounds, custom: UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20))
     let lineSpace: CGFloat = 0.0
     let itemSpace: CGFloat = 0.0
     return CC.Sizing.size(with: collectionView.bounds, customItemSpace: lineSpace, customItemLine: itemSpace, customInset: inset)
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-    return CC.Sizing.inset(with: collectionView.bounds, custom: UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 10))
+    return CC.Sizing.inset(with: collectionView.bounds, custom: UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20))
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
