@@ -85,9 +85,6 @@
 		A42F7C5621BE567D00085DB5 /* AGDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C5521BE567D00085DB5 /* AGDefaults.swift */; };
 		A42F7C5821BE56AC00085DB5 /* AGDefaultsFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C5721BE56AC00085DB5 /* AGDefaultsFoundation.swift */; };
 		A42F7C5A21BE56D800085DB5 /* AGDefaultsCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C5921BE56D800085DB5 /* AGDefaultsCodable.swift */; };
-		A42F7C5C21BE597100085DB5 /* AGApplicationSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C5B21BE597100085DB5 /* AGApplicationSetup.swift */; };
-		A42F7C5E21BE5B4B00085DB5 /* AGApplicationRoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C5D21BE5B4B00085DB5 /* AGApplicationRoutable.swift */; };
-		A42F7C6221BE5BD100085DB5 /* AGApplicationWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C6121BE5BD100085DB5 /* AGApplicationWindow.swift */; };
 		A42F7C6921BE71FB00085DB5 /* UINavigationBar+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C6821BE71FB00085DB5 /* UINavigationBar+AG.swift */; };
 		A42F7C7121BE7B7300085DB5 /* UIImage+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42F7C7021BE7B7300085DB5 /* UIImage+AG.swift */; };
 		A4796C9521F5DC0100B83F85 /* UIColor+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4796C9421F5DC0100B83F85 /* UIColor+AG.swift */; };
@@ -97,6 +94,7 @@
 		A4A98DB521FB0C2200937AE5 /* UITextField+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A98DB421FB0C2200937AE5 /* UITextField+AG.swift */; };
 		A4AF2E4D221BDA1E00C5F2E1 /* Sizeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AF2E4C221BDA1E00C5F2E1 /* Sizeable.swift */; };
 		A4AF2E4F221BDA4300C5F2E1 /* CGFloat+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AF2E4E221BDA4300C5F2E1 /* CGFloat+AG.swift */; };
+		A4B482CC22202439006F55DB /* AppDelegate+Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B482CB22202439006F55DB /* AppDelegate+Router.swift */; };
 		A4C338B421F8A28B00147567 /* ControlContainableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C338B321F8A28B00147567 /* ControlContainableScrollView.swift */; };
 		A4C338B821F8A3CD00147567 /* ImageCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C338B721F8A3CD00147567 /* ImageCA.swift */; };
 		A4C338BA21F8A3D800147567 /* ImageCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C338B921F8A3D800147567 /* ImageCC.swift */; };
@@ -260,9 +258,6 @@
 		A42F7C5521BE567D00085DB5 /* AGDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGDefaults.swift; sourceTree = "<group>"; };
 		A42F7C5721BE56AC00085DB5 /* AGDefaultsFoundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGDefaultsFoundation.swift; sourceTree = "<group>"; };
 		A42F7C5921BE56D800085DB5 /* AGDefaultsCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGDefaultsCodable.swift; sourceTree = "<group>"; };
-		A42F7C5B21BE597100085DB5 /* AGApplicationSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGApplicationSetup.swift; sourceTree = "<group>"; };
-		A42F7C5D21BE5B4B00085DB5 /* AGApplicationRoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGApplicationRoutable.swift; sourceTree = "<group>"; };
-		A42F7C6121BE5BD100085DB5 /* AGApplicationWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGApplicationWindow.swift; sourceTree = "<group>"; };
 		A42F7C6821BE71FB00085DB5 /* UINavigationBar+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+AG.swift"; sourceTree = "<group>"; };
 		A42F7C7021BE7B7300085DB5 /* UIImage+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+AG.swift"; sourceTree = "<group>"; };
 		A4796C9421F5DC0100B83F85 /* UIColor+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AG.swift"; sourceTree = "<group>"; };
@@ -272,6 +267,7 @@
 		A4A98DB421FB0C2200937AE5 /* UITextField+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+AG.swift"; sourceTree = "<group>"; };
 		A4AF2E4C221BDA1E00C5F2E1 /* Sizeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizeable.swift; sourceTree = "<group>"; };
 		A4AF2E4E221BDA4300C5F2E1 /* CGFloat+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+AG.swift"; sourceTree = "<group>"; };
+		A4B482CB22202439006F55DB /* AppDelegate+Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Router.swift"; sourceTree = "<group>"; };
 		A4C338B321F8A28B00147567 /* ControlContainableScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlContainableScrollView.swift; sourceTree = "<group>"; };
 		A4C338B721F8A3CD00147567 /* ImageCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCA.swift; sourceTree = "<group>"; };
 		A4C338B921F8A3D800147567 /* ImageCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCC.swift; sourceTree = "<group>"; };
@@ -568,7 +564,6 @@
 			isa = PBXGroup;
 			children = (
 				A4E31D8221C28B83004D1707 /* AGUserDefaults.swift */,
-				A42F7C5F21BE5BA400085DB5 /* Application */,
 				A4C4B6F121F84E240036B0F7 /* Colorable.swift */,
 				5EE8925721C40958008A65ED /* Entitible.swift */,
 				5EFC9BAD21FB684A0078ED50 /* FirestoreCodable.swift */,
@@ -797,16 +792,6 @@
 			path = ClosetVC;
 			sourceTree = "<group>";
 		};
-		A42F7C5F21BE5BA400085DB5 /* Application */ = {
-			isa = PBXGroup;
-			children = (
-				A42F7C5D21BE5B4B00085DB5 /* AGApplicationRoutable.swift */,
-				A42F7C5B21BE597100085DB5 /* AGApplicationSetup.swift */,
-				A42F7C6121BE5BD100085DB5 /* AGApplicationWindow.swift */,
-			);
-			path = Application;
-			sourceTree = "<group>";
-		};
 		A42F7C6021BE5BB600085DB5 /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
@@ -875,6 +860,14 @@
 				A4AF2E4E221BDA4300C5F2E1 /* CGFloat+AG.swift */,
 			);
 			path = Type;
+			sourceTree = "<group>";
+		};
+		A4B482CA22202415006F55DB /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				A4B482CB22202439006F55DB /* AppDelegate+Router.swift */,
+			);
+			path = AppDelegate;
 			sourceTree = "<group>";
 		};
 		A4C338B521F8A29700147567 /* ScrollView */ = {
@@ -976,6 +969,7 @@
 		A4D6E29621C0F7BF0085FB67 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				A4B482CA22202415006F55DB /* AppDelegate */,
 				A4AF2E53221BDD1200C5F2E1 /* Type */,
 				A4AF2E52221BDD0500C5F2E1 /* View */,
 				A4AF2E50221BDCDA00C5F2E1 /* UI */,
@@ -1371,7 +1365,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A42F7C5C21BE597100085DB5 /* AGApplicationSetup.swift in Sources */,
 				5E74DA6421BBD7AB00A97A89 /* AGVC.swift in Sources */,
 				A4DAA1AA220801E600DA31F7 /* PanelVC.swift in Sources */,
 				A4DAA1AE22081C0200DA31F7 /* AGVC+PopupDialogable.swift in Sources */,
@@ -1409,10 +1402,8 @@
 				A4DAA1B622081EFF00DA31F7 /* AGVC+ViewIPC.swift in Sources */,
 				A4C4B6E821F81FE60036B0F7 /* UIScrollView+AG.swift in Sources */,
 				A49F8C6522044A630081F5EA /* PanelListVC.swift in Sources */,
-				A42F7C6221BE5BD100085DB5 /* AGApplicationWindow.swift in Sources */,
 				A4C4FAD421F9C6E4004A3F37 /* PopupContainerVC.swift in Sources */,
 				5EE8924121C3E615008A65ED /* ClosetVC.swift in Sources */,
-				A42F7C5E21BE5B4B00085DB5 /* AGApplicationRoutable.swift in Sources */,
 				A4DAA1A72207F44500DA31F7 /* UIPanGestureRecognizer+AG.swift in Sources */,
 				A4DF18D62202FD7F008B67DA /* PopupListVC.swift in Sources */,
 				5E74DA5321BBD0B100A97A89 /* TemplateV.swift in Sources */,
@@ -1445,6 +1436,7 @@
 				5ECE8E8221F76015000AF65E /* QueryDocumentSnapshot+AG.swift in Sources */,
 				A4C4FAC021F9762A004A3F37 /* LabelCRV.swift in Sources */,
 				A4C4FAC621F9A13C004A3F37 /* ViewIPC.swift in Sources */,
+				A4B482CC22202439006F55DB /* AppDelegate+Router.swift in Sources */,
 				A4DFBCC4221DA15500C31FD2 /* OutfitItemCA.swift in Sources */,
 				5E74DA5821BBD0B100A97A89 /* TemplateVIP.swift in Sources */,
 				A4C4FAB821F975C7004A3F37 /* ClosetFormView.swift in Sources */,
