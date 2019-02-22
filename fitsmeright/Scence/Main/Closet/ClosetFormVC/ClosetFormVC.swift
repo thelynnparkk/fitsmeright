@@ -139,6 +139,7 @@ class ClosetFormVC: AGVC {
     imgv_closet.contentMode = .scaleAspectFill
     v_addCloset.backgroundColor = c_custom.peach
     v_addCloset.layer.cornerRadius = v_addCloset.bounds.width / 2
+    v_addCloset.contentMode = .scaleAspectFit
     v_addCloset.clipsToBounds = true
     imgv_addCloset.contentMode = .scaleAspectFit
     v_seperator.backgroundColor = c_material.grey300
