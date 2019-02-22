@@ -138,7 +138,7 @@ enum ClosetCategory: Int {
     case .hat:
       iconAdd = #imageLiteral(resourceName: "ic_add_hat")
     case .accessory:
-      iconAdd = #imageLiteral(resourceName: "library_add")
+      iconAdd = #imageLiteral(resourceName: "ic_add_accessory")
     case .bag:
       iconAdd = #imageLiteral(resourceName: "ic_add_bag")
     case .shoe:
@@ -148,7 +148,7 @@ enum ClosetCategory: Int {
     case .bottom:
       iconAdd = #imageLiteral(resourceName: "ic_add_bottom")
     case .sock:
-      iconAdd = #imageLiteral(resourceName: "library_add")
+      iconAdd = #imageLiteral(resourceName: "ic_add_sock")
     }
     return iconAdd
   }
