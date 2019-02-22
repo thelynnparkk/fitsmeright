@@ -187,7 +187,7 @@ class ProfileVC: AGVC {
   
   //MARK: - Public
   override func setupLocalize() {
-    ni.title = ProfileVC.sb_name
+    ni.title = "Profile"
   }
   
   

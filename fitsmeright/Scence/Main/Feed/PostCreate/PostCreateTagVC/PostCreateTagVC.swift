@@ -192,7 +192,7 @@ class PostCreateTagVC: AGVC {
   
   //MARK: - Public
   override func setupLocalize() {
-    ni.title = PostCreateTagVC.sb_name
+    ni.title = ""
   }
   
   

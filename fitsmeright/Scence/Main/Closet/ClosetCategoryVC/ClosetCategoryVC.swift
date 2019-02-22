@@ -185,7 +185,7 @@ class ClosetCategoryVC: AGVC {
   
   //MARK: - Public
   override func setupLocalize() {
-    ni.title = ClosetCategoryVC.sb_name
+    ni.title = "My Closet"
     lb_title.text = ClosetCategoryVC.sb_name
   }
   
