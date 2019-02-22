@@ -1,9 +1,9 @@
 //
-//  Post.swift
+//  PostComment.swift
 //  fitsmeright
 //
-//  Created by Lynn Park on 14/12/2561 BE.
-//  Copyright © 2561 silpakorn. All rights reserved.
+//  Created by Sasawat Sankosik on 23/2/2562 BE.
+//  Copyright © 2562 silpakorn. All rights reserved.
 //
 
 
@@ -12,7 +12,7 @@ import SwifterSwift
 
 
 
-extension Post:
+extension PostComment:
   Entitible
 {
   
@@ -20,17 +20,15 @@ extension Post:
 
 
 
-class Post {
+class PostComment {
   
   //MARK: - Key
   
   
   
   //MARK: - Storage
-  var fsPost: FSPost?
+  var fsPostComment: FSPostComment?
   var fsUser: FSUser?
-  var fsPostClosetList: [String] = []
-  var fsPostCommentList: [String] = []
   
   
   
@@ -42,8 +40,8 @@ class Post {
   
   
   //MARK: - Public
-  var _fsPost: FSPost {
-    return fsPost ?? FSPost()
+  var _fsPostComment: FSPostComment {
+    return fsPostComment ?? FSPostComment()
   }
   var _fsUser: FSUser {
     return fsUser ?? FSUser()

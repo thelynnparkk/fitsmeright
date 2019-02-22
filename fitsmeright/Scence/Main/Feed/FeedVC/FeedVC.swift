@@ -13,7 +13,8 @@ import UIKit
 
 
 extension FeedVC:
-  AGViewDelegate
+  AGViewDelegate,
+  AGVCDelegate
 {
   
 }
@@ -54,7 +55,7 @@ class FeedVC: AGVC {
   
   
   //MARK: - Storage
-  var post: MockPost?
+  var postList: [Post] = []
   
   
 
@@ -180,25 +181,72 @@ class FeedVC: AGVC {
   
   //MARK: - VIP - FetchPostList
   func fetchPostList() {
+    var postList: [Post] = []
+    var fsPostList: [FSPost] = []
+    var fsUserList: [FSUser] = []
     func interactor() {
       if isFetchPostFirstTime {
         isFetchPostFirstTime = false
         v_state.setState(with: .loading, isAnimation: false)
       }
-      worker()
+      let fsUser = FMUserDefaults.FSUserDefault.get()!
+      worker(userId: fsUser._documentId)
     }
-    func worker() {
-      if let post = FMUserDefaults.Post.get() {
-        self.post = post
-        presenter()
-      } else {
-        presenterError()
+    func worker(userId: String) {
+      let users = [userId]
+      func fetchPost() {
+        let dg = DispatchGroup()
+        for i in users {
+          dg.enter()
+          FSPostWorker.fetchWhere(userId: i) { [weak self] in
+            guard let _ = self else { return }
+            dg.leave()
+            switch $0.error {
+            case .none:
+              fsPostList += $0.data
+            case let .some(e):
+              print(e.localizedDescription)
+            }
+          }
+        }
+        dg.notify(queue: .main) {
+          fetchUser(users: users)
+        }
       }
+      func fetchUser(users: [String]) {
+        let dg = DispatchGroup()
+        for i in users {
+          dg.enter()
+          FSUserWorker.get(documentId: i) { [weak self] in
+            guard let _ = self else { return }
+            dg.leave()
+            switch $0.error {
+            case .none:
+              fsUserList.append($0.data)
+            case let .some(e):
+              print(e.localizedDescription)
+            }
+          }
+        }
+        dg.notify(queue: .main) {
+          presenter()
+        }
+      }
+      fetchPost()
     }
     func presenter() {
       v_state.setState(with: .hidden)
-      if let _ = post {
+      for p in fsPostList {
+        let post = Post()
+        post.fsPost = p
+        for u in fsUserList {
+          if p._userId == u._documentId {
+            post.fsUser = u
+          }
+        }
+        postList.append(post)
       }
+      self.postList = postList
     }
     func presenterError() {
       v_state.setState(with: .hidden)
@@ -215,8 +263,24 @@ class FeedVC: AGVC {
   //MARK: - Custom - AGViewDelegate
   func agViewPressed(_ view: AGView, action: Any, tag: Int) {
     let vc = PostCreateOutfitVC.vc()
+    vc.delegate_agvc = self
     let nvc = UINavigationController(rootViewController: vc)
     present(nvc, animated: true, completion: nil)
+  }
+  
+  
+  
+  //MARK: - Custom - AGVCDelegate
+  func agVCPressed(_ vc: AGVC, action: Any) {
+    switch vc {
+    case is PostCreateOutfitVC:
+      vc.dismiss(animated: true) { [weak self] in
+        guard let _s = self else { return }
+        _s.fetchPostList()
+      }
+    default:
+      break
+    }
   }
   
   

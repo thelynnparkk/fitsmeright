@@ -9,6 +9,8 @@
 
 
 import SwifterSwift
+import FirebaseStorage
+import FirebaseFirestore
 
 
 
@@ -216,7 +218,7 @@ class PostCreateOutfitVC: AGVC {
   //MARK: - Event
   @objc
   func postButtonPressed(_ sender: UIBarButtonItem) {
-    
+    addPost()
   }
   
   @objc
@@ -312,6 +314,74 @@ class PostCreateOutfitVC: AGVC {
     interactor()
   }
   
+  
+  
+  
+  //MARK: - VIP - AddPost
+  func addPost() {
+    func interactor() {
+      v_state.setState(with: .loading, isAnimation: false)
+      let fsUser = FMUserDefaults.FSUserDefault.get()!
+      let fsPost = FSPost()
+      fsPost.userId = fsUser._documentId
+      fsPost.updatedAt = Timestamp(date: Date())
+      worker(fsPost: fsPost)
+    }
+    func worker(fsPost: FSPost) {
+      func uploadClosetImage() {
+        guard let data = imgv_outfit.image?.jpegData(compressionQuality: 1) else {
+          presentError()
+          return
+        }
+        let ref_folder = Storage.storage().reference(withPath: SPost.folder)
+        let ref_create = ref_folder.child("\(Date().millisecondsSince1970).jpg")
+        ref_create.putData(data, metadata: nil) { (metadata, error) in
+          if let e = error {
+            presentError()
+            print(e.localizedDescription)
+            return
+          }
+          guard let _ = metadata else {
+            presentError()
+            return
+          }
+          ref_create.downloadURL { (url, error) in
+            if let e = error {
+              presentError()
+              print(e.localizedDescription)
+              return
+            }
+            guard let url = url else {
+              presentError()
+              return
+            }
+            fsPost.image = url.absoluteString
+            addPost()
+          }
+        }
+      }
+      func addPost() {
+        FSPostWorker.add(fsPost: fsPost) {
+          switch $0 {
+          case .none:
+            present()
+          case let .some(e):
+            presentError()
+            print(e.localizedDescription)
+          }
+        }
+      }
+      uploadClosetImage()
+    }
+    func present() {
+      v_state.setState(with: .hidden)
+      delegate_agvc?.agVCPressed(self, action: [])
+    }
+    func presentError() {
+      v_state.setState(with: .error, isAnimation: false)
+    }
+    interactor()
+  }
   
   
   //MARK: - Core - Protocol

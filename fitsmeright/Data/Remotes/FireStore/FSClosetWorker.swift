@@ -34,8 +34,8 @@ class FSClosetWorker {
   }
   
   typealias FetchWhereResponse = (data: [FSCloset], error: Error?)
-  static func fetchWhere(userId: String?, onComplete: @escaping ((FetchResponse) -> ())) {
-    var response: FetchResponse = ([], nil)
+  static func fetchWhere(userId: String?, onComplete: @escaping ((FetchWhereResponse) -> ())) {
+    var response: FetchWhereResponse = ([], nil)
     let db = Firestore.default
     let collection_closets = db
       .collection(FSCloset.collection)
@@ -74,8 +74,8 @@ class FSClosetWorker {
   }
   
   typealias AddResponse = Error?
-  static func add(fsCloset: FSCloset, onComplete: @escaping ((UpdateResponse) -> ())) {
-    var response: UpdateResponse = (nil)
+  static func add(fsCloset: FSCloset, onComplete: @escaping ((AddResponse) -> ())) {
+    var response: AddResponse = (nil)
     let db = Firestore.default
     let collection_closets = db.collection(FSCloset.collection)
     guard let fields = try? FirestoreEncoder().encode(fsCloset) else {

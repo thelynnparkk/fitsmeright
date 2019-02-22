@@ -22,4 +22,16 @@ extension DocumentSnapshot {
     print("data: \(String(describing: data()))")
   }
   
+  func toObject<T: FirestoreCodable>(_ type: T.Type) -> T? {
+    do {
+      var decoded = try FirestoreDecoder().decode(type, from: data() ?? [:])
+      decoded.ref = reference
+      decoded.documentId = documentID
+      return decoded
+    } catch let e {
+      print(e.localizedDescription)
+      return nil
+    }
+  }
+  
 }
