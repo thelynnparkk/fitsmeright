@@ -82,16 +82,16 @@
                                         <rect key="frame" x="152.5" y="152.5" width="70" height="70"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K8Q-Mu-7s5">
-                                                <rect key="frame" x="15" y="15" width="40" height="40"/>
+                                                <rect key="frame" x="7" y="7" width="58" height="58"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="Vc0-wh-8Nb"/>
-                                            <constraint firstItem="K8Q-Mu-7s5" firstAttribute="leading" secondItem="YW1-aI-xs6" secondAttribute="leading" constant="15" id="fht-2O-hgp"/>
-                                            <constraint firstItem="K8Q-Mu-7s5" firstAttribute="top" secondItem="YW1-aI-xs6" secondAttribute="top" constant="15" id="kTG-mp-AQ8"/>
-                                            <constraint firstAttribute="trailing" secondItem="K8Q-Mu-7s5" secondAttribute="trailing" constant="15" id="pVG-0z-cDO"/>
-                                            <constraint firstAttribute="bottom" secondItem="K8Q-Mu-7s5" secondAttribute="bottom" constant="15" id="uIY-zh-33P"/>
+                                            <constraint firstItem="K8Q-Mu-7s5" firstAttribute="leading" secondItem="YW1-aI-xs6" secondAttribute="leading" constant="7" id="fht-2O-hgp"/>
+                                            <constraint firstItem="K8Q-Mu-7s5" firstAttribute="top" secondItem="YW1-aI-xs6" secondAttribute="top" constant="7" id="kTG-mp-AQ8"/>
+                                            <constraint firstAttribute="trailing" secondItem="K8Q-Mu-7s5" secondAttribute="trailing" constant="5" id="pVG-0z-cDO"/>
+                                            <constraint firstAttribute="bottom" secondItem="K8Q-Mu-7s5" secondAttribute="bottom" constant="5" id="uIY-zh-33P"/>
                                             <constraint firstAttribute="height" constant="70" id="vmD-su-ILw"/>
                                         </constraints>
                                     </view>
