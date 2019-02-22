@@ -117,7 +117,7 @@ class PostCreateTagVC: AGVC {
   override func viewDidLoad() {
     super.viewDidLoad()
     //MARK: Core
-    view.backgroundColor = c_material.grey300
+    view.backgroundColor = .white
     nb?.setupWith(content: c_custom.peach, bg: .white, isTranslucent: false)
     bbi_done = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonPressed))
     bbi_done.isEnabled = false

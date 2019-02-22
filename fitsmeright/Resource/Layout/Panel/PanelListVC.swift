@@ -264,6 +264,7 @@ class PanelListVC: PanelVC {
     guard let vm = viewModel as? UC.Setup.ViewModel else { return }
     guard let displayed = vm.displayedSetup as? UC.Setup.DisplayedSetupPanelList else { return }
     displayedSetup = displayed
+    fetchList()
   }
   
   

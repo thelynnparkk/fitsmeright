@@ -69,6 +69,7 @@ class PostCreateOutfitVC: AGVC {
   //MARK: - Storage
   var closetCategoryListSelected: [ClosetCategory] = []
   var fsClosets: [FSCloset] = []
+  var fsClosetsByClosetCategory: [FSCloset] = []
   var collectionItemSelected: IndexPath?
   
   
@@ -160,8 +161,6 @@ class PostCreateOutfitVC: AGVC {
     adapter_item = OutfitItemCA(collection: collection_item)
     adapter_item.delegate = self
     
-//    vc_panelVC = PanelListVC()
-    
     v_state = StateView(axis: .vertical)
     v_state.setupLight()
     v_state.delegate = self
@@ -191,6 +190,7 @@ class PostCreateOutfitVC: AGVC {
     
     //MARK: Data
     v_itemSection.isHidden = true
+    fetchClosetCategory()
   }
   
   
@@ -242,64 +242,72 @@ class PostCreateOutfitVC: AGVC {
   
   
   
-  //MARK: - VIP - FetchPost
-  func fetchClosetCategory(category: Int) {
+  //MARK: - VIP - FetchPostCategory
+  func fetchClosetCategory() {
     func interactor() {
       v_state.setState(with: .loading, isAnimation: false)
       let fsUser = FMUserDefaults.FSUserDefault.get()!
       worker(userId: fsUser._documentId)
     }
     func worker(userId: String) {
-      FSClosetWorker.fetchWhere(userId: userId, category: category) { [weak self] in
+      FSClosetWorker.fetchWhere(userId: userId) { [weak self] in
         guard let _s = self else { return }
         switch $0.error {
         case .none:
           _s.fsClosets = $0.data
           present($0.data)
         case let .some(e):
-          presentError(e)
+          presentError()
+          print(e.localizedDescription)
         }
       }
     }
     func present(_ response: [FSCloset]) {
-      func display() {
-        v_state.setState(with: .hidden)
-        let displayed_ca = ImageCADisplayed()
-        let displayed_cc: [AGCCDisplayed] = response.map({ $0.imageURL }).compactMap({
-          let displayed = ImageCCDisplayed()
-          displayed.imageURL = $0
-          return displayed
-        })
-        let displayed_footer = LabelCRVDisplayed()
-        displayed_footer.title = "\(displayed_cc.count) items"
-        let section = AGCADisplayed.Section()
-        section.footer = displayed_footer
-        section.items = displayed_cc
-        displayed_ca.sections = [section]
+      v_state.setState(with: .hidden)
+    }
+    func presentError() {
+      v_state.setState(with: .error, isAnimation: false)
+    }
+    interactor()
+  }
+  
+  
+  
+  //MARK: - VIP - FetchPostCategory
+  func fetchClosetCategory(category: Int) {
+    func interactor() {
+      worker()
+    }
+    func worker() {
+      fsClosetsByClosetCategory = fsClosets.filter({ $0._category == category })
+      present(fsClosetsByClosetCategory)
+    }
+    func present(_ response: [FSCloset]) {
+      let displayed_ca = ImageCADisplayed()
+      let displayed_cc: [AGCCDisplayed] = response.map({ $0.imageURL }).compactMap({
+        let displayed = ImageCCDisplayed()
+        displayed.imageURL = $0
+        return displayed
+      })
+      let displayed_footer = LabelCRVDisplayed()
+      displayed_footer.title = "\(displayed_cc.count) items"
+      let section = AGCADisplayed.Section()
+      section.footer = displayed_footer
+      section.items = displayed_cc
+      displayed_ca.sections = [section]
+      let displayed = PanelListVCUC.Setup.DisplayedSetupPanelList()
+      displayed.viewModel = displayed_ca
+      displayed.adapter = ImageCA.self
+      let vm = PanelListVCUC.Setup.ViewModel()
+      vm.displayedSetup = displayed
+      if isPanelListVisible {
+        vc_panelVC!.setupData(with: vm)
+      } else {
         vc_panelVC = PanelListVC()
-        let displayed = PanelListVCUC.Setup.DisplayedSetupPanelList()
-        displayed.viewModel = displayed_ca
-        displayed.adapter = ImageCA.self
-        let vm = PanelListVCUC.Setup.ViewModel()
-        vm.displayedSetup = displayed
         vc_panelVC!.setupData(with: vm)
         vc_panelVC!.delegate_agvc = self
         addPanelVC()
       }
-      if let _ = vc_panelVC as? PanelListVC {
-        removePanelVC()
-        SwifterSwift.delay(milliseconds: 300) { [weak self] in
-          guard let _ = self else { return }
-          display()
-        }
-      } else {
-        display()
-      }
-    }
-    func presentError(_ error: Error) {
-      present([])
-      v_state.setState(with: .error, isAnimation: false)
-      print(error.localizedDescription)
     }
     interactor()
   }
@@ -323,12 +331,13 @@ class PostCreateOutfitVC: AGVC {
         case let .indexPath(i):
           removePanelVC()
           let displayed = OutfitItemCCDisplayed()
-          displayed.imageURL = fsClosets[i.row].imageURL
+          displayed.imageURL = fsClosetsByClosetCategory[i.row].imageURL
           adapter_item.displayedCA.sections[collectionItemSelected!.section].items[collectionItemSelected!.row] = displayed
           adapter_item.collection.reloadItems(at: [collectionItemSelected!])
           let items = adapter_item.displayedCA.sections[collectionItemSelected!.section].items as! [OutfitItemCCDisplayed]
           bbi_post.isEnabled = items.filter({ $0.imageURL == nil }).isEmpty
           collectionItemSelected = nil
+          fsClosetsByClosetCategory = []
         case .disappear:
           isPanelListVisible = false
         }
