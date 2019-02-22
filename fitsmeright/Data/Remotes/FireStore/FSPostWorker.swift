@@ -36,21 +36,22 @@ class FSPostWorker {
     }
   }
   
-  typealias AddResponse = Error?
+  typealias AddResponse = (ref: DocumentReference?, error: Error?)
   static func add(fsPost: FSPost, onComplete: @escaping ((AddResponse) -> ())) {
-    var response: AddResponse = (nil)
+    var response: AddResponse = (nil, nil)
     let db = Firestore.default
     let collection_posts = db.collection(FSPost.collection)
     guard let fields = try? FirestoreEncoder().encode(fsPost) else {
       onComplete(response)
       return
     }
-    collection_posts.addDocument(data: fields) { error in
+    var ref: DocumentReference? = nil
+    ref = collection_posts.addDocument(data: fields) { error in
       switch error {
       case .none:
-        break
+        response = (ref, nil)
       case let .some(e):
-        response = e
+        response = (nil, e)
       }
       onComplete(response)
     }

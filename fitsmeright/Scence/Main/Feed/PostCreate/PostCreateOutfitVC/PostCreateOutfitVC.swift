@@ -69,7 +69,7 @@ class PostCreateOutfitVC: AGVC {
   
   
   //MARK: - Storage
-  var closetCategoryListSelected: [ClosetCategory] = []
+  var postClosetListSelected: [(ClosetCategory, Float, Float, String)] = []
   var fsClosets: [FSCloset] = []
   var fsClosetsByClosetCategory: [FSCloset] = []
   var collectionItemSelected: IndexPath?
@@ -204,7 +204,7 @@ class PostCreateOutfitVC: AGVC {
     imgv_outfitAdd.isHidden = false
     btn_clearOutfit.isHidden = true
     btn_outfit.isUserInteractionEnabled = true
-    closetCategoryListSelected = []
+    postClosetListSelected = []
     fsClosets = []
     adapter_item.setupData(with: .none)
   }
@@ -362,13 +362,38 @@ class PostCreateOutfitVC: AGVC {
       }
       func addPost() {
         FSPostWorker.add(fsPost: fsPost) {
-          switch $0 {
+          switch $0.error {
           case .none:
-            present()
+            addPostCloset(ref: $0.ref!)
           case let .some(e):
             presentError()
             print(e.localizedDescription)
           }
+        }
+      }
+      func addPostCloset(ref: DocumentReference) {
+        let dg = DispatchGroup()
+        for i in postClosetListSelected {
+          let fsPostCloset = FSPostCloset()
+          fsPostCloset.postId = ref.documentID
+          fsPostCloset.locationPercentX = i.1
+          fsPostCloset.locationPercentY = i.2
+          fsPostCloset.closetId = i.3
+          fsPostCloset.updatedAt = Timestamp(date: Date())
+          dg.enter()
+          FSPostClosetWorker.add(fsPost: fsPostCloset) { [weak self] in
+            guard let _ = self else { return }
+            dg.leave()
+            switch $0 {
+            case .none:
+               break
+            case let .some(e):
+              print(e.localizedDescription)
+            }
+          }
+        }
+        dg.notify(queue: .main) {
+          present()
         }
       }
       uploadClosetImage()
@@ -406,6 +431,7 @@ class PostCreateOutfitVC: AGVC {
           adapter_item.collection.reloadItems(at: [collectionItemSelected!])
           let items = adapter_item.displayedCA.sections[collectionItemSelected!.section].items as! [OutfitItemCCDisplayed]
           bbi_post.isEnabled = items.filter({ $0.imageURL == nil }).isEmpty
+          postClosetListSelected[collectionItemSelected!.row].3 = fsClosetsByClosetCategory[i.row]._documentId
           collectionItemSelected = nil
           fsClosetsByClosetCategory = []
         case .disappear:
@@ -421,11 +447,11 @@ class PostCreateOutfitVC: AGVC {
               guard let _s = self else { return }
               _s.btn_outfit.isUserInteractionEnabled = false
               _s.v_itemSection.isHidden = false
-              _s.closetCategoryListSelected = list
+              _s.postClosetListSelected = list
               let section = OutfitItemCADisplayed.Section()
               section.items = list.map({
                 let displayed = OutfitItemCCDisplayed()
-                displayed.icon = $0.icon.filled(withColor: _s.c_custom.peach)
+                displayed.icon = $0.0.icon.filled(withColor: _s.c_custom.peach)
                 return displayed
               })
               let displayed = OutfitItemCADisplayed()
@@ -452,8 +478,8 @@ class PostCreateOutfitVC: AGVC {
   //MARK: - Custom - AGCADelegate
   func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
     collectionItemSelected = indexPath
-    let closetCategory = closetCategoryListSelected[indexPath.row]
-    fetchClosetCategory(category: closetCategory.rawValue)
+    let closetCategory = postClosetListSelected[indexPath.row]
+    fetchClosetCategory(category: closetCategory.0.rawValue)
   }
   
   

@@ -16,23 +16,6 @@ import CodableFirebase
 
 class FSClosetWorker {
   
-  typealias FetchResponse = (data: [FSCloset], error: Error?)
-  static func fetch(onComplete: @escaping ((FetchResponse) -> ())) {
-    var response: FetchResponse = ([], nil)
-    let db = Firestore.default
-    let collection_closets = db.collection(FSCloset.collection).order(by: FSCloset.CodingKeys.updatedAt.rawValue)
-    collection_closets.getDocuments { (snapshot, error) in
-      switch error {
-      case .none:
-        guard let snapshot = snapshot else { return }
-        response.data = snapshot.documents.toObjects(FSCloset.self)
-      case let .some(e):
-        response.error = e
-      }
-      onComplete(response)
-    }
-  }
-  
   typealias FetchWhereResponse = (data: [FSCloset], error: Error?)
   static func fetchWhere(userId: String?, onComplete: @escaping ((FetchWhereResponse) -> ())) {
     var response: FetchWhereResponse = ([], nil)
@@ -54,8 +37,8 @@ class FSClosetWorker {
   }
   
   typealias ObserveWhereResponse = (data: [FSCloset], error: Error?)
-  static func observeWhere(userId: String, onComplete: @escaping ((FetchResponse) -> ())) {
-    var response: FetchResponse = ([], nil)
+  static func observeWhere(userId: String, onComplete: @escaping ((ObserveWhereResponse) -> ())) {
+    var response: ObserveWhereResponse = ([], nil)
     let db = Firestore.default
     let collection_closets = db
       .collection(FSCloset.collection)

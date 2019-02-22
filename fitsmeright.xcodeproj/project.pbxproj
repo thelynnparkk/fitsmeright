@@ -134,6 +134,8 @@
 		A4C9931C2220635C00CCC3D8 /* FSPostComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9931B2220635C00CCC3D8 /* FSPostComment.swift */; };
 		A4C9931F222066D800CCC3D8 /* PostComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C9931E222066D800CCC3D8 /* PostComment.swift */; };
 		A4C99323222067AE00CCC3D8 /* PostCloset.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C99322222067AE00CCC3D8 /* PostCloset.swift */; };
+		A4C99325222071E500CCC3D8 /* FSPostCommentWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C99324222071E500CCC3D8 /* FSPostCommentWorker.swift */; };
+		A4C993272220722400CCC3D8 /* FSPostClosetWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C993262220722400CCC3D8 /* FSPostClosetWorker.swift */; };
 		A4D6584E21BF651F007B8558 /* UITabBar+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */; };
 		A4DAA1A72207F44500DA31F7 /* UIPanGestureRecognizer+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DAA1A62207F44500DA31F7 /* UIPanGestureRecognizer+AG.swift */; };
 		A4DAA1AA220801E600DA31F7 /* PanelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DAA1A9220801E600DA31F7 /* PanelVC.swift */; };
@@ -313,6 +315,8 @@
 		A4C9931B2220635C00CCC3D8 /* FSPostComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSPostComment.swift; sourceTree = "<group>"; };
 		A4C9931E222066D800CCC3D8 /* PostComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostComment.swift; sourceTree = "<group>"; };
 		A4C99322222067AE00CCC3D8 /* PostCloset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCloset.swift; sourceTree = "<group>"; };
+		A4C99324222071E500CCC3D8 /* FSPostCommentWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSPostCommentWorker.swift; sourceTree = "<group>"; };
+		A4C993262220722400CCC3D8 /* FSPostClosetWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSPostClosetWorker.swift; sourceTree = "<group>"; };
 		A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+AG.swift"; sourceTree = "<group>"; };
 		A4DAA1A62207F44500DA31F7 /* UIPanGestureRecognizer+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPanGestureRecognizer+AG.swift"; sourceTree = "<group>"; };
 		A4DAA1A9220801E600DA31F7 /* PanelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelVC.swift; sourceTree = "<group>"; };
@@ -726,11 +730,11 @@
 			children = (
 				5ECE8E7321F74F53000AF65E /* FSCloset.swift */,
 				A4B482CD2220464D006F55DB /* FSPost.swift */,
+				A4C993192220635300CCC3D8 /* FSPostCloset.swift */,
+				A4C9931B2220635C00CCC3D8 /* FSPostComment.swift */,
 				5EFC9BAB21FB67ED0078ED50 /* FSUser.swift */,
 				5EFC9BA921FB57C00078ED50 /* SCloset.swift */,
 				A4B482D122204DE1006F55DB /* SPost.swift */,
-				A4C993192220635300CCC3D8 /* FSPostCloset.swift */,
-				A4C9931B2220635C00CCC3D8 /* FSPostComment.swift */,
 			);
 			path = FBEntiny;
 			sourceTree = "<group>";
@@ -741,6 +745,8 @@
 				5ECE8E7A21F752A8000AF65E /* FSClosetWorker.swift */,
 				A4B482CF22204A67006F55DB /* FSPostWorker.swift */,
 				A4C99316222059FB00CCC3D8 /* FSUserWorker.swift */,
+				A4C99324222071E500CCC3D8 /* FSPostCommentWorker.swift */,
+				A4C993262220722400CCC3D8 /* FSPostClosetWorker.swift */,
 			);
 			path = FireStore;
 			sourceTree = "<group>";
@@ -1414,6 +1420,7 @@
 				5ECE8E8021F75FF8000AF65E /* DocumentSnapshot+AG.swift in Sources */,
 				5ECE8E7D21F75366000AF65E /* Firestore+AG.swift in Sources */,
 				A4E31D8721C28BA9004D1707 /* FMUserDefaults.swift in Sources */,
+				A4C99325222071E500CCC3D8 /* FSPostCommentWorker.swift in Sources */,
 				A4C4FACD21F9C0D8004A3F37 /* PopupHeaderView.swift in Sources */,
 				5ECC1D69221AF8DD00B03268 /* PostCreateTagVC.swift in Sources */,
 				A4E1288121FEB9E700F85C66 /* ClosetCategoryVC.swift in Sources */,
@@ -1459,6 +1466,7 @@
 				A4C4FAC021F9762A004A3F37 /* LabelCRV.swift in Sources */,
 				A4C4FAC621F9A13C004A3F37 /* ViewIPC.swift in Sources */,
 				A4B482CC22202439006F55DB /* AppDelegate+Router.swift in Sources */,
+				A4C993272220722400CCC3D8 /* FSPostClosetWorker.swift in Sources */,
 				A4DFBCC4221DA15500C31FD2 /* OutfitItemCA.swift in Sources */,
 				5E74DA5821BBD0B100A97A89 /* TemplateVIP.swift in Sources */,
 				A4C4FAB821F975C7004A3F37 /* ClosetFormView.swift in Sources */,

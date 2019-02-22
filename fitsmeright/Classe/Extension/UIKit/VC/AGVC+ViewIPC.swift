@@ -93,7 +93,7 @@ extension AGVC: ViewIPCDelegate {
     displayed.isTapOverlayEnabled = true
     displayed.isTapContainerEnabled = true
     displayed.isHideFooter = true
-    displayed.displayedHeader.icon = #imageLiteral(resourceName: "library_white").filled(withColor: c_custom.peach)
+    displayed.displayedHeader.icon = #imageLiteral(resourceName: "ic_popup_choose").filled(withColor: c_custom.peach)
     displayed.displayedHeader.style = .large
     displayed.displayedHeader.subtitle = "Message"
     displayed.displayedHeader.tint = c_custom.peach

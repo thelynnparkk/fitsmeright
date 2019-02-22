@@ -54,27 +54,7 @@ class FSUserWorker {
       onComplete(response)
     }
   }
-  
-//  typealias AddResponse = Error?
-//  static func add(FSUser: FSUser, onComplete: @escaping ((AddResponse) -> ())) {
-//    var response: AddResponse = (nil)
-//    let db = Firestore.default
-//    let collection_posts = db.collection(FSUser.collection)
-//    guard let fields = try? FirestoreEncoder().encode(FSUser) else {
-//      onComplete(response)
-//      return
-//    }
-//    collection_posts.addDocument(data: fields) { error in
-//      switch error {
-//      case .none:
-//        break
-//      case let .some(e):
-//        response = e
-//      }
-//      onComplete(response)
-//    }
-//  }
-//
+
 }
 
 

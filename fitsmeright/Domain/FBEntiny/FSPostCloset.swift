@@ -52,8 +52,8 @@ class FSPostCloset: FirestoreCodable {
   var ref: DocumentReference?
   var documentId: String?
   var postId: String?
-  var locationPercentX: Int?
-  var locationPercentY: Int?
+  var locationPercentX: Float?
+  var locationPercentY: Float?
   var closetId: String?
   var updatedAt: Timestamp?
   
@@ -70,10 +70,10 @@ class FSPostCloset: FirestoreCodable {
   var _postId: String {
     return postId ?? ""
   }
-  var _locationPercentX: Int {
+  var _locationPercentX: Float {
     return locationPercentX ?? 0
   }
-  var _locationPercentY: Int {
+  var _locationPercentY: Float {
     return locationPercentY ?? 0
   }
   var _closetId: String {

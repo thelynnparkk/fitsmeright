@@ -29,7 +29,7 @@ class PostCreateTagVC: AGVC {
   
   //MARK: - Enum
   enum Action {
-    case closetCategorys([ClosetCategory])
+    case closetCategorys([(ClosetCategory, Float, Float, String)])
   }
   
   
@@ -130,7 +130,6 @@ class PostCreateTagVC: AGVC {
     imgv_outfit.clipsToBounds = true
     imgv_outfit.isUserInteractionEnabled = true
     
-    
     tagGesture = UITapGestureRecognizer(target: self, action: #selector(onTapGestureRecognized))
     imgv_outfit.addGestureRecognizer(tagGesture)
     
@@ -166,7 +165,18 @@ class PostCreateTagVC: AGVC {
   //MARK: - Event
   @objc
   func doneButtonPressed(_ sender: UIButton) {
-    delegate_agvc?.agVCPressed(self, action: Action.closetCategorys(v_tagList.map({ $0.key })))
+    var postClosets: [(ClosetCategory, Float, Float, String)] = []
+    for i in v_tagList {
+      var postCloset: (ClosetCategory, Float, Float, String) = (ClosetCategory.default, 0, 0, "")
+      postCloset.0 = i.key
+      let view = v_tagList[i.key]!
+      let x = (view.frame.origin.x / imgv_outfit.frame.height)
+      let y = (view.frame.origin.y / imgv_outfit.frame.width)
+      postCloset.1 = x.float
+      postCloset.2 = y.float
+      postClosets.append(postCloset)
+    }
+    delegate_agvc?.agVCPressed(self, action: Action.closetCategorys(postClosets))
   }
   
   @objc
@@ -245,7 +255,7 @@ class PostCreateTagVC: AGVC {
     displayed.isTapOverlayEnabled = true
     displayed.isTapContainerEnabled = true
     displayed.isHideFooter = true
-    displayed.displayedHeader.icon = #imageLiteral(resourceName: "library_white").filled(withColor: c_custom.peach)
+    displayed.displayedHeader.icon = #imageLiteral(resourceName: "ic_popup_trash").filled(withColor: c_custom.peach)
     displayed.displayedHeader.style = .large
     displayed.displayedHeader.subtitle = "Please confirm to delete tagged item."
     displayed.displayedHeader.tint = c_custom.peach
