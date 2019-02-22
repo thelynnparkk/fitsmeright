@@ -160,7 +160,7 @@ class SelectClosetCategoryVC: AGVC {
   
   //MARK: - Public
   override func setupLocalize() {
-    ni.title = SelectClosetCategoryVC.sb_name
+    ni.title = "Select item to tag"
   }
   
   

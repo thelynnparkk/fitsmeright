@@ -172,7 +172,7 @@ class ClosetListVC: AGVC {
   
   //MARK: - Public
   override func setupLocalize() {
-    ni.title = ClosetListVC.sb_name
+    ni.title = "My Closet"
   }
   
   

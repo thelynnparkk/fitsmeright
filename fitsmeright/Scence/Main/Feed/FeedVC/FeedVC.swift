@@ -170,7 +170,7 @@ class FeedVC: AGVC {
   
   //MARK: - Public
   override func setupLocalize() {
-    ni.title = FeedVC.sb_name
+    ni.title = "Closettó"
   }
   
   

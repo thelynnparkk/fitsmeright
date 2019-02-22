@@ -235,7 +235,7 @@ class PostCreateOutfitVC: AGVC {
   
   //MARK: - Public
   override func setupLocalize() {
-    ni.title = PostCreateOutfitVC.sb_name
+    ni.title = ""
   }
   
   

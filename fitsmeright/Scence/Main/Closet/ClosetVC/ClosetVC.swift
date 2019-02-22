@@ -197,7 +197,7 @@ class ClosetVC: AGVC {
     }
     
     func present() {
-      ni.title = closetCategory!.name.uppercased()
+      ni.title = closetCategory!.name.capitalized
       if let imageURL = fsCloset!.imageURL {
         imgv_closet.kf.setImage(with: imageURL, placeholder: nil, options: nil)
       } else {
