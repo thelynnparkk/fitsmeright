@@ -33,8 +33,8 @@ class PostListVC: AGVC {
   
   //MARK: - UI
   @IBOutlet weak var v_addPostFloating: FloatingView!
-  var collection_feed: UICollectionView!
-  var adapter_feed: PostCA!
+  var collection_post: UICollectionView!
+  var adapter_post: PostListCA!
   var v_state: StateView!
   
   
@@ -119,10 +119,11 @@ class PostListVC: AGVC {
     //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     
     
+    
     //MARK: Component
-    collection_feed = ControlContainableCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    adapter_feed = PostCA(collection: collection_feed)
-    adapter_feed.delegate = self
+    collection_post = ControlContainableCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    adapter_post = PostListCA(collection: collection_post)
+    adapter_post.delegate = self
     
     v_addPostFloating.delegate = self
     let vm_plus = FloatingViewDisplayed()
@@ -133,7 +134,7 @@ class PostListVC: AGVC {
     v_state.setupLight()
     v_state.delegate = self
     
-    view.addSubview(collection_feed)
+    view.addSubview(collection_post)
     view.addSubview(v_state)
     view.bringSubviewToFront(v_addPostFloating)
     
@@ -144,7 +145,7 @@ class PostListVC: AGVC {
     
     
     //MARK: Snp
-    collection_feed.snp.makeConstraints {
+    collection_post.snp.makeConstraints {
       $0.top.right.bottom.left.equalToSuperview()
     }
     
@@ -257,7 +258,7 @@ class PostListVC: AGVC {
         postList.append(post)
       }
       self.postList = postList
-      let section = PostCADisplayed.Section()
+      let section = PostListCADisplayed.Section()
       section.items = postList.map({
         let displayed = PostCCDisplayed()
         displayed.outfitImageURL = $0._fsPost.imageURL
@@ -269,9 +270,9 @@ class PostListVC: AGVC {
         displayed.comment = "0"
         return displayed
       })
-      let displayed = PostCADisplayed()
+      let displayed = PostListCADisplayed()
       displayed.sections = [section]
-      adapter_feed.setupData(with: displayed)
+      adapter_post.setupData(with: displayed)
     }
     func presenterError() {
       v_state.setState(with: .hidden)
@@ -297,10 +298,13 @@ class PostListVC: AGVC {
   
   //MARK: - Custom - AGCADelegate
   func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
-    if let action = action as? PostCA.Action {
+    if let action = action as? PostListCA.Action {
       switch action {
       case .tap:
-        print("didSelect \(indexPath)")
+        print("tap \(indexPath)")
+        let vc = PostVC.vc()
+        vc.postSelected = postList[indexPath.row]
+        nc?.pushViewController(vc)
       case .doubleTap:
         print("doubleTap \(indexPath)")
       }

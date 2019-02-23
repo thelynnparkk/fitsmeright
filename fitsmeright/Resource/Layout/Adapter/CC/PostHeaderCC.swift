@@ -1,5 +1,5 @@
 //
-//  PostCC.swift
+//  PostHeaderCC.swift
 //  fitsmeright
 //
 //  Created by Sasawat Sankosik on 23/2/2562 BE.
@@ -12,26 +12,26 @@ import UIKit
 
 
 
-class PostCCDisplayed: AGCCDisplayed {
+class PostHeaderCCDisplayed: AGCCDisplayed {
   var outfitImageURL: URL?
   var userImageURL: URL?
   var displayName: String?
   var username: String?
   var isLiked: Bool = false
   var like: String?
-  var comment: String?
+  var caption: String?
 }
 
 
 
-extension PostCC
+extension PostHeaderCC
 {
   
 }
 
 
 
-class PostCC: AGCC {
+class PostHeaderCC: AGCC {
   
   //MARK: - Enum
   enum Sizing {
@@ -43,7 +43,7 @@ class PostCC: AGCC {
       let spaces = itemSpace(custom: customItemSpace)
       let insets = inset(custom: customInset).left + inset(custom: customInset).right
       let side = (bound.width - spaces - insets)
-      let constraints = 20 + 35 + 20
+      let constraints = 20 + 35 + 20 + 50 + 20
       return CGSize(width: side, height: side + constraints.cgFloat)
     }
     
@@ -58,14 +58,14 @@ class PostCC: AGCC {
       if let custom = custom {
         return custom
       }
-      return 20
+      return 0
     }
     
     static func inset(with bound: CGRect = .zero, custom: UIEdgeInsets? = nil) -> UIEdgeInsets {
       if let custom = custom {
         return custom
       }
-      return UIEdgeInsets(inset: 30)
+      return UIEdgeInsets(inset: 0)
     }
     
     static func offset(with bound: CGRect = .zero) -> CGPoint {
@@ -89,8 +89,7 @@ class PostCC: AGCC {
   @IBOutlet weak var lb_subtitle: UILabel!
   @IBOutlet weak var imgv_like: UIImageView!
   @IBOutlet weak var lb_likes: UILabel!
-  @IBOutlet weak var imgv_comment: UIImageView!
-  @IBOutlet weak var lb_comments: UILabel!
+  @IBOutlet weak var lb_caption: UILabel!
   var tapGesture: UITapGestureRecognizer!
   var doubleTapGesture: UITapGestureRecognizer!
   
@@ -101,7 +100,7 @@ class PostCC: AGCC {
   
   
   //MARK: - Constraint
-  typealias Displayed = PostCCDisplayed
+  typealias Displayed = PostHeaderCCDisplayed
   
   
   
@@ -171,7 +170,6 @@ class PostCC: AGCC {
     
     
     //MARK: Component
-    v_container.layer.cornerRadius = 20
     v_container.clipsToBounds = true
     imgv.contentMode = .scaleAspectFill
     imgv.clipsToBounds = true
@@ -188,9 +186,9 @@ class PostCC: AGCC {
     imgv_like.image = #imageLiteral(resourceName: "ic_like").filled(withColor: c_material.grey400)
     lb_likes.font = UIFont(name: f_system.helvetica, size: f_size.h6)
     lb_likes.textColor = c_material.grey400
-    imgv_comment.image = #imageLiteral(resourceName: "ic_comment").filled(withColor: c_material.grey400)
-    lb_comments.font = UIFont(name: f_system.helvetica, size: f_size.h6)
-    lb_comments.textColor = c_material.grey400
+    
+    lb_caption.font = UIFont(name: f_system.helvetica, size: f_size.h3)
+    lb_caption.textColor = c_material.grey800
     
     doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognized))
     doubleTapGesture.numberOfTapsRequired = 2
@@ -311,7 +309,7 @@ class PostCC: AGCC {
         lb_subtitle.text = displayed.username
         imgv_like.image = #imageLiteral(resourceName: "ic_like").filled(withColor: displayed.isLiked ? c_custom.peach : c_material.grey400)
         lb_likes.text = displayed.like
-        lb_comments.text = displayed.comment
+        lb_caption.text = displayed.caption
       } else {
         imgv.image = #imageLiteral(resourceName: "ic_add_shoes")
         imgv.alpha = 0
@@ -321,10 +319,8 @@ class PostCC: AGCC {
         lb_subtitle.text = ""
         imgv_like.image = #imageLiteral(resourceName: "ic_like").filled(withColor: c_material.grey400)
         lb_likes.text = "0"
-        lb_comments.text = "0"
+        lb_caption.text = ""
       }
-      setupViewFrame()
-      addShadow(ofColor: .black, radius: 8, offset: .less, opacity: 0.1)
     }
     present()
   }

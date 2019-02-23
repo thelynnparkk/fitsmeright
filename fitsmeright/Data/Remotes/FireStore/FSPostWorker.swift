@@ -23,7 +23,7 @@ class FSPostWorker {
     let collection_posts = db
       .collection(FSPost.collection)
       .whereField(FSPost.CodingKeys.userId.rawValue, isEqualTo: userId)
-      .order(by: FSPost.CodingKeys.updatedAt.rawValue, descending: false)
+      .order(by: FSPost.CodingKeys.updatedAt.rawValue, descending: true)
     collection_posts.getDocuments { (snapshot, error) in
       switch error {
       case .none:
