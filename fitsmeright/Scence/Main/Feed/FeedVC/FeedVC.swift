@@ -144,6 +144,10 @@ class FeedVC: AGVC {
     
     
     //MARK: Snp
+    collection_feed.snp.makeConstraints {
+      $0.top.right.bottom.left.equalToSuperview()
+    }
+    
     v_state.snp.makeConstraints {
       $0.top.equalToSuperview()
       $0.right.equalToSuperview()
@@ -253,6 +257,21 @@ class FeedVC: AGVC {
         postList.append(post)
       }
       self.postList = postList
+      let section = FeedCADisplayed.Section()
+      section.items = postList.map({
+        let displayed = FeedCCDisplayed()
+        displayed.outfitImageURL = $0._fsPost.imageURL
+        displayed.userImageURL = $0._fsUser.imageURL
+        displayed.displayName = $0._fsUser.displayName
+        displayed.username = $0._fsUser.username
+        displayed.isLiked = false
+        displayed.like = "\($0._fsPost._likes)"
+        displayed.comment = "0"
+        return displayed
+      })
+      let displayed = FeedCADisplayed()
+      displayed.sections = [section]
+      adapter_feed.setupData(with: displayed)
     }
     func presenterError() {
       v_state.setState(with: .hidden)
@@ -278,11 +297,14 @@ class FeedVC: AGVC {
   
   //MARK: - Custom - AGCADelegate
   func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
-    //    let vc = ClosetVC.vc()
-    //    vc.fsCloset = fsClosets[indexPath.row]
-    //    vc.closetCategory = closetCategory
-    //    vc.delegate_agvc = self
-    //    navigationController?.pushViewController(vc)
+    if let action = action as? FeedCA.Action {
+      switch action {
+      case .tap:
+        print("didSelect \(indexPath)")
+      case .doubleTap:
+        print("doubleTap \(indexPath)")
+      }
+    }
   }
   
   

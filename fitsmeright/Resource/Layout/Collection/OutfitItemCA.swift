@@ -83,6 +83,7 @@ class OutfitItemCA: AGCA {
     //MARK: Component
     collection.setupCollectionDefault()
     collection.setupScrollHorizontal()
+    collection.showsHorizontalScrollIndicator = false
     collection.register(nibWithCellClass: CC.self)
     collection.delegate = self
     collection.dataSource = self

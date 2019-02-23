@@ -34,6 +34,10 @@ extension FeedCA:
 class FeedCA: AGCA {
   
   //MARK: - Enum
+  enum Action {
+    case tap
+    case doubleTap
+  }
   
   
   
@@ -48,9 +52,8 @@ class FeedCA: AGCA {
   
   //MARK: - Constraint
   typealias Displayed = FeedCADisplayed
-  typealias CCProfile = ProfileCC
-  typealias CCImage = ImageCC
-  var displayedCAProfile: Displayed? {
+  typealias CC = FeedCC
+  var displayedCAFeed: Displayed? {
     return displayedCA as? Displayed
   }
   
@@ -83,8 +86,7 @@ class FeedCA: AGCA {
     //MARK: Component
     collection.setupCollectionDefault()
     collection.setupScrollVertical()
-    collection.register(nibWithCellClass: CCProfile.self)
-    collection.register(nibWithCellClass: CCImage.self)
+    collection.register(nibWithCellClass: CC.self)
     collection.delegate = self
     collection.dataSource = self
     collection.backgroundColor = .clear
@@ -174,16 +176,9 @@ class FeedCA: AGCA {
     guard !isRowInSectionEmpty(with: indexPath) else {
       return UICollectionViewCell()
     }
-    let item = displayedCAProfile?.sections[indexPath.section].items[indexPath.row]
-    if let item = item as? CCProfile.Displayed {
-      let cell = collectionView.dequeueReusableCell(withClass: CCProfile.self, for: indexPath)
-      cell.indexPath = indexPath
-      cell.delegate = self
-      item.isAnimated = false
-      cell.setupData(with: item)
-      return cell
-    } else if let item = item as? CCImage.Displayed {
-      let cell = collectionView.dequeueReusableCell(withClass: CCImage.self, for: indexPath)
+    let item = displayedCAFeed?.sections[indexPath.section].items[indexPath.row]
+    if let item = item as? CC.Displayed {
+      let cell = collectionView.dequeueReusableCell(withClass: CC.self, for: indexPath)
       cell.indexPath = indexPath
       cell.delegate = self
       item.isAnimated = false
@@ -201,7 +196,7 @@ class FeedCA: AGCA {
     guard !isRowInSectionEmpty(with: indexPath) else {
       return
     }
-    delegate?.agCAPressed(self, action: [], indexPath: indexPath)
+    collectionView.deselectItem(at: indexPath, animated: true)
   }
   
   //  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
@@ -212,48 +207,36 @@ class FeedCA: AGCA {
   
   //MARK: - Core - UICollectionViewDelegateFlowLayout
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    let item = displayedCAProfile?.sections[indexPath.section].items[indexPath.row]
-    if let _ = item as? CCProfile.Displayed {
-      return CCProfile.Sizing.size(with: collectionView.frame)
-    } else if let _ = item as? CCImage.Displayed {
-      return CCImage.Sizing.size(with: collectionView.frame,
-                                 rowItems: 2,
-                                 customItemSpace: 10,
-                                 customItemLine: 10,
-                                 customInset: UIEdgeInsets(inset: 10))
+    let item = displayedCAFeed?.sections[indexPath.section].items[indexPath.row]
+    if let _ = item as? CC.Displayed {
+      return CC.Sizing.size(with: collectionView.frame)
     } else {
       return .zero
     }
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-    let item = displayedCAProfile?.sections[section].items
-    if let _ = item as? [CCProfile.Displayed] {
-      return CCProfile.Sizing.inset()
-    } else if let _ = item as? [CCImage.Displayed] {
-      return CCImage.Sizing.inset()
+    let item = displayedCAFeed?.sections[section].items
+    if let _ = item as? [CC.Displayed] {
+      return CC.Sizing.inset()
     } else {
       return .zero
     }
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    let item = displayedCAProfile?.sections[section].items
-    if let _ = item as? [CCProfile.Displayed] {
-      return CCProfile.Sizing.lineSpace()
-    } else if let _ = item as? [CCImage.Displayed] {
-      return CCImage.Sizing.lineSpace()
+    let item = displayedCAFeed?.sections[section].items
+    if let _ = item as? [CC.Displayed] {
+      return CC.Sizing.lineSpace()
     } else {
       return .zero
     }
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-    let item = displayedCAProfile?.sections[section].items
-    if let _ = item as? [CCProfile.Displayed] {
-      return CCProfile.Sizing.itemSpace()
-    } else if let _ = item as? [CCImage.Displayed] {
-      return CCImage.Sizing.itemSpace()
+    let item = displayedCAFeed?.sections[section].items
+    if let _ = item as? [CC.Displayed] {
+      return CC.Sizing.itemSpace()
     } else {
       return .zero
     }
@@ -263,7 +246,14 @@ class FeedCA: AGCA {
   
   //MARK: - Custom - AGCCDelegate
   func agCCPressed(_ cell: AGCC, action: Any, indexPath: IndexPath) {
-    
+    if let action = action as? CC.Action {
+      switch action {
+      case .tap:
+        delegate?.agCAPressed(self, action: Action.tap, indexPath: indexPath)
+      case .doubleTap:
+        delegate?.agCAPressed(self, action: Action.doubleTap, indexPath: indexPath)
+      }
+    }
   }
   
   
