@@ -1,5 +1,5 @@
 //
-//  FeedVC.swift
+//  PostListVC.swift
 //  fitsmeright
 //
 //  Created by Lynn Park on 8/12/2561 BE.
@@ -12,7 +12,7 @@ import UIKit
 
 
 
-extension FeedVC:
+extension PostListVC:
   AGViewDelegate,
   AGVCDelegate,
   AGCADelegate
@@ -22,7 +22,7 @@ extension FeedVC:
 
 
 
-class FeedVC: AGVC {
+class PostListVC: AGVC {
   //MARK: - AGVCInstantiatable
   
   
@@ -34,7 +34,7 @@ class FeedVC: AGVC {
   //MARK: - UI
   @IBOutlet weak var v_addPostFloating: FloatingView!
   var collection_feed: UICollectionView!
-  var adapter_feed: FeedCA!
+  var adapter_feed: PostCA!
   var v_state: StateView!
   
   
@@ -121,7 +121,7 @@ class FeedVC: AGVC {
     
     //MARK: Component
     collection_feed = ControlContainableCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    adapter_feed = FeedCA(collection: collection_feed)
+    adapter_feed = PostCA(collection: collection_feed)
     adapter_feed.delegate = self
     
     v_addPostFloating.delegate = self
@@ -257,9 +257,9 @@ class FeedVC: AGVC {
         postList.append(post)
       }
       self.postList = postList
-      let section = FeedCADisplayed.Section()
+      let section = PostCADisplayed.Section()
       section.items = postList.map({
-        let displayed = FeedCCDisplayed()
+        let displayed = PostCCDisplayed()
         displayed.outfitImageURL = $0._fsPost.imageURL
         displayed.userImageURL = $0._fsUser.imageURL
         displayed.displayName = $0._fsUser.displayName
@@ -269,7 +269,7 @@ class FeedVC: AGVC {
         displayed.comment = "0"
         return displayed
       })
-      let displayed = FeedCADisplayed()
+      let displayed = PostCADisplayed()
       displayed.sections = [section]
       adapter_feed.setupData(with: displayed)
     }
@@ -297,7 +297,7 @@ class FeedVC: AGVC {
   
   //MARK: - Custom - AGCADelegate
   func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
-    if let action = action as? FeedCA.Action {
+    if let action = action as? PostCA.Action {
       switch action {
       case .tap:
         print("didSelect \(indexPath)")

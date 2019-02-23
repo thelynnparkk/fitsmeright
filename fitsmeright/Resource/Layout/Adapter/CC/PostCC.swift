@@ -1,5 +1,5 @@
 //
-//  FeedCC.swift
+//  PostCC.swift
 //  fitsmeright
 //
 //  Created by Sasawat Sankosik on 23/2/2562 BE.
@@ -12,7 +12,7 @@ import UIKit
 
 
 
-class FeedCCDisplayed: AGCCDisplayed {
+class PostCCDisplayed: AGCCDisplayed {
   var outfitImageURL: URL?
   var userImageURL: URL?
   var displayName: String?
@@ -24,14 +24,14 @@ class FeedCCDisplayed: AGCCDisplayed {
 
 
 
-extension FeedCC
+extension PostCC
 {
   
 }
 
 
 
-class FeedCC: AGCC {
+class PostCC: AGCC {
   
   //MARK: - Enum
   enum Sizing {
@@ -101,7 +101,7 @@ class FeedCC: AGCC {
   
   
   //MARK: - Constraint
-  typealias Displayed = FeedCCDisplayed
+  typealias Displayed = PostCCDisplayed
   
   
   

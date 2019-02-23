@@ -1,5 +1,5 @@
 //
-//  FeedCA.swift
+//  PostCA.swift
 //  fitsmeright
 //
 //  Created by Sasawat Sankosik on 23/2/2562 BE.
@@ -12,13 +12,13 @@ import UIKit
 
 
 
-class FeedCADisplayed: AGCADisplayed {
+class PostCADisplayed: AGCADisplayed {
   
 }
 
 
 
-extension FeedCA:
+extension PostCA:
   UICollectionViewDelegate,
   UICollectionViewDataSource,
   UICollectionViewDelegateFlowLayout,
@@ -31,7 +31,7 @@ extension FeedCA:
 
 
 
-class FeedCA: AGCA {
+class PostCA: AGCA {
   
   //MARK: - Enum
   enum Action {
@@ -51,8 +51,8 @@ class FeedCA: AGCA {
   
   
   //MARK: - Constraint
-  typealias Displayed = FeedCADisplayed
-  typealias CC = FeedCC
+  typealias Displayed = PostCADisplayed
+  typealias CC = PostCC
   var displayedCAFeed: Displayed? {
     return displayedCA as? Displayed
   }
