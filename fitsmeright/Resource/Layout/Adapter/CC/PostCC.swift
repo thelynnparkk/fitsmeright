@@ -1,5 +1,5 @@
 //
-//  FeedCC.swift
+//  PostCC.swift
 //  fitsmeright
 //
 //  Created by Sasawat Sankosik on 23/2/2562 BE.
@@ -12,7 +12,7 @@ import UIKit
 
 
 
-class FeedCCDisplayed: AGCCDisplayed {
+class PostCCDisplayed: AGCCDisplayed {
   var outfitImageURL: URL?
   var userImageURL: URL?
   var displayName: String?
@@ -24,14 +24,14 @@ class FeedCCDisplayed: AGCCDisplayed {
 
 
 
-extension FeedCC
+extension PostCC
 {
   
 }
 
 
 
-class FeedCC: AGCC {
+class PostCC: AGCC {
   
   //MARK: - Enum
   enum Sizing {
@@ -58,7 +58,7 @@ class FeedCC: AGCC {
       if let custom = custom {
         return custom
       }
-      return 10
+      return 20
     }
     
     static func inset(with bound: CGRect = .zero, custom: UIEdgeInsets? = nil) -> UIEdgeInsets {
@@ -101,7 +101,7 @@ class FeedCC: AGCC {
   
   
   //MARK: - Constraint
-  typealias Displayed = FeedCCDisplayed
+  typealias Displayed = PostCCDisplayed
   
   
   
@@ -180,7 +180,7 @@ class FeedCC: AGCC {
     imgv_user.contentMode = .scaleAspectFill
     imgv_user.clipsToBounds = true
     imgv_user.kf.indicatorType = .activity
-    imgv_user.layer.cornerRadius = imgv_user.bounds.width
+    imgv_user.layer.cornerRadius = imgv_user.bounds.width / 2
     lb_title.font = UIFont(name: f_system.helveticaBold, size: f_size.h6)
     lb_title.textColor = c_material.grey800
     lb_subtitle.font = UIFont(name: f_system.helvetica, size: f_size.h6)
@@ -293,15 +293,6 @@ class FeedCC: AGCC {
   
   override func setupData(with displayed: AGCCDisplayed?) {
     func present() {
-//      @IBOutlet weak var v_container: UIView!
-//      @IBOutlet weak var imgv: UIImageView!
-//      @IBOutlet weak var imgv_user: UIImageView!
-//      @IBOutlet weak var lb_title: UILabel!
-//      @IBOutlet weak var lb_subtitle: UILabel!
-//      @IBOutlet weak var imgv_like: UIImageView!
-//      @IBOutlet weak var lb_likes: UILabel!
-//      @IBOutlet weak var imgv_comment: UIImageView!
-//      @IBOutlet weak var lb_comments: UILabel!
       if let displayed = displayed as? Displayed {
         self.displayedCC = displayed
         if let imageURL = displayed.outfitImageURL {

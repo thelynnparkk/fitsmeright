@@ -244,7 +244,7 @@ class PostCreateOutfitVC: AGVC {
   
   
   
-  //MARK: - VIP - FetchPostCategory
+  //MARK: - VIP - FetchPostListCAtegory
   func fetchClosetCategory() {
     func interactor() {
       v_state.setState(with: .loading, isAnimation: false)
@@ -275,7 +275,7 @@ class PostCreateOutfitVC: AGVC {
   
   
   
-  //MARK: - VIP - FetchPostCategory
+  //MARK: - VIP - FetchPostListCAtegory
   func fetchClosetCategory(category: Int) {
     func interactor() {
       worker()

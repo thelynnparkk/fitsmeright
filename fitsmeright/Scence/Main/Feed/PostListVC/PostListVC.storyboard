@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--FeedVC-->
+        <!--Post ListVC-->
         <scene sceneID="lz4-6o-Isp">
             <objects>
-                <viewController storyboardIdentifier="FeedVC" id="dqc-h7-Syg" customClass="FeedVC" customModule="fitsmeright" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PostListVC" id="dqc-h7-Syg" customClass="PostListVC" customModule="fitsmeright" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7kc-vp-asO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -1,5 +1,5 @@
 //
-//  FeedCA.swift
+//  PostListCA.swift
 //  fitsmeright
 //
 //  Created by Sasawat Sankosik on 23/2/2562 BE.
@@ -12,13 +12,13 @@ import UIKit
 
 
 
-class FeedCADisplayed: AGCADisplayed {
+class PostListCADisplayed: AGCADisplayed {
   
 }
 
 
 
-extension FeedCA:
+extension PostListCA:
   UICollectionViewDelegate,
   UICollectionViewDataSource,
   UICollectionViewDelegateFlowLayout,
@@ -31,7 +31,7 @@ extension FeedCA:
 
 
 
-class FeedCA: AGCA {
+class PostListCA: AGCA {
   
   //MARK: - Enum
   enum Action {
@@ -51,9 +51,9 @@ class FeedCA: AGCA {
   
   
   //MARK: - Constraint
-  typealias Displayed = FeedCADisplayed
-  typealias CC = FeedCC
-  var displayedCAFeed: Displayed? {
+  typealias Displayed = PostListCADisplayed
+  typealias CC = PostCC
+  var displayedCAPostList: Displayed? {
     return displayedCA as? Displayed
   }
   
@@ -176,7 +176,7 @@ class FeedCA: AGCA {
     guard !isRowInSectionEmpty(with: indexPath) else {
       return UICollectionViewCell()
     }
-    let item = displayedCAFeed?.sections[indexPath.section].items[indexPath.row]
+    let item = displayedCAPostList?.sections[indexPath.section].items[indexPath.row]
     if let item = item as? CC.Displayed {
       let cell = collectionView.dequeueReusableCell(withClass: CC.self, for: indexPath)
       cell.indexPath = indexPath
@@ -207,7 +207,7 @@ class FeedCA: AGCA {
   
   //MARK: - Core - UICollectionViewDelegateFlowLayout
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    let item = displayedCAFeed?.sections[indexPath.section].items[indexPath.row]
+    let item = displayedCAPostList?.sections[indexPath.section].items[indexPath.row]
     if let _ = item as? CC.Displayed {
       return CC.Sizing.size(with: collectionView.frame)
     } else {
@@ -216,7 +216,7 @@ class FeedCA: AGCA {
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-    let item = displayedCAFeed?.sections[section].items
+    let item = displayedCAPostList?.sections[section].items
     if let _ = item as? [CC.Displayed] {
       return CC.Sizing.inset()
     } else {
@@ -225,7 +225,7 @@ class FeedCA: AGCA {
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    let item = displayedCAFeed?.sections[section].items
+    let item = displayedCAPostList?.sections[section].items
     if let _ = item as? [CC.Displayed] {
       return CC.Sizing.lineSpace()
     } else {
@@ -234,7 +234,7 @@ class FeedCA: AGCA {
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-    let item = displayedCAFeed?.sections[section].items
+    let item = displayedCAPostList?.sections[section].items
     if let _ = item as? [CC.Displayed] {
       return CC.Sizing.itemSpace()
     } else {

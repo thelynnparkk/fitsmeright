@@ -34,7 +34,7 @@ class MainTBC: RAMAnimatedTabBarController {
   
   
   //MARK: - UI
-  var vc_01: FeedVC!
+  var vc_01: PostListVC!
   var vc_02: ClosetCategoryVC!
   var vc_03: ProfileVC!
   
@@ -127,7 +127,7 @@ class MainTBC: RAMAnimatedTabBarController {
     
     
     //MARK: UI
-    vc_01 = FeedVC.vc()
+    vc_01 = PostListVC.vc()
     vc_02 = ClosetCategoryVC.vc()
     vc_03 = ProfileVC.vc()
     
