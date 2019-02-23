@@ -15,12 +15,13 @@ extension UIFont {
   
   //MARK: - Implement
   struct Size {
-    static let h1: CGFloat = 20.0
-    static let h2: CGFloat = 18.0
-    static let h3: CGFloat = 16.0
-    static let h4: CGFloat = 14.0
-    static let h5: CGFloat = 12.0
-    static let h6: CGFloat = 10.0
+    static let h1: CGFloat = 22.0
+    static let h2: CGFloat = 20.0
+    static let h3: CGFloat = 18.0
+    static let h4: CGFloat = 16.0
+    static let h5: CGFloat = 14.0
+    static let h6: CGFloat = 12.0
+    static let h7: CGFloat = 10.0
   }
   
   struct Custom {

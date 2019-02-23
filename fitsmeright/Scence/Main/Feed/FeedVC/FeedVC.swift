@@ -14,7 +14,8 @@ import UIKit
 
 extension FeedVC:
   AGViewDelegate,
-  AGVCDelegate
+  AGVCDelegate,
+  AGCADelegate
 {
   
 }
@@ -31,9 +32,11 @@ class FeedVC: AGVC {
   
   
   //MARK: - UI
-  @IBOutlet weak var sv_main: UIScrollView!
   @IBOutlet weak var v_addPostFloating: FloatingView!
+  var collection_feed: UICollectionView!
+  var adapter_feed: FeedCA!
   var v_state: StateView!
+  
   
   
   
@@ -50,7 +53,7 @@ class FeedVC: AGVC {
   
   
   //MARK: - Flag
-  var isFetchPostFirstTime = true
+  var isFetchFeedFirstTime = true
   
   
   
@@ -117,8 +120,10 @@ class FeedVC: AGVC {
     
     
     //MARK: Component
-    sv_main.setupScrollVertical()
-    sv_main.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
+    collection_feed = ControlContainableCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    adapter_feed = FeedCA(collection: collection_feed)
+    adapter_feed.delegate = self
+    
     v_addPostFloating.delegate = self
     let vm_plus = FloatingViewDisplayed()
     vm_plus.image = #imageLiteral(resourceName: "plus").filled(withColor: .white)
@@ -128,6 +133,7 @@ class FeedVC: AGVC {
     v_state.setupLight()
     v_state.delegate = self
     
+    view.addSubview(collection_feed)
     view.addSubview(v_state)
     view.bringSubviewToFront(v_addPostFloating)
     
@@ -185,8 +191,8 @@ class FeedVC: AGVC {
     var fsPostList: [FSPost] = []
     var fsUserList: [FSUser] = []
     func interactor() {
-      if isFetchPostFirstTime {
-        isFetchPostFirstTime = false
+      if isFetchFeedFirstTime {
+        isFetchFeedFirstTime = false
         v_state.setState(with: .loading, isAnimation: false)
       }
       let fsUser = FMUserDefaults.FSUserDefault.get()!
@@ -266,6 +272,17 @@ class FeedVC: AGVC {
     vc.delegate_agvc = self
     let nvc = UINavigationController(rootViewController: vc)
     present(nvc, animated: true, completion: nil)
+  }
+  
+  
+  
+  //MARK: - Custom - AGCADelegate
+  func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
+    //    let vc = ClosetVC.vc()
+    //    vc.fsCloset = fsClosets[indexPath.row]
+    //    vc.closetCategory = closetCategory
+    //    vc.delegate_agvc = self
+    //    navigationController?.pushViewController(vc)
   }
   
   

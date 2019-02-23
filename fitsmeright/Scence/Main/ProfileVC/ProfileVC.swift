@@ -33,7 +33,7 @@ class ProfileVC: AGVC {
   
   //MARK: - UI
   @IBOutlet weak var v_addFriendFloating: FloatingView!
-  var collection_main: UICollectionView!
+  var collection_profile: UICollectionView!
   var adapter_profile: ProfileCA!
   var v_state: StateView!
   
@@ -122,8 +122,8 @@ class ProfileVC: AGVC {
     
     //MARK: Component
     //    view.setupViewFrame()
-    collection_main = ControlContainableCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    adapter_profile = ProfileCA(collection: collection_main)
+    collection_profile = ControlContainableCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    adapter_profile = ProfileCA(collection: collection_profile)
     adapter_profile.delegate = self
     
     v_addFriendFloating.delegate = self
@@ -135,7 +135,7 @@ class ProfileVC: AGVC {
     v_state.setupLight()
     v_state.delegate = self
     
-    view.addSubview(collection_main)
+    view.addSubview(collection_profile)
     view.addSubview(v_state)
     view.bringSubviewToFront(v_addFriendFloating)
     
@@ -146,7 +146,7 @@ class ProfileVC: AGVC {
     
     
     //MARK: Snp
-    collection_main.snp.makeConstraints {
+    collection_profile.snp.makeConstraints {
       $0.top.equalTo(view.snp.topMargin)
       $0.right.equalToSuperview()
       $0.bottom.equalTo(view.snp.bottomMargin)

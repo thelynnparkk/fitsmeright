@@ -145,12 +145,12 @@ class PostCreateOutfitVC: AGVC {
     
     txt_caption.borderStyle = .none
     let attributedPlaceholder: [NSAttributedString.Key : Any] = [
-      .font: UIFont(name: f_system.helvetica, size: f_size.h3)!
+      .font: UIFont(name: f_system.helvetica, size: f_size.h4)!
     ]
     txt_caption.attributedPlaceholder = NSAttributedString(string: "Add a caption..", attributes: attributedPlaceholder)
     
     v_outfit.addShadow(ofColor: .black, radius: 8, offset: .less, opacity: 0.1)
-    lb_outfit.font = UIFont(name: f_system.helveticaBold, size: f_size.h1)
+    lb_outfit.font = UIFont(name: f_system.helveticaBold, size: f_size.h2)
     imgv_outfit.layer.cornerRadius = 20
     imgv_outfit.contentMode = .scaleAspectFill
     imgv_outfit.clipsToBounds = true
@@ -159,7 +159,7 @@ class PostCreateOutfitVC: AGVC {
     btn_clearOutfit.layer.cornerRadius = btn_clearOutfit.bounds.width / 2
     btn_clearOutfit.addTarget(self, action: #selector(clearOutfitButtonPressed), for: .touchUpInside)
     
-    lb_items.font = UIFont(name: f_system.helveticaBold, size: f_size.h1)
+    lb_items.font = UIFont(name: f_system.helveticaBold, size: f_size.h2)
     adapter_item = OutfitItemCA(collection: collection_item)
     adapter_item.delegate = self
     
