@@ -29,7 +29,7 @@ class Post {
   //MARK: - Storage
   var fsPost: FSPost?
   var fsUser: FSUser?
-  var fsPostClosetList: [String] = []
+  var postClosetList: [PostCloset] = []
   var fsPostCommentList: [String] = []
   
   

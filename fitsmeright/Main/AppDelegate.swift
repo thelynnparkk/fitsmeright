@@ -197,7 +197,7 @@ class AppDelegate: UIResponder {
       //    pdcv.shadowPath = CGPath(...)
       
       let pdov = PopupDialogOverlayView.appearance()
-      pdov.color = c_material.grey300
+      pdov.color = .black
       //    pdov.blurRadius = 20
       //    pdov.blurEnabled = true
       //    pdov.liveBlurEnabled = false

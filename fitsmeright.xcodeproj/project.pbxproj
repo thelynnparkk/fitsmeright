@@ -44,6 +44,8 @@
 		5E74DA8021BBF7D700A97A89 /* R.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA7F21BBF7D700A97A89 /* R.swift */; };
 		5E74DA8421BBF94B00A97A89 /* UINavigationController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA8321BBF94B00A97A89 /* UINavigationController+AG.swift */; };
 		5E74DA8621BBFC6700A97A89 /* UIImagePickerController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */; };
+		5EA4B13522214A99002E6513 /* OutfitItemXCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA4B13422214A99002E6513 /* OutfitItemXCC.swift */; };
+		5EA4B13722214A9F002E6513 /* OutfitItemXCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EA4B13622214A9F002E6513 /* OutfitItemXCC.xib */; };
 		5EC21D5B21F61A1C0013157F /* ClosetVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EC21D5A21F61A1C0013157F /* ClosetVC.storyboard */; };
 		5ECC1D63221AEA9100B03268 /* PostCreateOutfitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECC1D62221AEA9100B03268 /* PostCreateOutfitVC.swift */; };
 		5ECC1D65221AEA9B00B03268 /* PostCreateOutfitVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ECC1D64221AEA9B00B03268 /* PostCreateOutfitVC.storyboard */; };
@@ -232,6 +234,8 @@
 		5E74DA7F21BBF7D700A97A89 /* R.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R.swift; sourceTree = "<group>"; };
 		5E74DA8321BBF94B00A97A89 /* UINavigationController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+AG.swift"; sourceTree = "<group>"; };
 		5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+AG.swift"; sourceTree = "<group>"; };
+		5EA4B13422214A99002E6513 /* OutfitItemXCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitItemXCC.swift; sourceTree = "<group>"; };
+		5EA4B13622214A9F002E6513 /* OutfitItemXCC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutfitItemXCC.xib; sourceTree = "<group>"; };
 		5EC21D5A21F61A1C0013157F /* ClosetVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClosetVC.storyboard; sourceTree = "<group>"; };
 		5ECC1D62221AEA9100B03268 /* PostCreateOutfitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreateOutfitVC.swift; sourceTree = "<group>"; };
 		5ECC1D64221AEA9B00B03268 /* PostCreateOutfitVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostCreateOutfitVC.storyboard; sourceTree = "<group>"; };
@@ -962,6 +966,8 @@
 				A4FB1BEF22211C9A002933E1 /* PostCC.xib */,
 				A4FB1BFB22213D8F002933E1 /* PostHeaderCC.swift */,
 				A4FB1BFD22213D94002933E1 /* PostHeaderCC.xib */,
+				5EA4B13422214A99002E6513 /* OutfitItemXCC.swift */,
+				5EA4B13622214A9F002E6513 /* OutfitItemXCC.xib */,
 			);
 			path = CC;
 			sourceTree = "<group>";
@@ -1247,6 +1253,7 @@
 				5E74DA0221BBACA900A97A89 /* Main.storyboard in Resources */,
 				5EF9F2D521FC7EBC0034F7B2 /* ClosetFormVC.storyboard in Resources */,
 				5ECE8E8721F769F7000AF65E /* ClosetCategoryVC.storyboard in Resources */,
+				5EA4B13722214A9F002E6513 /* OutfitItemXCC.xib in Resources */,
 				5EF9F2D621FC7EF20034F7B2 /* ClosetListVC.storyboard in Resources */,
 				5E5BD815221B05BB003D1C3D /* ClosetTagView.xib in Resources */,
 				5EFB7F99221BCDAE00D7D8F5 /* IconLabelCC.xib in Resources */,
@@ -1432,6 +1439,7 @@
 				5EFC9BAC21FB67ED0078ED50 /* FSUser.swift in Sources */,
 				5EFC9BAE21FB684A0078ED50 /* FirestoreCodable.swift in Sources */,
 				5EFB7F9B221BCF9300D7D8F5 /* SelectClosetCategoryCA.swift in Sources */,
+				5EA4B13522214A99002E6513 /* OutfitItemXCC.swift in Sources */,
 				A42F7C5821BE56AC00085DB5 /* AGDefaultsFoundation.swift in Sources */,
 				A4C9931A2220635300CCC3D8 /* FSPostCloset.swift in Sources */,
 				A4C4FAB421F975C7004A3F37 /* StateView.swift in Sources */,

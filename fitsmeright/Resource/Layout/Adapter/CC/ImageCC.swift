@@ -145,23 +145,6 @@ class ImageCC: AGCC {
   //MARK: - LifeCycle
   override func awakeFromNib() {
     super.awakeFromNib()
-    
-  }
-  
-  override func layoutSubviews() {
-    super.layoutSubviews()
-    
-  }
-  
-  override func prepareForReuse() {
-    super.prepareForReuse()
-    
-  }
-  
-  
-  
-  //MARK: - SetupView
-  override func setupViewOnAwakeFromNib() {
     //MARK: Core
     
     
@@ -187,6 +170,19 @@ class ImageCC: AGCC {
     
   }
   
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    
+  }
+  
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    setupData(with: Displayed())
+  }
+  
+  
+  
+  //MARK: - SetupView
   override func setupViewOnStateChange(_ state: UIControl.State) {
     switch state {
     case .normal:
@@ -202,27 +198,10 @@ class ImageCC: AGCC {
     }
   }
   
-  override func setupViewOnLayoutSubviews() {
-    
-  }
-  
-  override func setupViewOnPrepareForReuse() {
-    
-  }
-  
   
   
   //MARK: - SetupData
-  override func setupDataOnAwakeFromNib() {
-    
-  }
-  
-  override func setupDataOnPrepareForReuse() {
-    setupData(with: Displayed())
-  }
-  
   override func setupData(with displayed: AGCCDisplayed?) {
-    
     func present() {
       if let displayed = displayed as? Displayed {
         displayedCC = displayed
@@ -237,9 +216,7 @@ class ImageCC: AGCC {
         imgv.alpha = 0
       }
     }
-    
     displaySetupData(with: displayed, onPresented: present)
-    
   }
   
   

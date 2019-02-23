@@ -14,6 +14,7 @@ import SwifterSwift
 
 class AGCRVDisplayed {
   var kind: String = ""
+  var isHidden: Bool = false
 }
 
 

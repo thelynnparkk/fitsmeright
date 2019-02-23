@@ -16,6 +16,26 @@ import CodableFirebase
 
 class FSClosetWorker {
   
+  typealias GetResponse = (data: FSCloset, error: Error?)
+  static func get(documentId: String, onComplete: @escaping ((GetResponse) -> ())) {
+    var response: GetResponse = (FSCloset(), nil)
+    let db = Firestore.default
+    let collection_posts = db
+      .collection(FSCloset.collection)
+      .document(documentId)
+    collection_posts.getDocument { (snapshot, error) in
+      switch error {
+      case .none:
+        guard let snapshot = snapshot else { return }
+        guard let data = snapshot.toObject(FSCloset.self) else { return }
+        response.data = data
+      case let .some(e):
+        response.error = e
+      }
+      onComplete(response)
+    }
+  }
+  
   typealias FetchWhereResponse = (data: [FSCloset], error: Error?)
   static func fetchWhere(userId: String?, onComplete: @escaping ((FetchWhereResponse) -> ())) {
     var response: FetchWhereResponse = ([], nil)

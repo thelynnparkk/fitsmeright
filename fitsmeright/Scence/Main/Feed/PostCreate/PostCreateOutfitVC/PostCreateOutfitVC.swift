@@ -164,7 +164,7 @@ class PostCreateOutfitVC: AGVC {
     adapter_item.delegate = self
     
     v_state = StateView(axis: .vertical)
-    v_state.setupLight()
+    v_state.setupDark()
     v_state.delegate = self
     view.addSubview(v_state)
     

@@ -144,13 +144,6 @@ class ProfileCC: AGCC {
   //MARK: - LifeCycle
   override func awakeFromNib() {
     super.awakeFromNib()
-    
-  }
-  
-  
-  
-  //MARK: - SetupView
-  override func setupViewOnAwakeFromNib() {
     //MARK: Core
     
     
@@ -191,27 +184,14 @@ class ProfileCC: AGCC {
     
   }
   
-  override func setupViewOnLayoutSubviews() {
-    
-  }
   
-  override func setupViewOnPrepareForReuse() {
-    
-  }
+  
+  //MARK: - SetupView
   
   
   
   //MARK: - SetupData
-  override func setupDataOnAwakeFromNib() {
-    
-  }
-  
-  override func setupDataOnPrepareForReuse() {
-    
-  }
-  
   override func setupData(with displayed: AGCCDisplayed?) {
-    
     func present() {
       if let displayed = displayed as? Displayed {
         self.displayedCC = displayed
@@ -229,9 +209,7 @@ class ProfileCC: AGCC {
         
       }
     }
-    
     present()
-    
   }
   
   

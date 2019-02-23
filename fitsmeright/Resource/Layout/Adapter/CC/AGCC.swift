@@ -136,25 +136,6 @@ class AGCC: UICollectionViewCell {
   //MARK: - LifeCycle
   override func awakeFromNib() {
     super.awakeFromNib()
-    setupViewOnAwakeFromNib()
-    setupDataOnAwakeFromNib()
-  }
-  
-  override func layoutSubviews() {
-    super.layoutSubviews()
-    setupViewOnLayoutSubviews()
-  }
-  
-  override func prepareForReuse() {
-    super.prepareForReuse()
-    setupViewOnPrepareForReuse()
-    setupDataOnPrepareForReuse()
-  }
-  
-  
-  
-  //MARK: - SetupView
-  func setupViewOnAwakeFromNib() {
     //MARK: Core
     
     
@@ -175,8 +156,22 @@ class AGCC: UICollectionViewCell {
     
     
     
+    //MARK: Data
   }
   
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    
+  }
+  
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    
+  }
+  
+  
+  
+  //MARK: - SetupView
   func setupViewOnStateChange(_ state: UIControl.State) {
     switch state {
     case .normal:
@@ -192,25 +187,8 @@ class AGCC: UICollectionViewCell {
     }
   }
   
-  func setupViewOnLayoutSubviews() {
-    
-  }
-  
-  func setupViewOnPrepareForReuse() {
-    
-  }
-  
-  
   
   //MARK: - SetupData
-  func setupDataOnAwakeFromNib() {
-    
-  }
-  
-  func setupDataOnPrepareForReuse() {
-    
-  }
-  
   func setupData(with displayed: AGCCDisplayed?) {
     
   }

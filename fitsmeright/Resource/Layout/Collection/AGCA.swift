@@ -31,6 +31,7 @@ protocol AGCADelegate: class {
 
 extension AGCA:
   Preparable,
+  Fontable,
   Colorable
 {
   

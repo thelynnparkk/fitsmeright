@@ -52,7 +52,9 @@ class PostCA: AGCA {
   
   //MARK: - Constraint
   typealias Displayed = PostCADisplayed
+  typealias CRV = LabelCRV
   typealias CC_PostHeader = PostHeaderCC
+  typealias CC_OutfitItemX = OutfitItemXCC
   var displayedCAPost: Displayed? {
     return displayedCA as? Displayed
   }
@@ -86,7 +88,9 @@ class PostCA: AGCA {
     //MARK: Component
     collection.setupCollectionDefault()
     collection.setupScrollVertical()
+    collection.register(nibWithCellClass: CRV.self, kind: UICollectionView.elementKindSectionHeader)
     collection.register(nibWithCellClass: CC_PostHeader.self)
+    collection.register(nibWithCellClass: CC_OutfitItemX.self)
     collection.delegate = self
     collection.dataSource = self
     collection.backgroundColor = .clear
@@ -184,8 +188,34 @@ class PostCA: AGCA {
       item.isAnimated = false
       cell.setupData(with: item)
       return cell
+    } else if let item = item as? CC_OutfitItemX.Displayed {
+      let cell = collectionView.dequeueReusableCell(withClass: CC_OutfitItemX.self, for: indexPath)
+      cell.indexPath = indexPath
+      cell.delegate = self
+      item.isAnimated = false
+      cell.setupData(with: item)
+      return cell
     } else {
       return UICollectionViewCell()
+    }
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    switch kind {
+    case UICollectionView.elementKindSectionHeader:
+      let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withClass: CRV.self, for: indexPath)
+      view.kind = kind
+      view.section = indexPath.section
+      view.delegate = self
+      view.lb_title.font = UIFont(name: f_system.helveticaBold, size: f_size.h2)
+      view.lb_title.textAlignment = .left
+      view.lb_title.textColor = .black
+      view.setupData(with: displayedCAPost?.sections[indexPath.section].header)
+      return view
+    case UICollectionView.elementKindSectionFooter:
+      return UICollectionReusableView()
+    default:
+      return UICollectionReusableView()
     }
   }
   
@@ -199,10 +229,13 @@ class PostCA: AGCA {
     collectionView.deselectItem(at: indexPath, animated: true)
   }
   
-  //  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-  //    return CRV.Sizing.size(with: collectionView.frame, height: 50)
-  //  }
   
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+    guard let header = displayedCAPost?.sections[section].header, !header.isHidden else {
+      return .zero
+    }
+    return CRV.Sizing.size(with: collectionView.frame, height: 50)
+  }
   
   
   //MARK: - Core - UICollectionViewDelegateFlowLayout
@@ -210,6 +243,8 @@ class PostCA: AGCA {
     let item = displayedCAPost?.sections[indexPath.section].items[indexPath.row]
     if let _ = item as? CC_PostHeader.Displayed {
       return CC_PostHeader.Sizing.size(with: collectionView.frame)
+    } else if let _ = item as? CC_OutfitItemX.Displayed {
+      return CC_OutfitItemX.Sizing.size(with: collectionView.frame)
     } else {
       return .zero
     }
@@ -219,6 +254,8 @@ class PostCA: AGCA {
     let item = displayedCAPost?.sections[section].items
     if let _ = item as? [CC_PostHeader.Displayed] {
       return CC_PostHeader.Sizing.inset()
+    } else if let _ = item as? [CC_OutfitItemX.Displayed] {
+      return CC_OutfitItemX.Sizing.inset()
     } else {
       return .zero
     }
@@ -228,6 +265,8 @@ class PostCA: AGCA {
     let item = displayedCAPost?.sections[section].items
     if let _ = item as? [CC_PostHeader.Displayed] {
       return CC_PostHeader.Sizing.lineSpace()
+    } else if let _ = item as? [CC_OutfitItemX.Displayed] {
+      return CC_OutfitItemX.Sizing.lineSpace()
     } else {
       return .zero
     }
@@ -237,6 +276,8 @@ class PostCA: AGCA {
     let item = displayedCAPost?.sections[section].items
     if let _ = item as? [CC_PostHeader.Displayed] {
       return CC_PostHeader.Sizing.itemSpace()
+    } else if let _ = item as? [CC_OutfitItemX.Displayed] {
+      return CC_OutfitItemX.Sizing.itemSpace()
     } else {
       return .zero
     }

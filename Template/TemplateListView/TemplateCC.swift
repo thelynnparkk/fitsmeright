@@ -163,30 +163,6 @@ class TemplateCC: AGCC {
   
   
   //MARK: - SetupView
-  override func setupViewOnAwakeFromNib() {
-    //MARK: Core
-    
-    
-    
-    //MARK: Component
-    
-    
-    
-    //MARK: Other
-    
-    
-    
-    //MARK: Snp
-    
-    
-    
-    //MARK: Localize
-    setupLocalize()
-    
-    
-    
-  }
-  
   override func setupViewOnStateChange(_ state: UIControl.State) {
     switch state {
     case .normal:
@@ -202,27 +178,9 @@ class TemplateCC: AGCC {
     }
   }
   
-  override func setupViewOnLayoutSubviews() {
-    
-  }
-  
-  override func setupViewOnPrepareForReuse() {
-    
-  }
-  
-  
   
   //MARK: - SetupData
-  override func setupDataOnAwakeFromNib() {
-    
-  }
-  
-  override func setupDataOnPrepareForReuse() {
-    
-  }
-  
   override func setupData(with displayed: AGCCDisplayed?) {
-    
     func present() {
       if let displayed = displayed as? Displayed {
         self.displayedCC = displayed
@@ -230,7 +188,6 @@ class TemplateCC: AGCC {
         
       }
     }
-    
   }
   
   

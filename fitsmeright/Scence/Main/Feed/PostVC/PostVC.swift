@@ -112,7 +112,7 @@ class PostVC: AGVC {
   override func viewDidLoad() {
     super.viewDidLoad()
     //MARK: Core
-    view.backgroundColor = c_material.grey300
+    view.backgroundColor = .white
     
     
     
@@ -154,7 +154,10 @@ class PostVC: AGVC {
     
     
     //MARK: Data
-    fetchPost()
+    DispatchQueue.main.async { [weak self] in
+      guard let _s = self else { return }
+      _s.fetchPost()
+    }
   }
   
   
@@ -184,17 +187,50 @@ class PostVC: AGVC {
   
   //MARK: - VIP - FetchPost
   func fetchPost() {
+    var fsPostClosetList: [FSPostCloset] = []
+    var fsClosetList: [FSCloset] = []
     func interactor() {
       v_state.setState(with: .loading, isAnimation: false)
-      print("\(postSelected!._fsPost._caption)")
-      worker()
-    }
-    func worker() {
-      if let post = postSelected {
-        presenter(post: post)
-      } else {
+      guard let post = postSelected else {
         presenterError()
+        return
       }
+      worker(post: post)
+    }
+    func worker(post: Post) {
+      func fetchPostCloset() {
+        FSPostClosetWorker.fetchWhere(postId: post._fsPost._documentId) { [weak self] in
+          guard let _ = self else { return }
+          switch $0.error {
+          case .none:
+            fsPostClosetList = $0.data
+            fetchCloset(fsPostClosetList: fsPostClosetList)
+          case let .some(e):
+            print(e.localizedDescription)
+            presenterError()
+          }
+        }
+      }
+      func fetchCloset(fsPostClosetList: [FSPostCloset]) {
+        let dg = DispatchGroup()
+        for i in fsPostClosetList {
+          dg.enter()
+          FSClosetWorker.get(documentId: i._closetId) { [weak self] in
+            guard let _ = self else { return }
+            dg.leave()
+            switch $0.error {
+            case .none:
+              fsClosetList.append($0.data)
+            case let .some(e):
+              print(e.localizedDescription)
+            }
+          }
+        }
+        dg.notify(queue: .main) {
+          presenter(post: post)
+        }
+      }
+      fetchPostCloset()
     }
     func presenter(post: Post) {
       v_state.setState(with: .hidden, isAnimation: true)
@@ -208,8 +244,26 @@ class PostVC: AGVC {
       displayed_post.like = "\(post._fsPost._likes)"
       displayed_post.caption = post._fsPost._caption
       section_post.items = [displayed_post]
+      for i in 0...fsPostClosetList.count-1 {
+        let postCloset = PostCloset()
+        postCloset.fsPostCloset = fsPostClosetList[i]
+        postCloset.fsCloset = fsClosetList[i]
+        post.postClosetList.append(postCloset)
+      }
+      self.postSelected = post
+      let header_outfitItem = LabelCRVDisplayed()
+      header_outfitItem.title = "Items"
+      let section_outfitItem = PostCADisplayed.Section()
+      let item_outfitItem = OutfitItemXCCDisplayed()
+      item_outfitItem.items = post.postClosetList.map({
+        let displayed = OutfitItemCCDisplayed()
+        displayed.imageURL = $0.fsCloset?.imageURL
+        return displayed
+      })
+      section_outfitItem.header = header_outfitItem
+      section_outfitItem.items = [item_outfitItem]
       let displayed = PostCADisplayed()
-      displayed.sections = [section_post]
+      displayed.sections = [section_post, section_outfitItem]
       adapter_post.setupData(with: displayed)
     }
     func presenterError() {

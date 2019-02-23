@@ -157,23 +157,6 @@ class LabelCC: AGCC {
   //MARK: - LifeCycle
   override func awakeFromNib() {
     super.awakeFromNib()
-    
-  }
-  
-  override func layoutSubviews() {
-    super.layoutSubviews()
-    
-  }
-  
-  override func prepareForReuse() {
-    super.prepareForReuse()
-    
-  }
-  
-  
-  
-  //MARK: - SetupView
-  override func setupViewOnAwakeFromNib() {
     //MARK: Core
     
     
@@ -201,6 +184,19 @@ class LabelCC: AGCC {
     
   }
   
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    
+  }
+  
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    setupData(with: Displayed())
+  }
+  
+  
+  
+  //MARK: - SetupView
   override func setupViewOnStateChange(_ state: UIControl.State) {
     if let displayed = displayedCCLabel {
       setupViewLabelStyle(with: displayed.style)
@@ -220,29 +216,11 @@ class LabelCC: AGCC {
       break
     }
   }
-  
-  
-  override func setupViewOnLayoutSubviews() {
-    
-  }
-  
-  override func setupViewOnPrepareForReuse() {
-    
-  }
-  
+
   
   
   //MARK: - SetupData
-  override func setupDataOnAwakeFromNib() {
-    
-  }
-  
-  override func setupDataOnPrepareForReuse() {
-    setupData(with: Displayed())
-  }
-  
   override func setupData(with displayed: AGCCDisplayed?) {
-    
     func present() {
       if let displayed = displayed as? Displayed {
         self.displayedCC = displayed
@@ -257,9 +235,7 @@ class LabelCC: AGCC {
         lb_subtitle.text = ""
       }
     }
-    
     displaySetupData(with: displayed, onPresented: present)
-    
   }
   
   func setupViewLabelStyle(with style: Style) {
