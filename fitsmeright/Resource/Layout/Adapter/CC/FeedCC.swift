@@ -19,7 +19,7 @@ class FeedCCDisplayed: AGCCDisplayed {
   var username: String?
   var isLiked: Bool = false
   var like: String?
-  var commend: String?
+  var comment: String?
 }
 
 
@@ -41,16 +41,17 @@ class FeedCC: AGCC {
                      customItemLine: CGFloat? = nil,
                      customInset: UIEdgeInsets? = nil) -> CGSize {
       let spaces = itemSpace(custom: customItemSpace)
-      let insets = inset(custom: customInset).top + inset(custom: customInset).bottom
-      let side = (bound.height - spaces - insets)
-      return CGSize(width: side, height: side)
+      let insets = inset(custom: customInset).left + inset(custom: customInset).right
+      let side = (bound.width - spaces - insets)
+      let constraints = 20 + 35 + 20
+      return CGSize(width: side, height: side + constraints.cgFloat)
     }
     
     static func itemSpace(with bound: CGRect = .zero, custom: CGFloat? = nil) -> CGFloat {
       if let custom = custom {
         return custom
       }
-      return 10
+      return 0
     }
     
     static func lineSpace(with bound: CGRect = .zero, custom: CGFloat? = nil) -> CGFloat {
@@ -64,13 +65,18 @@ class FeedCC: AGCC {
       if let custom = custom {
         return custom
       }
-      return UIEdgeInsets(inset: 10)
+      return UIEdgeInsets(inset: 30)
     }
     
     static func offset(with bound: CGRect = .zero) -> CGPoint {
       return .zero
     }
     
+  }
+  
+  enum Action {
+    case tap
+    case doubleTap
   }
   
   
@@ -85,6 +91,8 @@ class FeedCC: AGCC {
   @IBOutlet weak var lb_likes: UILabel!
   @IBOutlet weak var imgv_comment: UIImageView!
   @IBOutlet weak var lb_comments: UILabel!
+  var tapGesture: UITapGestureRecognizer!
+  var doubleTapGesture: UITapGestureRecognizer!
   
   
   
@@ -183,6 +191,16 @@ class FeedCC: AGCC {
     imgv_comment.image = #imageLiteral(resourceName: "ic_comment").filled(withColor: c_material.grey400)
     lb_comments.font = UIFont(name: f_system.helvetica, size: f_size.h6)
     lb_comments.textColor = c_material.grey400
+    
+    doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognized))
+    doubleTapGesture.numberOfTapsRequired = 2
+    
+    tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognized))
+    tapGesture.delaysTouchesBegan = true
+    tapGesture.require(toFail: doubleTapGesture)
+    
+    addGestureRecognizer(doubleTapGesture)
+    addGestureRecognizer(tapGesture)
     
     
     
@@ -302,7 +320,7 @@ class FeedCC: AGCC {
         lb_subtitle.text = displayed.username
         imgv_like.image = #imageLiteral(resourceName: "ic_like").filled(withColor: displayed.isLiked ? c_custom.peach : c_material.grey400)
         lb_likes.text = displayed.like
-        lb_comments.text = displayed.commend
+        lb_comments.text = displayed.comment
       } else {
         imgv.image = #imageLiteral(resourceName: "ic_add_shoes")
         imgv.alpha = 0
@@ -323,6 +341,26 @@ class FeedCC: AGCC {
   
   
   //MARK: - Event
+  @objc func tapGestureRecognized(_ sender: UITapGestureRecognizer) {
+    switch sender {
+    case tapGesture:
+      delegate?.agCCPressed(self, action: Action.tap, indexPath: indexPath)
+    case doubleTapGesture:
+      if let displayed = displayedCC as? Displayed {
+        displayed.isLiked = !displayed.isLiked
+        if displayed.isLiked {
+          displayed.like = "\((displayed.like?.int ?? 0) + 1)"
+        } else {
+          displayed.like = "\((displayed.like?.int ?? 0) - 1)"
+        }
+        lb_likes.text = displayed.like
+        imgv_like.image = #imageLiteral(resourceName: "ic_like").filled(withColor: displayed.isLiked ? c_custom.peach : c_material.grey400)
+        delegate?.agCCPressed(self, action: Action.doubleTap, indexPath: indexPath)
+      }
+    default:
+      break
+    }
+  }
   
   
   

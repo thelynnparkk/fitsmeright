@@ -41,9 +41,6 @@ extension AGCA:
 class AGCA: NSObject {
   
   //MARK: - Enum
-  enum Action {
-    case none
-  }
   
   
   
