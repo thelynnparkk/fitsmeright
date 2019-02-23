@@ -93,6 +93,13 @@
                                     <constraint firstItem="gnj-DU-dqW" firstAttribute="centerY" secondItem="1rH-v2-Tmi" secondAttribute="centerY" id="zrt-z4-3w4"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ADu-OX-3Pu">
+                                <rect key="frame" x="0.0" y="538" width="414" height="1"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Zba-hj-kOI"/>
+                                </constraints>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MOf-V0-Daf">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                 <constraints>
@@ -103,8 +110,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xkY-oc-I5T" firstAttribute="top" secondItem="MOf-V0-Daf" secondAttribute="bottom" id="AZb-fB-WuF"/>
+                            <constraint firstAttribute="trailing" secondItem="ADu-OX-3Pu" secondAttribute="trailing" id="EHh-o3-s0q"/>
                             <constraint firstAttribute="bottom" secondItem="xkY-oc-I5T" secondAttribute="bottom" id="J12-GF-e19"/>
                             <constraint firstAttribute="trailing" secondItem="MOf-V0-Daf" secondAttribute="trailing" id="N8z-eA-1Vy"/>
+                            <constraint firstItem="ADu-OX-3Pu" firstAttribute="leading" secondItem="e1T-AY-mEV" secondAttribute="leading" id="P2O-3c-HhR"/>
+                            <constraint firstAttribute="bottom" secondItem="ADu-OX-3Pu" secondAttribute="bottom" id="bCK-iO-hR0"/>
                             <constraint firstAttribute="trailing" secondItem="xkY-oc-I5T" secondAttribute="trailing" id="cJU-1b-rgV"/>
                             <constraint firstItem="MOf-V0-Daf" firstAttribute="leading" secondItem="e1T-AY-mEV" secondAttribute="leading" id="cs3-pM-65n"/>
                             <constraint firstItem="xkY-oc-I5T" firstAttribute="leading" secondItem="e1T-AY-mEV" secondAttribute="leading" id="oXX-3x-4LJ"/>
@@ -129,6 +139,7 @@
                 <outlet property="lb_subtitle" destination="CLl-Dk-tbR" id="fnI-KE-6dw"/>
                 <outlet property="lb_title" destination="Vgn-gx-Uso" id="DvR-lH-9Lc"/>
                 <outlet property="v_container" destination="e1T-AY-mEV" id="Bom-Gf-bcz"/>
+                <outlet property="v_seperator" destination="ADu-OX-3Pu" id="H3Q-Vs-gXt"/>
             </connections>
         </collectionViewCell>
     </objects>

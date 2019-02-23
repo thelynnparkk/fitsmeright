@@ -31,11 +31,21 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTO-kG-QAh">
+                                <rect key="frame" x="0.0" y="143" width="356" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="3yj-cS-rZp"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="CNT-HC-208" secondAttribute="trailing" id="1Bk-Bk-qxY"/>
+                            <constraint firstAttribute="trailing" secondItem="oTO-kG-QAh" secondAttribute="trailing" id="48Q-9m-CXb"/>
+                            <constraint firstAttribute="bottom" secondItem="oTO-kG-QAh" secondAttribute="bottom" id="Lzt-lO-Zhu"/>
                             <constraint firstItem="CNT-HC-208" firstAttribute="leading" secondItem="wUy-6g-yPS" secondAttribute="leading" id="Owr-9f-GcB"/>
+                            <constraint firstItem="oTO-kG-QAh" firstAttribute="leading" secondItem="wUy-6g-yPS" secondAttribute="leading" id="fk1-eL-qwi"/>
                             <constraint firstAttribute="bottom" secondItem="CNT-HC-208" secondAttribute="bottom" id="goQ-SR-NgN"/>
                             <constraint firstItem="CNT-HC-208" firstAttribute="top" secondItem="wUy-6g-yPS" secondAttribute="top" id="grY-Z8-erf"/>
                         </constraints>
@@ -53,6 +63,7 @@
             <connections>
                 <outlet property="collection" destination="CNT-HC-208" id="GXS-zf-5D2"/>
                 <outlet property="v_container" destination="wUy-6g-yPS" id="DIH-4X-ItR"/>
+                <outlet property="v_seperator" destination="oTO-kG-QAh" id="5rF-g2-sja"/>
             </connections>
             <point key="canvasLocation" x="313.60000000000002" y="191.6041979010495"/>
         </collectionViewCell>

@@ -35,8 +35,8 @@ class PostCA: AGCA {
   
   //MARK: - Enum
   enum Action {
-    case tap
     case doubleTap
+    case items
   }
   
   
@@ -287,13 +287,18 @@ class PostCA: AGCA {
   
   //MARK: - Custom - AGCCDelegate
   func agCCPressed(_ cell: AGCC, action: Any, indexPath: IndexPath) {
-    if let action = action as? CC_PostHeader.Action {
-      switch action {
-      case .tap:
-        delegate?.agCAPressed(self, action: Action.tap, indexPath: indexPath)
-      case .doubleTap:
-        delegate?.agCAPressed(self, action: Action.doubleTap, indexPath: indexPath)
+    switch cell {
+    case is PostHeaderCC:
+      if let action = action as? CC_PostHeader.Action {
+        switch action {
+        case .doubleTap:
+          delegate?.agCAPressed(self, action: Action.doubleTap, indexPath: indexPath)
+        }
       }
+    case is OutfitItemXCC:
+      delegate?.agCAPressed(self, action: Action.items, indexPath: indexPath)
+    default:
+      break
     }
   }
   

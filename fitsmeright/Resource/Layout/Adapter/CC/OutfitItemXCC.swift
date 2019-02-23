@@ -62,7 +62,7 @@ class OutfitItemXCC: AGCC {
       if let custom = custom {
         return custom
       }
-      return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+      return UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
     }
     
     static func offset(with bound: CGRect = .zero) -> CGPoint {
@@ -75,6 +75,8 @@ class OutfitItemXCC: AGCC {
   
   //MARK: - UI
   @IBOutlet weak var v_container: UIView!
+  
+  @IBOutlet weak var v_seperator: UIView!
   @IBOutlet weak var collection: UICollectionView!
   
   
@@ -155,7 +157,7 @@ class OutfitItemXCC: AGCC {
     
     //MARK: Component
     v_container.backgroundColor = .clear
-    
+    v_seperator.backgroundColor = c_material.grey200
     collection.setupCollectionDefault()
     collection.setupScrollHorizontal()
     collection.showsHorizontalScrollIndicator = false

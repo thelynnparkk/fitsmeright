@@ -159,6 +159,8 @@ class OutfitItemCC: AGCC {
     v_container.clipsToBounds = true
     imgv_icon.contentMode = .scaleAspectFit
     imgv_closet.contentMode = .scaleAspectFill
+    imgv_closet.clipsToBounds = true
+    imgv_closet.kf.indicatorType = .activity
     
     
     
@@ -224,7 +226,6 @@ class OutfitItemCC: AGCC {
         imgv_closet.isHidden = true
       }
       setupViewFrame()
-      
       addShadow(ofColor: .black, radius: 8, offset: .less, opacity: 0.1)
     }
     present()

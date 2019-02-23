@@ -61,6 +61,7 @@ class ClosetVC: AGVC {
   
   
   //MARK: - Storage
+  var isEditable = true
   var fsCloset: FSCloset?
   var closetCategory: ClosetCategory?
   
@@ -121,8 +122,10 @@ class ClosetVC: AGVC {
     //MARK: Core
     view.backgroundColor = .white
     //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
-    bbi_edit = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editClosetPressed))
-    ni.rightBarButtonItems = [bbi_edit]
+    if isEditable {
+      bbi_edit = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editClosetPressed))
+      ni.rightBarButtonItems = [bbi_edit]
+    }
     
     
     

@@ -75,7 +75,6 @@ class PostHeaderCC: AGCC {
   }
   
   enum Action {
-    case tap
     case doubleTap
   }
   
@@ -83,6 +82,8 @@ class PostHeaderCC: AGCC {
   
   //MARK: - UI
   @IBOutlet weak var v_container: UIView!
+  
+  @IBOutlet weak var v_seperator: UIView!
   @IBOutlet weak var imgv: UIImageView!
   @IBOutlet weak var imgv_user: UIImageView!
   @IBOutlet weak var lb_title: UILabel!
@@ -171,6 +172,7 @@ class PostHeaderCC: AGCC {
     
     //MARK: Component
     v_container.clipsToBounds = true
+    v_seperator.backgroundColor = c_material.grey200
     imgv.contentMode = .scaleAspectFill
     imgv.clipsToBounds = true
     imgv.kf.indicatorType = .activity
@@ -291,7 +293,7 @@ class PostHeaderCC: AGCC {
   @objc func tapGestureRecognized(_ sender: UITapGestureRecognizer) {
     switch sender {
     case tapGesture:
-      delegate?.agCCPressed(self, action: Action.tap, indexPath: indexPath)
+      break
     case doubleTapGesture:
       if let displayed = displayedCC as? Displayed {
         displayed.isLiked = !displayed.isLiked

@@ -305,17 +305,19 @@ class PostVC: AGVC {
   
   //MARK: - Custom - AGCADelegate
   func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
-//    if let action = action as? PostListCA.Action {
-//      switch action {
-//      case .tap:
-//        print("tap \(indexPath)")
-//        let vc = PostVC.vc()
-//        vc.postSelected = postList[indexPath.row]
-//        nc?.pushViewController(vc)
-//      case .doubleTap:
-//        print("doubleTap \(indexPath)")
-//      }
-//    }
+    if let action = action as? PostCA.Action {
+      switch action {
+      case .doubleTap:
+        break
+      case .items:
+        print(indexPath)
+        let vc = ClosetVC.vc()
+        vc.fsCloset = postSelected!.postClosetList[indexPath.row]._fsCloset
+        vc.closetCategory = postSelected!.postClosetList[indexPath.row]._fsCloset.closetCategory
+        vc.isEditable = false
+        navigationController?.pushViewController(vc)
+      }
+    }
   }
   
   
