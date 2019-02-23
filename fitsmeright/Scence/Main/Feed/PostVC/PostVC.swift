@@ -234,6 +234,17 @@ class PostVC: AGVC {
     }
     func presenter(post: Post) {
       v_state.setState(with: .hidden, isAnimation: true)
+      for pc in fsPostClosetList {
+        for c in fsClosetList {
+          if pc._closetId == c._documentId {
+            let postCloset = PostCloset()
+            postCloset.fsPostCloset = pc
+            postCloset.fsCloset = c
+            post.postClosetList.append(postCloset)
+          }
+        }
+      }
+      self.postSelected = post
       let section_post = PostCADisplayed.Section()
       let displayed_post = PostHeaderCCDisplayed()
       displayed_post.outfitImageURL = post._fsPost.imageURL
@@ -243,14 +254,9 @@ class PostVC: AGVC {
       displayed_post.isLiked = false
       displayed_post.like = "\(post._fsPost._likes)"
       displayed_post.caption = post._fsPost._caption
+      displayed_post.postClostList = post.postClosetList
       section_post.items = [displayed_post]
-      for i in 0...fsPostClosetList.count-1 {
-        let postCloset = PostCloset()
-        postCloset.fsPostCloset = fsPostClosetList[i]
-        postCloset.fsCloset = fsClosetList[i]
-        post.postClosetList.append(postCloset)
-      }
-      self.postSelected = post
+      
       let header_outfitItem = LabelCRVDisplayed()
       header_outfitItem.title = "Items"
       let section_outfitItem = PostCADisplayed.Section()

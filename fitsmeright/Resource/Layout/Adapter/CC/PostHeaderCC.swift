@@ -20,6 +20,7 @@ class PostHeaderCCDisplayed: AGCCDisplayed {
   var isLiked: Bool = false
   var like: String?
   var caption: String?
+  var postClostList: [PostCloset] = []
 }
 
 
@@ -110,6 +111,7 @@ class PostHeaderCC: AGCC {
   
   
   //MARK: - Flag
+  var isClosetHidden = true
   
   
   
@@ -272,6 +274,19 @@ class PostHeaderCC: AGCC {
         imgv_like.image = #imageLiteral(resourceName: "ic_like").filled(withColor: displayed.isLiked ? c_custom.peach : c_material.grey400)
         lb_likes.text = displayed.like
         lb_caption.text = displayed.caption
+        imgv.removeSubviews()
+        isClosetHidden = true
+        for i in displayed.postClostList {
+          let view = ClosetTagView()
+          let x = imgv.bounds.width * i._fsPostCloset._locationPercentX.cgFloat
+          let y = imgv.bounds.height * i._fsPostCloset._locationPercentY.cgFloat
+          view.frame = CGRect(origin: CGPoint(x: x, y: y), size: CGSize(side: 40))
+          view.alpha = 0
+          let displayed = ClosetTagViewDisplayed()
+          displayed.icon = i._fsCloset.closetCategory.icon.filled(withColor: .white)
+          view.setupData(with: displayed)
+          imgv.addSubview(view)
+        }
       } else {
         imgv.image = #imageLiteral(resourceName: "ic_add_shoes")
         imgv.alpha = 0
@@ -293,7 +308,12 @@ class PostHeaderCC: AGCC {
   @objc func tapGestureRecognized(_ sender: UITapGestureRecognizer) {
     switch sender {
     case tapGesture:
-      break
+      isClosetHidden = !isClosetHidden
+      for i in imgv.subviews {
+        UIView.animate(withDuration: 0.2) {
+          i.alpha = self.isClosetHidden ? 0 : 1
+        }
+      }
     case doubleTapGesture:
       if let displayed = displayedCC as? Displayed {
         displayed.isLiked = !displayed.isLiked
