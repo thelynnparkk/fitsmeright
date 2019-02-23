@@ -29,19 +29,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
                                 <color key="backgroundColor" red="0.98039215690000003" green="0.44705882349999998" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HQH-NO-zpU">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="aHg-fq-htJ" firstAttribute="bottom" secondItem="gXr-O0-R0D" secondAttribute="bottom" constant="20" id="6OK-gV-uLw"/>
-                            <constraint firstItem="aHg-fq-htJ" firstAttribute="trailing" secondItem="HQH-NO-zpU" secondAttribute="trailing" id="A20-Rj-xCt"/>
                             <constraint firstItem="aHg-fq-htJ" firstAttribute="top" secondItem="Zhc-nx-grX" secondAttribute="bottom" id="AYJ-Qc-EcY"/>
                             <constraint firstItem="Zhc-nx-grX" firstAttribute="top" secondItem="7kc-vp-asO" secondAttribute="top" id="Hpk-EZ-6Sp"/>
-                            <constraint firstItem="aHg-fq-htJ" firstAttribute="bottom" secondItem="HQH-NO-zpU" secondAttribute="bottom" id="Klu-xD-duX"/>
-                            <constraint firstItem="HQH-NO-zpU" firstAttribute="leading" secondItem="aHg-fq-htJ" secondAttribute="leading" id="RtT-fe-nF1"/>
-                            <constraint firstItem="HQH-NO-zpU" firstAttribute="top" secondItem="Zhc-nx-grX" secondAttribute="bottom" id="aOe-77-9Bm"/>
                             <constraint firstAttribute="trailing" secondItem="Zhc-nx-grX" secondAttribute="trailing" id="f1e-R2-Ab9"/>
                             <constraint firstItem="aHg-fq-htJ" firstAttribute="trailing" secondItem="gXr-O0-R0D" secondAttribute="trailing" constant="20" id="l0t-ul-Do4"/>
                             <constraint firstItem="Zhc-nx-grX" firstAttribute="leading" secondItem="aHg-fq-htJ" secondAttribute="leading" id="nVk-bV-1mh"/>
@@ -49,7 +42,6 @@
                         <viewLayoutGuide key="safeArea" id="aHg-fq-htJ"/>
                     </view>
                     <connections>
-                        <outlet property="sv_main" destination="HQH-NO-zpU" id="OVv-cR-bqY"/>
                         <outlet property="v_addPostFloating" destination="gXr-O0-R0D" id="Pfc-Ki-1Uu"/>
                     </connections>
                 </viewController>
