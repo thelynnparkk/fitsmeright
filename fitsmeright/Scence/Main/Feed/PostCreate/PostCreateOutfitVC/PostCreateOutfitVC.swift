@@ -325,6 +325,7 @@ class PostCreateOutfitVC: AGVC {
       let fsUser = FMUserDefaults.FSUserDefault.get()!
       let fsPost = FSPost()
       fsPost.userId = fsUser._documentId
+      fsPost.caption = txt_caption.text
       fsPost.updatedAt = Timestamp(date: Date())
       worker(fsPost: fsPost)
     }

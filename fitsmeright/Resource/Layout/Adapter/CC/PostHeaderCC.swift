@@ -278,8 +278,8 @@ class PostHeaderCC: AGCC {
         isClosetHidden = true
         for i in displayed.postClostList {
           let view = ClosetTagView()
-          let x = imgv.bounds.width * i._fsPostCloset._locationPercentX.cgFloat
-          let y = imgv.bounds.height * i._fsPostCloset._locationPercentY.cgFloat
+          let x = (imgv.frame.width * i._fsPostCloset._locationPercentX.cgFloat)
+          let y = (imgv.frame.height * i._fsPostCloset._locationPercentY.cgFloat)
           view.frame = CGRect(origin: CGPoint(x: x, y: y), size: CGSize(side: 40))
           view.alpha = 0
           let displayed = ClosetTagViewDisplayed()
