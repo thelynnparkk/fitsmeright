@@ -47,6 +47,12 @@ pod 'Firebase/Storage'
 pod 'CodableFirebase', '~> 0.2.1'
 # > 4.6.0
 pod 'SwifterSwift', '~> 4.6.0'
+# note
+pod 'FacebookCore'
+# note
+pod 'FacebookLogin'
+# note
+pod 'FacebookShare'
 end
 
 
@@ -64,16 +70,6 @@ end
 
 target 'fitsmeright' do
 fitsmeright_pods
-swift_4_0_pods = ['SkeletonView']
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    if swift_4_0_pods.include? target.name
-      target.build_configurations.each do |config|
-        config.build_settings['SWIFT_VERSION'] = '4.0'
-      end
-    end
-  end
-end
 
   target 'fitsmerightTests' do
     inherit! :search_paths

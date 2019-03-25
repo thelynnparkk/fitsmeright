@@ -280,6 +280,43 @@ class SignUpVC: AGVC {
     }
   }
   
+  private func displayErrorPopup() {
+    func getLabelCAModel() -> LabelCADisplayed {
+      let displayed = LabelCADisplayed()
+      let displayed_ok = LabelCCDisplayed()
+      displayed_ok.title = "OK"
+      displayed_ok.weight = .semibold
+      displayed_ok.style = .negative
+      let section = LabelCADisplayed.Section()
+      section.items = [displayed_ok]
+      displayed.sections = [section]
+      return displayed
+    }
+    let displayed = PopupListVCUC.Setup.DisplayedSetupPopupList()
+    displayed.viewModel = getLabelCAModel()
+    displayed.adapter = LabelCA.self
+    displayed.isTapOverlayEnabled = true
+    displayed.isTapContainerEnabled = true
+    displayed.isHideFooter = true
+    displayed.displayedHeader.icon = #imageLiteral(resourceName: "ic_popup_no").filled(withColor: c_custom.peach)
+    displayed.displayedHeader.style = .large
+    displayed.displayedHeader.subtitle = "Exiting email"
+    displayed.displayedHeader.tint = c_custom.peach
+    displayed.displayedHeader.title = "try another"
+    let vm = PopupListVCUC.Setup.ViewModel()
+    vm.displayedSetup = displayed
+    displayPopupList(vm, priority: .common, on: self) { [weak self] in
+      guard let _s = self else { return }
+      guard $0.isSelected else { return }
+      switch $0.indexPath.row {
+      case 0:
+        _s.txt_email.becomeFirstResponder()
+      default:
+        break
+      }
+    }
+  }
+  
   
   
   //MARK: - VIP - SignUpCheck
@@ -300,7 +337,22 @@ class SignUpVC: AGVC {
       fsUser.facebookId = ""
       fsUser.email = txt_email.text
       fsUser.password = txt_password.text
-      presenter(fsUser: fsUser)
+      worker(fsUser: fsUser)
+    }
+    func worker(fsUser: FSUser) {
+      FSUserWorker.fetchWhere(email: fsUser._email) {
+        switch $0.error {
+        case .none:
+          guard $0.data.isEmpty else {
+            presenterError(code: 2)
+            return
+          }
+          presenter(fsUser: fsUser)
+        case let .some(e):
+          presenterError(code: 2)
+          print(e.localizedDescription)
+        }
+      }
     }
     func presenter(fsUser: FSUser) {
       let vc = ProfileFormVC.vc()
@@ -313,6 +365,8 @@ class SignUpVC: AGVC {
         displayEmailErrorPopup()
       case 1:
         displayPasswordErrorPopup()
+      case 2:
+        displayErrorPopup()
       default:
         break
       }

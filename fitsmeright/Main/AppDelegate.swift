@@ -14,6 +14,7 @@ import Firebase
 import PopupDialog
 import SwifterSwift
 import Kingfisher
+import FacebookCore
 
 
 
@@ -215,6 +216,10 @@ class AppDelegate: UIResponder {
       kf.cache.diskStorage.config.expiration = .seconds(1000 * 1024 * 1024)
       kf.cache.diskStorage.config.sizeLimit = 600
       
+      
+      //MARK: Facebook
+      SDKApplicationDelegate.shared.application(app, didFinishLaunchingWithOptions: options)
+      
     }
     
     window = UIWindow(frame: UIScreen.main.bounds)
@@ -275,6 +280,10 @@ class AppDelegate: UIResponder {
   
   func applicationWillTerminate(_ application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+  }
+  
+  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    return SDKApplicationDelegate.shared.application(app, open: url, options: options)
   }
   
   

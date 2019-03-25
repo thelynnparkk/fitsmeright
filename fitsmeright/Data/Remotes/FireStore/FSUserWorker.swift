@@ -86,6 +86,27 @@ class FSUserWorker {
     }
   }
   
+  static func fetchWhere(email: String, onComplete: @escaping ((FetchWhereResponse) -> ())) {
+    var response: FetchWhereResponse = ([], nil)
+    let db = Firestore.default
+    let collection_posts = db
+      .collection(FSUser.collection)
+      .whereField(FSUser.CodingKeys.email.rawValue, isEqualTo: email)
+    collection_posts.getDocuments { (snapshot, error) in
+      switch error {
+      case .none:
+        guard let snapshot = snapshot else {
+          response.error = AGError.error
+          break
+        }
+        response.data = snapshot.documents.toObjects(FSUser.self)
+      case let .some(e):
+        response.error = e
+      }
+      onComplete(response)
+    }
+  }
+  
   typealias AddResponse = (ref: DocumentReference?, error: Error?)
   static func add(fsUser: FSUser, onComplete: @escaping ((AddResponse) -> ())) {
     var response: AddResponse = (nil, nil)

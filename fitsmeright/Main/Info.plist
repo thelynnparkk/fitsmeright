@@ -45,9 +45,29 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
-  <key>NSPhotoLibraryUsageDescription</key>
-  <string>This app requires access to the photo library.</string>
-  <key>NSCameraUsageDescription</key>
-  <string>This app requires access to the camera.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app requires access to the photo library.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app requires access to the camera.</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb{your-app-id}</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>{your-app-id}</string>
+	<key>FacebookDisplayName</key>
+	<string>Closettó</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>2266275016956032</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 </dict>
 </plist>

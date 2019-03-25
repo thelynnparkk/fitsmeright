@@ -146,6 +146,7 @@ extension UITextField {
   
   func setupEmailAddress() {
     setupContact()
+    textContentType = .emailAddress
   }
   
   //  Formatter
@@ -175,6 +176,10 @@ extension UITextField {
   }
   func setupNewPassword() {
     setupCredential()
+    keyboardType = .asciiCapable
+    textContentType = .newPassword
+    isSecureTextEntry = true
+    clearsOnBeginEditing = true
   }
   func setupOneTimeCode() {
     setupCredential()

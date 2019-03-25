@@ -129,7 +129,7 @@ class SignInVC: AGVC {
     setupFormTextField(view: v_usernameTextField, textField: txt_username)
     setupFormTextField(view: v_passwordTextField, textField: txt_password)
     
-    txt_username.setupUsername()
+    txt_username.setupEmailAddress()
     txt_password.setupPassword()
     
     btn_signIn.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .regular)

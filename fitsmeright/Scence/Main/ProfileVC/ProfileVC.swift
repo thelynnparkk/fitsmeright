@@ -228,7 +228,9 @@ class ProfileVC: AGVC {
       guard $0.isSelected else { return }
       switch $0.indexPath.row {
       case 0:
-        print("Edit")
+        let vc = ProfileFormVC.vc()
+        vc.fsUser = UserDefaults.FSUserDefault.get()
+        _s.nc?.pushViewController(vc, animated: true)
       case 1:
         _s.displayLogoutPopup()
       default:
