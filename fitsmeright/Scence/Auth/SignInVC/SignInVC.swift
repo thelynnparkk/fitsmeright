@@ -241,7 +241,8 @@ class SignInVC: AGVC {
         switch $0.error {
         case .none:
           UserDefaults.FSUserDefault.set(data: $0.data)
-          presenter()
+          UserDefaults.LoggedIn.set(data: true)
+          presenter()`
         case let .some(e):
           presenterError(code: 1)
           print(e.localizedDescription)
