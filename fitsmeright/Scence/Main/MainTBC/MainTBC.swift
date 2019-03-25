@@ -14,7 +14,6 @@ import RAMAnimatedTabBarController
 
 
 extension MainTBC:
-  UIBarPositioningDelegate,
   UITabBarControllerDelegate
 {
   

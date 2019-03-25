@@ -1,5 +1,5 @@
 //
-//  FMUserDefaults.swift
+//  UserDefaults.swift
 //  fitsmeright
 //
 //  Created by Lynn Park on 13/12/2561 BE.
@@ -12,7 +12,8 @@ import Foundation
 
 
 
-class FMUserDefaults: AGUserDefaults {
+extension UserDefaults: AGUserDefaults {
+  
   
   enum AppLaunched: AGUserDefaultsFoundation {
     typealias T = Bool
@@ -23,12 +24,7 @@ class FMUserDefaults: AGUserDefaults {
     typealias T = Bool
     static let key = "LoggedIn"
   }
-  
-  enum Post: AGUserDefaultsCodable {
-    typealias T = MockPost
-    static let key = "MockPost"
-  }
-  
+
   enum FSUserDefault: AGUserDefaultsCodable {
     typealias T = FSUser
     static let key = "FSUser"

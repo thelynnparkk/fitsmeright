@@ -202,7 +202,7 @@ class ClosetCategoryVC: AGVC {
         isFetctClosetMenuListFirstTime  = false
         v_state.setState(with: .loading, isAnimation: false)
       }
-      let fsUser = FMUserDefaults.FSUserDefault.get()!
+      let fsUser = UserDefaults.FSUserDefault.get()!
       worker(userId: fsUser._documentId)
     }
     func worker(userId: String) {

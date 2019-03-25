@@ -32,7 +32,7 @@ class ProfileVC: AGVC {
   
   
   //MARK: - UI
-  @IBOutlet weak var v_addFriendFloating: FloatingView!
+  var bbi_setting: UIBarButtonItem!
   var collection_profile: UICollectionView!
   var adapter_profile: ProfileCA!
   var v_state: StateView!
@@ -57,8 +57,9 @@ class ProfileVC: AGVC {
   
   
   //MARK: - Storage
-  var fsUser: FSUser?
-  var posts: [MockPost] = []
+  var postList: [Post] = []
+  var section_profile: ProfileCADisplayed.Section?
+  var section_post: ProfileCADisplayed.Section?
   
   
   
@@ -118,6 +119,9 @@ class ProfileVC: AGVC {
     view.backgroundColor = c_material.grey300
     //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     
+    bbi_setting = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_more"), style: .plain, target: self, action: #selector(settingBarButtonPressed))
+    ni.rightBarButtonItems = [bbi_setting]
+    
     
     
     //MARK: Component
@@ -126,18 +130,12 @@ class ProfileVC: AGVC {
     adapter_profile = ProfileCA(collection: collection_profile)
     adapter_profile.delegate = self
     
-    v_addFriendFloating.delegate = self
-    let vm_plus = FloatingViewDisplayed()
-    vm_plus.image = #imageLiteral(resourceName: "plus").filled(withColor: .white)
-    v_addFriendFloating.setupData(with: vm_plus)
-    
     v_state = StateView(axis: .vertical)
     v_state.setupLight()
     v_state.delegate = self
     
     view.addSubview(collection_profile)
     view.addSubview(v_state)
-    view.bringSubviewToFront(v_addFriendFloating)
     
     
     
@@ -169,6 +167,7 @@ class ProfileVC: AGVC {
     
     //MARK: Data
     fetchProfile()
+    fetchPostList()
   }
   
   
@@ -182,6 +181,9 @@ class ProfileVC: AGVC {
   
   
   //MARK: - Event
+  @IBAction func settingBarButtonPressed(_ sender: Any) {
+    displaySettingPopup()
+  }
   
   
   
@@ -193,6 +195,90 @@ class ProfileVC: AGVC {
   
   
   //MARK: - Private
+  private func displaySettingPopup() {
+    func getLabelCAModel() -> LabelCADisplayed {
+      let displayed = LabelCADisplayed()
+      let displayed_editProfile = LabelCCDisplayed()
+      displayed_editProfile.title = "Edit Profile"
+      displayed_editProfile.style = .normal
+      let displayed_logOut = LabelCCDisplayed()
+      displayed_logOut.title = "Log Out"
+      displayed_logOut.weight = .semibold
+      displayed_logOut.style = .negative
+      let section = LabelCADisplayed.Section()
+      section.items = [displayed_editProfile, displayed_logOut]
+      displayed.sections = [section]
+      return displayed
+    }
+    let displayed = PopupListVCUC.Setup.DisplayedSetupPopupList()
+    displayed.viewModel = getLabelCAModel()
+    displayed.adapter = LabelCA.self
+    displayed.isTapOverlayEnabled = true
+    displayed.isTapContainerEnabled = true
+    displayed.isHideFooter = true
+    displayed.displayedHeader.icon = #imageLiteral(resourceName: "ic_popup_choose").filled(withColor: c_custom.peach)
+    displayed.displayedHeader.style = .large
+    displayed.displayedHeader.subtitle = "Message"
+    displayed.displayedHeader.tint = c_custom.peach
+    displayed.displayedHeader.title = "Setting"
+    let vm = PopupListVCUC.Setup.ViewModel()
+    vm.displayedSetup = displayed
+    displayPopupList(vm, priority: .common, on: self) { [weak self] in
+      guard let _s = self else { return }
+      guard $0.isSelected else { return }
+      switch $0.indexPath.row {
+      case 0:
+        print("Edit")
+      case 1:
+        _s.displayLogoutPopup()
+      default:
+        break
+      }
+    }
+  }
+  
+  private func displayLogoutPopup() {
+    func getLabelCAModel() -> LabelCADisplayed {
+      let displayed = LabelCADisplayed()
+      let displayed_logOut = LabelCCDisplayed()
+      displayed_logOut.title = "Log Out"
+      displayed_logOut.style = .normal
+      let displayed_cancelLabel = LabelCCDisplayed()
+      displayed_cancelLabel.title = "Cancel"
+      displayed_cancelLabel.weight = .semibold
+      displayed_cancelLabel.style = .negative
+      let section = LabelCADisplayed.Section()
+      section.items = [displayed_logOut, displayed_cancelLabel]
+      displayed.sections = [section]
+      return displayed
+    }
+    let displayed = PopupListVCUC.Setup.DisplayedSetupPopupList()
+    displayed.viewModel = getLabelCAModel()
+    displayed.adapter = LabelCA.self
+    displayed.isTapOverlayEnabled = true
+    displayed.isTapContainerEnabled = true
+    displayed.isHideFooter = true
+    displayed.displayedHeader.icon = #imageLiteral(resourceName: "ic_popup_logout").filled(withColor: c_custom.peach)
+    displayed.displayedHeader.style = .large
+    displayed.displayedHeader.subtitle = "Log out"
+    displayed.displayedHeader.tint = c_custom.peach
+    displayed.displayedHeader.title = "Setting"
+    let vm = PopupListVCUC.Setup.ViewModel()
+    vm.displayedSetup = displayed
+    displayPopupList(vm, priority: .common, on: self) { [weak self] in
+      guard let _s = self else { return }
+      guard $0.isSelected else { return }
+      switch $0.indexPath.row {
+      case 0:
+        UserDefaults.removeAll()
+        let vc = SignInVC.vc()
+        let nvc = UINavigationController(rootViewController: vc)
+        _s.window?.set(with: nvc, style: .fade)
+      default:
+        break
+      }
+    }
+  }
   
   
   
@@ -203,40 +289,89 @@ class ProfileVC: AGVC {
         isFetctProfileFristTime  = false
         v_state.setState(with: .loading, isAnimation: false)
       }
-      worker()
+      let fsUser = UserDefaults.FSUserDefault.get()!
+      worker(fsUser: fsUser)
     }
-    func worker() {
-      fsUser = FMUserDefaults.FSUserDefault.get()!
-      if let p = FMUserDefaults.Post.get() {
-        posts = [p]
-      }
-      present()
+    func worker(fsUser: FSUser) {
+      present(fsUser: fsUser)
     }
-    func present() {
+    func present(fsUser: FSUser) {
       v_state.setState(with: .hidden)
-      let section_profile = ProfileCADisplayed.Section()
-      let cc_displayed = ProfileCCDisplayed()
-      cc_displayed.imageURL = nil
-      cc_displayed.displayName = fsUser!._displayName
-      cc_displayed.bio = fsUser!._bio
-      cc_displayed.posts = "\(posts.count)"
-      cc_displayed.friends = "0"
-      cc_displayed.closets = "0"
-      section_profile.items = [cc_displayed]
-      
-      let section_post = ProfileCADisplayed.Section()
-      section_post.items = posts.compactMap({
-        let displayed = ImageCCDisplayed()
-        displayed.imageURL = URL(string: $0._displayName)
-        return displayed
-      })
-      
+      if let _ = section_profile {
+        
+      } else {
+        section_profile = ProfileCADisplayed.Section()
+        let cc_displayed = ProfileCCDisplayed()
+        section_profile?.items = [cc_displayed]
+      }
+      if let cc_displayed = section_profile?.items.first as? ProfileCCDisplayed {
+        cc_displayed.imageURL = fsUser.imageURL
+        cc_displayed.displayName = fsUser._displayName
+        cc_displayed.bio = fsUser._bio
+        cc_displayed.posts = "\(postList.count)"
+        cc_displayed.friends = "0"
+        cc_displayed.closets = "0"
+      }
       let displayed = ProfileCADisplayed()
-      displayed.sections = [section_profile, section_post]
+      displayed.sections = [section_profile, section_post].compactMap({ $0 })
       adapter_profile.setupData(with: displayed)
     }
     func presentError() {
       v_state.setState(with: .error, isAnimation: false)
+    }
+    interactor()
+  }
+  
+  
+  
+  //MARK: - VIP - FetchPostList
+  func fetchPostList() {
+    var postList: [Post] = []
+    var fsPostList: [FSPost] = []
+    func interactor() {
+      let fsUser = UserDefaults.FSUserDefault.get()!
+      worker(fsUser: fsUser)
+    }
+    func worker(fsUser: FSUser) {
+      FSPostWorker.fetchWhere(userId: fsUser._documentId) { [weak self] in
+        guard let _ = self else { return }
+        switch $0.error {
+        case .none:
+          fsPostList += $0.data
+          present(fsUser: fsUser)
+        case let .some(e):
+          print(e.localizedDescription)
+          presentError()
+        }
+      }
+    }
+    func present(fsUser: FSUser) {
+      for p in fsPostList {
+        let post = Post()
+        post.fsPost = p
+        post.fsUser = fsUser
+        postList.append(post)
+      }
+      self.postList = postList
+      if let cc_displayed = section_profile?.items.first as? ProfileCCDisplayed {
+        cc_displayed.posts = "\(postList.count)"
+      }
+      if let _ = section_post {
+        
+      } else {
+        section_post = ProfileCADisplayed.Section()
+      }
+      section_post?.items = postList.compactMap({
+        let displayed = ImageCCDisplayed()
+        displayed.imageURL = $0._fsPost.imageURL
+        return displayed
+      })
+      let displayed = ProfileCADisplayed()
+      displayed.sections = [section_profile, section_post].compactMap({ $0 })
+      adapter_profile.setupData(with: displayed)
+    }
+    func presentError() {
+      
     }
     interactor()
   }
@@ -249,40 +384,23 @@ class ProfileVC: AGVC {
   
   //MARK: - Custom - AGViewDelegate
   func agViewPressed(_ view: AGView, action: Any, tag: Int) {
-//    let vc = ClosetFormVC.vc()
-//    vc.closetCategory = closetCategory
-//    navigationController?.pushViewController(vc)
+
   }
   
   
   
   //MARK: - Custom - AGCADelegate
   func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
-//    let vc = ClosetVC.vc()
-//    vc.fsCloset = fsClosets[indexPath.row]
-//    vc.closetCategory = closetCategory
-//    vc.delegate_agvc = self
-//    navigationController?.pushViewController(vc)
+    print(indexPath)
+    let vc = PostVC.vc()
+    vc.postSelected = postList[indexPath.row]
+    nc?.pushViewController(vc)
   }
   
   
   
   //MARK: - Custom - AGVCDelegate
   func agVCPressed(_ vc: AGVC, action: Any) {
-    
-//    func closet(action: ClosetVC.Action) {
-//      switch action {
-//      case let .update(fsCloset):
-//        if let index = fsClosets.firstIndex(where: { $0._documentId == fsCloset._documentId }) {
-//          fsClosets[index] = fsCloset
-//          fetchClosets()
-//        }
-//      }
-//    }
-//
-//    if let action = action as? ClosetVC.Action {
-//      closet(action: action)
-//    }
     
   }
   

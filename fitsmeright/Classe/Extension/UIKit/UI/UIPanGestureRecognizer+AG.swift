@@ -2,7 +2,7 @@
 //  UIPanGestureRecognizer+AG.swift
 //  fitsmeright
 //
-//  Created by Sasawat Sankosik on 4/2/2562 BE.
+//  Created by Lynn Park on 4/2/2562 BE.
 //  Copyright © 2562 silpakorn. All rights reserved.
 //
 

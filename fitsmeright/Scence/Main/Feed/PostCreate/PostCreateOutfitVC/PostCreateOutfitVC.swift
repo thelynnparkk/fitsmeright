@@ -248,7 +248,7 @@ class PostCreateOutfitVC: AGVC {
   func fetchClosetCategory() {
     func interactor() {
       v_state.setState(with: .loading, isAnimation: false)
-      let fsUser = FMUserDefaults.FSUserDefault.get()!
+      let fsUser = UserDefaults.FSUserDefault.get()!
       worker(userId: fsUser._documentId)
     }
     func worker(userId: String) {
@@ -322,7 +322,7 @@ class PostCreateOutfitVC: AGVC {
     func interactor() {
       v_state.setState(with: .loading, isAnimation: false)
       bbi_post.isEnabled = false
-      let fsUser = FMUserDefaults.FSUserDefault.get()!
+      let fsUser = UserDefaults.FSUserDefault.get()!
       let fsPost = FSPost()
       fsPost.userId = fsUser._documentId
       fsPost.caption = txt_caption.text
@@ -331,34 +331,14 @@ class PostCreateOutfitVC: AGVC {
     }
     func worker(fsPost: FSPost) {
       func uploadClosetImage() {
-        guard let data = imgv_outfit.image?.jpegData(compressionQuality: 1) else {
-          presentError()
-          return
-        }
-        let ref_folder = Storage.storage().reference(withPath: SPost.folder)
-        let ref_create = ref_folder.child("\(Date().millisecondsSince1970).jpg")
-        ref_create.putData(data, metadata: nil) { (metadata, error) in
-          if let e = error {
+        FSWorker.uploadImage(folder: SPost.folder, image: imgv_outfit.image) {
+          switch $0.error {
+          case .none:
+            fsPost.image = $0.url?.absoluteString
+            addPost()
+          case let .some(e):
             presentError()
             print(e.localizedDescription)
-            return
-          }
-          guard let _ = metadata else {
-            presentError()
-            return
-          }
-          ref_create.downloadURL { (url, error) in
-            if let e = error {
-              presentError()
-              print(e.localizedDescription)
-              return
-            }
-            guard let url = url else {
-              presentError()
-              return
-            }
-            fsPost.image = url.absoluteString
-            addPost()
           }
         }
       }
@@ -386,7 +366,7 @@ class PostCreateOutfitVC: AGVC {
           FSPostClosetWorker.add(fsPost: fsPostCloset) { [weak self] in
             guard let _ = self else { return }
             dg.leave()
-            switch $0 {
+            switch $0.error {
             case .none:
                break
             case let .some(e):

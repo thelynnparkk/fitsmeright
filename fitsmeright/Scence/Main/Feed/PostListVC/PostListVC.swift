@@ -23,7 +23,7 @@ extension PostListVC:
 
 
 class PostListVC: AGVC {
-  //MARK: - AGVCInstantiatable
+  //MARK: - Instantiatable
   
   
   
@@ -34,9 +34,7 @@ class PostListVC: AGVC {
   //MARK: - UI
   @IBOutlet weak var v_addPostFloating: FloatingView!
   var collection_post: UICollectionView!
-  var adapter_post: PostListCA!
   var v_state: StateView!
-  
   
   
   
@@ -49,6 +47,7 @@ class PostListVC: AGVC {
   
   
   //MARK: - Instance
+  var adapter_post: PostListCA!
   
   
   
@@ -115,7 +114,7 @@ class PostListVC: AGVC {
   override func viewDidLoad() {
     super.viewDidLoad()
     //MARK: Core
-    view.backgroundColor = c_material.grey300
+    view.backgroundColor = c_material.white
     //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     
     
@@ -200,7 +199,7 @@ class PostListVC: AGVC {
         isFetchFeedFirstTime = false
         v_state.setState(with: .loading, isAnimation: false)
       }
-      let fsUser = FMUserDefaults.FSUserDefault.get()!
+      let fsUser = UserDefaults.FSUserDefault.get()!
       worker(userId: fsUser._documentId)
     }
     func worker(userId: String) {
@@ -258,6 +257,7 @@ class PostListVC: AGVC {
         postList.append(post)
       }
       self.postList = postList
+      let displayed = PostListCADisplayed()
       let section = PostListCADisplayed.Section()
       section.items = postList.map({
         let displayed = PostCCDisplayed()
@@ -270,7 +270,6 @@ class PostListVC: AGVC {
         displayed.comment = "0"
         return displayed
       })
-      let displayed = PostListCADisplayed()
       displayed.sections = [section]
       adapter_post.setupData(with: displayed)
     }
@@ -288,10 +287,28 @@ class PostListVC: AGVC {
   
   //MARK: - Custom - AGViewDelegate
   func agViewPressed(_ view: AGView, action: Any, tag: Int) {
-    let vc = PostCreateOutfitVC.vc()
-    vc.delegate_agvc = self
-    let nvc = UINavigationController(rootViewController: vc)
-    present(nvc, animated: true, completion: nil)
+    switch view {
+    case is FloatingView:
+      let vc = PostCreateOutfitVC.vc()
+      vc.delegate_agvc = self
+      let nvc = UINavigationController(rootViewController: vc)
+      present(nvc, animated: true, completion: nil)
+    case is StateView:
+      switch action as! StateView.State {
+      case .hidden:
+        break
+      case .loading:
+        break
+      case .noResults:
+        break
+      case .noConnection:
+        break
+      case .error:
+        break
+      }
+    default:
+      break
+    }
   }
   
   

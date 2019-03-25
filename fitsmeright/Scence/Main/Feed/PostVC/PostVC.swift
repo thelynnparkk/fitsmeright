@@ -2,7 +2,7 @@
 //  PostVC.swift
 //  fitsmeright
 //
-//  Created by Sasawat Sankosik on 23/2/2562 BE.
+//  Created by Lynn Park on 23/2/2562 BE.
 //  Copyright © 2562 silpakorn. All rights reserved.
 //
 
@@ -191,6 +191,7 @@ class PostVC: AGVC {
     var fsClosetList: [FSCloset] = []
     func interactor() {
       v_state.setState(with: .loading, isAnimation: false)
+//      ถ้าไม่มีโพสส่งเข้ามาให้โชว์ error
       guard let post = postSelected else {
         presenterError()
         return
@@ -256,9 +257,6 @@ class PostVC: AGVC {
       displayed_post.caption = post._fsPost._caption
       displayed_post.postClostList = post.postClosetList
       section_post.items = [displayed_post]
-      
-      let header_outfitItem = LabelCRVDisplayed()
-      header_outfitItem.title = "Items"
       let section_outfitItem = PostCADisplayed.Section()
       let item_outfitItem = OutfitItemXCCDisplayed()
       item_outfitItem.items = post.postClosetList.map({
@@ -266,6 +264,8 @@ class PostVC: AGVC {
         displayed.imageURL = $0.fsCloset?.imageURL
         return displayed
       })
+      let header_outfitItem = LabelCRVDisplayed()
+      header_outfitItem.title = "Items"
       section_outfitItem.header = header_outfitItem
       section_outfitItem.items = [item_outfitItem]
       let displayed = PostCADisplayed()

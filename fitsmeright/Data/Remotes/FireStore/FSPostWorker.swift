@@ -2,7 +2,7 @@
 //  FSPostWorker.swift
 //  fitsmeright
 //
-//  Created by Sasawat Sankosik on 22/2/2562 BE.
+//  Created by Lynn Park on 22/2/2562 BE.
 //  Copyright © 2562 silpakorn. All rights reserved.
 //
 
@@ -16,6 +16,28 @@ import CodableFirebase
 
 class FSPostWorker {
   
+  typealias GetResponse = (data: FSPost, error: Error?)
+  static func get(documentId: String, onComplete: @escaping ((GetResponse) -> ())) {
+    var response: GetResponse = (FSPost(), nil)
+    let db = Firestore.default
+    let collection_posts = db
+      .collection(FSPost.collection)
+      .document(documentId)
+    collection_posts.getDocument { (snapshot, error) in
+      switch error {
+      case .none:
+        guard let snapshot = snapshot, let data = snapshot.toObject(FSPost.self) else {
+          response.error = AGError.error
+          break
+        }
+        response.data = data
+      case let .some(e):
+        response.error = e
+      }
+      onComplete(response)
+    }
+  }
+  
   typealias FetchWhereResponse = (data: [FSPost], error: Error?)
   static func fetchWhere(userId: String, onComplete: @escaping ((FetchWhereResponse) -> ())) {
     var response: FetchWhereResponse = ([], nil)
@@ -27,7 +49,10 @@ class FSPostWorker {
     collection_posts.getDocuments { (snapshot, error) in
       switch error {
       case .none:
-        guard let snapshot = snapshot else { return }
+        guard let snapshot = snapshot else {
+          response.error = AGError.error
+          break
+        }
         response.data = snapshot.documents.toObjects(FSPost.self)
       case let .some(e):
         response.error = e

@@ -34,7 +34,9 @@ extension ProfileCA:
 class ProfileCA: AGCA {
   
   //MARK: - Enum
-  
+//  enum Action {
+//
+//  }
   
   
   
@@ -188,6 +190,7 @@ class ProfileCA: AGCA {
       cell.delegate = self
       item.isAnimated = false
       cell.setupData(with: item)
+      cell.imgv.layer.cornerRadius = 10
       return cell
     } else {
       return UICollectionViewCell()
@@ -201,7 +204,12 @@ class ProfileCA: AGCA {
     guard !isRowInSectionEmpty(with: indexPath) else {
       return
     }
-    delegate?.agCAPressed(self, action: [], indexPath: indexPath)
+    let item = displayedCAProfile?.sections[indexPath.section].items[indexPath.row]
+    if let _ = item as? CCProfile.Displayed {
+      
+    } else if let _ = item as? CCImage.Displayed {
+      delegate?.agCAPressed(self, action: [], indexPath: indexPath)
+    }
   }
   
   //  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
@@ -218,9 +226,9 @@ class ProfileCA: AGCA {
     } else if let _ = item as? CCImage.Displayed {
       return CCImage.Sizing.size(with: collectionView.frame,
                                  rowItems: 2,
-                                 customItemSpace: 10,
-                                 customItemLine: 10,
-                                 customInset: UIEdgeInsets(inset: 10))
+                                 customItemSpace: 20,
+                                 customItemLine: 20,
+                                 customInset: UIEdgeInsets(inset: 20))
     } else {
       return .zero
     }
@@ -231,7 +239,7 @@ class ProfileCA: AGCA {
     if let _ = item as? [CCProfile.Displayed] {
       return CCProfile.Sizing.inset()
     } else if let _ = item as? [CCImage.Displayed] {
-      return CCImage.Sizing.inset()
+      return CCImage.Sizing.inset(custom: UIEdgeInsets(inset: 20))
     } else {
       return .zero
     }
@@ -242,7 +250,7 @@ class ProfileCA: AGCA {
     if let _ = item as? [CCProfile.Displayed] {
       return CCProfile.Sizing.lineSpace()
     } else if let _ = item as? [CCImage.Displayed] {
-      return CCImage.Sizing.lineSpace()
+      return CCImage.Sizing.lineSpace(custom: 20)
     } else {
       return .zero
     }
@@ -253,7 +261,7 @@ class ProfileCA: AGCA {
     if let _ = item as? [CCProfile.Displayed] {
       return CCProfile.Sizing.itemSpace()
     } else if let _ = item as? [CCImage.Displayed] {
-      return CCImage.Sizing.itemSpace()
+      return CCImage.Sizing.itemSpace(custom: 20)
     } else {
       return .zero
     }

@@ -2,7 +2,7 @@
 //  FSPostCommentWorker.swift
 //  fitsmeright
 //
-//  Created by Sasawat Sankosik on 23/2/2562 BE.
+//  Created by Lynn Park on 23/2/2562 BE.
 //  Copyright © 2562 silpakorn. All rights reserved.
 //
 
@@ -16,21 +16,22 @@ import CodableFirebase
 
 class FSPostCommentWorker {
   
-  typealias AddResponse = Error?
+  typealias AddResponse = (ref: DocumentReference?, error: Error?)
   static func add(fsPost: FSPostComment, onComplete: @escaping ((AddResponse) -> ())) {
-    var response: AddResponse = (nil)
+    var response: AddResponse = (nil, nil)
     let db = Firestore.default
     let collection_posts = db.collection(FSPostComment.collection)
     guard let fields = try? FirestoreEncoder().encode(fsPost) else {
       onComplete(response)
       return
     }
-    collection_posts.addDocument(data: fields) { error in
+    var ref: DocumentReference? = nil
+    ref = collection_posts.addDocument(data: fields) { error in
       switch error {
       case .none:
-        break
+        response.ref = ref
       case let .some(e):
-        response = e
+        response.error = e
       }
       onComplete(response)
     }

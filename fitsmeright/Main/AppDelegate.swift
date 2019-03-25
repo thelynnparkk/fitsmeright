@@ -63,8 +63,6 @@ class AppDelegate: UIResponder {
   
   //MARK: - Initial
   override init() {
-    window = UIWindow(frame: UIScreen.main.bounds)
-    window?.makeKeyAndVisible()
     super.init()
     setupInit()
   }
@@ -80,16 +78,7 @@ class AppDelegate: UIResponder {
     
     //MARK: Component
     //    SwifterSwift.appVersion
-    //    FMUserDefaults.removeAll()
-    let fsUser = FSUser()
-    fsUser.documentId = "N5GUixP95dAMKzXBx5kG"
-    //        fsUser.documentId = "VceACbsT1S2QPNV3JQS7"
-    fsUser.email = "lhnkki@gmail.com"
-    fsUser.username = "lin999"
-    fsUser.displayName = "linping"
-    fsUser.password = "1234"
-    fsUser.bio = "hi it's me"
-    FMUserDefaults.FSUserDefault.set(data: fsUser)
+//    UserDefaults.removeAll()
     
     
     
@@ -227,6 +216,9 @@ class AppDelegate: UIResponder {
       kf.cache.diskStorage.config.sizeLimit = 600
       
     }
+    
+    window = UIWindow(frame: UIScreen.main.bounds)
+    window?.makeKeyAndVisible()
     
     setupCores(with: app, options: options)
     setupPods(with: app, options: options)

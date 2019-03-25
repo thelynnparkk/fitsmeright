@@ -2,7 +2,7 @@
 //  UILabel.swift
 //  fitsmeright
 //
-//  Created by Sasawat Sankosik on 25/1/2562 BE.
+//  Created by Lynn Park on 25/1/2562 BE.
 //  Copyright © 2562 silpakorn. All rights reserved.
 //
 

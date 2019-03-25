@@ -2,7 +2,7 @@
 //  StateView.swift
 //  fitsmeright
 //
-//  Created by Sasawat Sankosik on 23/1/2562 BE.
+//  Created by Lynn Park on 23/1/2562 BE.
 //  Copyright © 2562 silpakorn. All rights reserved.
 //
 
@@ -308,7 +308,7 @@ class StateView: AGView {
   
   //MARK: - Event
   @objc func panGestureRecognized(_ recognizer: UITapGestureRecognizer) {
-    delegate?.agViewPressed(self, action: state, tag: 0)
+    delegate?.agViewPressed(self, action: state, tag: tag)
   }
   
   

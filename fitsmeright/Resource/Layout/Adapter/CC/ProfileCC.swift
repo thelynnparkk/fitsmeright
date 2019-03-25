@@ -149,7 +149,10 @@ class ProfileCC: AGCC {
     
     
     //MARK: Component
-    imgv_profile.backgroundColor = c_material.grey400
+    imgv_profile.contentMode = .scaleAspectFill
+    imgv_profile.clipsToBounds = true
+    imgv_profile.kf.indicatorType = .activity
+    imgv_profile.layer.cornerRadius = imgv_profile.bounds.width / 2
     lb_displayName.font = UIFont.systemFont(ofSize: 16, weight: .bold)
     lb_bio.textColor = c_material.grey500
     v_seperatorTop.backgroundColor = c_material.grey300
@@ -198,15 +201,22 @@ class ProfileCC: AGCC {
         if let imageURL = displayed.imageURL {
           imgv_profile.kf.setImage(with: imageURL, placeholder: nil, options: nil)
         } else {
-          imgv_profile.image = nil
+          imgv_profile.image = #imageLiteral(resourceName: "ic_add_shoes")
         }
         lb_displayName.text = displayed.displayName
         lb_bio.text = displayed.bio
         lb_postsValue.text = displayed.posts
         lb_friendsValue.text = displayed.friends
         lb_closetsValue.text = displayed.closets
+        imgv_profile.alpha = 1
       } else {
-        
+        imgv_profile.alpha = 0
+        imgv_profile.image = #imageLiteral(resourceName: "ic_add_shoes")
+        lb_displayName.text = ""
+        lb_bio.text = ""
+        lb_postsValue.text = ""
+        lb_friendsValue.text = ""
+        lb_closetsValue.text = ""
       }
     }
     present()

@@ -170,8 +170,8 @@ class PostCreateTagVC: AGVC {
       var postCloset: (ClosetCategory, Float, Float, String) = (ClosetCategory.default, 0, 0, "")
       postCloset.0 = i.key
       let view = v_tagList[i.key]!
-      let x = (view.frame.origin.x / imgv_outfit.frame.height)
-      let y = (view.frame.origin.y / imgv_outfit.frame.width)
+      let x = (view.frame.origin.x / imgv_outfit.frame.width)
+      let y = (view.frame.origin.y / imgv_outfit.frame.height)
       postCloset.1 = x.float
       postCloset.2 = y.float
       postClosets.append(postCloset)

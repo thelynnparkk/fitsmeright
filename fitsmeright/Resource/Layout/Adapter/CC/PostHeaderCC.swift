@@ -2,7 +2,7 @@
 //  PostHeaderCC.swift
 //  fitsmeright
 //
-//  Created by Sasawat Sankosik on 23/2/2562 BE.
+//  Created by Lynn Park on 23/2/2562 BE.
 //  Copyright © 2562 silpakorn. All rights reserved.
 //
 
@@ -255,6 +255,8 @@ class PostHeaderCC: AGCC {
   //MARK: - SetupData
   override func setupData(with displayed: AGCCDisplayed?) {
     func present() {
+      setupViewFrame()
+      imgv_user.layer.cornerRadius = imgv_user.bounds.width / 2
       if let displayed = displayed as? Displayed {
         self.displayedCC = displayed
         if let imageURL = displayed.outfitImageURL {

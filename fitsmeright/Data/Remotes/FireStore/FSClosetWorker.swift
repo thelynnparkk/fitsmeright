@@ -26,8 +26,10 @@ class FSClosetWorker {
     collection_posts.getDocument { (snapshot, error) in
       switch error {
       case .none:
-        guard let snapshot = snapshot else { return }
-        guard let data = snapshot.toObject(FSCloset.self) else { return }
+        guard let snapshot = snapshot, let data = snapshot.toObject(FSCloset.self) else {
+          response.error = AGError.error
+          break
+        }
         response.data = data
       case let .some(e):
         response.error = e
@@ -47,7 +49,10 @@ class FSClosetWorker {
     collection_closets.getDocuments { (snapshot, error) in
       switch error {
       case .none:
-        guard let snapshot = snapshot else { return }
+        guard let snapshot = snapshot else {
+          response.error = AGError.error
+          break
+        }
         response.data = snapshot.documents.toObjects(FSCloset.self)
       case let .some(e):
         response.error = e
@@ -67,7 +72,10 @@ class FSClosetWorker {
     collection_closets.addSnapshotListener() { (snapshot, error) in
       switch error {
       case .none:
-        guard let snapshot = snapshot else { return }
+        guard let snapshot = snapshot else {
+          response.error = AGError.error
+          break
+        }
         response.data = snapshot.documents.toObjects(FSCloset.self)
       case let .some(e):
         response.error = e
@@ -76,21 +84,23 @@ class FSClosetWorker {
     }
   }
   
-  typealias AddResponse = Error?
+  typealias AddResponse = (ref: DocumentReference?, error: Error?)
   static func add(fsCloset: FSCloset, onComplete: @escaping ((AddResponse) -> ())) {
-    var response: AddResponse = (nil)
+    var response: AddResponse = (nil, nil)
     let db = Firestore.default
     let collection_closets = db.collection(FSCloset.collection)
     guard let fields = try? FirestoreEncoder().encode(fsCloset) else {
+      response.error = AGError.error
       onComplete(response)
       return
     }
-    collection_closets.addDocument(data: fields) { error in
+    var ref: DocumentReference? = nil
+    ref = collection_closets.addDocument(data: fields) { error in
       switch error {
       case .none:
-        break
+        response.ref = ref
       case let .some(e):
-        response = e
+        response.error = e
       }
       onComplete(response)
     }
@@ -102,6 +112,7 @@ class FSClosetWorker {
     let db = Firestore.default
     let collection_closets = db.collection(FSCloset.collection)
     guard let fields = try? FirestoreEncoder().encode(fsCloset) else {
+      response = AGError.error
       onComplete(response)
       return
     }

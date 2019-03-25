@@ -53,4 +53,8 @@ extension UINavigationBar {
     setupStyle(content: colorContent, bg: colorBG, translucent: true, isLargeTitles: true)
   }
   
+  func removeShadow() {
+    shadowImage = UIImage(color: .clear, size: .less)
+  }
+  
 }

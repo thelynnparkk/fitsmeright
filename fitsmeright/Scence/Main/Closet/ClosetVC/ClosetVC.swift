@@ -13,7 +13,9 @@ import UIKit
 
 
 extension ClosetVC:
-  AGVCDelegate
+  AGVCDelegate,
+  AGViewDelegate,
+  AGCADelegate
 {
   
 }
@@ -41,6 +43,9 @@ class ClosetVC: AGVC {
   @IBOutlet weak var v_price: ClosetFormView!
   @IBOutlet weak var v_size: ClosetFormView!
   @IBOutlet weak var v_place: ClosetFormView!
+  var v_state: StateView!
+  var adapter_relate: ClosetRelateCA!
+  @IBOutlet weak var collection_relate: UICollectionView!
   
   
   
@@ -64,6 +69,7 @@ class ClosetVC: AGVC {
   var isEditable = true
   var fsCloset: FSCloset?
   var closetCategory: ClosetCategory?
+  var postList: [Post] = []
   
   
   
@@ -133,6 +139,17 @@ class ClosetVC: AGVC {
     sv_container.setupScrollVertical()
     v_seperator.backgroundColor = c_material.grey300
     
+    adapter_relate = ClosetRelateCA(collection: collection_relate)
+    adapter_relate.delegate = self
+    
+    collection_relate.isHidden = true
+    
+    v_state = StateView(axis: .vertical)
+    v_state.setupLight()
+    v_state.delegate = self
+    
+    view.addSubview(v_state)
+    
     
     
     //MARK: Other
@@ -140,6 +157,12 @@ class ClosetVC: AGVC {
     
     
     //MARK: Snp
+    v_state.snp.makeConstraints {
+      $0.top.equalToSuperview()
+      $0.right.equalToSuperview()
+      $0.bottom.equalToSuperview()
+      $0.left.equalToSuperview()
+    }
     
     
     
@@ -186,20 +209,54 @@ class ClosetVC: AGVC {
   
   //MARK: - VIP - FetchCloset
   func fetchCloset() {
-    
+    var fsPostClosetList: [FSPostCloset] = []
+    var fsPostList: [FSPost] = []
+    var postList: [Post] = []
     func interactor() {
-      if let _ = closetCategory, let _ = fsCloset {
-        worker()
-      } else {
-        navigationController?.popViewController()
+      v_state.setState(with: .loading, isAnimation: false)
+      guard let _ = closetCategory, let closet = fsCloset else {
+        presenterError()
+        return
       }
+      worker(closetId: closet._documentId)
     }
-    
-    func worker() {
-      present()
+    func worker(closetId: String) {
+      func fetchPostCloset() {
+        FSPostClosetWorker.fetchWhere(closetId: closetId) { [weak self] in
+          guard let _ = self else { return }
+          switch $0.error {
+          case .none:
+            fsPostClosetList = $0.data
+            fetchPost(fsPostClosetList: fsPostClosetList)
+          case let .some(e):
+            print(e.localizedDescription)
+            presenterError()
+          }
+        }
+      }
+      func fetchPost(fsPostClosetList: [FSPostCloset]) {
+        let dg = DispatchGroup()
+        for i in fsPostClosetList {
+          dg.enter()
+          FSPostWorker.get(documentId: i._postId) { [weak self] in
+            guard let _ = self else { return }
+            dg.leave()
+            switch $0.error {
+            case .none:
+              fsPostList.append($0.data)
+            case let .some(e):
+              print(e.localizedDescription)
+            }
+          }
+        }
+        dg.notify(queue: .main) {
+          presenter()
+        }
+      }
+      fetchPostCloset()
     }
-    
-    func present() {
+    func presenter() {
+      v_state.setState(with: .hidden, isAnimation: false)
       ni.title = closetCategory!.name.capitalized
       if let imageURL = fsCloset!.imageURL {
         imgv_closet.kf.setImage(with: imageURL, placeholder: nil, options: nil)
@@ -226,10 +283,34 @@ class ClosetVC: AGVC {
       v_price.setupData(with: vm_price)
       v_size.setupData(with: vm_size)
       v_place.setupData(with: vm_place)
+      if !fsPostClosetList.isEmpty {
+        collection_relate.isHidden = false
+        for p in fsPostList {
+          let post = Post()
+          post.fsPost = p
+          postList.append(post)
+        }
+        self.postList = postList
+        let header = LabelCRVDisplayed()
+        header.title = "Relate Items"
+        let section = ClosetRelateCADisplayed.Section()
+        let items = OutfitItemXCCDisplayed()
+        items.items = postList.map({
+          let displayed = OutfitItemCCDisplayed()
+          displayed.imageURL = $0._fsPost.imageURL
+          return displayed
+        })
+        section.header = header
+        section.items = [items]
+        let displayed = ClosetRelateCADisplayed()
+        displayed.sections = [section]
+        adapter_relate.setupData(with: displayed)
+      }
     }
-    
+    func presenterError() {
+      v_state.setState(with: .error, isAnimation: false)
+    }
     interactor()
-    
   }
   
   
@@ -257,6 +338,40 @@ class ClosetVC: AGVC {
       closetForm(action: action)
     }
     
+  }
+  
+  
+  
+  //MARK: - Custom - AGViewDelegate
+  func agViewPressed(_ view: AGView, action: Any, tag: Int) {
+    switch view {
+    case is StateView:
+      if let state = action as? StateView.State {
+        switch state {
+        case .hidden:
+          break
+        case .loading:
+          break
+        case .noResults:
+          break
+        case .noConnection:
+          break
+        case .error:
+          nc?.popViewController()
+        }
+      }
+    default:
+      break
+    }
+  }
+  
+  
+  
+  //MARK: - Custom - AGCADelegate
+  func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
+//    if let action = action as? ClosetRelateCA.Action {
+//
+//    }
   }
   
   

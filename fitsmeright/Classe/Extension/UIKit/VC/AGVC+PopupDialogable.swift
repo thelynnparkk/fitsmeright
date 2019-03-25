@@ -2,7 +2,7 @@
 //  AGVC+PopupDialogable.swift
 //  fitsmeright
 //
-//  Created by Sasawat Sankosik on 4/2/2562 BE.
+//  Created by Lynn Park on 4/2/2562 BE.
 //  Copyright © 2562 silpakorn. All rights reserved.
 //
 
@@ -85,7 +85,7 @@ extension AGVC: PopupDialogable {
   //    v.snp.makeConstraints {
   //      $0.height.equalTo(v.snp.width)
   //    }
-  //    if let post = FMUserDefaults.Post.get() {
+  //    if let post = UserDefaults.Post.get() {
   //      let vm_createPost = CreatePostViewDisplayed()
   //      vm_createPost.isMerged = true
   //      vm_createPost.displayedPost.img_post = post._img_post

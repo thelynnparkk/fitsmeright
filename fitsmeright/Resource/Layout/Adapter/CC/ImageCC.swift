@@ -2,7 +2,7 @@
 //  ImageCC.swift
 //  fitsmeright
 //
-//  Created by Sasawat Sankosik on 23/1/2562 BE.
+//  Created by Lynn Park on 23/1/2562 BE.
 //  Copyright © 2562 silpakorn. All rights reserved.
 //
 
@@ -150,8 +150,10 @@ class ImageCC: AGCC {
     
     
     //MARK: Component
-    v_container.backgroundColor = .white
+    v_container.backgroundColor = .clear
     imgv.kf.indicatorType = .activity
+    imgv.clipsToBounds = true
+    imgv.layer.masksToBounds = true
     
     
     

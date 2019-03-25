@@ -141,7 +141,7 @@ class SplashVC: AGVC {
   
   //MARK: - Setup Data
   func fetchLoginData() {
-    if let loggedIn = FMUserDefaults.LoggedIn.get(), loggedIn {
+    if let loggedIn = UserDefaults.LoggedIn.get(), loggedIn {
       routeToMain()
     } else {
       routeToLogin()
@@ -173,7 +173,7 @@ class SplashVC: AGVC {
   }
   
   func routeToLogin() {
-    let vc = MainTBC.vc()
+    let vc = SignInVC.vc()
     let nvc = UINavigationController(rootViewController: vc)
     window?.set(with: nvc, style: .fade)
   }

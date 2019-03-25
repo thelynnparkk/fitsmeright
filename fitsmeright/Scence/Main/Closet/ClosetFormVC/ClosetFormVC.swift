@@ -38,6 +38,7 @@ class ClosetFormVC: AGVC {
   //MARK: - UI
   var bbi_done: UIBarButtonItem!
   var v_state: StateView!
+  
   @IBOutlet weak var sv_container: UIScrollView!
   @IBOutlet weak var imgv_closet: UIImageView!
   @IBOutlet weak var imgv_addCloset: UIImageView!
@@ -307,7 +308,7 @@ class ClosetFormVC: AGVC {
     func interactor() {
       v_state.setState(with: .loading, isAnimation: false)
       bbi_done.isEnabled = false
-      let fsUser = FMUserDefaults.FSUserDefault.get()!
+      let fsUser = UserDefaults.FSUserDefault.get()!
       let fsCloset = FSCloset()
       fsCloset.userId = fsUser._documentId
       fsCloset.category = closetCategory?.rawValue
@@ -321,40 +322,20 @@ class ClosetFormVC: AGVC {
     }
     func worker(fsCloset: FSCloset) {
       func uploadClosetImage() {
-        guard let data = imgv_closet.image?.jpegData(compressionQuality: 1) else {
-          presentError()
-          return
-        }
-        let ref_folder = Storage.storage().reference(withPath: SCloset.folder)
-        let ref_create = ref_folder.child("\(Date().millisecondsSince1970).jpg")
-        ref_create.putData(data, metadata: nil) { (metadata, error) in
-          if let e = error {
+        FSWorker.uploadImage(folder: SCloset.folder, image: imgv_closet.image) {
+          switch $0.error {
+          case .none:
+            fsCloset.image = $0.url?.absoluteString
+            addCloset()
+          case let .some(e):
             presentError()
             print(e.localizedDescription)
-            return
-          }
-          guard let _ = metadata else {
-            presentError()
-            return
-          }
-          ref_create.downloadURL { (url, error) in
-            if let e = error {
-              presentError()
-              print(e.localizedDescription)
-              return
-            }
-            guard let url = url else {
-              presentError()
-              return
-            }
-            fsCloset.image = url.absoluteString
-            addCloset()
           }
         }
       }
       func addCloset() {
           FSClosetWorker.add(fsCloset: fsCloset) {
-          switch $0 {
+          switch $0.error {
           case .none:
             present()
           case let .some(e):
@@ -385,7 +366,7 @@ class ClosetFormVC: AGVC {
     func interactor() {
       v_state.setState(with: .loading, isAnimation: false)
       bbi_done.isEnabled = false
-      let fsUser = FMUserDefaults.FSUserDefault.get()!
+      let fsUser = UserDefaults.FSUserDefault.get()!
       let fsCloset = FSCloset()
       fsCloset.documentId = self.fsCloset?._documentId
       fsCloset.userId = fsUser._documentId
@@ -400,36 +381,15 @@ class ClosetFormVC: AGVC {
     }
     func worker(fsCloset: FSCloset) {
       func uploadClosetImage() {
-        guard let data = imgv_closet.image?.jpegData(compressionQuality: 1) else {
-          presentError()
-          return
-        }
-        let ref_folder = Storage.storage().reference(withPath: SCloset.folder)
-        let ref_create = ref_folder.child("\(Date().millisecondsSince1970).jpg")
-        ref_create.putData(data, metadata: nil) { (metadata, error) in
-          if let e = error {
+        FSWorker.uploadImage(folder: SCloset.folder, image: imgv_closet.image) {
+          switch $0.error {
+          case .none:
+            FSWorker.deleteImage(url: self.fsCloset!._image)
+            fsCloset.image = $0.url?.absoluteString
+            updateCloset()
+          case let .some(e):
             presentError()
             print(e.localizedDescription)
-            return
-          }
-          guard let _ = metadata else {
-            presentError()
-            return
-          }
-          ref_create.downloadURL { (url, error) in
-            if let e = error {
-              presentError()
-              print(e.localizedDescription)
-              return
-            }
-            guard let url = url else {
-              presentError()
-              return
-            }
-            let ref_old = Storage.storage().reference(forURL: self.fsCloset!._image)
-            ref_old.delete()
-            fsCloset.image = url.absoluteString
-            updateCloset()
           }
         }
       }

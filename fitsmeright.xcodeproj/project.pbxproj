@@ -8,7 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0DFE4632E6408B3440B1DCCA /* Pods_fitsmeright.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B60CBC6408CBD54FA78D747 /* Pods_fitsmeright.framework */; };
+		5E06C9F222490DFD00607D65 /* AGSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E06C9F122490DFD00607D65 /* AGSwift.swift */; };
+		5E06C9F42249101300607D65 /* SUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E06C9F32249101300607D65 /* SUser.swift */; };
+		5E06C9F62249144000607D65 /* AGError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E06C9F52249144000607D65 /* AGError.swift */; };
+		5E06C9F82249238900607D65 /* FSWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E06C9F72249238900607D65 /* FSWorker.swift */; };
 		5E0900B421C2970A0099F81E /* RAMNonAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0900B321C2970A0099F81E /* RAMNonAnimation.swift */; };
+		5E2D47EF22241C6A0061C58A /* ClosetRelateCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2D47EE22241C6A0061C58A /* ClosetRelateCA.swift */; };
 		5E5BD815221B05BB003D1C3D /* ClosetTagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E5BD814221B05BB003D1C3D /* ClosetTagView.xib */; };
 		5E5BD818221B08EA003D1C3D /* SelectClosetCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5BD817221B08EA003D1C3D /* SelectClosetCategoryVC.swift */; };
 		5E5BD81A221B08F0003D1C3D /* SelectClosetCategoryVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E5BD819221B08F0003D1C3D /* SelectClosetCategoryVC.storyboard */; };
@@ -44,6 +49,14 @@
 		5E74DA8021BBF7D700A97A89 /* R.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA7F21BBF7D700A97A89 /* R.swift */; };
 		5E74DA8421BBF94B00A97A89 /* UINavigationController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA8321BBF94B00A97A89 /* UINavigationController+AG.swift */; };
 		5E74DA8621BBFC6700A97A89 /* UIImagePickerController+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */; };
+		5E9EABCA22476E2300C46F46 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EABC922476E2300C46F46 /* SignInVC.swift */; };
+		5E9EABCC22476E2800C46F46 /* SignInVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E9EABCB22476E2800C46F46 /* SignInVC.storyboard */; };
+		5E9EABD0224788D300C46F46 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EABCF224788D300C46F46 /* SignUpVC.swift */; };
+		5E9EABD2224788D800C46F46 /* SignUpVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E9EABD1224788D800C46F46 /* SignUpVC.storyboard */; };
+		5E9EABD4224788E300C46F46 /* ForgotVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EABD3224788E300C46F46 /* ForgotVC.swift */; };
+		5E9EABD6224788ED00C46F46 /* ForgotVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E9EABD5224788ED00C46F46 /* ForgotVC.storyboard */; };
+		5E9EABD9224791F800C46F46 /* ProfileFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9EABD8224791F800C46F46 /* ProfileFormVC.swift */; };
+		5E9EABDB2247921B00C46F46 /* ProfileFormVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E9EABDA2247921B00C46F46 /* ProfileFormVC.storyboard */; };
 		5EA4B13522214A99002E6513 /* OutfitItemXCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA4B13422214A99002E6513 /* OutfitItemXCC.swift */; };
 		5EA4B13722214A9F002E6513 /* OutfitItemXCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EA4B13622214A9F002E6513 /* OutfitItemXCC.xib */; };
 		5EC21D5B21F61A1C0013157F /* ClosetVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EC21D5A21F61A1C0013157F /* ClosetVC.storyboard */; };
@@ -192,7 +205,12 @@
 		0B60CBC6408CBD54FA78D747 /* Pods_fitsmeright.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitsmeright.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41EC81EF460A825BE1F780A3 /* Pods_fitsmerightUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitsmerightUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B34B9F8A3E854F921D23C20 /* Pods_fitsmerightTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitsmerightTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E06C9F122490DFD00607D65 /* AGSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGSwift.swift; sourceTree = "<group>"; };
+		5E06C9F32249101300607D65 /* SUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUser.swift; sourceTree = "<group>"; };
+		5E06C9F52249144000607D65 /* AGError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGError.swift; sourceTree = "<group>"; };
+		5E06C9F72249238900607D65 /* FSWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSWorker.swift; sourceTree = "<group>"; };
 		5E0900B321C2970A0099F81E /* RAMNonAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAMNonAnimation.swift; sourceTree = "<group>"; };
+		5E2D47EE22241C6A0061C58A /* ClosetRelateCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetRelateCA.swift; sourceTree = "<group>"; };
 		5E5BD814221B05BB003D1C3D /* ClosetTagView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClosetTagView.xib; sourceTree = "<group>"; };
 		5E5BD817221B08EA003D1C3D /* SelectClosetCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectClosetCategoryVC.swift; sourceTree = "<group>"; };
 		5E5BD819221B08F0003D1C3D /* SelectClosetCategoryVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectClosetCategoryVC.storyboard; sourceTree = "<group>"; };
@@ -234,6 +252,14 @@
 		5E74DA7F21BBF7D700A97A89 /* R.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R.swift; sourceTree = "<group>"; };
 		5E74DA8321BBF94B00A97A89 /* UINavigationController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+AG.swift"; sourceTree = "<group>"; };
 		5E74DA8521BBFC6700A97A89 /* UIImagePickerController+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+AG.swift"; sourceTree = "<group>"; };
+		5E9EABC922476E2300C46F46 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		5E9EABCB22476E2800C46F46 /* SignInVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInVC.storyboard; sourceTree = "<group>"; };
+		5E9EABCF224788D300C46F46 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		5E9EABD1224788D800C46F46 /* SignUpVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpVC.storyboard; sourceTree = "<group>"; };
+		5E9EABD3224788E300C46F46 /* ForgotVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotVC.swift; sourceTree = "<group>"; };
+		5E9EABD5224788ED00C46F46 /* ForgotVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotVC.storyboard; sourceTree = "<group>"; };
+		5E9EABD8224791F800C46F46 /* ProfileFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFormVC.swift; sourceTree = "<group>"; };
+		5E9EABDA2247921B00C46F46 /* ProfileFormVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileFormVC.storyboard; sourceTree = "<group>"; };
 		5EA4B13422214A99002E6513 /* OutfitItemXCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitItemXCC.swift; sourceTree = "<group>"; };
 		5EA4B13622214A9F002E6513 /* OutfitItemXCC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OutfitItemXCC.xib; sourceTree = "<group>"; };
 		5EC21D5A21F61A1C0013157F /* ClosetVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClosetVC.storyboard; sourceTree = "<group>"; };
@@ -609,6 +635,7 @@
 				A42F7C6021BE5BB600085DB5 /* UserDefaults */,
 				A4AF2E4C221BDA1E00C5F2E1 /* Sizeable.swift */,
 				A4E6F026221EF46C00D679F7 /* Fontable.swift */,
+				5E06C9F122490DFD00607D65 /* AGSwift.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -682,6 +709,42 @@
 			path = ProfileVC;
 			sourceTree = "<group>";
 		};
+		5E9EABC822476E1500C46F46 /* SignInVC */ = {
+			isa = PBXGroup;
+			children = (
+				5E9EABC922476E2300C46F46 /* SignInVC.swift */,
+				5E9EABCB22476E2800C46F46 /* SignInVC.storyboard */,
+			);
+			path = SignInVC;
+			sourceTree = "<group>";
+		};
+		5E9EABCD224788BF00C46F46 /* ForgotVC */ = {
+			isa = PBXGroup;
+			children = (
+				5E9EABD3224788E300C46F46 /* ForgotVC.swift */,
+				5E9EABD5224788ED00C46F46 /* ForgotVC.storyboard */,
+			);
+			path = ForgotVC;
+			sourceTree = "<group>";
+		};
+		5E9EABCE224788C700C46F46 /* SignUpVC */ = {
+			isa = PBXGroup;
+			children = (
+				5E9EABCF224788D300C46F46 /* SignUpVC.swift */,
+				5E9EABD1224788D800C46F46 /* SignUpVC.storyboard */,
+			);
+			path = SignUpVC;
+			sourceTree = "<group>";
+		};
+		5E9EABD7224791EB00C46F46 /* ProfileFormVC */ = {
+			isa = PBXGroup;
+			children = (
+				5E9EABD8224791F800C46F46 /* ProfileFormVC.swift */,
+				5E9EABDA2247921B00C46F46 /* ProfileFormVC.storyboard */,
+			);
+			path = ProfileFormVC;
+			sourceTree = "<group>";
+		};
 		5ECC1D61221AE9E000B03268 /* PostCreateOutfitVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -703,6 +766,10 @@
 		5ECE8E6321F744F7000AF65E /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				5E9EABD7224791EB00C46F46 /* ProfileFormVC */,
+				5E9EABCE224788C700C46F46 /* SignUpVC */,
+				5E9EABCD224788BF00C46F46 /* ForgotVC */,
+				5E9EABC822476E1500C46F46 /* SignInVC */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -742,6 +809,7 @@
 			children = (
 				A4DAA1AB22081BD600DA31F7 /* DevicePermission.swift */,
 				5ECE8E7021F74B84000AF65E /* ClosetCategory.swift */,
+				5E06C9F52249144000607D65 /* AGError.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -756,6 +824,7 @@
 				5EFC9BAB21FB67ED0078ED50 /* FSUser.swift */,
 				5EFC9BA921FB57C00078ED50 /* SCloset.swift */,
 				A4B482D122204DE1006F55DB /* SPost.swift */,
+				5E06C9F32249101300607D65 /* SUser.swift */,
 			);
 			path = FBEntiny;
 			sourceTree = "<group>";
@@ -768,6 +837,7 @@
 				A4C99316222059FB00CCC3D8 /* FSUserWorker.swift */,
 				A4C99324222071E500CCC3D8 /* FSPostCommentWorker.swift */,
 				A4C993262220722400CCC3D8 /* FSPostClosetWorker.swift */,
+				5E06C9F72249238900607D65 /* FSWorker.swift */,
 			);
 			path = FireStore;
 			sourceTree = "<group>";
@@ -836,6 +906,7 @@
 			children = (
 				5EE8924021C3E615008A65ED /* ClosetVC.swift */,
 				5EC21D5A21F61A1C0013157F /* ClosetVC.storyboard */,
+				5E2D47EE22241C6A0061C58A /* ClosetRelateCA.swift */,
 			);
 			path = ClosetVC;
 			sourceTree = "<group>";
@@ -1230,9 +1301,11 @@
 				A4C4FAB121F975C7004A3F37 /* FloatingView.xib in Resources */,
 				A4C4FAB321F975C7004A3F37 /* ClosetMenuView.xib in Resources */,
 				A4DAA1BC220823E300DA31F7 /* LabelCC.xib in Resources */,
+				5E9EABD6224788ED00C46F46 /* ForgotVC.storyboard in Resources */,
 				5E74DA0721BBACAA00A97A89 /* LaunchScreen.storyboard in Resources */,
 				A4C4FABD21F975C7004A3F37 /* ClosetFormView.xib in Resources */,
 				5E74DA7C21BBDB5E00A97A89 /* ProfileVC.storyboard in Resources */,
+				5E9EABDB2247921B00C46F46 /* ProfileFormVC.storyboard in Resources */,
 				5E74DA7821BBDADF00A97A89 /* MainTBC.storyboard in Resources */,
 				5E5BD81A221B08F0003D1C3D /* SelectClosetCategoryVC.storyboard in Resources */,
 				5EF9F2DC21FC974D0034F7B2 /* ProfileCC.xib in Resources */,
@@ -1247,10 +1320,12 @@
 				5E74DA4521BBD04300A97A89 /* SplashVC.storyboard in Resources */,
 				5ECC1D65221AEA9B00B03268 /* PostCreateOutfitVC.storyboard in Resources */,
 				A4DFBCC8221DA18000C31FD2 /* OutfitItemCC.xib in Resources */,
+				5E9EABCC22476E2800C46F46 /* SignInVC.storyboard in Resources */,
 				A4FB1BF5222137FB002933E1 /* PostVC.storyboard in Resources */,
 				5ECE8E6E21F747B7000AF65E /* GoogleService-Info.plist in Resources */,
 				A4C4FAC421F979A7004A3F37 /* LabelCRV.xib in Resources */,
 				5E74DA0221BBACA900A97A89 /* Main.storyboard in Resources */,
+				5E9EABD2224788D800C46F46 /* SignUpVC.storyboard in Resources */,
 				5EF9F2D521FC7EBC0034F7B2 /* ClosetFormVC.storyboard in Resources */,
 				5ECE8E8721F769F7000AF65E /* ClosetCategoryVC.storyboard in Resources */,
 				5EA4B13722214A9F002E6513 /* OutfitItemXCC.xib in Resources */,
@@ -1444,9 +1519,11 @@
 				A4C9931A2220635300CCC3D8 /* FSPostCloset.swift in Sources */,
 				A4C4FAB421F975C7004A3F37 /* StateView.swift in Sources */,
 				A4C4FAD621F9CB35004A3F37 /* PopupDialogable.swift in Sources */,
+				5E9EABCA22476E2300C46F46 /* SignInVC.swift in Sources */,
 				5E74DA6821BBD9C000A97A89 /* Typealias+AG.swift in Sources */,
 				5E0900B421C2970A0099F81E /* RAMNonAnimation.swift in Sources */,
 				5ECE8E7B21F752A8000AF65E /* FSClosetWorker.swift in Sources */,
+				5E06C9F42249101300607D65 /* SUser.swift in Sources */,
 				A4B482D222204DE1006F55DB /* SPost.swift in Sources */,
 				A4C9931F222066D800CCC3D8 /* PostComment.swift in Sources */,
 				5ECC1D63221AEA9100B03268 /* PostCreateOutfitVC.swift in Sources */,
@@ -1471,6 +1548,7 @@
 				A4C338BA21F8A3D800147567 /* ImageCC.swift in Sources */,
 				A4DAA1B622081EFF00DA31F7 /* AGVC+ViewIPC.swift in Sources */,
 				A4C99317222059FB00CCC3D8 /* FSUserWorker.swift in Sources */,
+				5E9EABD0224788D300C46F46 /* SignUpVC.swift in Sources */,
 				A4FB1BFC22213D8F002933E1 /* PostHeaderCC.swift in Sources */,
 				A4C4B6E821F81FE60036B0F7 /* UIScrollView+AG.swift in Sources */,
 				A49F8C6522044A630081F5EA /* PanelListVC.swift in Sources */,
@@ -1479,6 +1557,7 @@
 				A4DAA1A72207F44500DA31F7 /* UIPanGestureRecognizer+AG.swift in Sources */,
 				A4DF18D62202FD7F008B67DA /* PopupListVC.swift in Sources */,
 				5E74DA5321BBD0B100A97A89 /* TemplateV.swift in Sources */,
+				5E06C9F62249144000607D65 /* AGError.swift in Sources */,
 				A4C4B6EC21F820C00036B0F7 /* AGVC+AG.swift in Sources */,
 				5EFC9BAA21FB57C00078ED50 /* SCloset.swift in Sources */,
 				A4C4FAB921F975C7004A3F37 /* AGView.swift in Sources */,
@@ -1494,6 +1573,7 @@
 				5ECE8E7421F74F53000AF65E /* FSCloset.swift in Sources */,
 				5E74D9FD21BBACA900A97A89 /* AppDelegate.swift in Sources */,
 				5EFB7F97221BCD9D00D7D8F5 /* IconLabelCC.swift in Sources */,
+				5E06C9F82249238900607D65 /* FSWorker.swift in Sources */,
 				A4DFBCC6221DA17000C31FD2 /* OutfitItemCC.swift in Sources */,
 				5E74DA6021BBD67600A97A89 /* UIWindow+AG.swift in Sources */,
 				A4DAA1B822081FC000DA31F7 /* Panelable.swift in Sources */,
@@ -1504,6 +1584,7 @@
 				A4DAA1AC22081BD600DA31F7 /* DevicePermission.swift in Sources */,
 				5E74DA6E21BBDAAC00A97A89 /* MainTBC.swift in Sources */,
 				A4C4FABA21F975C7004A3F37 /* Post.swift in Sources */,
+				5E2D47EF22241C6A0061C58A /* ClosetRelateCA.swift in Sources */,
 				A408A4D121BEB4970030F2F5 /* UIBarButtonItem +AG.swift in Sources */,
 				A4B482D022204A67006F55DB /* FSPostWorker.swift in Sources */,
 				5ECE8E8221F76015000AF65E /* QueryDocumentSnapshot+AG.swift in Sources */,
@@ -1519,6 +1600,7 @@
 				5E74DA5921BBD0B100A97A89 /* Templatable.swift in Sources */,
 				A4C338B421F8A28B00147567 /* ControlContainableScrollView.swift in Sources */,
 				5E74DA2D21BBCB9E00A97A89 /* SplashVC.swift in Sources */,
+				5E9EABD9224791F800C46F46 /* ProfileFormVC.swift in Sources */,
 				5ECE8E6621F7453D000AF65E /* RAMAnimatedTabBarItem+AG.swift in Sources */,
 				A42F7C5A21BE56D800085DB5 /* AGDefaultsCodable.swift in Sources */,
 				A4AF2E4D221BDA1E00C5F2E1 /* Sizeable.swift in Sources */,
@@ -1534,6 +1616,7 @@
 				5E74DA5621BBD0B100A97A89 /* TemplateCC.swift in Sources */,
 				A4C338C421F8AC2C00147567 /* AGCA.swift in Sources */,
 				5ECE8E6C21F7459B000AF65E /* MockPost.swift in Sources */,
+				5E9EABD4224788E300C46F46 /* ForgotVC.swift in Sources */,
 				A4C338B821F8A3CD00147567 /* ImageCA.swift in Sources */,
 				A4FB1BF822213C33002933E1 /* PostCA.swift in Sources */,
 				A4DAA1BA220823D900DA31F7 /* LabelCC.swift in Sources */,
@@ -1545,6 +1628,7 @@
 				A4DAA1BE220823ED00DA31F7 /* LabelCA.swift in Sources */,
 				A4E6F027221EF46C00D679F7 /* Fontable.swift in Sources */,
 				A4C4FAC221F976FA004A3F37 /* AGCRV.swift in Sources */,
+				5E06C9F222490DFD00607D65 /* AGSwift.swift in Sources */,
 				A42F7C5621BE567D00085DB5 /* AGDefaults.swift in Sources */,
 				5E74DA5521BBD0B100A97A89 /* TemplateCCA.swift in Sources */,
 				A4FB1BEE22211C95002933E1 /* PostCC.swift in Sources */,

@@ -2,7 +2,7 @@
 //  AppDelegate+Router.swift
 //  fitsmeright
 //
-//  Created by Sasawat Sankosik on 22/2/2562 BE.
+//  Created by Lynn Park on 22/2/2562 BE.
 //  Copyright © 2562 silpakorn. All rights reserved.
 //
 
