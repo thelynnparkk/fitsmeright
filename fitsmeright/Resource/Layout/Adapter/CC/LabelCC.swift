@@ -249,7 +249,7 @@ class LabelCC: AGCC {
       lb_subtitle.textColor = c_material.grey300
       v_container.backgroundColor = .white
     case .positive:
-      lb_title.textColor = .red
+      lb_title.textColor = c_material.green500
       lb_subtitle.textColor = c_material.grey300
       v_container.backgroundColor = .white
     }

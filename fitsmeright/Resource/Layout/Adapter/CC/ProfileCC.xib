@@ -90,6 +90,9 @@
                                             <constraint firstAttribute="height" constant="50" id="cDw-cA-tag"/>
                                         </constraints>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jak-mn-ugp">
+                                        <rect key="frame" x="165" y="10" width="141" height="50"/>
+                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Wu-Vh-SUl">
                                         <rect key="frame" x="0.0" y="69" width="471" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -107,9 +110,13 @@
                                     <constraint firstAttribute="bottom" secondItem="rfg-B3-aZo" secondAttribute="bottom" constant="10" id="Iex-74-3km"/>
                                     <constraint firstAttribute="bottom" secondItem="0Wu-Vh-SUl" secondAttribute="bottom" id="NjZ-DY-lcj"/>
                                     <constraint firstItem="WJ7-kr-ptB" firstAttribute="leading" secondItem="jEz-Rj-Ifh" secondAttribute="leading" id="QVX-2T-nkn"/>
+                                    <constraint firstItem="jak-mn-ugp" firstAttribute="top" secondItem="KgS-Sp-qSz" secondAttribute="top" id="QfR-oe-dpO"/>
                                     <constraint firstAttribute="trailing" secondItem="0Wu-Vh-SUl" secondAttribute="trailing" id="U9d-Rt-t3B"/>
                                     <constraint firstAttribute="trailing" secondItem="WJ7-kr-ptB" secondAttribute="trailing" id="V1J-uF-j5u"/>
+                                    <constraint firstItem="jak-mn-ugp" firstAttribute="bottom" secondItem="KgS-Sp-qSz" secondAttribute="bottom" id="ZFo-oK-jew"/>
                                     <constraint firstItem="0Wu-Vh-SUl" firstAttribute="leading" secondItem="jEz-Rj-Ifh" secondAttribute="leading" id="dUh-ff-DQ3"/>
+                                    <constraint firstItem="jak-mn-ugp" firstAttribute="trailing" secondItem="KgS-Sp-qSz" secondAttribute="trailing" id="gTx-dP-Hzt"/>
+                                    <constraint firstItem="jak-mn-ugp" firstAttribute="leading" secondItem="KgS-Sp-qSz" secondAttribute="leading" id="jXV-ij-mzi"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4LP-yE-yjJ">
@@ -174,6 +181,7 @@
             <viewLayoutGuide key="safeArea" id="Ddm-5D-QRI"/>
             <size key="customSize" width="471" height="178"/>
             <connections>
+                <outlet property="btn_friend" destination="jak-mn-ugp" id="9e6-We-dAR"/>
                 <outlet property="imgv_profile" destination="XrU-zs-bBp" id="kY8-wu-PYA"/>
                 <outlet property="lb_bio" destination="SH9-oO-yJv" id="DVb-MA-5Hs"/>
                 <outlet property="lb_closetsKey" destination="l6j-xI-4Ez" id="HrG-rF-pVg"/>

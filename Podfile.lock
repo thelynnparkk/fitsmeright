@@ -13,19 +13,19 @@ PODS:
   - BoringSSL/Interface (10.0.6)
   - CodableFirebase (0.2.1)
   - DynamicBlurView (3.0.1)
-  - FacebookCore (0.5.0):
+  - FacebookCore (0.4.0):
     - Bolts (~> 1.9)
-    - FBSDKCoreKit (~> 4.37)
-  - FacebookLogin (0.5.0):
+    - FBSDKCoreKit (~> 4.36)
+  - FacebookLogin (0.4.0):
     - Bolts (~> 1.9)
-    - FacebookCore (~> 0.5)
-    - FBSDKCoreKit (~> 4.37)
-    - FBSDKLoginKit (~> 4.37)
-  - FacebookShare (0.5.0):
+    - FacebookCore (~> 0.4)
+    - FBSDKCoreKit (~> 4.36)
+    - FBSDKLoginKit (~> 4.36)
+  - FacebookShare (0.4.0):
     - Bolts (~> 1.9)
-    - FacebookCore (~> 0.5)
-    - FBSDKCoreKit (~> 4.37)
-    - FBSDKShareKit (~> 4.37)
+    - FacebookCore (~> 0.4)
+    - FBSDKCoreKit (~> 4.36)
+    - FBSDKShareKit (~> 4.36)
   - FBSDKCoreKit (4.42.0):
     - Bolts (~> 1.9)
   - FBSDKLoginKit (4.42.0):
@@ -157,14 +157,14 @@ PODS:
 
 DEPENDENCIES:
   - CodableFirebase (~> 0.2.1)
-  - FacebookCore
-  - FacebookLogin
-  - FacebookShare
+  - FacebookCore (~> 0.4.0)
+  - FacebookLogin (~> 0.4.0)
+  - FacebookShare (~> 0.4.0)
   - Firebase/Core
   - Firebase/Firestore
   - Firebase/Storage
   - IQKeyboardManagerSwift (~> 6.0)
-  - Kingfisher
+  - Kingfisher (~> 5.0.1)
   - NVActivityIndicatorView (~> 4.4.0)
   - PopupDialog (~> 0.9)
   - RAMAnimatedTabBarController (~> 4.0.1)
@@ -215,9 +215,9 @@ SPEC CHECKSUMS:
   BoringSSL: e10f92a27043805c01071fe815a5cd98ae8212e7
   CodableFirebase: 0bf201991eeec35eb9fcd987d271ea463cf34a80
   DynamicBlurView: b1df5415f9bd31897549e5d7077e5ec120a4d636
-  FacebookCore: 74288d0add931d361b1596beae787ab72c438249
-  FacebookLogin: ebcf34714a1cb9f0759d9f071cfb01ed500996cf
-  FacebookShare: 963b4bb1124a64a395b1e428163d70b5774116e8
+  FacebookCore: 770e57cfe250a4de4458b682191c0ff062dee247
+  FacebookLogin: eb0f2251aca835a94d70a5f7e580edc46d1e1603
+  FacebookShare: ec48492ba748f971c6a13661963f7aae38140111
   FBSDKCoreKit: aa42f1c384775f8b075f53a43080474278e9701d
   FBSDKLoginKit: 373830c68aa48c9e8f0bfed93a3e32d2ca8963a0
   FBSDKShareKit: 387749259d79e4070ebb304b3fd256e4b4bc4298
@@ -246,6 +246,6 @@ SPEC CHECKSUMS:
   SwiftDate: f4aea5fa9dee812485f34041121a4cbde01b0dee
   SwifterSwift: 812ffec6f301922f5430e75be3f2939ea3a80024
 
-PODFILE CHECKSUM: f33f636569b3432917a51e9549090fc7f32b8b99
+PODFILE CHECKSUM: 18b91f78a61645e7c5a354c1befc5d6b55bb8275
 
 COCOAPODS: 1.5.3

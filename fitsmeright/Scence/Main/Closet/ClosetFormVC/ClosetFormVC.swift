@@ -48,7 +48,8 @@ class ClosetFormVC: AGVC {
   @IBOutlet weak var v_brand: ClosetFormView!
   @IBOutlet weak var v_price: ClosetFormView!
   @IBOutlet weak var v_size: ClosetFormView!
-  @IBOutlet weak var v_place: ClosetFormView!
+  @IBOutlet weak var v_deleteCloset: UIView!
+  @IBOutlet weak var btn_deleteCloset: UIButton!
   
   
   
@@ -129,7 +130,7 @@ class ClosetFormVC: AGVC {
     //MARK: Core
     view.backgroundColor = .white
     //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
-    bbi_done = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneBarButtonPressed))
+    bbi_done = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(buttonPressed))
     ni.rightBarButtonItems = [bbi_done]
     
     
@@ -144,12 +145,17 @@ class ClosetFormVC: AGVC {
     v_addCloset.clipsToBounds = true
     imgv_addCloset.contentMode = .scaleAspectFit
     v_seperator.backgroundColor = c_material.grey300
-    btn_chooseCloset.addTarget(self, action: #selector(chooseClosetPressed), for: .touchUpInside)
+    btn_chooseCloset.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
     
     v_brand.txt_value.delegate = self
     v_price.txt_value.delegate = self
     v_size.txt_value.delegate = self
-    v_place.txt_value.delegate = self
+    
+    btn_deleteCloset.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+    btn_deleteCloset.setupLight()
+    btn_deleteCloset.layer.cornerRadius = btn_deleteCloset.frame.size.height / 2
+    btn_deleteCloset.clipsToBounds = true
+    btn_deleteCloset.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
     
     v_state = StateView(axis: .vertical)
     v_state.setupLight()
@@ -196,21 +202,24 @@ class ClosetFormVC: AGVC {
   
   
   //MARK: - Event
-  @objc
-  func test(_ sender: UITextField) {
-    print("test")
-  }
-  
-  @IBAction func chooseClosetPressed(_ sender: Any) {
-    displayImagePickerPopup()
-  }
-  
-  @IBAction func doneBarButtonPressed(_ sender: Any) {
-    if let _ = closetCategory, let _ = fsCloset {
-      updateCloset()
-    } else {
-      addCloset()
+  @IBAction func buttonPressed(_ sender: UIButton) {
+    switch sender {
+    case bbi_done:
+      if let _ = closetCategory, let _ = fsCloset {
+        updateCloset()
+      } else {
+        addCloset()
+      }
+    case btn_chooseCloset:
+      displayImagePickerPopup()
+    case btn_deleteCloset:
+      displayConfirmDeleteClosetPopup()
+    default:
+      break
     }
+    
+    
+    
   }
   
   
@@ -218,11 +227,52 @@ class ClosetFormVC: AGVC {
   //MARK: - Public
   override func setupLocalize() {
     ni.title = ClosetFormVC.sb_name
+    btn_deleteCloset.setTitleForAllStates("Delete")
   }
   
   
   
   //MARK: - Private
+  private func displayConfirmDeleteClosetPopup() {
+    func getLabelCAModel() -> LabelCADisplayed {
+      let displayed = LabelCADisplayed()
+      let displayed_delete = LabelCCDisplayed()
+      displayed_delete.title = "Delete"
+      displayed_delete.weight = .semibold
+      displayed_delete.style = .normal
+      let displayed_cancel = LabelCCDisplayed()
+      displayed_cancel.title = "Cancel"
+      displayed_cancel.weight = .semibold
+      displayed_cancel.style = .negative
+      let section = LabelCADisplayed.Section()
+      section.items = [displayed_delete, displayed_cancel]
+      displayed.sections = [section]
+      return displayed
+    }
+    let displayed = PopupListVCUC.Setup.DisplayedSetupPopupList()
+    displayed.viewModel = getLabelCAModel()
+    displayed.adapter = LabelCA.self
+    displayed.isTapOverlayEnabled = true
+    displayed.isTapContainerEnabled = true
+    displayed.isHideFooter = true
+    displayed.displayedHeader.icon = #imageLiteral(resourceName: "ic_popup_trash").filled(withColor: c_custom.peach)
+    displayed.displayedHeader.style = .large
+    displayed.displayedHeader.subtitle = "Please confirm to delete."
+    displayed.displayedHeader.tint = c_custom.peach
+    displayed.displayedHeader.title = "Delete Cloth?"
+    let vm = PopupListVCUC.Setup.ViewModel()
+    vm.displayedSetup = displayed
+    displayPopupList(vm, priority: .common, on: self) { [weak self] in
+      guard let _s = self else { return }
+      guard $0.isSelected else { return }
+      switch $0.indexPath.row {
+      case 0:
+        _s.deleteCloset()
+      default:
+        break
+      }
+    }
+  }
   
   
   
@@ -245,15 +295,12 @@ class ClosetFormVC: AGVC {
       let vm_size = ClosetFormViewDisplayed()
       vm_size.key = "Size"
       vm_size.placeHolder = "Add Size"
-      let vm_place = ClosetFormViewDisplayed()
-      vm_place.key = "Place"
-      vm_place.placeHolder = "Add Place"
       v_brand.setupData(with: vm_brand)
       v_price.setupData(with: vm_price)
       v_size.setupData(with: vm_size)
-      v_place.setupData(with: vm_place)
       bbi_done.isEnabled = false
       imgv_addCloset.image = closetCategory?.iconAdd
+      v_deleteCloset.isHidden = true
     }
     interactor()
   }
@@ -289,14 +336,9 @@ class ClosetFormVC: AGVC {
       vm_size.key = "Size"
       vm_size.placeHolder = "Add Size"
       vm_size.value = fsCloset!._size
-      let vm_place = ClosetFormViewDisplayed()
-      vm_place.key = "Place"
-      vm_place.placeHolder = "Add Place"
-      vm_place.value = fsCloset!._place
       v_brand.setupData(with: vm_brand)
       v_price.setupData(with: vm_price)
       v_size.setupData(with: vm_size)
-      v_place.setupData(with: vm_place)
     }
     interactor()
   }
@@ -315,7 +357,6 @@ class ClosetFormVC: AGVC {
       fsCloset.image = ""
       fsCloset.price = v_price.txt_value.text?.int ?? 0
       fsCloset.brand = v_brand.txt_value.text
-      fsCloset.place = v_place.txt_value.text
       fsCloset.size = v_size.txt_value.text
       fsCloset.updatedAt = Timestamp(date: Date())
       worker(fsCloset: fsCloset)
@@ -374,7 +415,6 @@ class ClosetFormVC: AGVC {
       fsCloset.image = ""
       fsCloset.price = v_price.txt_value.text?.int ?? 0
       fsCloset.brand = v_brand.txt_value.text
-      fsCloset.place = v_place.txt_value.text
       fsCloset.size = v_size.txt_value.text
       fsCloset.updatedAt = Timestamp(date: Date())
       worker(fsCloset: fsCloset)
@@ -413,6 +453,75 @@ class ClosetFormVC: AGVC {
     func presentError() {
       v_state.setState(with: .error, isAnimation: false)
       bbi_done.isEnabled = true
+    }
+    interactor()
+  }
+  
+  
+  
+  //MARK: - VIP - DeleteCloset
+  func deleteCloset() {
+    func interactor() {
+      v_state.setState(with: .loading, isAnimation: false)
+      bbi_done.isEnabled = false
+      guard let fsCloset = fsCloset else {
+        presenterError(code: 0)
+        return
+      }
+      worker(fsCloset: fsCloset)
+    }
+    func worker(fsCloset: FSCloset) {
+      func deleteCloset() {
+        FSClosetWorker.delete(documentId: fsCloset._documentId) {
+          switch $0 {
+          case .none:
+            FSWorker.deleteImage(url: fsCloset._image)
+            fetchPostCloset()
+          case let .some(e):
+            presenterError(code: 0)
+            print(e.localizedDescription)
+          }
+        }
+      }
+      func fetchPostCloset() {
+        FSPostClosetWorker.fetchWhere(closetId: fsCloset._documentId) {
+          switch $0.error {
+          case .none:
+            deletePostCloset(fsPostClosetList: $0.data)
+          case let .some(e):
+            print(e.localizedDescription)
+            deletePostCloset(fsPostClosetList: [])
+          }
+        }
+      }
+      func deletePostCloset(fsPostClosetList: [FSPostCloset]) {
+        let dg = DispatchGroup()
+        for i in fsPostClosetList {
+          dg.enter()
+          FSPostClosetWorker.delete(documentId: i._documentId) { [weak self] in
+            guard let _ = self else { return }
+            dg.leave()
+            switch $0 {
+            case .none:
+              break
+            case let .some(e):
+              print(e.localizedDescription)
+              break
+            }
+          }
+        }
+        dg.notify(queue: .main) {
+          presenter()
+        }
+      }
+      deleteCloset()
+    }
+    func presenter() {
+      nc?.popToRootViewController(animated: true)
+    }
+    func presenterError(code: Int) {
+      bbi_done.isEnabled = true
+      v_state.setState(with: .error, isAnimation: false)
     }
     interactor()
   }

@@ -42,9 +42,9 @@ class ClosetVC: AGVC {
   @IBOutlet weak var v_brand: ClosetFormView!
   @IBOutlet weak var v_price: ClosetFormView!
   @IBOutlet weak var v_size: ClosetFormView!
-  @IBOutlet weak var v_place: ClosetFormView!
   var v_state: StateView!
   var adapter_relate: ClosetRelateCA!
+  @IBOutlet weak var v_relateCollection: UIView!
   @IBOutlet weak var collection_relate: UICollectionView!
   
   
@@ -275,14 +275,9 @@ class ClosetVC: AGVC {
       vm_size.key = "Size"
       vm_size.value = fsCloset!._size
       vm_size.isEditable = false
-      let vm_place = ClosetFormViewDisplayed()
-      vm_place.key = "Place"
-      vm_place.value = fsCloset!._place
-      vm_place.isEditable = false
       v_brand.setupData(with: vm_brand)
       v_price.setupData(with: vm_price)
       v_size.setupData(with: vm_size)
-      v_place.setupData(with: vm_place)
       if !fsPostClosetList.isEmpty {
         collection_relate.isHidden = false
         for p in fsPostList {
@@ -305,6 +300,8 @@ class ClosetVC: AGVC {
         let displayed = ClosetRelateCADisplayed()
         displayed.sections = [section]
         adapter_relate.setupData(with: displayed)
+      } else {
+        v_relateCollection.isHidden = true
       }
     }
     func presenterError() {

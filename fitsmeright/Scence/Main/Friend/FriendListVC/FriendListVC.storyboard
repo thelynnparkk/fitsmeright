@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Friend ListVC-->
+        <scene sceneID="WEw-VI-KZp">
+            <objects>
+                <viewController storyboardIdentifier="FriendListVC" id="nRk-PO-gor" customClass="FriendListVC" customModule="fitsmeright" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kYQ-uc-Zsa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eXC-5h-gbB" customClass="FloatingView" customModule="fitsmeright" customModuleProvider="target">
+                                <rect key="frame" x="305" y="597" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Wdj-wy-OHn"/>
+                                    <constraint firstAttribute="width" constant="50" id="wTd-Qe-hmx"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dsa-J9-fJA" userLabel="TopView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.44705882349999998" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Dsa-J9-fJA" firstAttribute="leading" secondItem="0lB-Hk-6vT" secondAttribute="leading" id="FNZ-co-4Tj"/>
+                            <constraint firstItem="0lB-Hk-6vT" firstAttribute="top" secondItem="Dsa-J9-fJA" secondAttribute="bottom" id="I3a-NC-oyL"/>
+                            <constraint firstItem="0lB-Hk-6vT" firstAttribute="bottom" secondItem="eXC-5h-gbB" secondAttribute="bottom" constant="20" id="K5Q-Od-PxY"/>
+                            <constraint firstItem="0lB-Hk-6vT" firstAttribute="trailing" secondItem="eXC-5h-gbB" secondAttribute="trailing" constant="20" id="PKF-oz-koT"/>
+                            <constraint firstAttribute="trailing" secondItem="Dsa-J9-fJA" secondAttribute="trailing" id="Vxc-UM-5bC"/>
+                            <constraint firstItem="Dsa-J9-fJA" firstAttribute="top" secondItem="kYQ-uc-Zsa" secondAttribute="top" id="oao-3V-I8Z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0lB-Hk-6vT"/>
+                    </view>
+                    <connections>
+                        <outlet property="v_addFriendFloating" destination="eXC-5h-gbB" id="haj-ob-xAe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cmx-Uc-bQS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34" y="37"/>
+        </scene>
+    </scenes>
+</document>

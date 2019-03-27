@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Gtr-Tc-blC">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="826"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="776"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BBa-wn-UeA">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
@@ -41,7 +41,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2ZI-Ii-jDd">
-                                                <rect key="frame" x="0.0" y="376" width="375" height="200"/>
+                                                <rect key="frame" x="0.0" y="376" width="375" height="150"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dPc-o3-35q" customClass="ClosetFormView" customModule="fitsmeright" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -58,14 +58,10 @@
                                                         <rect key="frame" x="0.0" y="100" width="375" height="50"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BBj-wz-I8a" customClass="ClosetFormView" customModule="fitsmeright" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="150" width="375" height="50"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </view>
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uG0-LD-B1f">
-                                                <rect key="frame" x="0.0" y="576" width="375" height="250"/>
+                                                <rect key="frame" x="0.0" y="526" width="375" height="250"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FDO-2C-aEY">
                                                         <rect key="frame" x="0.0" y="20" width="375" height="230"/>
@@ -120,8 +116,8 @@
                         <outlet property="imgv_closet" destination="BBa-wn-UeA" id="jow-7t-YVT"/>
                         <outlet property="sv_container" destination="EpU-oH-xkk" id="0bN-em-dIg"/>
                         <outlet property="v_brand" destination="dPc-o3-35q" id="KYu-L0-c8G"/>
-                        <outlet property="v_place" destination="BBj-wz-I8a" id="lZT-gk-XAe"/>
                         <outlet property="v_price" destination="YtY-wO-fso" id="Xr8-FP-Go8"/>
+                        <outlet property="v_relateCollection" destination="uG0-LD-B1f" id="WLg-ld-FyI"/>
                         <outlet property="v_seperator" destination="22U-kk-rRk" id="3Sq-0s-ZBf"/>
                         <outlet property="v_size" destination="oRh-Wd-fdm" id="gBg-Ac-Nvu"/>
                     </connections>

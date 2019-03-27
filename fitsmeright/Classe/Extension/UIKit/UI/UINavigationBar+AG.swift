@@ -57,4 +57,8 @@ extension UINavigationBar {
     shadowImage = UIImage(color: .clear, size: .less)
   }
   
+  func setupShadow() {
+    shadowImage = UIImage(color: UIColor.black.withAlphaComponent(0.3), size: .less)
+  }
+  
 }

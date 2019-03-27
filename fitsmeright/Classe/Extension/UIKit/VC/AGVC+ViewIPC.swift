@@ -95,7 +95,7 @@ extension AGVC: ViewIPCDelegate {
     displayed.isHideFooter = true
     displayed.displayedHeader.icon = #imageLiteral(resourceName: "ic_popup_choose").filled(withColor: c_custom.peach)
     displayed.displayedHeader.style = .large
-    displayed.displayedHeader.subtitle = "Message"
+    displayed.displayedHeader.subtitle = "Please choose your image."
     displayed.displayedHeader.tint = c_custom.peach
     displayed.displayedHeader.title = "Choose image"
     let vm = PopupListVCUC.Setup.ViewModel()

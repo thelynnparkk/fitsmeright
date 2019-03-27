@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gsa-LB-wWa">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="576"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="610"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mrj-Ea-6mU">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
@@ -41,10 +41,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WoV-ky-1HK" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
-                                                <rect key="frame" x="0.0" y="376" width="375" height="200"/>
+                                                <rect key="frame" x="0.0" y="376" width="375" height="150"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Xc7-ww-kUZ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="usz-L0-gwr" customClass="ClosetFormView" customModule="fitsmeright" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -61,10 +61,6 @@
                                                                 <rect key="frame" x="0.0" y="100" width="375" height="50"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sMS-wA-eN1" customClass="ClosetFormView" customModule="fitsmeright" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="150" width="375" height="50"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </view>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
@@ -74,6 +70,28 @@
                                                     <constraint firstAttribute="bottom" secondItem="Xc7-ww-kUZ" secondAttribute="bottom" id="Q3i-wp-T0x"/>
                                                     <constraint firstItem="Xc7-ww-kUZ" firstAttribute="top" secondItem="WoV-ky-1HK" secondAttribute="top" id="b2f-2z-cld"/>
                                                     <constraint firstAttribute="trailing" secondItem="Xc7-ww-kUZ" secondAttribute="trailing" id="de0-sg-wDH"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NcS-mg-woB">
+                                                <rect key="frame" x="0.0" y="526" width="375" height="84"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bVM-jm-S9l">
+                                                        <rect key="frame" x="28" y="20" width="319" height="44"/>
+                                                        <color key="backgroundColor" red="0.98039215690000003" green="0.44705882349999998" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="44" id="2Nc-3T-CLe"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Log In">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="bVM-jm-S9l" firstAttribute="top" secondItem="NcS-mg-woB" secondAttribute="top" constant="20" id="Ddj-NM-V3G"/>
+                                                    <constraint firstItem="bVM-jm-S9l" firstAttribute="centerX" secondItem="NcS-mg-woB" secondAttribute="centerX" id="KIt-1u-ZCY"/>
+                                                    <constraint firstAttribute="bottom" secondItem="bVM-jm-S9l" secondAttribute="bottom" constant="20" id="SL1-SF-DtX"/>
+                                                    <constraint firstItem="bVM-jm-S9l" firstAttribute="width" secondItem="NcS-mg-woB" secondAttribute="width" multiplier="0.85" id="xjS-oQ-BAA"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -129,12 +147,13 @@
                     </view>
                     <connections>
                         <outlet property="btn_chooseCloset" destination="4eO-5c-0aW" id="z3p-f3-05e"/>
+                        <outlet property="btn_deleteCloset" destination="bVM-jm-S9l" id="YxH-g9-Axo"/>
                         <outlet property="imgv_addCloset" destination="K8Q-Mu-7s5" id="e8r-JK-t4Y"/>
                         <outlet property="imgv_closet" destination="mrj-Ea-6mU" id="NwZ-Mo-a1A"/>
                         <outlet property="sv_container" destination="81b-ae-AwC" id="p2j-G4-Pa3"/>
                         <outlet property="v_addCloset" destination="YW1-aI-xs6" id="P85-zy-Tgo"/>
                         <outlet property="v_brand" destination="usz-L0-gwr" id="QSl-oM-bKJ"/>
-                        <outlet property="v_place" destination="sMS-wA-eN1" id="ma5-nw-CSz"/>
+                        <outlet property="v_deleteCloset" destination="NcS-mg-woB" id="LFK-gA-50J"/>
                         <outlet property="v_price" destination="luY-U5-WgG" id="rPT-Es-jUd"/>
                         <outlet property="v_seperator" destination="C8l-2Q-TpB" id="QM2-Je-UqN"/>
                         <outlet property="v_size" destination="qcB-xP-oho" id="eju-Uh-Zch"/>

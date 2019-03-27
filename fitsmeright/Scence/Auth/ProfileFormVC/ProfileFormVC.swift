@@ -82,7 +82,11 @@ class ProfileFormVC: AGVC {
   
   //MARK: - Apperance
   override var preferredStatusBarStyle: UIStatusBarStyle {
-    return .default
+    if let documentId = fsUser?.documentId, !documentId.isEmpty {
+      return .lightContent
+    } else {
+      return .default
+    }
   }
   
   override var prefersStatusBarHidden: Bool {
@@ -133,8 +137,6 @@ class ProfileFormVC: AGVC {
   override func viewDidLoad() {
     super.viewDidLoad()
     //MARK: Core
-    nb?.setupWith(content: .black, bg: .white, isTranslucent: false)
-    nb?.removeShadow()
     
     
     
@@ -210,6 +212,12 @@ class ProfileFormVC: AGVC {
     }
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+//    nb?.setupWith(content: .black, bg: .white, isTranslucent: false)
+//    nb?.removeShadow()
+  }
+  
   
   
   //MARK: - SetupView
@@ -243,7 +251,7 @@ class ProfileFormVC: AGVC {
   //MARK: - Public
   override func setupLocalize() {
     if let fsUser = fsUser, let _ = fsUser.documentId {
-      ni.title = "Update profile"
+      ni.title = "Edit Profile"
     } else {
       ni.title = "Set up your profile"
     }
@@ -353,15 +361,21 @@ class ProfileFormVC: AGVC {
   //MARK: - VIP - FetchUserAdd
   func fetchUserAdd() {
     func interactor() {
-      worker()
-    }
-    func worker() {
-      presenter()
-    }
-    func presenter() {
-      if let fsUser = fsUser {
-        print(fsUser.log())
+      guard let fsUser = fsUser else {
+        presenterError()
+        return
       }
+      presenter(fsUser: fsUser)
+    }
+    func presenter(fsUser: FSUser) {
+      if let facebookId = fsUser.facebookId, !facebookId.isEmpty {
+        imgv_userPlaceHolder.isHidden = true
+        let url = URL(string: "https://graph.facebook.com/\(facebookId)/picture?type=large")
+        imgv_user.kf.setImage(with: url)
+      }
+      txt_username.text = fsUser.username
+      txt_displayName.text = fsUser.displayName
+      txt_bio.text = fsUser.bio
     }
     func presenterError() {
       
@@ -374,13 +388,24 @@ class ProfileFormVC: AGVC {
   //MARK: - VIP - FetchUserEdit
   func fetchUserEdit() {
     func interactor() {
-      worker()
+      guard let fsUser = fsUser else {
+        presenterError()
+        return
+      }
+      presenter(fsUser: fsUser)
     }
-    func worker() {
-      presenter()
-    }
-    func presenter() {
-      
+    func presenter(fsUser: FSUser) {
+      if let imageURL = fsUser.imageURL {
+        imgv_userPlaceHolder.isHidden = true
+        imgv_user.kf.setImage(with: imageURL)
+      } else if let facebookId = fsUser.facebookId, !facebookId.isEmpty {
+        imgv_userPlaceHolder.isHidden = true
+        let url = URL(string: "https://graph.facebook.com/\(facebookId)/picture?type=large")
+        imgv_user.kf.setImage(with: url)
+      }
+      txt_username.text = fsUser.username
+      txt_displayName.text = fsUser.displayName
+      txt_bio.text = fsUser.bio
     }
     func presenterError() {
       
@@ -419,7 +444,6 @@ class ProfileFormVC: AGVC {
         FSWorker.uploadImage(folder: SUser.folder, image: imgv_user.image) {
           switch $0.error {
           case .none:
-//            FSWorker.deleteImage(url: fsUser._image)
             fsUser.image = $0.url?.absoluteString
             addUser()
           case let .some(e):
@@ -475,27 +499,69 @@ class ProfileFormVC: AGVC {
   func updateUser() {
     func interactor() {
       view.endEditing(true)
-      guard let _ = txt_username.text else {
+      btn_done.isUserInteractionEnabled = false
+      v_state.setState(with: .loading, isAnimation: false)
+      guard let fsUser = fsUser else {
         presenterError(code: 0)
         return
       }
-      guard let _ = txt_displayName.text else {
+      guard let username = txt_username.text else {
         presenterError(code: 1)
         return
       }
-      worker()
+      guard let displayName = txt_displayName.text else {
+        presenterError(code: 2)
+        return
+      }
+      fsUser.username = username
+      fsUser.displayName = displayName
+      fsUser.bio = txt_bio.text
+      fsUser.updatedAt = Timestamp(date: Date())
+      worker(fsUser: fsUser)
     }
-    func worker() {
-      presenter()
+    func worker(fsUser: FSUser) {
+      func uploadUserImage() {
+        FSWorker.uploadImage(folder: SUser.folder, image: imgv_user.image) {
+          switch $0.error {
+          case .none:
+            FSWorker.deleteImage(url: fsUser._image)
+            fsUser.image = $0.url?.absoluteString
+            updateUser()
+          case let .some(e):
+            presenterError(code: 0)
+            print(e.localizedDescription)
+          }
+        }
+      }
+      func updateUser() {
+        FSUserWorker.update(fsUser: fsUser) {
+          switch $0 {
+          case .none:
+            UserDefaults.FSUserDefault.set(data: fsUser)
+            presenter()
+          case let .some(e):
+            presenterError(code: 0)
+            print(e.localizedDescription)
+          }
+        }
+      }
+      if isChoosenUserImage {
+        uploadUserImage()
+      } else {
+        updateUser()
+      }
     }
     func presenter() {
-      nc?.popToRootViewController(animated: true)
+      nc?.popViewController(animated: true)
     }
     func presenterError(code: Int) {
       switch code {
       case 0:
-        displayUserNameErrorPopup()
+        v_state.setState(with: .error, isAnimation: false)
+        btn_done.isEnabled = true
       case 1:
+        displayDisplayNameErrorPopup()
+      case 2:
         displayDisplayNameErrorPopup()
       default:
         break

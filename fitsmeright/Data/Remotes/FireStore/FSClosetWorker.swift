@@ -127,6 +127,22 @@ class FSClosetWorker {
     }
   }
   
+  typealias  DeleteResponse = Error?
+  static func delete(documentId: String, onComplete: @escaping ((DeleteResponse) -> ())) {
+    var response: DeleteResponse = (nil)
+    let db = Firestore.default
+    let collection_closets = db.collection(FSCloset.collection)
+    collection_closets.document(documentId).delete() { error in
+      switch error {
+      case .none:
+        break
+      case let .some(e):
+        response = e
+      }
+      onComplete(response)
+    }
+  }
+  
 }
 
 

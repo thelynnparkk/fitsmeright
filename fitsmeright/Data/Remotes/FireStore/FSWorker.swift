@@ -59,6 +59,9 @@ class FSWorker {
   }
   
   static func deleteImage(url: String) {
+    guard let _ = URL(string: url) else {
+      return
+    }
     let ref_old = Storage.storage().reference(forURL: url)
     ref_old.delete()
   }

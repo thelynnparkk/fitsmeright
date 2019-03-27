@@ -12,6 +12,13 @@ import UIKit
 
 
 
+import FacebookCore
+import FacebookLogin
+import FBSDKCoreKit
+import FBSDKLoginKit
+
+
+
 extension ProfileVC:
   AGViewDelegate,
   AGCADelegate,
@@ -117,7 +124,6 @@ class ProfileVC: AGVC {
     super.viewDidLoad()
     //MARK: Core
     view.backgroundColor = c_material.grey300
-    //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
     
     bbi_setting = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_more"), style: .plain, target: self, action: #selector(settingBarButtonPressed))
     ni.rightBarButtonItems = [bbi_setting]
@@ -170,6 +176,19 @@ class ProfileVC: AGVC {
     fetchPostList()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    nb?.setupWith(content: .white, bg: c_custom.peach, isTranslucent: false)
+    nb?.setupShadow()
+    fetchProfile()
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    self.nb?.setupWith(content: .white, bg: self.c_custom.peach, isTranslucent: false)
+    self.nb?.setupShadow()
+  }
+  
   
   
   //MARK: - Setup View
@@ -218,9 +237,9 @@ class ProfileVC: AGVC {
     displayed.isHideFooter = true
     displayed.displayedHeader.icon = #imageLiteral(resourceName: "ic_popup_choose").filled(withColor: c_custom.peach)
     displayed.displayedHeader.style = .large
-    displayed.displayedHeader.subtitle = "Message"
+    displayed.displayedHeader.subtitle = ""
     displayed.displayedHeader.tint = c_custom.peach
-    displayed.displayedHeader.title = "Setting"
+    displayed.displayedHeader.title = "Settings"
     let vm = PopupListVCUC.Setup.ViewModel()
     vm.displayedSetup = displayed
     displayPopupList(vm, priority: .common, on: self) { [weak self] in
@@ -243,7 +262,7 @@ class ProfileVC: AGVC {
     func getLabelCAModel() -> LabelCADisplayed {
       let displayed = LabelCADisplayed()
       let displayed_logOut = LabelCCDisplayed()
-      displayed_logOut.title = "Log Out"
+      displayed_logOut.title = "Log out"
       displayed_logOut.style = .normal
       let displayed_cancelLabel = LabelCCDisplayed()
       displayed_cancelLabel.title = "Cancel"
@@ -264,7 +283,7 @@ class ProfileVC: AGVC {
     displayed.displayedHeader.style = .large
     displayed.displayedHeader.subtitle = "Log out"
     displayed.displayedHeader.tint = c_custom.peach
-    displayed.displayedHeader.title = "Setting"
+    displayed.displayedHeader.title = "Settings"
     let vm = PopupListVCUC.Setup.ViewModel()
     vm.displayedSetup = displayed
     displayPopupList(vm, priority: .common, on: self) { [weak self] in
@@ -272,6 +291,8 @@ class ProfileVC: AGVC {
       guard $0.isSelected else { return }
       switch $0.indexPath.row {
       case 0:
+        FBSDKProfile.setCurrent(nil)
+        FBSDKAccessToken.setCurrent(nil)
         UserDefaults.removeAll()
         let vc = SignInVC.vc()
         let nvc = UINavigationController(rootViewController: vc)
@@ -393,10 +414,17 @@ class ProfileVC: AGVC {
   
   //MARK: - Custom - AGCADelegate
   func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
-    print(indexPath)
-    let vc = PostVC.vc()
-    vc.postSelected = postList[indexPath.row]
-    nc?.pushViewController(vc)
+    if let action = action as? ProfileCA.Action {
+      switch action {
+      case .post:
+        let vc = PostVC.vc()
+        vc.postSelected = postList[indexPath.row]
+        nc?.pushViewController(vc)
+      case .friend:
+        let vc = FriendListVC.vc()
+        nc?.pushViewController(vc)
+      }
+    }
   }
   
   

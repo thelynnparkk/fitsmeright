@@ -80,11 +80,17 @@
 		5ECE8E9021F770FE000AF65E /* ClosetFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE8E8F21F770FE000AF65E /* ClosetFormVC.swift */; };
 		5EE8924121C3E615008A65ED /* ClosetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8924021C3E615008A65ED /* ClosetVC.swift */; };
 		5EE8925821C40958008A65ED /* Entitible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE8925721C40958008A65ED /* Entitible.swift */; };
+		5EED2AF1224A78FF0092D214 /* FriendListVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EED2AF0224A78FF0092D214 /* FriendListVC.storyboard */; };
+		5EED2AF3224A79090092D214 /* FriendListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED2AF2224A79090092D214 /* FriendListVC.swift */; };
+		5EED2AF5224A79180092D214 /* FriendSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED2AF4224A79180092D214 /* FriendSearchVC.swift */; };
+		5EED2AF7224A791D0092D214 /* FriendSearchVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EED2AF6224A791D0092D214 /* FriendSearchVC.storyboard */; };
+		5EED2AF9224A7CD00092D214 /* FSRelationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EED2AF8224A7CD00092D214 /* FSRelationship.swift */; };
 		5EF9F2D521FC7EBC0034F7B2 /* ClosetFormVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ECE8E9121F77105000AF65E /* ClosetFormVC.storyboard */; };
 		5EF9F2D621FC7EF20034F7B2 /* ClosetListVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EE8923C21C3E572008A65ED /* ClosetListVC.storyboard */; };
 		5EF9F2D821FC92200034F7B2 /* ProfileCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF9F2D721FC92200034F7B2 /* ProfileCA.swift */; };
 		5EF9F2DA21FC972F0034F7B2 /* ProfileCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF9F2D921FC972F0034F7B2 /* ProfileCC.swift */; };
 		5EF9F2DC21FC974D0034F7B2 /* ProfileCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EF9F2DB21FC974D0034F7B2 /* ProfileCC.xib */; };
+		5EFA3A68224BC21700C869EE /* FSRelationshipWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA3A67224BC21700C869EE /* FSRelationshipWorker.swift */; };
 		5EFB7F97221BCD9D00D7D8F5 /* IconLabelCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFB7F96221BCD9D00D7D8F5 /* IconLabelCC.swift */; };
 		5EFB7F99221BCDAE00D7D8F5 /* IconLabelCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EFB7F98221BCDAE00D7D8F5 /* IconLabelCC.xib */; };
 		5EFB7F9B221BCF9300D7D8F5 /* SelectClosetCategoryCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFB7F9A221BCF9300D7D8F5 /* SelectClosetCategoryCA.swift */; };
@@ -285,9 +291,15 @@
 		5EE8923C21C3E572008A65ED /* ClosetListVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ClosetListVC.storyboard; sourceTree = "<group>"; };
 		5EE8924021C3E615008A65ED /* ClosetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetVC.swift; sourceTree = "<group>"; };
 		5EE8925721C40958008A65ED /* Entitible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitible.swift; sourceTree = "<group>"; };
+		5EED2AF0224A78FF0092D214 /* FriendListVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FriendListVC.storyboard; sourceTree = "<group>"; };
+		5EED2AF2224A79090092D214 /* FriendListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListVC.swift; sourceTree = "<group>"; };
+		5EED2AF4224A79180092D214 /* FriendSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSearchVC.swift; sourceTree = "<group>"; };
+		5EED2AF6224A791D0092D214 /* FriendSearchVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FriendSearchVC.storyboard; sourceTree = "<group>"; };
+		5EED2AF8224A7CD00092D214 /* FSRelationship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSRelationship.swift; sourceTree = "<group>"; };
 		5EF9F2D721FC92200034F7B2 /* ProfileCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCA.swift; sourceTree = "<group>"; };
 		5EF9F2D921FC972F0034F7B2 /* ProfileCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCC.swift; sourceTree = "<group>"; };
 		5EF9F2DB21FC974D0034F7B2 /* ProfileCC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCC.xib; sourceTree = "<group>"; };
+		5EFA3A67224BC21700C869EE /* FSRelationshipWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSRelationshipWorker.swift; sourceTree = "<group>"; };
 		5EFB7F96221BCD9D00D7D8F5 /* IconLabelCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconLabelCC.swift; sourceTree = "<group>"; };
 		5EFB7F98221BCDAE00D7D8F5 /* IconLabelCC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconLabelCC.xib; sourceTree = "<group>"; };
 		5EFB7F9A221BCF9300D7D8F5 /* SelectClosetCategoryCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectClosetCategoryCA.swift; sourceTree = "<group>"; };
@@ -419,6 +431,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E06C9FA224A787500607D65 /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				5EED2AEF224A78A50092D214 /* FriendSearchVC */,
+				5EED2AEE224A78980092D214 /* FriendListVC */,
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
 		5E0900B221C296F10099F81E /* TabBatItem */ = {
 			isa = PBXGroup;
 			children = (
@@ -599,6 +620,7 @@
 		5E74DA3B21BBCE1A00A97A89 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				5E06C9FA224A787500607D65 /* Friend */,
 				5EE8923E21C3E5F5008A65ED /* Closet */,
 				5EE8923921C3E46F008A65ED /* Feed */,
 				5E74DA6B21BBDA1300A97A89 /* ProfileVC */,
@@ -825,6 +847,7 @@
 				5EFC9BA921FB57C00078ED50 /* SCloset.swift */,
 				A4B482D122204DE1006F55DB /* SPost.swift */,
 				5E06C9F32249101300607D65 /* SUser.swift */,
+				5EED2AF8224A7CD00092D214 /* FSRelationship.swift */,
 			);
 			path = FBEntiny;
 			sourceTree = "<group>";
@@ -838,6 +861,7 @@
 				A4C99324222071E500CCC3D8 /* FSPostCommentWorker.swift */,
 				A4C993262220722400CCC3D8 /* FSPostClosetWorker.swift */,
 				5E06C9F72249238900607D65 /* FSWorker.swift */,
+				5EFA3A67224BC21700C869EE /* FSRelationshipWorker.swift */,
 			);
 			path = FireStore;
 			sourceTree = "<group>";
@@ -909,6 +933,24 @@
 				5E2D47EE22241C6A0061C58A /* ClosetRelateCA.swift */,
 			);
 			path = ClosetVC;
+			sourceTree = "<group>";
+		};
+		5EED2AEE224A78980092D214 /* FriendListVC */ = {
+			isa = PBXGroup;
+			children = (
+				5EED2AF0224A78FF0092D214 /* FriendListVC.storyboard */,
+				5EED2AF2224A79090092D214 /* FriendListVC.swift */,
+			);
+			path = FriendListVC;
+			sourceTree = "<group>";
+		};
+		5EED2AEF224A78A50092D214 /* FriendSearchVC */ = {
+			isa = PBXGroup;
+			children = (
+				5EED2AF4224A79180092D214 /* FriendSearchVC.swift */,
+				5EED2AF6224A791D0092D214 /* FriendSearchVC.storyboard */,
+			);
+			path = FriendSearchVC;
 			sourceTree = "<group>";
 		};
 		A42F7C6021BE5BB600085DB5 /* UserDefaults */ = {
@@ -1301,10 +1343,12 @@
 				A4C4FAB121F975C7004A3F37 /* FloatingView.xib in Resources */,
 				A4C4FAB321F975C7004A3F37 /* ClosetMenuView.xib in Resources */,
 				A4DAA1BC220823E300DA31F7 /* LabelCC.xib in Resources */,
+				5EED2AF7224A791D0092D214 /* FriendSearchVC.storyboard in Resources */,
 				5E9EABD6224788ED00C46F46 /* ForgotVC.storyboard in Resources */,
 				5E74DA0721BBACAA00A97A89 /* LaunchScreen.storyboard in Resources */,
 				A4C4FABD21F975C7004A3F37 /* ClosetFormView.xib in Resources */,
 				5E74DA7C21BBDB5E00A97A89 /* ProfileVC.storyboard in Resources */,
+				5EED2AF1224A78FF0092D214 /* FriendListVC.storyboard in Resources */,
 				5E9EABDB2247921B00C46F46 /* ProfileFormVC.storyboard in Resources */,
 				5E74DA7821BBDADF00A97A89 /* MainTBC.storyboard in Resources */,
 				5E5BD81A221B08F0003D1C3D /* SelectClosetCategoryVC.storyboard in Resources */,
@@ -1519,6 +1563,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EED2AF3224A79090092D214 /* FriendListVC.swift in Sources */,
 				5E74DA6421BBD7AB00A97A89 /* AGVC.swift in Sources */,
 				A4DAA1AA220801E600DA31F7 /* PanelVC.swift in Sources */,
 				A4DAA1AE22081C0200DA31F7 /* AGVC+PopupDialogable.swift in Sources */,
@@ -1534,6 +1579,7 @@
 				A4C4FAB421F975C7004A3F37 /* StateView.swift in Sources */,
 				A4C4FAD621F9CB35004A3F37 /* PopupDialogable.swift in Sources */,
 				5E9EABCA22476E2300C46F46 /* SignInVC.swift in Sources */,
+				5EED2AF5224A79180092D214 /* FriendSearchVC.swift in Sources */,
 				5E74DA6821BBD9C000A97A89 /* Typealias+AG.swift in Sources */,
 				5E0900B421C2970A0099F81E /* RAMNonAnimation.swift in Sources */,
 				5ECE8E7B21F752A8000AF65E /* FSClosetWorker.swift in Sources */,
@@ -1608,12 +1654,14 @@
 				A4C993272220722400CCC3D8 /* FSPostClosetWorker.swift in Sources */,
 				A4DFBCC4221DA15500C31FD2 /* OutfitItemCA.swift in Sources */,
 				5E74DA5821BBD0B100A97A89 /* TemplateVIP.swift in Sources */,
+				5EED2AF9224A7CD00092D214 /* FSRelationship.swift in Sources */,
 				A4C4FAB821F975C7004A3F37 /* ClosetFormView.swift in Sources */,
 				5EF9F2DA21FC972F0034F7B2 /* ProfileCC.swift in Sources */,
 				5E74DA8021BBF7D700A97A89 /* R.swift in Sources */,
 				5E74DA5921BBD0B100A97A89 /* Templatable.swift in Sources */,
 				A4C338B421F8A28B00147567 /* ControlContainableScrollView.swift in Sources */,
 				5E74DA2D21BBCB9E00A97A89 /* SplashVC.swift in Sources */,
+				5EFA3A68224BC21700C869EE /* FSRelationshipWorker.swift in Sources */,
 				5E9EABD9224791F800C46F46 /* ProfileFormVC.swift in Sources */,
 				5ECE8E6621F7453D000AF65E /* RAMAnimatedTabBarItem+AG.swift in Sources */,
 				A42F7C5A21BE56D800085DB5 /* AGDefaultsCodable.swift in Sources */,

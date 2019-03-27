@@ -64,6 +64,28 @@ class FSUserWorker {
     }
   }
   
+  static func get(username: String, onComplete: @escaping ((GetResponse) -> ())) {
+    var response: GetResponse = (FSUser(), nil)
+    let db = Firestore.default
+    let collection_posts = db
+      .collection(FSUser.collection)
+      .whereField(FSUser.CodingKeys.username.rawValue, isEqualTo: username)
+    collection_posts.getDocuments { (snapshot, error) in
+      switch error {
+      case .none:
+        guard let snapshot = snapshot,
+          let data = snapshot.documents.first?.toObject(FSUser.self) else {
+            response.error = AGError.error
+            break
+        }
+        response.data = data
+      case let .some(e):
+        response.error = e
+      }
+      onComplete(response)
+    }
+  }
+  
   typealias FetchWhereResponse = (data: [FSUser], error: Error?)
   static func fetchWhere(userId: String, onComplete: @escaping ((FetchWhereResponse) -> ())) {
     var response: FetchWhereResponse = ([], nil)

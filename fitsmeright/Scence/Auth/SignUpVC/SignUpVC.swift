@@ -226,9 +226,9 @@ class SignUpVC: AGVC {
     displayed.isHideFooter = true
     displayed.displayedHeader.icon = #imageLiteral(resourceName: "ic_popup_no").filled(withColor: c_custom.peach)
     displayed.displayedHeader.style = .large
-    displayed.displayedHeader.subtitle = "Wrong input"
+    displayed.displayedHeader.subtitle = "Please type your email again."
     displayed.displayedHeader.tint = c_custom.peach
-    displayed.displayedHeader.title = "Email format"
+    displayed.displayedHeader.title = "Wrong format"
     let vm = PopupListVCUC.Setup.ViewModel()
     vm.displayedSetup = displayed
     displayPopupList(vm, priority: .common, on: self) { [weak self] in
@@ -263,7 +263,7 @@ class SignUpVC: AGVC {
     displayed.isHideFooter = true
     displayed.displayedHeader.icon = #imageLiteral(resourceName: "ic_popup_no").filled(withColor: c_custom.peach)
     displayed.displayedHeader.style = .large
-    displayed.displayedHeader.subtitle = "Wrong input"
+    displayed.displayedHeader.subtitle = "Please type your password again."
     displayed.displayedHeader.tint = c_custom.peach
     displayed.displayedHeader.title = "Password not match"
     let vm = PopupListVCUC.Setup.ViewModel()
@@ -300,9 +300,9 @@ class SignUpVC: AGVC {
     displayed.isHideFooter = true
     displayed.displayedHeader.icon = #imageLiteral(resourceName: "ic_popup_no").filled(withColor: c_custom.peach)
     displayed.displayedHeader.style = .large
-    displayed.displayedHeader.subtitle = "Exiting email"
+    displayed.displayedHeader.subtitle = "Please type your email again."
     displayed.displayedHeader.tint = c_custom.peach
-    displayed.displayedHeader.title = "try another"
+    displayed.displayedHeader.title = "This email has been used"
     let vm = PopupListVCUC.Setup.ViewModel()
     vm.displayedSetup = displayed
     displayPopupList(vm, priority: .common, on: self) { [weak self] in
@@ -323,6 +323,7 @@ class SignUpVC: AGVC {
   func signUpCheck() {
     func interactor() {
       view.endEditing(true)
+      btn_next.isEnabled = false
       guard let email = txt_email.text, email.isEmail else {
         presenterError(code: 0)
         return
@@ -360,6 +361,7 @@ class SignUpVC: AGVC {
       nc?.pushViewController(vc, animated: true)
     }
     func presenterError(code: Int) {
+      btn_next.isEnabled = true
       switch code {
       case 0:
         displayEmailErrorPopup()

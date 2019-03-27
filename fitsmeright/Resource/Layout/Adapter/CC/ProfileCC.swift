@@ -68,6 +68,7 @@ class ProfileCC: AGCC {
   @IBOutlet weak var lb_bio: UILabel!
   @IBOutlet weak var v_seperatorTop: UIView!
   @IBOutlet weak var v_seperatorBottom: UIView!
+  @IBOutlet weak var btn_friend: UIButton!
   @IBOutlet weak var lb_postsKey: UILabel!
   @IBOutlet weak var lb_friendsKey: UILabel!
   @IBOutlet weak var lb_closetsKey: UILabel!
@@ -169,6 +170,7 @@ class ProfileCC: AGCC {
     lb_friendsValue.font = UIFont.systemFont(ofSize: 16, weight: .bold)
     lb_closetsValue.textColor = c_material.grey700
     lb_closetsValue.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+    btn_friend.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
     
     
     
@@ -225,6 +227,9 @@ class ProfileCC: AGCC {
   
   
   //MARK: - Event
+  @objc func buttonPressed(_ sender: UIButton) {
+    delegate?.agCCPressed(self, action: [], indexPath: indexPath)
+  }
   
   
   

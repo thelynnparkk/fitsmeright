@@ -34,9 +34,10 @@ extension ProfileCA:
 class ProfileCA: AGCA {
   
   //MARK: - Enum
-//  enum Action {
-//
-//  }
+  enum Action {
+    case post
+    case friend
+  }
   
   
   
@@ -208,7 +209,7 @@ class ProfileCA: AGCA {
     if let _ = item as? CCProfile.Displayed {
       
     } else if let _ = item as? CCImage.Displayed {
-      delegate?.agCAPressed(self, action: [], indexPath: indexPath)
+      delegate?.agCAPressed(self, action: Action.post, indexPath: indexPath)
     }
   }
   
@@ -271,7 +272,7 @@ class ProfileCA: AGCA {
   
   //MARK: - Custom - AGCCDelegate
   func agCCPressed(_ cell: AGCC, action: Any, indexPath: IndexPath) {
-    
+    delegate?.agCAPressed(self, action: Action.friend, indexPath: indexPath)
   }
   
   

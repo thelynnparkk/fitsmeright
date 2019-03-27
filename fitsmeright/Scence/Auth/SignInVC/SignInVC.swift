@@ -12,6 +12,13 @@ import SwifterSwift
 
 
 
+import FacebookCore
+import FacebookLogin
+import FBSDKCoreKit
+import FBSDKLoginKit
+
+
+
 extension SignInVC
 {
   
@@ -31,6 +38,7 @@ class SignInVC: AGVC {
   
   //MARK: - UI
   @IBOutlet weak var imgv_logo: UIImageView!
+  var tapGesture: UITapGestureRecognizer!
   @IBOutlet weak var v_usernameTextField: UIView!
   @IBOutlet weak var txt_username: UITextField!
   @IBOutlet weak var v_passwordTextField: UIView!
@@ -154,6 +162,10 @@ class SignInVC: AGVC {
     btn_forgot.setupTextLight()
     btn_forgot.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
     
+    tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognized))
+    imgv_logo.addGestureRecognizer(tapGesture)
+    imgv_logo.isUserInteractionEnabled = true
+    
 
     
     //MARK: Other
@@ -200,6 +212,11 @@ class SignInVC: AGVC {
     }
   }
   
+  @objc func tapGestureRecognized(_ sender: UITapGestureRecognizer) {
+    txt_username.text = AGSwift.getMockUser().email
+    txt_password.text = AGSwift.getMockUser().password
+  }
+  
   
   
   //MARK: - Public
@@ -225,6 +242,42 @@ class SignInVC: AGVC {
     textField.textColor = c_custom.peach
   }
   
+  private func displayFacebookErrorPopup() {
+    func getLabelCAModel() -> LabelCADisplayed {
+      let displayed = LabelCADisplayed()
+      let displayed_ok = LabelCCDisplayed()
+      displayed_ok.title = "OK"
+      displayed_ok.weight = .semibold
+      displayed_ok.style = .negative
+      let section = LabelCADisplayed.Section()
+      section.items = [displayed_ok]
+      displayed.sections = [section]
+      return displayed
+    }
+    let displayed = PopupListVCUC.Setup.DisplayedSetupPopupList()
+    displayed.viewModel = getLabelCAModel()
+    displayed.adapter = LabelCA.self
+    displayed.isTapOverlayEnabled = true
+    displayed.isTapContainerEnabled = true
+    displayed.isHideFooter = true
+    displayed.displayedHeader.icon = #imageLiteral(resourceName: "ic_popup_no").filled(withColor: c_custom.peach)
+    displayed.displayedHeader.style = .large
+    displayed.displayedHeader.subtitle = "Please try again."
+    displayed.displayedHeader.tint = c_custom.peach
+    displayed.displayedHeader.title = "Facebook login error"
+    let vm = PopupListVCUC.Setup.ViewModel()
+    vm.displayedSetup = displayed
+    displayPopupList(vm, priority: .common, on: self) { [weak self] in
+      guard let _s = self else { return }
+      guard $0.isSelected else { return }
+      switch $0.indexPath.row {
+      case 0:
+        break
+      default:
+        break
+      }
+    }
+  }
   
   
   //MARK: - VIP - FetchSignIn
@@ -242,7 +295,7 @@ class SignInVC: AGVC {
         case .none:
           UserDefaults.FSUserDefault.set(data: $0.data)
           UserDefaults.LoggedIn.set(data: true)
-          presenter()`
+          presenter()
         case let .some(e):
           presenterError(code: 1)
           print(e.localizedDescription)
@@ -272,16 +325,51 @@ class SignInVC: AGVC {
   //MARK: - VIP - FetchFacebook
   func fetchFacebook() {
     func interactor() {
-      
+      worker()
     }
     func worker() {
-      
+      func facebookLogin() {
+        let loginManager = LoginManager()
+        loginManager.logIn(readPermissions: [.publicProfile, .email], viewController: self) {
+          switch $0 {
+          case let .failed(e):
+            print(e.localizedDescription)
+            presenterError()
+          case .cancelled:
+            presenterError()
+          case .success(grantedPermissions: _, declinedPermissions: _, token: _):
+            facebookGraph()
+          }
+        }
+      }
+      func facebookGraph() {
+        let params = [
+          "fields": "email, name, picture.type(large)"
+        ]
+        let graphRequest = GraphRequest(graphPath: "me", parameters: params)
+        graphRequest.start() { (urlResponse, requestResult) in
+          switch requestResult {
+          case let .success(data):
+            guard let dictionaryValue = data.dictionaryValue else {
+              presenterError()
+              return
+            }
+            presenter(dictionaryValue: dictionaryValue)
+          case let .failed(e):
+            print(e.localizedDescription)
+            presenterError()
+          }
+        }
+      }
+      facebookLogin()
     }
-    func presenter() {
-      
+    func presenter(dictionaryValue: [String: Any]) {
+      print(dictionaryValue)
     }
     func presenterError() {
-      
+      FBSDKProfile.setCurrent(nil)
+      FBSDKAccessToken.setCurrent(nil)
+      displayFacebookErrorPopup()
     }
     interactor()
   }

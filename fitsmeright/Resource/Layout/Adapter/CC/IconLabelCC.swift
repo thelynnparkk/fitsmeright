@@ -156,6 +156,8 @@ class IconLabelCC: AGCC {
     lb_title.font = UIFont.systemFont(ofSize: 14, weight: .regular)
     lb_title.textColor = .black
     imgv_icon.contentMode = .scaleAspectFit
+    imgv_icon.clipsToBounds = true
+    imgv_icon.kf.indicatorType = .activity
     v_seperator.backgroundColor = c_material.grey200
     
     
