@@ -11,6 +11,10 @@
 import SwifterSwift
 
 
+import FirebaseStorage
+import FirebaseFirestore
+
+
 
 extension FriendSearchVC:
   UITextFieldDelegate
@@ -60,6 +64,7 @@ class FriendSearchVC: AGVC {
   
   //MARK: - Storage
   var fsUser: FSUser?
+  var fsRelationship: FSRelationship?
   
   
   
@@ -122,7 +127,7 @@ class FriendSearchVC: AGVC {
     //MARK: Component
     view.setupViewFrame()
     setupFormTextField(label: lb_username, view: v_username, textField: txt_username)
-    txt_username.setupPassword()
+    txt_username.setupUsername()
     txt_username.returnKeyType = .search
     txt_username.delegate = self
     
@@ -159,8 +164,7 @@ class FriendSearchVC: AGVC {
     
     
     //MARK: Data
-//    v_friend.isHidden = true
-//    btn_addFriend.isHidden = true
+    prepareSearch()
   }
   
   
@@ -210,6 +214,14 @@ class FriendSearchVC: AGVC {
     textField.textColor = c_custom.peach
   }
   
+  private func prepareSearch() {
+    v_friend.isHidden = true
+    btn_addFriend.isHidden = true
+    fsUser = nil
+    fsRelationship = nil
+  }
+  
+  
   
   
   //MARK: - VIP - FetchUser
@@ -228,6 +240,7 @@ class FriendSearchVC: AGVC {
           switch $0.error {
           case .none:
             _s.fsUser = $0.data
+            getRelation()
           case let .some(e):
             presenterError(code: 1)
             print(e.localizedDescription)
@@ -235,12 +248,34 @@ class FriendSearchVC: AGVC {
         }
       }
       func getRelation() {
-        presenter()
+        guard let fsUserResponse = fsUser, let fsUserRequest = UserDefaults.FSUserDefault.get() else {
+          presenterError(code: 1)
+          return
+        }
+        FSRelationshipWorker.get(userOneId: fsUserRequest._documentId, userTwoId: fsUserResponse._documentId) {  [weak self] in
+          guard let _s = self else { return }
+          switch $0.error {
+          case .none:
+            _s.fsRelationship = $0.data
+            presenter()
+          case .some:
+            presenter()
+          }
+        }
       }
+      getUser()
     }
     func presenter() {
-      txt_username.text = fsUser?.username
+      lb_friend.text = fsUser?.displayName
       imgv_friend.kf.setImage(with: fsUser?.imageURL)
+      if fsUser?.documentId == UserDefaults.FSUserDefault.get()?.documentId {
+        btn_addFriend.isHidden = true
+      } else if let _ = fsRelationship {
+        btn_addFriend.isHidden = true
+      } else {
+        btn_addFriend.isHidden = false
+      }
+      v_friend.isHidden = false
     }
     func presenterError(code: Int) {
       switch code {
@@ -255,7 +290,33 @@ class FriendSearchVC: AGVC {
   
   //MARK: - VIP - AddRelation
   func addRelation() {
-    print("AddRelation")
+    func interactor() {
+      btn_addFriend.isEnabled = false
+      worker()
+    }
+    func worker() {
+      let fsRelationship = FSRelationship()
+      fsRelationship.userOneId = UserDefaults.FSUserDefault.get()?.documentId
+      fsRelationship.userTwoId = fsUser?.documentId
+      fsRelationship.status = UserRelationStatus.request.rawValue
+      fsRelationship.updatedAt = Timestamp(date: Date())
+      FSRelationshipWorker.add(fsRelationship: fsRelationship) {
+        switch $0.error {
+        case .none:
+          presenter()
+        case let .some(e):
+          presenterError()
+          print(e.localizedDescription)
+        }
+      }
+    }
+    func presenter() {
+      btn_addFriend.isHidden = true
+    }
+    func presenterError() {
+      btn_addFriend.isEnabled = true
+    }
+    interactor()
   }
   
   
@@ -277,4 +338,6 @@ class FriendSearchVC: AGVC {
   
   
 }
+
+
 

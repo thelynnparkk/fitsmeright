@@ -77,6 +77,9 @@ class FSRelationship: FirestoreCodable {
   var _updatedAt: Timestamp {
     return updatedAt ?? Timestamp(date: Date())
   }
+  var userRelationStatus: UserRelationStatus {
+    return UserRelationStatus(rawValue: _status) ?? UserRelationStatus.default
+  }
   
   
   

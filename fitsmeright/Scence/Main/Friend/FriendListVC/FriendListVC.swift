@@ -48,7 +48,7 @@ class FriendListVC: AGVC {
   
   
   //MARK: - Instance
-  var adapter_friend: PostListCA!
+  var adapter_friend: FriendListCA!
   
   
   
@@ -57,6 +57,8 @@ class FriendListVC: AGVC {
   
   
   //MARK: - Storage
+  var fsRelationshipList: [FSRelationship] = []
+  var fsUserList: [FSUser] = []
   
   
   
@@ -119,7 +121,7 @@ class FriendListVC: AGVC {
     
     //MARK: Component
     collection_friend = ControlContainableCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    adapter_friend = PostListCA(collection: collection_friend)
+    adapter_friend = FriendListCA(collection: collection_friend)
     adapter_friend.delegate = self
     
     v_addFriendFloating.delegate = self
@@ -161,6 +163,7 @@ class FriendListVC: AGVC {
     
     
     //MARK: Data
+    fetchFriend()
   }
   
   
@@ -188,7 +191,70 @@ class FriendListVC: AGVC {
   
   
   
-  //MARK: - VIP - UseCase
+  //MARK: - VIP - FetchFriend
+  func fetchFriend() {
+    func interactor() {
+      fsRelationshipList = []
+      fsUserList = []
+      guard let fsUser = UserDefaults.FSUserDefault.get() else {
+        presenterError(code: 0)
+        return
+      }
+      worker(fsUser: fsUser)
+    }
+    func worker(fsUser: FSUser) {
+      func fetchRelationship() {
+        FSRelationshipWorker.fetchWhere(userOneId: fsUser._documentId) { [weak self] in
+          guard let _s = self else { return }
+          switch $0.error {
+          case .none:
+            _s.fsRelationshipList = $0.data.filter({ $0.userRelationStatus == .accept })
+            fetchUser()
+          case let .some(e):
+            presenterError(code: 0)
+            print(e.localizedDescription)
+          }
+        }
+      }
+      func fetchUser() {
+        let dg = DispatchGroup()
+        for i in fsRelationshipList {
+          dg.enter()
+          FSUserWorker.get(documentId: i._userTwoId) { [weak self] in
+            guard let _s = self else { return }
+            dg.leave()
+            switch $0.error {
+            case .none:
+              _s.fsUserList.append($0.data)
+            case let .some(e):
+              print(e.localizedDescription)
+            }
+          }
+        }
+        dg.notify(queue: .main) {
+          presenter()
+        }
+      }
+      fetchRelationship()
+    }
+    func presenter() {
+      let section = FriendListCADisplayed.Section()
+      section.items = fsUserList.map({
+        let displayed = IconLabelCCDisplayed()
+        displayed.title = $0._displayName
+        displayed.imageURL =  $0.imageURL
+        return displayed
+      })
+      
+      let displayed = FriendListCADisplayed()
+      displayed.sections = [section]
+      adapter_friend.setupData(with: displayed)
+    }
+    func presenterError(code: Int) {
+      
+    }
+    interactor()
+  }
   
   
   

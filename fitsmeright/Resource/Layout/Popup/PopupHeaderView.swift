@@ -257,7 +257,7 @@ class PopupHeaderView: AGView {
       displayedView = displayed
       if let imageURL = displayed.imageURL {
         imgv_header.kf.setImage(with: imageURL, placeholder: nil, options: nil)
-      } else if let icon = displayed.icon, icon != .none {
+      } else if let icon = displayed.icon {
         imgv_header.image = icon
         imgv_header.backgroundColor = .clear
       } else {

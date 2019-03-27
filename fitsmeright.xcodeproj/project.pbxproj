@@ -157,6 +157,8 @@
 		A4C99323222067AE00CCC3D8 /* PostCloset.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C99322222067AE00CCC3D8 /* PostCloset.swift */; };
 		A4C99325222071E500CCC3D8 /* FSPostCommentWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C99324222071E500CCC3D8 /* FSPostCommentWorker.swift */; };
 		A4C993272220722400CCC3D8 /* FSPostClosetWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C993262220722400CCC3D8 /* FSPostClosetWorker.swift */; };
+		A4CB1423224BC6D500BBD076 /* UserRelationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CB1422224BC6D500BBD076 /* UserRelationStatus.swift */; };
+		A4CB1425224BCEE800BBD076 /* FriendListCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CB1424224BCEE800BBD076 /* FriendListCA.swift */; };
 		A4D6584E21BF651F007B8558 /* UITabBar+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */; };
 		A4DAA1A72207F44500DA31F7 /* UIPanGestureRecognizer+AG.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DAA1A62207F44500DA31F7 /* UIPanGestureRecognizer+AG.swift */; };
 		A4DAA1AA220801E600DA31F7 /* PanelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DAA1A9220801E600DA31F7 /* PanelVC.swift */; };
@@ -367,6 +369,8 @@
 		A4C99322222067AE00CCC3D8 /* PostCloset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCloset.swift; sourceTree = "<group>"; };
 		A4C99324222071E500CCC3D8 /* FSPostCommentWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSPostCommentWorker.swift; sourceTree = "<group>"; };
 		A4C993262220722400CCC3D8 /* FSPostClosetWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSPostClosetWorker.swift; sourceTree = "<group>"; };
+		A4CB1422224BC6D500BBD076 /* UserRelationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRelationStatus.swift; sourceTree = "<group>"; };
+		A4CB1424224BCEE800BBD076 /* FriendListCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListCA.swift; sourceTree = "<group>"; };
 		A4D6584D21BF651F007B8558 /* UITabBar+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+AG.swift"; sourceTree = "<group>"; };
 		A4DAA1A62207F44500DA31F7 /* UIPanGestureRecognizer+AG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPanGestureRecognizer+AG.swift"; sourceTree = "<group>"; };
 		A4DAA1A9220801E600DA31F7 /* PanelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelVC.swift; sourceTree = "<group>"; };
@@ -831,6 +835,7 @@
 			children = (
 				A4DAA1AB22081BD600DA31F7 /* DevicePermission.swift */,
 				5ECE8E7021F74B84000AF65E /* ClosetCategory.swift */,
+				A4CB1422224BC6D500BBD076 /* UserRelationStatus.swift */,
 				5E06C9F52249144000607D65 /* AGError.swift */,
 			);
 			path = Enum;
@@ -940,6 +945,7 @@
 			children = (
 				5EED2AF0224A78FF0092D214 /* FriendListVC.storyboard */,
 				5EED2AF2224A79090092D214 /* FriendListVC.swift */,
+				A4CB1424224BCEE800BBD076 /* FriendListCA.swift */,
 			);
 			path = FriendListVC;
 			sourceTree = "<group>";
@@ -1683,6 +1689,7 @@
 				A4FB1BF822213C33002933E1 /* PostCA.swift in Sources */,
 				A4DAA1BA220823D900DA31F7 /* LabelCC.swift in Sources */,
 				A4C4FAB221F975C7004A3F37 /* FloatingView.swift in Sources */,
+				A4CB1423224BC6D500BBD076 /* UserRelationStatus.swift in Sources */,
 				A4C4B6F221F84E240036B0F7 /* Colorable.swift in Sources */,
 				5E74DA5421BBD0B100A97A89 /* TemplateEntity.swift in Sources */,
 				A4C4B6E621F81EA10036B0F7 /* Preparable.swift in Sources */,
@@ -1693,6 +1700,7 @@
 				5E06C9F222490DFD00607D65 /* AGSwift.swift in Sources */,
 				A42F7C5621BE567D00085DB5 /* AGDefaults.swift in Sources */,
 				5E74DA5521BBD0B100A97A89 /* TemplateCCA.swift in Sources */,
+				A4CB1425224BCEE800BBD076 /* FriendListCA.swift in Sources */,
 				A4FB1BEE22211C95002933E1 /* PostCC.swift in Sources */,
 				5E74DA7321BBDABF00A97A89 /* ProfileVC.swift in Sources */,
 				5ECE8E9021F770FE000AF65E /* ClosetFormVC.swift in Sources */,

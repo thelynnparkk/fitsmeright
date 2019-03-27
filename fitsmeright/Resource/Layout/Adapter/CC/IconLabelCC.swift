@@ -15,6 +15,7 @@ import UIKit
 class IconLabelCCDisplayed: AGCCDisplayed {
   var title: String = ""
   var icon: UIImage?
+  var imageURL: URL?
 }
 
 
@@ -214,12 +215,22 @@ class IconLabelCC: AGCC {
       if let displayed = displayed as? Displayed {
         self.displayedCC = displayed
         lb_title.text = displayed.title
-        imgv_icon.image = displayed.icon
+        if let imageURL = displayed.imageURL {
+          imgv_icon.kf.setImage(with: imageURL)
+        } else {
+          imgv_icon.image = displayed.icon
+        }
       } else {
         
       }
     }
     present()
+  }
+  
+  func roundedIcon() {
+    setupViewFrame()
+    imgv_icon.clipsToBounds = true
+    imgv_icon.cornerRadius = imgv_icon.frame.width / 2
   }
   
   
