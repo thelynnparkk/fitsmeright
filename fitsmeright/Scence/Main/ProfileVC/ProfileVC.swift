@@ -64,6 +64,7 @@ class ProfileVC: AGVC {
   
   
   //MARK: - Storage
+  var fsUser: FSUser?
   var postList: [Post] = []
   var section_profile: ProfileCADisplayed.Section?
   var section_post: ProfileCADisplayed.Section?
@@ -124,9 +125,12 @@ class ProfileVC: AGVC {
     super.viewDidLoad()
     //MARK: Core
     view.backgroundColor = c_material.grey300
-    
-    bbi_setting = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_more"), style: .plain, target: self, action: #selector(settingBarButtonPressed))
-    ni.rightBarButtonItems = [bbi_setting]
+    if let _ = fsUser {
+      
+    } else {
+      bbi_setting = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_more"), style: .plain, target: self, action: #selector(settingBarButtonPressed))
+      ni.rightBarButtonItems = [bbi_setting]
+    }
     
     
     
@@ -172,8 +176,6 @@ class ProfileVC: AGVC {
     
     
     //MARK: Data
-    fetchProfile()
-    fetchPostList()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -181,6 +183,7 @@ class ProfileVC: AGVC {
     nb?.setupWith(content: .white, bg: c_custom.peach, isTranslucent: false)
     nb?.setupShadow()
     fetchProfile()
+    fetchPostList()
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -306,19 +309,53 @@ class ProfileVC: AGVC {
   
   
   //MARK: - VIP - FetchProfile
+  var fsRelationshipList: [FSRelationship] = []
+  var fsClosetList: [FSCloset] = []
   func fetchProfile() {
     func interactor() {
       if isFetctProfileFristTime {
         isFetctProfileFristTime  = false
         v_state.setState(with: .loading, isAnimation: false)
       }
-      let fsUser = UserDefaults.FSUserDefault.get()!
-      worker(fsUser: fsUser)
+      if let fsUser = fsUser {
+        worker(fsUser: fsUser)
+      } else {
+        let fsUser = UserDefaults.FSUserDefault.get()!
+        worker(fsUser: fsUser)
+      }
     }
     func worker(fsUser: FSUser) {
-      present(fsUser: fsUser)
+      //get friend count
+      //get closet count
+      func fetchRelationship() {
+        FSRelationshipWorker.fetchWhere(userOneId: fsUser._documentId) { [weak self] in
+          guard let _s = self else { return }
+          switch $0.error {
+          case .none:
+            _s.fsRelationshipList = $0.data.filter({ $0.userRelationStatus == .accept })
+            fetchCloset()
+          case let .some(e):
+            presenterError(code: 0)
+            print(e.localizedDescription)
+          }
+        }
+      }
+      func fetchCloset() {
+        FSClosetWorker.fetchWhere(userId: fsUser._documentId) { [weak self] in
+          guard let _s = self else { return }
+          switch $0.error {
+          case .none:
+            _s.fsClosetList = $0.data
+            presenter(fsUser: fsUser)
+          case let .some(e):
+            presenterError(code: 0)
+            print(e.localizedDescription)
+          }
+        }
+      }
+      fetchRelationship()
     }
-    func present(fsUser: FSUser) {
+    func presenter(fsUser: FSUser) {
       v_state.setState(with: .hidden)
       if let _ = section_profile {
         
@@ -332,14 +369,14 @@ class ProfileVC: AGVC {
         cc_displayed.displayName = fsUser._displayName
         cc_displayed.bio = fsUser._bio
         cc_displayed.posts = "\(postList.count)"
-        cc_displayed.friends = "0"
-        cc_displayed.closets = "0"
+        cc_displayed.friends = "\(fsRelationshipList.count)"
+        cc_displayed.closets = "\(fsClosetList.count)"
       }
       let displayed = ProfileCADisplayed()
       displayed.sections = [section_profile, section_post].compactMap({ $0 })
       adapter_profile.setupData(with: displayed)
     }
-    func presentError() {
+    func presenterError(code: Int) {
       v_state.setState(with: .error, isAnimation: false)
     }
     interactor()
@@ -352,8 +389,12 @@ class ProfileVC: AGVC {
     var postList: [Post] = []
     var fsPostList: [FSPost] = []
     func interactor() {
-      let fsUser = UserDefaults.FSUserDefault.get()!
-      worker(fsUser: fsUser)
+      if let fsUser = fsUser {
+        worker(fsUser: fsUser)
+      } else {
+        let fsUser = UserDefaults.FSUserDefault.get()!
+        worker(fsUser: fsUser)
+      }
     }
     func worker(fsUser: FSUser) {
       FSPostWorker.fetchWhere(userId: fsUser._documentId) { [weak self] in
@@ -422,6 +463,12 @@ class ProfileVC: AGVC {
         nc?.pushViewController(vc)
       case .friend:
         let vc = FriendListVC.vc()
+        if let fsUser = fsUser {
+          vc.fsUser = fsUser
+        } else {
+          let fsUser = UserDefaults.FSUserDefault.get()!
+          vc.fsUser = fsUser
+        }
         nc?.pushViewController(vc)
       }
     }

@@ -91,6 +91,11 @@
 		5EF9F2DA21FC972F0034F7B2 /* ProfileCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF9F2D921FC972F0034F7B2 /* ProfileCC.swift */; };
 		5EF9F2DC21FC974D0034F7B2 /* ProfileCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EF9F2DB21FC974D0034F7B2 /* ProfileCC.xib */; };
 		5EFA3A68224BC21700C869EE /* FSRelationshipWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA3A67224BC21700C869EE /* FSRelationshipWorker.swift */; };
+		5EFA3A6B224D010C00C869EE /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA3A6A224D010C00C869EE /* NotificationVC.swift */; };
+		5EFA3A6D224D011500C869EE /* NotificationVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EFA3A6C224D011500C869EE /* NotificationVC.storyboard */; };
+		5EFA3A70224D02F300C869EE /* NotificationCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA3A6F224D02F300C869EE /* NotificationCA.swift */; };
+		5EFA3A72224D0CD600C869EE /* FriendRequestCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA3A71224D0CD600C869EE /* FriendRequestCC.swift */; };
+		5EFA3A74224D0CDD00C869EE /* FriendRequestCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EFA3A73224D0CDD00C869EE /* FriendRequestCC.xib */; };
 		5EFB7F97221BCD9D00D7D8F5 /* IconLabelCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFB7F96221BCD9D00D7D8F5 /* IconLabelCC.swift */; };
 		5EFB7F99221BCDAE00D7D8F5 /* IconLabelCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EFB7F98221BCDAE00D7D8F5 /* IconLabelCC.xib */; };
 		5EFB7F9B221BCF9300D7D8F5 /* SelectClosetCategoryCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFB7F9A221BCF9300D7D8F5 /* SelectClosetCategoryCA.swift */; };
@@ -302,6 +307,11 @@
 		5EF9F2D921FC972F0034F7B2 /* ProfileCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCC.swift; sourceTree = "<group>"; };
 		5EF9F2DB21FC974D0034F7B2 /* ProfileCC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCC.xib; sourceTree = "<group>"; };
 		5EFA3A67224BC21700C869EE /* FSRelationshipWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSRelationshipWorker.swift; sourceTree = "<group>"; };
+		5EFA3A6A224D010C00C869EE /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
+		5EFA3A6C224D011500C869EE /* NotificationVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotificationVC.storyboard; sourceTree = "<group>"; };
+		5EFA3A6F224D02F300C869EE /* NotificationCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCA.swift; sourceTree = "<group>"; };
+		5EFA3A71224D0CD600C869EE /* FriendRequestCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestCC.swift; sourceTree = "<group>"; };
+		5EFA3A73224D0CDD00C869EE /* FriendRequestCC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendRequestCC.xib; sourceTree = "<group>"; };
 		5EFB7F96221BCD9D00D7D8F5 /* IconLabelCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconLabelCC.swift; sourceTree = "<group>"; };
 		5EFB7F98221BCDAE00D7D8F5 /* IconLabelCC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconLabelCC.xib; sourceTree = "<group>"; };
 		5EFB7F9A221BCF9300D7D8F5 /* SelectClosetCategoryCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectClosetCategoryCA.swift; sourceTree = "<group>"; };
@@ -912,6 +922,7 @@
 		5EE8923921C3E46F008A65ED /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				5EFA3A69224D00EB00C869EE /* NotificationVC */,
 				A4FB1BF1222136FC002933E1 /* PostVC */,
 				5E74DA6A21BBDA0100A97A89 /* PostListVC */,
 				5E0900B521C2B7AF0099F81E /* PostCreate */,
@@ -957,6 +968,16 @@
 				5EED2AF6224A791D0092D214 /* FriendSearchVC.storyboard */,
 			);
 			path = FriendSearchVC;
+			sourceTree = "<group>";
+		};
+		5EFA3A69224D00EB00C869EE /* NotificationVC */ = {
+			isa = PBXGroup;
+			children = (
+				5EFA3A6A224D010C00C869EE /* NotificationVC.swift */,
+				5EFA3A6C224D011500C869EE /* NotificationVC.storyboard */,
+				5EFA3A6F224D02F300C869EE /* NotificationCA.swift */,
+			);
+			path = NotificationVC;
 			sourceTree = "<group>";
 		};
 		A42F7C6021BE5BB600085DB5 /* UserDefaults */ = {
@@ -1087,6 +1108,8 @@
 				A4FB1BFD22213D94002933E1 /* PostHeaderCC.xib */,
 				5EA4B13422214A99002E6513 /* OutfitItemXCC.swift */,
 				5EA4B13622214A9F002E6513 /* OutfitItemXCC.xib */,
+				5EFA3A71224D0CD600C869EE /* FriendRequestCC.swift */,
+				5EFA3A73224D0CDD00C869EE /* FriendRequestCC.xib */,
 			);
 			path = CC;
 			sourceTree = "<group>";
@@ -1347,6 +1370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4C4FAB121F975C7004A3F37 /* FloatingView.xib in Resources */,
+				5EFA3A74224D0CDD00C869EE /* FriendRequestCC.xib in Resources */,
 				A4C4FAB321F975C7004A3F37 /* ClosetMenuView.xib in Resources */,
 				A4DAA1BC220823E300DA31F7 /* LabelCC.xib in Resources */,
 				5EED2AF7224A791D0092D214 /* FriendSearchVC.storyboard in Resources */,
@@ -1380,6 +1404,7 @@
 				5ECE8E8721F769F7000AF65E /* ClosetCategoryVC.storyboard in Resources */,
 				5EA4B13722214A9F002E6513 /* OutfitItemXCC.xib in Resources */,
 				5EF9F2D621FC7EF20034F7B2 /* ClosetListVC.storyboard in Resources */,
+				5EFA3A6D224D011500C869EE /* NotificationVC.storyboard in Resources */,
 				5E5BD815221B05BB003D1C3D /* ClosetTagView.xib in Resources */,
 				5EFB7F99221BCDAE00D7D8F5 /* IconLabelCC.xib in Resources */,
 			);
@@ -1595,6 +1620,7 @@
 				5ECC1D63221AEA9100B03268 /* PostCreateOutfitVC.swift in Sources */,
 				5E74DA8421BBF94B00A97A89 /* UINavigationController+AG.swift in Sources */,
 				5ECE8E7121F74B84000AF65E /* ClosetCategory.swift in Sources */,
+				5EFA3A72224D0CD600C869EE /* FriendRequestCC.swift in Sources */,
 				5E74DA8621BBFC6700A97A89 /* UIImagePickerController+AG.swift in Sources */,
 				5E74DA5721BBD0B100A97A89 /* TemplateVC.swift in Sources */,
 				5E74DA6221BBD6AC00A97A89 /* CATransition+AG.swift in Sources */,
@@ -1645,6 +1671,7 @@
 				A4DAA1B822081FC000DA31F7 /* Panelable.swift in Sources */,
 				A4C9931C2220635C00CCC3D8 /* FSPostComment.swift in Sources */,
 				A4C338C621F8AE4200147567 /* UICollectionView+AG.swift in Sources */,
+				5EFA3A6B224D010C00C869EE /* NotificationVC.swift in Sources */,
 				5EFC9BB121FB706D0078ED50 /* Date+AG.swift in Sources */,
 				A42F7C7121BE7B7300085DB5 /* UIImage+AG.swift in Sources */,
 				A4DAA1AC22081BD600DA31F7 /* DevicePermission.swift in Sources */,
@@ -1658,6 +1685,7 @@
 				A4C4FAC621F9A13C004A3F37 /* ViewIPC.swift in Sources */,
 				A4B482CC22202439006F55DB /* AppDelegate+Router.swift in Sources */,
 				A4C993272220722400CCC3D8 /* FSPostClosetWorker.swift in Sources */,
+				5EFA3A70224D02F300C869EE /* NotificationCA.swift in Sources */,
 				A4DFBCC4221DA15500C31FD2 /* OutfitItemCA.swift in Sources */,
 				5E74DA5821BBD0B100A97A89 /* TemplateVIP.swift in Sources */,
 				5EED2AF9224A7CD00092D214 /* FSRelationship.swift in Sources */,

@@ -32,6 +32,7 @@ class PostListVC: AGVC {
   
   
   //MARK: - UI
+  var bbi_notification: UIBarButtonItem!
   @IBOutlet weak var v_addPostFloating: FloatingView!
   var collection_post: UICollectionView!
   var v_state: StateView!
@@ -115,7 +116,9 @@ class PostListVC: AGVC {
     super.viewDidLoad()
     //MARK: Core
     view.backgroundColor = c_material.white
-    //    nb?.setupWith(content: .white, bg: c.peach, isTranslucent: false)
+    bbi_notification = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_noti"), style: .plain, target: self, action: #selector(buttonPressed))
+    ni.rightBarButtonItems = [bbi_notification]
+    
     
     
     
@@ -175,6 +178,12 @@ class PostListVC: AGVC {
   
   
   //MARK: - Event
+  @objc func buttonPressed(_ sender: UIButton) {
+    let vc = NotificationVC.vc()
+    let nvc = UINavigationController(rootViewController: vc)
+    nvc.modalTransitionStyle = .crossDissolve
+    present(nvc, animated: true)
+  }
   
   
   

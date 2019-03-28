@@ -57,6 +57,7 @@ class FriendListVC: AGVC {
   
   
   //MARK: - Storage
+  var fsUser: FSUser?
   var fsRelationshipList: [FSRelationship] = []
   var fsUserList: [FSUser] = []
   
@@ -196,7 +197,8 @@ class FriendListVC: AGVC {
     func interactor() {
       fsRelationshipList = []
       fsUserList = []
-      guard let fsUser = UserDefaults.FSUserDefault.get() else {
+      v_state.setState(with: .loading, isAnimation: false)
+      guard let fsUser = fsUser else {
         presenterError(code: 0)
         return
       }
@@ -238,6 +240,7 @@ class FriendListVC: AGVC {
       fetchRelationship()
     }
     func presenter() {
+      v_state.setState(with: .hidden, isAnimation: false)
       let section = FriendListCADisplayed.Section()
       section.items = fsUserList.map({
         let displayed = IconLabelCCDisplayed()
@@ -251,7 +254,7 @@ class FriendListVC: AGVC {
       adapter_friend.setupData(with: displayed)
     }
     func presenterError(code: Int) {
-      
+      v_state.setState(with: .error, isAnimation: false)
     }
     interactor()
   }
@@ -290,7 +293,10 @@ class FriendListVC: AGVC {
   
   //MARK: - Custom - AGCADelegate
   func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
-    
+    print("Sud")
+    let vc = ProfileVC.vc()
+    vc.fsUser = fsUserList[indexPath.row]
+    nc?.pushViewController(vc)
   }
   
   
