@@ -35,7 +35,8 @@ class PostCA: AGCA {
   
   //MARK: - Enum
   enum Action {
-    case doubleTap
+    case profile
+    case like
     case items
   }
   
@@ -291,8 +292,10 @@ class PostCA: AGCA {
     case is PostHeaderCC:
       if let action = action as? CC_PostHeader.Action {
         switch action {
-        case .doubleTap:
-          delegate?.agCAPressed(self, action: Action.doubleTap, indexPath: indexPath)
+        case .like:
+          delegate?.agCAPressed(self, action: Action.like, indexPath: indexPath)
+        case .profile:
+          delegate?.agCAPressed(self, action: Action.profile, indexPath: indexPath)
         }
       }
     case is OutfitItemXCC:

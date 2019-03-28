@@ -76,7 +76,8 @@ class PostHeaderCC: AGCC {
   }
   
   enum Action {
-    case doubleTap
+    case like
+    case profile
   }
   
   
@@ -95,6 +96,9 @@ class PostHeaderCC: AGCC {
   var tapGesture: UITapGestureRecognizer!
   var doubleTapGesture: UITapGestureRecognizer!
   
+  @IBOutlet weak var btn_profile: UIButton!
+  
+  @IBOutlet weak var btn_like: UIButton!
   
   
   //MARK: - NSLayout
@@ -201,8 +205,12 @@ class PostHeaderCC: AGCC {
     tapGesture.delaysTouchesBegan = true
     tapGesture.require(toFail: doubleTapGesture)
     
-    addGestureRecognizer(doubleTapGesture)
-    addGestureRecognizer(tapGesture)
+    imgv.isUserInteractionEnabled = true
+    imgv.addGestureRecognizer(doubleTapGesture)
+    imgv.addGestureRecognizer(tapGesture)
+    
+    btn_profile.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+    btn_like.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
     
     
     
@@ -307,6 +315,27 @@ class PostHeaderCC: AGCC {
   
   
   //MARK: - Event
+  @objc func buttonPressed(_ sender: UIButton) {
+    switch sender {
+    case btn_profile:
+      delegate?.agCCPressed(self, action: Action.profile, indexPath: indexPath)
+    case btn_like:
+      if let displayed = displayedCC as? Displayed {
+        displayed.isLiked = !displayed.isLiked
+        if displayed.isLiked {
+          displayed.like = "\((displayed.like?.int ?? 0) + 1)"
+        } else {
+          displayed.like = "\((displayed.like?.int ?? 0) - 1)"
+        }
+        lb_likes.text = displayed.like
+        imgv_like.image = #imageLiteral(resourceName: "ic_like").filled(withColor: displayed.isLiked ? c_custom.peach : c_material.grey400)
+        delegate?.agCCPressed(self, action: Action.like, indexPath: indexPath)
+      }
+    default:
+      break
+    }
+  }
+  
   @objc func tapGestureRecognized(_ sender: UITapGestureRecognizer) {
     switch sender {
     case tapGesture:
@@ -326,7 +355,7 @@ class PostHeaderCC: AGCC {
         }
         lb_likes.text = displayed.like
         imgv_like.image = #imageLiteral(resourceName: "ic_like").filled(withColor: displayed.isLiked ? c_custom.peach : c_material.grey400)
-        delegate?.agCCPressed(self, action: Action.doubleTap, indexPath: indexPath)
+        delegate?.agCCPressed(self, action: Action.like, indexPath: indexPath)
       }
     default:
       break

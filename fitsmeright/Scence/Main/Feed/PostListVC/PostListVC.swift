@@ -212,10 +212,24 @@ class PostListVC: AGVC {
       worker(userId: fsUser._documentId)
     }
     func worker(userId: String) {
-      let users = [userId]
+      var userRelateIdList: [String] = []
+      userRelateIdList.append(userId)
+      func fetchRelationship() {
+        FSRelationshipWorker.fetchWhere(userOneId: userId) {
+          switch $0.error {
+          case .none:
+            let fsRelationshipList = $0.data.filter({ $0.userRelationStatus == .accept })
+            userRelateIdList += fsRelationshipList.map({ $0._userTwoId })
+            fetchPost()
+          case let .some(e):
+            presenterError(code: 0)
+            print(e.localizedDescription)
+          }
+        }
+      }
       func fetchPost() {
         let dg = DispatchGroup()
-        for i in users {
+        for i in userRelateIdList {
           dg.enter()
           FSPostWorker.fetchWhere(userId: i) { [weak self] in
             guard let _ = self else { return }
@@ -223,18 +237,19 @@ class PostListVC: AGVC {
             switch $0.error {
             case .none:
               fsPostList += $0.data
+              fsPostList.sort(by: { $0._updatedAt.dateValue() >= $1._updatedAt.dateValue() })
             case let .some(e):
               print(e.localizedDescription)
             }
           }
         }
         dg.notify(queue: .main) {
-          fetchUser(users: users)
+          fetchUser()
         }
       }
-      func fetchUser(users: [String]) {
+      func fetchUser() {
         let dg = DispatchGroup()
-        for i in users {
+        for i in userRelateIdList {
           dg.enter()
           FSUserWorker.get(documentId: i) { [weak self] in
             guard let _ = self else { return }
@@ -251,7 +266,7 @@ class PostListVC: AGVC {
           presenter()
         }
       }
-      fetchPost()
+      fetchRelationship()
     }
     func presenter() {
       v_state.setState(with: .hidden)
@@ -282,7 +297,7 @@ class PostListVC: AGVC {
       displayed.sections = [section]
       adapter_post.setupData(with: displayed)
     }
-    func presenterError() {
+    func presenterError(code: Int) {
       v_state.setState(with: .hidden)
     }
     interactor()
@@ -333,6 +348,7 @@ class PostListVC: AGVC {
         nc?.pushViewController(vc)
       case .doubleTap:
         print("doubleTap \(indexPath)")
+        let fsPost = postList[indexPath.row]._fsPost
       }
     }
   }

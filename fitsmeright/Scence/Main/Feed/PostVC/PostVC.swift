@@ -313,7 +313,7 @@ class PostVC: AGVC {
   func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
     if let action = action as? PostCA.Action {
       switch action {
-      case .doubleTap:
+      case .like:
         break
       case .items:
         print(indexPath)
@@ -322,6 +322,10 @@ class PostVC: AGVC {
         vc.closetCategory = postSelected!.postClosetList[indexPath.row]._fsCloset.closetCategory
         vc.isEditable = false
         navigationController?.pushViewController(vc)
+      case .profile:
+        let vc = ProfileVC.vc()
+        vc.fsUser = postSelected?._fsUser
+        nc?.pushViewController(vc, animated: true)
       }
     }
   }

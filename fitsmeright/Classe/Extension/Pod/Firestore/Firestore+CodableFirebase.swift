@@ -17,4 +17,8 @@ import CodableFirebase
 extension DocumentReference: DocumentReferenceType { }
 extension GeoPoint: GeoPointType { }
 extension FieldValue: FieldValueType { }
-extension Timestamp: TimestampType { }
+extension Timestamp: TimestampType, Comparable {
+  public static func < (lhs: Timestamp, rhs: Timestamp) -> Bool {
+    return lhs.dateValue() < rhs.dateValue()
+  }
+}

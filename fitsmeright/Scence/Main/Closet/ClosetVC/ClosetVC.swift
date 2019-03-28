@@ -212,6 +212,7 @@ class ClosetVC: AGVC {
     var fsPostClosetList: [FSPostCloset] = []
     var fsPostList: [FSPost] = []
     var postList: [Post] = []
+    var fsUserList: [FSUser] = []
     func interactor() {
       v_state.setState(with: .loading, isAnimation: false)
       guard let _ = closetCategory, let closet = fsCloset else {
@@ -244,6 +245,25 @@ class ClosetVC: AGVC {
             switch $0.error {
             case .none:
               fsPostList.append($0.data)
+            case let .some(e):
+              print(e.localizedDescription)
+            }
+          }
+        }
+        dg.notify(queue: .main) {
+          fetchUser()
+        }
+      }
+      func fetchUser() {
+        let dg = DispatchGroup()
+        for i in fsPostList {
+          dg.enter()
+          FSUserWorker.get(documentId: i._userId) { [weak self] in
+            guard let _ = self else { return }
+            dg.leave()
+            switch $0.error {
+            case .none:
+              fsUserList.append($0.data)
             case let .some(e):
               print(e.localizedDescription)
             }
@@ -283,6 +303,11 @@ class ClosetVC: AGVC {
         for p in fsPostList {
           let post = Post()
           post.fsPost = p
+          for u in fsUserList {
+            if p._userId == u._documentId {
+              post.fsUser = u
+            }
+          }
           postList.append(post)
         }
         self.postList = postList
@@ -318,7 +343,6 @@ class ClosetVC: AGVC {
   
   //MARK: - Custom - AGVCDelegate
   func agVCPressed(_ vc: AGVC, action: Any) {
-    
     func closetForm(action: ClosetFormVC.Action) {
       switch action {
       case let .update(fsCloset):
@@ -330,11 +354,9 @@ class ClosetVC: AGVC {
         }
       }
     }
-    
     if let action = action as? ClosetFormVC.Action {
       closetForm(action: action)
     }
-    
   }
   
   
@@ -366,9 +388,10 @@ class ClosetVC: AGVC {
   
   //MARK: - Custom - AGCADelegate
   func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
-//    if let action = action as? ClosetRelateCA.Action {
-//
-//    }
+    print("Test")
+    let vc = PostVC.vc()
+    vc.postSelected = postList[indexPath.row]
+    nc?.pushViewController(vc, animated: true)
   }
   
   
