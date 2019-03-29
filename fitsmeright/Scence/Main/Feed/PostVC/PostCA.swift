@@ -36,7 +36,7 @@ class PostCA: AGCA {
   //MARK: - Enum
   enum Action {
     case profile
-    case like
+    case like(Bool)
     case items
   }
   
@@ -292,8 +292,8 @@ class PostCA: AGCA {
     case is PostHeaderCC:
       if let action = action as? CC_PostHeader.Action {
         switch action {
-        case .like:
-          delegate?.agCAPressed(self, action: Action.like, indexPath: indexPath)
+        case let .like(bool):
+          delegate?.agCAPressed(self, action: Action.like(bool), indexPath: indexPath)
         case .profile:
           delegate?.agCAPressed(self, action: Action.profile, indexPath: indexPath)
         }

@@ -31,6 +31,7 @@ class Post {
   var fsUser: FSUser?
   var postClosetList: [PostCloset] = []
   var fsPostCommentList: [String] = []
+  var fsPostLikeList: [FSPostLike] = []
   
   
   

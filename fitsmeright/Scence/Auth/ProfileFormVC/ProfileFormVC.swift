@@ -214,8 +214,7 @@ class ProfileFormVC: AGVC {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-//    nb?.setupWith(content: .black, bg: .white, isTranslucent: false)
-//    nb?.removeShadow()
+
   }
   
   

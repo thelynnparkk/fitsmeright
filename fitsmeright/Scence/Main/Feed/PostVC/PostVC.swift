@@ -12,6 +12,11 @@ import SwifterSwift
 
 
 
+import FirebaseFirestore
+import CodableFirebase
+
+
+
 extension PostVC:
   AGViewDelegate,
   AGCADelegate
@@ -265,8 +270,10 @@ class PostVC: AGVC {
       displayed_post.userImageURL = post._fsUser.imageURL
       displayed_post.displayName = post._fsUser.displayName
       displayed_post.username = post._fsUser.username
-      displayed_post.isLiked = false
-      displayed_post.like = "\(post._fsPost._likes)"
+      displayed_post.isLiked = post.fsPostLikeList.contains(where: {
+        $0._userId == UserDefaults.FSUserDefault.get()!._documentId
+      })
+      displayed_post.like = "\(post.fsPostLikeList.count)"
       displayed_post.caption = post._fsPost._caption
       displayed_post.postClostList = post.postClosetList
       section_post.items = [displayed_post]
@@ -287,6 +294,87 @@ class PostVC: AGVC {
     }
     func presenterError() {
       v_state.setState(with: .error, isAnimation: true)
+    }
+    interactor()
+  }
+  
+  //MARK: - VIP - AddPostLike
+  func addPostLike(indexPath: IndexPath) {
+    func interactor() {
+      worker(postId: postSelected!.fsPost!._documentId,
+             userId: UserDefaults.FSUserDefault.get()!._documentId)
+    }
+    func worker(postId: String, userId: String) {
+      func getPostLike() {
+        FSPostLikeWorker.fetchWhere(postId: postId, userId: userId) {
+          switch $0.error {
+          case .none:
+            if $0.data.isEmpty {
+              addPostLike()
+            }
+          case let .some(e):
+            presenterError(code: 0)
+            print(e.localizedDescription)
+          }
+        }
+      }
+      func addPostLike() {
+        let fsPostLike = FSPostLike()
+        fsPostLike.postId = postSelected!.fsPost?.documentId
+        fsPostLike.userId = UserDefaults.FSUserDefault.get()?.documentId
+        fsPostLike.updatedAt = Timestamp(date: Date())
+        FSPostLikeWorker.add(fsPostLike: fsPostLike) { [weak self] in
+          guard let _s = self else { return }
+          switch $0.error {
+          case .none:
+            fsPostLike.documentId = $0.ref?.documentID
+            _s.postSelected!.fsPostLikeList.append(fsPostLike)
+            presenter()
+          case let .some(e):
+            print(e.localizedDescription)
+          }
+        }
+      }
+      getPostLike()
+    }
+    func presenter() {
+      
+    }
+    func presenterError(code: Int) {
+      
+    }
+    interactor()
+  }
+  
+  
+  
+  //MARK: - VIP - DeletePostLike
+  func deletePostLike(indexPath: IndexPath) {
+    func interactor() {
+      worker(postId: postSelected!.fsPost!._documentId,
+             userId: UserDefaults.FSUserDefault.get()!._documentId)
+    }
+    func worker(postId: String, userId: String) {
+      FSPostLikeWorker.fetchWhere(postId: postId, userId: userId) { [weak self] in
+        guard let _s = self else { return }
+        switch $0.error {
+        case .none:
+          _s.postSelected!.fsPostLikeList.removeAll(where: {
+            ($0._postId == postId) && ($0._userId == userId)
+          })
+          $0.data.first?.ref?.delete()
+        case let .some(e):
+          presenterError(code: 0)
+          print(e.localizedDescription)
+        }
+      }
+      presenter()
+    }
+    func presenter() {
+      
+    }
+    func presenterError(code: Int) {
+      
     }
     interactor()
   }
@@ -326,8 +414,13 @@ class PostVC: AGVC {
   func agCAPressed(_ adapter: AGCA, action: Any, indexPath: IndexPath) {
     if let action = action as? PostCA.Action {
       switch action {
-      case .like:
-        break
+      case let .like(bool):
+        print(action)
+        if bool {
+          addPostLike(indexPath: indexPath)
+        } else {
+          deletePostLike(indexPath: indexPath)
+        }
       case .items:
         print(indexPath)
         let vc = ClosetVC.vc()

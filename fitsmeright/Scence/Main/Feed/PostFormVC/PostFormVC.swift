@@ -118,7 +118,6 @@ class PostFormVC: AGVC {
     super.viewDidLoad()
     //MARK: Core
     view.backgroundColor = .white
-    nb?.setupWith(content: .white, bg: c_custom.peach, isTranslucent: false)
     
     
     

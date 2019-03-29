@@ -76,7 +76,7 @@ class PostHeaderCC: AGCC {
   }
   
   enum Action {
-    case like
+    case like(Bool)
     case profile
   }
   
@@ -327,7 +327,7 @@ class PostHeaderCC: AGCC {
         }
         lb_likes.text = displayed.like
         imgv_like.image = #imageLiteral(resourceName: "ic_like").filled(withColor: displayed.isLiked ? c_custom.peach : c_material.grey400)
-        delegate?.agCCPressed(self, action: Action.like, indexPath: indexPath)
+        delegate?.agCCPressed(self, action: Action.like(displayed.isLiked), indexPath: indexPath)
       }
     default:
       break
@@ -353,7 +353,7 @@ class PostHeaderCC: AGCC {
         }
         lb_likes.text = displayed.like
         imgv_like.image = #imageLiteral(resourceName: "ic_like").filled(withColor: displayed.isLiked ? c_custom.peach : c_material.grey400)
-        delegate?.agCCPressed(self, action: Action.like, indexPath: indexPath)
+        delegate?.agCCPressed(self, action: Action.like(displayed.isLiked), indexPath: indexPath)
       }
     default:
       break

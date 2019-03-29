@@ -11,6 +11,10 @@
 import UIKit
 
 
+import FirebaseFirestore
+import CodableFirebase
+
+
 
 extension PostListVC:
   AGViewDelegate,
@@ -59,9 +63,10 @@ class PostListVC: AGVC {
   
   //MARK: - Storage
   var postList: [Post] = []
+  var fsRelationshipList: [FSRelationship] = []
   
   
-
+  
   //MARK: - Apperance
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
@@ -116,6 +121,7 @@ class PostListVC: AGVC {
     super.viewDidLoad()
     //MARK: Core
     view.backgroundColor = c_material.white
+//    nb?.setupLargeTitlesWith(content: .white, bg: c_custom.peach)
     bbi_notification = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_noti"), style: .plain, target: self, action: #selector(buttonPressed))
     ni.rightBarButtonItems = [bbi_notification]
     
@@ -136,7 +142,7 @@ class PostListVC: AGVC {
     v_state.setupLight()
     v_state.delegate = self
     
-    view.addSubview(collection_post)
+    view.insertSubview(collection_post, at: 0)
     view.addSubview(v_state)
     view.bringSubviewToFront(v_addPostFloating)
     
@@ -173,6 +179,7 @@ class PostListVC: AGVC {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     fetchPostList()
+    fetchNotification()
   }
   
   
@@ -197,12 +204,57 @@ class PostListVC: AGVC {
   //MARK: - Private
   
   
+  //MARK: - VIP - FetchNotification
+  func fetchNotification() {
+    func interactor() {
+      fsRelationshipList = []
+      v_state.setState(with: .loading, isAnimation: false)
+      guard let fsUser = UserDefaults.FSUserDefault.get() else {
+        presenterError(code: 0)
+        return
+      }
+      worker(fsUser: fsUser)
+    }
+    func worker(fsUser: FSUser) {
+      func fetchRelationship() {
+        FSRelationshipWorker.fetchWhere(userTwoId: fsUser._documentId) { [weak self] in
+          guard let _s = self else { return }
+          switch $0.error {
+          case .none:
+            _s.fsRelationshipList = $0.data.filter({ $0.userRelationStatus == .request })
+            presenter()
+          case let .some(e):
+            presenterError(code: 0)
+            print(e.localizedDescription)
+          }
+        }
+      }
+      fetchRelationship()
+    }
+    func presenter() {
+      v_state.setState(with: .hidden, isAnimation: false)
+      if fsRelationshipList.isEmpty {
+        bbi_notification = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_noti"), style: .plain, target: self, action: #selector(buttonPressed))
+        ni.rightBarButtonItems = [bbi_notification]
+      } else {
+        bbi_notification = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_noti_yes").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(buttonPressed))
+        ni.rightBarButtonItems = [bbi_notification]
+      }
+    }
+    func presenterError(code: Int) {
+      v_state.setState(with: .error, isAnimation: false)
+    }
+    interactor()
+  }
+  
+  
   
   //MARK: - VIP - FetchPostList
   func fetchPostList() {
     var postList: [Post] = []
     var fsPostList: [FSPost] = []
     var fsUserList: [FSUser] = []
+    var fsPostLikeList: [FSPostLike] = []
     func interactor() {
       if isFetchFeedFirstTime {
         isFetchFeedFirstTime = false
@@ -263,6 +315,25 @@ class PostListVC: AGVC {
           }
         }
         dg.notify(queue: .main) {
+          fetchPostLike()
+        }
+      }
+      func fetchPostLike() {
+        let dg = DispatchGroup()
+        for i in fsPostList {
+          dg.enter()
+          FSPostLikeWorker.fetchWhere(postId: i._documentId) {[weak self] in
+            guard let _ = self else { return }
+            dg.leave()
+            switch $0.error {
+            case .none:
+              fsPostLikeList += $0.data
+            case let .some(e):
+              print(e.localizedDescription)
+            }
+          }
+        }
+        dg.notify(queue: .main) {
           presenter()
         }
       }
@@ -278,6 +349,11 @@ class PostListVC: AGVC {
             post.fsUser = u
           }
         }
+        for l in fsPostLikeList {
+          if l._postId == p._documentId {
+            post.fsPostLikeList.append(l)
+          }
+        }
         postList.append(post)
       }
       self.postList = postList
@@ -289,8 +365,10 @@ class PostListVC: AGVC {
         displayed.userImageURL = $0._fsUser.imageURL
         displayed.displayName = $0._fsUser.displayName
         displayed.username = $0._fsUser.username
-        displayed.isLiked = false
-        displayed.like = "\($0._fsPost._likes)"
+        displayed.isLiked = $0.fsPostLikeList.contains(where: {
+          $0._userId == UserDefaults.FSUserDefault.get()!._documentId
+        })
+        displayed.like = "\($0.fsPostLikeList.count)"
         displayed.comment = "0"
         return displayed
       })
@@ -302,7 +380,90 @@ class PostListVC: AGVC {
     }
     interactor()
   }
-
+  
+  
+  
+  //MARK: - VIP - AddPostLike
+  func addPostLike(indexPath: IndexPath) {
+    func interactor() {
+      worker(postId: postList[indexPath.row].fsPost!._documentId,
+             userId: UserDefaults.FSUserDefault.get()!._documentId)
+    }
+    func worker(postId: String, userId: String) {
+      func getPostLike() {
+        FSPostLikeWorker.fetchWhere(postId: postId, userId: userId) {
+          switch $0.error {
+          case .none:
+            if $0.data.isEmpty {
+              addPostLike()
+            }
+          case let .some(e):
+            presenterError(code: 0)
+            print(e.localizedDescription)
+          }
+        }
+      }
+      func addPostLike() {
+        let fsPostLike = FSPostLike()
+        fsPostLike.postId = postList[indexPath.row].fsPost?.documentId
+        fsPostLike.userId = UserDefaults.FSUserDefault.get()?.documentId
+        fsPostLike.updatedAt = Timestamp(date: Date())
+        FSPostLikeWorker.add(fsPostLike: fsPostLike) { [weak self] in
+          guard let _s = self else { return }
+          switch $0.error {
+          case .none:
+            fsPostLike.documentId = $0.ref?.documentID
+            _s.postList[indexPath.row].fsPostLikeList.append(fsPostLike)
+            presenter()
+          case let .some(e):
+            print(e.localizedDescription)
+          }
+        }
+      }
+      getPostLike()
+    }
+    func presenter() {
+      
+    }
+    func presenterError(code: Int) {
+      
+    }
+    interactor()
+  }
+  
+  
+  
+  //MARK: - VIP - DeletePostLike
+  func deletePostLike(indexPath: IndexPath) {
+    func interactor() {
+      worker(postId: postList[indexPath.row].fsPost!._documentId,
+             userId: UserDefaults.FSUserDefault.get()!._documentId)
+    }
+    func worker(postId: String, userId: String) {
+      FSPostLikeWorker.fetchWhere(postId: postId, userId: userId) { [weak self] in
+        guard let _s = self else { return }
+        switch $0.error {
+        case .none:
+          _s.postList[indexPath.row].fsPostLikeList.removeAll(where: {
+            ($0._postId == postId) && ($0._userId == userId)
+          })
+          $0.data.first?.ref?.delete()
+        case let .some(e):
+          presenterError(code: 0)
+          print(e.localizedDescription)
+        }
+      }
+      presenter()
+    }
+    func presenter() {
+      
+    }
+    func presenterError(code: Int) {
+      
+    }
+    interactor()
+  }
+  
   
   
   //MARK: - Core - Protocol
@@ -346,9 +507,13 @@ class PostListVC: AGVC {
         let vc = PostVC.vc()
         vc.postSelected = postList[indexPath.row]
         nc?.pushViewController(vc)
-      case .like:
-        print("doubleTap \(indexPath)")
-        let fsPost = postList[indexPath.row]._fsPost
+      case let .like(bool):
+        print(action)
+        if bool {
+          addPostLike(indexPath: indexPath)
+        } else {
+          deletePostLike(indexPath: indexPath)
+        }
       case .profile:
         let vc = ProfileVC.vc()
         vc.fsUser = postList[indexPath.row].fsUser
