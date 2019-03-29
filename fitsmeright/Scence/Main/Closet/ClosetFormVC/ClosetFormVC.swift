@@ -217,9 +217,6 @@ class ClosetFormVC: AGVC {
     default:
       break
     }
-    
-    
-    
   }
   
   

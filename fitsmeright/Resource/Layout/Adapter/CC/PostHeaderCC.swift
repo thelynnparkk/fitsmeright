@@ -95,9 +95,7 @@ class PostHeaderCC: AGCC {
   @IBOutlet weak var lb_caption: UILabel!
   var tapGesture: UITapGestureRecognizer!
   var doubleTapGesture: UITapGestureRecognizer!
-  
   @IBOutlet weak var btn_profile: UIButton!
-  
   @IBOutlet weak var btn_like: UIButton!
   
   

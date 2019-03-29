@@ -127,7 +127,6 @@ class FSRelationshipWorker {
     }
   }
   
-  
   typealias  DeleteResponse = Error?
   static func delete(documentId: String, onComplete: @escaping ((DeleteResponse) -> ())) {
     var response: DeleteResponse = (nil)

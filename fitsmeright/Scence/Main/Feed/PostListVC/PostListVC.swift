@@ -346,9 +346,13 @@ class PostListVC: AGVC {
         let vc = PostVC.vc()
         vc.postSelected = postList[indexPath.row]
         nc?.pushViewController(vc)
-      case .doubleTap:
+      case .like:
         print("doubleTap \(indexPath)")
         let fsPost = postList[indexPath.row]._fsPost
+      case .profile:
+        let vc = ProfileVC.vc()
+        vc.fsUser = postList[indexPath.row].fsUser
+        nc?.pushViewController(vc, animated: true)
       }
     }
   }

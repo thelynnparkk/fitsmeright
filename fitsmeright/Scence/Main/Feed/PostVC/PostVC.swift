@@ -32,6 +32,7 @@ class PostVC: AGVC {
   
   
   //MARK: - UI
+  var bbi_edit: UIBarButtonItem!
   var collection_post: UICollectionView!
   var adapter_post: PostCA!
   var v_state: StateView!
@@ -114,6 +115,13 @@ class PostVC: AGVC {
     //MARK: Core
     view.backgroundColor = .white
     
+    if let postSelected = postSelected {
+      if postSelected.fsUser?.documentId == UserDefaults.FSUserDefault.get()?.documentId {
+        bbi_edit = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(buttonPressed))
+        ni.rightBarButtonItems = [bbi_edit]
+      }
+    }
+    
     
     
     //MARK: Component
@@ -171,6 +179,11 @@ class PostVC: AGVC {
   
   
   //MARK: - Event
+  @objc func buttonPressed(_ sender: UIButton) {
+    let vc = PostFormVC.vc()
+    vc.postSelected = postSelected
+    nc?.pushViewController(vc, animated: true)
+  }
   
   
   

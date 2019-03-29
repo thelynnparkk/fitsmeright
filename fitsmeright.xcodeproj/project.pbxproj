@@ -96,6 +96,8 @@
 		5EFA3A70224D02F300C869EE /* NotificationCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA3A6F224D02F300C869EE /* NotificationCA.swift */; };
 		5EFA3A72224D0CD600C869EE /* FriendRequestCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA3A71224D0CD600C869EE /* FriendRequestCC.swift */; };
 		5EFA3A74224D0CDD00C869EE /* FriendRequestCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EFA3A73224D0CDD00C869EE /* FriendRequestCC.xib */; };
+		5EFA3A77224E576900C869EE /* PostFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA3A76224E576900C869EE /* PostFormVC.swift */; };
+		5EFA3A79224E57A100C869EE /* PostFormVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EFA3A78224E57A100C869EE /* PostFormVC.storyboard */; };
 		5EFB7F97221BCD9D00D7D8F5 /* IconLabelCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFB7F96221BCD9D00D7D8F5 /* IconLabelCC.swift */; };
 		5EFB7F99221BCDAE00D7D8F5 /* IconLabelCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EFB7F98221BCDAE00D7D8F5 /* IconLabelCC.xib */; };
 		5EFB7F9B221BCF9300D7D8F5 /* SelectClosetCategoryCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFB7F9A221BCF9300D7D8F5 /* SelectClosetCategoryCA.swift */; };
@@ -312,6 +314,8 @@
 		5EFA3A6F224D02F300C869EE /* NotificationCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCA.swift; sourceTree = "<group>"; };
 		5EFA3A71224D0CD600C869EE /* FriendRequestCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestCC.swift; sourceTree = "<group>"; };
 		5EFA3A73224D0CDD00C869EE /* FriendRequestCC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendRequestCC.xib; sourceTree = "<group>"; };
+		5EFA3A76224E576900C869EE /* PostFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFormVC.swift; sourceTree = "<group>"; };
+		5EFA3A78224E57A100C869EE /* PostFormVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PostFormVC.storyboard; sourceTree = "<group>"; };
 		5EFB7F96221BCD9D00D7D8F5 /* IconLabelCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconLabelCC.swift; sourceTree = "<group>"; };
 		5EFB7F98221BCDAE00D7D8F5 /* IconLabelCC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconLabelCC.xib; sourceTree = "<group>"; };
 		5EFB7F9A221BCF9300D7D8F5 /* SelectClosetCategoryCA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectClosetCategoryCA.swift; sourceTree = "<group>"; };
@@ -922,6 +926,7 @@
 		5EE8923921C3E46F008A65ED /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				5EFA3A75224E575900C869EE /* PostFormVC */,
 				5EFA3A69224D00EB00C869EE /* NotificationVC */,
 				A4FB1BF1222136FC002933E1 /* PostVC */,
 				5E74DA6A21BBDA0100A97A89 /* PostListVC */,
@@ -978,6 +983,15 @@
 				5EFA3A6F224D02F300C869EE /* NotificationCA.swift */,
 			);
 			path = NotificationVC;
+			sourceTree = "<group>";
+		};
+		5EFA3A75224E575900C869EE /* PostFormVC */ = {
+			isa = PBXGroup;
+			children = (
+				5EFA3A76224E576900C869EE /* PostFormVC.swift */,
+				5EFA3A78224E57A100C869EE /* PostFormVC.storyboard */,
+			);
+			path = PostFormVC;
 			sourceTree = "<group>";
 		};
 		A42F7C6021BE5BB600085DB5 /* UserDefaults */ = {
@@ -1382,6 +1396,7 @@
 				5E9EABDB2247921B00C46F46 /* ProfileFormVC.storyboard in Resources */,
 				5E74DA7821BBDADF00A97A89 /* MainTBC.storyboard in Resources */,
 				5E5BD81A221B08F0003D1C3D /* SelectClosetCategoryVC.storyboard in Resources */,
+				5EFA3A79224E57A100C869EE /* PostFormVC.storyboard in Resources */,
 				5EF9F2DC21FC974D0034F7B2 /* ProfileCC.xib in Resources */,
 				5E74DA0421BBACAA00A97A89 /* Assets.xcassets in Resources */,
 				5ECC1D6B221AF8E100B03268 /* PostCreateTagVC.storyboard in Resources */,
@@ -1688,6 +1703,7 @@
 				5EFA3A70224D02F300C869EE /* NotificationCA.swift in Sources */,
 				A4DFBCC4221DA15500C31FD2 /* OutfitItemCA.swift in Sources */,
 				5E74DA5821BBD0B100A97A89 /* TemplateVIP.swift in Sources */,
+				5EFA3A77224E576900C869EE /* PostFormVC.swift in Sources */,
 				5EED2AF9224A7CD00092D214 /* FSRelationship.swift in Sources */,
 				A4C4FAB821F975C7004A3F37 /* ClosetFormView.swift in Sources */,
 				5EF9F2DA21FC972F0034F7B2 /* ProfileCC.swift in Sources */,

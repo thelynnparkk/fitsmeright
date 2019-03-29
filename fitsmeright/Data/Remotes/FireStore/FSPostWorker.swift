@@ -82,6 +82,43 @@ class FSPostWorker {
     }
   }
   
+  typealias UpdateResponse = Error?
+  static func update(fsPost: FSPost, onComplete: @escaping ((UpdateResponse) -> ())) {
+    var response: UpdateResponse = (nil)
+    let db = Firestore.default
+    let collection_posts = db.collection(FSPost.collection)
+    guard let fields = try? FirestoreEncoder().encode(fsPost) else {
+      response = AGError.error
+      onComplete(response)
+      return
+    }
+    collection_posts.document(fsPost._documentId).updateData(fields) { error in
+      switch error {
+      case .none:
+        break
+      case let .some(e):
+        response = e
+      }
+      onComplete(response)
+    }
+  }
+  
+  typealias  DeleteResponse = Error?
+  static func delete(documentId: String, onComplete: @escaping ((DeleteResponse) -> ())) {
+    var response: DeleteResponse = (nil)
+    let db = Firestore.default
+    let collection_posts = db.collection(FSPost.collection)
+    collection_posts.document(documentId).delete() { error in
+      switch error {
+      case .none:
+        break
+      case let .some(e):
+        response = e
+      }
+      onComplete(response)
+    }
+  }
+  
 }
 
 

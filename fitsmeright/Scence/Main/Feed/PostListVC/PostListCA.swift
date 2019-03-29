@@ -36,7 +36,8 @@ class PostListCA: AGCA {
   //MARK: - Enum
   enum Action {
     case tap
-    case doubleTap
+    case like
+    case profile
   }
   
   
@@ -250,8 +251,10 @@ class PostListCA: AGCA {
       switch action {
       case .tap:
         delegate?.agCAPressed(self, action: Action.tap, indexPath: indexPath)
-      case .doubleTap:
-        delegate?.agCAPressed(self, action: Action.doubleTap, indexPath: indexPath)
+      case .like:
+        delegate?.agCAPressed(self, action: Action.like, indexPath: indexPath)
+      case .profile:
+        delegate?.agCAPressed(self, action: Action.profile, indexPath: indexPath)
       }
     }
   }
