@@ -47,6 +47,9 @@ pod 'Firebase/Storage'
 pod 'CodableFirebase', '~> 0.2.1'
 # > 4.6.0
 pod 'SwifterSwift', '~> 4.6.0'
+
+# note
+pod 'FBSDKLoginKit'
 # note
 pod 'FacebookCore', '~> 0.3.1'
 # note

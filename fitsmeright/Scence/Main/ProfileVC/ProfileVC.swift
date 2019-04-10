@@ -365,7 +365,7 @@ class ProfileVC: AGVC {
         section_profile?.items = [cc_displayed]
       }
       if let cc_displayed = section_profile?.items.first as? ProfileCCDisplayed {
-        cc_displayed.imageURL = fsUser.imageURL
+        cc_displayed.imageURL = fsUser.getValidImageURL
         cc_displayed.displayName = fsUser._displayName
         cc_displayed.bio = fsUser._bio
         cc_displayed.posts = "\(postList.count)"

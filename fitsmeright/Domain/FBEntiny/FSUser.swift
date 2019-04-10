@@ -101,6 +101,15 @@ class FSUser: FirestoreCodable {
   var imageURL: URL? {
     return URL(string: _image)
   }
+  var getValidImageURL: URL? {
+    if !_image.isEmpty {
+      return imageURL
+    } else if !_facebookId.isEmpty {
+      return URL.Image.facebook(_facebookId)
+    } else {
+      return nil
+    }
+  }
   
   
   

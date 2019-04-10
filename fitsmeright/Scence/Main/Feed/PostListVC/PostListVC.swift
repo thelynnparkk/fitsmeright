@@ -362,7 +362,7 @@ class PostListVC: AGVC {
       section.items = postList.map({
         let displayed = PostCCDisplayed()
         displayed.outfitImageURL = $0._fsPost.imageURL
-        displayed.userImageURL = $0._fsUser.imageURL
+        displayed.userImageURL = $0._fsUser.getValidImageURL
         displayed.displayName = $0._fsUser.displayName
         displayed.username = $0._fsUser.username
         displayed.isLiked = $0.fsPostLikeList.contains(where: {

@@ -367,10 +367,9 @@ class ProfileFormVC: AGVC {
       presenter(fsUser: fsUser)
     }
     func presenter(fsUser: FSUser) {
-      if let facebookId = fsUser.facebookId, !facebookId.isEmpty {
+      if let image = fsUser.getValidImageURL {
         imgv_userPlaceHolder.isHidden = true
-        let url = URL(string: "https://graph.facebook.com/\(facebookId)/picture?type=large")
-        imgv_user.kf.setImage(with: url)
+        imgv_user.kf.setImage(with: image)
       }
       txt_username.text = fsUser.username
       txt_displayName.text = fsUser.displayName
@@ -394,13 +393,9 @@ class ProfileFormVC: AGVC {
       presenter(fsUser: fsUser)
     }
     func presenter(fsUser: FSUser) {
-      if let imageURL = fsUser.imageURL {
+      if let image = fsUser.getValidImageURL {
         imgv_userPlaceHolder.isHidden = true
-        imgv_user.kf.setImage(with: imageURL)
-      } else if let facebookId = fsUser.facebookId, !facebookId.isEmpty {
-        imgv_userPlaceHolder.isHidden = true
-        let url = URL(string: "https://graph.facebook.com/\(facebookId)/picture?type=large")
-        imgv_user.kf.setImage(with: url)
+        imgv_user.kf.setImage(with: image)
       }
       txt_username.text = fsUser.username
       txt_displayName.text = fsUser.displayName

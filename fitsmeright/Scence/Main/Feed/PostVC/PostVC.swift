@@ -267,7 +267,7 @@ class PostVC: AGVC {
       let section_post = PostCADisplayed.Section()
       let displayed_post = PostHeaderCCDisplayed()
       displayed_post.outfitImageURL = post._fsPost.imageURL
-      displayed_post.userImageURL = post._fsUser.imageURL
+      displayed_post.userImageURL = post._fsUser.getValidImageURL
       displayed_post.displayName = post._fsUser.displayName
       displayed_post.username = post._fsUser.username
       displayed_post.isLiked = post.fsPostLikeList.contains(where: {

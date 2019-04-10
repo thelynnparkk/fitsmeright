@@ -27,7 +27,7 @@ class AGSwift {
   static func getMockUser() -> FSUser {
     let fsUser = FSUser()
     fsUser.documentId = "N5GUixP95dAMKzXBx5kG"
-    fsUser.email = "lhnkki@gmail.com"
+    fsUser.email = "lhin-ping@hotmail.com"
     fsUser.username = "lin999"
     fsUser.displayName = "linping"
     fsUser.password = "1234"

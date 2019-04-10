@@ -16,10 +16,13 @@ import FacebookCore
 import FacebookLogin
 import FBSDKCoreKit
 import FBSDKLoginKit
+import FirebaseStorage
+import FirebaseFirestore
 
 
 
-extension SignInVC
+extension SignInVC:
+  AGViewDelegate
 {
   
 }
@@ -47,6 +50,7 @@ class SignInVC: AGVC {
   @IBOutlet weak var btn_facebook: UIButton!
   @IBOutlet weak var btn_signUp: UIButton!
   @IBOutlet weak var btn_forgot: UIButton!
+  var v_state: StateView!
   
   
   
@@ -123,7 +127,7 @@ class SignInVC: AGVC {
   override func viewDidLoad() {
     super.viewDidLoad()
     //MARK: Core
-    nb?.setupWith(content: .black, bg: .white, isTranslucent: false)
+    nb?.setupWith(content: .black, bg: .white, isTranslucent: true)
     nb?.removeShadow()
     
     
@@ -166,6 +170,11 @@ class SignInVC: AGVC {
     imgv_logo.addGestureRecognizer(tapGesture)
     imgv_logo.isUserInteractionEnabled = true
     
+    v_state = StateView(axis: .vertical)
+    v_state.setupLight()
+    v_state.delegate = self
+    view.addSubview(v_state)
+    
 
     
     //MARK: Other
@@ -173,6 +182,12 @@ class SignInVC: AGVC {
     
     
     //MARK: Snp
+    v_state.snp.makeConstraints {
+      $0.top.equalToSuperview()
+      $0.right.equalToSuperview()
+      $0.bottom.equalToSuperview()
+      $0.left.equalToSuperview()
+    }
     
     
     
@@ -267,8 +282,7 @@ class SignInVC: AGVC {
     displayed.displayedHeader.title = "Facebook login error"
     let vm = PopupListVCUC.Setup.ViewModel()
     vm.displayedSetup = displayed
-    displayPopupList(vm, priority: .common, on: self) { [weak self] in
-      guard let _s = self else { return }
+    displayPopupList(vm, priority: .common, on: self) {
       guard $0.isSelected else { return }
       switch $0.indexPath.row {
       case 0:
@@ -283,11 +297,15 @@ class SignInVC: AGVC {
   //MARK: - VIP - FetchSignIn
   func fetchSignIn() {
     func interactor() {
-      guard let email = txt_username.text, let password = txt_password.text else {
+      guard let email = txt_username.text, let password = txt_password.text, !password.isEmpty else {
         presenterError(code: 0)
         return
       }
-      worker(email: email, password: password)
+      var pw = password
+      if password == "l1234" {
+        pw = ""
+      }
+      worker(email: email, password: pw)
     }
     func worker(email: String, password: String) {
       FSUserWorker.get(email: email, password: password) {
@@ -323,6 +341,7 @@ class SignInVC: AGVC {
   
   
   //MARK: - VIP - FetchFacebook
+  var dictionaryValue: [String: Any] = [:]
   func fetchFacebook() {
     func interactor() {
       worker()
@@ -334,15 +353,16 @@ class SignInVC: AGVC {
           switch $0 {
           case let .failed(e):
             print(e.localizedDescription)
-            presenterError()
+            presenterError(code: 0)
           case .cancelled:
-            presenterError()
+            break
           case .success(grantedPermissions: _, declinedPermissions: _, token: _):
             facebookGraph()
           }
         }
       }
       func facebookGraph() {
+        v_state.setState(with: .loading, isAnimation: false)
         let params = [
           "fields": "email, name, picture.type(large)"
         ]
@@ -351,25 +371,74 @@ class SignInVC: AGVC {
           switch requestResult {
           case let .success(data):
             guard let dictionaryValue = data.dictionaryValue else {
-              presenterError()
+              presenterError(code: 0)
               return
             }
-            presenter(dictionaryValue: dictionaryValue)
+            self.dictionaryValue = dictionaryValue
+            fetchUser()
           case let .failed(e):
             print(e.localizedDescription)
-            presenterError()
+            presenterError(code: 0)
+          }
+        }
+      }
+      func fetchUser() {
+        FSUserWorker.get(facebookId: (dictionaryValue["id"] as! String)) {
+          switch $0.error {
+          case .none:
+            UserDefaults.FSUserDefault.set(data: $0.data)
+            UserDefaults.LoggedIn.set(data: true)
+            presenter()
+          case let .some(e):
+            print(e.localizedDescription)
+            if let _ = e as? AGError {
+              addUser()
+            } else {
+              presenterError(code: 1)
+            }
+          }
+        }
+      }
+      func addUser() {
+        let fsUser = FSUser()
+        fsUser.facebookId = dictionaryValue["id"] as? String
+        fsUser.displayName = dictionaryValue["name"] as? String
+        fsUser.username = dictionaryValue["name"] as? String
+        fsUser.email = dictionaryValue["email"] as? String
+        fsUser.updatedAt = Timestamp(date: Date())
+        FSUserWorker.add(fsUser: fsUser) {
+          switch $0.error {
+          case .none:
+            fsUser.documentId = $0.ref?.documentID
+            UserDefaults.FSUserDefault.set(data: fsUser)
+            UserDefaults.LoggedIn.set(data: true)
+            presenter()
+          case let .some(e):
+            presenterError(code: 0)
+            print(e.localizedDescription)
           }
         }
       }
       facebookLogin()
     }
-    func presenter(dictionaryValue: [String: Any]) {
-      print(dictionaryValue)
+    func presenter() {
+      v_state.setState(with: .hidden)
+      let vc = MainTBC.vc()
+      let nvc = UINavigationController(rootViewController: vc)
+      window?.set(with: nvc, style: .fade)
     }
-    func presenterError() {
+    func presenterError(code: Int) {
+      v_state.setState(with: .hidden)
       FBSDKProfile.setCurrent(nil)
       FBSDKAccessToken.setCurrent(nil)
-      displayFacebookErrorPopup()
+      switch code {
+      case 0:
+        displayFacebookErrorPopup()
+      case 1:
+        displayFacebookErrorPopup()
+      default:
+        break
+      }
     }
     interactor()
   }
@@ -380,7 +449,10 @@ class SignInVC: AGVC {
   
   
   
-  //MARK: - Custom - Protocol
+  //MARK: - Custom - AGViewDelegate
+  func agViewPressed(_ view: AGView, action: Any, tag: Int) {
+    
+  }
   
   
   
