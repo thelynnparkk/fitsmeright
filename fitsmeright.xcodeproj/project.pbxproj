@@ -1456,7 +1456,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-fitsmeright/Pods-fitsmeright-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-fitsmeright/Pods-fitsmeright-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
@@ -1517,7 +1517,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-fitsmeright/Pods-fitsmeright-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fitsmeright/Pods-fitsmeright-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		61F9025D3452EDD03E671996 /* [CP] Copy Pods Resources */ = {
@@ -1528,7 +1528,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-fitsmeright/Pods-fitsmeright-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-fitsmeright/Pods-fitsmeright-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1539,7 +1539,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-fitsmeright/Pods-fitsmeright-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fitsmeright/Pods-fitsmeright-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		68F0CE1E2CCF136E2D4D84DC /* [CP] Check Pods Manifest.lock */ = {

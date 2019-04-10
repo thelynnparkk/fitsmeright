@@ -96,11 +96,11 @@
                                                            userInfo:nil];
   FBSDKServerConfiguration *configuration = [FBSDKServerConfigurationManager cachedServerConfiguration];
   BOOL useSafariViewController = [configuration useSafariViewControllerForDialogName:FBSDKDialogConfigurationNameMessage];
-  FBSDKBridgeAPIResponseBlock completionBlock = ^(FBSDKBridgeAPIResponse *response) {
+  FBSDKBridgeAPICallbackBlock completionBlock = ^(FBSDKBridgeAPIResponse *response) {
     [self _handleCompletionWithDialogResults:response.responseParameters response:response];
     [FBSDKInternalUtility unregisterTransientObject:self];
   };
-  [[FBSDKBridgeAPI sharedInstance] openBridgeAPIRequest:request
+  [[FBSDKApplicationDelegate sharedInstance] openBridgeAPIRequest:request
                                           useSafariViewController:useSafariViewController
                                                fromViewController:nil
                                                   completionBlock:completionBlock];

@@ -144,7 +144,7 @@ class FriendSearchVC: AGVC {
     
     btn_addFriend.clipsToBounds = true
     btn_addFriend.backgroundColor = c_custom.peach
-    btn_addFriend.setImage(#imageLiteral(resourceName: "ic_add_dress"), for: [])
+    btn_addFriend.setImage(#imageLiteral(resourceName: "plus"), for: [])
     btn_addFriend.cornerRadius = btn_addFriend.frame.width / 2
     btn_addFriend.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
     

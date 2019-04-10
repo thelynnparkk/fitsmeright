@@ -1,9 +1,9 @@
 //
 //  ControlContainableScrollView.swift
-//  player
+//  fitsmeright
 //
 //  Created by Lynn Park on 23/1/2562 BE.
-//  Copyright © 2562 Sasawat Sankosik. All rights reserved.
+//  Copyright © 2562 silpakorn. All rights reserved.
 //
 
 

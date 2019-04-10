@@ -83,7 +83,7 @@
                                                                                  methodVersion:nil
                                                                                     parameters:parameters
                                                                                       userInfo:nil];
-  FBSDKBridgeAPIResponseBlock completionBlock = ^(FBSDKBridgeAPIResponse *response) {
+  FBSDKBridgeAPICallbackBlock completionBlock = ^(FBSDKBridgeAPIResponse *response) {
     [self _handleCompletionWithDialogResults:response.responseParameters error:response.error];
   };
 
@@ -98,7 +98,7 @@
                                                                                           userInfo:nil];
     void (^networkCompletionBlock)(FBSDKBridgeAPIResponse *) = ^(FBSDKBridgeAPIResponse *response) {
       if (response.error.code == FBSDKErrorAppVersionUnsupported) {
-        [[FBSDKBridgeAPI sharedInstance] openBridgeAPIRequest:webRequest
+        [[FBSDKApplicationDelegate sharedInstance] openBridgeAPIRequest:webRequest
                                                 useSafariViewController:useSafariViewController
                                                      fromViewController:self.fromViewController
                                                         completionBlock:completionBlock];
@@ -106,12 +106,12 @@
         completionBlock(response);
       }
     };
-    [[FBSDKBridgeAPI sharedInstance] openBridgeAPIRequest:nativeRequest
+    [[FBSDKApplicationDelegate sharedInstance] openBridgeAPIRequest:nativeRequest
                                             useSafariViewController:useSafariViewController
                                                  fromViewController:self.fromViewController
                                                     completionBlock:networkCompletionBlock];
   } else {
-    [[FBSDKBridgeAPI sharedInstance] openBridgeAPIRequest:webRequest
+    [[FBSDKApplicationDelegate sharedInstance] openBridgeAPIRequest:webRequest
                                             useSafariViewController:useSafariViewController
                                                  fromViewController:self.fromViewController
                                                     completionBlock:completionBlock];

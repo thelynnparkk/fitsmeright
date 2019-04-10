@@ -48,11 +48,11 @@ pod 'CodableFirebase', '~> 0.2.1'
 # > 4.6.0
 pod 'SwifterSwift', '~> 4.6.0'
 # note
-pod 'FacebookCore', '~> 0.4.0'
+pod 'FacebookCore', '~> 0.3.1'
 # note
-pod 'FacebookLogin', '~> 0.4.0'
+pod 'FacebookLogin', '~> 0.3.1'
 # note
-pod 'FacebookShare', '~> 0.4.0'
+pod 'FacebookShare', '~> 0.3.1'
 # Fix error 3
 #pod 'FBSDKCoreKit', '~> 4.38'
 #pod 'FBSDKLoginKit', '~> 4.38'
