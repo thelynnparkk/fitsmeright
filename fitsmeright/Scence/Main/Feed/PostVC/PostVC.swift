@@ -187,7 +187,7 @@ class PostVC: AGVC {
   @objc func buttonPressed(_ sender: UIButton) {
     let vc = PostFormVC.vc()
     vc.postSelected = postSelected
-    nc?.pushViewController(vc, animated: true)
+    nvc?.pushViewController(vc, animated: true)
   }
   
   
@@ -400,7 +400,7 @@ class PostVC: AGVC {
         case .noConnection:
           break
         case .error:
-          nc?.popViewController()
+          nvc?.popViewController()
         }
       }
     default:
@@ -431,7 +431,7 @@ class PostVC: AGVC {
       case .profile:
         let vc = ProfileVC.vc()
         vc.fsUser = postSelected?._fsUser
-        nc?.pushViewController(vc, animated: true)
+        nvc?.pushViewController(vc, animated: true)
       }
     }
   }

@@ -218,10 +218,10 @@ class SignInVC: AGVC {
       fetchFacebook()
     case btn_signUp:
       let vc = SignUpVC.vc()
-      nc?.pushViewController(vc, animated: true)
+      nvc?.pushViewController(vc, animated: true)
     case btn_forgot:
       let vc = ForgotVC.vc()
-      nc?.pushViewController(vc, animated: true)
+      nvc?.pushViewController(vc, animated: true)
     default:
       break
     }

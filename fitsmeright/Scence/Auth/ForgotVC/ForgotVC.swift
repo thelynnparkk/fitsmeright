@@ -250,7 +250,7 @@ class ForgotVC: AGVC {
       guard $0.isSelected else { return }
       switch $0.indexPath.row {
       case 0:
-        _s.nc?.popViewController(animated: true)
+        _s.nvc?.popViewController(animated: true)
       default:
         break
       }

@@ -514,7 +514,7 @@ class ClosetFormVC: AGVC {
       deleteCloset()
     }
     func presenter() {
-      nc?.popToRootViewController(animated: true)
+      nvc?.popToRootViewController(animated: true)
     }
     func presenterError(code: Int) {
       bbi_done.isEnabled = true

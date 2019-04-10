@@ -39,7 +39,8 @@ class ProfileVC: AGVC {
   
   
   //MARK: - UI
-  var bbi_setting: UIBarButtonItem!
+  var bbi_edit: UIBarButtonItem!
+  var bbi_signOut: UIBarButtonItem!
   var collection_profile: UICollectionView!
   var adapter_profile: ProfileCA!
   var v_state: StateView!
@@ -128,8 +129,9 @@ class ProfileVC: AGVC {
     if let _ = fsUser {
       
     } else {
-      bbi_setting = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_more"), style: .plain, target: self, action: #selector(settingBarButtonPressed))
-      ni.rightBarButtonItems = [bbi_setting]
+      bbi_edit = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_noti"), style: .plain, target: self, action: #selector(buttonPressed))
+      bbi_signOut = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_more"), style: .plain, target: self, action: #selector(buttonPressed))
+      ni.rightBarButtonItems = [bbi_signOut, bbi_edit]
     }
     
     
@@ -203,8 +205,17 @@ class ProfileVC: AGVC {
   
   
   //MARK: - Event
-  @IBAction func settingBarButtonPressed(_ sender: Any) {
-    displaySettingPopup()
+  @objc func buttonPressed(_ sender: UIButton) {
+    switch sender {
+    case bbi_edit:
+      let vc = ProfileFormVC.vc()
+      vc.fsUser = UserDefaults.FSUserDefault.get()
+      nvc?.pushViewController(vc, animated: true)
+    case bbi_signOut:
+      displayLogoutPopup()
+    default:
+      break
+    }
   }
   
   
@@ -217,50 +228,50 @@ class ProfileVC: AGVC {
   
   
   //MARK: - Private
-  private func displaySettingPopup() {
-    func getLabelCAModel() -> LabelCADisplayed {
-      let displayed = LabelCADisplayed()
-      let displayed_editProfile = LabelCCDisplayed()
-      displayed_editProfile.title = "Edit Profile"
-      displayed_editProfile.style = .normal
-      let displayed_logOut = LabelCCDisplayed()
-      displayed_logOut.title = "Log Out"
-      displayed_logOut.weight = .semibold
-      displayed_logOut.style = .negative
-      let section = LabelCADisplayed.Section()
-      section.items = [displayed_editProfile, displayed_logOut]
-      displayed.sections = [section]
-      return displayed
-    }
-    let displayed = PopupListVCUC.Setup.DisplayedSetupPopupList()
-    displayed.viewModel = getLabelCAModel()
-    displayed.adapter = LabelCA.self
-    displayed.isTapOverlayEnabled = true
-    displayed.isTapContainerEnabled = true
-    displayed.isHideFooter = true
-    displayed.displayedHeader.icon = #imageLiteral(resourceName: "ic_popup_choose").filled(withColor: c_custom.peach)
-    displayed.displayedHeader.style = .large
-    displayed.displayedHeader.subtitle = ""
-    displayed.displayedHeader.tint = c_custom.peach
-    displayed.displayedHeader.title = "Settings"
-    let vm = PopupListVCUC.Setup.ViewModel()
-    vm.displayedSetup = displayed
-    displayPopupList(vm, priority: .common, on: self) { [weak self] in
-      guard let _s = self else { return }
-      guard $0.isSelected else { return }
-      switch $0.indexPath.row {
-      case 0:
-        let vc = ProfileFormVC.vc()
-        vc.fsUser = UserDefaults.FSUserDefault.get()
-        _s.nc?.pushViewController(vc, animated: true)
-      case 1:
-        _s.displayLogoutPopup()
-      default:
-        break
-      }
-    }
-  }
-  
+//  private func displaySettingPopup() {
+//    func getLabelCAModel() -> LabelCADisplayed {
+//      let displayed = LabelCADisplayed()
+//      let displayed_editProfile = LabelCCDisplayed()
+//      displayed_editProfile.title = "Edit Profile"
+//      displayed_editProfile.style = .normal
+//      let displayed_logOut = LabelCCDisplayed()
+//      displayed_logOut.title = "Log Out"
+//      displayed_logOut.weight = .semibold
+//      displayed_logOut.style = .negative
+//      let section = LabelCADisplayed.Section()
+//      section.items = [displayed_editProfile, displayed_logOut]
+//      displayed.sections = [section]
+//      return displayed
+//    }
+//    let displayed = PopupListVCUC.Setup.DisplayedSetupPopupList()
+//    displayed.viewModel = getLabelCAModel()
+//    displayed.adapter = LabelCA.self
+//    displayed.isTapOverlayEnabled = true
+//    displayed.isTapContainerEnabled = true
+//    displayed.isHideFooter = true
+//    displayed.displayedHeader.icon = #imageLiteral(resourceName: "ic_popup_choose").filled(withColor: c_custom.peach)
+//    displayed.displayedHeader.style = .large
+//    displayed.displayedHeader.subtitle = ""
+//    displayed.displayedHeader.tint = c_custom.peach
+//    displayed.displayedHeader.title = "Settings"
+//    let vm = PopupListVCUC.Setup.ViewModel()
+//    vm.displayedSetup = displayed
+//    displayPopupList(vm, priority: .common, on: self) { [weak self] in
+//      guard let _s = self else { return }
+//      guard $0.isSelected else { return }
+//      switch $0.indexPath.row {
+//      case 0:
+//        let vc = ProfileFormVC.vc()
+//        vc.fsUser = UserDefaults.FSUserDefault.get()
+//        _s.nc?.pushViewController(vc, animated: true)
+//      case 1:
+//        _s.displayLogoutPopup()
+//      default:
+//        break
+//      }
+//    }
+//  }
+
   private func displayLogoutPopup() {
     func getLabelCAModel() -> LabelCADisplayed {
       let displayed = LabelCADisplayed()
@@ -460,7 +471,7 @@ class ProfileVC: AGVC {
       case .post:
         let vc = PostVC.vc()
         vc.postSelected = postList[indexPath.row]
-        nc?.pushViewController(vc)
+        nvc?.pushViewController(vc)
       case .friend:
         let vc = FriendListVC.vc()
         if let fsUser = fsUser {
@@ -469,7 +480,7 @@ class ProfileVC: AGVC {
           let fsUser = UserDefaults.FSUserDefault.get()!
           vc.fsUser = fsUser
         }
-        nc?.pushViewController(vc)
+        nvc?.pushViewController(vc)
       }
     }
   }

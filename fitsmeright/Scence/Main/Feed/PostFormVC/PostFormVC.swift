@@ -305,7 +305,7 @@ class PostFormVC: AGVC {
     }
     func presenter() {
       v_state.setState(with: .hidden)
-      nc?.popToRootViewController(animated: true)
+      nvc?.popToRootViewController(animated: true)
     }
     func presenterError(code: Int) {
       v_state.setState(with: .error, isAnimation: false)
@@ -336,7 +336,7 @@ class PostFormVC: AGVC {
     }
     func presenter() {
       v_state.setState(with: .hidden)
-      nc?.popToRootViewController(animated: true)
+      nvc?.popToRootViewController(animated: true)
     }
     func presenterError(code: Int) {
       v_state.setState(with: .error, isAnimation: false)

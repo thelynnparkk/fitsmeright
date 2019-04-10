@@ -116,7 +116,7 @@ class MainTBC: RAMAnimatedTabBarController {
   func setupUI() {
     //MARK: Core
     delegate = self
-    nc?.isNavigationBarHidden = true
+    nvc?.isNavigationBarHidden = true
     
 //    nb?.setupWith(content: .white, bg: c_custom.peach, isTranslucent: false)
     

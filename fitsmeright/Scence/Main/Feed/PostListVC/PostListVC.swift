@@ -506,7 +506,7 @@ class PostListVC: AGVC {
         print("tap \(indexPath)")
         let vc = PostVC.vc()
         vc.postSelected = postList[indexPath.row]
-        nc?.pushViewController(vc)
+        nvc?.pushViewController(vc)
       case let .like(bool):
         print(action)
         if bool {
@@ -517,7 +517,7 @@ class PostListVC: AGVC {
       case .profile:
         let vc = ProfileVC.vc()
         vc.fsUser = postList[indexPath.row].fsUser
-        nc?.pushViewController(vc, animated: true)
+        nvc?.pushViewController(vc, animated: true)
       }
     }
   }

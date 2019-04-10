@@ -270,7 +270,7 @@ class FriendListVC: AGVC {
     switch view {
     case is FloatingView:
       let vc = FriendSearchVC.vc()
-      nc?.pushViewController(vc)
+      nvc?.pushViewController(vc)
     case is StateView:
       switch action as! StateView.State {
       case .hidden:
@@ -296,7 +296,7 @@ class FriendListVC: AGVC {
     print("Sud")
     let vc = ProfileVC.vc()
     vc.fsUser = fsUserList[indexPath.row]
-    nc?.pushViewController(vc)
+    nvc?.pushViewController(vc)
   }
   
   

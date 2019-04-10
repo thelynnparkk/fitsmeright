@@ -546,7 +546,7 @@ class ProfileFormVC: AGVC {
       }
     }
     func presenter() {
-      nc?.popViewController(animated: true)
+      nvc?.popViewController(animated: true)
     }
     func presenterError(code: Int) {
       switch code {

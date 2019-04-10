@@ -134,7 +134,7 @@ extension UIViewController {
   var ni: UINavigationItem {
     return navigationItem
   }
-  var nc: UINavigationController? {
+  var nvc: UINavigationController? {
     return navigationController
   }
   var nb: UINavigationBar? {

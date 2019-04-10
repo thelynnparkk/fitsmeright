@@ -376,7 +376,7 @@ class ClosetVC: AGVC {
         case .noConnection:
           break
         case .error:
-          nc?.popViewController()
+          nvc?.popViewController()
         }
       }
     default:
@@ -391,7 +391,7 @@ class ClosetVC: AGVC {
     print("Test")
     let vc = PostVC.vc()
     vc.postSelected = postList[indexPath.row]
-    nc?.pushViewController(vc, animated: true)
+    nvc?.pushViewController(vc, animated: true)
   }
   
   

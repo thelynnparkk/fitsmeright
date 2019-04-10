@@ -358,7 +358,7 @@ class SignUpVC: AGVC {
     func presenter(fsUser: FSUser) {
       let vc = ProfileFormVC.vc()
       vc.fsUser = fsUser
-      nc?.pushViewController(vc, animated: true)
+      nvc?.pushViewController(vc, animated: true)
     }
     func presenterError(code: Int) {
       btn_next.isEnabled = true
